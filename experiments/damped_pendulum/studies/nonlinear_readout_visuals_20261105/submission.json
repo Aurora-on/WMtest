@@ -1,0 +1,7 @@
+{
+  "job_id": "47846",
+  "remote_root": "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z/nonlinear_readout_visuals_20261105",
+  "submitted_at_utc": "2026-11-05T10:49:59.295241+00:00",
+  "purpose": "Frozen final10000 LeHami-style K32 validation rollout for unchanged nonlinear readout",
+  "world_model_training": false
+}

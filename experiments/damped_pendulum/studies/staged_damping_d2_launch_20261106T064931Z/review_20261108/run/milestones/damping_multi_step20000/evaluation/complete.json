@@ -1,0 +1,31 @@
+{
+  "request": {
+    "checkpoint_sha256": "c7815496cf64c84147e99e5aba0bbff58da7ef4bbd7bdd43aea14c7cb79331c2",
+    "data_sha256": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6",
+    "stage": "b",
+    "expected_step": 20000,
+    "readout_sha256": "b043b1899a979046a6fbad4e57f183436cdcbeb965a9c95c0ed11d8215d66390"
+  },
+  "artifacts": {
+    "readout.npz": "b043b1899a979046a6fbad4e57f183436cdcbeb965a9c95c0ed11d8215d66390",
+    "readout_provenance.json": "868c3d5c90f7f7a3529e0e4ab3f019d1b3efab2e9a089a5df84197b104ac40de",
+    "summary.json": "4f0fc008e4a1da4222300ab4443a3069afd3d877e242b4084f1f18dd26891a21",
+    "trajectories.npz": "d1c1b0fb07247b5f99e2a86485ede272b7bd7928d52c68e6dffa99543a94fcde",
+    "val/animation_inputs.npz": "262b7dcf0879b01783e0df52d6ff7213db464d8422010bb1fa47238b2033f648",
+    "val/animation_meta.json": "c4fde7d9ce373315556243b297bac2a399ea9f2685abdbd8664300071c16bd65",
+    "val/damping_0/animation_inputs.npz": "b2dd3951f28a2d22f9865ed33a4b1abc0a390c059ff87f48414dcdf52b4e80da",
+    "val/damping_0/animation_meta.json": "6f9320502f13ada8cf77d7cfeaecb77fb698ec70b11577f6881ab0f3dca89156",
+    "val/damping_0.05/animation_inputs.npz": "9b5e03a174e98421ddc178cca51970a7cb3fe4b22031e67b26b378c71eb822ae",
+    "val/damping_0.05/animation_meta.json": "42e8b8fad1e5d02674f36a7e33fbb11f8dcf9b2766c3907226de3f8232bdfd49",
+    "val/damping_0.1/animation_inputs.npz": "10d8ec45dea3104d54e1fdc10284fd18e9264d429eddc122f4464c2ab9bc0d94",
+    "val/damping_0.1/animation_meta.json": "c998a359ae6f0d5e1cbeee787aa80ee82efcb8b4ff7222d52312e2121a1c0f54",
+    "val/damping_0.2/animation_inputs.npz": "262b7dcf0879b01783e0df52d6ff7213db464d8422010bb1fa47238b2033f648",
+    "val/damping_0.2/animation_meta.json": "c4fde7d9ce373315556243b297bac2a399ea9f2685abdbd8664300071c16bd65",
+    "val/damping_0.5/animation_inputs.npz": "d1b936ab0907ffbd6688534b0c13f8e116752d22ce171d3402cbf05d4c3169c6",
+    "val/damping_0.5/animation_meta.json": "fb6126b5da64cd9343e19fd0e157ad66f1c96f74d70e97b342d88370bb3e6466",
+    "val/damping_1/animation_inputs.npz": "e95fe9411f6b51eca984d09dbde21b9ce53ee1cc44823d3d5a24c64b69497ea8",
+    "val/damping_1/animation_meta.json": "68f79e3a89ad2e8b301508e279a11c05c7da79f8fc98cc5f9499b08f4329f9de",
+    "val/summary.json": "6f73e052359bbe50af685985690de22f74fa989284752d6a5d3ec35a850ed23b",
+    "val/trajectories.npz": "d1c1b0fb07247b5f99e2a86485ede272b7bd7928d52c68e6dffa99543a94fcde"
+  }
+}

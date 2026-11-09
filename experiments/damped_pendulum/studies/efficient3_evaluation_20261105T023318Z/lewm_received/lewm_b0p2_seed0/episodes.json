@@ -1,0 +1,1026 @@
+[
+  {
+    "file": "seen",
+    "episode": 2176,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000448
+  },
+  {
+    "file": "seen",
+    "episode": 2177,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000449
+  },
+  {
+    "file": "seen",
+    "episode": 2178,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000450
+  },
+  {
+    "file": "seen",
+    "episode": 2179,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000451
+  },
+  {
+    "file": "seen",
+    "episode": 2180,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000452
+  },
+  {
+    "file": "seen",
+    "episode": 2181,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000453
+  },
+  {
+    "file": "seen",
+    "episode": 2182,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000454
+  },
+  {
+    "file": "seen",
+    "episode": 2183,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000455
+  },
+  {
+    "file": "seen",
+    "episode": 2184,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000456
+  },
+  {
+    "file": "seen",
+    "episode": 2185,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000457
+  },
+  {
+    "file": "seen",
+    "episode": 2186,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000458
+  },
+  {
+    "file": "seen",
+    "episode": 2187,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000459
+  },
+  {
+    "file": "seen",
+    "episode": 2188,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000460
+  },
+  {
+    "file": "seen",
+    "episode": 2189,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000461
+  },
+  {
+    "file": "seen",
+    "episode": 2190,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000462
+  },
+  {
+    "file": "seen",
+    "episode": 2191,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000463
+  },
+  {
+    "file": "seen",
+    "episode": 2192,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000464
+  },
+  {
+    "file": "seen",
+    "episode": 2193,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000465
+  },
+  {
+    "file": "seen",
+    "episode": 2194,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000466
+  },
+  {
+    "file": "seen",
+    "episode": 2195,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000467
+  },
+  {
+    "file": "seen",
+    "episode": 2196,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000468
+  },
+  {
+    "file": "seen",
+    "episode": 2197,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000469
+  },
+  {
+    "file": "seen",
+    "episode": 2198,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000470
+  },
+  {
+    "file": "seen",
+    "episode": 2199,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000471
+  },
+  {
+    "file": "seen",
+    "episode": 2200,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000472
+  },
+  {
+    "file": "seen",
+    "episode": 2201,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000473
+  },
+  {
+    "file": "seen",
+    "episode": 2202,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000474
+  },
+  {
+    "file": "seen",
+    "episode": 2203,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000475
+  },
+  {
+    "file": "seen",
+    "episode": 2204,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000476
+  },
+  {
+    "file": "seen",
+    "episode": 2205,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000477
+  },
+  {
+    "file": "seen",
+    "episode": 2206,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000478
+  },
+  {
+    "file": "seen",
+    "episode": 2207,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000479
+  },
+  {
+    "file": "seen",
+    "episode": 2208,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000480
+  },
+  {
+    "file": "seen",
+    "episode": 2209,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000481
+  },
+  {
+    "file": "seen",
+    "episode": 2210,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000482
+  },
+  {
+    "file": "seen",
+    "episode": 2211,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000483
+  },
+  {
+    "file": "seen",
+    "episode": 2212,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000484
+  },
+  {
+    "file": "seen",
+    "episode": 2213,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000485
+  },
+  {
+    "file": "seen",
+    "episode": 2214,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000486
+  },
+  {
+    "file": "seen",
+    "episode": 2215,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000487
+  },
+  {
+    "file": "seen",
+    "episode": 2216,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000488
+  },
+  {
+    "file": "seen",
+    "episode": 2217,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000489
+  },
+  {
+    "file": "seen",
+    "episode": 2218,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000490
+  },
+  {
+    "file": "seen",
+    "episode": 2219,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000491
+  },
+  {
+    "file": "seen",
+    "episode": 2220,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000492
+  },
+  {
+    "file": "seen",
+    "episode": 2221,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000493
+  },
+  {
+    "file": "seen",
+    "episode": 2222,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000494
+  },
+  {
+    "file": "seen",
+    "episode": 2223,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000495
+  },
+  {
+    "file": "seen",
+    "episode": 2224,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000496
+  },
+  {
+    "file": "seen",
+    "episode": 2225,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000497
+  },
+  {
+    "file": "seen",
+    "episode": 2226,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000498
+  },
+  {
+    "file": "seen",
+    "episode": 2227,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000499
+  },
+  {
+    "file": "seen",
+    "episode": 2228,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000500
+  },
+  {
+    "file": "seen",
+    "episode": 2229,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000501
+  },
+  {
+    "file": "seen",
+    "episode": 2230,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000502
+  },
+  {
+    "file": "seen",
+    "episode": 2231,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000503
+  },
+  {
+    "file": "seen",
+    "episode": 2232,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000504
+  },
+  {
+    "file": "seen",
+    "episode": 2233,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000505
+  },
+  {
+    "file": "seen",
+    "episode": 2234,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000506
+  },
+  {
+    "file": "seen",
+    "episode": 2235,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000507
+  },
+  {
+    "file": "seen",
+    "episode": 2236,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000508
+  },
+  {
+    "file": "seen",
+    "episode": 2237,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000509
+  },
+  {
+    "file": "seen",
+    "episode": 2238,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000510
+  },
+  {
+    "file": "seen",
+    "episode": 2239,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000511
+  },
+  {
+    "file": "seen",
+    "episode": 2240,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000512
+  },
+  {
+    "file": "seen",
+    "episode": 2241,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000513
+  },
+  {
+    "file": "seen",
+    "episode": 2242,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000514
+  },
+  {
+    "file": "seen",
+    "episode": 2243,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000515
+  },
+  {
+    "file": "seen",
+    "episode": 2244,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000516
+  },
+  {
+    "file": "seen",
+    "episode": 2245,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000517
+  },
+  {
+    "file": "seen",
+    "episode": 2246,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000518
+  },
+  {
+    "file": "seen",
+    "episode": 2247,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000519
+  },
+  {
+    "file": "seen",
+    "episode": 2248,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000520
+  },
+  {
+    "file": "seen",
+    "episode": 2249,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000521
+  },
+  {
+    "file": "seen",
+    "episode": 2250,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000522
+  },
+  {
+    "file": "seen",
+    "episode": 2251,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000523
+  },
+  {
+    "file": "seen",
+    "episode": 2252,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000524
+  },
+  {
+    "file": "seen",
+    "episode": 2253,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000525
+  },
+  {
+    "file": "seen",
+    "episode": 2254,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000526
+  },
+  {
+    "file": "seen",
+    "episode": 2255,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000527
+  },
+  {
+    "file": "seen",
+    "episode": 2256,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000528
+  },
+  {
+    "file": "seen",
+    "episode": 2257,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000529
+  },
+  {
+    "file": "seen",
+    "episode": 2258,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000530
+  },
+  {
+    "file": "seen",
+    "episode": 2259,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000531
+  },
+  {
+    "file": "seen",
+    "episode": 2260,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000532
+  },
+  {
+    "file": "seen",
+    "episode": 2261,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000533
+  },
+  {
+    "file": "seen",
+    "episode": 2262,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000534
+  },
+  {
+    "file": "seen",
+    "episode": 2263,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000535
+  },
+  {
+    "file": "seen",
+    "episode": 2264,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000536
+  },
+  {
+    "file": "seen",
+    "episode": 2265,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000537
+  },
+  {
+    "file": "seen",
+    "episode": 2266,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000538
+  },
+  {
+    "file": "seen",
+    "episode": 2267,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000539
+  },
+  {
+    "file": "seen",
+    "episode": 2268,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000540
+  },
+  {
+    "file": "seen",
+    "episode": 2269,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000541
+  },
+  {
+    "file": "seen",
+    "episode": 2270,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000542
+  },
+  {
+    "file": "seen",
+    "episode": 2271,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000543
+  },
+  {
+    "file": "seen",
+    "episode": 2272,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000544
+  },
+  {
+    "file": "seen",
+    "episode": 2273,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000545
+  },
+  {
+    "file": "seen",
+    "episode": 2274,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000546
+  },
+  {
+    "file": "seen",
+    "episode": 2275,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000547
+  },
+  {
+    "file": "seen",
+    "episode": 2276,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000548
+  },
+  {
+    "file": "seen",
+    "episode": 2277,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000549
+  },
+  {
+    "file": "seen",
+    "episode": 2278,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000550
+  },
+  {
+    "file": "seen",
+    "episode": 2279,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000551
+  },
+  {
+    "file": "seen",
+    "episode": 2280,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000552
+  },
+  {
+    "file": "seen",
+    "episode": 2281,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000553
+  },
+  {
+    "file": "seen",
+    "episode": 2282,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000554
+  },
+  {
+    "file": "seen",
+    "episode": 2283,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000555
+  },
+  {
+    "file": "seen",
+    "episode": 2284,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000556
+  },
+  {
+    "file": "seen",
+    "episode": 2285,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000557
+  },
+  {
+    "file": "seen",
+    "episode": 2286,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000558
+  },
+  {
+    "file": "seen",
+    "episode": 2287,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000559
+  },
+  {
+    "file": "seen",
+    "episode": 2288,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000560
+  },
+  {
+    "file": "seen",
+    "episode": 2289,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000561
+  },
+  {
+    "file": "seen",
+    "episode": 2290,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000562
+  },
+  {
+    "file": "seen",
+    "episode": 2291,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000563
+  },
+  {
+    "file": "seen",
+    "episode": 2292,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000564
+  },
+  {
+    "file": "seen",
+    "episode": 2293,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000565
+  },
+  {
+    "file": "seen",
+    "episode": 2294,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000566
+  },
+  {
+    "file": "seen",
+    "episode": 2295,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000567
+  },
+  {
+    "file": "seen",
+    "episode": 2296,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 3,
+    "group_id": 10000568
+  },
+  {
+    "file": "seen",
+    "episode": 2297,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000569
+  },
+  {
+    "file": "seen",
+    "episode": 2298,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000570
+  },
+  {
+    "file": "seen",
+    "episode": 2299,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 0,
+    "group_id": 10000571
+  },
+  {
+    "file": "seen",
+    "episode": 2300,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000572
+  },
+  {
+    "file": "seen",
+    "episode": 2301,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000573
+  },
+  {
+    "file": "seen",
+    "episode": 2302,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 1,
+    "group_id": 10000574
+  },
+  {
+    "file": "seen",
+    "episode": 2303,
+    "family": "seen",
+    "damping": 0.2,
+    "energy_band": 2,
+    "group_id": 10000575
+  }
+]

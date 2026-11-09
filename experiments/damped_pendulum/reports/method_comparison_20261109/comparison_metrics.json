@@ -1,0 +1,98 @@
+[
+  {
+    "method": "ours",
+    "stage": "a",
+    "angle_mae_rad": 0.06874698781850075,
+    "omega_rmse_rad_s": 0.29651775493180343,
+    "teacher_gate": true,
+    "stop_fraction": 0.0
+  },
+  {
+    "method": "ours",
+    "stage": "single",
+    "angle_mae_rad": 0.03976768244340255,
+    "omega_rmse_rad_s": 0.18547667297249612,
+    "teacher_gate": true,
+    "stop_fraction": 0.0
+  },
+  {
+    "method": "ours",
+    "stage": "multi",
+    "angle_mae_rad": 0.07648485440572571,
+    "omega_rmse_rad_s": 0.3273430321627451,
+    "teacher_gate": true,
+    "stop_fraction": 0.0
+  },
+  {
+    "method": "lehami",
+    "stage": "a",
+    "angle_mae_rad": 0.10782095812425359,
+    "omega_rmse_rad_s": 0.3342714184708082,
+    "teacher_gate": true,
+    "stop_fraction": 0.0
+  },
+  {
+    "method": "lehami",
+    "stage": "single",
+    "angle_mae_rad": 0.10704325846869964,
+    "omega_rmse_rad_s": 0.5814530560549179,
+    "teacher_gate": true,
+    "stop_fraction": 0.0
+  },
+  {
+    "method": "lehami",
+    "stage": "multi",
+    "angle_mae_rad": 0.09057928415240979,
+    "omega_rmse_rad_s": 0.48473775513684153,
+    "teacher_gate": true,
+    "stop_fraction": 0.0
+  },
+  {
+    "method": "lewm",
+    "stage": "a",
+    "angle_mae_rad": 0.03471900269224992,
+    "omega_rmse_rad_s": 0.2115067726320587,
+    "teacher_gate": true,
+    "stop_fraction": 0.0
+  },
+  {
+    "method": "lewm",
+    "stage": "single",
+    "angle_mae_rad": 0.03343961373943078,
+    "omega_rmse_rad_s": 0.2091010442663986,
+    "teacher_gate": true,
+    "stop_fraction": 0.0
+  },
+  {
+    "method": "lewm",
+    "stage": "multi",
+    "angle_mae_rad": 0.09732527251053151,
+    "omega_rmse_rad_s": 0.5905157115369776,
+    "teacher_gate": true,
+    "stop_fraction": 0.0
+  },
+  {
+    "method": "hjepa",
+    "stage": "a",
+    "angle_mae_rad": 1.0499595851306227,
+    "omega_rmse_rad_s": 3.729397294964425,
+    "teacher_gate": false,
+    "stop_fraction": 0.046875
+  },
+  {
+    "method": "hjepa",
+    "stage": "single",
+    "angle_mae_rad": 0.2133832813467125,
+    "omega_rmse_rad_s": 1.1490821771891655,
+    "teacher_gate": true,
+    "stop_fraction": 0.0
+  },
+  {
+    "method": "hjepa",
+    "stage": "multi",
+    "angle_mae_rad": 0.686681689661233,
+    "omega_rmse_rad_s": 2.9328202035004813,
+    "teacher_gate": false,
+    "stop_fraction": 0.07552083333333333
+  }
+]

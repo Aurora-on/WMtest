@@ -1,0 +1,15 @@
+{
+  "checked_at_utc": "2026-10-29T07:16:53.415670+00:00",
+  "status": "passed",
+  "frozen_file_hashes_verified": 60,
+  "datasets_verified": 2,
+  "old_reference_hashes_unchanged": true,
+  "source_files_match_predeclared_hashes": true,
+  "paired_group_ids_initial_states_actions_modes_and_subsets_identical": true,
+  "empty_train_val_splits_and_zero_train_frames": true,
+  "all_saved_physics_fields_finite": true,
+  "primary_exact_clip_overlap_remaining": 0,
+  "strict_initial_visual_context_overlap_remaining": 0,
+  "data_have_not_been_scored": true,
+  "source_snapshot_sha256": "fdc124ee85c9d95da2d565554ed29453b688ca198f5200e6ea7feac82f2ae4f2"
+}

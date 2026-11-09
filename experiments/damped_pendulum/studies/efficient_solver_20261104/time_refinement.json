@@ -1,0 +1,535 @@
+{
+  "status": "completed",
+  "scope": "Small CPU inference work-precision audit, no optimizer updates or GPU-speed claim",
+  "device": "cpu",
+  "parameters_optimized": false,
+  "weights_unchanged": true,
+  "capture_training_step": 2795,
+  "capture_sample_index": 20,
+  "not_checkpoint_step": 3750,
+  "capture_sha256": "11a456200088b6d2780c3e8fb18cd60b47086d281034ad79c8c890cb811c7922",
+  "same_H_D_B_weights": true,
+  "source_sha256": {
+    "dpbench/dissipative_core.py": "1eb98f2aafbbe6d215bccdfa6296371096c292ca85a204b663083bf7b461b2fb",
+    "dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+    "dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+    "scripts/audit_solver_refinement.py": "49199c5c8516de11e0777d6c68b3c011c8001aeca8557fcb00a837268a0778f2"
+  },
+  "torch": "2.8.0",
+  "scipy": "1.18.1",
+  "duration_seconds": 0.8,
+  "q0": [
+    [
+      1.000243902206421,
+      0.5660082697868347
+    ]
+  ],
+  "p0": [
+    [
+      12.510624060526313,
+      -2.4450040374805027
+    ]
+  ],
+  "context": [
+    [
+      -0.7369439601898193,
+      0.7940831184387207,
+      -0.8127963542938232,
+      -0.70247483253479
+    ]
+  ],
+  "reference": {
+    "rtol": 1e-11,
+    "atol": 1e-12,
+    "max_step": 0.025,
+    "nfev": 1097,
+    "elapsed_seconds": 0.10354229202494025,
+    "energy_balance_defect": -1.475086719437968e-11,
+    "endpoint": [
+      1.4597793445433578,
+      0.6356578771239706,
+      0.00032832041806552377,
+      0.0006099822092638569
+    ],
+    "integrated_dissipation": 81.24693280070936
+  },
+  "tighter_reference": {
+    "rtol": 1e-12,
+    "atol": 1e-13,
+    "max_step": 0.00625,
+    "nfev": 2327,
+    "elapsed_seconds": 0.2027478750096634,
+    "energy_balance_defect": -1.0231815394945443e-12,
+    "endpoint": [
+      1.4597793445431138,
+      0.6356578771240218,
+      0.0003283204180627512,
+      0.0006099822092598325
+    ],
+    "integrated_dissipation": 81.24693280072309
+  },
+  "max_common_grid_reference_disagreement": 9.858066109001909e-11,
+  "sweeps": {
+    "robust_midpoint_d": {
+      "config": {
+        "q_dim": 2,
+        "hidden_dim": 32,
+        "action_dim": 1,
+        "damping_mode": "position_velocity",
+        "substeps": 2,
+        "newton_iterations": 12,
+        "residual_atol": 1e-08,
+        "residual_rtol": 1e-07,
+        "chain_atol": 1e-10,
+        "strict": true,
+        "integrator": "discrete_gradient",
+        "context_dim": 4,
+        "solver": "backtracking",
+        "line_search_max_backtracks": 12,
+        "line_search_shrink": 0.5,
+        "line_search_c1": 0.0001,
+        "max_bisections": 4
+      },
+      "sweep": [
+        {
+          "frame_dt": 0.1,
+          "base_leaf_h": 0.05,
+          "frames": 8,
+          "max_accepted_residual_ratio": 0.48994414327258934,
+          "max_split_depth": 0.0,
+          "solver_iterations": 32.0,
+          "solver_backtracks": 4.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 16.0,
+          "integrated_dissipation": 81.2469312117688,
+          "accumulated_energy_defect": -8.615246827048395e-08,
+          "max_ledger_identity_error": 5.005199794581985e-15,
+          "elapsed_seconds": 0.03522474999772385,
+          "endpoint_error_l2": 0.06685107598291604,
+          "common_grid_rms_state_error": 0.08288218454014151,
+          "common_grid_max_state_error": 0.17104607717715858,
+          "endpoint": [
+            1.396842334955751,
+            0.6581962519896747,
+            0.00026028502985420815,
+            0.0004826484938286813
+          ],
+          "endpoint_observed_order_from_previous": null,
+          "trajectory_observed_order_from_previous": null
+        },
+        {
+          "frame_dt": 0.05,
+          "base_leaf_h": 0.025,
+          "frames": 16,
+          "max_accepted_residual_ratio": 0.47280813624333456,
+          "max_split_depth": 0.0,
+          "solver_iterations": 61.0,
+          "solver_backtracks": 0.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 32.0,
+          "integrated_dissipation": 81.24693209647072,
+          "accumulated_energy_defect": -2.119251831800284e-07,
+          "max_ledger_identity_error": 2.3028713229794856e-14,
+          "elapsed_seconds": 0.06426433403976262,
+          "endpoint_error_l2": 0.02892725307338228,
+          "common_grid_rms_state_error": 0.038577599379523216,
+          "common_grid_max_state_error": 0.08651667962271449,
+          "endpoint": [
+            1.43299286854255,
+            0.6465789395338658,
+            0.0003130620440848172,
+            0.000581053589559745
+          ],
+          "endpoint_observed_order_from_previous": 1.2085214492859122,
+          "trajectory_observed_order_from_previous": 1.1032986592457343
+        },
+        {
+          "frame_dt": 0.025,
+          "base_leaf_h": 0.0125,
+          "frames": 32,
+          "max_accepted_residual_ratio": 0.3981415757146462,
+          "max_split_depth": 0.0,
+          "solver_iterations": 112.0,
+          "solver_backtracks": 0.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 64.0,
+          "integrated_dissipation": 81.2469325290854,
+          "accumulated_energy_defect": -1.4773478085317038e-07,
+          "max_ledger_identity_error": 2.343910101037692e-15,
+          "elapsed_seconds": 0.11906529200496152,
+          "endpoint_error_l2": 0.007078056821507765,
+          "common_grid_rms_state_error": 0.010012024109808738,
+          "common_grid_max_state_error": 0.023409078266156264,
+          "endpoint": [
+            1.4531952408087518,
+            0.6382556442045801,
+            0.0003243398637622377,
+            0.000602450011117645
+          ],
+          "endpoint_observed_order_from_previous": 2.0310040830694582,
+          "trajectory_observed_order_from_previous": 1.9460296993678916
+        },
+        {
+          "frame_dt": 0.0125,
+          "base_leaf_h": 0.00625,
+          "frames": 64,
+          "max_accepted_residual_ratio": 0.4530898701956852,
+          "max_split_depth": 0.0,
+          "solver_iterations": 200.0,
+          "solver_backtracks": 0.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 128.0,
+          "integrated_dissipation": 81.24693110081337,
+          "accumulated_energy_defect": -1.6693932138878154e-06,
+          "max_ledger_identity_error": 3.1445060551455514e-15,
+          "elapsed_seconds": 0.22184566705254838,
+          "endpoint_error_l2": 0.0017571446494734598,
+          "common_grid_rms_state_error": 0.002520050076274215,
+          "common_grid_max_state_error": 0.005943570943704817,
+          "endpoint": [
+            1.4581445732500575,
+            0.6363021407156592,
+            0.00032732224553661655,
+            0.000608093634508501
+          ],
+          "endpoint_observed_order_from_previous": 2.0101203835552877,
+          "trajectory_observed_order_from_previous": 1.9902093631544484
+        },
+        {
+          "frame_dt": 0.00625,
+          "base_leaf_h": 0.003125,
+          "frames": 128,
+          "max_accepted_residual_ratio": 0.49050548265507454,
+          "max_split_depth": 0.0,
+          "solver_iterations": 351.0,
+          "solver_backtracks": 0.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 256.0,
+          "integrated_dissipation": 81.24693083965042,
+          "accumulated_energy_defect": -1.9534689528200033e-06,
+          "max_ledger_identity_error": 1.9771386938877123e-15,
+          "elapsed_seconds": 0.4133212919696234,
+          "endpoint_error_l2": 0.0004385285118659877,
+          "common_grid_rms_state_error": 0.0006310570758655024,
+          "common_grid_max_state_error": 0.0014914407074690915,
+          "endpoint": [
+            1.4593713283749423,
+            0.6358185935703774,
+            0.0003280704673339312,
+            0.0006095093186254475
+          ],
+          "endpoint_observed_order_from_previous": 2.0024904092538396,
+          "trajectory_observed_order_from_previous": 1.9976100014438807
+        },
+        {
+          "frame_dt": 0.003125,
+          "base_leaf_h": 0.0015625,
+          "frames": 256,
+          "max_accepted_residual_ratio": 0.44191513506492586,
+          "max_split_depth": 0.0,
+          "solver_iterations": 580.0,
+          "solver_backtracks": 0.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 512.0,
+          "integrated_dissipation": 81.2469327531151,
+          "accumulated_energy_defect": -4.5708503648711485e-08,
+          "max_ledger_identity_error": 1.0371945793991765e-15,
+          "elapsed_seconds": 0.7302045000251383,
+          "endpoint_error_l2": 0.00010960659773443356,
+          "common_grid_rms_state_error": 0.00015784168525997708,
+          "common_grid_max_state_error": 0.0003732022369775233,
+          "endpoint": [
+            1.459677360269471,
+            0.6356980367582777,
+            0.0003282577679054266,
+            0.0006098636855497721
+          ],
+          "endpoint_observed_order_from_previous": 2.000336002129544,
+          "trajectory_observed_order_from_previous": 1.9992922306844516
+        }
+      ]
+    },
+    "efficient_predicted_d": {
+      "config": {
+        "q_dim": 2,
+        "hidden_dim": 32,
+        "action_dim": 1,
+        "damping_mode": "position_velocity",
+        "substeps": 2,
+        "newton_iterations": 12,
+        "residual_atol": 1e-08,
+        "residual_rtol": 1e-07,
+        "chain_atol": 1e-10,
+        "strict": true,
+        "integrator": "frozen_dg",
+        "context_dim": 4,
+        "solver": "picard",
+        "line_search_max_backtracks": 12,
+        "line_search_shrink": 0.5,
+        "line_search_c1": 0.0001,
+        "max_bisections": 4,
+        "picard_iterations": 6,
+        "picard_check_every": 2,
+        "fd_relative_step": 6e-06,
+        "implicit_rcond_min": 1e-08,
+        "adjoint_rtol": 1e-10
+      },
+      "sweep": [
+        {
+          "frame_dt": 0.1,
+          "base_leaf_h": 0.05,
+          "frames": 8,
+          "max_accepted_residual_ratio": 0.32712979977316453,
+          "max_split_depth": 0.0,
+          "solver_iterations": 15.0,
+          "solver_backtracks": 0.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 16.0,
+          "integrated_dissipation": 81.24693056448325,
+          "accumulated_energy_defect": -2.075418478852953e-06,
+          "max_ledger_identity_error": 8.835679770165727e-15,
+          "elapsed_seconds": 0.019084541010670364,
+          "endpoint_error_l2": 0.023719889253850927,
+          "common_grid_rms_state_error": 0.14313276043653775,
+          "common_grid_max_state_error": 0.42315647974974485,
+          "endpoint": [
+            1.4789164957558731,
+            0.6216443758750615,
+            0.0002539903295296627,
+            0.00047269616385822396
+          ],
+          "endpoint_observed_order_from_previous": null,
+          "trajectory_observed_order_from_previous": null
+        },
+        {
+          "frame_dt": 0.05,
+          "base_leaf_h": 0.025,
+          "frames": 16,
+          "max_accepted_residual_ratio": 0.4282870572216597,
+          "max_split_depth": 0.0,
+          "solver_iterations": 28.0,
+          "solver_backtracks": 0.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 32.0,
+          "integrated_dissipation": 81.24693235510594,
+          "accumulated_energy_defect": -4.133134865469401e-07,
+          "max_ledger_identity_error": 1.2192078634484349e-14,
+          "elapsed_seconds": 0.037678207969293,
+          "endpoint_error_l2": 0.017867825094767364,
+          "common_grid_rms_state_error": 0.027342215185371097,
+          "common_grid_max_state_error": 0.06590538358128058,
+          "endpoint": [
+            1.4748330208978526,
+            0.6260327271576954,
+            0.0003044021530905996,
+            0.0005661887588040999
+          ],
+          "endpoint_observed_order_from_previous": 0.4087332365630743,
+          "trajectory_observed_order_from_previous": 2.388151880345313
+        },
+        {
+          "frame_dt": 0.025,
+          "base_leaf_h": 0.0125,
+          "frames": 32,
+          "max_accepted_residual_ratio": 0.4902411729991542,
+          "max_split_depth": 0.0,
+          "solver_iterations": 51.0,
+          "solver_backtracks": 0.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 64.0,
+          "integrated_dissipation": 81.24693274104791,
+          "accumulated_energy_defect": -6.820829412390594e-08,
+          "max_ledger_identity_error": 1.2148163946636153e-14,
+          "elapsed_seconds": 0.07280662498669699,
+          "endpoint_error_l2": 0.006800303870120402,
+          "common_grid_rms_state_error": 0.00810032668443135,
+          "common_grid_max_state_error": 0.015957818580157657,
+          "endpoint": [
+            1.465612312023138,
+            0.6321621041940801,
+            0.0003216068755999134,
+            0.0005977489108455554
+          ],
+          "endpoint_observed_order_from_previous": 1.3936929180813362,
+          "trajectory_observed_order_from_previous": 1.755078132698772
+        },
+        {
+          "frame_dt": 0.0125,
+          "base_leaf_h": 0.00625,
+          "frames": 64,
+          "max_accepted_residual_ratio": 0.4783909281006297,
+          "max_split_depth": 0.0,
+          "solver_iterations": 92.0,
+          "solver_backtracks": 0.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 128.0,
+          "integrated_dissipation": 81.24693279775342,
+          "accumulated_energy_defect": -1.0089664215229277e-08,
+          "max_ledger_identity_error": 7.754874974039766e-15,
+          "elapsed_seconds": 0.14293404103955254,
+          "endpoint_error_l2": 0.0022110210196415914,
+          "common_grid_rms_state_error": 0.0023818313066559962,
+          "common_grid_max_state_error": 0.003995874254865048,
+          "endpoint": [
+            1.4616969126769472,
+            0.6345571806839141,
+            0.00032653194519600514,
+            0.0006067342095059439
+          ],
+          "endpoint_observed_order_from_previous": 1.6208864737500936,
+          "trajectory_observed_order_from_previous": 1.7659088548928106
+        },
+        {
+          "frame_dt": 0.00625,
+          "base_leaf_h": 0.003125,
+          "frames": 128,
+          "max_accepted_residual_ratio": 0.48596092059210305,
+          "max_split_depth": 0.0,
+          "solver_iterations": 162.0,
+          "solver_backtracks": 0.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 256.0,
+          "integrated_dissipation": 81.24693280205044,
+          "accumulated_energy_defect": -1.3234000562079018e-09,
+          "max_ledger_identity_error": 2.498443315126504e-15,
+          "elapsed_seconds": 0.27827708300901577,
+          "endpoint_error_l2": 0.0006389560521794217,
+          "common_grid_rms_state_error": 0.0006627175559025306,
+          "common_grid_max_state_error": 0.0010177313657757385,
+          "endpoint": [
+            1.4603363496963029,
+            0.6353448129568581,
+            0.00032785630174650936,
+            0.0006091409176269085
+          ],
+          "endpoint_observed_order_from_previous": 1.7909241303952539,
+          "trajectory_observed_order_from_previous": 1.845605194713349
+        },
+        {
+          "frame_dt": 0.003125,
+          "base_leaf_h": 0.0015625,
+          "frames": 256,
+          "max_accepted_residual_ratio": 0.4983064296707709,
+          "max_split_depth": 0.0,
+          "solver_iterations": 277.0,
+          "solver_backtracks": 0.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 512.0,
+          "integrated_dissipation": 81.24693280165769,
+          "accumulated_energy_defect": 1.4010481663717655e-10,
+          "max_ledger_identity_error": 1.8597369906776783e-15,
+          "elapsed_seconds": 0.5356798330321908,
+          "endpoint_error_l2": 0.00017249180348748663,
+          "common_grid_rms_state_error": 0.00017607742864161297,
+          "common_grid_max_state_error": 0.00025863235594991073,
+          "endpoint": [
+            1.4599300928790244,
+            0.6355740421569105,
+            0.0003282022407200899,
+            0.00060976816698354
+          ],
+          "endpoint_observed_order_from_previous": 1.8891888959204155,
+          "trajectory_observed_order_from_previous": 1.912184156028784
+        }
+      ]
+    }
+  },
+  "comparison": [
+    {
+      "frame_dt": 0.1,
+      "efficient_to_robust_endpoint_error": 0.3548168657735981,
+      "efficient_to_robust_common_grid_rms_error": 1.726942421108793,
+      "robust_to_efficient_CPU_inference_time": 1.8457216224392992
+    },
+    {
+      "frame_dt": 0.05,
+      "efficient_to_robust_endpoint_error": 0.6176813626043406,
+      "efficient_to_robust_common_grid_rms_error": 0.7087588555311765,
+      "robust_to_efficient_CPU_inference_time": 1.7056101524822196
+    },
+    {
+      "frame_dt": 0.025,
+      "efficient_to_robust_endpoint_error": 0.9607585869410701,
+      "efficient_to_robust_common_grid_rms_error": 0.8090598460001204,
+      "robust_to_efficient_CPU_inference_time": 1.6353634305493048
+    },
+    {
+      "frame_dt": 0.0125,
+      "efficient_to_robust_endpoint_error": 1.258303361822909,
+      "efficient_to_robust_common_grid_rms_error": 0.9451523718042265,
+      "robust_to_efficient_CPU_inference_time": 1.5520842021891728
+    },
+    {
+      "frame_dt": 0.00625,
+      "efficient_to_robust_endpoint_error": 1.4570456307631914,
+      "efficient_to_robust_common_grid_rms_error": 1.0501705491434439,
+      "robust_to_efficient_CPU_inference_time": 1.4852868497124228
+    },
+    {
+      "frame_dt": 0.003125,
+      "efficient_to_robust_endpoint_error": 1.5737355875730947,
+      "efficient_to_robust_common_grid_rms_error": 1.1155318593538852,
+      "robust_to_efficient_CPU_inference_time": 1.363136065608163
+    }
+  ],
+  "old_refinement_reproduced": true,
+  "elapsed_seconds": 1.0303779169917107,
+  "interpretation_limits": [
+    "Single2795 failure fixture, not3750 checkpoint and not simulator physical truth.",
+    "Both methods retain production residual and chain tolerances and use two base substeps.",
+    "New predicted-D and ADD scheme changes the discrete map; compare accuracy as well as iteration time.",
+    "CPU no-grad timings are only observations for these traces, not estimates of GPU training speed.",
+    "Finite fixed root tolerances can dominate sufficiently fine-grid errors."
+  ],
+  "tight_root_diagnostic": {
+    "frame_dt": 0.003125,
+    "base_leaf_h": 0.0015625,
+    "frames": 256,
+    "max_accepted_residual_ratio": 0.11795474228887022,
+    "max_split_depth": 0.0,
+    "solver_iterations": 512.0,
+    "solver_backtracks": 0.0,
+    "solver_failed_attempts": 0.0,
+    "solver_leaf_steps": 512.0,
+    "integrated_dissipation": 81.24693280133505,
+    "accumulated_energy_defect": -1.8286527847521938e-10,
+    "max_ledger_identity_error": 1.8597369906776783e-15,
+    "elapsed_seconds": 0.6103757080272771,
+    "endpoint_error_l2": 0.00017248758088204765,
+    "common_grid_rms_state_error": 0.00017607582434386906,
+    "common_grid_max_state_error": 0.00025863235594991073,
+    "endpoint": [
+      1.4599300884316904,
+      0.6355740428501739,
+      0.00032820182146553207,
+      0.0006097675500034479
+    ],
+    "config": {
+      "q_dim": 2,
+      "hidden_dim": 32,
+      "action_dim": 1,
+      "damping_mode": "position_velocity",
+      "substeps": 2,
+      "newton_iterations": 12,
+      "residual_atol": 1e-12,
+      "residual_rtol": 1e-12,
+      "chain_atol": 1e-10,
+      "strict": true,
+      "integrator": "frozen_dg",
+      "context_dim": 4,
+      "solver": "picard",
+      "line_search_max_backtracks": 12,
+      "line_search_shrink": 0.5,
+      "line_search_c1": 0.0001,
+      "max_bisections": 4,
+      "picard_iterations": 6,
+      "picard_check_every": 2,
+      "fd_relative_step": 6e-06,
+      "implicit_rcond_min": 1e-08,
+      "adjoint_rtol": 1e-10
+    },
+    "state_endpoint_difference_from_default": 4.562437203454936e-09
+  },
+  "refinement_extension_elapsed_seconds": 2.7826289589866064,
+  "fine_grid_interpretation": "Added two finer grids to examine approach to second order; original four grids and both endpoint and trajectory metrics are retained. Tight-root diagnostic does not alter default production tolerances."
+}

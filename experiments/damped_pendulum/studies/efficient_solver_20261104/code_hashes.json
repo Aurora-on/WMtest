@@ -1,0 +1,12 @@
+{
+  "dpbench/dissipative_model.py": "22759040e4b6085a4b029f702c0188cd1b230961751ae0307c4202704e53567e",
+  "dpbench/train_dissipative.py": "dd65dc94bce52daa53a39e90386bee2e3cd50bd269bc15be48083445acbe3339",
+  "dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+  "dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+  "configs/dissipative_passive_efficient.json": "8dc4ce0a133f9fe1d71b7c947e742f099ca45cf2a89f93388744850171eb6283",
+  "scripts/benchmark_efficient_solver.py": "6d570eb03b4fd55f9ebbdcd7dc749fe8aeb858b8c564caf57c8aed09cbaab51e",
+  "tests/test_efficient_dissipative_core.py": "d2231d423a59be26a2860741684fd60663255a575b6cccfd545215866bf7137b",
+  "tests/test_automatic_discrete_gradient.py": "16f566d36ecff8aec717349628984f21b78fb1ef64806b0b08806f079fafda09",
+  "studies/efficient_solver_20261104/slurm_short_benchmark.sh": "4734800c67e4fee4909a6b1381ce5ee96ccfcdbe0cbe8aadd036b00a2adf7381",
+  "studies/efficient_solver_20261104/design.json": "592890a283fb92704ea7368d51411ea56887e0565234a2a30a87d7a4a9d549ab"
+}

@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "checkpoint_sha256": "cfe8f8124269dab15ae09a225b631f335251a3f2419ef7d3005e6601776ed0b6",
+  "dataset_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+  "protocol_sha256": "da07868aaacf45180721dd5b8cd11337c33c60c5ecb3c5b5101447dec78486db",
+  "evaluation_protocol_sha256": "40d3602a61c000281f3e45f6133509d8d4d340b485af5059af43f1a3176f2975",
+  "artifacts": {
+    "readout.npz": "fd4f78ae553cfc3c1e6a26d5babc82f1e52f1ad04ae83cf4bc53d0207407f08a",
+    "readout_provenance.json": "7678b8f797c8f9cd311e03e8eec998c832333fac5cc637c97f59c46bc9d00573",
+    "summary.json": "c91b9a3d0a517b579cd84769b9c45c1c3d085674baf3815c77de820eb60b4946",
+    "val/summary.json": "3d56a2e143b91972b97ea1eac412202cde676a8e4051a24f5113e552b87ecee8",
+    "val/trajectories.npz": "60e2301f511424d3073b852b5baef423022a3b73fe528404eec97e8118491823"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "frozen_validation_animation",
+  "checkpoint_step": 4000,
+  "readout_quality_passed": false,
+  "dimensions": [
+    930,
+    1160
+  ],
+  "frames": 33,
+  "duration_ms_per_frame": 100,
+  "relative_time_seconds": [
+    0.0,
+    3.2
+  ],
+  "preview_time_seconds": 1.6,
+  "selection": "One preselected validation case per energy band, smallest group_id; not error-based",
+  "cases": [
+    {
+      "energy_band": 0,
+      "group_id": 10000385,
+      "episode": 385,
+      "valid_steps": 32
+    },
+    {
+      "energy_band": 1,
+      "group_id": 10000387,
+      "episode": 387,
+      "valid_steps": 32
+    },
+    {
+      "energy_band": 2,
+      "group_id": 10000384,
+      "episode": 384,
+      "valid_steps": 32
+    },
+    {
+      "energy_band": 3,
+      "group_id": 10000386,
+      "episode": 386,
+      "valid_steps": 32
+    }
+  ],
+  "columns": [
+    "saved_true_RGB",
+    "per_frame_reencoded_readout_NOT_prediction",
+    "autonomous_readout_redrawn"
+  ],
+  "geometry": "Frozen smooth_v1 renderer: pivot=size/2, rod_length=.36*size; x=sin(theta), y=cos(theta)",
+  "quantization": "True RGB only nearest-neighbor enlarged; GIF palette quantizes display colors. No state/time interpolation.",
+  "font": "/System/Library/Fonts/STHeiti Medium.ttc",
+  "renderer_sha256": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31",
+  "script_sha256": "1f033ef9c42187785a078992807044951d6fd0fbf78cbf57c8f587e74ed5247b",
+  "source_sha256": {
+    "studies/undamped_stage_a_launch_20261105T053810Z/animation_eval4000_v1/animation_inputs.npz": "6216f6dac5de26277139c3a498f55a980923bce2de61e5d3692231ddce33b796",
+    "studies/undamped_stage_a_launch_20261105T053810Z/animation_eval4000_v1/animation_meta.json": "683d783ee7ea7c9963d82b8ba16d1f7987e0bf149f67125e510cdbe261ee8bf4"
+  },
+  "outputs": {
+    "comparison.gif": {
+      "sha256": "4153d2bb4d7b09327b5ef841aaf05fd2c6b0917d2d5fc12948a1b87f837cb522",
+      "bytes": 2421051
+    },
+    "preview.png": {
+      "sha256": "d4e5d1fc65a12df948af29dddd5d2e61885e52b1dcdcbcadff3347684688862b",
+      "bytes": 130108
+    },
+    "single_band0.gif": {
+      "sha256": "f139c89e9cf0256423d6985820d42b7315e50ee3f377cc5dd84c63a8b834a120",
+      "bytes": 1492171
+    },
+    "single_band3.gif": {
+      "sha256": "d19584e4023bc6134a6e5b322033810726dab9452c51ef497538bb2d01647eee",
+      "bytes": 1486356
+    }
+  }
+}

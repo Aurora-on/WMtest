@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "new_protocol_tests": {
+    "passed": 56,
+    "seconds": 4.37
+  },
+  "additional_earlier_regression_run": {
+    "passed": 108,
+    "seconds": 10.78,
+    "warnings": 96,
+    "warning_origin": "Unmodified legacy ridge evaluator numerical warnings in test_no_future_leakage; all tests passed."
+  },
+  "shell_syntax": "bash -n passed",
+  "python_compile": "passed",
+  "synthetic_training": "Both B branches exercised step0 validation and two actual CPU Adam updates through the existing strict-resume trainer; all A state tensors remained bitwise unchanged.",
+  "formal_training_started": false,
+  "slurm_submitted": false,
+  "formal_optimizer_updates": 0,
+  "cuda_parallel_runtime_tested": false,
+  "all_seven_training_core_hashes_unchanged": true,
+  "file_sha256": {
+    "scripts/train_staged_damping.py": "ac386f1e9f9f267839f23c4b50810cd7070928127c52756301d76c7c3e07038e",
+    "scripts/evaluate_staged_damping.py": "6d9fef3dbce10ab338a3db11c44c31b1a7eaf74608f1323dcc2d8c899d89b73f",
+    "scripts/slurm_staged_damping.sh": "0888172d545a793c1897d1fd0fbc45d19d7b6025771e76c623d6c23501f13501",
+    "dpbench/staged_damping.py": "c1366d325545c82666a4a868c7d4b7383e54de455163c23ec671b047ead48cf9",
+    "dpbench/damping_stage_data.py": "59b041d681fe19c42efaf6d77566be998fa01f1f2d8c64745bd10557ccc10187",
+    "tests/test_staged_damping_pipeline.py": "ce5c1e694c22900ea72feab527073dd97aae12a9070a1d93ed8c987e7d6406f1",
+    "tests/test_staged_damping_transfer.py": "6cebd2205600564cbfbd65c905ab2d68c2f79b8bf2ead79d3a4a7b0a80895904",
+    "tests/test_damping_stage_data.py": "b8333c92ba50e783156db83d141797be6dea439182736827682d85c6bc8122ce",
+    "tests/test_staged_damping_evaluation.py": "63d8bd029bd6fa0ff397f0dcbd6980f0cabf4e23a305f7e1d9bcd9ace61de35c"
+  }
+}

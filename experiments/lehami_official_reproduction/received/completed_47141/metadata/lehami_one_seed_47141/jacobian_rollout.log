@@ -1,0 +1,38 @@
+
+[a0m] LeHami (EXP-067)  mom=sg  history_size=1  latent_dim=32  episodes=45  actions=none (unactuated)
+/home/weizhixin/ssd/lehami_official_reproduction_20261029/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:882: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at /pytorch/aten/src/ATen/cuda/CublasHandlePool.cpp:370.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+wrote /home/weizhixin/ssd/lehami_official_reproduction_20261029/LeHami/lehami/experiments/results/latent_volume/jacobian_rollout.csv  (3150 rows)
+
+(1/n) log|det J|.  0 = volume preserved, <0 contraction, >0 expansion.
+Ground truth for the true flow is EXACTLY 0.
+
+--- FULL map (the phase-space volume) ---
+                  mean  std  min  max  n_dim
+label                                       
+LeHami (EXP-067)  -0.0  0.0 -0.0  0.0     64 
+
+--- NEWEST block (dimension-matched) ---
+                  mean  std  min  max  n_dim
+label                                       
+LeHami (EXP-067)  -0.0  0.0 -0.0  0.0     64 
+
+--- MERGING: directions annihilated per step (sigma_i < 1e-6 sigma_max) ---
+                  n_crushed  sigma_min  log10_cond  n_dim
+label                                                    
+LeHami (EXP-067)        0.0     0.6248      0.4127     64 
+
+--- CONSTANT along k, or relaxing? (newest block, mean over episodes) ---
+label  LeHami (EXP-067)
+k                      
+0                  -0.0
+1                  -0.0
+2                   0.0
+5                   0.0
+10                 -0.0
+20                 -0.0
+40                 -0.0
+60                 -0.0
+69                  0.0 
+

@@ -1,0 +1,13 @@
+{
+  "six_model_configs_pass_existing_resolver": true,
+  "within_recipe_only_q_dim_changed": true,
+  "existing_d2_resolved_configs_identical": true,
+  "seven_sources_match_existing_pair": true,
+  "training_configs_unchanged": true,
+  "torch_imported": false,
+  "data_samples_read": false,
+  "new_training_started": false,
+  "new_jobs_submitted": false,
+  "artifact_count": 8,
+  "independent_read_only_review": "passed: configs/source hashes/isolation/readiness labels; CUDA qualification and physical evaluation pending"
+}

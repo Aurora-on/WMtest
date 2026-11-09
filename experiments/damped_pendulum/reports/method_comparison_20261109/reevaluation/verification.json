@@ -1,0 +1,26 @@
+[
+  {
+    "stage": "a",
+    "checkpoint_sha256": "5145d5769b85f1992d2e4fd757bd19ac61a2704e459cbcb00844b3465f8bd068",
+    "evaluation_protocol_sha256": "40d3602a61c000281f3e45f6133509d8d4d340b485af5059af43f1a3176f2975",
+    "zero_world_model_updates": true,
+    "copied_artifact_hashes_verified": true,
+    "elapsed_seconds": 70.74784542620182
+  },
+  {
+    "stage": "single",
+    "checkpoint_sha256": "53678a48efff612ccd0572873959c6ccfb80109e13b117d7c2990a2a2ae16f89",
+    "evaluation_protocol_sha256": "f61cbae547b22580cb77cf899464802aece41fbb08b21594db16f069b907ba0e",
+    "zero_world_model_updates": true,
+    "copied_artifact_hashes_verified": true,
+    "elapsed_seconds": 69.83912875503302
+  },
+  {
+    "stage": "multi",
+    "checkpoint_sha256": "c7815496cf64c84147e99e5aba0bbff58da7ef4bbd7bdd43aea14c7cb79331c2",
+    "evaluation_protocol_sha256": "7779921d3d6818847b5a7a5ed4db24c94cb91e5bd50c3bfed1618664631b2058",
+    "zero_world_model_updates": true,
+    "copied_artifact_hashes_verified": true,
+    "elapsed_seconds": 411.06074859946966
+  }
+]

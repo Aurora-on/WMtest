@@ -1,0 +1,75 @@
+{
+  "status": "preparing",
+  "authorization": "User requested checks and tests after full20000step training",
+  "checkpoint": "/home/weizhixin/ssd/efficient3_fresh_20261104T101014Z/training/best.pt",
+  "checkpoint_step": 19250,
+  "checkpoint_sha256": "5163a6a293a7c773a90e9ef59a62353a4debdba64c0dc24814bcbdb3b47f9042",
+  "selection": "Fixed prior totest, selected using trainingvalidation only",
+  "world_model_updates": 0,
+  "readout_training": {
+    "train_labels": 20000,
+    "val_labels": 4000,
+    "probe_steps": 2000,
+    "candidates": [
+      "ridge",
+      "mlp"
+    ],
+    "selection": "seen validation only",
+    "inputs": "q,p from21frame causalhistory",
+    "seed": 0
+  },
+  "test": {
+    "seen": 768,
+    "interpolation": 512,
+    "extrapolation": 128,
+    "total": 1408,
+    "horizons_seconds": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "initial_history_seconds": 2,
+    "initial_history_frames": 21,
+    "batch_size": 32,
+    "all_damping_values": [
+      0,
+      0.05,
+      0.075,
+      0.1,
+      0.15,
+      0.2,
+      0.35,
+      0.5,
+      0.75,
+      1,
+      1.5
+    ]
+  },
+  "metrics": [
+    "angle",
+    "angular_velocity",
+    "physical_energy",
+    "normalized_energy",
+    "energy_increase_frequency",
+    "solver_failure_coverage",
+    "latent_energy_ledger"
+  ],
+  "failure_policy": "Keep validprefix, report failedtrajectory; no solver/tolerance changes",
+  "remote_root": "/home/weizhixin/ssd/efficient3_evaluation_20261105T023318Z",
+  "gpu": "1xL40",
+  "slurm_time_limit_hours": 2,
+  "limitations": [
+    "single trainingseed",
+    "readout errorand dynamics error both affectphysicalmetrics",
+    "data containpertrajectoryconstantdamping, not generalstate-dependentgroundtruthfriction"
+  ],
+  "baselines": [
+    "state_persistence",
+    "fixed_frame",
+    "equilibrium",
+    "oracle_persistence_privileged"
+  ]
+}

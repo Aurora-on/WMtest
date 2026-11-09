@@ -1,0 +1,40 @@
+{
+  "checked_at_utc": "2026-11-09T05:54:04.094908+00:00",
+  "jobs": {
+    "a": {
+      "id": "48085",
+      "state": "PENDING",
+      "reason": "Priority",
+      "dependency": "(null)",
+      "start_estimate_server_utc": "2026-11-09T06:16:32",
+      "submit_time_server_utc": "2026-11-09T05:53:14",
+      "gpu": "gres:gpu:l40:1",
+      "raw_scontrol": "JobId=48085 JobName=hjepa-staged-a UserId=weizhixin(1025) GroupId=weizhixin(1026) MCS_label=N/A Priority=4294887537 Nice=0 Account=(null) QOS=(null) JobState=PENDING Reason=Priority Dependency=(null) Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=2-00:00:00 TimeMin=N/A SubmitTime=2026-11-09T05:53:14 EligibleTime=2026-11-09T05:53:14 AccrueTime=2026-11-09T05:53:14 StartTime=2026-11-09T06:16:32 EndTime=2026-11-11T06:16:32 Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-09T05:54:02 Scheduler=Backfill:* Partition=compute AllocNode:Sid=ladhpc:3177820 ReqNodeList=(null) ExcNodeList=(null) NodeList=(null) SchedNodeList=ladhpc NumNodes=1 NumCPUs=8 NumTasks=1 CPUs/Task=8 ReqB:S:C:T=0:0:*:* TRES=cpu=8,mem=64G,node=1,billing=8 Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=8 MinMemoryNode=64G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z/submit_a.sh WorkDir=/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z StdErr=/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z/logs/a-48085.log StdIn=/dev/null StdOut=/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z/logs/a-48085.log Power= TresPerNode=gres:gpu:l40:1 \n"
+    },
+    "single": {
+      "id": "48086",
+      "state": "PENDING",
+      "reason": "Dependency",
+      "dependency": "afterok:48085(unfulfilled)",
+      "start_estimate_server_utc": "Unknown",
+      "submit_time_server_utc": "2026-11-09T05:53:14",
+      "gpu": "gres:gpu:l40:1",
+      "raw_scontrol": "JobId=48086 JobName=hjepa-staged-single UserId=weizhixin(1025) GroupId=weizhixin(1026) MCS_label=N/A Priority=4294887536 Nice=0 Account=(null) QOS=(null) JobState=PENDING Reason=Dependency Dependency=afterok:48085(unfulfilled) Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=2-00:00:00 TimeMin=N/A SubmitTime=2026-11-09T05:53:14 EligibleTime=Unknown AccrueTime=Unknown StartTime=Unknown EndTime=Unknown Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-09T05:53:14 Scheduler=Main Partition=compute AllocNode:Sid=ladhpc:3177820 ReqNodeList=(null) ExcNodeList=(null) NodeList=(null) NumNodes=1 NumCPUs=8 NumTasks=1 CPUs/Task=8 ReqB:S:C:T=0:0:*:* TRES=cpu=8,mem=64G,node=1,billing=8 Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=8 MinMemoryNode=64G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z/submit_single.sh WorkDir=/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z StdErr=/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z/logs/single-48086.log StdIn=/dev/null StdOut=/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z/logs/single-48086.log Power= KillOInInvalidDependent=Yes TresPerNode=gres:gpu:l40:1 \n"
+    },
+    "multi": {
+      "id": "48087",
+      "state": "PENDING",
+      "reason": "Dependency",
+      "dependency": "afterok:48085(unfulfilled)",
+      "start_estimate_server_utc": "Unknown",
+      "submit_time_server_utc": "2026-11-09T05:53:14",
+      "gpu": "gres:gpu:l40:1",
+      "raw_scontrol": "JobId=48087 JobName=hjepa-staged-multi UserId=weizhixin(1025) GroupId=weizhixin(1026) MCS_label=N/A Priority=4294887535 Nice=0 Account=(null) QOS=(null) JobState=PENDING Reason=Dependency Dependency=afterok:48085(unfulfilled) Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=2-00:00:00 TimeMin=N/A SubmitTime=2026-11-09T05:53:14 EligibleTime=Unknown AccrueTime=Unknown StartTime=Unknown EndTime=Unknown Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-11-09T05:53:14 Scheduler=Main Partition=compute AllocNode:Sid=ladhpc:3177820 ReqNodeList=(null) ExcNodeList=(null) NodeList=(null) NumNodes=1 NumCPUs=8 NumTasks=1 CPUs/Task=8 ReqB:S:C:T=0:0:*:* TRES=cpu=8,mem=64G,node=1,billing=8 Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=8 MinMemoryNode=64G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null) Command=/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z/submit_multi.sh WorkDir=/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z StdErr=/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z/logs/multi-48087.log StdIn=/dev/null StdOut=/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z/logs/multi-48087.log Power= KillOInInvalidDependent=Yes TresPerNode=gres:gpu:l40:1 \n"
+    }
+  },
+  "root": "/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z",
+  "requested_until_step_each_stage": 20000,
+  "formal_jobs_submitted": true,
+  "training_updates_observed": false,
+  "bundle_sha256": "767aa5359da67034f897474f664073ad24c7256464011f9a4868fcbf4919afc1"
+}

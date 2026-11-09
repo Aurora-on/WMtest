@@ -1,0 +1,31 @@
+{
+  "status": "completed",
+  "allocation_job_id": "48044",
+  "methods": [
+    "lewm",
+    "hjepa"
+  ],
+  "formal_jobs_unchanged": [
+    "48044",
+    "48045",
+    "48046"
+  ],
+  "updated_at_utc": "2026-11-08T09:34:28.737606+00:00",
+  "paused_worker_pid": 3478472,
+  "paused_after_step": 266,
+  "paused_at_utc": "2026-11-08T09:31:24.728661+00:00",
+  "command": [
+    "srun",
+    "--jobid=48044",
+    "--overlap",
+    "--ntasks=1",
+    "--cpus-per-task=4",
+    "--gres=gpu:l40:1",
+    "--time=00:15:00",
+    "bash",
+    "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/profile_pending.sh"
+  ],
+  "profile_exit_code": 0,
+  "formal_worker_resumed": true,
+  "resumed_at_utc": "2026-11-08T09:34:28.737580+00:00"
+}

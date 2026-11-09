@@ -1,0 +1,16 @@
+{
+  "representative": {
+    "evaluation_index": 9,
+    "file": "seen",
+    "episode": 457,
+    "family": "seen",
+    "damping": 0.0,
+    "energy_band": 2,
+    "group_id": 10000457
+  },
+  "selection": "Predeclared medium-high energy band 2 from existing metadata-selected sample; no error-based selection.",
+  "metric": "sqrt(mean(wrapped_angle_error**2)) pooled equally over4episodes x80futureframes, t=.1..8.0s. Not an average of per-episodeRMSE and not endpoint-only.",
+  "angle_plot": "arctan2(sin(theta),cos(theta)); remove connecting segment when consecutive principal angle difference exceeds pi.",
+  "motion_metric": "RMS of final two latent momentum coordinates, pooled across4episodes; not finite difference of wrapped angle.",
+  "no_model_or_probe_fitting": true
+}

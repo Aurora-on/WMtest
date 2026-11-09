@@ -1,0 +1,222 @@
+{
+  "scope": "Actual full-size configured models; synthetic RGB; CPU; no physical validation",
+  "optimizer_created": false,
+  "optimizer_updates": 0,
+  "training_started": false,
+  "cuda_qualified": false,
+  "source_sha256": {
+    "dpbench/train_dissipative.py": "8db4a123a00ddc2e349babfb7ddc22480a32b213d6f97f345eb9272b7326e560",
+    "dpbench/dissipative_model.py": "7b7e7acff94662b860e9eaa35ac65fc48578a64d191e8d97d2668da0334d77c9",
+    "dpbench/dissipative_core.py": "077c941d2b897411fc8560dc2dd9e7877bc8125560293a68a2552507b52f603f",
+    "dpbench/dissipative_data.py": "6e6ffb5ad921463cf3631529c06e6b4c73e185f50c8181fe81f076dde0045474",
+    "dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+    "dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+  },
+  "arms": {
+    "control": {
+      "initial_state_sha256": "85f6aab8851b56bb5042c2c8d873b8571a2585f5ce7a8b2225dd20faec1d2830",
+      "trainability": {
+        "mode": "explicit_modules",
+        "requested_modules": [
+          "encoder",
+          "initializer",
+          "potential"
+        ],
+        "trainable_modules": [
+          "encoder",
+          "initializer",
+          "potential"
+        ],
+        "modules": {
+          "encoder": {
+            "available": true,
+            "trainable": true,
+            "parameter_tensors": 20,
+            "parameters": 448674,
+            "trainable_parameters": 448674
+          },
+          "initializer": {
+            "available": true,
+            "trainable": true,
+            "parameter_tensors": 4,
+            "parameters": 5442,
+            "trainable_parameters": 5442
+          },
+          "potential": {
+            "available": true,
+            "trainable": true,
+            "parameter_tensors": 6,
+            "parameters": 1185,
+            "trainable_parameters": 1185
+          },
+          "damping": {
+            "available": false,
+            "trainable": false,
+            "parameter_tensors": 0,
+            "parameters": 0,
+            "trainable_parameters": 0
+          },
+          "environment": {
+            "available": false,
+            "trainable": false,
+            "parameter_tensors": 0,
+            "parameters": 0,
+            "trainable_parameters": 0
+          },
+          "input_port": {
+            "available": true,
+            "trainable": false,
+            "parameter_tensors": 6,
+            "parameters": 1218,
+            "trainable_parameters": 0
+          }
+        },
+        "total_parameters": 456519,
+        "trainable_parameters": 455301,
+        "frozen_parameters": 1218
+      },
+      "checks": [
+        {
+          "horizon": 4,
+          "loss": 1.9615109959903005,
+          "phase_prediction_mse": 0.05892034290264033,
+          "finite_gradients": true,
+          "parameters_without_gradient": [
+            "core.potential_net.0.4.bias"
+          ],
+          "missing_gradient_reason": "Additive raw potential constant does not affect dynamics",
+          "frozen_parameters_have_no_gradient": true,
+          "parameters_unchanged": true
+        },
+        {
+          "horizon": 8,
+          "loss": 1.7396379827089257,
+          "phase_prediction_mse": 0.10907375168205966,
+          "finite_gradients": true,
+          "parameters_without_gradient": [
+            "core.potential_net.0.4.bias"
+          ],
+          "missing_gradient_reason": "Additive raw potential constant does not affect dynamics",
+          "frozen_parameters_have_no_gradient": true,
+          "parameters_unchanged": true
+        },
+        {
+          "horizon": 32,
+          "loss": 2.644423819651518,
+          "phase_prediction_mse": 1.0153120043134805,
+          "finite_gradients": true,
+          "parameters_without_gradient": [
+            "core.potential_net.0.4.bias"
+          ],
+          "missing_gradient_reason": "Additive raw potential constant does not affect dynamics",
+          "frozen_parameters_have_no_gradient": true,
+          "parameters_unchanged": true
+        }
+      ]
+    },
+    "lehami": {
+      "initial_state_sha256": "85f6aab8851b56bb5042c2c8d873b8571a2585f5ce7a8b2225dd20faec1d2830",
+      "trainability": {
+        "mode": "explicit_modules",
+        "requested_modules": [
+          "encoder",
+          "initializer",
+          "potential"
+        ],
+        "trainable_modules": [
+          "encoder",
+          "initializer",
+          "potential"
+        ],
+        "modules": {
+          "encoder": {
+            "available": true,
+            "trainable": true,
+            "parameter_tensors": 20,
+            "parameters": 448674,
+            "trainable_parameters": 448674
+          },
+          "initializer": {
+            "available": true,
+            "trainable": true,
+            "parameter_tensors": 4,
+            "parameters": 5442,
+            "trainable_parameters": 5442
+          },
+          "potential": {
+            "available": true,
+            "trainable": true,
+            "parameter_tensors": 6,
+            "parameters": 1185,
+            "trainable_parameters": 1185
+          },
+          "damping": {
+            "available": false,
+            "trainable": false,
+            "parameter_tensors": 0,
+            "parameters": 0,
+            "trainable_parameters": 0
+          },
+          "environment": {
+            "available": false,
+            "trainable": false,
+            "parameter_tensors": 0,
+            "parameters": 0,
+            "trainable_parameters": 0
+          },
+          "input_port": {
+            "available": true,
+            "trainable": false,
+            "parameter_tensors": 6,
+            "parameters": 1218,
+            "trainable_parameters": 0
+          }
+        },
+        "total_parameters": 456519,
+        "trainable_parameters": 455301,
+        "frozen_parameters": 1218
+      },
+      "checks": [
+        {
+          "horizon": 4,
+          "loss": 0.2627017986578741,
+          "phase_prediction_mse": 0.05892034290264033,
+          "finite_gradients": true,
+          "parameters_without_gradient": [
+            "core.potential_net.0.4.bias"
+          ],
+          "missing_gradient_reason": "Additive raw potential constant does not affect dynamics",
+          "frozen_parameters_have_no_gradient": true,
+          "parameters_unchanged": true
+        },
+        {
+          "horizon": 8,
+          "loss": 0.3130810643375086,
+          "phase_prediction_mse": 0.10907375168205966,
+          "finite_gradients": true,
+          "parameters_without_gradient": [
+            "core.potential_net.0.4.bias"
+          ],
+          "missing_gradient_reason": "Additive raw potential constant does not affect dynamics",
+          "frozen_parameters_have_no_gradient": true,
+          "parameters_unchanged": true
+        },
+        {
+          "horizon": 32,
+          "loss": 1.217941078767788,
+          "phase_prediction_mse": 1.0153120043134805,
+          "finite_gradients": true,
+          "parameters_without_gradient": [
+            "core.potential_net.0.4.bias"
+          ],
+          "missing_gradient_reason": "Additive raw potential constant does not affect dynamics",
+          "frozen_parameters_have_no_gradient": true,
+          "parameters_unchanged": true
+        }
+      ]
+    }
+  },
+  "identical_initial_state": true,
+  "identical_initial_common_scores": true
+}

@@ -1,0 +1,90 @@
+{
+  "kind": "control10000_frozen_validation_diagnostic",
+  "checkpoint_step": 10000,
+  "checkpoint_sha256": "bef8db8773e7d16df40221deb82b194acd2ff700c87c1e3b135c2d9bebb4f8b5",
+  "readout_quality_passed": false,
+  "selected_records": [
+    {
+      "episode": 385,
+      "group_id": 10000385,
+      "energy_band": 0,
+      "evaluation_index": 1,
+      "valid_steps": 32,
+      "solver_failures": []
+    },
+    {
+      "episode": 387,
+      "group_id": 10000387,
+      "energy_band": 1,
+      "evaluation_index": 3,
+      "valid_steps": 32,
+      "solver_failures": []
+    },
+    {
+      "episode": 384,
+      "group_id": 10000384,
+      "energy_band": 2,
+      "evaluation_index": 0,
+      "valid_steps": 32,
+      "solver_failures": []
+    },
+    {
+      "episode": 386,
+      "group_id": 10000386,
+      "energy_band": 3,
+      "evaluation_index": 2,
+      "valid_steps": 32,
+      "solver_failures": []
+    }
+  ],
+  "selection": "Minimum group_id per initial-energy band; no error-based selection",
+  "static_frame_steps": [
+    0,
+    8,
+    16,
+    24,
+    32
+  ],
+  "static_relative_times": [
+    0.0,
+    0.8,
+    1.6,
+    2.4,
+    3.2
+  ],
+  "source_sha256": {
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/control_visuals_20261105/evaluation/animation_inputs.npz": "e701ba6d6d1f76bf72e6191697dcb9e5f049810778654d87e697f456b812a867",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/control_visuals_20261105/evaluation/animation_meta.json": "13db99c9733ad7b3d316638cde7d7cf4ff5feff83d6a03fe4fcca60ee9782993"
+  },
+  "script_sha256": "da306268ed9c1182ac397d29136a21dcb4f085939f4a34bfef53847611030f51",
+  "renderer_sha256": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31",
+  "font": "/System/Library/Fonts/STHeiti Medium.ttc",
+  "display": "Ground-truth uses stored RGB enlarged by nearest-neighbor. Other rows use fixed state-readout redrawings. No interpolation.",
+  "curves": "Circular angles in [-pi,pi]; lines break at branch-cut crossings. Invalid predicted suffixes remain absent.",
+  "outputs": {
+    "control10000_band0_frames.png": {
+      "sha256": "0cdc106ee6fa90df926bb5f38c73bab04b345aef3926ffd67dee4a994939e617",
+      "bytes": 142957
+    },
+    "control10000_band1_frames.png": {
+      "sha256": "bfd5a81f7dac0d8b7a83aedc86cd75d56e6c0006a4520c44acdcc140c4eebbd1",
+      "bytes": 141119
+    },
+    "control10000_band2_frames.png": {
+      "sha256": "7179293a676e727ddd6298219a51170979123398bd084e4812d691d8bf944fea",
+      "bytes": 141850
+    },
+    "control10000_band3_frames.png": {
+      "sha256": "c0f5c38422c3bfc5b3a06fce9cd5ea52f9c654e4558c68272f17f145333b0bb9",
+      "bytes": 143335
+    },
+    "control10000_angle_curves.png": {
+      "sha256": "171dc3b1558c1f46f0806feff4c7c21d656d30c4c2c0d431434849423c9e642f",
+      "bytes": 257111
+    },
+    "control10000_comparison.gif": {
+      "sha256": "11c4c91aa679ec16ce887a96fd78554e88cb1acf10994d9adf14855a8a494390",
+      "bytes": 1437200
+    }
+  }
+}

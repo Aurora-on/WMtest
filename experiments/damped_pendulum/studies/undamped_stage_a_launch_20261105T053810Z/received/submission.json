@@ -1,0 +1,16 @@
+{
+  "submitted_at_utc": "2026-11-05T05:42:15.856503+00:00",
+  "remote_root": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z",
+  "fresh_initialization": true,
+  "resume": null,
+  "stop_after_step": 4000,
+  "configured_total_steps": 20000,
+  "physical_test_evaluation_enabled": false,
+  "data_job_id": "47795",
+  "training_job_id": "47796",
+  "training_dependency": "afterok:47795",
+  "training_prerequisites": [
+    "generated undamped data + input audit",
+    "allocated CUDA K4/K8 backward and K32 forward qualification"
+  ]
+}

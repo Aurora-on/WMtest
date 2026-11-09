@@ -1,0 +1,23 @@
+{
+  "path": "scripts/slurm_passive_robust_train.sh",
+  "sha256": "0c022b15a605175d561e759005eae7eeb34a6fa23870e12ffd30f9f3102bf55b",
+  "shell_syntax_checked": true,
+  "slurm_test_only_requested": true,
+  "full_training_submitted": false,
+  "config": "configs/dissipative_passive_robust.json",
+  "normal_resume_checkpoint_expected": "/home/weizhixin/ssd/robust_solver_20261104_v2/continuation/last.pt",
+  "not_resume": "k32_stress/stress_weights.pt",
+  "slurm_test_only_accepted": true,
+  "slurm_test_only_note": "sbatch --test-only accepted24h1L404CPU32G; no job47703 was submitted (confirmed absent in squeue)",
+  "partition_max_time": "UNLIMITED",
+  "normal_resume_step_expected": 4250,
+  "remote_path": "/home/weizhixin/ssd/robust_solver_20261104_v2/audits/slurm_passive_robust_train.sh",
+  "remote_sha256": "0c022b15a605175d561e759005eae7eeb34a6fa23870e12ffd30f9f3102bf55b",
+  "remote_shell_syntax_checked": true,
+  "uploaded_outside_frozen_code_snapshot": true,
+  "execution_paused_by_user": true,
+  "available_normal_checkpoint_step": 3750,
+  "qualification_complete": false,
+  "normal_resume_step_expected_note": "4250 remains a qualification target; stopped at3877 with last saved3750, not yet qualified for formal training",
+  "auto_submit_allowed": false
+}

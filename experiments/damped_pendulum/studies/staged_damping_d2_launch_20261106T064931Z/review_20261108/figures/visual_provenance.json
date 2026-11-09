@@ -1,0 +1,57 @@
+{
+  "group_id": 10000384,
+  "energy_band": 2,
+  "sample_rule": "Minimum group_id in energy_band2, predeclared before results",
+  "checkpoint_steps": {
+    "a": 20000,
+    "single": 20000,
+    "multi": 20000
+  },
+  "horizon_steps": 32,
+  "physical_dt": 0.1,
+  "source_files": {
+    "a": {
+      "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/run/milestones/undamped_step20000/evaluation/val/trajectories.npz",
+      "sha256": "97ea93ccda1fc8f81f28c104254fde76d9269f739d1ed99fed2530b86324d5fd"
+    },
+    "single": {
+      "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/run/milestones/damping_single_step20000/evaluation/val/trajectories.npz",
+      "sha256": "b8a5de2ae6ac5a1ef34f404586217447a66bb237f1cf4495cc1f926ceaa70b0c"
+    },
+    "multi": {
+      "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/run/milestones/damping_multi_step20000/evaluation/val/trajectories.npz",
+      "sha256": "d1c1b0fb07247b5f99e2a86485ede272b7bd7928d52c68e6dffa99543a94fcde"
+    }
+  },
+  "gif_panels": [
+    {
+      "arm": "a",
+      "damping": 0.0,
+      "source_row": 0
+    },
+    {
+      "arm": "single",
+      "damping": 0.2,
+      "source_row": 0
+    },
+    {
+      "arm": "multi",
+      "damping": 0.2,
+      "source_row": 192
+    },
+    {
+      "arm": "multi",
+      "damping": 1.0,
+      "source_row": 320
+    }
+  ],
+  "no_model_execution": true,
+  "no_fitting": true,
+  "optimizer_updates": 0,
+  "rendered_from": "Saved physical angle truth and decoded autonomous predictions; not a learned image decoder",
+  "outputs": {
+    "staged_prediction_demo.gif": "0bb1adc28ed80ce308fe608c9d982170d7f8930adfad497fe7575b97fd5ec4a5",
+    "staged_demo_midpoint.png": "4d5531df8e55375adfb6a8052bc98abed017dce7463a616dd1c2ecbd11bbadea",
+    "multi_damping_six_conditions.png": "79d0e98ccf3d2413da28a6e1704aba6692783dd5146501f17fa30a73fbce0f71"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "created_at_utc": "2026-11-08T09:28:48.365776+00:00",
+  "jobs": {
+    "lehami": {
+      "job_id": "48044",
+      "submitted_at_utc": "2026-11-08T09:28:48.379000+00:00",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/submit_lehami.sh"
+      ]
+    },
+    "lewm": {
+      "job_id": "48045",
+      "submitted_at_utc": "2026-11-08T09:28:48.384755+00:00",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/submit_lewm.sh"
+      ]
+    },
+    "hjepa": {
+      "job_id": "48046",
+      "submitted_at_utc": "2026-11-08T09:28:48.389923+00:00",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/submit_hjepa.sh"
+      ]
+    }
+  },
+  "status": "submitted",
+  "methods": [
+    "lehami",
+    "lewm",
+    "hjepa"
+  ],
+  "seed": 0,
+  "gpus_per_job": 1,
+  "training_plan": "A20000 -> single20000 -> multi20000",
+  "profile_before_training": true
+}

@@ -1,0 +1,13 @@
+{
+  "objective": "Improved solver and iteration methods tested sufficiently to prepare next training",
+  "requirements": {
+    "research": "Exact implicit equation and Jacobian, PSD limit, line-search/finite-bisection energy and gradient assumptions grounded in code and primary sources",
+    "implementation": "Per-sample Armijo, bounded bisection, strict original tolerance, executed-branch gradients and diagnostics",
+    "local_validation": "Real failure capture; branch FD; NaN and singularity; batch independence; energy ledger; migration and bounded resume",
+    "cuda_numerical_validation": "Same nontrivial numerical/gradient suite on CUDA",
+    "actual_training": "Cross original failure and K16 transition with original full-budget schedule; K32 parameter updates using trained weights",
+    "autonomous_inference": "All384 seen validation initial histories,320 steps; finite states/ledger and cost. In addition to stress-weight rollout, direct full-batch model.rollout on normal-schedule4250 checkpoint must pass without evaluator batch-splitting retries.",
+    "reproducibility": "Frozen code/data hashes, explicit solver-only migration provenance and recoverable bounded-run checkpoints",
+    "handoff": "Validated config and executable next-training path; evidence-based runtime and limits; no claim of universal future stability"
+  }
+}

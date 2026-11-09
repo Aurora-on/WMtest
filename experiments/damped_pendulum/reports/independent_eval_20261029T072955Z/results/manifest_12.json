@@ -1,0 +1,195 @@
+{
+  "completed_run_count": 12,
+  "files": [
+    {
+      "path": "completion.json",
+      "sha256": "8b83f32bc73aceb3e15088ab18c35394bcdcfbe71d21401f4c223b7bd76f4248",
+      "bytes": 200
+    },
+    {
+      "path": "evaluation_protocol.json",
+      "sha256": "63a95a17f1f8d895add7f10b3be57b1e29822320cce7b8bdd1dfe15b32e1a843",
+      "bytes": 592
+    },
+    {
+      "path": "lehami_b0p0_seed0/metrics.json",
+      "sha256": "aac5625620c7aaa783561dfd0b403ab6e76472c819e17b0cbd76abadc911d7b4",
+      "bytes": 500195
+    },
+    {
+      "path": "lehami_b0p0_seed0/predictions.npz",
+      "sha256": "fd1b983e82f4883b35e82f9b9acac04a3e2683caac6322189baa6a325c90603e",
+      "bytes": 1905167
+    },
+    {
+      "path": "lehami_b0p0_seed0/trajectory_provenance.json",
+      "sha256": "305d6efb4584f49df9c27d5469f335917700671bcefb3efc486c522a1b8cc458",
+      "bytes": 463
+    },
+    {
+      "path": "lehami_b0p0_seed1/metrics.json",
+      "sha256": "f42ad5fda9b05a5cdf971735331764be9db26062b8522a000f86f3bd3f91f231",
+      "bytes": 499994
+    },
+    {
+      "path": "lehami_b0p0_seed1/predictions.npz",
+      "sha256": "727a3fb275070ba195b6418e30953b66a99ea7621c273dd40be1daaa5b818c11",
+      "bytes": 1900759
+    },
+    {
+      "path": "lehami_b0p0_seed1/trajectory_provenance.json",
+      "sha256": "1fffd1f3bf4c3c4556ad6e1eafdfbf392645e6ac015fbbc4e6de508c7d3328ad",
+      "bytes": 463
+    },
+    {
+      "path": "lehami_b0p0_seed2/metrics.json",
+      "sha256": "bc00b4778af0bad620e0fdc8a1f2895d72bd07281bb1577b00b1a16c89277132",
+      "bytes": 500229
+    },
+    {
+      "path": "lehami_b0p0_seed2/predictions.npz",
+      "sha256": "428f8151ea01e58b58f906b75330f1bbc3c5fc1db5c8ff8520a7547b4ab35674",
+      "bytes": 1905763
+    },
+    {
+      "path": "lehami_b0p0_seed2/trajectory_provenance.json",
+      "sha256": "d6cd3c105374ddd0dd474c3ee36ca8c14928313721acff5a65e157c1e00ff603",
+      "bytes": 463
+    },
+    {
+      "path": "lehami_b0p2_seed0/metrics.json",
+      "sha256": "65450e6765fa795170ee76ff62651d95ed2c10c7c392c0dd277e7358f25732a2",
+      "bytes": 500881
+    },
+    {
+      "path": "lehami_b0p2_seed0/predictions.npz",
+      "sha256": "09570045093d4dbb54e49f0062772517e5f0dfacd3b66c2d69e4537053cfb27e",
+      "bytes": 1899112
+    },
+    {
+      "path": "lehami_b0p2_seed0/trajectory_provenance.json",
+      "sha256": "25efd0dab9ef323a3bb2b8c62c7d96f655b90e16987cc1ad39398d8b589f3e82",
+      "bytes": 463
+    },
+    {
+      "path": "lehami_b0p2_seed1/metrics.json",
+      "sha256": "550f1c1ed6aca2ce7575e59462bcc7c06e6325680b81bd60b8df0a9fb8313bde",
+      "bytes": 501022
+    },
+    {
+      "path": "lehami_b0p2_seed1/predictions.npz",
+      "sha256": "bb7e90e95db83f7e6b0f362b6cbf163c1b91f8b589f91d8377190ea193b40a51",
+      "bytes": 1901450
+    },
+    {
+      "path": "lehami_b0p2_seed1/trajectory_provenance.json",
+      "sha256": "e82395289c7b17eac7677fd0b504615cb7cdad4ae8a064952b0e46b6e2989c1e",
+      "bytes": 463
+    },
+    {
+      "path": "lehami_b0p2_seed2/metrics.json",
+      "sha256": "45168d3c9ec0009dbc6c21d07b9deeec5effcfa767da5f135c9d1e3ded54cd46",
+      "bytes": 500925
+    },
+    {
+      "path": "lehami_b0p2_seed2/predictions.npz",
+      "sha256": "c4fafe92a1733a71edb70ae8a7fc6b64b5db8c76e79b259df1b96198c7b6ca52",
+      "bytes": 1899355
+    },
+    {
+      "path": "lehami_b0p2_seed2/trajectory_provenance.json",
+      "sha256": "e09343b6bf5813ef9e572653a47793eca20839f85ebb2143676d88675c6cb3a5",
+      "bytes": 463
+    },
+    {
+      "path": "lewm_b0p0_seed0/metrics.json",
+      "sha256": "fd71da6df669edb9b2ad05583a7a585dc611b736e9902aa63556f6020ca81b10",
+      "bytes": 503383
+    },
+    {
+      "path": "lewm_b0p0_seed0/predictions.npz",
+      "sha256": "00384bf9bc231dc0ebf9fc35bde150f3a3b10d8c9ad07a72e98eb9cbaa7d936c",
+      "bytes": 1909409
+    },
+    {
+      "path": "lewm_b0p0_seed0/trajectory_provenance.json",
+      "sha256": "72d7c605ef7e7a0e08a77293aa18c7f70a31c24014a58c5403fe20016c2b1984",
+      "bytes": 462
+    },
+    {
+      "path": "lewm_b0p0_seed1/metrics.json",
+      "sha256": "2b6573e7d52a93af106315de0d990afe5b20c2ac8924fd0ddf78428d3f14fd9a",
+      "bytes": 503840
+    },
+    {
+      "path": "lewm_b0p0_seed1/predictions.npz",
+      "sha256": "6fa3984722279cbc8e73f65dc8d31a6dd43c98062be81ea20540b620d5283279",
+      "bytes": 1909720
+    },
+    {
+      "path": "lewm_b0p0_seed1/trajectory_provenance.json",
+      "sha256": "8fad8ef06eb3cc47d08565f070d4f027430b2fbce7af5834426aa93fa934742e",
+      "bytes": 462
+    },
+    {
+      "path": "lewm_b0p0_seed2/metrics.json",
+      "sha256": "6de65b8f27eeb2cca4396c847d68a9a3f8a132707332d6b5de3c35310e20ee2e",
+      "bytes": 503862
+    },
+    {
+      "path": "lewm_b0p0_seed2/predictions.npz",
+      "sha256": "ed6fe6507c28348b3c9a7493aa5b1907ac90320bad540c9530cff98a4db9b5f9",
+      "bytes": 1909804
+    },
+    {
+      "path": "lewm_b0p0_seed2/trajectory_provenance.json",
+      "sha256": "686dc478e398b15a7b9b8d5ac0ed8ce05c94c7329d18ed09d820c2bee465a081",
+      "bytes": 462
+    },
+    {
+      "path": "lewm_b0p2_seed0/metrics.json",
+      "sha256": "0cefc919e50ecebc17b254a488b79c0546323a7d7c316c53c6cefdc85d425cb7",
+      "bytes": 505054
+    },
+    {
+      "path": "lewm_b0p2_seed0/predictions.npz",
+      "sha256": "c417332d202b06ae04b4b2c9902af13ca91d1d537059893ec3b63cc3ac4458d2",
+      "bytes": 1896623
+    },
+    {
+      "path": "lewm_b0p2_seed0/trajectory_provenance.json",
+      "sha256": "5524c44979075cf7d62d1d3b2ab5e04daf1f681178fe6bc31a3ada266ded991b",
+      "bytes": 462
+    },
+    {
+      "path": "lewm_b0p2_seed1/metrics.json",
+      "sha256": "89b35b6f4f62c0f289eb245390d8e9867b71cc55daa542b1e81da13cdfbb17f4",
+      "bytes": 505117
+    },
+    {
+      "path": "lewm_b0p2_seed1/predictions.npz",
+      "sha256": "12a7194c6585a1de717241a146980066b66814cae8e36b18e4f8e53228be45e9",
+      "bytes": 1896203
+    },
+    {
+      "path": "lewm_b0p2_seed1/trajectory_provenance.json",
+      "sha256": "4d6c749aaf5d817bdc4b151af836d9b430809ad5eb5d8d1ad30469c5054676be",
+      "bytes": 462
+    },
+    {
+      "path": "lewm_b0p2_seed2/metrics.json",
+      "sha256": "0c001fe76a68c023771df82cbb73c5b1a2243c95bc9a417d4ddf675751d16234",
+      "bytes": 505012
+    },
+    {
+      "path": "lewm_b0p2_seed2/predictions.npz",
+      "sha256": "3ec11b4eacb3cc244f741e8db1b80abc865a5d560297304a4e757cb6f302019a",
+      "bytes": 1896323
+    },
+    {
+      "path": "lewm_b0p2_seed2/trajectory_provenance.json",
+      "sha256": "126220c18a77124c43c13ef07aa03d53b46a320a22439af7504d6a875ccfe13d",
+      "bytes": 462
+    }
+  ]
+}

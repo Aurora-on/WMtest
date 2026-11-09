@@ -1,0 +1,194 @@
+{
+  "status": {
+    "status": "failed",
+    "training_started": true,
+    "completed_steps": 2794,
+    "optimizer_steps_this_run": 2794,
+    "error_type": "SolverError",
+    "error": "Implicit step failed tolerance: dynamics_max=6.94e-05, chain_max=1.42e-14",
+    "failed_samples_skipped": false,
+    "elapsed_seconds": 1833.940303556621
+  },
+  "checkpoint_audit": {
+    "best.pt": {
+      "step": 2250,
+      "best_step": 2250,
+      "best_score": 1.8099086464790142,
+      "validation_status": "completed",
+      "optimizer_entries": 46,
+      "finite_parameters": true,
+      "sha256": "cbc2b970f6817160a124bc939c4ceddd11033204d8f3cd51271f637c3ab8e479"
+    },
+    "last.pt": {
+      "step": 2750,
+      "best_step": 2250,
+      "best_score": 1.8099086464790142,
+      "validation_status": "completed",
+      "optimizer_entries": 46,
+      "finite_parameters": true,
+      "sha256": "ebaa2a0158336162f6abaedb98f1ff0732887739d4c1481138409c1012759da7"
+    }
+  },
+  "budget_steps": 20000,
+  "completed_fraction": 0.1397,
+  "next_attempted_step": 2795,
+  "training_elapsed_minutes": 30.565671725943684,
+  "completed_curriculum": {
+    "K4": 1000,
+    "K8": 1794,
+    "K16": 0,
+    "K32": 0
+  },
+  "recent_windows": {
+    "1-250": {
+      "n": 250,
+      "first_step": 1,
+      "last_step": 250,
+      "loss_mean": 2.6464968922789165,
+      "prediction_loss_mean": 0.21036872600074077,
+      "solver_iterations_mean": 2.0,
+      "solver_residual_max": 9.085466219464766e-08,
+      "gradient_norm_mean": 8.34177280857319,
+      "gradient_norm_max": 21.581939673658987,
+      "step_seconds_mean": 0.2231430204808712
+    },
+    "751-1000": {
+      "n": 250,
+      "first_step": 751,
+      "last_step": 1000,
+      "loss_mean": 0.8782061546434631,
+      "prediction_loss_mean": 0.22630998798904486,
+      "solver_iterations_mean": 3.98340625,
+      "solver_residual_max": 1.202260153654322e-06,
+      "gradient_norm_mean": 8.991455579666221,
+      "gradient_norm_max": 21.949522184053443,
+      "step_seconds_mean": 0.39572710791230203
+    },
+    "1001-1250": {
+      "n": 250,
+      "first_step": 1001,
+      "last_step": 1250,
+      "loss_mean": 1.0851272132463383,
+      "prediction_loss_mean": 0.45099556369646526,
+      "solver_iterations_mean": 3.968453125,
+      "solver_residual_max": 1.0918741288890033e-06,
+      "gradient_norm_mean": 8.866675186210934,
+      "gradient_norm_max": 19.013458685164384,
+      "step_seconds_mean": 0.6600251774191856
+    },
+    "2001-2250": {
+      "n": 250,
+      "first_step": 2001,
+      "last_step": 2250,
+      "loss_mean": 0.894323147750909,
+      "prediction_loss_mean": 0.3229700157217111,
+      "solver_iterations_mean": 4.07753125,
+      "solver_residual_max": 1.1246934903397232e-06,
+      "gradient_norm_mean": 5.89119297828471,
+      "gradient_norm_max": 13.749593288476147,
+      "step_seconds_mean": 0.6587908481061459
+    },
+    "2501-2750": {
+      "n": 250,
+      "first_step": 2501,
+      "last_step": 2750,
+      "loss_mean": 0.8533580203017227,
+      "prediction_loss_mean": 0.30460874778536207,
+      "solver_iterations_mean": 4.183703125,
+      "solver_residual_max": 1.104541667018566e-06,
+      "gradient_norm_mean": 5.44927504155253,
+      "gradient_norm_max": 12.535836802307688,
+      "step_seconds_mean": 0.6783489574193955
+    },
+    "2751-2794": {
+      "n": 44,
+      "first_step": 2751,
+      "last_step": 2794,
+      "loss_mean": 0.818563297691956,
+      "prediction_loss_mean": 0.2933777852381423,
+      "solver_iterations_mean": 4.212091619318182,
+      "solver_residual_max": 9.981108135548311e-07,
+      "gradient_norm_mean": 4.9590403790438105,
+      "gradient_norm_max": 12.89198597634314,
+      "step_seconds_mean": 0.7060360837389122
+    }
+  },
+  "validation": [
+    {
+      "step": 250,
+      "score": 39.03888990822563,
+      "gate_passed": true,
+      "seconds": 16.548310190439224
+    },
+    {
+      "step": 500,
+      "score": 17.434096372893794,
+      "gate_passed": true,
+      "seconds": 30.205018170177937
+    },
+    {
+      "step": 750,
+      "score": 3.4269901782088144,
+      "gate_passed": true,
+      "seconds": 29.858394987881184
+    },
+    {
+      "step": 1000,
+      "score": 2.4079341268671777,
+      "gate_passed": true,
+      "seconds": 30.67987708747387
+    },
+    {
+      "step": 1250,
+      "score": 1.812700858003107,
+      "gate_passed": true,
+      "seconds": 31.307728357613087
+    },
+    {
+      "step": 1500,
+      "score": 1.8634021396467395,
+      "gate_passed": true,
+      "seconds": 31.03874034434557
+    },
+    {
+      "step": 1750,
+      "score": 1.9943973389449685,
+      "gate_passed": true,
+      "seconds": 31.19754469394684
+    },
+    {
+      "step": 2000,
+      "score": 1.8979412265063789,
+      "gate_passed": true,
+      "seconds": 31.510710686445236
+    },
+    {
+      "step": 2250,
+      "score": 1.8099086464790142,
+      "gate_passed": true,
+      "seconds": 31.668561056256294
+    },
+    {
+      "step": 2500,
+      "score": 2.1569813545490173,
+      "gate_passed": true,
+      "seconds": 32.80591693520546
+    },
+    {
+      "step": 2750,
+      "score": 2.5109663845963235,
+      "gate_passed": true,
+      "seconds": 32.47164058685303
+    }
+  ],
+  "interpretation": {
+    "failure": "Strict implicit dynamics residual tolerance rejected an attempted forward step; no optimizer update on the failed batch, no skipped samples. The recorded chain defect was small; error does not establish NaN parameters or failed discrete-gradient chain identity.",
+    "structural_limit": "D=LL^T ensures nonnegative dissipative power, not globally unique implicit roots or convergence of a finite Newton solve.",
+    "solver": "Two 0.05-second substeps per 0.1-second observation; at most 6 full Newton updates per substep, without line search. Acceptance is state-scaled (1e-8+1e-7*max absolute initial/final p), and chain defect has a separate energy-scaled threshold.",
+    "validation_limit": "Scores are within-run normalized latent prediction metrics, not physical error or evidence of completed convergence. The encoder changes during training, so early-to-late score ratios are descriptive only.",
+    "checkpoint_limit": "Best checkpoint selected on seen validation at step2250; last checkpoint at2750. 44 completed updates after last checkpoint were not saved. Best never trained with K16/K32, though validation included K8/K32.",
+    "next_step": "Replay from last checkpoint under identical code/config to the failure batch; inspect residual/Jacobian/D and state scales, then evaluate safeguarded Newton or smaller substeps in a new version without relaxing acceptance or quietly changing the reported model."
+  },
+  "all_logged_scalar_losses_finite": true,
+  "all_logged_gradients_finite": true
+}

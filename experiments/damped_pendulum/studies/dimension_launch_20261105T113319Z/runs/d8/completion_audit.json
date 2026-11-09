@@ -1,0 +1,27 @@
+{
+  "dimension": 8,
+  "completed_steps": 10000,
+  "checkpoints": [
+    {
+      "step": 4000,
+      "optimizer_steps": [
+        4000
+      ],
+      "sha256": "be1c0a14609837339cf186d50d28d82bb180d4db3d15c0099c063a8636c8cac9",
+      "validation_completed": true,
+      "dimension": 8
+    },
+    {
+      "step": 10000,
+      "optimizer_steps": [
+        10000
+      ],
+      "sha256": "fb135d5d1aef63c7e208b8684c64c4983ae0e93ce49b3dc4ce7abf024ef18bb4",
+      "validation_completed": true,
+      "dimension": 8
+    }
+  ],
+  "training_complete": true,
+  "physical_evaluation_complete": false,
+  "job_id": "47870"
+}

@@ -1,0 +1,701 @@
+{
+  "date": "2026-11-03",
+  "training_started": false,
+  "optimizer_created": false,
+  "parameter_updates": 0,
+  "formal_dataset_generated": false,
+  "tests": {
+    "passed": 73,
+    "deselected": 2,
+    "deselected_reason": "Legacy optimizer-step tests excluded by user no-training constraint"
+  },
+  "sample_data": {
+    "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/data/passive_family_check_20261103",
+    "counts": {
+      "mode": "plan_only",
+      "training_started": false,
+      "writes_files": false,
+      "family_name": "passive_multi_damping_check_20261103",
+      "groups": {
+        "train": 4,
+        "val": 4,
+        "test": 4
+      },
+      "seen_episodes": {
+        "train": 24,
+        "val": 24,
+        "test": 24
+      },
+      "unseen_episodes": {
+        "interpolation": 16,
+        "extrapolation": 4
+      },
+      "seen_frames": 12072,
+      "unseen_frames": 6820,
+      "raw_rgb_bytes": 232144896,
+      "storage_note": "Raw RGB only; excludes metadata and compression. Actual size is measured after generation.",
+      "history_seconds": 2.0,
+      "test_rollout_seconds": 32.0,
+      "model_fields": [
+        "pixels",
+        "action",
+        "dt_frame"
+      ],
+      "requires_environment_context": true,
+      "source": "Project-generated passive pendulum simulations, not an external dataset"
+    },
+    "numerical_audits": {
+      "seen.h5": [
+        {
+          "damping": 0.0,
+          "split": "train",
+          "episodes": 4,
+          "energy_balance_max_abs": 6.997993295954075e-09,
+          "max_energy_increase": 6.6715912794279575e-09,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 0.0,
+          "split": "val",
+          "episodes": 4,
+          "energy_balance_max_abs": 5.422496229812168e-09,
+          "max_energy_increase": 5.303018468794107e-09,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 0.0,
+          "split": "test",
+          "episodes": 4,
+          "energy_balance_max_abs": 3.981922347406908e-09,
+          "max_energy_increase": 3.8278713532236e-09,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true,
+          "independent_reference": {
+            "audited_episodes": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "energy_bands": 4,
+            "frames_each": 341,
+            "state_max_abs": 8.709827581387941e-08,
+            "cumulative_dissipation_max_abs": 0.0,
+            "reference": "DOP853 rtol=1e-11 atol=1e-12; one full test trajectory per initial-energy band",
+            "file_episode_ids": [
+              8,
+              9,
+              10,
+              11
+            ]
+          }
+        },
+        {
+          "damping": 0.05,
+          "split": "train",
+          "episodes": 4,
+          "energy_balance_max_abs": 5.519624063365924e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 0.05,
+          "split": "val",
+          "episodes": 4,
+          "energy_balance_max_abs": 5.167571731634624e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 0.05,
+          "split": "test",
+          "episodes": 4,
+          "energy_balance_max_abs": 3.7022675203335353e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true,
+          "independent_reference": {
+            "audited_episodes": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "energy_bands": 4,
+            "frames_each": 341,
+            "state_max_abs": 8.155326935987972e-08,
+            "cumulative_dissipation_max_abs": 3.96467747521001e-09,
+            "reference": "DOP853 rtol=1e-11 atol=1e-12; one full test trajectory per initial-energy band",
+            "file_episode_ids": [
+              20,
+              21,
+              22,
+              23
+            ]
+          }
+        },
+        {
+          "damping": 0.1,
+          "split": "train",
+          "episodes": 4,
+          "energy_balance_max_abs": 5.140179504259379e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 0.1,
+          "split": "val",
+          "episodes": 4,
+          "energy_balance_max_abs": 5.110814160769195e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 0.1,
+          "split": "test",
+          "episodes": 4,
+          "energy_balance_max_abs": 3.6890937249456357e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true,
+          "independent_reference": {
+            "audited_episodes": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "energy_bands": 4,
+            "frames_each": 341,
+            "state_max_abs": 4.871491207647516e-08,
+            "cumulative_dissipation_max_abs": 1.049471620717668e-08,
+            "reference": "DOP853 rtol=1e-11 atol=1e-12; one full test trajectory per initial-energy band",
+            "file_episode_ids": [
+              32,
+              33,
+              34,
+              35
+            ]
+          }
+        },
+        {
+          "damping": 0.2,
+          "split": "train",
+          "episodes": 4,
+          "energy_balance_max_abs": 5.103918176985189e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 0.2,
+          "split": "val",
+          "episodes": 4,
+          "energy_balance_max_abs": 4.997043445698068e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 0.2,
+          "split": "test",
+          "episodes": 4,
+          "energy_balance_max_abs": 3.6595785291027028e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true,
+          "independent_reference": {
+            "audited_episodes": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "energy_bands": 4,
+            "frames_each": 341,
+            "state_max_abs": 2.471077575894043e-08,
+            "cumulative_dissipation_max_abs": 1.4807184811616025e-08,
+            "reference": "DOP853 rtol=1e-11 atol=1e-12; one full test trajectory per initial-energy band",
+            "file_episode_ids": [
+              44,
+              45,
+              46,
+              47
+            ]
+          }
+        },
+        {
+          "damping": 0.5,
+          "split": "train",
+          "episodes": 4,
+          "energy_balance_max_abs": 4.928633057232901e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 0.5,
+          "split": "val",
+          "episodes": 4,
+          "energy_balance_max_abs": 4.64172345004954e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 0.5,
+          "split": "test",
+          "episodes": 4,
+          "energy_balance_max_abs": 3.540215787189993e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true,
+          "independent_reference": {
+            "audited_episodes": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "energy_bands": 4,
+            "frames_each": 341,
+            "state_max_abs": 9.647043053284676e-09,
+            "cumulative_dissipation_max_abs": 1.5809884956752285e-08,
+            "reference": "DOP853 rtol=1e-11 atol=1e-12; one full test trajectory per initial-energy band",
+            "file_episode_ids": [
+              56,
+              57,
+              58,
+              59
+            ]
+          }
+        },
+        {
+          "damping": 1.0,
+          "split": "train",
+          "episodes": 4,
+          "energy_balance_max_abs": 4.1985659393617425e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 1.0,
+          "split": "val",
+          "episodes": 4,
+          "energy_balance_max_abs": 3.974191864486443e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 1.0,
+          "split": "test",
+          "episodes": 4,
+          "energy_balance_max_abs": 3.231600986808303e-09,
+          "max_energy_increase": 6.427738716222468e-16,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true,
+          "independent_reference": {
+            "audited_episodes": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "energy_bands": 4,
+            "frames_each": 341,
+            "state_max_abs": 4.582418000609323e-09,
+            "cumulative_dissipation_max_abs": 1.49634118429276e-08,
+            "reference": "DOP853 rtol=1e-11 atol=1e-12; one full test trajectory per initial-energy band",
+            "file_episode_ids": [
+              68,
+              69,
+              70,
+              71
+            ]
+          }
+        }
+      ],
+      "unseen.h5": [
+        {
+          "damping": 0.075,
+          "split": "test",
+          "episodes": 4,
+          "energy_balance_max_abs": 3.6958022475719332e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true,
+          "independent_reference": {
+            "audited_episodes": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "energy_bands": 4,
+            "frames_each": 341,
+            "state_max_abs": 6.430268571083753e-08,
+            "cumulative_dissipation_max_abs": 7.591445694288268e-09,
+            "reference": "DOP853 rtol=1e-11 atol=1e-12; one full test trajectory per initial-energy band",
+            "file_episode_ids": [
+              0,
+              1,
+              2,
+              3
+            ]
+          }
+        },
+        {
+          "damping": 0.15,
+          "split": "test",
+          "episodes": 4,
+          "energy_balance_max_abs": 3.674902937511604e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true,
+          "independent_reference": {
+            "audited_episodes": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "energy_bands": 4,
+            "frames_each": 341,
+            "state_max_abs": 3.2671709667558835e-08,
+            "cumulative_dissipation_max_abs": 1.3555274236409787e-08,
+            "reference": "DOP853 rtol=1e-11 atol=1e-12; one full test trajectory per initial-energy band",
+            "file_episode_ids": [
+              4,
+              5,
+              6,
+              7
+            ]
+          }
+        },
+        {
+          "damping": 0.35,
+          "split": "test",
+          "episodes": 4,
+          "energy_balance_max_abs": 3.6060581187769003e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true,
+          "independent_reference": {
+            "audited_episodes": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "energy_bands": 4,
+            "frames_each": 341,
+            "state_max_abs": 1.3926594322200003e-08,
+            "cumulative_dissipation_max_abs": 1.5689307630850635e-08,
+            "reference": "DOP853 rtol=1e-11 atol=1e-12; one full test trajectory per initial-energy band",
+            "file_episode_ids": [
+              8,
+              9,
+              10,
+              11
+            ]
+          }
+        },
+        {
+          "damping": 0.75,
+          "split": "test",
+          "episodes": 4,
+          "energy_balance_max_abs": 3.4023037720487537e-09,
+          "max_energy_increase": 0.0,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true,
+          "independent_reference": {
+            "audited_episodes": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "energy_bands": 4,
+            "frames_each": 341,
+            "state_max_abs": 6.359717641402085e-09,
+            "cumulative_dissipation_max_abs": 1.5532393149442214e-08,
+            "reference": "DOP853 rtol=1e-11 atol=1e-12; one full test trajectory per initial-energy band",
+            "file_episode_ids": [
+              12,
+              13,
+              14,
+              15
+            ]
+          }
+        },
+        {
+          "damping": 1.5,
+          "split": "test",
+          "episodes": 4,
+          "energy_balance_max_abs": 2.815501609632065e-09,
+          "max_energy_increase": 7.782179958889224e-16,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true,
+          "independent_reference": {
+            "audited_episodes": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "energy_bands": 4,
+            "frames_each": 341,
+            "state_max_abs": 2.9620366159832656e-09,
+            "cumulative_dissipation_max_abs": 1.4046058538497164e-08,
+            "reference": "DOP853 rtol=1e-11 atol=1e-12; one full test trajectory per initial-energy band",
+            "file_episode_ids": [
+              16,
+              17,
+              18,
+              19
+            ]
+          }
+        }
+      ]
+    },
+    "context_overlap": {
+      "scope": "SHA256 of the first history frames only, all damping conditions combined; all actions zero. Not later-window or approximate-duplicate screening.",
+      "seen_val_matches_train": [],
+      "seen_test_matches_development": [],
+      "unseen_test_matches_development": [],
+      "unseen_test_matches_seen_test": [
+        0
+      ],
+      "policy": "Report all collisions without deletion or silent resampling. Seen/unseen test groups are deliberately paired; their overlap is not training leakage."
+    },
+    "cross_condition_ambiguity_examples": [
+      {
+        "unseen_episode": 0,
+        "seen_episode": 8,
+        "same_initial_group": true,
+        "b_unseen": 0.075,
+        "b_seen": 0.0,
+        "future_state_max_abs_difference": 0.9155098938981621
+      },
+      {
+        "unseen_episode": 0,
+        "seen_episode": 20,
+        "same_initial_group": true,
+        "b_unseen": 0.075,
+        "b_seen": 0.05,
+        "future_state_max_abs_difference": 0.1796868987197417
+      }
+    ]
+  },
+  "preflight": {
+    "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/data/passive_family_check_20261103/seen.h5",
+    "dataset_sha256": "55ebd17508aefe75c8bda84250b0c64ea89e5105a8105a5445296b9d84715e43",
+    "split_disjoint": true,
+    "split_audit_scope": "Episode IDs and group IDs are disjoint across the existing splits. This is not an audit of exact or near-duplicate RGB clips; the original splits are unchanged.",
+    "split_sizes": {
+      "train": 24,
+      "val": 24,
+      "test": 24
+    },
+    "declared_train_frames": 81,
+    "train_frames": 81,
+    "history": 21,
+    "history_required": 21,
+    "requires_environment_context": true,
+    "sampling_metadata_fields": [
+      "regime_id"
+    ],
+    "max_horizon": 32,
+    "window_frames": 53,
+    "action_dim": 1,
+    "image_shape": [
+      64,
+      64,
+      3
+    ],
+    "model_fields": [
+      "pixels",
+      "action",
+      "dt_frame"
+    ],
+    "target_fields_read": [],
+    "test_samples_read": false,
+    "training_started": false,
+    "windows": {
+      "train": 696,
+      "val": 696
+    },
+    "strata_windows": {
+      "train": {
+        "regime0_mode0_time0": 40,
+        "regime0_mode0_time1": 40,
+        "regime0_mode0_time2": 36,
+        "regime1_mode0_time0": 40,
+        "regime1_mode0_time1": 40,
+        "regime1_mode0_time2": 36,
+        "regime2_mode0_time0": 40,
+        "regime2_mode0_time1": 40,
+        "regime2_mode0_time2": 36,
+        "regime3_mode0_time0": 40,
+        "regime3_mode0_time1": 40,
+        "regime3_mode0_time2": 36,
+        "regime4_mode0_time0": 40,
+        "regime4_mode0_time1": 40,
+        "regime4_mode0_time2": 36,
+        "regime5_mode0_time0": 40,
+        "regime5_mode0_time1": 40,
+        "regime5_mode0_time2": 36
+      },
+      "val": {
+        "regime0_mode0_time0": 40,
+        "regime0_mode0_time1": 40,
+        "regime0_mode0_time2": 36,
+        "regime1_mode0_time0": 40,
+        "regime1_mode0_time1": 40,
+        "regime1_mode0_time2": 36,
+        "regime2_mode0_time0": 40,
+        "regime2_mode0_time1": 40,
+        "regime2_mode0_time2": 36,
+        "regime3_mode0_time0": 40,
+        "regime3_mode0_time1": 40,
+        "regime3_mode0_time2": 36,
+        "regime4_mode0_time0": 40,
+        "regime4_mode0_time1": 40,
+        "regime4_mode0_time2": 36,
+        "regime5_mode0_time0": 40,
+        "regime5_mode0_time1": 40,
+        "regime5_mode0_time2": 36
+      }
+    },
+    "sampling_contract": "Available regime/mode/time strata balanced; episode uniform within strata; RGB/action/dt model inputs only",
+    "scope": "Constant physical damping per trajectory tests a special case, not identification of genuine position/velocity-dependent damping. Opaque regime IDs, when present, are sampling metadata only. No damping coefficient or other physical target is read for training.",
+    "mode": "preflight_only",
+    "optimizer_created": false,
+    "run_directory_created": false,
+    "config": {
+      "model": {
+        "history": 21,
+        "velocity_history": 5,
+        "environment_context_dim": 4
+      },
+      "training": {
+        "steps": 20000,
+        "batch_size": 32,
+        "train_frames": 81,
+        "seed": 0,
+        "threads": 4,
+        "encoder_lr": 2e-05,
+        "dynamics_lr": 0.0001,
+        "weight_decay": 0.0001,
+        "warmup_steps": 500,
+        "minimum_lr_ratio": 0.1,
+        "gradient_clip": 1.0,
+        "curriculum": [
+          {
+            "until_step": 1000,
+            "horizon": 4
+          },
+          {
+            "until_step": 4000,
+            "horizon": 8
+          },
+          {
+            "until_step": 10000,
+            "horizon": 16
+          },
+          {
+            "until_step": 20000,
+            "horizon": 32
+          }
+        ],
+        "val_horizons": [
+          8,
+          32
+        ],
+        "val_every": 250,
+        "val_windows": 288,
+        "val_seed": 1009,
+        "minimum_target_std": 0.1,
+        "minimum_target_motion": 0.001,
+        "validation_gate_time_bins": [
+          0
+        ]
+      }
+    },
+    "config_sha256": "afa7aca0c58df4ba6c62a85bcf3111fface8ff3f095270005465757f343d7a32",
+    "resolved_model_config": {
+      "history": 21,
+      "velocity_history": 5,
+      "environment_context_dim": 4,
+      "dt": 0.1,
+      "q_dim": 2,
+      "encoder_width": 32,
+      "velocity_correction_scale": 1.0,
+      "sigreg_weight": 0.25,
+      "motion_weight": 1.0,
+      "initializer_weight": 0.001,
+      "sigreg_knots": 17,
+      "sigreg_projections": 256,
+      "variance_floor": 0.0001,
+      "core": {
+        "hidden_dim": 32,
+        "action_dim": 1,
+        "damping_mode": "position_velocity",
+        "integrator": "discrete_gradient",
+        "substeps": 2,
+        "newton_iterations": 6,
+        "residual_atol": 1e-08,
+        "residual_rtol": 1e-07,
+        "chain_atol": 1e-10,
+        "strict": true
+      }
+    },
+    "checked_frame_intervals": 3840,
+    "validation_horizons_seconds": [
+      0.8,
+      3.2
+    ],
+    "validation_horizons_steps": [
+      8,
+      32
+    ],
+    "note": "No training runs without --execute. The step budget is unprofiled, not an optimality or cost claim."
+  },
+  "model_check": {
+    "batch_size": 2,
+    "horizon": 4,
+    "loss": 0.24229572263157773,
+    "gradients_finite": true,
+    "context_gradient_l1": 0.001268473657546565,
+    "state_dict_unchanged": true,
+    "validation_group_count": 36,
+    "validation_score": 297.7620808562907,
+    "untrained_gate_passed": false
+  },
+  "test_only_training_rejected": "HDF5 train_frames must be a positive integer",
+  "source_sha256": {
+    "dpbench/passive_family.py": "e4be4d69979a015f89938d4949cbacb1ce4836b686ee55c25be2afabfc15dbac",
+    "dpbench/dissipative_core.py": "28ffabd06e86b1968a8f32a33015e3ab01bc839015e83466460bf111800fc54e",
+    "dpbench/dissipative_model.py": "e1e37a7e8d967a3175250a83881144694bd424d1873c85398486c65e8abbc1b9",
+    "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+    "dpbench/train_dissipative.py": "7ab7f2eeec19e4a60c5b1e5e8acf70dbef0e356ffe151d1dfbca8a2f7925355e",
+    "configs/passive_family.json": "c49361d5299aafc9f2d29c411b4f1228e9eb04dbabd8237901c726fd94c097e4",
+    "configs/dissipative_passive_family.json": "68339dc27d90593e54a64197eba6466e343da67e5f4a6d1a1b0ac8eea85923ed"
+  },
+  "not_validated": [
+    "optimizer updates",
+    "CUDA",
+    "convergence",
+    "physical prediction accuracy",
+    "full scale generation",
+    "family-specific physical evaluation entry point"
+  ]
+}

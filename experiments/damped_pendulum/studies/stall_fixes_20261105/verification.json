@@ -1,0 +1,123 @@
+{
+  "completed_utc": "2026-11-05T05:08:09.592907+00:00",
+  "scope": "Versioned code fixes; no production data generation, training, optimizer updates, or server submission",
+  "changes": [
+    {
+      "path": "README.md",
+      "before_sha256": "9e7b01c75244971f2f8c6443c827a046e2582c91438634e4acba459839d6882a",
+      "after_sha256": "b0480963ccdc2cc814dc10dc9d569ceed5858634326bb25e06397dd3d7c207b3"
+    },
+    {
+      "path": "configs/dissipative_passive_fixed_v1.json",
+      "before_sha256": null,
+      "after_sha256": "b2311d590aae1beb5ac24b286e3011462d9938f74af4f55ec2b676939fade4be"
+    },
+    {
+      "path": "configs/dissipative_passive_fixed_v1_softplus.json",
+      "before_sha256": null,
+      "after_sha256": "67cc65a55459286ba39b625074d3f17056643f66feb70da08ab884d6a102a2b5"
+    },
+    {
+      "path": "configs/passive_family_smooth_v1.json",
+      "before_sha256": null,
+      "after_sha256": "713011f5f586f130c56aa49f33368dea8d987bb31d6f1b2357b2746a5edff3e4"
+    },
+    {
+      "path": "dpbench/dissipative_core.py",
+      "before_sha256": "1eb98f2aafbbe6d215bccdfa6296371096c292ca85a204b663083bf7b461b2fb",
+      "after_sha256": "077c941d2b897411fc8560dc2dd9e7877bc8125560293a68a2552507b52f603f"
+    },
+    {
+      "path": "dpbench/dissipative_model.py",
+      "before_sha256": "22759040e4b6085a4b029f702c0188cd1b230961751ae0307c4202704e53567e",
+      "after_sha256": "302a07687377bbeac2d1de3eb77b406b197db8e4b561f4e51034e2dbded977b6"
+    },
+    {
+      "path": "dpbench/generate.py",
+      "before_sha256": "4f05aaee7945a2ebec5d9329834c8bf5eaef98958e8a7b74d9b08c609ce8393d",
+      "after_sha256": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31"
+    },
+    {
+      "path": "dpbench/passive_family.py",
+      "before_sha256": "e4be4d69979a015f89938d4949cbacb1ce4836b686ee55c25be2afabfc15dbac",
+      "after_sha256": "1728aa2e046cbc8c13aece9d968b82c625b78dfee591f3c12389870a45e09090"
+    },
+    {
+      "path": "dpbench/train_dissipative.py",
+      "before_sha256": "dd65dc94bce52daa53a39e90386bee2e3cd50bd269bc15be48083445acbe3339",
+      "after_sha256": "cd1802418cac73d13a630abbc9767eb39f062744f3dcbd6b3a433bb3560255a0"
+    },
+    {
+      "path": "tests/test_stall_model.py",
+      "before_sha256": null,
+      "after_sha256": "ebe8f9ea9af79b53aab61ce0b6745722044952f3adb311aa4a8c46971e046260"
+    },
+    {
+      "path": "tests/test_stall_potential.py",
+      "before_sha256": null,
+      "after_sha256": "fc1f507f1ea4f42be7f4dfe95f90877bcf24042b833e279b7b5ce357eda4b926"
+    },
+    {
+      "path": "tests/test_stall_renderer.py",
+      "before_sha256": null,
+      "after_sha256": "f87d27c5f22a049251341ce870f248727030a5486cbdcdd5b68c8e6f83b708e4"
+    },
+    {
+      "path": "tests/test_stall_validation.py",
+      "before_sha256": null,
+      "after_sha256": "805ee100a0fb66f4150768f5f6b86bf49df681e610ddda83683192f7144ba5da"
+    }
+  ],
+  "checks": {
+    "tests": 198,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "explicitly_deselected_optimizer_update_tests": 3,
+  "new_recipe": "configs/dissipative_passive_fixed_v1.json",
+  "potential_control": "configs/dissipative_passive_fixed_v1_softplus.json",
+  "new_data_recipe": "configs/passive_family_smooth_v1.json",
+  "compatibility": {
+    "checkpoint_step": 19250,
+    "checkpoint_sha256": "5163a6a293a7c773a90e9ef59a62353a4debdba64c0dc24814bcbdb3b47f9042",
+    "legacy_vs_backup_forward_max_abs": {
+      "q": 0.0,
+      "p": 0.0,
+      "correction": 0.0,
+      "context": 0.0
+    },
+    "static_legacy_p": [
+      [
+        -0.8825815320014954,
+        -0.6926926374435425
+      ],
+      [
+        -0.8825815320014954,
+        -0.6926926374435425
+      ]
+    ],
+    "static_fixed_p": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ]
+    ],
+    "scope": "CPU two captured histories x four steps; backup model against new legacy defaults; shared pinned SIGReg and default-compatible core; initializer switch is diagnostic, not retraining",
+    "optimizer_updates": 0,
+    "parameters_unchanged": true
+  },
+  "validation_limits": [
+    "CPU checks only; CUDA new modes and training quality not established",
+    "New loss weights and gates are provisional validation choices, not tuned on tests",
+    "Raw potential changes the force field and requires a new training experiment",
+    "Mechanical-coordinate/kinetic-geometry redesign and staged-training orchestration not implemented in this bug-fix scope",
+    "Original checkpoints need their frozen source for hash-bound evaluation/resume"
+  ],
+  "backups": "before/",
+  "patch": "changes.patch"
+}

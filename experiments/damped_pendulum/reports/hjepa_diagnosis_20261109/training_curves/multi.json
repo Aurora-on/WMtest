@@ -1,0 +1,2822 @@
+{
+  "scope": "Sampled original completed run, not new retraining",
+  "source_sha256": "9f6ad57abb1f72fe255d1b9c642f5429a71dcafb7fd6e9b0eb65132331d7ee45",
+  "original_rows": 20000,
+  "selection": "step1,every250,final",
+  "rows": [
+    {
+      "step": 1,
+      "horizon": 4,
+      "losses": {
+        "loss": 0.5341647267341614,
+        "pred_loss": 0.07783930003643036,
+        "pic_loss": 0.0006132323760539293,
+        "iso_loss": 0.4557121992111206,
+        "prediction_loss": 0.07783930003643036
+      },
+      "gradient_norm_before_clip": 2.583350896835327,
+      "learning_rate": 2.0000000000000002e-07,
+      "train_seconds": 0.9771167933940887
+    },
+    {
+      "step": 250,
+      "horizon": 4,
+      "losses": {
+        "loss": 0.4747929573059082,
+        "pred_loss": 0.01586364209651947,
+        "pic_loss": 0.0029925666749477386,
+        "iso_loss": 0.4559367597103119,
+        "prediction_loss": 0.01586364209651947
+      },
+      "gradient_norm_before_clip": 1.7198282480239868,
+      "learning_rate": 5e-05,
+      "train_seconds": 0.19692979753017426,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.3397713336679671,
+            "pred_loss": 0.03121899502972762,
+            "pic_loss": 0.004903882172786527,
+            "iso_loss": 0.3036484552754296,
+            "prediction_loss": 0.03121899502972762
+          },
+          "32": {
+            "loss": 0.3150508867369758,
+            "pred_loss": 0.1025190692808893,
+            "pic_loss": 0.01248376795815097,
+            "iso_loss": 0.20004805425802866,
+            "prediction_loss": 0.1025190692808893
+          }
+        },
+        "score": 0.06686903215530846,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.326825797557831
+    },
+    {
+      "step": 500,
+      "horizon": 4,
+      "losses": {
+        "loss": 0.48799899220466614,
+        "pred_loss": 0.012048302218317986,
+        "pic_loss": 0.006940944120287895,
+        "iso_loss": 0.46900975704193115,
+        "prediction_loss": 0.012048302218317986
+      },
+      "gradient_norm_before_clip": 1.937808632850647,
+      "learning_rate": 0.0001,
+      "train_seconds": 0.1888180822134018,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.3345990346537696,
+            "pred_loss": 0.021026029354996152,
+            "pic_loss": 0.007283293590363529,
+            "iso_loss": 0.30628971258799237,
+            "prediction_loss": 0.021026029354996152
+          },
+          "32": {
+            "loss": 0.2945348156823052,
+            "pred_loss": 0.08261199792226155,
+            "pic_loss": 0.009136162905229462,
+            "iso_loss": 0.2027866525782479,
+            "prediction_loss": 0.08261199792226155
+          }
+        },
+        "score": 0.051819013638628855,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.225503481924534
+    },
+    {
+      "step": 750,
+      "horizon": 4,
+      "losses": {
+        "loss": 0.48736807703971863,
+        "pred_loss": 0.009564962238073349,
+        "pic_loss": 0.006009122356772423,
+        "iso_loss": 0.4717939794063568,
+        "prediction_loss": 0.009564962238073349
+      },
+      "gradient_norm_before_clip": 1.7504783868789673,
+      "learning_rate": 9.996350491772064e-05,
+      "train_seconds": 0.2072393000125885,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.33198466565873885,
+            "pred_loss": 0.018972373464041285,
+            "pic_loss": 0.006941025559273031,
+            "iso_loss": 0.30607126818762886,
+            "prediction_loss": 0.018972373464041285
+          },
+          "32": {
+            "loss": 0.28934447632895577,
+            "pred_loss": 0.07764333734909694,
+            "pic_loss": 0.012195853102538321,
+            "iso_loss": 0.19950528939565024,
+            "prediction_loss": 0.07764333734909694
+          }
+        },
+        "score": 0.04830785540656911,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.341315396130085
+    },
+    {
+      "step": 1000,
+      "horizon": 4,
+      "losses": {
+        "loss": 0.4929487109184265,
+        "pred_loss": 0.009587526321411133,
+        "pic_loss": 0.006963447667658329,
+        "iso_loss": 0.4763977527618408,
+        "prediction_loss": 0.009587526321411133
+      },
+      "gradient_norm_before_clip": 1.9577974081039429,
+      "learning_rate": 9.985407886603945e-05,
+      "train_seconds": 0.18884394317865372,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.33029963241683113,
+            "pred_loss": 0.021198072367244296,
+            "pic_loss": 0.006009630238016446,
+            "iso_loss": 0.30309193001853096,
+            "prediction_loss": 0.021198072367244296
+          },
+          "32": {
+            "loss": 0.3078603976302677,
+            "pred_loss": 0.0966968403922187,
+            "pic_loss": 0.008664518439521393,
+            "iso_loss": 0.2024990369876226,
+            "prediction_loss": 0.0966968403922187
+          }
+        },
+        "score": 0.05894745637973149,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.230114609003067
+    },
+    {
+      "step": 1250,
+      "horizon": 8,
+      "losses": {
+        "loss": 0.30938491225242615,
+        "pred_loss": 0.01325114443898201,
+        "pic_loss": 0.0022355210967361927,
+        "iso_loss": 0.29389825463294983,
+        "prediction_loss": 0.01325114443898201
+      },
+      "gradient_norm_before_clip": 1.210272192955017,
+      "learning_rate": 9.967189933441243e-05,
+      "train_seconds": 0.27493929117918015,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.3107919428083632,
+            "pred_loss": 0.016822419232792325,
+            "pic_loss": 0.0025299072731286287,
+            "iso_loss": 0.29143961601787144,
+            "prediction_loss": 0.016822419232792325
+          },
+          "32": {
+            "loss": 0.25172876483864254,
+            "pred_loss": 0.0653451784617371,
+            "pic_loss": 0.00564137445245352,
+            "iso_loss": 0.180742214123408,
+            "prediction_loss": 0.0653451784617371
+          }
+        },
+        "score": 0.04108379884726471,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.172075390815735
+    },
+    {
+      "step": 1500,
+      "horizon": 8,
+      "losses": {
+        "loss": 0.3006638288497925,
+        "pred_loss": 0.019037794321775436,
+        "pic_loss": 0.003576274961233139,
+        "iso_loss": 0.2780497670173645,
+        "prediction_loss": 0.019037794321775436
+      },
+      "gradient_norm_before_clip": 1.4095937013626099,
+      "learning_rate": 9.941726181870608e-05,
+      "train_seconds": 0.2695142403244972,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.3075350754790836,
+            "pred_loss": 0.01772586525314384,
+            "pic_loss": 0.0033784868299133247,
+            "iso_loss": 0.2864307231373257,
+            "prediction_loss": 0.01772586525314384
+          },
+          "32": {
+            "loss": 0.24190010130405426,
+            "pred_loss": 0.05840934771630499,
+            "pic_loss": 0.006889462522748444,
+            "iso_loss": 0.17660129070281982,
+            "prediction_loss": 0.05840934771630499
+          }
+        },
+        "score": 0.03806760648472442,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.191257432103157
+    },
+    {
+      "step": 1750,
+      "horizon": 8,
+      "losses": {
+        "loss": 0.2810172140598297,
+        "pred_loss": 0.018363846465945244,
+        "pic_loss": 0.0019786939956247807,
+        "iso_loss": 0.26067468523979187,
+        "prediction_loss": 0.018363846465945244
+      },
+      "gradient_norm_before_clip": 1.1675375699996948,
+      "learning_rate": 9.909057934190205e-05,
+      "train_seconds": 0.27038393169641495,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.3075740370485518,
+            "pred_loss": 0.019305104803707864,
+            "pic_loss": 0.0025389705422437852,
+            "iso_loss": 0.28572995795143974,
+            "prediction_loss": 0.019305104803707864
+          },
+          "32": {
+            "loss": 0.2428625375032425,
+            "pred_loss": 0.06202733019987742,
+            "pic_loss": 0.005326359843214353,
+            "iso_loss": 0.17550885015063816,
+            "prediction_loss": 0.06202733019987742
+          }
+        },
+        "score": 0.04066621750179264,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.190790057182312
+    },
+    {
+      "step": 2000,
+      "horizon": 8,
+      "losses": {
+        "loss": 0.2943022847175598,
+        "pred_loss": 0.016531726345419884,
+        "pic_loss": 0.0024485988542437553,
+        "iso_loss": 0.27532196044921875,
+        "prediction_loss": 0.016531726345419884
+      },
+      "gradient_norm_before_clip": 1.207971453666687,
+      "learning_rate": 9.869238178417235e-05,
+      "train_seconds": 0.26812589168548584,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.3035021722316742,
+            "pred_loss": 0.01982058770954609,
+            "pic_loss": 0.0025866420732604135,
+            "iso_loss": 0.281094941827986,
+            "prediction_loss": 0.01982058770954609
+          },
+          "32": {
+            "loss": 0.24686766498618656,
+            "pred_loss": 0.071029641562038,
+            "pic_loss": 0.00395216073633896,
+            "iso_loss": 0.17188585797945657,
+            "prediction_loss": 0.071029641562038
+          }
+        },
+        "score": 0.04542511463579205,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.142362579703331
+    },
+    {
+      "step": 2250,
+      "horizon": 8,
+      "losses": {
+        "loss": 0.30185288190841675,
+        "pred_loss": 0.016624469310045242,
+        "pic_loss": 0.004957539029419422,
+        "iso_loss": 0.28027087450027466,
+        "prediction_loss": 0.016624469310045242
+      },
+      "gradient_norm_before_clip": 1.4838860034942627,
+      "learning_rate": 9.822331502341176e-05,
+      "train_seconds": 0.268093079328537,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.3029496669769287,
+            "pred_loss": 0.01870601334505611,
+            "pic_loss": 0.0038553571535481345,
+            "iso_loss": 0.28038829896185136,
+            "prediction_loss": 0.01870601334505611
+          },
+          "32": {
+            "loss": 0.24128801127274832,
+            "pred_loss": 0.06405195883578724,
+            "pic_loss": 0.006284075168271859,
+            "iso_loss": 0.1709519757164849,
+            "prediction_loss": 0.06405195883578724
+          }
+        },
+        "score": 0.04137898609042168,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 4.586901172995567
+    },
+    {
+      "step": 2500,
+      "horizon": 8,
+      "losses": {
+        "loss": 0.2838400602340698,
+        "pred_loss": 0.019273439422249794,
+        "pic_loss": 0.002570655196905136,
+        "iso_loss": 0.26199597120285034,
+        "prediction_loss": 0.019273439422249794
+      },
+      "gradient_norm_before_clip": 1.3694767951965332,
+      "learning_rate": 9.768413988762156e-05,
+      "train_seconds": 0.2896535247564316,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.3024335602919261,
+            "pred_loss": 0.021246620557374425,
+            "pic_loss": 0.00216958521761828,
+            "iso_loss": 0.2790173557069566,
+            "prediction_loss": 0.021246620557374425
+          },
+          "32": {
+            "loss": 0.2417697956164678,
+            "pred_loss": 0.07078356047471364,
+            "pic_loss": 0.002998050716188219,
+            "iso_loss": 0.16798818773693508,
+            "prediction_loss": 0.07078356047471364
+          }
+        },
+        "score": 0.046015090516044035,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.299253731966019
+    },
+    {
+      "step": 2750,
+      "horizon": 8,
+      "losses": {
+        "loss": 0.2755267024040222,
+        "pred_loss": 0.01729522831737995,
+        "pic_loss": 0.0016305004246532917,
+        "iso_loss": 0.2566009759902954,
+        "prediction_loss": 0.01729522831737995
+      },
+      "gradient_norm_before_clip": 1.0474627017974854,
+      "learning_rate": 9.707573092084368e-05,
+      "train_seconds": 0.2689957544207573,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2958495318889618,
+            "pred_loss": 0.018562215483850904,
+            "pic_loss": 0.0021413705673896605,
+            "iso_loss": 0.275145947933197,
+            "prediction_loss": 0.018562215483850904
+          },
+          "32": {
+            "loss": 0.23065019481711918,
+            "pred_loss": 0.061228101038270526,
+            "pic_loss": 0.004488348624565535,
+            "iso_loss": 0.16493374605973563,
+            "prediction_loss": 0.061228101038270526
+          }
+        },
+        "score": 0.039895158261060715,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.133365489542484
+    },
+    {
+      "step": 3000,
+      "horizon": 8,
+      "losses": {
+        "loss": 0.2872598171234131,
+        "pred_loss": 0.018858004361391068,
+        "pic_loss": 0.0037709593307226896,
+        "iso_loss": 0.26463085412979126,
+        "prediction_loss": 0.018858004361391068
+      },
+      "gradient_norm_before_clip": 1.476988673210144,
+      "learning_rate": 9.639907496464709e-05,
+      "train_seconds": 0.2745051980018616,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2971984114911821,
+            "pred_loss": 0.018741286256247096,
+            "pic_loss": 0.0023899917335559926,
+            "iso_loss": 0.2760671310954624,
+            "prediction_loss": 0.018741286256247096
+          },
+          "32": {
+            "loss": 0.2335559907886717,
+            "pred_loss": 0.06616450432274076,
+            "pic_loss": 0.0029579075570735666,
+            "iso_loss": 0.16443357865015665,
+            "prediction_loss": 0.06616450432274076
+          }
+        },
+        "score": 0.04245289528949393,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.142440244555473
+    },
+    {
+      "step": 3250,
+      "horizon": 8,
+      "losses": {
+        "loss": 0.28578153252601624,
+        "pred_loss": 0.015052519738674164,
+        "pic_loss": 0.0009313612245023251,
+        "iso_loss": 0.2697976529598236,
+        "prediction_loss": 0.015052519738674164
+      },
+      "gradient_norm_before_clip": 0.8807812333106995,
+      "learning_rate": 9.565526955746721e-05,
+      "train_seconds": 0.2804414853453636,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.29426848888397217,
+            "pred_loss": 0.0194248054176569,
+            "pic_loss": 0.0012170070420122808,
+            "iso_loss": 0.2736266785197788,
+            "prediction_loss": 0.0194248054176569
+          },
+          "32": {
+            "loss": 0.22585266166263157,
+            "pred_loss": 0.06170429993006918,
+            "pic_loss": 0.0017104497463959786,
+            "iso_loss": 0.1624379124906328,
+            "prediction_loss": 0.06170429993006918
+          }
+        },
+        "score": 0.04056455267386304,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.2547124698758125
+    },
+    {
+      "step": 3500,
+      "horizon": 8,
+      "losses": {
+        "loss": 0.27270281314849854,
+        "pred_loss": 0.01787399686872959,
+        "pic_loss": 0.0021446491591632366,
+        "iso_loss": 0.25268417596817017,
+        "prediction_loss": 0.01787399686872959
+      },
+      "gradient_norm_before_clip": 1.3461436033248901,
+      "learning_rate": 9.484552115439445e-05,
+      "train_seconds": 0.27685780078172684,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.28968241148524815,
+            "pred_loss": 0.017801875455511942,
+            "pic_loss": 0.001982909937699636,
+            "iso_loss": 0.2698976265059577,
+            "prediction_loss": 0.017801875455511942
+          },
+          "32": {
+            "loss": 0.22256237268447876,
+            "pred_loss": 0.060447623332341514,
+            "pic_loss": 0.0033884582937591607,
+            "iso_loss": 0.1587262898683548,
+            "prediction_loss": 0.060447623332341514
+          }
+        },
+        "score": 0.039124749393926725,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.337517619132996
+    },
+    {
+      "step": 3750,
+      "horizon": 8,
+      "losses": {
+        "loss": 0.2719123065471649,
+        "pred_loss": 0.020494936034083366,
+        "pic_loss": 0.001509475870989263,
+        "iso_loss": 0.24990789592266083,
+        "prediction_loss": 0.020494936034083366
+      },
+      "gradient_norm_before_clip": 1.4633413553237915,
+      "learning_rate": 9.397114317029975e-05,
+      "train_seconds": 0.27861636132001877,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2935527132617103,
+            "pred_loss": 0.021381302840179868,
+            "pic_loss": 0.0027467599138617516,
+            "iso_loss": 0.2694246537155575,
+            "prediction_loss": 0.021381302840179868
+          },
+          "32": {
+            "loss": 0.2522607445716858,
+            "pred_loss": 0.08077314164903429,
+            "pic_loss": 0.010783474788897567,
+            "iso_loss": 0.1607041276163525,
+            "prediction_loss": 0.08077314164903429
+          }
+        },
+        "score": 0.051077222244607076,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.193577617406845
+    },
+    {
+      "step": 4000,
+      "horizon": 8,
+      "losses": {
+        "loss": 0.2598324418067932,
+        "pred_loss": 0.014869647100567818,
+        "pic_loss": 0.00219747144728899,
+        "iso_loss": 0.24276530742645264,
+        "prediction_loss": 0.014869647100567818
+      },
+      "gradient_norm_before_clip": 1.1518192291259766,
+      "learning_rate": 9.303355384947076e-05,
+      "train_seconds": 0.27518509328365326,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2915540072653029,
+            "pred_loss": 0.01962536469929748,
+            "pic_loss": 0.0020441823871806264,
+            "iso_loss": 0.26988446050220066,
+            "prediction_loss": 0.01962536469929748
+          },
+          "32": {
+            "loss": 0.24043194452921549,
+            "pred_loss": 0.07940610580974156,
+            "pic_loss": 0.003058008202869031,
+            "iso_loss": 0.15796783235338,
+            "prediction_loss": 0.07940610580974156
+          }
+        },
+        "score": 0.04951573525451952,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.157671317458153
+    },
+    {
+      "step": 4250,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.19703970849514008,
+        "pred_loss": 0.02533838152885437,
+        "pic_loss": 0.0013754022074863315,
+        "iso_loss": 0.17032591998577118,
+        "prediction_loss": 0.02533838152885437
+      },
+      "gradient_norm_before_clip": 1.9878764152526855,
+      "learning_rate": 9.203427396521454e-05,
+      "train_seconds": 0.432538777589798,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.28807172841495937,
+            "pred_loss": 0.019475146507223446,
+            "pic_loss": 0.0009323456712688009,
+            "iso_loss": 0.26766423384348553,
+            "prediction_loss": 0.019475146507223446
+          },
+          "32": {
+            "loss": 0.20658589071697658,
+            "pred_loss": 0.054435983300209045,
+            "pic_loss": 0.0014704287103894684,
+            "iso_loss": 0.150679479042689,
+            "prediction_loss": 0.054435983300209045
+          }
+        },
+        "score": 0.036955564903716244,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.130932867527008
+    },
+    {
+      "step": 4500,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.20504255592823029,
+        "pred_loss": 0.02568335458636284,
+        "pic_loss": 0.0013599004596471786,
+        "iso_loss": 0.17799930274486542,
+        "prediction_loss": 0.02568335458636284
+      },
+      "gradient_norm_before_clip": 1.9188032150268555,
+      "learning_rate": 9.097492435315756e-05,
+      "train_seconds": 0.4306359514594078,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2917716470029619,
+            "pred_loss": 0.021208971324894164,
+            "pic_loss": 0.0010522197634499106,
+            "iso_loss": 0.2695104546017117,
+            "prediction_loss": 0.021208971324894164
+          },
+          "32": {
+            "loss": 0.21045856177806854,
+            "pred_loss": 0.05695052817463875,
+            "pic_loss": 0.002570935059338808,
+            "iso_loss": 0.15093709528446198,
+            "prediction_loss": 0.05695052817463875
+          }
+        },
+        "score": 0.039079749749766454,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 4.489247880876064
+    },
+    {
+      "step": 4750,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.20043712854385376,
+        "pred_loss": 0.02490702085196972,
+        "pic_loss": 0.0015713610919192433,
+        "iso_loss": 0.17395874857902527,
+        "prediction_loss": 0.02490702085196972
+      },
+      "gradient_norm_before_clip": 1.7667607069015503,
+      "learning_rate": 8.985722328224445e-05,
+      "train_seconds": 0.4330528527498245,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.29030488265885246,
+            "pred_loss": 0.022594111040234566,
+            "pic_loss": 0.001706209719284541,
+            "iso_loss": 0.2660045590665605,
+            "prediction_loss": 0.022594111040234566
+          },
+          "32": {
+            "loss": 0.21440478828218248,
+            "pred_loss": 0.06397212752037579,
+            "pic_loss": 0.002938387915492058,
+            "iso_loss": 0.14749427305327523,
+            "prediction_loss": 0.06397212752037579
+          }
+        },
+        "score": 0.04328311928030518,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.040858700871468
+    },
+    {
+      "step": 5000,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.19666190445423126,
+        "pred_loss": 0.024081604555249214,
+        "pic_loss": 0.0011503356508910656,
+        "iso_loss": 0.17142996191978455,
+        "prediction_loss": 0.024081604555249214
+      },
+      "gradient_norm_before_clip": 1.8667882680892944,
+      "learning_rate": 8.868298366769954e-05,
+      "train_seconds": 0.4464964419603348,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2824188768863678,
+            "pred_loss": 0.018892914884620242,
+            "pic_loss": 0.0012955082347616553,
+            "iso_loss": 0.26223045587539673,
+            "prediction_loss": 0.018892914884620242
+          },
+          "32": {
+            "loss": 0.19525534245702955,
+            "pred_loss": 0.04876262860165702,
+            "pic_loss": 0.0016681250676305757,
+            "iso_loss": 0.14482459094789293,
+            "prediction_loss": 0.04876262860165702
+          }
+        },
+        "score": 0.03382777174313863,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.1207529455423355
+    },
+    {
+      "step": 5250,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.20194165408611298,
+        "pred_loss": 0.021453719586133957,
+        "pic_loss": 0.0012288813013583422,
+        "iso_loss": 0.1792590469121933,
+        "prediction_loss": 0.021453719586133957
+      },
+      "gradient_norm_before_clip": 1.488951563835144,
+      "learning_rate": 8.745411013047166e-05,
+      "train_seconds": 0.45673129707574844,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2843592365582784,
+            "pred_loss": 0.019648941854635876,
+            "pic_loss": 0.0011238909662804669,
+            "iso_loss": 0.2635864019393921,
+            "prediction_loss": 0.019648941854635876
+          },
+          "32": {
+            "loss": 0.19959801932175955,
+            "pred_loss": 0.05427448203166326,
+            "pic_loss": 0.0014642314312772618,
+            "iso_loss": 0.1438593069712321,
+            "prediction_loss": 0.05427448203166326
+          }
+        },
+        "score": 0.03696171194314957,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.174986518919468
+    },
+    {
+      "step": 5500,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.1981671154499054,
+        "pred_loss": 0.022845201194286346,
+        "pic_loss": 0.001172228017821908,
+        "iso_loss": 0.17414969205856323,
+        "prediction_loss": 0.022845201194286346
+      },
+      "gradient_norm_before_clip": 1.4668540954589844,
+      "learning_rate": 8.617259590793198e-05,
+      "train_seconds": 0.43708446621894836,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2831005056699117,
+            "pred_loss": 0.020171809734569654,
+            "pic_loss": 0.0014425360002658432,
+            "iso_loss": 0.2614861610862944,
+            "prediction_loss": 0.020171809734569654
+          },
+          "32": {
+            "loss": 0.19919849104351467,
+            "pred_loss": 0.05222556698653433,
+            "pic_loss": 0.0021940400410029623,
+            "iso_loss": 0.1447788824637731,
+            "prediction_loss": 0.05222556698653433
+          }
+        },
+        "score": 0.03619868836055199,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.100971728563309
+    },
+    {
+      "step": 5750,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.20035862922668457,
+        "pred_loss": 0.02483748272061348,
+        "pic_loss": 0.0019315063254907727,
+        "iso_loss": 0.17358964681625366,
+        "prediction_loss": 0.02483748272061348
+      },
+      "gradient_norm_before_clip": 1.558519959449768,
+      "learning_rate": 8.484051962083579e-05,
+      "train_seconds": 0.44108328223228455,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2837711175282796,
+            "pred_loss": 0.019800284463498328,
+            "pic_loss": 0.0017167323708741202,
+            "iso_loss": 0.26225410401821136,
+            "prediction_loss": 0.019800284463498328
+          },
+          "32": {
+            "loss": 0.19438917107052273,
+            "pred_loss": 0.050095306088527046,
+            "pic_loss": 0.0022081599777771365,
+            "iso_loss": 0.1420857028828727,
+            "prediction_loss": 0.050095306088527046
+          }
+        },
+        "score": 0.03494779527601269,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.206016480922699
+    },
+    {
+      "step": 6000,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.18523335456848145,
+        "pred_loss": 0.02312433533370495,
+        "pic_loss": 0.0009703641408123076,
+        "iso_loss": 0.161138653755188,
+        "prediction_loss": 0.02312433533370495
+      },
+      "gradient_norm_before_clip": 1.8431086540222168,
+      "learning_rate": 8.346004190179198e-05,
+      "train_seconds": 0.4427928850054741,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.27853280636999345,
+            "pred_loss": 0.018494045465356775,
+            "pic_loss": 0.0011303894247652756,
+            "iso_loss": 0.25890836947494084,
+            "prediction_loss": 0.018494045465356775
+          },
+          "32": {
+            "loss": 0.18759242528014713,
+            "pred_loss": 0.04686608455247349,
+            "pic_loss": 0.001043852871387369,
+            "iso_loss": 0.13968248830901253,
+            "prediction_loss": 0.04686608455247349
+          }
+        },
+        "score": 0.032680065008915134,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.131429478526115
+    },
+    {
+      "step": 6250,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.21740317344665527,
+        "pred_loss": 0.021674353629350662,
+        "pic_loss": 0.001101127709262073,
+        "iso_loss": 0.19462768733501434,
+        "prediction_loss": 0.021674353629350662
+      },
+      "gradient_norm_before_clip": 1.5415232181549072,
+      "learning_rate": 8.203340189070906e-05,
+      "train_seconds": 0.4605979844927788,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.28517528706126744,
+            "pred_loss": 0.020925139180488057,
+            "pic_loss": 0.0015578140220087436,
+            "iso_loss": 0.26269233226776123,
+            "prediction_loss": 0.020925139180488057
+          },
+          "32": {
+            "loss": 0.19927875697612762,
+            "pred_loss": 0.05479909231265386,
+            "pic_loss": 0.002513862137372295,
+            "iso_loss": 0.14196580151716867,
+            "prediction_loss": 0.05479909231265386
+          }
+        },
+        "score": 0.03786211574657096,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.315124340355396
+    },
+    {
+      "step": 6500,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.18137876689434052,
+        "pred_loss": 0.020233768969774246,
+        "pic_loss": 0.0015515016857534647,
+        "iso_loss": 0.15959349274635315,
+        "prediction_loss": 0.020233768969774246
+      },
+      "gradient_norm_before_clip": 1.3261730670928955,
+      "learning_rate": 8.056291360290201e-05,
+      "train_seconds": 0.46428050845861435,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.28218598498238456,
+            "pred_loss": 0.02255885944598251,
+            "pic_loss": 0.00183528333177997,
+            "iso_loss": 0.25779183705647785,
+            "prediction_loss": 0.02255885944598251
+          },
+          "32": {
+            "loss": 0.20292925172381931,
+            "pred_loss": 0.06094916951325205,
+            "pic_loss": 0.003698131431721979,
+            "iso_loss": 0.1382819496923023,
+            "prediction_loss": 0.06094916951325205
+          }
+        },
+        "score": 0.04175401447961728,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.322331763803959
+    },
+    {
+      "step": 6750,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.17264524102210999,
+        "pred_loss": 0.020506305620074272,
+        "pic_loss": 0.0015312004834413528,
+        "iso_loss": 0.15060773491859436,
+        "prediction_loss": 0.020506305620074272
+      },
+      "gradient_norm_before_clip": 1.2931723594665527,
+      "learning_rate": 7.905096217575106e-05,
+      "train_seconds": 0.46319130808115005,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.27569399277369183,
+            "pred_loss": 0.01860970279408826,
+            "pic_loss": 0.0014097147698824604,
+            "iso_loss": 0.2556745741102431,
+            "prediction_loss": 0.01860970279408826
+          },
+          "32": {
+            "loss": 0.18986192676756117,
+            "pred_loss": 0.05193886740340127,
+            "pic_loss": 0.001699832358604504,
+            "iso_loss": 0.13622323009702894,
+            "prediction_loss": 0.05193886740340127
+          }
+        },
+        "score": 0.035274285098744765,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.379845313727856
+    },
+    {
+      "step": 7000,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.18418172001838684,
+        "pred_loss": 0.02100224792957306,
+        "pic_loss": 0.0024003037251532078,
+        "iso_loss": 0.1607791632413864,
+        "prediction_loss": 0.02100224792957306
+      },
+      "gradient_norm_before_clip": 1.8576163053512573,
+      "learning_rate": 7.75e-05,
+      "train_seconds": 0.4351370334625244,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2783177461889055,
+            "pred_loss": 0.019932312476966117,
+            "pic_loss": 0.0014148083929386404,
+            "iso_loss": 0.2569706224732929,
+            "prediction_loss": 0.019932312476966117
+          },
+          "32": {
+            "loss": 0.1932951807975769,
+            "pred_loss": 0.05273587670591143,
+            "pic_loss": 0.004752042315279444,
+            "iso_loss": 0.13580726252661812,
+            "prediction_loss": 0.05273587670591143
+          }
+        },
+        "score": 0.03633409459143877,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.312289223074913
+    },
+    {
+      "step": 7250,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.18189845979213715,
+        "pred_loss": 0.02183055318892002,
+        "pic_loss": 0.0008931917254813015,
+        "iso_loss": 0.15917471051216125,
+        "prediction_loss": 0.02183055318892002
+      },
+      "gradient_norm_before_clip": 1.4400525093078613,
+      "learning_rate": 7.591254274196959e-05,
+      "train_seconds": 0.46623390913009644,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2740035586886936,
+            "pred_loss": 0.018867424171831872,
+            "pic_loss": 0.0007183122409818073,
+            "iso_loss": 0.2544178267319997,
+            "prediction_loss": 0.018867424171831872
+          },
+          "32": {
+            "loss": 0.1900845186577903,
+            "pred_loss": 0.055225995265775256,
+            "pic_loss": 0.0009179873029804892,
+            "iso_loss": 0.1339405361149046,
+            "prediction_loss": 0.055225995265775256
+          }
+        },
+        "score": 0.03704670971880356,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.362856529653072
+    },
+    {
+      "step": 7500,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.16877342760562897,
+        "pred_loss": 0.01993856206536293,
+        "pic_loss": 0.0010023501235991716,
+        "iso_loss": 0.14783251285552979,
+        "prediction_loss": 0.01993856206536293
+      },
+      "gradient_norm_before_clip": 1.2481000423431396,
+      "learning_rate": 7.429116526313744e-05,
+      "train_seconds": 0.4563779905438423,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.27449438638157314,
+            "pred_loss": 0.020024844341807894,
+            "pic_loss": 0.0008124105580565003,
+            "iso_loss": 0.25365713073147667,
+            "prediction_loss": 0.020024844341807894
+          },
+          "32": {
+            "loss": 0.1917857908540302,
+            "pred_loss": 0.057838063687086105,
+            "pic_loss": 0.0016757457310126887,
+            "iso_loss": 0.13227198107375038,
+            "prediction_loss": 0.057838063687086105
+          }
+        },
+        "score": 0.038931454014447,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.257043853402138
+    },
+    {
+      "step": 7750,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.18357916176319122,
+        "pred_loss": 0.027935024350881577,
+        "pic_loss": 0.0007664409349672496,
+        "iso_loss": 0.1548776924610138,
+        "prediction_loss": 0.027935024350881577
+      },
+      "gradient_norm_before_clip": 1.516320824623108,
+      "learning_rate": 7.263849744370338e-05,
+      "train_seconds": 0.457748681306839,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2746414608425564,
+            "pred_loss": 0.02147021931078699,
+            "pic_loss": 0.0007875501113529834,
+            "iso_loss": 0.25238369074132705,
+            "prediction_loss": 0.02147021931078699
+          },
+          "32": {
+            "loss": 0.19533086319764456,
+            "pred_loss": 0.06225234559840626,
+            "pic_loss": 0.0011562689711960654,
+            "iso_loss": 0.1319222499926885,
+            "prediction_loss": 0.06225234559840626
+          }
+        },
+        "score": 0.041861282454596624,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.392696663737297
+    },
+    {
+      "step": 8000,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.16995203495025635,
+        "pred_loss": 0.021432649344205856,
+        "pic_loss": 0.001685241935774684,
+        "iso_loss": 0.14683414995670319,
+        "prediction_loss": 0.021432649344205856
+      },
+      "gradient_norm_before_clip": 1.7134164571762085,
+      "learning_rate": 7.095721991691411e-05,
+      "train_seconds": 0.45432013273239136,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2709511485364702,
+            "pred_loss": 0.019202238155735865,
+            "pic_loss": 0.001186869980301708,
+            "iso_loss": 0.25056203868654037,
+            "prediction_loss": 0.019202238155735865
+          },
+          "32": {
+            "loss": 0.1768653243780136,
+            "pred_loss": 0.04640068651901351,
+            "pic_loss": 0.001392268614533047,
+            "iso_loss": 0.12907237062851587,
+            "prediction_loss": 0.04640068651901351
+          }
+        },
+        "score": 0.03280146233737469,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.363985203206539
+    },
+    {
+      "step": 8250,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.1775200515985489,
+        "pred_loss": 0.018732454627752304,
+        "pic_loss": 0.0008325720555149019,
+        "iso_loss": 0.15795502066612244,
+        "prediction_loss": 0.018732454627752304
+      },
+      "gradient_norm_before_clip": 1.32794988155365,
+      "learning_rate": 6.925005972106627e-05,
+      "train_seconds": 0.4527759328484535,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.27014103200700545,
+            "pred_loss": 0.019444469776418474,
+            "pic_loss": 0.0016336088301613927,
+            "iso_loss": 0.2490629537238015,
+            "prediction_loss": 0.019444469776418474
+          },
+          "32": {
+            "loss": 0.1795333292749193,
+            "pred_loss": 0.05003087015615569,
+            "pic_loss": 0.002192655267814795,
+            "iso_loss": 0.12730980333354738,
+            "prediction_loss": 0.05003087015615569
+          }
+        },
+        "score": 0.034737669966287084,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.3932487443089485
+    },
+    {
+      "step": 8500,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.16894489526748657,
+        "pred_loss": 0.022468728944659233,
+        "pic_loss": 0.0010916583705693483,
+        "iso_loss": 0.1453845053911209,
+        "prediction_loss": 0.022468728944659233
+      },
+      "gradient_norm_before_clip": 2.215357542037964,
+      "learning_rate": 6.751978587624037e-05,
+      "train_seconds": 0.4627310633659363,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2701549000210232,
+            "pred_loss": 0.019520486394564312,
+            "pic_loss": 0.0010307364023497535,
+            "iso_loss": 0.24960368043846554,
+            "prediction_loss": 0.019520486394564312
+          },
+          "32": {
+            "loss": 0.1759319222635693,
+            "pred_loss": 0.04739559359020657,
+            "pic_loss": 0.0013949378044344485,
+            "iso_loss": 0.1271413912375768,
+            "prediction_loss": 0.04739559359020657
+          }
+        },
+        "score": 0.03345803999238544,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.071458108723164
+    },
+    {
+      "step": 8750,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.16816987097263336,
+        "pred_loss": 0.021679498255252838,
+        "pic_loss": 0.0016980534419417381,
+        "iso_loss": 0.1447923183441162,
+        "prediction_loss": 0.021679498255252838
+      },
+      "gradient_norm_before_clip": 1.75582754611969,
+      "learning_rate": 6.576920489294011e-05,
+      "train_seconds": 0.47507402300834656,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.270615773068534,
+            "pred_loss": 0.020617890689108107,
+            "pic_loss": 0.001201096495303015,
+            "iso_loss": 0.24879678752687243,
+            "prediction_loss": 0.020617890689108107
+          },
+          "32": {
+            "loss": 0.17484610279401144,
+            "pred_loss": 0.04729416635301378,
+            "pic_loss": 0.0013042445449779432,
+            "iso_loss": 0.1262476924392912,
+            "prediction_loss": 0.04729416635301378
+          }
+        },
+        "score": 0.033956028521060944,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.378869950771332
+    },
+    {
+      "step": 9000,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.17716065049171448,
+        "pred_loss": 0.015242015942931175,
+        "pic_loss": 0.0008908859454095364,
+        "iso_loss": 0.16102774441242218,
+        "prediction_loss": 0.015242015942931175
+      },
+      "gradient_norm_before_clip": 1.2260916233062744,
+      "learning_rate": 6.400115621992201e-05,
+      "train_seconds": 0.45418044179677963,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.27197472916709053,
+            "pred_loss": 0.019283081508345075,
+            "pic_loss": 0.0007673652208824125,
+            "iso_loss": 0.2519242813189824,
+            "prediction_loss": 0.019283081508345075
+          },
+          "32": {
+            "loss": 0.17418700456619263,
+            "pred_loss": 0.046291550828350916,
+            "pic_loss": 0.000893716493414508,
+            "iso_loss": 0.12700174003839493,
+            "prediction_loss": 0.046291550828350916
+          }
+        },
+        "score": 0.032787316168348,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.180501967668533
+    },
+    {
+      "step": 9250,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.16693845391273499,
+        "pred_loss": 0.017858341336250305,
+        "pic_loss": 0.0008196678245440125,
+        "iso_loss": 0.1482604444026947,
+        "prediction_loss": 0.017858341336250305
+      },
+      "gradient_norm_before_clip": 1.218178629875183,
+      "learning_rate": 6.221850763859921e-05,
+      "train_seconds": 0.4536101967096329,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2648458315266503,
+            "pred_loss": 0.017152408551838663,
+            "pic_loss": 0.0008578777132141921,
+            "iso_loss": 0.24683554304970634,
+            "prediction_loss": 0.017152408551838663
+          },
+          "32": {
+            "loss": 0.1669184300634596,
+            "pred_loss": 0.041818718115488686,
+            "pic_loss": 0.001427929201680753,
+            "iso_loss": 0.12367178334130181,
+            "prediction_loss": 0.041818718115488686
+          }
+        },
+        "score": 0.029485563333663672,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.241355232894421
+    },
+    {
+      "step": 9500,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.16782405972480774,
+        "pred_loss": 0.01876097545027733,
+        "pic_loss": 0.0008647525683045387,
+        "iso_loss": 0.14819833636283875,
+        "prediction_loss": 0.01876097545027733
+      },
+      "gradient_norm_before_clip": 1.185322642326355,
+      "learning_rate": 6.042415061148954e-05,
+      "train_seconds": 0.4432191178202629,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2647420002354516,
+            "pred_loss": 0.018162846772207156,
+            "pic_loss": 0.0008278855497741865,
+            "iso_loss": 0.2457512699895435,
+            "prediction_loss": 0.018162846772207156
+          },
+          "32": {
+            "loss": 0.17193163103527492,
+            "pred_loss": 0.04789473985632261,
+            "pic_loss": 0.0013440628277344836,
+            "iso_loss": 0.12269283168845707,
+            "prediction_loss": 0.04789473985632261
+          }
+        },
+        "score": 0.03302879331426488,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.165417812764645
+    },
+    {
+      "step": 9750,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.17524901032447815,
+        "pred_loss": 0.02201714552938938,
+        "pic_loss": 0.0011592544615268707,
+        "iso_loss": 0.15207260847091675,
+        "prediction_loss": 0.02201714552938938
+      },
+      "gradient_norm_before_clip": 1.5136810541152954,
+      "learning_rate": 5.862099559225268e-05,
+      "train_seconds": 0.4637417644262314,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.264042725165685,
+            "pred_loss": 0.017958471965458658,
+            "pic_loss": 0.001061197920029776,
+            "iso_loss": 0.24502304858631557,
+            "prediction_loss": 0.017958471965458658
+          },
+          "32": {
+            "loss": 0.17904241383075714,
+            "pred_loss": 0.053156130429771214,
+            "pic_loss": 0.0016529784253281024,
+            "iso_loss": 0.12423330545425415,
+            "prediction_loss": 0.053156130429771214
+          }
+        },
+        "score": 0.03555730119761494,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 4.5901293605566025
+    },
+    {
+      "step": 10000,
+      "horizon": 16,
+      "losses": {
+        "loss": 0.17064040899276733,
+        "pred_loss": 0.020673390477895737,
+        "pic_loss": 0.0007817657897248864,
+        "iso_loss": 0.14918525516986847,
+        "prediction_loss": 0.020673390477895737
+      },
+      "gradient_norm_before_clip": 1.750697374343872,
+      "learning_rate": 5.681196730492368e-05,
+      "train_seconds": 0.4621325880289078,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2629005279805925,
+            "pred_loss": 0.01764553298966752,
+            "pic_loss": 0.0008736947654849953,
+            "iso_loss": 0.24438129531012642,
+            "prediction_loss": 0.01764553298966752
+          },
+          "32": {
+            "loss": 0.16421039236916435,
+            "pred_loss": 0.04284581128093931,
+            "pic_loss": 0.0012102772986205916,
+            "iso_loss": 0.12015430298116472,
+            "prediction_loss": 0.04284581128093931
+          }
+        },
+        "score": 0.030245672135303416,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 4.539906732738018
+    },
+    {
+      "step": 10250,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.1449926644563675,
+        "pred_loss": 0.03867124021053314,
+        "pic_loss": 0.0011289817048236728,
+        "iso_loss": 0.10519244521856308,
+        "prediction_loss": 0.03867124021053314
+      },
+      "gradient_norm_before_clip": 3.6919476985931396,
+      "learning_rate": 5.500000000000001e-05,
+      "train_seconds": 0.8115978986024857,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2757434613174862,
+            "pred_loss": 0.02446765411231253,
+            "pic_loss": 0.0007459242737645076,
+            "iso_loss": 0.2505298852920532,
+            "prediction_loss": 0.02446765411231253
+          },
+          "32": {
+            "loss": 0.1654082586367925,
+            "pred_loss": 0.043679063104920916,
+            "pic_loss": 0.0011943610928331811,
+            "iso_loss": 0.12053483227888744,
+            "prediction_loss": 0.043679063104920916
+          }
+        },
+        "score": 0.034073358608616724,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.353705249726772
+    },
+    {
+      "step": 10500,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.1397428810596466,
+        "pred_loss": 0.02417808212339878,
+        "pic_loss": 0.0006509279482997954,
+        "iso_loss": 0.11491386592388153,
+        "prediction_loss": 0.02417808212339878
+      },
+      "gradient_norm_before_clip": 2.1143712997436523,
+      "learning_rate": 5.318803269507634e-05,
+      "train_seconds": 0.8243385776877403,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2659367521603902,
+            "pred_loss": 0.016550142214530043,
+            "pic_loss": 0.00043459489178429876,
+            "iso_loss": 0.24895201292302874,
+            "prediction_loss": 0.016550142214530043
+          },
+          "32": {
+            "loss": 0.14800079001320732,
+            "pred_loss": 0.028546455833646987,
+            "pic_loss": 0.0006077366868137486,
+            "iso_loss": 0.11884659694300757,
+            "prediction_loss": 0.028546455833646987
+          }
+        },
+        "score": 0.022548299024088517,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.441260032355785
+    },
+    {
+      "step": 10750,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.13546708226203918,
+        "pred_loss": 0.020683951675891876,
+        "pic_loss": 0.0011124869342893362,
+        "iso_loss": 0.11367064714431763,
+        "prediction_loss": 0.020683951675891876
+      },
+      "gradient_norm_before_clip": 1.8355227708816528,
+      "learning_rate": 5.1379004407747344e-05,
+      "train_seconds": 0.8226839974522591,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2723480893505944,
+            "pred_loss": 0.019506130160556898,
+            "pic_loss": 0.00043847839697264135,
+            "iso_loss": 0.25240348610613084,
+            "prediction_loss": 0.019506130160556898
+          },
+          "32": {
+            "loss": 0.1553952263461219,
+            "pred_loss": 0.033544274874859385,
+            "pic_loss": 0.0005531072513096862,
+            "iso_loss": 0.12129784458213383,
+            "prediction_loss": 0.033544274874859385
+          }
+        },
+        "score": 0.02652520251770814,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.390436463057995
+    },
+    {
+      "step": 11000,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.13430455327033997,
+        "pred_loss": 0.02003643661737442,
+        "pic_loss": 0.0009013170492835343,
+        "iso_loss": 0.11336680501699448,
+        "prediction_loss": 0.02003643661737442
+      },
+      "gradient_norm_before_clip": 1.7702795267105103,
+      "learning_rate": 4.9575849388510473e-05,
+      "train_seconds": 0.8226353973150253,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2712198992570241,
+            "pred_loss": 0.01915637217462063,
+            "pic_loss": 0.0004965828589370681,
+            "iso_loss": 0.25156694153944653,
+            "prediction_loss": 0.01915637217462063
+          },
+          "32": {
+            "loss": 0.15821543335914612,
+            "pred_loss": 0.03930869036250644,
+            "pic_loss": 0.0008750210917140874,
+            "iso_loss": 0.11803172197606829,
+            "prediction_loss": 0.03930869036250644
+          }
+        },
+        "score": 0.029232531268563535,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.431526079773903
+    },
+    {
+      "step": 11250,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.12431898713111877,
+        "pred_loss": 0.025073420256376266,
+        "pic_loss": 0.0007716118125244975,
+        "iso_loss": 0.09847395122051239,
+        "prediction_loss": 0.025073420256376266
+      },
+      "gradient_norm_before_clip": 2.071226119995117,
+      "learning_rate": 4.778149236140079e-05,
+      "train_seconds": 0.7971175536513329,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.26883601480060154,
+            "pred_loss": 0.019038190237349935,
+            "pic_loss": 0.0004550286038364801,
+            "iso_loss": 0.2493427942196528,
+            "prediction_loss": 0.019038190237349935
+          },
+          "32": {
+            "loss": 0.1503671540154351,
+            "pred_loss": 0.03308625829716524,
+            "pic_loss": 0.0007203106587338778,
+            "iso_loss": 0.11656058496899074,
+            "prediction_loss": 0.03308625829716524
+          }
+        },
+        "score": 0.026062224267257586,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.256813354790211
+    },
+    {
+      "step": 11500,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.12865769863128662,
+        "pred_loss": 0.03184277564287186,
+        "pic_loss": 0.0009224030654877424,
+        "iso_loss": 0.0958925187587738,
+        "prediction_loss": 0.03184277564287186
+      },
+      "gradient_norm_before_clip": 2.6310079097747803,
+      "learning_rate": 4.599884378007802e-05,
+      "train_seconds": 0.8482465147972107,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.27114201585451764,
+            "pred_loss": 0.0214716133972009,
+            "pic_loss": 0.0006667662398993141,
+            "iso_loss": 0.24900363385677338,
+            "prediction_loss": 0.0214716133972009
+          },
+          "32": {
+            "loss": 0.15451358093155754,
+            "pred_loss": 0.03907625935971737,
+            "pic_loss": 0.0007602077029231521,
+            "iso_loss": 0.11467711544699138,
+            "prediction_loss": 0.03907625935971737
+          }
+        },
+        "score": 0.030273936378459133,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.5135802030563354
+    },
+    {
+      "step": 11750,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.12958770990371704,
+        "pred_loss": 0.02628764882683754,
+        "pic_loss": 0.0006864682072773576,
+        "iso_loss": 0.10261359810829163,
+        "prediction_loss": 0.02628764882683754
+      },
+      "gradient_norm_before_clip": 2.7964019775390625,
+      "learning_rate": 4.423079510705992e-05,
+      "train_seconds": 0.8512121289968491,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.26601799329121906,
+            "pred_loss": 0.017537255874938436,
+            "pic_loss": 0.0006457885675546196,
+            "iso_loss": 0.2478349523411857,
+            "prediction_loss": 0.017537255874938436
+          },
+          "32": {
+            "loss": 0.14404624866114724,
+            "pred_loss": 0.02873176998562283,
+            "pic_loss": 0.0007344720587651762,
+            "iso_loss": 0.11458000789086024,
+            "prediction_loss": 0.02873176998562283
+          }
+        },
+        "score": 0.023134512930280633,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.441352874040604
+    },
+    {
+      "step": 12000,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.12654371559619904,
+        "pred_loss": 0.02719389647245407,
+        "pic_loss": 0.0005448188749141991,
+        "iso_loss": 0.09880499541759491,
+        "prediction_loss": 0.02719389647245407
+      },
+      "gradient_norm_before_clip": 2.466099500656128,
+      "learning_rate": 4.248021412375963e-05,
+      "train_seconds": 0.8284099325537682,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2658620807859633,
+            "pred_loss": 0.01717666991882854,
+            "pic_loss": 0.0005913855986566179,
+            "iso_loss": 0.24809402392970192,
+            "prediction_loss": 0.01717666991882854
+          },
+          "32": {
+            "loss": 0.14180756277508205,
+            "pred_loss": 0.027098264545202255,
+            "pic_loss": 0.00120839464943856,
+            "iso_loss": 0.11350090553363164,
+            "prediction_loss": 0.027098264545202255
+          }
+        },
+        "score": 0.022137467232015397,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.438395410776138
+    },
+    {
+      "step": 12250,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.14696469902992249,
+        "pred_loss": 0.03489713370800018,
+        "pic_loss": 0.0008442415855824947,
+        "iso_loss": 0.11122332513332367,
+        "prediction_loss": 0.03489713370800018
+      },
+      "gradient_norm_before_clip": 3.2055327892303467,
+      "learning_rate": 4.0749940278933754e-05,
+      "train_seconds": 0.8526730164885521,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.26752299070358276,
+            "pred_loss": 0.01896187983867195,
+            "pic_loss": 0.0005572731671337453,
+            "iso_loss": 0.24800383547941843,
+            "prediction_loss": 0.01896187983867195
+          },
+          "32": {
+            "loss": 0.14839091731442344,
+            "pred_loss": 0.0352212753560808,
+            "pic_loss": 0.000716564045028968,
+            "iso_loss": 0.11245308154159123,
+            "prediction_loss": 0.0352212753560808
+          }
+        },
+        "score": 0.027091577597376376,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.4172550067305565
+    },
+    {
+      "step": 12500,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.11397778987884521,
+        "pred_loss": 0.02111457660794258,
+        "pic_loss": 0.0005758323241025209,
+        "iso_loss": 0.09228738397359848,
+        "prediction_loss": 0.02111457660794258
+      },
+      "gradient_norm_before_clip": 1.7335859537124634,
+      "learning_rate": 3.904278008308589e-05,
+      "train_seconds": 0.8341743648052216,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.26544006996684605,
+            "pred_loss": 0.01744905983408292,
+            "pic_loss": 0.0004622680038058509,
+            "iso_loss": 0.24752874010139042,
+            "prediction_loss": 0.01744905983408292
+          },
+          "32": {
+            "loss": 0.1405384855137931,
+            "pred_loss": 0.028301381402545504,
+            "pic_loss": 0.0005156256795291685,
+            "iso_loss": 0.11172147674693002,
+            "prediction_loss": 0.028301381402545504
+          }
+        },
+        "score": 0.022875220618314214,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.523911312222481
+    },
+    {
+      "step": 12750,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.1380639523267746,
+        "pred_loss": 0.024550534784793854,
+        "pic_loss": 0.000625914370175451,
+        "iso_loss": 0.11288750171661377,
+        "prediction_loss": 0.024550534784793854
+      },
+      "gradient_norm_before_clip": 2.963505983352661,
+      "learning_rate": 3.736150255629664e-05,
+      "train_seconds": 0.8281825184822083,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.26361361477110123,
+            "pred_loss": 0.017360381471614044,
+            "pic_loss": 0.00046128207274402183,
+            "iso_loss": 0.2457919501596027,
+            "prediction_loss": 0.017360381471614044
+          },
+          "32": {
+            "loss": 0.13751184278064305,
+            "pred_loss": 0.027436712549792394,
+            "pic_loss": 0.0007633862874677612,
+            "iso_loss": 0.10931174208720525,
+            "prediction_loss": 0.027436712549792394
+          }
+        },
+        "score": 0.02239854701070322,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.463461205363274
+    },
+    {
+      "step": 13000,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.13110150396823883,
+        "pred_loss": 0.017178189009428024,
+        "pic_loss": 0.00044236337998881936,
+        "iso_loss": 0.11348094791173935,
+        "prediction_loss": 0.017178189009428024
+      },
+      "gradient_norm_before_clip": 1.8484643697738647,
+      "learning_rate": 3.570883473686256e-05,
+      "train_seconds": 0.8338014036417007,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.26734570662180585,
+            "pred_loss": 0.01783870139883624,
+            "pic_loss": 0.0007041858754948609,
+            "iso_loss": 0.24880281918578678,
+            "prediction_loss": 0.01783870139883624
+          },
+          "32": {
+            "loss": 0.14503203497992623,
+            "pred_loss": 0.03251384674674935,
+            "pic_loss": 0.0008647806955397957,
+            "iso_loss": 0.11165340575906965,
+            "prediction_loss": 0.03251384674674935
+          }
+        },
+        "score": 0.025176274072792795,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.553183242678642
+    },
+    {
+      "step": 13250,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.1383894383907318,
+        "pred_loss": 0.022943057119846344,
+        "pic_loss": 0.001211677212268114,
+        "iso_loss": 0.11423470079898834,
+        "prediction_loss": 0.022943057119846344
+      },
+      "gradient_norm_before_clip": 3.5496726036071777,
+      "learning_rate": 3.408745725803042e-05,
+      "train_seconds": 0.8055769950151443,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2671225104067061,
+            "pred_loss": 0.01806665129131741,
+            "pic_loss": 0.00053855573059991,
+            "iso_loss": 0.24851730134752062,
+            "prediction_loss": 0.01806665129131741
+          },
+          "32": {
+            "loss": 0.14099870125452676,
+            "pred_loss": 0.028340875895486936,
+            "pic_loss": 0.0015364799958964188,
+            "iso_loss": 0.1111213465531667,
+            "prediction_loss": 0.028340875895486936
+          }
+        },
+        "score": 0.023203763593402173,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.196769714355469
+    },
+    {
+      "step": 13500,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.11566334962844849,
+        "pred_loss": 0.019799217581748962,
+        "pic_loss": 0.0005591362714767456,
+        "iso_loss": 0.09530499577522278,
+        "prediction_loss": 0.019799217581748962
+      },
+      "gradient_norm_before_clip": 2.0404770374298096,
+      "learning_rate": 3.250000000000001e-05,
+      "train_seconds": 0.8102158978581429,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.26170051097869873,
+            "pred_loss": 0.015975356722871464,
+            "pic_loss": 0.0005087827416395561,
+            "iso_loss": 0.24521637625164455,
+            "prediction_loss": 0.015975356722871464
+          },
+          "32": {
+            "loss": 0.13488542702462938,
+            "pred_loss": 0.026380444773369364,
+            "pic_loss": 0.0008203322067856789,
+            "iso_loss": 0.10768465118275748,
+            "prediction_loss": 0.026380444773369364
+          }
+        },
+        "score": 0.021177900748120412,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.4600017964839935
+    },
+    {
+      "step": 13750,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.12896046042442322,
+        "pred_loss": 0.01932350918650627,
+        "pic_loss": 0.0007642011041752994,
+        "iso_loss": 0.10887275636196136,
+        "prediction_loss": 0.01932350918650627
+      },
+      "gradient_norm_before_clip": 2.27160906791687,
+      "learning_rate": 3.094903782424895e-05,
+      "train_seconds": 0.8101291507482529,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2620839542812771,
+            "pred_loss": 0.01631817863219314,
+            "pic_loss": 0.0004470020293309871,
+            "iso_loss": 0.2453187753756841,
+            "prediction_loss": 0.01631817863219314
+          },
+          "32": {
+            "loss": 0.13200841512944964,
+            "pred_loss": 0.023925543452302616,
+            "pic_loss": 0.0006405843564102219,
+            "iso_loss": 0.1074422871073087,
+            "prediction_loss": 0.023925543452302616
+          }
+        },
+        "score": 0.020121861042247877,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 4.91525973379612
+    },
+    {
+      "step": 14000,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.11806187033653259,
+        "pred_loss": 0.014574053697288036,
+        "pic_loss": 0.000979845761321485,
+        "iso_loss": 0.10250797122716904,
+        "prediction_loss": 0.014574053697288036
+      },
+      "gradient_norm_before_clip": 1.5863173007965088,
+      "learning_rate": 2.9437086397097995e-05,
+      "train_seconds": 0.8246601819992065,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.26052135394679177,
+            "pred_loss": 0.01543409801605675,
+            "pic_loss": 0.0006542638746193714,
+            "iso_loss": 0.2444329924053616,
+            "prediction_loss": 0.01543409801605675
+          },
+          "32": {
+            "loss": 0.13242260449462467,
+            "pred_loss": 0.025243699757589236,
+            "pic_loss": 0.0011153411404747102,
+            "iso_loss": 0.10606356213490169,
+            "prediction_loss": 0.025243699757589236
+          }
+        },
+        "score": 0.02033889888682299,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.441631555557251
+    },
+    {
+      "step": 14250,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.11423991620540619,
+        "pred_loss": 0.017558936029672623,
+        "pic_loss": 0.0006362668937072158,
+        "iso_loss": 0.09604471176862717,
+        "prediction_loss": 0.017558936029672623
+      },
+      "gradient_norm_before_clip": 2.2455265522003174,
+      "learning_rate": 2.7966598109290942e-05,
+      "train_seconds": 0.8084205240011215,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2630726562605964,
+            "pred_loss": 0.016606565564870834,
+            "pic_loss": 0.00047208086147697433,
+            "iso_loss": 0.24599400824970669,
+            "prediction_loss": 0.016606565564870834
+          },
+          "32": {
+            "loss": 0.1346133831474516,
+            "pred_loss": 0.026760600300298795,
+            "pic_loss": 0.0006354625285085705,
+            "iso_loss": 0.10721732096539603,
+            "prediction_loss": 0.026760600300298795
+          }
+        },
+        "score": 0.021683582932584815,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.340132020413876
+    },
+    {
+      "step": 14500,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.12979929149150848,
+        "pred_loss": 0.016630839556455612,
+        "pic_loss": 0.0006975936703383923,
+        "iso_loss": 0.11247085779905319,
+        "prediction_loss": 0.016630839556455612
+      },
+      "gradient_norm_before_clip": 1.81331205368042,
+      "learning_rate": 2.6539958098208027e-05,
+      "train_seconds": 0.806720681488514,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2614385452535417,
+            "pred_loss": 0.01602582188530101,
+            "pic_loss": 0.00044072850465050177,
+            "iso_loss": 0.2449719938966963,
+            "prediction_loss": 0.01602582188530101
+          },
+          "32": {
+            "loss": 0.13171952880091137,
+            "pred_loss": 0.025349797267052863,
+            "pic_loss": 0.0006675477262534616,
+            "iso_loss": 0.10570218496852452,
+            "prediction_loss": 0.025349797267052863
+          }
+        },
+        "score": 0.020687809576176934,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.245393671095371
+    },
+    {
+      "step": 14750,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.11163901537656784,
+        "pred_loss": 0.019322557374835014,
+        "pic_loss": 0.00043411238584667444,
+        "iso_loss": 0.09188234806060791,
+        "prediction_loss": 0.019322557374835014
+      },
+      "gradient_norm_before_clip": 2.251551628112793,
+      "learning_rate": 2.515948037916423e-05,
+      "train_seconds": 0.8305639103055,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2663811544577281,
+            "pred_loss": 0.019731153837508626,
+            "pic_loss": 0.00038795187396721705,
+            "iso_loss": 0.24626204371452332,
+            "prediction_loss": 0.019731153837508626
+          },
+          "32": {
+            "loss": 0.14102103312810263,
+            "pred_loss": 0.033920128726296954,
+            "pic_loss": 0.00042839797808685235,
+            "iso_loss": 0.10667250553766887,
+            "prediction_loss": 0.033920128726296954
+          }
+        },
+        "score": 0.02682564128190279,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.3985796347260475
+    },
+    {
+      "step": 15000,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.11589157581329346,
+        "pred_loss": 0.023204058408737183,
+        "pic_loss": 0.0004259164270479232,
+        "iso_loss": 0.09226160496473312,
+        "prediction_loss": 0.023204058408737183
+      },
+      "gradient_norm_before_clip": 2.7226529121398926,
+      "learning_rate": 2.3827404092068032e-05,
+      "train_seconds": 0.8224470838904381,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.26174020436074996,
+            "pred_loss": 0.01736929453909397,
+            "pic_loss": 0.00032785410682360333,
+            "iso_loss": 0.24404305716355643,
+            "prediction_loss": 0.01736929453909397
+          },
+          "32": {
+            "loss": 0.13268636498186323,
+            "pred_loss": 0.025932573195960786,
+            "pic_loss": 0.0003499025349608726,
+            "iso_loss": 0.1064038880997234,
+            "prediction_loss": 0.025932573195960786
+          }
+        },
+        "score": 0.02165093386752738,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.41887753456831
+    },
+    {
+      "step": 15250,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.11048462986946106,
+        "pred_loss": 0.020335666835308075,
+        "pic_loss": 0.0004354186821728945,
+        "iso_loss": 0.08971354365348816,
+        "prediction_loss": 0.020335666835308075
+      },
+      "gradient_norm_before_clip": 1.6312941312789917,
+      "learning_rate": 2.2545889869528354e-05,
+      "train_seconds": 0.8160675019025803,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2617963370349672,
+            "pred_loss": 0.01596321827835507,
+            "pic_loss": 0.00035980039845324226,
+            "iso_loss": 0.24547331862979466,
+            "prediction_loss": 0.01596321827835507
+          },
+          "32": {
+            "loss": 0.1323923162288136,
+            "pred_loss": 0.024436887974540394,
+            "pic_loss": 0.0003968787010914336,
+            "iso_loss": 0.10755855176183912,
+            "prediction_loss": 0.024436887974540394
+          }
+        },
+        "score": 0.02020005312644773,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.326959319412708
+    },
+    {
+      "step": 15500,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.12287990003824234,
+        "pred_loss": 0.025837203487753868,
+        "pic_loss": 0.0003837978874798864,
+        "iso_loss": 0.09665890038013458,
+        "prediction_loss": 0.025837203487753868
+      },
+      "gradient_norm_before_clip": 4.652295112609863,
+      "learning_rate": 2.1317016332300447e-05,
+      "train_seconds": 0.812673918902874,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.263469613260693,
+            "pred_loss": 0.019293224128584068,
+            "pic_loss": 0.0003168240946251899,
+            "iso_loss": 0.24385956592029995,
+            "prediction_loss": 0.019293224128584068
+          },
+          "32": {
+            "loss": 0.13529962632391188,
+            "pred_loss": 0.030093578414784536,
+            "pic_loss": 0.0003991197477767451,
+            "iso_loss": 0.10480692899889416,
+            "prediction_loss": 0.030093578414784536
+          }
+        },
+        "score": 0.024693401271684304,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.289579212665558
+    },
+    {
+      "step": 15750,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.13162602484226227,
+        "pred_loss": 0.03251487761735916,
+        "pic_loss": 0.0002984463644679636,
+        "iso_loss": 0.09881269931793213,
+        "prediction_loss": 0.03251487761735916
+      },
+      "gradient_norm_before_clip": 3.2003636360168457,
+      "learning_rate": 2.014277671775555e-05,
+      "train_seconds": 0.8126211911439896,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.25915523370107013,
+            "pred_loss": 0.015291017894115713,
+            "pic_loss": 0.0003288941968801535,
+            "iso_loss": 0.24353532493114471,
+            "prediction_loss": 0.015291017894115713
+          },
+          "32": {
+            "loss": 0.13084346055984497,
+            "pred_loss": 0.02600541069275803,
+            "pic_loss": 0.0003911943511209554,
+            "iso_loss": 0.1044468523727523,
+            "prediction_loss": 0.02600541069275803
+          }
+        },
+        "score": 0.02064821429343687,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.318804919719696
+    },
+    {
+      "step": 16000,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.1036822646856308,
+        "pred_loss": 0.016435857862234116,
+        "pic_loss": 0.0002717602765187621,
+        "iso_loss": 0.08697465062141418,
+        "prediction_loss": 0.016435857862234116
+      },
+      "gradient_norm_before_clip": 1.9581809043884277,
+      "learning_rate": 1.902507564684246e-05,
+      "train_seconds": 0.7828231006860733,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2590291500091553,
+            "pred_loss": 0.014762503301931752,
+            "pic_loss": 0.0002618812254190238,
+            "iso_loss": 0.24400476780202654,
+            "prediction_loss": 0.014762503301931752
+          },
+          "32": {
+            "loss": 0.12694358991252053,
+            "pred_loss": 0.022619986906647682,
+            "pic_loss": 0.0002731270425202739,
+            "iso_loss": 0.10405047651794222,
+            "prediction_loss": 0.022619986906647682
+          }
+        },
+        "score": 0.018691245104289718,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 4.969822533428669
+    },
+    {
+      "step": 16250,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.1154315173625946,
+        "pred_loss": 0.01762763038277626,
+        "pic_loss": 0.0003846703330054879,
+        "iso_loss": 0.09741921722888947,
+        "prediction_loss": 0.01762763038277626
+      },
+      "gradient_norm_before_clip": 2.220141649246216,
+      "learning_rate": 1.7965726034785466e-05,
+      "train_seconds": 0.8076604306697845,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.25946729050742257,
+            "pred_loss": 0.014839603048231866,
+            "pic_loss": 0.0003290941272603555,
+            "iso_loss": 0.24429859552118513,
+            "prediction_loss": 0.014839603048231866
+          },
+          "32": {
+            "loss": 0.12985941022634506,
+            "pred_loss": 0.025928873982694414,
+            "pic_loss": 0.00037311816898485023,
+            "iso_loss": 0.10355741696225272,
+            "prediction_loss": 0.025928873982694414
+          }
+        },
+        "score": 0.02038423851546314,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.249038174748421
+    },
+    {
+      "step": 16500,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.11218366771936417,
+        "pred_loss": 0.013997886329889297,
+        "pic_loss": 0.0002445974387228489,
+        "iso_loss": 0.09794118255376816,
+        "prediction_loss": 0.013997886329889297
+      },
+      "gradient_norm_before_clip": 1.5592069625854492,
+      "learning_rate": 1.6966446150529244e-05,
+      "train_seconds": 0.8339259028434753,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.25999048683378434,
+            "pred_loss": 0.015860767103731632,
+            "pic_loss": 0.0003627668128400627,
+            "iso_loss": 0.2437669469250573,
+            "prediction_loss": 0.015860767103731632
+          },
+          "32": {
+            "loss": 0.12868779649337134,
+            "pred_loss": 0.024724952255686123,
+            "pic_loss": 0.000459776799996487,
+            "iso_loss": 0.10350306994385189,
+            "prediction_loss": 0.024724952255686123
+          }
+        },
+        "score": 0.020292859679708876,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.287496529519558
+    },
+    {
+      "step": 16750,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.13271397352218628,
+        "pred_loss": 0.014969738200306892,
+        "pic_loss": 0.00024905684404075146,
+        "iso_loss": 0.11749517172574997,
+        "prediction_loss": 0.014969738200306892
+      },
+      "gradient_norm_before_clip": 2.119387149810791,
+      "learning_rate": 1.602885682970026e-05,
+      "train_seconds": 0.8183303698897362,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.25773801406224567,
+            "pred_loss": 0.013754739012155268,
+            "pic_loss": 0.0002610266253921307,
+            "iso_loss": 0.24372224675284493,
+            "prediction_loss": 0.013754739012155268
+          },
+          "32": {
+            "loss": 0.12505881239970526,
+            "pred_loss": 0.02149618748161528,
+            "pic_loss": 0.00030374851323560707,
+            "iso_loss": 0.10325887799263,
+            "prediction_loss": 0.02149618748161528
+          }
+        },
+        "score": 0.017625463246885274,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.202112756669521
+    },
+    {
+      "step": 17000,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.11337090283632278,
+        "pred_loss": 0.020976250991225243,
+        "pic_loss": 0.00035830301931127906,
+        "iso_loss": 0.09203635156154633,
+        "prediction_loss": 0.020976250991225243
+      },
+      "gradient_norm_before_clip": 3.373359203338623,
+      "learning_rate": 1.515447884560556e-05,
+      "train_seconds": 0.8047182783484459,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.25953342351648545,
+            "pred_loss": 0.014664128112296263,
+            "pic_loss": 0.0002764464734354988,
+            "iso_loss": 0.24459284709559548,
+            "prediction_loss": 0.014664128112296263
+          },
+          "32": {
+            "loss": 0.1273566351996528,
+            "pred_loss": 0.022979376630650625,
+            "pic_loss": 0.0004343309556134045,
+            "iso_loss": 0.1039429282148679,
+            "prediction_loss": 0.022979376630650625
+          }
+        },
+        "score": 0.018821752371473443,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.207571305334568
+    },
+    {
+      "step": 17250,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.10701292753219604,
+        "pred_loss": 0.01640455424785614,
+        "pic_loss": 0.0004581923712976277,
+        "iso_loss": 0.09015017747879028,
+        "prediction_loss": 0.01640455424785614
+      },
+      "gradient_norm_before_clip": 2.1544649600982666,
+      "learning_rate": 1.4344730442532806e-05,
+      "train_seconds": 0.8117921277880669,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.25518251127666897,
+            "pred_loss": 0.013216730207204819,
+            "pic_loss": 0.0002874424196003626,
+            "iso_loss": 0.24167833891179827,
+            "prediction_loss": 0.013216730207204819
+          },
+          "32": {
+            "loss": 0.12133099801010555,
+            "pred_loss": 0.019566486693090863,
+            "pic_loss": 0.0006056863672306968,
+            "iso_loss": 0.10115882423188952,
+            "prediction_loss": 0.019566486693090863
+          }
+        },
+        "score": 0.01639160845014784,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.3497710302472115
+    },
+    {
+      "step": 17500,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.10401201248168945,
+        "pred_loss": 0.01816263422369957,
+        "pic_loss": 0.0003084048512391746,
+        "iso_loss": 0.08554097265005112,
+        "prediction_loss": 0.01816263422369957
+      },
+      "gradient_norm_before_clip": 1.3869495391845703,
+      "learning_rate": 1.3600925035352913e-05,
+      "train_seconds": 0.8399194180965424,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.25681089692645603,
+            "pred_loss": 0.014344473162459003,
+            "pic_loss": 0.0002615099236006952,
+            "iso_loss": 0.2422049128346973,
+            "prediction_loss": 0.014344473162459003
+          },
+          "32": {
+            "loss": 0.12258055061101913,
+            "pred_loss": 0.021687330057223637,
+            "pic_loss": 0.000248337314891008,
+            "iso_loss": 0.10064488401015599,
+            "prediction_loss": 0.021687330057223637
+          }
+        },
+        "score": 0.01801590160984132,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.38123594969511
+    },
+    {
+      "step": 17750,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.12061850726604462,
+        "pred_loss": 0.01752711832523346,
+        "pic_loss": 0.0002851656754501164,
+        "iso_loss": 0.1028062254190445,
+        "prediction_loss": 0.01752711832523346
+      },
+      "gradient_norm_before_clip": 1.8521488904953003,
+      "learning_rate": 1.292426907915634e-05,
+      "train_seconds": 0.8076972365379333,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2604920466740926,
+            "pred_loss": 0.017880485703547794,
+            "pic_loss": 0.00034778134755065874,
+            "iso_loss": 0.2422637806998359,
+            "prediction_loss": 0.017880485703547794
+          },
+          "32": {
+            "loss": 0.1306673122776879,
+            "pred_loss": 0.0294922577838103,
+            "pic_loss": 0.0003511455854297512,
+            "iso_loss": 0.10082390904426575,
+            "prediction_loss": 0.0294922577838103
+          }
+        },
+        "score": 0.023686371743679047,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.4148291274905205
+    },
+    {
+      "step": 18000,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.10462657362222672,
+        "pred_loss": 0.01495227962732315,
+        "pic_loss": 0.00029873859602957964,
+        "iso_loss": 0.0893755555152893,
+        "prediction_loss": 0.01495227962732315
+      },
+      "gradient_norm_before_clip": 2.1542789936065674,
+      "learning_rate": 1.2315860112378455e-05,
+      "train_seconds": 0.8200350850820541,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2566614697376887,
+            "pred_loss": 0.01414902125381761,
+            "pic_loss": 0.00030359756136830483,
+            "iso_loss": 0.24220885005262163,
+            "prediction_loss": 0.01414902125381761
+          },
+          "32": {
+            "loss": 0.12406764676173528,
+            "pred_loss": 0.022466956741280027,
+            "pic_loss": 0.00036232924645042256,
+            "iso_loss": 0.10123836000760396,
+            "prediction_loss": 0.022466956741280027
+          }
+        },
+        "score": 0.01830798899754882,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.400456257164478
+    },
+    {
+      "step": 18250,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.10899712145328522,
+        "pred_loss": 0.01650083065032959,
+        "pic_loss": 0.00024558923905715346,
+        "iso_loss": 0.09225070476531982,
+        "prediction_loss": 0.01650083065032959
+      },
+      "gradient_norm_before_clip": 2.317772388458252,
+      "learning_rate": 1.177668497658825e-05,
+      "train_seconds": 0.807184249162674,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2586257706085841,
+            "pred_loss": 0.014868221970068084,
+            "pic_loss": 0.00030653278129951406,
+            "iso_loss": 0.24345101416110992,
+            "prediction_loss": 0.014868221970068084
+          },
+          "32": {
+            "loss": 0.12576517048809263,
+            "pred_loss": 0.023867635056376457,
+            "pic_loss": 0.00030956827039416466,
+            "iso_loss": 0.10158796774016486,
+            "prediction_loss": 0.023867635056376457
+          }
+        },
+        "score": 0.01936792851322227,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 4.653804630041122
+    },
+    {
+      "step": 18500,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.10947303473949432,
+        "pred_loss": 0.018147561699151993,
+        "pic_loss": 0.0002658002485986799,
+        "iso_loss": 0.09105966985225677,
+        "prediction_loss": 0.018147561699151993
+      },
+      "gradient_norm_before_clip": 3.888232946395874,
+      "learning_rate": 1.130761821582766e-05,
+      "train_seconds": 0.7959899678826332,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.255947255425983,
+            "pred_loss": 0.013765672221779823,
+            "pic_loss": 0.00021682408664168583,
+            "iso_loss": 0.2419647624095281,
+            "prediction_loss": 0.013765672221779823
+          },
+          "32": {
+            "loss": 0.12304318530691995,
+            "pred_loss": 0.022741070638100307,
+            "pic_loss": 0.0002597484757037212,
+            "iso_loss": 0.1000423671470748,
+            "prediction_loss": 0.022741070638100307
+          }
+        },
+        "score": 0.018253371429940067,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.14676508307457
+    },
+    {
+      "step": 18750,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.10243825614452362,
+        "pred_loss": 0.01560914795845747,
+        "pic_loss": 0.00029973714845255017,
+        "iso_loss": 0.08652937412261963,
+        "prediction_loss": 0.01560914795845747
+      },
+      "gradient_norm_before_clip": 1.7486634254455566,
+      "learning_rate": 1.0909420658097956e-05,
+      "train_seconds": 0.8247834518551826,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2558716684579849,
+            "pred_loss": 0.013671603571209643,
+            "pic_loss": 0.0002354691063778268,
+            "iso_loss": 0.24196459684107038,
+            "prediction_loss": 0.013671603571209643
+          },
+          "32": {
+            "loss": 0.12023044543133841,
+            "pred_loss": 0.020395550669895277,
+            "pic_loss": 0.00031315813733575243,
+            "iso_loss": 0.09952173795964983,
+            "prediction_loss": 0.020395550669895277
+          }
+        },
+        "score": 0.017033577120552458,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.479013539850712
+    },
+    {
+      "step": 19000,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.11689305305480957,
+        "pred_loss": 0.01961815543472767,
+        "pic_loss": 0.00027657506871037185,
+        "iso_loss": 0.09699832648038864,
+        "prediction_loss": 0.01961815543472767
+      },
+      "gradient_norm_before_clip": 1.618990182876587,
+      "learning_rate": 1.0582738181293923e-05,
+      "train_seconds": 0.807238794863224,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2562077028883828,
+            "pred_loss": 0.013721430467234718,
+            "pic_loss": 0.0002442198892822489,
+            "iso_loss": 0.24224204983976153,
+            "prediction_loss": 0.013721430467234718
+          },
+          "32": {
+            "loss": 0.12345919675297207,
+            "pred_loss": 0.02358067615164651,
+            "pic_loss": 0.00030041713358110026,
+            "iso_loss": 0.09957810408539242,
+            "prediction_loss": 0.02358067615164651
+          }
+        },
+        "score": 0.018651053309440613,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.26076078414917
+    },
+    {
+      "step": 19250,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.10471640527248383,
+        "pred_loss": 0.016379790380597115,
+        "pic_loss": 0.0007102525560185313,
+        "iso_loss": 0.08762636035680771,
+        "prediction_loss": 0.016379790380597115
+      },
+      "gradient_norm_before_clip": 1.7022182941436768,
+      "learning_rate": 1.0328100665587574e-05,
+      "train_seconds": 0.8289248868823051,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.25627728634410435,
+            "pred_loss": 0.01442814545912875,
+            "pic_loss": 0.00033522445139371685,
+            "iso_loss": 0.2415139161878162,
+            "prediction_loss": 0.01442814545912875
+          },
+          "32": {
+            "loss": 0.12167953782611424,
+            "pred_loss": 0.022578357408444088,
+            "pic_loss": 0.00046764108184207644,
+            "iso_loss": 0.09863354017337163,
+            "prediction_loss": 0.022578357408444088
+          }
+        },
+        "score": 0.01850325143378642,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.525408387184143
+    },
+    {
+      "step": 19500,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.09971887618303299,
+        "pred_loss": 0.014639872126281261,
+        "pic_loss": 0.00032257064594887197,
+        "iso_loss": 0.08475643396377563,
+        "prediction_loss": 0.014639872126281261
+      },
+      "gradient_norm_before_clip": 1.5632003545761108,
+      "learning_rate": 1.0145921133960554e-05,
+      "train_seconds": 0.808068536221981,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2546789563364453,
+            "pred_loss": 0.013621657465895018,
+            "pic_loss": 0.000301618387715684,
+            "iso_loss": 0.24075567722320557,
+            "prediction_loss": 0.013621657465895018
+          },
+          "32": {
+            "loss": 0.11926357116964129,
+            "pred_loss": 0.020527028789122898,
+            "pic_loss": 0.00031057511740881536,
+            "iso_loss": 0.09842596782578363,
+            "prediction_loss": 0.020527028789122898
+          }
+        },
+        "score": 0.017074343127508957,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.301632963120937
+    },
+    {
+      "step": 19750,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.11012634634971619,
+        "pred_loss": 0.023827649652957916,
+        "pic_loss": 0.00044807675294578075,
+        "iso_loss": 0.08585061877965927,
+        "prediction_loss": 0.023827649652957916
+      },
+      "gradient_norm_before_clip": 2.2399356365203857,
+      "learning_rate": 1.0036495082279369e-05,
+      "train_seconds": 0.8130984306335449,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.26256107952859664,
+            "pred_loss": 0.02002219172815482,
+            "pic_loss": 0.00037373208518450457,
+            "iso_loss": 0.24216515322526297,
+            "prediction_loss": 0.02002219172815482
+          },
+          "32": {
+            "loss": 0.13216982781887054,
+            "pred_loss": 0.031325653195381165,
+            "pic_loss": 0.0005587456625006679,
+            "iso_loss": 0.10028542826573054,
+            "prediction_loss": 0.031325653195381165
+          }
+        },
+        "score": 0.025673922461767994,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.3330231457948685
+    },
+    {
+      "step": 20000,
+      "horizon": 32,
+      "losses": {
+        "loss": 0.11670899391174316,
+        "pred_loss": 0.018216513097286224,
+        "pic_loss": 0.0002485243894625455,
+        "iso_loss": 0.09824395179748535,
+        "prediction_loss": 0.018216513097286224
+      },
+      "gradient_norm_before_clip": 4.205899715423584,
+      "learning_rate": 1e-05,
+      "train_seconds": 0.8162491992115974,
+      "validation": {
+        "horizons": {
+          "8": {
+            "loss": 0.2544711232185364,
+            "pred_loss": 0.013072368688881397,
+            "pic_loss": 0.000287962231797994,
+            "iso_loss": 0.24111079507403904,
+            "prediction_loss": 0.013072368688881397
+          },
+          "32": {
+            "loss": 0.11749377681149377,
+            "pred_loss": 0.018227265112929873,
+            "pic_loss": 0.00035772578687303595,
+            "iso_loss": 0.09890878531667921,
+            "prediction_loss": 0.018227265112929873
+          }
+        },
+        "score": 0.015649816900905635,
+        "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+      },
+      "validation_seconds": 5.384547673165798
+    }
+  ]
+}

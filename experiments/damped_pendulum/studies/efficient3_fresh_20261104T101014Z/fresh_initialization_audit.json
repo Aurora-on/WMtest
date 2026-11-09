@@ -1,0 +1,15 @@
+{
+  "checked_at_utc": "2026-11-04T10:12:00.485216+00:00",
+  "resume": null,
+  "solver_migration": null,
+  "initialization": "fresh seed0 model and Adam",
+  "first_saved_step": 1,
+  "sampler_next_step": 1,
+  "adam_state_tensor_count": 46,
+  "all_adam_steps_equal_one": true,
+  "first_horizon": 4,
+  "first_lr_factor": 0.002,
+  "substeps": 3,
+  "old_checkpoint_loaded": false,
+  "source_provenance_note": "Legacy generic provenance gradient description is stale for efficientcore; actual frozen_dg core uses implicit-root backward as source/config specify."
+}

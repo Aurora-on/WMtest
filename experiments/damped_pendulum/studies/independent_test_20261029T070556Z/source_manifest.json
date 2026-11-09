@@ -1,0 +1,427 @@
+{
+  "source_root": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z",
+  "runs": [
+    {
+      "run": "lehami_b0p0_seed0",
+      "model": "lehami",
+      "seed": 0,
+      "damping": 0.0,
+      "checkpoint_step": 27750,
+      "training_data_sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+      "files": [
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed0/best.pt",
+          "sha256": "dc02dfa681bdd952abd0a27caba495350d7ba03f64e64a93949f89152cc61ea7",
+          "bytes": 36475399
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed0/evaluation/readouts.pt",
+          "sha256": "dddde57af14df284a1de4e63eb5f315d88c40ca94ee1fb2d35df278df695f681",
+          "bytes": 108747
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed0/evaluation/calibration.json",
+          "sha256": "9c0c195cc71403664a3da784a5b1d51941b4ce22ab42b0609b020ec9805b1c87",
+          "bytes": 167793
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed0/run.json",
+          "sha256": "26abeded84596c510d85e21dfcd7cf65c030c26db745d6d623cda9441b5e87e7",
+          "bytes": 6360
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed0/evaluation/metrics.json",
+          "sha256": "2384d496a527fecfef36ab80f86b448685ec21e1f81f703af8a0e6b92f734f95",
+          "bytes": 243354
+        }
+      ]
+    },
+    {
+      "run": "lehami_b0p0_seed1",
+      "model": "lehami",
+      "seed": 1,
+      "damping": 0.0,
+      "checkpoint_step": 26250,
+      "training_data_sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+      "files": [
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed1/best.pt",
+          "sha256": "538dfd20432e633134d57eedf16856dcca2cd8173fe9ca4d381ac900aa4339c7",
+          "bytes": 36475399
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed1/evaluation/readouts.pt",
+          "sha256": "e99242104e1c404bb315e10b7ec3e1914b003a4aa7158ef9c47700a2b0d129c9",
+          "bytes": 108747
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed1/evaluation/calibration.json",
+          "sha256": "62ebcb6202ccbf3ae75bcbc3848d64215c394c206e12fcf309ee53c3604ad490",
+          "bytes": 167835
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed1/run.json",
+          "sha256": "ea997956f76245af601f20fe3a6c707f7e91ddc11bfab4eeab37093f5bfe62f3",
+          "bytes": 6360
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed1/evaluation/metrics.json",
+          "sha256": "70aeb8000928f3707efc7847489ba553493661752a599bed6012a5996018cd90",
+          "bytes": 243245
+        }
+      ]
+    },
+    {
+      "run": "lehami_b0p0_seed2",
+      "model": "lehami",
+      "seed": 2,
+      "damping": 0.0,
+      "checkpoint_step": 26750,
+      "training_data_sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+      "files": [
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed2/best.pt",
+          "sha256": "2c7f2e06950c0ab175eb7a7bcf54f927ae585632542fd63d22de98ec37bbcbcf",
+          "bytes": 36475399
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed2/evaluation/readouts.pt",
+          "sha256": "76a0b938f0d064a694ec9824f4391ae5cc65ff68eebe4eb0279854d10c09f8fe",
+          "bytes": 108747
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed2/evaluation/calibration.json",
+          "sha256": "d3e855b4677bf2b3bf19ef2f55d0eec49af086cd0f0b1190b459bcec8044f97c",
+          "bytes": 167758
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed2/run.json",
+          "sha256": "f8a0f2cdc9247ecebe0ab3f6a52bdd9bad1841caaa52937fb5034898443ba3f5",
+          "bytes": 6360
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p0_seed2/evaluation/metrics.json",
+          "sha256": "8ed88534017e687145eafd3c3f9ec28895feea7fcea290e27bf3a6a697800e50",
+          "bytes": 243437
+        }
+      ]
+    },
+    {
+      "run": "lehami_b0p2_seed0",
+      "model": "lehami",
+      "seed": 0,
+      "damping": 0.2,
+      "checkpoint_step": 28000,
+      "training_data_sha256": "e112f2d176993f3d8e6b7277bc80d114d4a1cae5100ba82d29940d59795b7ca5",
+      "files": [
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed0/best.pt",
+          "sha256": "462dc0b278c030aa65f2f5ec0eef6eb3ac56a5e1bd10f0d2a1ed4845b4e33e89",
+          "bytes": 36475399
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed0/evaluation/readouts.pt",
+          "sha256": "bffde2b57c1acfcc8206ffeb5044b7e8e48ffe99a90e8e033788d919f9ded770",
+          "bytes": 108747
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed0/evaluation/calibration.json",
+          "sha256": "3c08bb260ecfb0005cbc43645606bcdd47eedcd1a22501479705c9bfc35726a1",
+          "bytes": 167796
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed0/run.json",
+          "sha256": "a1a017cbcba1837a5be5b1ea1f8391740a45b01e225886a2af4470c7a1586a7e",
+          "bytes": 6379
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed0/evaluation/metrics.json",
+          "sha256": "81311f9b32398b460b0eb8f2a080f753a090045de56454c6d9045c768f84ee16",
+          "bytes": 243746
+        }
+      ]
+    },
+    {
+      "run": "lehami_b0p2_seed1",
+      "model": "lehami",
+      "seed": 1,
+      "damping": 0.2,
+      "checkpoint_step": 27500,
+      "training_data_sha256": "e112f2d176993f3d8e6b7277bc80d114d4a1cae5100ba82d29940d59795b7ca5",
+      "files": [
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed1/best.pt",
+          "sha256": "0cbce1ef0eb3e878db6ad007b113f981de9586d56e6b970c0c6108a9ccb4c9b1",
+          "bytes": 36475399
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed1/evaluation/readouts.pt",
+          "sha256": "a0e7d7e9c83bfaf49713ba7a40b3948050b81563b904d2253361a0c4fedfcd62",
+          "bytes": 108747
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed1/evaluation/calibration.json",
+          "sha256": "b94a372377cf470d02025550a5aa0636511693de092c9a805d6c69cb0301cd28",
+          "bytes": 167834
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed1/run.json",
+          "sha256": "bfa118d12c5382966f8593781910c21f4462d58969761097231cb29515d4202e",
+          "bytes": 6379
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed1/evaluation/metrics.json",
+          "sha256": "44dc273d592802b0494117849d41f90301803df3ccd522b043ffa2f71d6575ed",
+          "bytes": 243671
+        }
+      ]
+    },
+    {
+      "run": "lehami_b0p2_seed2",
+      "model": "lehami",
+      "seed": 2,
+      "damping": 0.2,
+      "checkpoint_step": 28140,
+      "training_data_sha256": "e112f2d176993f3d8e6b7277bc80d114d4a1cae5100ba82d29940d59795b7ca5",
+      "files": [
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed2/best.pt",
+          "sha256": "b76f65bba1aeb9f133a932521b539c2152297e91990e800fa3f8426e68a9efcc",
+          "bytes": 36475399
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed2/evaluation/readouts.pt",
+          "sha256": "1638796ca73f3ef251425137740c229b9958894ec3d8cc78119b19bdc2887399",
+          "bytes": 108747
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed2/evaluation/calibration.json",
+          "sha256": "e7d1cb47b857b8c1b6812305012bc758546afd213e111a83dd0a894a64dc313a",
+          "bytes": 167758
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed2/run.json",
+          "sha256": "be4d8a373b78811d67f6860c68596180c67328afac93585fd149a5e4885a0f59",
+          "bytes": 6379
+        },
+        {
+          "relative_path": "runs/server_47111/lehami_b0p2_seed2/evaluation/metrics.json",
+          "sha256": "07f9f4f45aaddebe35351b04b116f3adf311d22c7ed44144bb6c5bffd533370b",
+          "bytes": 243736
+        }
+      ]
+    },
+    {
+      "run": "lewm_b0p0_seed0",
+      "model": "lewm",
+      "seed": 0,
+      "damping": 0.0,
+      "checkpoint_step": 19000,
+      "training_data_sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+      "files": [
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed0/best.pt",
+          "sha256": "5864dd9fd297f58951859e98361384b700a23f0fc55321c21dc1f5301270b158",
+          "bytes": 53533280
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed0/evaluation/readouts.pt",
+          "sha256": "46ec894ca59125be52182eba43aee0d62f8ea3e0d1e2238966a04e0ecb5ed228",
+          "bytes": 179403
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed0/evaluation/calibration.json",
+          "sha256": "27d902295d1f43e14532c870b1d8d9b6ce3e30f9ffa20cbf4066fbb1efa8983d",
+          "bytes": 167795
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed0/run.json",
+          "sha256": "ffa21fb1e534d44a59f72f9a2cb8486b5123eadc89337e729aadaac6f604ed9e",
+          "bytes": 6270
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed0/evaluation/metrics.json",
+          "sha256": "9d9e8932a0579da93d5a826314a32e8772d5a60e4e78f639299413f735852bb8",
+          "bytes": 244914
+        }
+      ]
+    },
+    {
+      "run": "lewm_b0p0_seed1",
+      "model": "lewm",
+      "seed": 1,
+      "damping": 0.0,
+      "checkpoint_step": 26250,
+      "training_data_sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+      "files": [
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed1/best.pt",
+          "sha256": "8e16d94c59d69a9495f45c144e39e2e12330e881d788c71eab53708a3b938cd0",
+          "bytes": 53533280
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed1/evaluation/readouts.pt",
+          "sha256": "d2521688c3dcf15f4b944074df89f5b77ccd52dc92e43df75193e8320c1e39c3",
+          "bytes": 179403
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed1/evaluation/calibration.json",
+          "sha256": "5ab8aa1915cfc9bad14925411aee3cc46b75df145bfd399393323bbca3bbd7ba",
+          "bytes": 167837
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed1/run.json",
+          "sha256": "0507dcb5d4342a8ae662aac4375c5f01721c7364a37f7bbd03d63edec5fceaca",
+          "bytes": 6270
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed1/evaluation/metrics.json",
+          "sha256": "8c1884a07ca0338c337d7dc199e78f537033b84153ece3276bb973a5136c6fb4",
+          "bytes": 245009
+        }
+      ]
+    },
+    {
+      "run": "lewm_b0p0_seed2",
+      "model": "lewm",
+      "seed": 2,
+      "damping": 0.0,
+      "checkpoint_step": 26750,
+      "training_data_sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+      "files": [
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed2/best.pt",
+          "sha256": "d10c3a0483d6fd8a5bb9f294c1c7de1e03a33e82383f86b0f2a863752ddf72b3",
+          "bytes": 53533280
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed2/evaluation/readouts.pt",
+          "sha256": "2e19a8716d7553b525d5c839fdc64577e11d0d6a176d39587467874ed6c35a3c",
+          "bytes": 179403
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed2/evaluation/calibration.json",
+          "sha256": "3296c13c29067ffe638d3cd17328e53fbec76060a089acebb04096522e56631c",
+          "bytes": 167760
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed2/run.json",
+          "sha256": "d7c46124505ad14244c99ae95aba318d91e9280c2644ebfc4a766a3f54d6a598",
+          "bytes": 6270
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p0_seed2/evaluation/metrics.json",
+          "sha256": "5f5f18aaad580f68f7fe992b4bef1d2bd9c2583f4ee6115ccd62368de7aa74b5",
+          "bytes": 245105
+        }
+      ]
+    },
+    {
+      "run": "lewm_b0p2_seed0",
+      "model": "lewm",
+      "seed": 0,
+      "damping": 0.2,
+      "checkpoint_step": 28000,
+      "training_data_sha256": "e112f2d176993f3d8e6b7277bc80d114d4a1cae5100ba82d29940d59795b7ca5",
+      "files": [
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed0/best.pt",
+          "sha256": "d1f77b97c61825645d5788bde9d19652c537a0da41e28b798db1608c1825311e",
+          "bytes": 53533280
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed0/evaluation/readouts.pt",
+          "sha256": "2aaa9eed7d7c7e09559ac5e77248b8f79ebcd2b75dc4eda517325d24f9432349",
+          "bytes": 179403
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed0/evaluation/calibration.json",
+          "sha256": "b988e37931d3132cc1ecede9f8edd479d5d71529569a73d1fc79593846759f4c",
+          "bytes": 167797
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed0/run.json",
+          "sha256": "7d3d5ac5f975cf67e4585c72210b7d37dd91cfaad6fc40856d3479fd713bbbe3",
+          "bytes": 6289
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed0/evaluation/metrics.json",
+          "sha256": "27bf69c516d0872daeb182638de243e4259822ea6e2008e713cb8b3e83116c1a",
+          "bytes": 245887
+        }
+      ]
+    },
+    {
+      "run": "lewm_b0p2_seed1",
+      "model": "lewm",
+      "seed": 1,
+      "damping": 0.2,
+      "checkpoint_step": 24250,
+      "training_data_sha256": "e112f2d176993f3d8e6b7277bc80d114d4a1cae5100ba82d29940d59795b7ca5",
+      "files": [
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed1/best.pt",
+          "sha256": "5d16f425a13b616cdb783b0c2bd29900251f0ed53f5cf4f7e61a9faabad358af",
+          "bytes": 53533280
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed1/evaluation/readouts.pt",
+          "sha256": "68efc95536f5e58bed37f68c53799c07ecd473ef4a82154e3a7a2952d42e96bb",
+          "bytes": 179403
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed1/evaluation/calibration.json",
+          "sha256": "9ae4cae5ab148b863dcb3d05c0a20e30ee3827d9224165b971a3c5f65f5ac19f",
+          "bytes": 167839
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed1/run.json",
+          "sha256": "e959f2a94a133ecb4c3df7d213e0eb4f9cbc790d8a8f64d5f5829e49ba7aadcb",
+          "bytes": 6289
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed1/evaluation/metrics.json",
+          "sha256": "533496bd00963f559c73b86a2a3ca4d6555435c6dc6e681bf7f26c0177c126de",
+          "bytes": 245678
+        }
+      ]
+    },
+    {
+      "run": "lewm_b0p2_seed2",
+      "model": "lewm",
+      "seed": 2,
+      "damping": 0.2,
+      "checkpoint_step": 24000,
+      "training_data_sha256": "e112f2d176993f3d8e6b7277bc80d114d4a1cae5100ba82d29940d59795b7ca5",
+      "files": [
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed2/best.pt",
+          "sha256": "a5f9cb4379ae479c6e63042311718b732f6763400a701235eea59e50048d79df",
+          "bytes": 53533280
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed2/evaluation/readouts.pt",
+          "sha256": "cc7866eaeaf4afa30b191161d8889374d06939a9dcbf32a514b45810b1e5dabb",
+          "bytes": 179403
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed2/evaluation/calibration.json",
+          "sha256": "460b07d45b9d1892d487a7ce59b32a6674386180a396bf0190f2121778900b80",
+          "bytes": 167760
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed2/run.json",
+          "sha256": "a8453494d3e4bc7e758659074eadea0bce28a6eeda5bcfa20c12550299ea3944",
+          "bytes": 6289
+        },
+        {
+          "relative_path": "runs/server_47111/lewm_b0p2_seed2/evaluation/metrics.json",
+          "sha256": "908942ad333e1843fff45eb925583121981636523ae15bbd9546a55662dac4bf",
+          "bytes": 245680
+        }
+      ]
+    }
+  ],
+  "captured_at_utc": "2026-10-29T07:05:56.966980+00:00",
+  "source_host": "weizhixin@172.16.43.21:2222"
+}

@@ -1,0 +1,1212 @@
+--- before/README.md
++++ README.md
+@@ -1,4 +1,109 @@
+ # LeHami / LeWM 阻尼摆基础实验
++
++## 2026年11月5日 无阻尼阶段 A：分段训练与验收设计
++
++**状态：配置、数据选择和分段执行入口已准备；未生成正式数据、未启动训练。**
++本轮先回答“保守部分能否持续、准确地预测运动”，通过后才进入阻尼学习。
++配置为 `configs/dissipative_undamped_stage_a_v1.json`，完整机器可读方案为
++`studies/undamped_stage_a_20261105/plan.json`。下述阈值是本轮预先固定的起始目标，
++不是已有实验结果。阶段晋级需要检查记录，脚本不会自动判定通过或提交下一段。
++
++### 数据、参数和时间设置
++
++- 使用父配置 `configs/passive_family_smooth_v1.json` 的 `--undamped-only` 子集入口，
++  仅生成 b=0、无外力的 `undamped.h5`。保留父数据的初态、种子、group_id和轨迹划分：
++  train/val/test分别为384/64/128条。A阶段训练和验收只访问train/val，test不参与选模型。
++- `D=0`由`damping_mode=none`硬设，**不存在可训练阻尼参数**；从seed0全新初始化。
++  仅训练图像编码器、局部速度初始化修正器、势能V；环境上下文维数为0，输入力网络冻结并
++  排除出AdamW。不能用旧的有阻尼检查点初始化这次A阶段来冒充从零验证。
++- 保留`dt=0.1s`、仿真20子步、模型3子步、21帧历史（2秒）、末5帧速度窗口（0.4秒）、
++  train/val前81帧（0–8秒）及test 341帧。训练课程仍为K=4→8→16→32，
++  验证仍为K=8/32，每250步、固定288个验证窗口；没有新增8秒自主验收或改变帧率。
++- 沿用修复版的`smooth_v1`、`motion_gated`、`normalized_velocity`、动量一致性权重0.1
++  和raw势能；batch32，encoder LR=2e-5、dynamics LR=1e-4，warmup500，总预算20,000步。
++  无阻尼数据不需要环境辨识。当前二维q、单位质量的结构保持不变，其可表达性仍须验收。
++
++新数据写入`training_scope=undamped_stage_a`及父配置哈希，训练器会检查scope与renderer。
++scope是生成器的声明，不是独立物理鉴定；正式启动还须保存生成清单、文件SHA256和冻结源码。
++不能给旧文件手工补属性来绕过数据要求。真实b、角度、角速度、能量不进入世界模型batch。
++
++### 五个有界训练段
++
++这五段属于**同一条20,000步学习率和课程日程**，通过`--stop-after-step`暂停；
++禁止改成`--steps 250`等短预算，否则学习率日程会改变。
++
++| 累计步数 | 本段训练预测长度 | 验收及继续条件 |
++|---:|---:|---|
++| 250 | K4，0.4秒 | 流程验收：数值/梯度有限，D严格为0，冻结参数不变，保存及恢复状态一致；不要求已学会振荡。 |
++| 1,000 | K4，0.4秒 | 固定训练诊断窗口相比初始化和保持基线出现学习趋势，表示及运动未塌缩；训练诊断不等于泛化结论。 |
++| 4,000 | K8，0.8秒 | K8验证通过表示和运动门槛，各时间分层等权的平均预测/保持MSE比小于1；检查各初始能量组的相位、振幅。失败先诊断。 |
++| 10,000 | K16，1.6秒 | K8继续通过；检查K32相对4,000步的误差和停止率趋势。此时K32尚非课程训练目标，不机械要求达到最终门槛。 |
++| 20,000 | K32，3.2秒 | 选出的best通过K8/K32正式门槛、每个horizon均优于保持基线，再通过独立物理验证，才能晋级B。 |
++
++每次验证仍完整记录K8/K32，早期不以尚未训练的K32是否通过来阻断课程。
++`best.pt`继续使用完整K8/K32门槛，早期不存在best是允许的；续训用`last.pt`，
++不能将last改名为best。每段输出到新目录，保留Adam、RNG、采样位置及同目录best（若已有）；
++配置、数据、源码、运行环境仍须严格匹配。分段检查不放宽现有数值容差。
++
++运动门槛沿用修复版：动态窗口内预测/目标速度RMS比0.5–1.5，
++速度**平方误差/目标速度功率**≤0.8，向量余弦≥0.5，近静止窗口比例≤10%。
++动态窗口指目标潜速度RMS>0.1，近静止指预测RMS<目标的0.1倍；所有动态时间分层均检查。
++表示门槛保留原配置的早期时间分组。以上仍是潜空间指标，不能单独证明真实动力学正确。
++
++### 物理验收设计与失败处理
++
++独立的**A阶段只读val物理评测器尚待实现和检查**，完成前不宣告A通过，也不进入B；
++不能直接运行会读取test的现有完整passive-family评测器来替代它。
++计划在384条train中按固定种子5705划分288条拟合、96条选择ridge读出，映射(q,p)到
++(sinθ,cosθ,ω)，标签只用于读出，不回传世界模型。冻结读出后，在全部64条val的
++anchor=20/32/48上检查K8/K32，所有未来目标仍在前81帧内，推演不重编码未来图像。
++
++先检查真实图像编码后的读出上限：角度MAE≤0.1rad、角速度NRMSE≤0.15；
++角误差使用wrap后的最短角距离，NRMSE分母固定为读出拟合子集的真实角速度标准差。
++未通过时物理判断为“不充分”，先查读出/表示，不能归咎于动力学或跳过物理验收。
++自主预测的初始目标为：覆盖率100%，K8/K32角度MAE分别≤0.25/0.5rad，且比初态保持、
++静止平衡两个基线中更好的角度MAE至少改善20%；真实角速度上的运动幅度、方向及停止率
++也需通过方案中的门槛。按轨迹等权汇总，同时展示各初始能量组及失败轨迹。
++基线优劣在每个horizon的整体指标上选择，不逐窗口选择oracle最佳基线。
++物理能量由读出的θ、ω计算，分别报告初态重建误差与推演中的漂移；预设最大相对漂移的
++中位数≤10%、P90≤25%，具体归一化见plan。**潜能量守恒不能代替这些物理检查。**
++
++如果K8已经训练到4,000步仍持续停止、单向漂移或多能量轨迹无法同时拟合，停止扩展预算，
++优先检查潜坐标与动能结构、恢复力和初始化。不能靠增大阻尼网络去补偿保守动力学错误。
++若需改配方或门槛，另立版本并记录原因，不把验证失败通过事后放宽阈值改称成功。
++
++A通过后的B阶段先冻结encoder/initializer/V，训练新建的D与环境推断网络，并保留b=0回放
++防止退化；这需要显式检查的权重迁移和新优化器，不能伪装成A的exact resume。
++B通过后再考虑C阶段的小学习率联合微调。B/C尚未提交作业，其数据验证协议与迁移入口需
++在执行前完成。已有test初态曾用于诊断，今后最终泛化报告应另固定未用于调参的测试种子。
++
++### 准备与启动入口
++
++只查看数据计划：
++
++```bash
++.venv/bin/python -m dpbench.passive_family \
++  --config configs/passive_family_smooth_v1.json --undamped-only
++```
++
++实际执行时，先生成到新目录，再做只读预检（本轮未执行正式生成）：
++
++```bash
++.venv/bin/python -m dpbench.passive_family \
++  --config configs/passive_family_smooth_v1.json --undamped-only \
++  --output data/undamped_stage_a_v1_20261105 --generate
++.venv/bin/python -m dpbench.train_dissipative \
++  --config configs/dissipative_undamped_stage_a_v1.json \
++  --data data/undamped_stage_a_v1_20261105/undamped.h5
++```
++
++服务器入口`scripts/slurm_undamped_stage_a.sh`需要`PENDULUM_CODE_DIR`（冻结代码）、
++`PENDULUM_PYTHON`、`PENDULUM_DATA`（已核验undamped.h5）、`PENDULUM_RUN_ROOT`。
++首次默认只运行到250步，明确拒绝携带旧检查点；验收后设置`PENDULUM_STOP_AFTER=1000`
++及`PENDULUM_RESUME=<上一段>/last.pt`再单独提交。后续只接受4,000/10,000/20,000，
++要求恢复自前一个完整验收节点；没有自动串联或自动晋级。24小时为Slurm上限，不是耗时估计。
++意外中断的段内恢复可使用训练器原有`--resume/--stop-after-step`，仍执行严格一致性检查。
++本轮修改前快照、差异及不更新优化器的检查记录位于`studies/undamped_stage_a_20261105/`。
+ 
+ ## 2026年11月5日 预测停止问题的代码修复
+ 
+@@ -31,7 +136,7 @@
+ （RMS比0.5–1.5、相对误差≤0.8、相似度≥0.5、近静止率≤0.1）是待验证的起始值，
+ 不是已经证明有效的训练配方。动态窗口定义为目标速度RMS大于`motion_scale_floor`，
+ 预测速度RMS小于目标的0.1倍计为近静止。训练预算沿用旧配置以便比较，未据此启动作业。
+-本轮没有更换潜坐标/动能结构，也没有实现或启动分阶段训练；二维嵌入与单位质量的兼容性
++上述修复没有更换潜坐标/动能结构；后续无阻尼分段入口见本页顶部，尚未启动训练。二维嵌入与单位质量的兼容性
+ 仍需单独的结构实验。若新配置无法通过无阻尼运动验收，应先检查这一点，而不是放宽门槛。
+ 
+ 只查看新数据计划（不写数据、不训练）：
+--- before/dpbench/passive_family.py
++++ dpbench/passive_family.py
+@@ -96,31 +96,47 @@
+     return config
+ 
+ 
+-def plan(config):
++def _parent_config_sha256(config):
++    """Hash the complete parent protocol, independently of selected conditions."""
++    encoded = json.dumps(config, sort_keys=True, separators=(",", ":")).encode("utf-8")
++    return hashlib.sha256(encoded).hexdigest()
++
++
++def plan(config, *, undamped_only=False):
+     """Report exact sizes and raw RGB storage; do not create files or sample data."""
+     validate_config(config)
++    if undamped_only and 0.0 not in config["seen_damping"]:
++        raise ValueError("undamped-only requires damping 0 in the parent seen_damping partition")
+     counts = config["groups"]
+-    seen = len(config["seen_damping"])
+-    unseen = len(config["interpolation_damping"]) + len(config["extrapolation_damping"])
++    seen = 1 if undamped_only else len(config["seen_damping"])
++    unseen = 0 if undamped_only else len(config["interpolation_damping"]) + len(config["extrapolation_damping"])
+     seen_frames = seen * ((counts["train"] + counts["val"]) * config["train_frames"]
+                           + counts["test"] * config["test_frames"])
+     unseen_frames = unseen * counts["test"] * config["test_frames"]
+-    return {"mode": "plan_only", "training_started": False, "writes_files": False,
++    result = {"mode": "plan_only", "training_started": False, "writes_files": False,
+             "family_name": config["family_name"], "groups": counts,
+             "renderer": config.get("renderer", "legacy"),
+             "rendering_contract": "Versioned geometry; smooth_v1 is continuous before uint8 rounding, "
+                                   "but stored pixels retain quantization boundaries. New version requires new data.",
+             "seen_episodes": {s: seen * counts[s] for s in SPLITS},
+-            "unseen_episodes": {"interpolation": len(config["interpolation_damping"]) * counts["test"],
+-                                "extrapolation": len(config["extrapolation_damping"]) * counts["test"]},
++            "unseen_episodes": {"interpolation": 0 if undamped_only else len(config["interpolation_damping"]) * counts["test"],
++                                "extrapolation": 0 if undamped_only else len(config["extrapolation_damping"]) * counts["test"]},
+             "seen_frames": seen_frames, "unseen_frames": unseen_frames,
+             "raw_rgb_bytes": (seen_frames + unseen_frames) * config["image_size"]**2 * 3,
+             "storage_note": "Raw RGB only; excludes metadata and compression. Actual size is measured after generation.",
+             "history_seconds": (config["history"] - 1) * config["dt"],
+             "test_rollout_seconds": (config["test_frames"] - config["history"]) * config["dt"],
+             "model_fields": ["pixels", "action", "dt_frame"],
+-            "requires_environment_context": True,
++            "requires_environment_context": not undamped_only,
+             "source": "Project-generated passive pendulum simulations, not an external dataset"}
++    if undamped_only:
++        result.update(selection_scope="undamped_subset", selected_damping=[0.0],
++                      training_scope="undamped_stage_a",
++                      parent_config_sha256=_parent_config_sha256(config),
++                      output_files=["undamped.h5"],
++                      pairing_contract="Reuse all parent initial groups and split identities; "
++                                       "select b=0 before simulation/rendering. No resampling.")
++    return result
+ 
+ 
+ def sample_groups(config):
+@@ -197,9 +213,15 @@
+     return records
+ 
+ 
+-def _write_file(path, config, groups, kind):
++def _write_file(path, config, groups, kind, *, undamped_only=False):
+     renderer = validate_renderer(config.get("renderer", "legacy"))
+     records = _records(config, groups, kind)
++    if undamped_only:
++        if kind != "seen" or 0.0 not in config["seen_damping"]:
++            raise ValueError("Undamped subset must select b=0 from the parent seen partition")
++        # Filter metadata before any ODE integration or rendering. Do not build
++        # the complete family and discard its other physical trajectories.
++        records = [r for r in records if r["damping"] == 0.0]
+     lengths = np.asarray([r["frames"] for r in records], dtype=np.int64)
+     offsets = np.r_[0, np.cumsum(lengths[:-1])]
+     total, episodes = int(lengths.sum()), len(records)
+@@ -208,12 +230,17 @@
+     with h5py.File(path, "x") as f:
+         f.attrs.update(schema_version=1, family_name=config["family_name"], renderer=renderer,
+                        config_json=json.dumps(config, sort_keys=True),
+-                       requires_environment_context=True, history_required=config["history"],
++                       requires_environment_context=not undamped_only, history_required=config["history"],
+                        train_frames=config["train_frames"] if kind == "seen" else 0,
+                        dt=config["dt"], mass=config["mass"], length=config["length"], gravity=config["gravity"],
+                        damping_scope="Constant within each episode; hidden environment, never a model input",
+                        ode="m L^2 theta_ddot = -m g L sin(theta) - b omega; external torque identically zero",
+                        truth_integrator="float64 RK4 with integrated dissipation; per-band DOP853 audit")
++        if undamped_only:
++            f.attrs.update(selection_scope="undamped_subset", selected_damping_json=json.dumps([0.0]),
++                           training_scope="undamped_stage_a",
++                           parent_config_sha256=_parent_config_sha256(config),
++                           parent_config_json=json.dumps(config, sort_keys=True))
+         f.create_dataset("ep_len", data=lengths)
+         f.create_dataset("ep_offset", data=offsets)
+         for key in ("group_id", "damping_id", "energy_band"):
+@@ -284,11 +311,16 @@
+                     collisions.append({"split": split, "group_id": group,
+                                        "episodes": matching,
+                                        "damping": [records[ep]["damping"] for ep in matching]})
+-    return {"file": path.name, "kind": kind, "renderer": renderer, "episodes": episodes, "frames": total,
++    result = {"file": path.name, "kind": kind, "renderer": renderer, "episodes": episodes, "frames": total,
+             "sha256": sha256(path), "bytes": path.stat().st_size, "numerical_audit": numerical,
+             "different_damping_same_group_identical_initial_context": {
+                 "collision_groups": len(collisions), "examples": collisions[:20],
+-                "scope": "Exact RGB equality across the complete initial history, within one initial group; no approximate-identifiability claim"}}, context_hashes
++                "scope": "Exact RGB equality across the complete initial history, within one initial group; no approximate-identifiability claim"}}
++    if undamped_only:
++        result.update(selection_scope="undamped_subset", selected_damping=[0.0],
++                      training_scope="undamped_stage_a",
++                      parent_config_sha256=_parent_config_sha256(config))
++    return result, context_hashes
+ 
+ 
+ def _context_overlap(seen, unseen):
+@@ -347,19 +379,61 @@
+     return manifest
+ 
+ 
++def generate_undamped(config, output):
++    """Generate only the parent's b=0 episodes, with identical groups and clocks.
++
++    The parent remains a fully validated multi-damping protocol. This selection
++    happens during data preparation; damping is never routed to model batches.
++    Existing test seeds are preserved for paired development diagnostics, not
++    rebranded as a fresh final holdout after their use in model design.
++    """
++    summary = plan(config, undamped_only=True)  # Reject absent b=0 before writes.
++    groups = sample_groups(config)
++    output = Path(output)
++    output.mkdir(parents=True, exist_ok=False)
++    sources = {name: sha256(ROOT / name) for name in ("dpbench/passive_family.py", "dpbench/generate.py")}
++    (output / "generation_config.json").write_text(json.dumps(config, indent=2) + "\n")
++    dataset, contexts = _write_file(output / "undamped.h5", config, groups, "seen", undamped_only=True)
++    development = set(contexts["train"]) | set(contexts["val"])
++    matches = lambda target, reference: sorted(
++        ep for digest, ids in target.items() if digest in reference for ep in ids)
++    manifest = {
++        "status": "generated_untrained", "training_started": False,
++        "selection_scope": "undamped_subset", "selected_damping": [0.0],
++        "training_scope": "undamped_stage_a",
++        "parent_config_sha256": summary["parent_config_sha256"], "config": config,
++        "renderer": summary["renderer"], "source_sha256": sources, "plan": summary,
++        "datasets": [dataset], "requires_environment_context": False,
++        "split_contract": "All parent train/val/test initial states and group IDs retained; "
++                          "only b=0 is simulated. No resampling or cross-split reassignment.",
++        "metadata_boundary": "Only pixels/action/dt_frame enter the model. Damping/state/energy/group "
++                             "metadata remain outside training targets; regime_id=0 is sampler metadata only.",
++        "initial_context_overlap": {
++            "val_matches_train": matches(contexts["val"], set(contexts["train"])),
++            "test_matches_development": matches(contexts["test"], development),
++            "scope": "Exact RGB equality in initial histories; report without filtering or resampling."},
++        "test_policy": "Keep the parent test split for paired development diagnostics. Once used in design, "
++                       "it is not a fresh final holdout; preregister a separate final test seed later.",
++    }
++    (output / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
++    return manifest
++
++
+ def main(argv=None):
+     parser = argparse.ArgumentParser(description=__doc__)
+     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
+     parser.add_argument("--output", type=Path)
+     parser.add_argument("--generate", action="store_true", help="Write new data files only; never starts training")
++    parser.add_argument("--undamped-only", action="store_true",
++                        help="Select only b=0 from the complete parent protocol; default still only plans")
+     args = parser.parse_args(argv)
+     config = json.loads(args.config.read_text())
+     if args.generate:
+         if args.output is None:
+             parser.error("--generate requires --output pointing to a new directory")
+-        result = generate_family(config, args.output)
++        result = generate_undamped(config, args.output) if args.undamped_only else generate_family(config, args.output)
+     else:
+-        result = plan(config)
++        result = plan(config, undamped_only=args.undamped_only)
+     print(json.dumps(result, indent=2))
+     return result
+ 
+--- before/dpbench/train_dissipative.py
++++ dpbench/train_dissipative.py
+@@ -31,11 +31,101 @@
+ ROOT = Path(__file__).resolve().parents[1]
+ DEFAULT_CONFIG = ROOT / "configs/dissipative_jepa.json"
+ CHECKPOINT_VERSION = 1
++TRAINABLE_MODULES = ("encoder", "initializer", "potential", "damping", "environment", "input_port")
+ 
+ 
+ def _positive_int(value, name):
+     if isinstance(value, bool) or not isinstance(value, int) or value < 1:
+         raise ValueError(f"{name} must be a positive integer")
++
++
++def _trainable_module_selection(training_config):
++    """None means the legacy all-parameter behavior; explicit lists are strict."""
++    if "trainable_modules" not in training_config:
++        return None
++    selected = training_config["trainable_modules"]
++    if (not isinstance(selected, list) or not selected
++            or any(not isinstance(name, str) or name not in TRAINABLE_MODULES for name in selected)
++            or len(set(selected)) != len(selected)):
++        raise ValueError("trainable_modules must be a nonempty list of unique modules from "
++                         + str(list(TRAINABLE_MODULES)))
++    return list(selected)
++
++
++def _validate_module_availability(selected, model_config):
++    if selected is None:
++        return
++    if "damping" in selected and model_config["core"]["damping_mode"] == "none":
++        raise ValueError("Selected damping module does not exist with damping_mode=none")
++    if "environment" in selected and model_config["environment_context_dim"] == 0:
++        raise ValueError("Selected environment module does not exist with environment_context_dim=0")
++
++
++def configure_trainable_modules(model, training_config):
++    """Set requires_grad explicitly and report the exact trainable partition.
++
++    Does not create an optimizer or update parameter values. Unselected modules
++    remain in the model/state_dict, but have requires_grad=False and grad=None.
++    In particular a frozen input port cannot be decayed by AdamW on passive data.
++    The module selection is part of the existing config digest/resume contract.
++    """
++    selected = _trainable_module_selection(training_config)
++    _validate_module_availability(selected, model.config)
++    parameters = lambda module: [] if module is None else list(module.parameters())
++    damping = parameters(model.core.damping_net)
++    if model.core.constant_factor is not None:
++        damping.append(model.core.constant_factor)
++    modules = dict(encoder=parameters(model.encoder),
++                   initializer=parameters(model.velocity_correction),
++                   potential=parameters(model.core.potential_net), damping=damping,
++                   environment=parameters(model.environment_encoder),
++                   input_port=parameters(model.core.input_net))
++    all_ids = [id(parameter) for values in modules.values() for parameter in values]
++    if len(all_ids) != len(set(all_ids)) or set(all_ids) != {id(p) for p in model.parameters()}:
++        raise ValueError("Named training modules must partition all model parameters exactly once")
++    if selected is not None and any(not modules[name] for name in selected):
++        raise ValueError("Selected trainable module has no parameters")
++    enabled = {name for name, values in modules.items() if values} if selected is None else set(selected)
++    for name, values in modules.items():
++        for parameter in values:
++            parameter.requires_grad_(name in enabled)
++            if not parameter.requires_grad:
++                parameter.grad = None
++    module_rows = {name: dict(available=bool(values), trainable=name in enabled,
++                              parameter_tensors=len(values),
++                              parameters=sum(p.numel() for p in values),
++                              trainable_parameters=sum(p.numel() for p in values if p.requires_grad))
++                   for name, values in modules.items()}
++    total = sum(p.numel() for p in model.parameters())
++    trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
++    if trainable == 0:
++        raise ValueError("At least one parameter must be trainable")
++    return dict(mode="legacy_all" if selected is None else "explicit_modules",
++                requested_modules=selected,
++                trainable_modules=[name for name in TRAINABLE_MODULES if name in enabled],
++                modules=module_rows, total_parameters=total, trainable_parameters=trainable,
++                frozen_parameters=total - trainable)
++
++
++def build_optimizer_parameter_groups(model, training_config):
++    """Return nonempty encoder/dynamics groups containing only trainable tensors.
++
++    Building groups is read-only and does not instantiate an optimizer. The
++    filtered model accessors retain legacy parameter ordering, preserving the
++    default grouping contract while excluding all frozen modules from AdamW.
++    """
++    groups = []
++    for name, values, lr in (
++        ("encoder", model.encoder_parameters(), training_config["encoder_lr"]),
++        ("dynamics", model.dynamics_parameters(), training_config["dynamics_lr"]),
++    ):
++        trainable = [parameter for parameter in values if parameter.requires_grad]
++        if trainable:
++            groups.append(dict(params=trainable, lr=lr, base_lr=lr, name=name))
++    ids = [id(parameter) for group in groups for parameter in group["params"]]
++    if not ids or len(ids) != len(set(ids)) or set(ids) != {id(p) for p in model.parameters() if p.requires_grad}:
++        raise ValueError("Optimizer groups must partition all trainable parameters exactly once")
++    return groups
+ 
+ 
+ def validate_config(config):
+@@ -50,12 +140,20 @@
+         "val_seed", "minimum_target_std", "minimum_target_motion",
+     }
+     optional = {"validation_gate_time_bins", "prediction_motion_gate",
+-                "validation_motion_weight", "required_renderer"}
++                "validation_motion_weight", "required_renderer", "required_data_scope",
++                "trainable_modules"}
+     if not expected <= set(cfg) or set(cfg) - expected - optional:
+         raise ValueError(f"Training config keys differ: {sorted(set(cfg) ^ expected)}")
+     if "required_renderer" in cfg and (not isinstance(cfg["required_renderer"], str)
+                                       or cfg["required_renderer"] not in {"legacy", "smooth_v1"}):
+         raise ValueError("required_renderer must be legacy or smooth_v1")
++    if "required_data_scope" in cfg and (not isinstance(cfg["required_data_scope"], str)
++                                        or not cfg["required_data_scope"].strip()):
++        raise ValueError("required_data_scope must be a nonempty string")
++    selected = _trainable_module_selection(cfg)
++    if selected is not None:
++        from dpbench.dissipative_model import resolve_model_config
++        _validate_module_availability(selected, resolve_model_config(config["model"]))
+     motion_weight = cfg.get("validation_motion_weight", 0.0)
+     if (isinstance(motion_weight, bool) or not isinstance(motion_weight, (int, float))
+             or not math.isfinite(motion_weight) or motion_weight < 0):
+@@ -426,6 +524,12 @@
+         required_renderer = config["training"].get("required_renderer")
+         if required_renderer is not None and renderer != required_renderer:
+             raise ValueError(f"Dataset renderer {renderer!r} differs from required_renderer={required_renderer!r}; regenerate into a new directory")
++        training_scope = handle.attrs.get("training_scope", "unspecified")
++        if isinstance(training_scope, bytes):
++            training_scope = training_scope.decode("utf-8")
++        required_scope = config["training"].get("required_data_scope")
++        if required_scope is not None and training_scope != required_scope:
++            raise ValueError(f"Dataset training_scope {training_scope!r} differs from required_data_scope={required_scope!r}")
+         for split in ("train", "val"):
+             for episode in handle[f"splits/{split}"][:]:
+                 start = int(handle["ep_offset"][episode])
+@@ -438,6 +542,9 @@
+                   config=config, config_sha256=config_digest(config),
+                   resolved_model_config=resolved_model,
+                   renderer=renderer,
++                  training_scope=training_scope,
++                  required_data_scope=config["training"].get("required_data_scope"),
++                  trainable_modules=config["training"].get("trainable_modules"),
+                   checked_frame_intervals=intervals,
+                   validation_horizons_seconds=[h * resolved_model["dt"] for h in config["training"]["val_horizons"]],
+                   validation_horizons_steps=config["training"]["val_horizons"],
+@@ -478,15 +585,9 @@
+     np.random.seed(cfg["seed"])
+     torch.manual_seed(cfg["seed"])
+     model = DissipativeWorldModel(config["model"]).to(device)
+-    encoder = list(model.encoder_parameters())
+-    dynamics = list(model.dynamics_parameters())
+-    ids = [id(parameter) for parameter in encoder + dynamics]
+-    if len(ids) != len(set(ids)) or set(ids) != {id(p) for p in model.parameters() if p.requires_grad}:
+-        raise ValueError("Optimizer groups must partition all trainable parameters exactly once")
+-    optimizer = torch.optim.AdamW([
+-        {"params": encoder, "lr": cfg["encoder_lr"], "base_lr": cfg["encoder_lr"], "name": "encoder"},
+-        {"params": dynamics, "lr": cfg["dynamics_lr"], "base_lr": cfg["dynamics_lr"], "name": "dynamics"},
+-    ], weight_decay=cfg["weight_decay"])
++    trainability = configure_trainable_modules(model, cfg)
++    optimizer = torch.optim.AdamW(build_optimizer_parameter_groups(model, cfg),
++                                  weight_decay=cfg["weight_decay"])
+     kwargs = dict(history=model.config["history"], max_horizon=maximum_horizon(config),
+                   train_frames=cfg["train_frames"])
+     train = DissipativeWindowDataset(data, "train", **kwargs)
+@@ -526,6 +627,7 @@
+         "solver_migration": saved.get("solver_migration") if saved else None,
+         "precision": "float32 vision, float64 dynamics", "training_started": True,
+         "runtime": runtime,
++        "trainability": trainability,
+         "resume_scope": "Same-runtime configuration, RNG and sampler continuation; bitwise determinism across hardware is not claimed. Move last.pt and best.pt together.",
+         "physical_validation": False,
+         "checkpoint_rule": "minimum configured position/motion validation score, only if representation and enabled prediction gates pass",
+@@ -546,6 +648,7 @@
+             "dataset_sha256": report["dataset_sha256"], "data_path": str(Path(data).resolve()),
+             "source_hashes": hashes, "device": str(device), "seed": cfg["seed"],
+             "runtime": runtime, "train_frames": cfg["train_frames"],
++            "trainability": trainability,
+             "validation": validation_result,
+             "validation_status": "not_run" if validation_result is None else "completed",
+             "validation_indices": val_indices, "best_score": best, "best_step": best_step,
+@@ -612,7 +715,8 @@
+                 losses = model.loss(batch, horizon=horizon)
+                 metrics = scalar_metrics(losses)
+                 losses["loss"].backward()
+-                grad = torch.nn.utils.clip_grad_norm_(model.parameters(), cfg["gradient_clip"], error_if_nonfinite=True)
++                grad = torch.nn.utils.clip_grad_norm_((p for p in model.parameters() if p.requires_grad),
++                                                     cfg["gradient_clip"], error_if_nonfinite=True)
+                 optimizer.step()
+                 synchronize()
+                 status.update(completed_steps=step, optimizer_steps_this_run=step - start_step)
+--- /dev/null
++++ configs/dissipative_undamped_stage_a_v1.json
+@@ -0,0 +1,86 @@
++{
++  "model": {
++    "history": 21,
++    "velocity_history": 5,
++    "environment_context_dim": 0,
++    "core": {
++      "solver": "picard",
++      "newton_iterations": 12,
++      "line_search_max_backtracks": 12,
++      "line_search_shrink": 0.5,
++      "line_search_c1": 0.0001,
++      "max_bisections": 4,
++      "integrator": "frozen_dg",
++      "picard_iterations": 6,
++      "picard_check_every": 2,
++      "fd_relative_step": 6e-06,
++      "implicit_rcond_min": 1e-08,
++      "adjoint_rtol": 1e-10,
++      "substeps": 3,
++      "potential_mode": "raw",
++      "damping_mode": "none"
++    },
++    "velocity_initializer": "motion_gated",
++    "motion_loss_mode": "normalized_velocity",
++    "motion_scale_floor": 0.1,
++    "momentum_weight": 0.1
++  },
++  "training": {
++    "steps": 20000,
++    "batch_size": 32,
++    "train_frames": 81,
++    "seed": 0,
++    "threads": 4,
++    "encoder_lr": 2e-05,
++    "dynamics_lr": 0.0001,
++    "weight_decay": 0.0001,
++    "warmup_steps": 500,
++    "minimum_lr_ratio": 0.1,
++    "gradient_clip": 1.0,
++    "curriculum": [
++      {
++        "until_step": 1000,
++        "horizon": 4
++      },
++      {
++        "until_step": 4000,
++        "horizon": 8
++      },
++      {
++        "until_step": 10000,
++        "horizon": 16
++      },
++      {
++        "until_step": 20000,
++        "horizon": 32
++      }
++    ],
++    "val_horizons": [
++      8,
++      32
++    ],
++    "val_every": 250,
++    "val_windows": 288,
++    "val_seed": 1009,
++    "minimum_target_std": 0.1,
++    "minimum_target_motion": 0.001,
++    "validation_gate_time_bins": [
++      0
++    ],
++    "required_renderer": "smooth_v1",
++    "validation_motion_weight": 1.0,
++    "prediction_motion_gate": {
++      "min_rms_ratio": 0.5,
++      "max_rms_ratio": 1.5,
++      "max_relative_error": 0.8,
++      "min_cosine": 0.5,
++      "max_stalled_fraction": 0.1
++    },
++    "trainable_modules": [
++      "encoder",
++      "initializer",
++      "potential"
++    ],
++    "required_data_scope": "undamped_stage_a"
++  }
++}
+--- /dev/null
++++ scripts/slurm_undamped_stage_a.sh
+@@ -0,0 +1,59 @@
++#!/usr/bin/env bash
++#SBATCH --job-name=undamped-stage-a-s0
++#SBATCH --partition=compute
++#SBATCH --gres=gpu:l40:1
++#SBATCH --cpus-per-task=4
++#SBATCH --mem=32G
++#SBATCH --time=24:00:00
++#SBATCH --output=undamped-stage-a-%j.log
++set -euo pipefail
++
++# One bounded segment only. Submit the next segment after reviewing its predecessor.
++# The full 20,000-step LR/curriculum configuration is never shortened by this script.
++cd "${PENDULUM_CODE_DIR:?Set the verified frozen code snapshot}"
++PYTHON_BIN="${PENDULUM_PYTHON:?Set the Python executable}"
++DATA_FILE="${PENDULUM_DATA:?Set the generated undamped.h5 path}"
++RUN_ROOT="${PENDULUM_RUN_ROOT:?Set a new stage-A run root}"
++STOP_STEP="${PENDULUM_STOP_AFTER:-250}"
++RESUME_FILE="${PENDULUM_RESUME:-}"
++
++case "$STOP_STEP" in
++  250) PREVIOUS_STEP=0 ;;
++  1000) PREVIOUS_STEP=250 ;;
++  4000) PREVIOUS_STEP=1000 ;;
++  10000) PREVIOUS_STEP=4000 ;;
++  20000) PREVIOUS_STEP=10000 ;;
++  *) echo "PENDULUM_STOP_AFTER must be 250, 1000, 4000, 10000, or 20000" >&2; exit 2 ;;
++esac
++
++if [[ "$PREVIOUS_STEP" == 0 ]]; then
++  if [[ -n "$RESUME_FILE" ]]; then
++    echo "The first stage-A segment must start fresh, without PENDULUM_RESUME" >&2
++    exit 2
++  fi
++else
++  if [[ -z "$RESUME_FILE" ]]; then
++    echo "This segment requires PENDULUM_RESUME from milestone $PREVIOUS_STEP" >&2
++    exit 2
++  fi
++  "$PYTHON_BIN" - "$RESUME_FILE" "$PREVIOUS_STEP" <<'PY'
++import sys
++import torch
++
++checkpoint = torch.load(sys.argv[1], map_location="cpu", weights_only=True)
++if checkpoint.get("step") != int(sys.argv[2]) or checkpoint.get("validation_status") != "completed":
++    raise SystemExit("Resume must be the preceding milestone's last.pt with completed validation")
++PY
++fi
++
++export OMP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4 MKL_NUM_THREADS=4
++export PYTHONPATH="$PWD${PYTHONPATH:+:$PYTHONPATH}"
++"$PYTHON_BIN" scripts/bootstrap_upstream.py --verify
++TRAIN_ARGS=(-m dpbench.train_dissipative \
++  --config configs/dissipative_undamped_stage_a_v1.json \
++  --data "$DATA_FILE" --output "$RUN_ROOT/milestone-$STOP_STEP" \
++  --device cuda --stop-after-step "$STOP_STEP" --execute)
++if [[ -n "$RESUME_FILE" ]]; then
++  TRAIN_ARGS+=(--resume "$RESUME_FILE")
++fi
++exec "$PYTHON_BIN" "${TRAIN_ARGS[@]}"
+--- /dev/null
++++ tests/test_stage_a_parameters.py
+@@ -0,0 +1,206 @@
++"""Module freezing and data-scope contracts; no optimizer steps or training."""
++import copy
++
++import h5py
++import numpy as np
++import pytest
++import torch
++
++from dpbench.dissipative_model import DissipativeWorldModel
++from dpbench.train_dissipative import (
++    DEFAULT_CONFIG, build_optimizer_parameter_groups, config_digest,
++    configure_trainable_modules, preflight, read_config, validate_checkpoint,
++    validate_config,
++)
++
++
++@pytest.fixture
++def config():
++    cfg = read_config(DEFAULT_CONFIG)
++    cfg['model'].update(encoder_width=8, sigreg_projections=8)
++    cfg['model'].setdefault('core', {}).update(hidden_dim=8)
++    return cfg
++
++
++def make_model(config):
++    torch.set_num_threads(2)
++    torch.manual_seed(5703)
++    return DissipativeWorldModel(config['model'])
++
++
++@pytest.mark.parametrize('selected', [[], None, 'encoder', ['encoder', 'encoder'], ['bad'],
++                                      [None], [['encoder']], [''], [True], [float('nan')]])
++def test_invalid_module_selection_is_rejected_without_model(config, selected):
++    config['training']['trainable_modules'] = selected
++    with pytest.raises(ValueError, match='trainable_modules'):
++        validate_config(config)
++
++
++@pytest.mark.parametrize('selected,model_config,match', [
++    (['damping'], {'core': {'damping_mode': 'none'}}, 'damping'),
++    (['environment'], {'environment_context_dim': 0}, 'environment'),
++])
++def test_nonexistent_modules_rejected_during_validation_and_configuration(config, selected, model_config, match):
++    config['training']['trainable_modules'] = selected
++    config['model'].update(model_config)
++    with pytest.raises(ValueError, match=match):
++        validate_config(config)
++    model = make_model(config)
++    with pytest.raises(ValueError, match=match):
++        configure_trainable_modules(model, config['training'])
++
++
++def test_undamped_stage_a_backward_freezes_unselected_modules_without_updates(config, monkeypatch):
++    def forbidden(*args, **kwargs):
++        pytest.fail('This test must not construct or step an optimizer')
++    monkeypatch.setattr(torch.optim, 'AdamW', forbidden)
++    config['training']['trainable_modules'] = ['encoder', 'initializer', 'potential']
++    config['model'].update(velocity_initializer='motion_gated', motion_loss_mode='normalized_velocity',
++                           momentum_weight=.1, environment_context_dim=0)
++    config['model']['core'].update(damping_mode='none', potential_mode='raw')
++    validate_config(config)
++    model = make_model(config)
++    # A stale gradient on a module being frozen must not survive selection.
++    for parameter in model.core.input_net.parameters():
++        parameter.grad = torch.ones_like(parameter)
++    before = {key: value.clone() for key, value in model.state_dict().items()}
++    report = configure_trainable_modules(model, config['training'])
++    groups = build_optimizer_parameter_groups(model, config['training'])
++    assert report['trainable_modules'] == ['encoder', 'initializer', 'potential']
++    assert report['modules']['damping']['available'] is False
++    assert report['modules']['environment']['available'] is False
++    assert report['modules']['input_port']['trainable'] is False
++    ids = [id(parameter) for group in groups for parameter in group['params']]
++    assert len(ids) == len(set(ids))
++    assert set(ids) == {id(parameter) for parameter in model.parameters() if parameter.requires_grad}
++    assert not set(ids) & {id(parameter) for parameter in model.core.input_net.parameters()}
++    assert report['trainable_parameters'] + report['frozen_parameters'] == report['total_parameters']
++    history, horizon = model.history, 2
++    rng = torch.Generator().manual_seed(5704)
++    batch = dict(pixels=torch.rand(2, history + horizon, 3, 64, 64, generator=rng),
++                 action=torch.zeros(2, history + horizon - 1, 1),
++                 dt_frame=torch.full((2, history + horizon - 1, 1), model.dt))
++    metrics = model.loss(batch, horizon)
++    metrics['loss'].backward()
++    for name, parameter in model.named_parameters():
++        if not parameter.requires_grad:
++            assert parameter.grad is None, name
++        elif name != 'core.potential_net.0.4.bias':
++            assert parameter.grad is not None and torch.isfinite(parameter.grad).all(), name
++    assert model.encoder.net[0].weight.grad.abs().sum() > 0
++    assert model.velocity_correction[-1].weight.grad.abs().sum() > 0
++    assert model.core.potential_net[0][0].weight.grad.abs().sum() > 0
++    assert all(torch.equal(before[key], value) for key, value in model.state_dict().items())
++
++
++@pytest.mark.parametrize('selected', ['encoder', 'initializer', 'potential', 'damping', 'environment', 'input_port'])
++def test_single_module_produces_only_one_nonempty_group(config, selected):
++    config['model']['environment_context_dim'] = 2
++    config['training']['trainable_modules'] = [selected]
++    model = make_model(config)
++    report = configure_trainable_modules(model, config['training'])
++    groups = build_optimizer_parameter_groups(model, config['training'])
++    assert len(groups) == 1
++    assert groups[0]['name'] == ('encoder' if selected == 'encoder' else 'dynamics')
++    assert groups[0]['params']
++    assert report['trainable_modules'] == [selected]
++    assert sum(parameter.numel() for parameter in groups[0]['params']) == report['trainable_parameters']
++
++
++def test_constant_damping_parameter_is_supported(config):
++    config['model']['core']['damping_mode'] = 'constant'
++    config['model']['environment_context_dim'] = 0
++    config['training']['trainable_modules'] = ['damping']
++    model = make_model(config)
++    report = configure_trainable_modules(model, config['training'])
++    groups = build_optimizer_parameter_groups(model, config['training'])
++    assert model.core.damping_net is None
++    assert len(groups[0]['params']) == 1 and groups[0]['params'][0] is model.core.constant_factor
++    assert report['modules']['damping']['parameters'] == model.core.constant_factor.numel()
++
++
++def test_default_selection_preserves_legacy_order_and_all_trainable_parameters(config):
++    model = make_model(config)
++    old_encoder = model.encoder_parameters()
++    old_dynamics = model.dynamics_parameters()
++    report = configure_trainable_modules(model, config['training'])
++    groups = build_optimizer_parameter_groups(model, config['training'])
++    assert report['mode'] == 'legacy_all' and report['requested_modules'] is None
++    assert report['frozen_parameters'] == 0
++    assert [id(p) for p in groups[0]['params']] == [id(p) for p in old_encoder]
++    assert [id(p) for p in groups[1]['params']] == [id(p) for p in old_dynamics]
++    assert groups[0]['lr'] == groups[0]['base_lr'] == config['training']['encoder_lr']
++    assert groups[1]['lr'] == groups[1]['base_lr'] == config['training']['dynamics_lr']
++
++
++def test_parameter_group_contract_rejects_duplicate_and_missing_trainable_tensor(config):
++    model = make_model(config)
++    configure_trainable_modules(model, config['training'])
++    original = model.encoder_parameters
++    model.encoder_parameters = lambda: original() + original()[:1]
++    with pytest.raises(ValueError, match='partition'):
++        build_optimizer_parameter_groups(model, config['training'])
++    model.encoder_parameters = lambda: original()[1:]
++    with pytest.raises(ValueError, match='partition'):
++        build_optimizer_parameter_groups(model, config['training'])
++
++
++def test_selection_and_data_scope_remain_bound_to_strict_resume(config):
++    checkpoint = dict(format_version=1, kind='dissipative', config_sha256=config_digest(config),
++                      train_config=copy.deepcopy(config), dataset_sha256='data', source_hashes={'train': 'hash'},
++                      device='cpu', step=0, sampler_next_step=0, state_dict={}, optimizer={}, rng={},
++                      config={}, validation_indices=[], best_score=None, best_step=None)
++    validate_checkpoint(checkpoint, config, 'data', {'train': 'hash'}, 'cpu')
++    for addition in ({'trainable_modules': ['encoder', 'initializer', 'potential']},
++                     {'required_data_scope': 'undamped_stage_a'}):
++        changed = copy.deepcopy(config)
++        changed['training'].update(addition)
++        with pytest.raises(ValueError, match='config_sha256'):
++            validate_checkpoint(checkpoint, changed, 'data', {'train': 'hash'}, 'cpu')
++    with pytest.raises(ValueError, match='source_hashes'):
++        validate_checkpoint(checkpoint, config, 'data', {'train': 'changed'}, 'cpu')
++
++
++@pytest.fixture
++def data(tmp_path):
++    path = tmp_path / 'scope_data.h5'
++    episodes, frames = 6, 81
++    n = episodes * frames
++    with h5py.File(path, 'w') as f:
++        f.attrs['train_frames'] = frames
++        f.create_dataset('pixels', data=np.zeros((n, 64, 64, 3), dtype=np.uint8))
++        f.create_dataset('action', data=np.zeros((n, 1), dtype=np.float32))
++        f.create_dataset('dt_frame', data=np.full((n, 1), .1, dtype=np.float32))
++        valid = np.ones((episodes, frames), dtype=bool)
++        valid[:, -1] = False
++        f.create_dataset('valid_transition', data=valid.ravel())
++        f.create_dataset('ep_offset', data=np.arange(episodes) * frames)
++        f.create_dataset('ep_len', data=np.full(episodes, frames))
++        for name, ids in [('train', [0, 1]), ('val', [2, 3]), ('test', [4, 5])]:
++            f.create_dataset('splits/' + name, data=np.asarray(ids, dtype=np.int64))
++    return path
++
++
++def test_data_scope_preflight_rejects_unspecified_or_wrong_scope_and_reports_match(config, data, monkeypatch):
++    monkeypatch.setattr(torch.optim, 'AdamW', lambda *a, **kw: pytest.fail('No optimizer in preflight'))
++    assert preflight(data, config)['training_scope'] == 'unspecified'
++    config['training']['required_data_scope'] = 'undamped_stage_a'
++    with pytest.raises(ValueError, match='training_scope'):
++        preflight(data, config)
++    with h5py.File(data, 'r+') as f:
++        f.attrs['training_scope'] = 'multi_damping'
++    with pytest.raises(ValueError, match='required_data_scope'):
++        preflight(data, config)
++    with h5py.File(data, 'r+') as f:
++        f.attrs['training_scope'] = np.bytes_('undamped_stage_a')
++    report = preflight(data, config)
++    assert report['training_scope'] == report['required_data_scope'] == 'undamped_stage_a'
++    assert report['optimizer_created'] is False
++    assert report['test_samples_read'] is False
++
++
++@pytest.mark.parametrize('scope', ['', ' ', None, [], 1])
++def test_invalid_required_scope_is_rejected(config, scope):
++    config['training']['required_data_scope'] = scope
++    with pytest.raises(ValueError, match='required_data_scope'):
++        validate_config(config)
+--- /dev/null
++++ tests/test_undamped_stage_data.py
+@@ -0,0 +1,145 @@
++"""Data preparation only: b=0 selection never becomes a world-model input."""
++import hashlib
++import json
++from pathlib import Path
++import shutil
++
++import h5py
++import numpy as np
++import pytest
++
++from dpbench.dissipative_data import DissipativeWindowDataset, MODEL_FIELDS, preflight_dataset
++from dpbench import passive_family as family
++
++
++ROOT = Path(__file__).resolve().parents[1]
++
++
++def tiny_config():
++    config = json.loads((ROOT / "configs/passive_family_smoke.json").read_text())
++    config.update(history=3, train_frames=6, test_frames=8, renderer="smooth_v1")
++    return config
++
++
++def test_formal_undamped_plan_keeps_parent_groups_and_physical_times():
++    cfg = json.loads((ROOT / "configs/passive_family_smooth_v1.json").read_text())
++    out = family.plan(cfg, undamped_only=True)
++    assert out["seen_episodes"] == {"train": 384, "val": 64, "test": 128}
++    assert out["seen_frames"] == 79936 and out["unseen_frames"] == 0
++    assert out["unseen_episodes"] == {"interpolation": 0, "extrapolation": 0}
++    assert out["history_seconds"] == 2.0 and out["test_rollout_seconds"] == 32.0
++    assert cfg["dt"] == .1 and cfg["train_frames"] == 81 and cfg["test_frames"] == 341
++    assert out["output_files"] == ["undamped.h5"]
++    assert out["training_scope"] == "undamped_stage_a"
++    assert not out["requires_environment_context"] and not out["writes_files"]
++    assert not out["training_started"]
++
++
++def test_cli_undamped_defaults_to_plan_even_when_output_is_given(tmp_path, capsys):
++    config_path = tmp_path / "config.json"
++    config_path.write_text(json.dumps(tiny_config()))
++    output = tmp_path / "must_not_exist"
++    family.main(["--config", str(config_path), "--undamped-only", "--output", str(output)])
++    result = json.loads(capsys.readouterr().out)
++    assert result["mode"] == "plan_only" and result["selected_damping"] == [0.0]
++    assert not output.exists()
++
++
++@pytest.fixture
++def generated(tmp_path, monkeypatch):
++    cfg = tiny_config()
++    original_simulate = family.simulate
++    calls = []
++
++    def observed_simulation(initial, action, dt, substeps, mass, length, gravity, damping):
++        calls.append(damping)
++        return original_simulate(initial, action, dt, substeps, mass, length, gravity, damping)
++
++    monkeypatch.setattr(family, "simulate", observed_simulation)
++    path = tmp_path / "undamped"
++    manifest = family.generate_undamped(cfg, path)
++    # Exactly one simulation per split, with no rejected nonzero-b simulations.
++    assert calls == [0.0, 0.0, 0.0]
++    monkeypatch.setattr(family, "simulate", original_simulate)
++    return cfg, path, manifest
++
++
++def test_subset_is_exactly_paired_with_parent_data_and_has_bound_provenance(generated, tmp_path):
++    cfg, path, manifest = generated
++    groups = family.sample_groups(cfg)
++    canonical = json.dumps(cfg, sort_keys=True, separators=(",", ":")).encode("utf-8")
++    parent_sha = hashlib.sha256(canonical).hexdigest()
++    assert manifest["parent_config_sha256"] == parent_sha
++    assert manifest["training_scope"] == "undamped_stage_a"
++    assert manifest["selected_damping"] == [0.0] and len(manifest["datasets"]) == 1
++    assert manifest["datasets"][0]["parent_config_sha256"] == parent_sha
++    assert {p.name for p in path.glob("*.h5")} == {"undamped.h5"}
++    family.generate_family(cfg, tmp_path / "full_parent")
++    with h5py.File(path / "undamped.h5") as subset, h5py.File(tmp_path / "full_parent/seen.h5") as parent:
++        assert subset.attrs["training_scope"] == "undamped_stage_a"
++        assert "training_scope" not in parent.attrs
++        assert subset.attrs["parent_config_sha256"] == parent_sha
++        assert json.loads(subset.attrs["parent_config_json"]) == cfg
++        assert json.loads(subset.attrs["selected_damping_json"]) == [0.0]
++        assert not subset.attrs["requires_environment_context"]
++        assert subset.attrs["history_required"] == cfg["history"] and subset.attrs["dt"] == cfg["dt"]
++        assert subset.attrs["renderer"] == "smooth_v1"
++        assert not subset["damping"][:].any() and not subset["regime_id"][:].any()
++        assert not subset["action"][:].any() and not subset["dissipation"][:].any()
++        split_groups = []
++        for split in ("train", "val", "test"):
++            ids = subset["splits/" + split][:]
++            np.testing.assert_array_equal(subset["group_id"][ids], groups[split]["group_id"])
++            np.testing.assert_array_equal(subset["initial_state"][ids], groups[split]["initial"])
++            split_groups.append(set(subset["group_id"][ids]))
++            expected_frames = cfg["test_frames"] if split == "test" else cfg["train_frames"]
++            assert np.all(subset["ep_len"][ids] == expected_frames)
++        assert all(not (split_groups[i] & split_groups[j]) for i in range(3) for j in range(i))
++        parent_ids = np.flatnonzero(parent["damping"][:] == 0.0)
++        for ep, parent_ep in enumerate(parent_ids):
++            np.testing.assert_array_equal(subset["group_id"][ep], parent["group_id"][parent_ep])
++            off, length = int(subset["ep_offset"][ep]), int(subset["ep_len"][ep])
++            parent_off = int(parent["ep_offset"][parent_ep])
++            for key in ("pixels", "state", "energy", "dissipation", "dt_frame", "valid_transition"):
++                np.testing.assert_array_equal(subset[key][off:off + length], parent[key][parent_off:parent_off + length])
++
++
++def test_model_windows_work_without_physical_label_datasets(generated, tmp_path):
++    cfg, path, _ = generated
++    # Deliberately remove every physical label from a temporary copy: training
++    # window construction and preflight must still succeed without reading them.
++    stripped = tmp_path / "label_free.h5"
++    shutil.copyfile(path / "undamped.h5", stripped)
++    with h5py.File(stripped, "r+") as handle:
++        for key in ("state", "energy", "initial_state", "energy_band", "damping", "damping_id",
++                    "work", "dissipation", "reference_residual"):
++            del handle[key]
++    report = preflight_dataset(stripped, history=cfg["history"], max_horizon=2, train_frames=cfg["train_frames"])
++    assert report["target_fields_read"] == [] and not report["test_samples_read"]
++    assert not report["requires_environment_context"]
++    dataset = DissipativeWindowDataset(stripped, "train", history=cfg["history"], max_horizon=2)
++    try:
++        assert set(dataset.batch([0, 1])) == set(MODEL_FIELDS) == {"pixels", "action", "dt_frame"}
++    finally:
++        dataset.close()
++
++
++def test_absent_zero_rejected_before_directory_creation(tmp_path):
++    cfg = tiny_config()
++    cfg["seen_damping"] = [.05, .2]
++    family.validate_config(cfg)  # The parent is valid; selection itself is not.
++    with pytest.raises(ValueError, match="requires damping 0"):
++        family.generate_undamped(cfg, tmp_path / "invalid")
++    assert not (tmp_path / "invalid").exists()
++
++
++def test_undamped_generation_refuses_nonempty_and_existing_outputs(generated, tmp_path):
++    cfg, path, _ = generated
++    with pytest.raises(FileExistsError):
++        family.generate_undamped(cfg, path)
++    partial = tmp_path / "partial"
++    partial.mkdir()
++    (partial / "keep.txt").write_text("keep")
++    with pytest.raises(FileExistsError):
++        family.generate_undamped(cfg, partial)
++    assert (partial / "keep.txt").read_text() == "keep"
+--- /dev/null
++++ tests/test_stage_a_plan.py
+@@ -0,0 +1,210 @@
++"""Stage-A executable plan contracts; tiny data and intercepted shell calls only.
++
++No optimizer is constructed, no real trainer is called, and no Slurm job is
++submitted. The shell's own checkpoint guard runs against tiny metadata files.
++"""
++import copy
++import json
++import os
++from pathlib import Path
++import subprocess
++import sys
++
++import h5py
++import numpy as np
++import pytest
++import torch
++
++from dpbench.dissipative_model import DissipativeWorldModel, resolve_model_config
++from dpbench.passive_family import generate_undamped
++from dpbench.train_dissipative import (
++    build_optimizer_parameter_groups, configure_trainable_modules, preflight, read_config,
++)
++
++
++ROOT = Path(__file__).resolve().parents[1]
++STAGE_CONFIG = ROOT / 'configs/dissipative_undamped_stage_a_v1.json'
++PARENT_CONFIG = ROOT / 'configs/dissipative_passive_fixed_v1.json'
++DATA_CONFIG = ROOT / 'configs/passive_family_smooth_v1.json'
++PLAN = ROOT / 'studies/undamped_stage_a_20261105/plan.json'
++SCRIPT = ROOT / 'scripts/slurm_undamped_stage_a.sh'
++
++
++def test_actual_stage_config_only_changes_the_conservative_stage_scope():
++    parent = read_config(PARENT_CONFIG)
++    stage = read_config(STAGE_CONFIG)
++    expected = copy.deepcopy(parent)
++    expected['model']['environment_context_dim'] = 0
++    expected['model']['core']['damping_mode'] = 'none'
++    expected['training'].update(trainable_modules=['encoder', 'initializer', 'potential'],
++                                required_data_scope='undamped_stage_a')
++    # This exact inheritance check includes every solver/time/LR/loss setting;
++    # stage selection cannot silently change more than the intended scope.
++    assert stage == expected
++
++
++def test_plan_time_and_budget_contract_agrees_with_executable_configs():
++    stage = read_config(STAGE_CONFIG)
++    model = resolve_model_config(stage['model'])
++    data = json.loads(DATA_CONFIG.read_text())
++    plan = json.loads(PLAN.read_text())
++    times = plan['time_invariants']
++    assert times['dt_seconds'] == model['dt'] == data['dt'] == .1
++    assert times['simulation_substeps'] == data['substeps'] == 20
++    assert times['model_substeps'] == model['core']['substeps'] == 3
++    assert times['history_frames'] == model['history'] == data['history'] == 21
++    assert times['velocity_history_frames'] == model['velocity_history'] == 5
++    assert times['train_frames'] == stage['training']['train_frames'] == data['train_frames'] == 81
++    assert times['test_frames'] == data['test_frames'] == 341
++    for key in ('curriculum', 'val_horizons', 'val_every'):
++        assert times[key] == stage['training'][key]
++    assert plan['optimization']['full_budget'] == stage['training']['steps'] == 20000
++    for key in ('batch_size', 'seed', 'encoder_lr', 'dynamics_lr', 'warmup_steps'):
++        assert plan['optimization'][key] == stage['training'][key]
++    assert [row['stop_after_step'] for row in plan['milestones']] == [250, 1000, 4000, 10000, 20000]
++    assert [row['resume_step'] for row in plan['milestones']] == [None, 250, 1000, 4000, 10000]
++    assert plan['data_selection']['groups'] == data['groups']
++
++
++def test_actual_stage_model_has_exactly_zero_damping_and_only_declared_trainable_modules(monkeypatch):
++    monkeypatch.setattr(torch.optim, 'AdamW', lambda *a, **kw: pytest.fail('No optimizer may be created'))
++    torch.set_num_threads(2)
++    cfg = read_config(STAGE_CONFIG)
++    model = DissipativeWorldModel(cfg['model'])
++    report = configure_trainable_modules(model, cfg['training'])
++    groups = build_optimizer_parameter_groups(model, cfg['training'])
++    q = torch.tensor([[0., 0.], [1., -2.], [10., -20.]], dtype=torch.float64)
++    p = torch.tensor([[3., -4.], [.1, .2], [0., 1.]], dtype=torch.float64)
++    damping = model.core.damping(q, p, context=None)
++    assert damping.shape == (3, 2, 2) and torch.count_nonzero(damping) == 0
++    assert model.environment_encoder is None
++    assert model.core.damping_net is None and model.core.constant_factor is None
++    assert report['trainable_modules'] == ['encoder', 'initializer', 'potential']
++    grouped = [id(parameter) for group in groups for parameter in group['params']]
++    assert len(grouped) == len(set(grouped))
++    assert set(grouped) == {id(parameter) for parameter in model.parameters() if parameter.requires_grad}
++    assert all(not parameter.requires_grad and id(parameter) not in grouped
++               for parameter in model.core.input_net.parameters())
++
++
++def test_tiny_undamped_data_accepts_real_stage_configuration_in_readonly_preflight(tmp_path, monkeypatch):
++    monkeypatch.setattr(torch.optim, 'AdamW', lambda *a, **kw: pytest.fail('No optimizer may be created'))
++    data_cfg = json.loads(DATA_CONFIG.read_text())
++    # Only episode counts are reduced. Keep the full physical clock, histories,
++    # frame counts and numerical reference resolution of the real protocol.
++    data_cfg['groups'] = dict(train=4, val=4, test=4)
++    output = tmp_path / 'tiny_undamped'
++    generated = generate_undamped(data_cfg, output)
++    path = output / 'undamped.h5'
++    before = (path.stat().st_size, path.stat().st_mtime_ns)
++    files_before = sorted(p.name for p in output.iterdir())
++    with h5py.File(path, 'r') as handle:
++        assert handle.attrs['training_scope'] == 'undamped_stage_a'
++        assert handle.attrs['renderer'] == 'smooth_v1'
++        assert not bool(handle.attrs['requires_environment_context'])
++        assert np.count_nonzero(handle['action'][:]) == 0
++    report = preflight(path, read_config(STAGE_CONFIG))
++    assert report['mode'] == 'preflight_only' and report['optimizer_created'] is False
++    assert report['run_directory_created'] is False and report['test_samples_read'] is False
++    assert report['training_scope'] == report['required_data_scope'] == 'undamped_stage_a'
++    assert report['trainable_modules'] == ['encoder', 'initializer', 'potential']
++    assert report['validation_horizons_seconds'] == [.8, 3.2]
++    assert before == (path.stat().st_size, path.stat().st_mtime_ns)
++    assert files_before == sorted(p.name for p in output.iterdir())
++    assert generated['training_started'] is False
++
++
++@pytest.fixture
++def shell_harness(tmp_path):
++    """Intercept Python entrypoints, while executing the real metadata guard."""
++    log = tmp_path / 'python_calls.jsonl'
++    stub = tmp_path / 'intercepted python'
++    stub.write_text(
++        '#!' + sys.executable + '\n'
++        'import json, os, sys\n'
++        'with open(os.environ["STAGE_TEST_ARGV_LOG"], "a") as handle:\n'
++        '    handle.write(json.dumps(sys.argv[1:]) + "\\n")\n'
++        'if sys.argv[1:2] == ["-"]:\n'
++        '    source = sys.stdin.read()\n'
++        '    sys.argv = sys.argv[1:]\n'
++        '    exec(compile(source, "<shell_checkpoint_guard>", "exec"))\n'
++        'elif sys.argv[1:3] == ["-m", "dpbench.train_dissipative"]:\n'
++        '    pass  # NEVER import or execute the trainer.\n'
++        'elif sys.argv[1:3] == ["scripts/bootstrap_upstream.py", "--verify"]:\n'
++        '    pass  # No subprocess or network action.\n'
++        'else:\n'
++        '    raise SystemExit("Unexpected Python entrypoint in dry run")\n'
++    )
++    stub.chmod(0o755)
++    environment = os.environ.copy()
++    for key in ('PENDULUM_STOP_AFTER', 'PENDULUM_RESUME'):
++        environment.pop(key, None)
++    environment.update(PENDULUM_CODE_DIR=str(ROOT), PENDULUM_PYTHON=str(stub),
++                       PENDULUM_DATA=str(tmp_path / 'undamped data.h5'),
++                       PENDULUM_RUN_ROOT=str(tmp_path / 'run root'),
++                       STAGE_TEST_ARGV_LOG=str(log))
++
++    def run(**variables):
++        env = dict(environment, **{key: str(value) for key, value in variables.items()})
++        result = subprocess.run(['bash', str(SCRIPT)], env=env, text=True, capture_output=True, timeout=30)
++        calls = [json.loads(line) for line in log.read_text().splitlines()] if log.exists() else []
++        assert not (tmp_path / 'run root').exists()
++        return result, calls, env
++
++    return run
++
++
++def test_shell_default_runs_only_bounded_250_segment_without_changing_schedule(shell_harness):
++    result, calls, env = shell_harness()
++    assert result.returncode == 0, result.stderr
++    command = next(call for call in calls if call[:2] == ['-m', 'dpbench.train_dissipative'])
++    assert command[command.index('--stop-after-step') + 1] == '250'
++    assert command[command.index('--config') + 1] == 'configs/dissipative_undamped_stage_a_v1.json'
++    assert command[command.index('--output') + 1] == str(Path(env['PENDULUM_RUN_ROOT']) / 'milestone-250')
++    assert command[command.index('--data') + 1] == env['PENDULUM_DATA']
++    assert '--steps' not in command and '--fixed-horizon' not in command and '--resume' not in command
++    assert calls.count(command) == 1
++
++
++@pytest.mark.parametrize('stop,previous', [(1000, 250), (4000, 1000), (10000, 4000), (20000, 10000)])
++def test_shell_later_segment_accepts_only_completed_preceding_milestone(shell_harness, tmp_path, stop, previous):
++    checkpoint = tmp_path / 'preceding checkpoint.pt'
++    torch.save(dict(step=previous, validation_status='completed'), checkpoint)
++    result, calls, _ = shell_harness(PENDULUM_STOP_AFTER=stop, PENDULUM_RESUME=checkpoint)
++    assert result.returncode == 0, result.stderr
++    command = next(call for call in calls if call[:2] == ['-m', 'dpbench.train_dissipative'])
++    assert command[command.index('--stop-after-step') + 1] == str(stop)
++    assert command[command.index('--resume') + 1] == str(checkpoint)
++    assert calls[0] == ['-', str(checkpoint), str(previous)]
++    assert '--steps' not in command and '--fixed-horizon' not in command
++
++
++@pytest.mark.parametrize('stop', ['0', '251', '20001', 'invalid'])
++def test_shell_rejects_invalid_stop_before_any_python_execution(shell_harness, stop):
++    result, calls, _ = shell_harness(PENDULUM_STOP_AFTER=stop)
++    assert result.returncode != 0 and 'PENDULUM_STOP_AFTER' in result.stderr
++    assert calls == []
++
++
++@pytest.mark.parametrize('stop', [1000, 20000])
++def test_shell_requires_resume_for_later_milestones(shell_harness, stop):
++    result, calls, _ = shell_harness(PENDULUM_STOP_AFTER=stop)
++    assert result.returncode != 0 and 'requires PENDULUM_RESUME' in result.stderr
++    assert calls == []
++
++
++def test_shell_rejects_resume_on_first_segment(shell_harness, tmp_path):
++    result, calls, _ = shell_harness(PENDULUM_RESUME=tmp_path / 'old.pt')
++    assert result.returncode != 0 and 'must start fresh' in result.stderr
++    assert calls == []
++
++
++@pytest.mark.parametrize('metadata', [dict(step=1000, validation_status='completed'),
++                                     dict(step=250, validation_status='not_run')])
++def test_shell_rejects_wrong_step_or_incomplete_validation_before_training(shell_harness, tmp_path, metadata):
++    checkpoint = tmp_path / 'last.pt'
++    torch.save(metadata, checkpoint)
++    result, calls, _ = shell_harness(PENDULUM_STOP_AFTER=1000, PENDULUM_RESUME=checkpoint)
++    assert result.returncode != 0 and 'preceding milestone' in result.stderr
++    assert len(calls) == 1 and calls[0][0] == '-'
++    assert not any(call[:2] == ['-m', 'dpbench.train_dissipative'] for call in calls)

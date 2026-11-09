@@ -1,0 +1,20 @@
+{
+  "job_id": "47141",
+  "previous_job_id": "47137",
+  "scope_change": "scope_change_lehami_one_seed.json",
+  "recipe": "official train.py resume followed by a0m default-seed eval-only and LeHami-only Jacobian diagnostics",
+  "models": [
+    "LeHami"
+  ],
+  "seeds": [
+    42
+  ],
+  "epochs": 100,
+  "resume_global_step": 6585,
+  "status": "running_verified",
+  "estimated_remaining_hours": [
+    1,
+    1.5
+  ],
+  "health_evidence": "one_seed_resume_health.json"
+}

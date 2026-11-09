@@ -1,0 +1,171 @@
+{
+  "version": "lehami_loss_pair_v1",
+  "status": "prepared_not_submitted",
+  "training_started": false,
+  "optimizer_updates_performed_in_preparation": false,
+  "question": "同一无阻尼动力学模型下，将修复版训练目标整体替换为LeHami式位置/动量预测与联合正则，是否改善自主运动预测？",
+  "scope": "无阻尼阶段A，两个新运行，各seed0；仅打包迁移目标的配对对照，不能归因于其中某个单项，也不等同完整LeHami复现。",
+  "data": {
+    "source": "已有smooth_v1无阻尼数据，父生成配置configs/passive_family_smooth_v1.json的--undamped-only入口",
+    "historical_server_path": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+    "sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+    "source_manifest": "studies/undamped_stage_a_launch_20261105T053810Z/received/data/undamped_v1/manifest.json",
+    "historical_record_only_not_live_verified": true,
+    "groups": {
+      "train": 384,
+      "val": 64,
+      "test": 128
+    },
+    "dt_seconds": 0.1,
+    "train_val_prefix_frames": 81,
+    "test_frames": 341,
+    "renderer": "smooth_v1",
+    "training_scope": "undamped_stage_a",
+    "model_fields": [
+      "pixels",
+      "action",
+      "dt_frame"
+    ],
+    "all_actions_zero": true,
+    "damping": 0.0,
+    "test_access": "训练、预检、选模只访问train/val；最后物理泛化测试另行冻结协议与未参与诊断的初态种子。"
+  },
+  "paired_controls": {
+    "fresh_initialization": true,
+    "seed": 0,
+    "history_frames": 21,
+    "velocity_history_frames": 5,
+    "target_tail_frames": 2,
+    "initializer": "同一motion_gated因果初值与修正头；两组均保留0.001*mean(delta_p0^2)",
+    "target_tail_boundary": "额外2帧仅用于中心5点SG目标；不能进入初值、环境上下文或自主滚动；两组窗口长度和采样锚点相同。",
+    "kinetic_energy": "0.5*sum(p^2), M=I",
+    "potential": "raw",
+    "damping_mode": "none",
+    "environment_context_dim": 0,
+    "integrator": "frozen_dg, 3 substeps, same tolerances",
+    "trainable_modules": [
+      "encoder",
+      "initializer",
+      "potential"
+    ],
+    "batch_size": 32,
+    "optimizer": "AdamW",
+    "encoder_lr": 2e-05,
+    "dynamics_lr": 0.0001,
+    "weight_decay": 0.0001,
+    "gradient_clip": 1.0,
+    "warmup_steps": 500,
+    "minimum_lr_ratio": 0.1,
+    "configured_schedule_steps": 20000,
+    "initial_planned_stop_after_step": 4000,
+    "curriculum": [
+      {
+        "until_step": 1000,
+        "horizon": 4
+      },
+      {
+        "until_step": 4000,
+        "horizon": 8
+      },
+      {
+        "until_step": 10000,
+        "horizon": 16
+      },
+      {
+        "until_step": 20000,
+        "horizon": 32
+      }
+    ],
+    "schedule_rule": "使用完整20000步学习率/课程计划，另设--stop-after-step；不能--steps 4000改变日程。",
+    "historical_stage_a_not_paired_control": "旧stageA没有额外目标尾帧，选模标准不同；两组都需从0重新运行。"
+  },
+  "arms": {
+    "control": {
+      "config": "configs/dissipative_loss_pair_control_v1.json",
+      "objective": "Lq + L_normalized_velocity + 0.1 L_detached_normalized_momentum + 0.25 SIGReg(q) + 0.001 L_initial_correction",
+      "target_gradient": "保持修复版：p目标detach，q目标参与梯度。",
+      "config_sha256": "b3211495fa529eb36fc894417d4209af3a452000c6bbdfeffedc19c7509144ab"
+    },
+    "lehami": {
+      "config": "configs/dissipative_loss_pair_lehami_v1.json",
+      "objective": "MSE(q_hat,q_target)+MSE(tau*p_hat,tau*p_SG_target)+0.25 SIGReg([q_target,tau*p_SG_target])+0.001 L_initial_correction",
+      "tau_seconds": 0.1,
+      "target_gradient": "中心5点SG目标保持对编码器的梯度；星号目标不意味着detach。",
+      "motion_loss_weight": 0.0,
+      "differences_from_full_LeHami": "仅迁移目标；仍是我们q=2、固定二次动能、motion_gated初值、raw势能和三子步求解器，保留修正惩罚。",
+      "config_sha256": "db79b999b7c07295ffcd643c94dc30258c9cbb701adad0e4d3b82a93ec650e2a"
+    }
+  },
+  "selection": {
+    "same_for_both": true,
+    "validation_horizons": [
+      8,
+      32
+    ],
+    "val_every": 250,
+    "val_windows": 288,
+    "val_seed": 1009,
+    "score": "各horizon/数据时间分层等权平均 [phase_position_mse + phase_momentum_mse]，phase_momentum_mse=MSE(tau*p_hat,tau*p_center5)，不含SIGReg。",
+    "gates": "保留同一表示与预测运动门槛；静止目标不施加运动下限。",
+    "gate_thresholds": {
+      "min_rms_ratio": 0.5,
+      "max_rms_ratio": 1.5,
+      "max_relative_error": 0.8,
+      "min_cosine": 0.5,
+      "max_stalled_fraction": 0.1
+    },
+    "early_stage": "4000步只训练到K8；同时记录尚未作为课程目标的K32，不能仅据K32未通过宣布训练失败。",
+    "no_best_policy": "若正式K8/K32门槛尚未通过，best可以不存在；保存last，不把last改名best。",
+    "interpretation": "两组编码器都可学习，潜空间分数仅用于各自选模；跨组优劣必须用共同物理读出/运动评测，不能直接按训练总loss排名。"
+  },
+  "evaluation": {
+    "required_comparison": [
+      "long_rollout_position",
+      "latent_q_p_activity",
+      "phase_error",
+      "amplitude_decay",
+      "premature_stall_fraction",
+      "physical_readout_accuracy"
+    ],
+    "data_split": "冻结world-model后以train拟合读出、val做阶段验收，不能读test选模型或调权重。",
+    "physical_evaluator_status": "沿用阶段A物理验收设计，配套val物理评测器待独立完成；本准备包不宣告物理验收已具备或通过。",
+    "dissipative_extension": "本轮D=0不能证明阻尼学习；多阻尼阶段须另检查近静止样本与联合分布正则冲突。"
+  },
+  "launch": {
+    "entrypoint": "scripts/prepare_lehami_loss_pair.py",
+    "default_mode": "plan_only_no_subprocess_no_optimizer_no_output_directory",
+    "preflight_flag": "--preflight",
+    "execution_flag": "--execute",
+    "default_arm": "both",
+    "arm_options": [
+      "both",
+      "control",
+      "lehami"
+    ],
+    "execution_order": "both时control后lehami，串行；可逐arm分别分配GPU。",
+    "default_stop_after_step": 4000,
+    "allowed_fresh_stop_points": [
+      250,
+      1000,
+      4000,
+      10000,
+      20000
+    ],
+    "output_root": "runs/lehami_loss_pair_20261105",
+    "output_subdirectories": [
+      "control",
+      "lehami"
+    ],
+    "historical_server_python": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/.venv/bin/python",
+    "overwrite_policy": "执行前拒绝任一选定arm的已有输出目录；本入口没有resume参数，两组从0。",
+    "preflight_order": "校验数据SHA、两个配置的共同条件、两个配置的数据预检通过后，才执行所选训练。",
+    "submission_status": "未提交或启动；现有stageA作业与数据不修改。",
+    "source_consistency": "准备计划记录与trainer相同的7个核心源码SHA、launcher自身SHA和两组配置SHA；每次预检和每个训练arm之前复核，不一致立即停止。默认仍只使用标准库。",
+    "frozen_bundle_recommendation": "执行使用同一冻结代码目录；跨arm不得修改源码或任一配置。计划快照可随源码完成后重新生成。"
+  },
+  "limitations": [
+    "单种子初步对照，不构成统计显著性结论。",
+    "LeHami式loss迁移不是停止问题的保证性修复。",
+    "时间与显存尚未用新目标在CUDA上计时。"
+  ]
+}

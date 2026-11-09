@@ -1,0 +1,19 @@
+{
+  "job_id": 47727,
+  "submitted_at_utc": "2026-11-04T10:11:31.186090+00:00",
+  "initial_step": 0,
+  "target_total_step": 20000,
+  "resume": null,
+  "seed": 0,
+  "substeps": 3,
+  "batch_size": 32,
+  "gpu": "L40",
+  "supersedes_cancelled_job": 47726,
+  "remote_root": "/home/weizhixin/ssd/efficient3_fresh_20261104T101014Z",
+  "slurm_time_limit_hours": 24,
+  "status": "RUNNING",
+  "fresh_initialization_verified": true,
+  "startup_health_file": "startup_health.json",
+  "last_checked_step": 111,
+  "last_checked_at_utc": "2026-11-04T10:12:27.610674+00:00"
+}

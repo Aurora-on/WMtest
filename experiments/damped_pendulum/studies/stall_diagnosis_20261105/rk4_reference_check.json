@@ -1,0 +1,12 @@
+{
+  "status": "completed",
+  "weights_unchanged": true,
+  "frozen_training_source_hashes_match": true,
+  "episodes": 8,
+  "seconds": 11.136968999984674,
+  "comparison": "RK4 64 vs128substeps per0.1s frame, fixed learned functions,8s",
+  "max_abs_feature_difference": 6.119746931074893e-06,
+  "feature_rmse": 3.102459875191953e-07,
+  "final_p_rms_64": 0.003057352699028472,
+  "final_p_rms_128": 0.0030573560977096782
+}

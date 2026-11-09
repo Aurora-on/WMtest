@@ -1,0 +1,45 @@
+{
+  "completed_at_utc": "2026-11-05T03:21:25.305308+00:00",
+  "status": "report_and_demonstration_completed",
+  "main_evaluation_rollouts": 1408,
+  "main_evaluation_failures": 0,
+  "historical_lewm_rollouts": 768,
+  "teacher_diagnostic_windows": 396,
+  "pdf_pages": 2,
+  "pdf_pages_visually_verified": true,
+  "demo_start_mid_end_verified": true,
+  "artifacts": [
+    {
+      "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/output/pdf/dissipative_world_model_test_report_20261105.pdf",
+      "bytes": 342427,
+      "sha256": "5eda9ba802a1e8b00003e67a1b8aecb0bec0bff96c28a7937ae9a52ff7e2d111"
+    },
+    {
+      "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/efficient3_evaluation_20261105T023318Z/demo/pendulum_comparison.gif",
+      "bytes": 3331302,
+      "sha256": "86b14e83b1efebf86474c35cc32455de893b32979f2d69272eead19f2ca35234"
+    },
+    {
+      "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/efficient3_evaluation_20261105T023318Z/report_facts.json",
+      "bytes": 41450,
+      "sha256": "02a1bc82a7519984d8f75f93b966892c32ace5ab8d77af5431464163b8dc4bc8"
+    },
+    {
+      "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/efficient3_evaluation_20261105T023318Z/lewm_comparison_audit.json",
+      "bytes": 13178,
+      "sha256": "8249665b2fdc03a1e01537196105c2883a62330788a67300a329e3a201f0bbf2"
+    },
+    {
+      "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/efficient3_evaluation_20261105T023318Z/teacher_received/diagnostic.json",
+      "bytes": 78604,
+      "sha256": "b9638d8280f5f137235c9a70a304132f982ca41f1f0819f937604a2a16747b75"
+    }
+  ],
+  "comparison_scope": "Historical single-damping LeWM specialists, nonmatched training protocol; not an architecture ranking",
+  "unperformed_checks": [
+    "fixed-checkpoint step-size convergence",
+    "matched multi-damping LeWM training",
+    "proposed loss/model ablations",
+    "multiple current-model training seeds"
+  ]
+}

@@ -1,0 +1,593 @@
+{
+  "scope": "One frozen training batch, original objective differentiated. No optimizer created or updates. Not a causal training ablation.",
+  "checkpoint_step": 19250,
+  "batch_sampler_step0": 19249,
+  "batch_windows": [
+    {
+      "episode": 2580,
+      "start": 342111,
+      "start_local": 11,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 4
+    },
+    {
+      "episode": 2628,
+      "start": 345991,
+      "start_local": 3,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 4
+    },
+    {
+      "episode": 3258,
+      "start": 430314,
+      "start_local": 16,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 5
+    },
+    {
+      "episode": 3112,
+      "start": 418497,
+      "start_local": 25,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 5
+    },
+    {
+      "episode": 3169,
+      "start": 423105,
+      "start_local": 16,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 5
+    },
+    {
+      "episode": 74,
+      "start": 6002,
+      "start_local": 8,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 0
+    },
+    {
+      "episode": 213,
+      "start": 17263,
+      "start_local": 10,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 0
+    },
+    {
+      "episode": 1164,
+      "start": 160868,
+      "start_local": 24,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 2
+    },
+    {
+      "episode": 768,
+      "start": 95491,
+      "start_local": 3,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 1
+    },
+    {
+      "episode": 1900,
+      "start": 253747,
+      "start_local": 7,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 3
+    },
+    {
+      "episode": 3235,
+      "start": 428444,
+      "start_local": 9,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 5
+    },
+    {
+      "episode": 1898,
+      "start": 253593,
+      "start_local": 15,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 3
+    },
+    {
+      "episode": 131,
+      "start": 10629,
+      "start_local": 18,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 0
+    },
+    {
+      "episode": 788,
+      "start": 97108,
+      "start_local": 0,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 1
+    },
+    {
+      "episode": 1961,
+      "start": 258706,
+      "start_local": 25,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 3
+    },
+    {
+      "episode": 2418,
+      "start": 329005,
+      "start_local": 27,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 4
+    },
+    {
+      "episode": 1906,
+      "start": 254243,
+      "start_local": 17,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 3
+    },
+    {
+      "episode": 2362,
+      "start": 324442,
+      "start_local": 0,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 4
+    },
+    {
+      "episode": 24,
+      "start": 1945,
+      "start_local": 1,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 0
+    },
+    {
+      "episode": 1820,
+      "start": 247262,
+      "start_local": 2,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 3
+    },
+    {
+      "episode": 2312,
+      "start": 320402,
+      "start_local": 10,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 4
+    },
+    {
+      "episode": 1864,
+      "start": 250850,
+      "start_local": 26,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 3
+    },
+    {
+      "episode": 644,
+      "start": 85456,
+      "start_local": 12,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 1
+    },
+    {
+      "episode": 3181,
+      "start": 424088,
+      "start_local": 27,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 5
+    },
+    {
+      "episode": 218,
+      "start": 17685,
+      "start_local": 27,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 0
+    },
+    {
+      "episode": 1480,
+      "start": 186442,
+      "start_local": 2,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 2
+    },
+    {
+      "episode": 820,
+      "start": 99725,
+      "start_local": 25,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 1
+    },
+    {
+      "episode": 1302,
+      "start": 172045,
+      "start_local": 23,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 2
+    },
+    {
+      "episode": 3214,
+      "start": 426736,
+      "start_local": 2,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 5
+    },
+    {
+      "episode": 2571,
+      "start": 341393,
+      "start_local": 22,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 4
+    },
+    {
+      "episode": 41,
+      "start": 3346,
+      "start_local": 25,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 0
+    },
+    {
+      "episode": 1274,
+      "start": 169772,
+      "start_local": 18,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 2
+    }
+  ],
+  "horizon": 32,
+  "batch_size": 32,
+  "terms": {
+    "prediction": {
+      "value": 0.3186094380484959,
+      "gradnorms": {
+        "damping": 0.14772794600076306,
+        "encoder": 3.3221992476417035,
+        "environment_context": 0.05638249579743568,
+        "input_port": 0.0,
+        "potential": 0.017831788949307554,
+        "velocity_correction": 0.0007038294623916089
+      }
+    },
+    "motion_weighted": {
+      "value": 0.10383774769100085,
+      "gradnorms": {
+        "damping": 0.03659905726001358,
+        "encoder": 1.2676656766376375,
+        "environment_context": 0.0186792444615179,
+        "input_port": 0.0,
+        "potential": 0.009489463375784764,
+        "velocity_correction": 0.0006372078579640395
+      }
+    },
+    "sigreg_weighted": {
+      "value": 0.47464701533317566,
+      "gradnorms": {
+        "damping": 0.0,
+        "encoder": 5.326632732327076,
+        "environment_context": 0.0,
+        "input_port": 0.0,
+        "potential": 0.0,
+        "velocity_correction": 0.0
+      }
+    },
+    "initializer_weighted": {
+      "value": 0.0009523126645945013,
+      "gradnorms": {
+        "damping": 0.0,
+        "encoder": 0.0006193740971896663,
+        "environment_context": 0.0,
+        "input_port": 0.0,
+        "potential": 0.0,
+        "velocity_correction": 0.0001495518883700488
+      }
+    }
+  },
+  "gradient_cosines": [
+    {
+      "group": "damping",
+      "first": "prediction",
+      "second": "motion_weighted",
+      "cosine": 0.762317988578324
+    },
+    {
+      "group": "damping",
+      "first": "prediction",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "damping",
+      "first": "motion_weighted",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "encoder",
+      "first": "prediction",
+      "second": "motion_weighted",
+      "cosine": 0.8611892220141127
+    },
+    {
+      "group": "encoder",
+      "first": "prediction",
+      "second": "sigreg_weighted",
+      "cosine": -0.8092037817118828
+    },
+    {
+      "group": "encoder",
+      "first": "motion_weighted",
+      "second": "sigreg_weighted",
+      "cosine": -0.7677069390306915
+    },
+    {
+      "group": "environment_context",
+      "first": "prediction",
+      "second": "motion_weighted",
+      "cosine": -0.09729548274782189
+    },
+    {
+      "group": "environment_context",
+      "first": "prediction",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "environment_context",
+      "first": "motion_weighted",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "input_port",
+      "first": "prediction",
+      "second": "motion_weighted",
+      "cosine": null
+    },
+    {
+      "group": "input_port",
+      "first": "prediction",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "input_port",
+      "first": "motion_weighted",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "potential",
+      "first": "prediction",
+      "second": "motion_weighted",
+      "cosine": 0.6563004212817183
+    },
+    {
+      "group": "potential",
+      "first": "prediction",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "potential",
+      "first": "motion_weighted",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "velocity_correction",
+      "first": "prediction",
+      "second": "motion_weighted",
+      "cosine": 0.4879907236098675
+    },
+    {
+      "group": "velocity_correction",
+      "first": "prediction",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "velocity_correction",
+      "first": "motion_weighted",
+      "second": "sigreg_weighted",
+      "cosine": null
+    }
+  ],
+  "total_grad_norm": 3.0494320149798586,
+  "would_clip_scale": 0.327929813538339,
+  "total_grad_norm_by_group": {
+    "damping": 0.17721820385916578,
+    "encoder": 3.043628581439588,
+    "environment_context": 0.057645123137978614,
+    "input_port": 0.0,
+    "potential": 0.025102453928577666,
+    "velocity_correction": 0.001134475317821647
+  },
+  "future_p_sg_mse": 4.364211007495549,
+  "future_zero_p_sg_mse": 5.2659667725488815,
+  "future_p_vs_zero_ratio": 0.8287577943419389,
+  "predicted_motion_rms": 0.08234882983928307,
+  "target_motion_rms": 0.3409677984151258,
+  "initializer_comparison": [
+    {
+      "regime_id": null,
+      "n": 32,
+      "centered_sg_rms": 1.8042176015348328,
+      "causal_sg_rms": 3.321566050762892,
+      "corrected_p0_rms": 3.455160517999569,
+      "correction_rms": 0.9758650697992278,
+      "correction_abs_gt095_fraction": 0.921875,
+      "correction_abs_gt099_fraction": 0.765625,
+      "causal_vs_centered_mse": 4.58587940509782,
+      "corrected_vs_centered_mse": 4.744959770883636,
+      "forward_delta_vs_centered_mse": 2.0952754357533827
+    },
+    {
+      "regime_id": 0,
+      "n": 6,
+      "centered_sg_rms": 1.7935172904981025,
+      "causal_sg_rms": 4.353542349005368,
+      "corrected_p0_rms": 4.176980548840152,
+      "correction_rms": 0.9942660821082987,
+      "correction_abs_gt095_fraction": 1.0,
+      "correction_abs_gt099_fraction": 0.8333333730697632,
+      "causal_vs_centered_mse": 7.0776203757082605,
+      "corrected_vs_centered_mse": 6.400924088622292,
+      "forward_delta_vs_centered_mse": 0.313923496058344
+    },
+    {
+      "regime_id": 1,
+      "n": 4,
+      "centered_sg_rms": 2.123551415584847,
+      "causal_sg_rms": 2.7522028402387533,
+      "corrected_p0_rms": 3.255432488759247,
+      "correction_rms": 0.9675966006965467,
+      "correction_abs_gt095_fraction": 0.875,
+      "correction_abs_gt099_fraction": 0.75,
+      "causal_vs_centered_mse": 4.300689103415936,
+      "corrected_vs_centered_mse": 5.274374297901684,
+      "forward_delta_vs_centered_mse": 10.442357048680423
+    },
+    {
+      "regime_id": 2,
+      "n": 4,
+      "centered_sg_rms": 2.2628423025806788,
+      "causal_sg_rms": 5.662358518658991,
+      "corrected_p0_rms": 5.397387455029165,
+      "correction_rms": 0.9285080697151664,
+      "correction_abs_gt095_fraction": 0.75,
+      "correction_abs_gt099_fraction": 0.625,
+      "causal_vs_centered_mse": 12.766724595350638,
+      "corrected_vs_centered_mse": 10.765101603464165,
+      "forward_delta_vs_centered_mse": 1.3062505702083849
+    },
+    {
+      "regime_id": 3,
+      "n": 6,
+      "centered_sg_rms": 1.5132929992408457,
+      "causal_sg_rms": 1.7601039780686305,
+      "corrected_p0_rms": 2.2547800484887426,
+      "correction_rms": 0.996057168117006,
+      "correction_abs_gt095_fraction": 1.0,
+      "correction_abs_gt099_fraction": 0.9166666865348816,
+      "causal_vs_centered_mse": 1.884162387268787,
+      "corrected_vs_centered_mse": 3.4877016380539345,
+      "forward_delta_vs_centered_mse": 0.2156295328202693
+    },
+    {
+      "regime_id": 4,
+      "n": 6,
+      "centered_sg_rms": 2.077000095677306,
+      "causal_sg_rms": 3.004500204386712,
+      "corrected_p0_rms": 3.353794445610083,
+      "correction_rms": 0.9845568520974844,
+      "correction_abs_gt095_fraction": 0.9166666865348816,
+      "correction_abs_gt099_fraction": 0.9166666865348816,
+      "causal_vs_centered_mse": 3.826591278717773,
+      "corrected_vs_centered_mse": 3.674276989351906,
+      "forward_delta_vs_centered_mse": 2.2143418364312617
+    },
+    {
+      "regime_id": 5,
+      "n": 6,
+      "centered_sg_rms": 1.058505006462096,
+      "causal_sg_rms": 1.1570093789485814,
+      "corrected_p0_rms": 1.845126279108211,
+      "correction_rms": 0.9643858078686739,
+      "correction_abs_gt095_fraction": 0.9166666865348816,
+      "correction_abs_gt099_fraction": 0.5,
+      "causal_vs_centered_mse": 0.29137365298250817,
+      "corrected_vs_centered_mse": 1.0505654611073605,
+      "forward_delta_vs_centered_mse": 0.598502379448962
+    }
+  ],
+  "initializer_reference_scope": "CenteredSG and forwarddifference are image-derived approximate derivatives, NOT true canonical state.",
+  "stationary_objective_comparison": [
+    {
+      "method": "model",
+      "q_prediction_mse": 0.3186094380484959,
+      "motion_mse": 0.10383774769100085,
+      "sum_q_and_motion": 0.42244718573949674
+    },
+    {
+      "method": "hold_anchor",
+      "q_prediction_mse": 0.8330523948319508,
+      "motion_mse": 0.11625903955605787,
+      "sum_q_and_motion": 0.9493114343880087
+    },
+    {
+      "method": "future_mean_oracle_diagnostic",
+      "q_prediction_mse": 0.37672753303719453,
+      "motion_mse": 0.12823058090198874,
+      "sum_q_and_motion": 0.5049581139391832
+    }
+  ],
+  "stationary_scope": "Hold-anchor uses current observations. Future-mean uses actual encoded future labels, oracle diagnostic only, not deployable baseline.",
+  "p_state_rms_steps_0_1_2_5_10_20_32": [
+    3.455160517999569,
+    1.945715207336386,
+    1.7346329409283978,
+    1.3556286325026814,
+    0.734334415743939,
+    0.20660726407717797,
+    0.10815446988971306
+  ],
+  "damping_eigenvalues": [
+    {
+      "step": 0,
+      "D_eigenvalue_mean": [
+        4.408619762413599,
+        107.43373235462796
+      ]
+    },
+    {
+      "step": 1,
+      "D_eigenvalue_mean": [
+        1.552699496679061,
+        101.94149517105004
+      ]
+    },
+    {
+      "step": 10,
+      "D_eigenvalue_mean": [
+        13.062886194568915,
+        65.28536686110178
+      ]
+    },
+    {
+      "step": 32,
+      "D_eigenvalue_mean": [
+        13.24016552301008,
+        53.105420933867435
+      ]
+    }
+  ],
+  "state_unchanged": true,
+  "optimizer_updates": 0,
+  "elapsed_seconds": 9.336797259747982
+}

@@ -1,0 +1,58 @@
+{
+  "scope": "Read-only schema/gate/launcher audit; no training and no frozen-source changes",
+  "actual_remote_schema": {
+    "partial_checks": 29,
+    "passed": 25,
+    "expected_incomplete_checks": [
+      "continuation_budget_complete",
+      "continuation_complete_step_sequence",
+      "scheduled_validations_present",
+      "continuation_resumable_checkpoint"
+    ],
+    "validation_steps": [
+      3000,
+      3250,
+      3500
+    ],
+    "all_recorded_gates": true,
+    "latest_schema_snapshot_step": 3570
+  },
+  "gate_definition": {
+    "target_std_min_threshold": 0.1,
+    "target_motion_rms_threshold": 0.001,
+    "required_time_bins": [
+      0
+    ],
+    "horizons": [
+      8,
+      32
+    ],
+    "final_required": [
+      "normal_checkpoint4250",
+      "after500K32updates"
+    ],
+    "meaning": "Initial-time latent variance and motion, not physical accuracy or prediction-score improvement",
+    "independent_recomputation": "Recompute variance and motion from pooled first/second target moments and motion MSE, then check reported statistics and threshold decisions"
+  },
+  "gate_tests": {
+    "actual_original_checkpoint_step": 2750,
+    "actual_validation_groups": 36,
+    "unmodified_validation": "pass",
+    "consistent_collapsed_validation": "representation gate fails",
+    "falsely_claimed_gate": "statistics consistency and representation both fail",
+    "scalar_diagnostic_arrays": "rejected",
+    "incorrect_reported_std": "rejected against independently recomputed pooled moments"
+  },
+  "launcher_review": {
+    "local_script": "scripts/slurm_passive_robust_train.sh",
+    "requires_explicit_resume_env": true,
+    "verified_remote_bootstrap_and_robust_config": true,
+    "verified_remote_last_and_best_exist": true,
+    "remote_audits_launcher_exists": true,
+    "note": "Formal training was not submitted; final evidence still pending. Explicit PENDULUM_RESUME remains required.",
+    "launcher_resolution_source": "Parent verified upload after initial read-only inspection: bash -n passed and remote SHA256 matched local",
+    "launcher_sha256": "0c022b15a605175d561e759005eae7eeb34a6fa23870e12ffd30f9f3102bf55b"
+  },
+  "audit_sha256": "440a66e069b6e5f5a1e9f8e14d39f7a4a6645bb794ba7e3802b9204381520120",
+  "strict_helper_sha256": "1f6288916e51d58fed2e5a9c0af25eb217cdd759131414d9464a09547af430ff"
+}

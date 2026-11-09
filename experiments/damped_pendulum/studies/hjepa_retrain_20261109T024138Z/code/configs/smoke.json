@@ -1,0 +1,9 @@
+{
+  "episodes": 32, "frames": 161, "train_frames": 81,
+  "dt": 0.1, "substeps": 20, "image_size": 64,
+  "mass": 1.0, "length": 1.0, "gravity": 9.81,
+  "damping_values": [0.0, 0.2], "data_seed": 20261028,
+  "train_fraction": 0.75, "val_fraction": 0.125,
+  "torque_max": 2.0, "action_hold_frames": 3,
+  "drive_cycle_frames": 80, "drive_off_frames": [24, 56]
+}

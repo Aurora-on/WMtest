@@ -1,0 +1,36 @@
+Collecting matplotlib<4,>=3.9
+  Using cached matplotlib-3.11.2-cp312-cp312-macosx_11_0_arm64.whl.metadata (80 kB)
+Collecting contourpy>=1.0.1 (from matplotlib<4,>=3.9)
+  Using cached contourpy-1.4.0-cp312-cp312-macosx_11_0_arm64.whl.metadata (3.8 kB)
+Collecting cycler>=0.10 (from matplotlib<4,>=3.9)
+  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.28.2 (from matplotlib<4,>=3.9)
+  Downloading fonttools-4.68.0-cp312-cp312-macosx_10_13_universal2.whl.metadata (139 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib<4,>=3.9)
+  Using cached kiwisolver-1.5.1-cp312-cp312-macosx_11_0_arm64.whl.metadata (5.2 kB)
+Requirement already satisfied: numpy>=1.25 in /Users/weizhixin/Desktop/WM/MOSH_WM_Codex_Task/.venv/lib/python3.12/site-packages (from matplotlib<4,>=3.9) (2.2.6)
+Requirement already satisfied: packaging>=20.0 in ./.venv/lib/python3.12/site-packages (from matplotlib<4,>=3.9) (25.0)
+Requirement already satisfied: pillow>=9 in /Users/weizhixin/Desktop/WM/MOSH_WM_Codex_Task/.venv/lib/python3.12/site-packages (from matplotlib<4,>=3.9) (11.3.0)
+Collecting pyparsing>=3 (from matplotlib<4,>=3.9)
+  Using cached pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+Collecting python-dateutil>=2.7 (from matplotlib<4,>=3.9)
+  Using cached python_dateutil-3.0.0-py2.py3-none-any.whl.metadata (8.2 kB)
+Collecting six>=1.6 (from python-dateutil>=2.7->matplotlib<4,>=3.9)
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting tzdata (from python-dateutil>=2.7->matplotlib<4,>=3.9)
+  Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+Using cached matplotlib-3.11.2-cp312-cp312-macosx_11_0_arm64.whl (9.3 MB)
+Using cached contourpy-1.4.0-cp312-cp312-macosx_11_0_arm64.whl (284 kB)
+Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.68.0-cp312-cp312-macosx_10_13_universal2.whl (3.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 2.7 MB/s eta 0:00:00
+Using cached kiwisolver-1.5.1-cp312-cp312-macosx_11_0_arm64.whl (64 kB)
+Using cached pyparsing-3.3.3-py3-none-any.whl (126 kB)
+Using cached python_dateutil-3.0.0-py2.py3-none-any.whl (94 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+Installing collected packages: tzdata, six, pyparsing, kiwisolver, fonttools, cycler, contourpy, python-dateutil, matplotlib
+Successfully installed contourpy-1.4.0 cycler-0.12.1 fonttools-4.68.0 kiwisolver-1.5.1 matplotlib-3.11.2 pyparsing-3.3.3 python-dateutil-3.0.0 six-1.17.0 tzdata-2026.6
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.2
+[notice] To update, run: /Users/weizhixin/Desktop/WM/experiments/damped_pendulum/.venv/bin/python -m pip install --upgrade pip

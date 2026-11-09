@@ -1,0 +1,85 @@
+{
+  "status": "completed",
+  "checkpoint": "/home/weizhixin/ssd/efficient3_fresh_20261104T101014Z/training/best.pt",
+  "checkpoint_sha256": "5163a6a293a7c773a90e9ef59a62353a4debdba64c0dc24814bcbdb3b47f9042",
+  "checkpoint_step": 19250,
+  "dataset_sha256": {
+    "seen": "55d2b4687e1a6f743b123ba69e3731a067a5b941817bd9d98738262dfabb1509",
+    "unseen": "a2241938f7978c18416038d80f9c1863d7d4147c74630b813134d4fd1091964b"
+  },
+  "evaluator_sha256": "e302e5bfd60fdc7e7f9109737ee449e3349f0296e456dfe36d7d12657e9ebcde",
+  "original_source_hashes": {
+    "dpbench/train_dissipative.py": "dd65dc94bce52daa53a39e90386bee2e3cd50bd269bc15be48083445acbe3339",
+    "dpbench/dissipative_model.py": "22759040e4b6085a4b029f702c0188cd1b230961751ae0307c4202704e53567e",
+    "dpbench/dissipative_core.py": "1eb98f2aafbbe6d215bccdfa6296371096c292ca85a204b663083bf7b461b2fb",
+    "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+    "dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+    "dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+  },
+  "evaluation_source_hashes": {
+    "dpbench/evaluate_passive.py": "e302e5bfd60fdc7e7f9109737ee449e3349f0296e456dfe36d7d12657e9ebcde",
+    "dpbench/evaluate.py": "7b33cddbe590f35956f33fbaba7a50a6262163566080119dece2636811b1ede9",
+    "dpbench/models.py": "7d666b768e34a2158074e5dfb5d39729e7d72c25c3b358d30ce98d8f7650ad75",
+    "dpbench/data.py": "070c038b51ba200d370df9d92a47a6ad6e558048eaee9157d298e6aafdfa9e97",
+    "dpbench/generate.py": "4f05aaee7945a2ebec5d9329834c8bf5eaef98958e8a7b74d9b08c609ce8393d",
+    "dpbench/passive_family.py": "e4be4d69979a015f89938d4949cbacb1ce4836b686ee55c25be2afabfc15dbac"
+  },
+  "history": 21,
+  "anchor_frame": 20,
+  "anchor_time_s": 2.0,
+  "dt": 0.1,
+  "horizons_s": [
+    1.0,
+    2.0,
+    4.0,
+    8.0,
+    16.0,
+    32.0
+  ],
+  "physical_parameters": {
+    "mass": 1.0,
+    "length": 1.0,
+    "gravity": 9.81
+  },
+  "model_frozen": true,
+  "labels_scope": "Seen train only for diagnostic readout; seen val for readout selection; no test fitting",
+  "failure_scope": "Strict solver failures retain finite prefixes and NaN suffixes; no dt/tolerance/integrator change. Failed batches are recursively split to isolate individual failures.",
+  "seed": 0,
+  "probe_steps": 2000,
+  "batch_size": 32,
+  "device": "cuda",
+  "selected_readout": "mlp",
+  "episodes": 1408,
+  "completed_full_rollouts": 1408,
+  "failed_rollouts": 0,
+  "readout_sha256": "f30f7be5de8bca16eee8afcb37b5eb11103d626bb42f0a421a8d8a792ec0581c",
+  "elapsed_seconds": 680.5503237172961,
+  "numerical_audit": {
+    "scope": "Latent numerical balance on accepted prefixes only; not physical prediction accuracy",
+    "declared_valid_transitions": 450560,
+    "audited_finite_transitions": 450560,
+    "invalid_prefix_diagnostic_count": 0,
+    "passed_on_valid_prefixes": true,
+    "max_abs_ledger_identity_error": 3.633534740949001e-14,
+    "max_scaled_ledger_identity_error": 2.3173900725265234e-16,
+    "minimum_dissipation": 7.351523964194933e-17,
+    "max_solver_residual_ratio": 0.499998956500143,
+    "max_split_depth": 0.0,
+    "latent_energy_increase_count": 0,
+    "ledger_scaled_tolerance": 1e-10,
+    "passive_scaled_tolerance": 1e-12,
+    "ledger_identity_violation_count": 0,
+    "negative_dissipation_violation_count": 0,
+    "nonzero_passive_work_violation_count": 0,
+    "residual_ratio_violation_count": 0
+  },
+  "metric_scope": "Physical predictions after frozen readout. Model/latent structural balance is a separate diagnostic. Failures excluded from finite-error summaries and explicitly counted; compare model_complete support for matched baselines.",
+  "methods": {
+    "model": "Frozen checkpoint plus val-selected physical readout",
+    "persistence": "Hold decoded last observed state (same visual initialization as model)",
+    "fixed_frame": "Keep decoded anchor at t=0; hold decoded angle and set omega=0 at all future steps",
+    "equilibrium": "theta=omega=0, known physical equilibrium",
+    "oracle_persistence": "Hold true anchor state; privileged-label diagnostic, not an image-input baseline"
+  }
+}

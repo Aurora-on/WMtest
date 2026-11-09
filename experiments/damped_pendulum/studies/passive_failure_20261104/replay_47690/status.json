@@ -1,0 +1,10 @@
+{
+  "status": "failed",
+  "training_started": true,
+  "completed_steps": 2794,
+  "optimizer_steps_this_run": 44,
+  "error_type": "SolverError",
+  "error": "Implicit step failed tolerance: dynamics_max=6.95e-05, chain_max=7.11e-15",
+  "failed_samples_skipped": false,
+  "elapsed_seconds": 37.46235364675522
+}

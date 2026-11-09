@@ -1,0 +1,13 @@
+{
+  "phase": "reproduce",
+  "job_id": "47137",
+  "status": "RUNNING",
+  "started_unix": 1793259236.1632643,
+  "slurm": {
+    "SLURM_JOB_PARTITION": "compute",
+    "SLURM_CPUS_PER_TASK": "4",
+    "CUDA_VISIBLE_DEVICES": "3",
+    "SLURM_JOB_ID": "47137",
+    "SLURM_JOB_NODELIST": "ladhpc"
+  }
+}

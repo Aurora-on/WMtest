@@ -1,0 +1,79 @@
+{
+  "status": "completed",
+  "experiment_arm": "lehami",
+  "checkpoint_step": 10000,
+  "checkpoint_sha256": "746d0e95aeedd53455b158a8d487803d3253ed6feeacb8737f553a3a7eb05872",
+  "dataset_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+  "source_hashes": {
+    "dpbench/train_dissipative.py": "8db4a123a00ddc2e349babfb7ddc22480a32b213d6f97f345eb9272b7326e560",
+    "dpbench/dissipative_model.py": "7b7e7acff94662b860e9eaa35ac65fc48578a64d191e8d97d2668da0334d77c9",
+    "dpbench/dissipative_core.py": "077c941d2b897411fc8560dc2dd9e7877bc8125560293a68a2552507b52f603f",
+    "dpbench/dissipative_data.py": "6e6ffb5ad921463cf3631529c06e6b4c73e185f50c8181fe81f076dde0045474",
+    "dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+    "dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+  },
+  "evaluation_source_hashes": {
+    "dpbench/__init__.py": "b450b411e74d9cd2eecbf484ba8b6d83fc06c9b057537127056fbb1be7781a3e",
+    "dpbench/evaluate_passive.py": "e302e5bfd60fdc7e7f9109737ee449e3349f0296e456dfe36d7d12657e9ebcde",
+    "dpbench/evaluate.py": "7b33cddbe590f35956f33fbaba7a50a6262163566080119dece2636811b1ede9",
+    "dpbench/models.py": "7d666b768e34a2158074e5dfb5d39729e7d72c25c3b358d30ce98d8f7650ad75",
+    "dpbench/data.py": "070c038b51ba200d370df9d92a47a6ad6e558048eaee9157d298e6aafdfa9e97",
+    "dpbench/generate.py": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31",
+    "dpbench/passive_family.py": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae"
+  },
+  "helper_script_sha256": "fa0fa4ac05cd5698c74fbe4cec30c3bf3e1990ebb28b4be73aca26bbe09568ca",
+  "script_sha256": "60b92afb5d3c8c2d4a057ee233e8fc49d181d6ef4674a659a34154f2dfa2605d",
+  "code_manifest_sha256": "af3040cc129a730ff2eff010d981ea03965f111482bd829e74be3a8900e4dd9f",
+  "probe_summary_sha256": "1408a91de2d7617f8abb17341c3696d557311cbcc2934b7b1b93fe1d832b8a25",
+  "code_root": "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z/code",
+  "device": "cuda",
+  "torch": "2.8.0+cu126",
+  "model_hash_before": "f414634060567e35b3cfba7e33ee01da5b1df698572937056b823f4bb3a46b3f",
+  "model_hash_after": "f414634060567e35b3cfba7e33ee01da5b1df698572937056b823f4bb3a46b3f",
+  "parameters_unchanged": true,
+  "world_model_optimizer_created": false,
+  "world_model_updates": 0,
+  "readout_refitted": false,
+  "test_split_accessed": false,
+  "future_observations_passed_to_predictor": false,
+  "val_groups": 64,
+  "anchor_frame": 20,
+  "history_frames": 21,
+  "horizon_steps": 32,
+  "horizon_seconds": 3.2,
+  "complete_trajectories": 64,
+  "failures": [],
+  "selected_records": [
+    {
+      "episode": 385,
+      "group_id": 10000385,
+      "energy_band": 0,
+      "evaluation_index": 1,
+      "valid_steps": 32
+    },
+    {
+      "episode": 387,
+      "group_id": 10000387,
+      "energy_band": 1,
+      "evaluation_index": 3,
+      "valid_steps": 32
+    },
+    {
+      "episode": 384,
+      "group_id": 10000384,
+      "energy_band": 2,
+      "evaluation_index": 0,
+      "valid_steps": 32
+    },
+    {
+      "episode": 386,
+      "group_id": 10000386,
+      "energy_band": 3,
+      "evaluation_index": 2,
+      "valid_steps": 32
+    }
+  ],
+  "elapsed_seconds": 5.393679566681385,
+  "scope": "Fixed validation anchor20, K32; latent features for an unchanged train-calibrated readout. No physical score is computed here."
+}

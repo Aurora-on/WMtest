@@ -1,0 +1,11 @@
+# CUDA wheels should be selected separately for the server's CUDA version.
+torch==2.8.0
+numpy>=1.26,<3
+scipy>=1.11,<2
+h5py>=3.10,<4
+Pillow>=10,<12
+omegaconf==2.3.1
+einops>=0.7,<1
+PyYAML>=6,<7
+pytest>=8,<9
+matplotlib>=3.9,<4

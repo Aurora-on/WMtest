@@ -1,0 +1,79 @@
+{
+  "model": {
+    "history": 21,
+    "velocity_history": 5,
+    "environment_context_dim": 4,
+    "core": {
+      "solver": "picard",
+      "newton_iterations": 12,
+      "line_search_max_backtracks": 12,
+      "line_search_shrink": 0.5,
+      "line_search_c1": 0.0001,
+      "max_bisections": 4,
+      "integrator": "frozen_dg",
+      "picard_iterations": 6,
+      "picard_check_every": 2,
+      "fd_relative_step": 6e-06,
+      "implicit_rcond_min": 1e-08,
+      "adjoint_rtol": 1e-10,
+      "substeps": 3,
+      "potential_mode": "softplus"
+    },
+    "velocity_initializer": "motion_gated",
+    "motion_loss_mode": "normalized_velocity",
+    "motion_scale_floor": 0.1,
+    "momentum_weight": 0.1
+  },
+  "training": {
+    "steps": 20000,
+    "batch_size": 32,
+    "train_frames": 81,
+    "seed": 0,
+    "threads": 4,
+    "encoder_lr": 2e-05,
+    "dynamics_lr": 0.0001,
+    "weight_decay": 0.0001,
+    "warmup_steps": 500,
+    "minimum_lr_ratio": 0.1,
+    "gradient_clip": 1.0,
+    "curriculum": [
+      {
+        "until_step": 1000,
+        "horizon": 4
+      },
+      {
+        "until_step": 4000,
+        "horizon": 8
+      },
+      {
+        "until_step": 10000,
+        "horizon": 16
+      },
+      {
+        "until_step": 20000,
+        "horizon": 32
+      }
+    ],
+    "val_horizons": [
+      8,
+      32
+    ],
+    "val_every": 250,
+    "val_windows": 288,
+    "val_seed": 1009,
+    "minimum_target_std": 0.1,
+    "minimum_target_motion": 0.001,
+    "validation_gate_time_bins": [
+      0
+    ],
+    "required_renderer": "smooth_v1",
+    "validation_motion_weight": 1.0,
+    "prediction_motion_gate": {
+      "min_rms_ratio": 0.5,
+      "max_rms_ratio": 1.5,
+      "max_relative_error": 0.8,
+      "min_cosine": 0.5,
+      "max_stalled_fraction": 0.1
+    }
+  }
+}

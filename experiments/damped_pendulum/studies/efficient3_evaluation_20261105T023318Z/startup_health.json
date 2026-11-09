@@ -1,0 +1,47 @@
+{
+  "checked_at_utc": "2026-11-05T02:39:17.505986+00:00",
+  "job_id": 47767,
+  "scheduler": "47767 RUNNING 2:45 ladhpc",
+  "phase": "testing",
+  "selected_checkpoint_step": 19250,
+  "episodes_completed": 192,
+  "episodes_total": 1408,
+  "episodes_failed_so_far": 0,
+  "horizons_seconds": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "completed_rollout_seconds": 32,
+  "selected_readout": "mlp",
+  "readout_validation_metrics": {
+    "validation_standardized_mse": 0.005259456112980843,
+    "best_step": 2000,
+    "optimization_steps": 2000,
+    "hidden_layers": [
+      128,
+      128
+    ],
+    "label_budget": 20000,
+    "validation_angle_mae_rad": 0.012339293462937781,
+    "validation_omega_mae_rad_s": 0.1471571693090491
+  },
+  "first_batch_independent_audit": {
+    "trajectories": 32,
+    "steps_each": 320,
+    "max_ledger_identity_error": 2.9867743855044933e-14,
+    "max_residual_ratio": 0.4942415408064671
+  },
+  "mean_seconds_per32_trajectories": 15.1372739687562,
+  "rough_remaining_minutes": [
+    10,
+    15
+  ],
+  "world_model_checkpoint_unchanged": true,
+  "world_model_updates": 0,
+  "test_metrics_complete": false,
+  "startup_monitoring_finished": true
+}

@@ -1,0 +1,16 @@
+[load] /home/weizhixin/ssd/lehami_official_reproduction_20261029/data/checkpoints/lehami_sg_sep_sreg_joint_ms_conv_pendulum_multi_v2_sg_sep_conv_w1_multi_exp067_a0m/best.ckpt
+[setup] model=lehami_sg_sep_sreg_joint_ms_conv lewm=False episodes=45 horizon=40 probe=knn_k1
+
+=== test 3: time reversal round trip ===
+/home/weizhixin/ssd/lehami_official_reproduction_20261029/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:882: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at /pytorch/aten/src/ATen/cuda/CublasHandlePool.cpp:370.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Saved → /home/weizhixin/ssd/lehami_official_reproduction_20261029/LeHami/lehami/experiments/results/exp067_a0m_lehami_w1_multi/physics_reversal.csv  (6 rows)
+  -> physics_reversal.csv (6 rows)
+    K=  1  dt-flip 2.461e-08   p-flip 2.253e-02
+    K=  2  dt-flip 4.603e-08   p-flip 3.599e-02
+    K=  5  dt-flip 8.460e-08   p-flip 5.365e-02
+    K= 10  dt-flip 1.511e-07   p-flip 7.161e-02
+    K= 20  dt-flip 2.375e-07   p-flip 1.153e-01
+    K= 30  dt-flip 8.868e-07   p-flip 2.147e-01
+
+[done] /home/weizhixin/ssd/lehami_official_reproduction_20261029/LeHami/lehami/experiments/results/exp067_a0m_lehami_w1_multi/physics_invariants.json

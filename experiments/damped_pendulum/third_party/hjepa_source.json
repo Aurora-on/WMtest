@@ -1,0 +1,110 @@
+{
+  "repository": "https://github.com/tmz-lab/hjepa",
+  "commit": "fd4f7de927daa7831a6d51e95e0959a813c13901",
+  "directory": "hjepa",
+  "retrieved_date": "2026-11-08",
+  "license": "MIT",
+  "source_status": "byte-exact text files; binary example GIFs omitted",
+  "files": [
+    {
+      "path": "LICENSE",
+      "git_blob_sha1": "9a0803f84d34cc1a436408b7fab6c02fd87937b4",
+      "bytes": 1067
+    },
+    {
+      "path": "README.md",
+      "git_blob_sha1": "d8b9932a39e01b2c27cd79ddd156fd4cb4412895",
+      "bytes": 3026
+    },
+    {
+      "path": "config/eval/cube.yaml",
+      "git_blob_sha1": "37ad51e2160599646697d0a90db0553d0284905a",
+      "bytes": 968
+    },
+    {
+      "path": "config/eval/pusht.yaml",
+      "git_blob_sha1": "ec3c36a6864de29cc5aad81ffdc43bce381896be",
+      "bytes": 638
+    },
+    {
+      "path": "config/eval/reacher.yaml",
+      "git_blob_sha1": "44d0ec75bf2a611ff085cdae959ff995cb1e70e2",
+      "bytes": 708
+    },
+    {
+      "path": "config/eval/solver/cem.yaml",
+      "git_blob_sha1": "8d24fdab34e0dcf45777d418663f8077a433fb98",
+      "bytes": 152
+    },
+    {
+      "path": "config/eval/tworoom.yaml",
+      "git_blob_sha1": "b0824f31460660e62e078ef4de511a4748084a44",
+      "bytes": 683
+    },
+    {
+      "path": "config/train/data/cube.yaml",
+      "git_blob_sha1": "d15c3d07439c3391646ae457489f5626e8956f73",
+      "bytes": 142
+    },
+    {
+      "path": "config/train/data/pusht.yaml",
+      "git_blob_sha1": "2086a4e902594decec07a7072a08648b351e031d",
+      "bytes": 135
+    },
+    {
+      "path": "config/train/data/reacher.yaml",
+      "git_blob_sha1": "0f5e5ce8c0f5db0276d501064c2bae88e1c8046f",
+      "bytes": 134
+    },
+    {
+      "path": "config/train/data/tworoom.yaml",
+      "git_blob_sha1": "816a7037f4a1e5862eea0b7799a547b6a045d730",
+      "bytes": 123
+    },
+    {
+      "path": "config/train/hjepa.yaml",
+      "git_blob_sha1": "ebc32d1a5233dfa151446fd63e6a727d7b8a7f60",
+      "bytes": 665
+    },
+    {
+      "path": "eval.py",
+      "git_blob_sha1": "d383674ce23812849ad345cef4ca95caf11309ce",
+      "bytes": 4848
+    },
+    {
+      "path": "hamiltonian_jepa.py",
+      "git_blob_sha1": "23ea8e58115d8d832f8e8158506214e6801950f1",
+      "bytes": 2762
+    },
+    {
+      "path": "hamiltonian_predictor.py",
+      "git_blob_sha1": "90cc5f8436c1d08e5aa6fee507c6994a3d981133",
+      "bytes": 3523
+    },
+    {
+      "path": "hjepa_loss.py",
+      "git_blob_sha1": "ecb7c848e856419a4ce0d2fc881185efaee52f1a",
+      "bytes": 1060
+    },
+    {
+      "path": "module.py",
+      "git_blob_sha1": "22bb9e9c919c40c6a272c6e03e8352f7c039aadf",
+      "bytes": 1956
+    },
+    {
+      "path": "requirements.txt",
+      "git_blob_sha1": "960f8efb88bb59364008ed7434a26976d6daf552",
+      "bytes": 204
+    },
+    {
+      "path": "scripts/eval.sh",
+      "git_blob_sha1": "668c0465cb6311fe6f2c393bf2e67835575cb43e",
+      "bytes": 615
+    },
+    {
+      "path": "train.py",
+      "git_blob_sha1": "695a7efeec4d697be0b6b7bb1708087dd5ddd3b4",
+      "bytes": 4596
+    }
+  ]
+}

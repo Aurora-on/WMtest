@@ -1,0 +1,43 @@
+{
+  "scope": "independent read-only audit at original checkpoint/settings",
+  "sha256": "5163a6a293a7c773a90e9ef59a62353a4debdba64c0dc24814bcbdb3b47f9042",
+  "b0_8s": {
+    "n": 128,
+    "softplus_multiplier_median": 5.000759570537234e-05,
+    "slope_lt_1e3_fraction": 0.96875,
+    "raw_force_norm_median": 10.55681008960774,
+    "force_norm_mean": 0.002207646461155746,
+    "chain_gradient_error": 6.938893903907228e-18,
+    "min_D_eigenvalue": 0.00898606224633241
+  },
+  "original_tolerance_gradients": [
+    {
+      "target": "q",
+      "autograd": 0.35562113347835955,
+      "fd": 0.35562109887976584,
+      "abs_error": 3.459859371224283e-08,
+      "rel_error": 9.729060074082532e-08
+    },
+    {
+      "target": "p",
+      "autograd": 0.013706702485295624,
+      "fd": 0.013706701779137019,
+      "abs_error": 7.06158605548457e-10,
+      "rel_error": 5.1519218886235766e-08
+    },
+    {
+      "target": "context",
+      "autograd": -0.10352941829262832,
+      "fd": -0.10352941545166415,
+      "abs_error": 2.8409641722459966e-09,
+      "rel_error": 2.7441129478926896e-08
+    },
+    {
+      "target": "last_D_weight",
+      "autograd": -0.10434431748744578,
+      "fd": -0.10434431543249188,
+      "abs_error": 2.054953901486911e-09,
+      "rel_error": 1.969397041419293e-08
+    }
+  ]
+}

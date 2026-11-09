@@ -1,0 +1,1284 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-11-09T02:05:19.209110+00:00",
+  "workspace": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum",
+  "scope": "Read-only extraction of frozen completion audits, short CUDA profiles, and completed same-protocol reevaluation of our unchanged20k checkpoints. This analysis runs no training/inference, remote access, or test trajectory access.",
+  "audit_checked_at_utc": "2026-11-09T01:47:53.999790+00:00",
+  "source_bundle_sha256": "c76992e2809f344f5e70fb111eacffcbf1ea7eb88937718c9cada4e1c942937d",
+  "dataset_sha256": {
+    "a": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+    "single": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+    "multi": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6"
+  },
+  "all_nine_baseline_training_and_evaluations_verified": true,
+  "protocol": {
+    "training_seed": 0,
+    "training_seeds": 1,
+    "updates_per_stage": 20000,
+    "branches": "Three baseline adaptations: A20000 then two independent B branches initialized from the same-method A checkpoint; each B20000 uses a fresh optimizer and full-model fine-tuning. One GPU per baseline method runs A, single and multi sequentially. Ours: resumed A reaches20000, then two B branches train only damping/context in parallel; see its separate training/cost fields.",
+    "stages": {
+      "a": [
+        0.0
+      ],
+      "single": [
+        0.2
+      ],
+      "multi": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.5,
+        1.0
+      ]
+    },
+    "history_frames": 21,
+    "history_span_seconds": 2.0,
+    "dt_seconds": 0.1,
+    "reported_future_steps": 32,
+    "reported_future_interval_seconds": [
+      0.1,
+      3.2
+    ],
+    "reported_error_scope": "All future samples 1..32, excluding anchor; NOT error only at the 3.2-second endpoint.",
+    "unique_validation_initial_condition_groups": 64,
+    "validation_records": {
+      "a": 64,
+      "single": 64,
+      "multi": 384
+    },
+    "independence": "Multi expands the SAME 64 initial-condition groups over 6 damping values; 384 records are not 384 independent initial groups.",
+    "readout": "Each checkpoint independently calibrates uniform kNN on train fit288 groups and selects k from [1,5,25,50] on disjoint train select96; fit-only feature/target standardization; same readout for teacher and autonomous prediction. Calibration uses physical labels but world-model training/prediction does not.",
+    "teacher_gate": {
+      "angle_mae_rad_max": 0.1,
+      "omega_nrmse_max": 0.15,
+      "meaning": "Teacher re-encodes true causal histories. Failure indicates representation/readout is inadequate; autonomous physical metrics for that group are diagnostic, not a clean dynamics ranking."
+    },
+    "stop_definition": "10-frame sliding velocity windows. Truth RMS >0.1*fit-train omega standard deviation is dynamic; predicted RMS <0.1*truth RMS is stopped. Natural near-rest windows excluded.",
+    "split": "val; no held-out-test performance",
+    "checkpoint_selection": "Exact last20000, not best validation checkpoint",
+    "cuda_profile": "NVIDIA L40, float32 baseline implementations, batch32; warmup3 plus measured10 updates per horizon. Memory is peak within these profiling windows, NOT a monitored peak over the actual 20k training job. Reserved memory includes allocator cache; allocated memory is tensor memory."
+  },
+  "methods": {
+    "lehami": {
+      "job_id": "48044",
+      "status": "completed",
+      "parameters": 3126900,
+      "pipeline_start_utc": "2026-11-08T09:30:30.144106+00:00",
+      "pipeline_finish_utc": "2026-11-08T15:10:29.489313+00:00",
+      "actual_pipeline_wall_seconds": 20399.34520673752,
+      "actual_pipeline_wall_hours": 5.666484779649311,
+      "stages": {
+        "a": {
+          "angle_mae_rad": 0.10782095812425359,
+          "omega_rmse_rad_s": 0.3342714184708082,
+          "teacher_angle_mae_rad": 0.009254367680713003,
+          "teacher_omega_rmse_rad_s": 0.05018514463636126,
+          "teacher_omega_nrmse": 0.019214986227375358,
+          "teacher_gate_passed": true,
+          "eligible_for_physical_dynamics_ranking": true,
+          "coverage": 1.0,
+          "stop_window_fraction": 0.0,
+          "stop_window_count": 0,
+          "dynamic_window_count": 1472,
+          "trajectory_with_stop_fraction": 0.0,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "step": 20000,
+          "training_elapsed_seconds": 6638.902040794492,
+          "readout_and_physical_evaluation_elapsed_seconds": 69.34089028835297,
+          "selected_readout_k": 5,
+          "readout_feature_dimension": 64,
+          "omega_nrmse_denominator_rad_s": 2.611771043835727,
+          "checkpoint_sha256": "c2710055cae00fc294c75d4135f8a019af434b242711a4c96fbad7822796813b",
+          "evaluation_protocol_sha256": "40d3602a61c000281f3e45f6133509d8d4d340b485af5059af43f1a3176f2975",
+          "profile_k32_step_seconds_mean": 0.34164597019553183,
+          "profile_k32_peak_allocated_GiB": 6.810334205627441,
+          "profile_k32_peak_reserved_GiB": 6.84765625
+        },
+        "single": {
+          "angle_mae_rad": 0.10704325846869964,
+          "omega_rmse_rad_s": 0.5814530560549179,
+          "teacher_angle_mae_rad": 0.00594146069060147,
+          "teacher_omega_rmse_rad_s": 0.04272018491286295,
+          "teacher_omega_nrmse": 0.02435059918949891,
+          "teacher_gate_passed": true,
+          "eligible_for_physical_dynamics_ranking": true,
+          "coverage": 1.0,
+          "stop_window_fraction": 0.0,
+          "stop_window_count": 0,
+          "dynamic_window_count": 1472,
+          "trajectory_with_stop_fraction": 0.0,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "step": 20000,
+          "training_elapsed_seconds": 6582.87834828347,
+          "readout_and_physical_evaluation_elapsed_seconds": 71.81768704205751,
+          "selected_readout_k": 1,
+          "readout_feature_dimension": 64,
+          "omega_nrmse_denominator_rad_s": 1.754379207690538,
+          "checkpoint_sha256": "8dff7e4f29bf5b9245437a5e9b9312b0bb4187555130922428e9cae9c639059c",
+          "evaluation_protocol_sha256": "f61cbae547b22580cb77cf899464802aece41fbb08b21594db16f069b907ba0e",
+          "profile_k32_step_seconds_mean": 0.36016481295228003,
+          "profile_k32_peak_allocated_GiB": 6.810334205627441,
+          "profile_k32_peak_reserved_GiB": 6.84765625
+        },
+        "multi": {
+          "angle_mae_rad": 0.09057928415240979,
+          "omega_rmse_rad_s": 0.48473775513684153,
+          "teacher_angle_mae_rad": 0.004761389601911427,
+          "teacher_omega_rmse_rad_s": 0.0546010803142253,
+          "teacher_omega_nrmse": 0.028883550693026734,
+          "teacher_gate_passed": true,
+          "eligible_for_physical_dynamics_ranking": true,
+          "coverage": 1.0,
+          "stop_window_fraction": 0.0,
+          "stop_window_count": 0,
+          "dynamic_window_count": 8640,
+          "trajectory_with_stop_fraction": 0.0,
+          "n_records": 384,
+          "n_unique_groups": 64,
+          "step": 20000,
+          "training_elapsed_seconds": 6575.809353552759,
+          "readout_and_physical_evaluation_elapsed_seconds": 424.72264217585325,
+          "selected_readout_k": 1,
+          "readout_feature_dimension": 64,
+          "omega_nrmse_denominator_rad_s": 1.8903867081482981,
+          "checkpoint_sha256": "a1eb8b72f10c38adbe25f1217f36d0cb2d5477d91e4f252311b196cb3e7af0bc",
+          "evaluation_protocol_sha256": "7779921d3d6818847b5a7a5ed4db24c94cb91e5bd50c3bfed1618664631b2058",
+          "profile_k32_step_seconds_mean": 0.38357305228710176,
+          "profile_k32_peak_allocated_GiB": 6.810334205627441,
+          "profile_k32_peak_reserved_GiB": 6.84765625,
+          "per_damping": {
+            "0": {
+              "angle_mae_rad": 0.07942114567258496,
+              "omega_rmse_rad_s": 0.3289772114543889,
+              "teacher_angle_mae_rad": 0.0072874512949096405,
+              "teacher_omega_rmse_rad_s": 0.0492889388563434,
+              "teacher_omega_nrmse": 0.02607346880079563,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.05": {
+              "angle_mae_rad": 0.0756309539078987,
+              "omega_rmse_rad_s": 0.3224686592921332,
+              "teacher_angle_mae_rad": 0.0052696208479234685,
+              "teacher_omega_rmse_rad_s": 0.054085605822325085,
+              "teacher_omega_nrmse": 0.028610868659409844,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.1": {
+              "angle_mae_rad": 0.07905837625956394,
+              "omega_rmse_rad_s": 0.36157426574477347,
+              "teacher_angle_mae_rad": 0.004806650755640351,
+              "teacher_omega_rmse_rad_s": 0.05626971290235007,
+              "teacher_omega_nrmse": 0.029766244472522917,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.2": {
+              "angle_mae_rad": 0.09393132726389951,
+              "omega_rmse_rad_s": 0.45898726943743634,
+              "teacher_angle_mae_rad": 0.004905353202380368,
+              "teacher_omega_rmse_rad_s": 0.06329300002405272,
+              "teacher_omega_nrmse": 0.0334815092336586,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.5": {
+              "angle_mae_rad": 0.1108153105525901,
+              "omega_rmse_rad_s": 0.6076301769277132,
+              "teacher_angle_mae_rad": 0.003941251139782271,
+              "teacher_omega_rmse_rad_s": 0.0688371911981856,
+              "teacher_omega_nrmse": 0.036414343637452946,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "1": {
+              "angle_mae_rad": 0.1046185912579216,
+              "omega_rmse_rad_s": 0.6978484151883888,
+              "teacher_angle_mae_rad": 0.0023580103708324644,
+              "teacher_omega_rmse_rad_s": 0.024943380763589526,
+              "teacher_omega_nrmse": 0.013194856193219041,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1280,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            }
+          }
+        }
+      },
+      "upstream_commits": {
+        "rominay/LeHami": "f76f65f8b99afb6b7e3063f573645d3e2f290ede",
+        "lucas-maes/le-wm": "8edfeb336732b5f3ce7b8b210d0ba370a09e2cac"
+      },
+      "core_and_adaptation": {
+        "native_core": "LeHami HamiltonianPredictor: learned separable K(p/s)+V(q,u), leapfrog; no damping",
+        "adaptation": "q32/p32 by default; full21 history momentum correction added to official causal-last4 SG, zero-initialized output; shared architecture across A/B",
+        "objective": "official multistep q and SG-p MSE, differentiable targets, joint q,p SIGReg weight .25; frame-unit momentum",
+        "readout_features": "complete current phase [q,p], including inferred initial correction",
+        "batchnorm_boundary": "per-raw-time encoder/projector BatchNorm; no future statistics in initializer"
+      },
+      "actual_training_elapsed_seconds_sum": 19797.58974263072,
+      "actual_readout_and_physical_evaluation_seconds_sum": 565.8812195062637,
+      "actual_train_plus_evaluation_seconds_sum": 20363.470962136984,
+      "pipeline_other_overhead_seconds": 35.87424460053444,
+      "profile_peak_allocated_GiB": 6.810334205627441,
+      "profile_peak_reserved_GiB": 8.56640625
+    },
+    "lewm": {
+      "job_id": "48045",
+      "status": "completed",
+      "parameters": 4445140,
+      "pipeline_start_utc": "2026-11-08T09:33:31.229499+00:00",
+      "pipeline_finish_utc": "2026-11-08T14:56:13.196880+00:00",
+      "actual_pipeline_wall_seconds": 19361.96738052368,
+      "actual_pipeline_wall_hours": 5.378324272367689,
+      "stages": {
+        "a": {
+          "angle_mae_rad": 0.03471900269224992,
+          "omega_rmse_rad_s": 0.2115067726320587,
+          "teacher_angle_mae_rad": 0.005146082061996649,
+          "teacher_omega_rmse_rad_s": 0.09580658304993087,
+          "teacher_omega_nrmse": 0.03668261169984731,
+          "teacher_gate_passed": true,
+          "eligible_for_physical_dynamics_ranking": true,
+          "coverage": 1.0,
+          "stop_window_fraction": 0.0,
+          "stop_window_count": 0,
+          "dynamic_window_count": 1472,
+          "trajectory_with_stop_fraction": 0.0,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "step": 20000,
+          "training_elapsed_seconds": 6197.924546517432,
+          "readout_and_physical_evaluation_elapsed_seconds": 69.74894185364246,
+          "selected_readout_k": 1,
+          "readout_feature_dimension": 128,
+          "omega_nrmse_denominator_rad_s": 2.611771043835727,
+          "checkpoint_sha256": "3b159848abe229d28599c0a72eb521601f05bc59a48a13ede89460e8ce8339eb",
+          "evaluation_protocol_sha256": "40d3602a61c000281f3e45f6133509d8d4d340b485af5059af43f1a3176f2975",
+          "profile_k32_step_seconds_mean": 0.37361357510089876,
+          "profile_k32_peak_allocated_GiB": 11.926125049591064,
+          "profile_k32_peak_reserved_GiB": 12.2578125
+        },
+        "single": {
+          "angle_mae_rad": 0.03343961373943078,
+          "omega_rmse_rad_s": 0.2091010442663986,
+          "teacher_angle_mae_rad": 0.004134795264824754,
+          "teacher_omega_rmse_rad_s": 0.08060016628971801,
+          "teacher_omega_nrmse": 0.04594227173714624,
+          "teacher_gate_passed": true,
+          "eligible_for_physical_dynamics_ranking": true,
+          "coverage": 1.0,
+          "stop_window_fraction": 0.0,
+          "stop_window_count": 0,
+          "dynamic_window_count": 1472,
+          "trajectory_with_stop_fraction": 0.0,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "step": 20000,
+          "training_elapsed_seconds": 6245.037205524743,
+          "readout_and_physical_evaluation_elapsed_seconds": 85.58460141718388,
+          "selected_readout_k": 1,
+          "readout_feature_dimension": 128,
+          "omega_nrmse_denominator_rad_s": 1.754379207690538,
+          "checkpoint_sha256": "69a3b14e341d83f5d16312c39f326aea83713c52c481db945d34521d6f1c495a",
+          "evaluation_protocol_sha256": "f61cbae547b22580cb77cf899464802aece41fbb08b21594db16f069b907ba0e",
+          "profile_k32_step_seconds_mean": 0.3540866807103157,
+          "profile_k32_peak_allocated_GiB": 11.927589893341064,
+          "profile_k32_peak_reserved_GiB": 12.265625
+        },
+        "multi": {
+          "angle_mae_rad": 0.09732527251053151,
+          "omega_rmse_rad_s": 0.5905157115369776,
+          "teacher_angle_mae_rad": 0.0014919965428086025,
+          "teacher_omega_rmse_rad_s": 0.03949375083901295,
+          "teacher_omega_nrmse": 0.02089188982803339,
+          "teacher_gate_passed": true,
+          "eligible_for_physical_dynamics_ranking": true,
+          "coverage": 1.0,
+          "stop_window_fraction": 0.0,
+          "stop_window_count": 0,
+          "dynamic_window_count": 8640,
+          "trajectory_with_stop_fraction": 0.0,
+          "n_records": 384,
+          "n_unique_groups": 64,
+          "step": 20000,
+          "training_elapsed_seconds": 6162.717541374266,
+          "readout_and_physical_evaluation_elapsed_seconds": 565.7117325663567,
+          "selected_readout_k": 5,
+          "readout_feature_dimension": 128,
+          "omega_nrmse_denominator_rad_s": 1.8903867081482981,
+          "checkpoint_sha256": "571e18ce765e741395ca142d107988aae192bb3ecc4584b86b7cc70ca2b18b81",
+          "evaluation_protocol_sha256": "7779921d3d6818847b5a7a5ed4db24c94cb91e5bd50c3bfed1618664631b2058",
+          "profile_k32_step_seconds_mean": 0.3635211646556854,
+          "profile_k32_peak_allocated_GiB": 11.927589893341064,
+          "profile_k32_peak_reserved_GiB": 12.265625,
+          "per_damping": {
+            "0": {
+              "angle_mae_rad": 0.08963025793467166,
+              "omega_rmse_rad_s": 0.4369598808878422,
+              "teacher_angle_mae_rad": 0.0024987970333905075,
+              "teacher_omega_rmse_rad_s": 0.06604627937056219,
+              "teacher_omega_nrmse": 0.034937972789311926,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.05": {
+              "angle_mae_rad": 0.15303513236382044,
+              "omega_rmse_rad_s": 0.7768933754925221,
+              "teacher_angle_mae_rad": 0.0019265864772121393,
+              "teacher_omega_rmse_rad_s": 0.04247004350789578,
+              "teacher_omega_nrmse": 0.022466325712529326,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.1": {
+              "angle_mae_rad": 0.17138004036738883,
+              "omega_rmse_rad_s": 0.816690131634941,
+              "teacher_angle_mae_rad": 0.0016773283082191274,
+              "teacher_omega_rmse_rad_s": 0.0342224043708563,
+              "teacher_omega_nrmse": 0.0181033881709729,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.2": {
+              "angle_mae_rad": 0.12624162932122435,
+              "omega_rmse_rad_s": 0.7745124798864749,
+              "teacher_angle_mae_rad": 0.0013483160938097753,
+              "teacher_omega_rmse_rad_s": 0.02983167777981413,
+              "teacher_omega_nrmse": 0.01578072764224804,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.5": {
+              "angle_mae_rad": 0.030755640726924403,
+              "omega_rmse_rad_s": 0.16116857535453502,
+              "teacher_angle_mae_rad": 0.0009480058581340046,
+              "teacher_omega_rmse_rad_s": 0.02629320911119526,
+              "teacher_omega_nrmse": 0.013908904986403764,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "1": {
+              "angle_mae_rad": 0.012908934349159368,
+              "omega_rmse_rad_s": 0.07019912215156945,
+              "teacher_angle_mae_rad": 0.000552945486086061,
+              "teacher_omega_rmse_rad_s": 0.02098303391555202,
+              "teacher_omega_nrmse": 0.011099863231743551,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1280,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            }
+          }
+        }
+      },
+      "upstream_commits": {
+        "rominay/LeHami": "f76f65f8b99afb6b7e3063f573645d3e2f290ede",
+        "lucas-maes/le-wm": "8edfeb336732b5f3ce7b8b210d0ba370a09e2cac"
+      },
+      "core_and_adaptation": {
+        "native_core": "original lucas-maes/le-wm JEPA, ARPredictor, Embedder, MLP and SIGReg",
+        "adaptation": "LeHami-author ConvEncoder replaces original ViT; latent64 replaces original192; attention context21 replaces3; matched 64x64 RGB",
+        "objective": "native one-step teacher-forced MSE over K shifted21 contexts plus SIGReg weight .09; not LeHami-author multistep LeWM objective",
+        "readout_features": "last two 64D latents, diagnostic projection; full recurrent state is21 latents; no past action features",
+        "batchnorm_boundary": "encoder/projector train per raw time; pred_proj pools only matching absolute source times across shifted contexts; replaces official flattened temporal pooling; inference uses fixed running statistics"
+      },
+      "actual_training_elapsed_seconds_sum": 18605.67929341644,
+      "actual_readout_and_physical_evaluation_seconds_sum": 721.045275837183,
+      "actual_train_plus_evaluation_seconds_sum": 19326.724569253623,
+      "pipeline_other_overhead_seconds": 35.242811270058155,
+      "profile_peak_allocated_GiB": 11.927589893341064,
+      "profile_peak_reserved_GiB": 14.828125
+    },
+    "hjepa": {
+      "job_id": "48046",
+      "status": "completed",
+      "parameters": 1722033,
+      "pipeline_start_utc": "2026-11-08T09:35:37.950482+00:00",
+      "pipeline_finish_utc": "2026-11-08T20:04:47.914615+00:00",
+      "actual_pipeline_wall_seconds": 37749.964133024216,
+      "actual_pipeline_wall_hours": 10.486101148062282,
+      "stages": {
+        "a": {
+          "angle_mae_rad": 1.0499595851306227,
+          "omega_rmse_rad_s": 3.729397294964425,
+          "teacher_angle_mae_rad": 0.1530546062701711,
+          "teacher_omega_rmse_rad_s": 1.6258259335624476,
+          "teacher_omega_nrmse": 0.6224994098926488,
+          "teacher_gate_passed": false,
+          "eligible_for_physical_dynamics_ranking": false,
+          "coverage": 1.0,
+          "stop_window_fraction": 0.042119565217391304,
+          "stop_window_count": 62,
+          "dynamic_window_count": 1472,
+          "trajectory_with_stop_fraction": 0.046875,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "step": 20000,
+          "training_elapsed_seconds": 12163.516595333815,
+          "readout_and_physical_evaluation_elapsed_seconds": 74.7777988165617,
+          "selected_readout_k": 1,
+          "readout_feature_dimension": 64,
+          "omega_nrmse_denominator_rad_s": 2.611771043835727,
+          "checkpoint_sha256": "cfe8f8124269dab15ae09a225b631f335251a3f2419ef7d3005e6601776ed0b6",
+          "evaluation_protocol_sha256": "40d3602a61c000281f3e45f6133509d8d4d340b485af5059af43f1a3176f2975",
+          "profile_k32_step_seconds_mean": 0.8055578961968421,
+          "profile_k32_peak_allocated_GiB": 6.325008869171143,
+          "profile_k32_peak_reserved_GiB": 6.419921875
+        },
+        "single": {
+          "angle_mae_rad": 0.2133832813467125,
+          "omega_rmse_rad_s": 1.1490821771891655,
+          "teacher_angle_mae_rad": 0.014043052371546752,
+          "teacher_omega_rmse_rad_s": 0.17552207419146437,
+          "teacher_omega_nrmse": 0.10004796763552695,
+          "teacher_gate_passed": true,
+          "eligible_for_physical_dynamics_ranking": true,
+          "coverage": 1.0,
+          "stop_window_fraction": 0.0,
+          "stop_window_count": 0,
+          "dynamic_window_count": 1472,
+          "trajectory_with_stop_fraction": 0.0,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "step": 20000,
+          "training_elapsed_seconds": 12092.233232073486,
+          "readout_and_physical_evaluation_elapsed_seconds": 72.2426583468914,
+          "selected_readout_k": 1,
+          "readout_feature_dimension": 64,
+          "omega_nrmse_denominator_rad_s": 1.754379207690538,
+          "checkpoint_sha256": "db70715dfed42529c957a96fdf2c8618639ea4b9b5c74c0d1a9572624633ae34",
+          "evaluation_protocol_sha256": "f61cbae547b22580cb77cf899464802aece41fbb08b21594db16f069b907ba0e",
+          "profile_k32_step_seconds_mean": 0.7962355650961399,
+          "profile_k32_peak_allocated_GiB": 6.322361469268799,
+          "profile_k32_peak_reserved_GiB": 6.41796875
+        },
+        "multi": {
+          "angle_mae_rad": 0.686681689661233,
+          "omega_rmse_rad_s": 2.9328202035004813,
+          "teacher_angle_mae_rad": 0.02785743688752686,
+          "teacher_omega_rmse_rad_s": 0.6082773437305214,
+          "teacher_omega_nrmse": 0.3217740270329932,
+          "teacher_gate_passed": false,
+          "eligible_for_physical_dynamics_ranking": false,
+          "coverage": 1.0,
+          "stop_window_fraction": 0.03391203703703704,
+          "stop_window_count": 293,
+          "dynamic_window_count": 8640,
+          "trajectory_with_stop_fraction": 0.07552083333333333,
+          "n_records": 384,
+          "n_unique_groups": 64,
+          "step": 20000,
+          "training_elapsed_seconds": 12282.962136693299,
+          "readout_and_physical_evaluation_elapsed_seconds": 1030.550313346088,
+          "selected_readout_k": 1,
+          "readout_feature_dimension": 64,
+          "omega_nrmse_denominator_rad_s": 1.8903867081482981,
+          "checkpoint_sha256": "04b617dc36865350e3bbfa6a773d90b1f6e382011f56bb7eb73bb9ad62a3c82b",
+          "evaluation_protocol_sha256": "7779921d3d6818847b5a7a5ed4db24c94cb91e5bd50c3bfed1618664631b2058",
+          "profile_k32_step_seconds_mean": 0.8038229271769524,
+          "profile_k32_peak_allocated_GiB": 6.322361469268799,
+          "profile_k32_peak_reserved_GiB": 6.41796875,
+          "per_damping": {
+            "0": {
+              "angle_mae_rad": 1.0607311867216402,
+              "omega_rmse_rad_s": 3.6382680795432925,
+              "teacher_angle_mae_rad": 0.048622006189357976,
+              "teacher_omega_rmse_rad_s": 0.8195811285882038,
+              "teacher_omega_nrmse": 0.433552100771494,
+              "teacher_gate_passed": false,
+              "eligible_for_physical_dynamics_ranking": false,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.06793478260869565,
+              "stop_window_count": 100,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.125,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.05": {
+              "angle_mae_rad": 0.973172458026472,
+              "omega_rmse_rad_s": 3.6770994193167517,
+              "teacher_angle_mae_rad": 0.03445433422122623,
+              "teacher_omega_rmse_rad_s": 0.7147136418228173,
+              "teacher_omega_nrmse": 0.37807800845304557,
+              "teacher_gate_passed": false,
+              "eligible_for_physical_dynamics_ranking": false,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.06114130434782609,
+              "stop_window_count": 90,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.140625,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.1": {
+              "angle_mae_rad": 0.8690730484294663,
+              "omega_rmse_rad_s": 3.536012989941713,
+              "teacher_angle_mae_rad": 0.028415535659054175,
+              "teacher_omega_rmse_rad_s": 0.5731690341118205,
+              "teacher_omega_nrmse": 0.3032020018133011,
+              "teacher_gate_passed": false,
+              "eligible_for_physical_dynamics_ranking": false,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.06997282608695653,
+              "stop_window_count": 103,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.1875,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.2": {
+              "angle_mae_rad": 0.6956892718496865,
+              "omega_rmse_rad_s": 2.997496296162709,
+              "teacher_angle_mae_rad": 0.03549747290643795,
+              "teacher_omega_rmse_rad_s": 0.6855851424386147,
+              "teacher_omega_nrmse": 0.3626692567629033,
+              "teacher_gate_passed": false,
+              "eligible_for_physical_dynamics_ranking": false,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.5": {
+              "angle_mae_rad": 0.36556567061916184,
+              "omega_rmse_rad_s": 1.6652330137430653,
+              "teacher_angle_mae_rad": 0.013036374432119156,
+              "teacher_omega_rmse_rad_s": 0.4188820064306577,
+              "teacher_omega_nrmse": 0.22158535321112563,
+              "teacher_gate_passed": false,
+              "eligible_for_physical_dynamics_ranking": false,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "1": {
+              "angle_mae_rad": 0.15585850232097098,
+              "omega_rmse_rad_s": 0.7675795838835783,
+              "teacher_angle_mae_rad": 0.007118897916965701,
+              "teacher_omega_rmse_rad_s": 0.2519271337529546,
+              "teacher_omega_nrmse": 0.13326751223284167,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1280,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            }
+          }
+        }
+      },
+      "upstream_commits": {
+        "https://github.com/tmz-lab/hjepa": "fd4f7de927daa7831a6d51e95e0959a813c13901"
+      },
+      "core_and_adaptation": {
+        "adaptations": [
+          "LeHami ConvEncoder replaces original ViT;64px RGB scaled to[-1,1]",
+          "21-frame causal GRU windows replace native per-frame perceptual encoding",
+          "Previous anchor window repeats its oldest available raw frame once",
+          "CNN training BatchNorm is computed separately per raw time index",
+          "One matched anchor instead of all sequence starts in the official loss",
+          "Native PIC uses observed target phases only in its auxiliary training loss",
+          "Inference only encodes initial21 frames; autonomous two-state recurrence",
+          "Feature readout uses[s_t,s_t-s_previous], the complete recurrence state",
+          "Passive zero actions only;physical dt=.1, native normalized Euler dt=1",
+          "Native predictor state-detach behavior preserved;not an official benchmark reproduction"
+        ],
+        "executed_official_components": [
+          "ImplicitHamiltonianPredictor",
+          "FixedRandomSubspace",
+          "CausalPhaseContext",
+          "NetAction",
+          "MLP",
+          "IsotropyLoss",
+          "hjepa_loss",
+          "pic_loss"
+        ]
+      },
+      "actual_training_elapsed_seconds_sum": 36538.7119641006,
+      "actual_readout_and_physical_evaluation_seconds_sum": 1177.570770509541,
+      "actual_train_plus_evaluation_seconds_sum": 37716.28273461014,
+      "pipeline_other_overhead_seconds": 33.681398414075375,
+      "profile_peak_allocated_GiB": 6.325008869171143,
+      "profile_peak_reserved_GiB": 8.982421875
+    },
+    "ours": {
+      "status": "same_protocol_reevaluation_completed",
+      "reevaluation_job_id": "48062",
+      "reevaluation_expected_directory": "reports/method_comparison_20261109/data/runs/ours/ours_seed0",
+      "reevaluation_training_updates": 0,
+      "cost_comparison_rank": null,
+      "pipeline_wall_seconds_comparable_to_baselines": false,
+      "profile_peak_allocated_GiB": null,
+      "profile_peak_reserved_GiB": null,
+      "cost_caution": "Old launch resumes A from step10000 and then runs the two B branches concurrently using two GPUs. No complete aligned fresh-A20k wall/GPU-hour record or identical short CUDA profile is available here. Do not rank the old job wall time against the single-GPU baseline pipelines; do not substitute old cost estimates.",
+      "parameter_count_evidence": "CPU construction only of the frozen model class with exact resolved configurations from technical_audit; no optimizer/forward/training. Counts include frozen input_port parameters.",
+      "architecture": "q2,p2; 4D physical readout; original GroupNorm CNN; H=0.5*p^Tp+V(q), PSD D(q,p,c), frozen discrete-gradient implicit solver with3 nominal substeps/frame. Multi has4D fixed causal context. Encoder/initializer/potential frozen in B.",
+      "comparison_boundary": "Same-protocol reevaluation controls diagnostics, not architecture, objective, representation dimension, optimizer/trainable parameter budget, or training route. Historical B reports copied the A readout; this reevaluation refits each checkpoint using its own stage training conditions under the common protocol. Do not interpret old-versus-new metric changes as training improvement.",
+      "stages": {
+        "a": {
+          "checkpoint_step": 20000,
+          "checkpoint_sha256": "5145d5769b85f1992d2e4fd757bd19ac61a2704e459cbcb00844b3465f8bd068",
+          "dataset_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+          "parameters": 456519,
+          "training_trainable_parameters": 455301,
+          "training_trainable_modules": [
+            "encoder",
+            "initializer",
+            "potential"
+          ],
+          "observed_training_updates": 10000,
+          "observed_first_step": 10001,
+          "observed_last_step": 20000,
+          "observed_training_elapsed_seconds": 27231.768761105835,
+          "training_cost_scope": "Only resumed updates10001..20000",
+          "observed_training_step_seconds_sum": 26458.84058433026,
+          "by_horizon": {
+            "[32]": {
+              "updates": 10000,
+              "step_seconds_mean": 2.645884058433026
+            }
+          },
+          "angle_mae_rad": 0.06874698781850075,
+          "omega_rmse_rad_s": 0.29651775493180343,
+          "teacher_angle_mae_rad": 0.008379570572170756,
+          "teacher_omega_rmse_rad_s": 0.042481734996201434,
+          "teacher_omega_nrmse": 0.0162654896938483,
+          "teacher_gate_passed": true,
+          "eligible_for_physical_dynamics_ranking": true,
+          "coverage": 1.0,
+          "stop_window_fraction": 0.0,
+          "stop_window_count": 0,
+          "dynamic_window_count": 1472,
+          "trajectory_with_stop_fraction": 0.0,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "step": 20000,
+          "readout_and_physical_evaluation_elapsed_seconds": 70.74784542620182,
+          "selected_readout_k": 5,
+          "readout_feature_dimension": 4,
+          "omega_nrmse_denominator_rad_s": 2.611771043835727,
+          "evaluation_protocol_sha256": "40d3602a61c000281f3e45f6133509d8d4d340b485af5059af43f1a3176f2975",
+          "readout_sha256": "b043b1899a979046a6fbad4e57f183436cdcbeb965a9c95c0ed11d8215d66390",
+          "parameters_unchanged_in_reevaluation": true,
+          "reevaluation_world_model_updates": 0,
+          "reevaluation_optimizer_created": false
+        },
+        "single": {
+          "checkpoint_step": 20000,
+          "checkpoint_sha256": "53678a48efff612ccd0572873959c6ccfb80109e13b117d7c2990a2a2ae16f89",
+          "dataset_sha256": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+          "parameters": 457834,
+          "training_trainable_parameters": 1315,
+          "training_trainable_modules": [
+            "damping"
+          ],
+          "observed_training_updates": 20000,
+          "observed_first_step": 1,
+          "observed_last_step": 20000,
+          "observed_training_elapsed_seconds": 45369.77534519136,
+          "training_cost_scope": "Updates1..20000; B branches run concurrently",
+          "observed_training_step_seconds_sum": 43614.69875583798,
+          "by_horizon": {
+            "[4]": {
+              "updates": 1000,
+              "step_seconds_mean": 0.46051398426294327
+            },
+            "[8]": {
+              "updates": 3000,
+              "step_seconds_mean": 0.8474751100714008
+            },
+            "[16]": {
+              "updates": 6000,
+              "step_seconds_mean": 1.5896876830545565
+            },
+            "[32]": {
+              "updates": 10000,
+              "step_seconds_mean": 3.1073633343033493
+            }
+          },
+          "angle_mae_rad": 0.03976768244340255,
+          "omega_rmse_rad_s": 0.18547667297249612,
+          "teacher_angle_mae_rad": 0.007455158834982089,
+          "teacher_omega_rmse_rad_s": 0.038394652131243254,
+          "teacher_omega_nrmse": 0.02188503600757211,
+          "teacher_gate_passed": true,
+          "eligible_for_physical_dynamics_ranking": true,
+          "coverage": 1.0,
+          "stop_window_fraction": 0.0,
+          "stop_window_count": 0,
+          "dynamic_window_count": 1472,
+          "trajectory_with_stop_fraction": 0.0,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "step": 20000,
+          "readout_and_physical_evaluation_elapsed_seconds": 69.83912875503302,
+          "selected_readout_k": 1,
+          "readout_feature_dimension": 4,
+          "omega_nrmse_denominator_rad_s": 1.754379207690538,
+          "evaluation_protocol_sha256": "f61cbae547b22580cb77cf899464802aece41fbb08b21594db16f069b907ba0e",
+          "readout_sha256": "36f13d55a652141b0213ac73feeadb247f1382bd8ca70e4f5216140f7cb10bfc",
+          "parameters_unchanged_in_reevaluation": true,
+          "reevaluation_world_model_updates": 0,
+          "reevaluation_optimizer_created": false
+        },
+        "multi": {
+          "checkpoint_step": 20000,
+          "checkpoint_sha256": "c7815496cf64c84147e99e5aba0bbff58da7ef4bbd7bdd43aea14c7cb79331c2",
+          "dataset_sha256": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6",
+          "parameters": 463534,
+          "training_trainable_parameters": 7015,
+          "training_trainable_modules": [
+            "damping",
+            "environment"
+          ],
+          "observed_training_updates": 20000,
+          "observed_first_step": 1,
+          "observed_last_step": 20000,
+          "observed_training_elapsed_seconds": 47721.99886483699,
+          "training_cost_scope": "Updates1..20000; B branches run concurrently",
+          "observed_training_step_seconds_sum": 44459.14999879897,
+          "by_horizon": {
+            "[4]": {
+              "updates": 1000,
+              "step_seconds_mean": 0.4685014711469412
+            },
+            "[8]": {
+              "updates": 3000,
+              "step_seconds_mean": 0.8531785062427322
+            },
+            "[16]": {
+              "updates": 6000,
+              "step_seconds_mean": 1.6325766156688333
+            },
+            "[32]": {
+              "updates": 10000,
+              "step_seconds_mean": 3.1635653314910828
+            }
+          },
+          "angle_mae_rad": 0.07648485440572571,
+          "omega_rmse_rad_s": 0.3273430321627451,
+          "teacher_angle_mae_rad": 0.003049441641952158,
+          "teacher_omega_rmse_rad_s": 0.07012611256353003,
+          "teacher_omega_nrmse": 0.03709617310641222,
+          "teacher_gate_passed": true,
+          "eligible_for_physical_dynamics_ranking": true,
+          "coverage": 1.0,
+          "stop_window_fraction": 0.0,
+          "stop_window_count": 0,
+          "dynamic_window_count": 8640,
+          "trajectory_with_stop_fraction": 0.0,
+          "n_records": 384,
+          "n_unique_groups": 64,
+          "step": 20000,
+          "readout_and_physical_evaluation_elapsed_seconds": 411.06074859946966,
+          "selected_readout_k": 5,
+          "readout_feature_dimension": 4,
+          "omega_nrmse_denominator_rad_s": 1.8903867081482981,
+          "evaluation_protocol_sha256": "7779921d3d6818847b5a7a5ed4db24c94cb91e5bd50c3bfed1618664631b2058",
+          "readout_sha256": "b2294a07dbb051b0c1ff0f823efb3bd54c65e5df7563c639440dbae828bb184b",
+          "parameters_unchanged_in_reevaluation": true,
+          "reevaluation_world_model_updates": 0,
+          "reevaluation_optimizer_created": false,
+          "per_damping": {
+            "0": {
+              "angle_mae_rad": 0.10272307736858415,
+              "omega_rmse_rad_s": 0.35985238371672584,
+              "teacher_angle_mae_rad": 0.00460240240153875,
+              "teacher_omega_rmse_rad_s": 0.056931285738727085,
+              "teacher_omega_nrmse": 0.030116211404434455,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.05": {
+              "angle_mae_rad": 0.06091450329704841,
+              "omega_rmse_rad_s": 0.2716631907268634,
+              "teacher_angle_mae_rad": 0.0039902051844709,
+              "teacher_omega_rmse_rad_s": 0.04765289683083247,
+              "teacher_omega_nrmse": 0.025208015177757042,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.1": {
+              "angle_mae_rad": 0.05975904420117083,
+              "omega_rmse_rad_s": 0.34708153034748196,
+              "teacher_angle_mae_rad": 0.003449282883091865,
+              "teacher_omega_rmse_rad_s": 0.043543026845968,
+              "teacher_omega_nrmse": 0.023033925629227455,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.2": {
+              "angle_mae_rad": 0.07577653012640473,
+              "omega_rmse_rad_s": 0.4252709087105166,
+              "teacher_angle_mae_rad": 0.0029433983050776843,
+              "teacher_omega_rmse_rad_s": 0.04159551985046202,
+              "teacher_omega_nrmse": 0.022003709437423163,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "0.5": {
+              "angle_mae_rad": 0.07993637435478874,
+              "omega_rmse_rad_s": 0.30669165519107355,
+              "teacher_angle_mae_rad": 0.0019974266908549627,
+              "teacher_omega_rmse_rad_s": 0.07985722064934335,
+              "teacher_omega_nrmse": 0.0422438542892456,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1472,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            },
+            "1": {
+              "angle_mae_rad": 0.0797995970863574,
+              "omega_rmse_rad_s": 0.2103459795261869,
+              "teacher_angle_mae_rad": 0.0013139343866787848,
+              "teacher_omega_rmse_rad_s": 0.11828229774157238,
+              "teacher_omega_nrmse": 0.06257042394115972,
+              "teacher_gate_passed": true,
+              "eligible_for_physical_dynamics_ranking": true,
+              "coverage": 1.0,
+              "stop_window_fraction": 0.0,
+              "stop_window_count": 0,
+              "dynamic_window_count": 1280,
+              "trajectory_with_stop_fraction": 0.0,
+              "n_records": 64,
+              "n_unique_groups": 64
+            }
+          }
+        }
+      },
+      "actual_readout_and_physical_evaluation_seconds_sum": 551.6477227807045,
+      "reevaluation_provenance": "All three checkpoint SHA256 values exactly match historical completed20k checkpoints; weights unchanged before/after reevaluation; no optimizer and zero world-model updates. Changes from the old report reflect fresh per-checkpoint readout calibration/evaluation protocol, NOT extra training or model improvement."
+    }
+  },
+  "reliable_findings": [
+    "All four methods: LeWM has the lowest qualified errors in undamped A. In single b=0.2, LeWM has the lowest angle MAE (.03344rad), while ours has the lowest angular-velocity RMSE (.18548rad/s); ours angle MAE is .03977rad. There is no single winner for both single-condition metrics.",
+    "In multi-condition aggregate, ours has the lowest qualified angle MAE (.076485rad) and angular-velocity RMSE (.327343rad/s). This is a single-seed descriptive result under the shared evaluation protocol, not an isolated causal architecture effect.",
+    "In multi-condition per-b results, ours leads both metrics at b=.05,.1,.2. At b=0, LeHami leads both; ours angle is worse than both LeHami and LeWM, while ours angular-velocity RMSE lies between them. At b=.5 and1, LeWM leads both and ours is second. These are relative weaknesses, not numerical/stopping failures: ours has full coverage, passes all per-b teacher gates, and has zero detected stop windows.",
+    "Among the three external baseline adaptations, LeWM leads A and single on both metrics. Multi aggregate LeHami is modestly better than LeWM; condition-wise LeHami leads b=0,.05,.1,.2 and LeWM leads b=.5,1.",
+    "H-JEPA A and multi overall teacher gates fail, so their large autonomous errors and stop flags are diagnostics combining representation/readout and dynamics. H-JEPA single DOES pass; within H-JEPA multi only b=1 passes. Do not label all H-JEPA conditions invalid or treat its failed-gate rows as clean dynamics rankings.",
+    "Ours, LeHami and LeWM have zero detected stop windows in all stages under the stated10-frame criterion. This is not proof of long-term physical accuracy.",
+    "All nine baseline checkpoints complete20000 updates with audited source/data identity; ours reuses its three previously completed20k checkpoints exactly. All12 validation rollouts have100% coverage. This demonstrates completion/integrity, not multiple-seed generality or8-second future accuracy.",
+    "H-JEPA has the fewest baseline parameters but about twice the observed pipeline time; LeWM has the largest measured allocated profile memory. Ours is substantially smaller, but its incomplete old A cost record, restricted B training and two-GPU branch execution prevent a valid full-cost or memory ranking.",
+    "The three ours reevaluations use no optimizer, zero world-model updates and unchanged weights. Evaluation protocol hashes, protocol dictionaries, stage data hashes, calibration fit/select pairs and independent group splits match every baseline exactly. New B readouts replace the old frozen-A readout; any old-report metric change is a diagnostic protocol change, not a training gain."
+  ],
+  "fairness_limits": [
+    "All named baselines are official-core matched visual/history adaptations, not reproductions of the original paper configuration or task. Retained core components and modifications are recorded above.",
+    "One training seed0 and64 independent validation initial groups only. Repeated damping records do not increase independent sample count; no significance/general superiority claim.",
+    "Latent losses have different scales, dimensions and objectives. Never compare their numeric magnitude as a performance leaderboard.",
+    "LeWM uses native one-step teacher-forced shifted-context training, LeHami multi-step phase loss, H-JEPA pH+Bures+PIC; same data/updates do not imply same objective or compute budget.",
+    "LeWM readout uses its last two latents (128D), a diagnostic projection of a21-latent recurrent context; LeHami uses complete q/p64D, H-JEPA its complete two-state64D, ours q/p4D. Identical kNN fitting rules do not make feature geometry/capacity identical.",
+    "Angular-velocity NRMSE denominators are train-fit standard deviations specific to the stage/calibration set; compare physical RMSE across stages. Stage-specific teacher thresholds are diagnostic policy.",
+    "CUDA peaks and per-step times are short fresh-initialization profile measurements, not whole-job resource telemetry; pipeline wall includes setup, I/O, validation and physical evaluation. Allocation/runtime policies are documented.",
+    "Ours A is an exact continuation from10k and B trains only damping/context; baselines B fine-tune all modules. Equal final checkpoint steps plus common reevaluation do not isolate a pure integrator or damping-structure effect."
+  ],
+  "sources": [
+    {
+      "path": "studies/official_comparison_launch_20261108T092500Z/review_20261109/audit.json",
+      "sha256": "92fe5c4aad1f5c544efb819681442a5d0e44b6fc3fad8ae90190984c0e6bb136"
+    },
+    {
+      "path": "reports/staged_damping_d2_20261108/analysis/training_history_summary.json",
+      "sha256": "a9eb1caf2ce4940257174469906997c0b0cbfa277bed33dc03f44047b965de65"
+    },
+    {
+      "path": "reports/staged_damping_d2_20261108/analysis/technical_audit.json",
+      "sha256": "6cb85dd3c25d438eab829c2e93ea5e043205153acbe120d22c34bf79c180b3cc"
+    },
+    {
+      "path": "studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/completion_audit_20261108.json",
+      "sha256": "bdc0351fa3d4ea4b639f727dbf2d08a84ca92c5548cedb02c4ea87508990c6cf"
+    },
+    {
+      "path": "studies/official_comparison_launch_20261108T092500Z/profiles/lehami_48044.json",
+      "sha256": "50330144200d493c561bbfe74d615c9cafa616a21d26613a649151b5a9b242bb"
+    },
+    {
+      "path": "studies/official_comparison_launch_20261108T092500Z/profiles/lewm_48045.json",
+      "sha256": "84e5a09e14dd953ff8b14021e82be5ccd8f7619f19074f87d9a6583fd9aac925"
+    },
+    {
+      "path": "studies/official_comparison_launch_20261108T092500Z/profiles/hjepa_48046.json",
+      "sha256": "56c54f232ffbfb15d04a9d1ebd94ac13841d6ee071ebc793441dbafe5da6722c"
+    },
+    {
+      "path": "reports/method_comparison_20261109/data/runs/ours/ours_seed0/a/evaluation/summary.json",
+      "sha256": "7b39b68af408afe7675d6d8ceced51f758e018014ade2b077700eacd37be6ea8"
+    },
+    {
+      "path": "reports/method_comparison_20261109/data/runs/ours/ours_seed0/single/evaluation/summary.json",
+      "sha256": "f7fa78d80359987696920d72fc0e7ed44c0b57e429f75f062a9e18f587718cb9"
+    },
+    {
+      "path": "reports/method_comparison_20261109/data/runs/ours/ours_seed0/multi/evaluation/summary.json",
+      "sha256": "1c9f4315e49f3d4199e6708363a77ba80f4ff0e4f3d246c8a800b32a9cfe3e16"
+    }
+  ],
+  "same_protocol_ours_vs_baselines_checks": [
+    {
+      "stage": "a",
+      "baseline": "lehami",
+      "same_evaluation_protocol_dict": true,
+      "same_evaluation_protocol_sha256": true,
+      "same_dataset_sha256": true,
+      "same_fit_pairs_sha256": true,
+      "same_selection_pairs_sha256": true,
+      "same_fit_group_ids": true,
+      "same_selection_group_ids": true,
+      "same_omega_nrmse_denominator": true
+    },
+    {
+      "stage": "a",
+      "baseline": "lewm",
+      "same_evaluation_protocol_dict": true,
+      "same_evaluation_protocol_sha256": true,
+      "same_dataset_sha256": true,
+      "same_fit_pairs_sha256": true,
+      "same_selection_pairs_sha256": true,
+      "same_fit_group_ids": true,
+      "same_selection_group_ids": true,
+      "same_omega_nrmse_denominator": true
+    },
+    {
+      "stage": "a",
+      "baseline": "hjepa",
+      "same_evaluation_protocol_dict": true,
+      "same_evaluation_protocol_sha256": true,
+      "same_dataset_sha256": true,
+      "same_fit_pairs_sha256": true,
+      "same_selection_pairs_sha256": true,
+      "same_fit_group_ids": true,
+      "same_selection_group_ids": true,
+      "same_omega_nrmse_denominator": true
+    },
+    {
+      "stage": "single",
+      "baseline": "lehami",
+      "same_evaluation_protocol_dict": true,
+      "same_evaluation_protocol_sha256": true,
+      "same_dataset_sha256": true,
+      "same_fit_pairs_sha256": true,
+      "same_selection_pairs_sha256": true,
+      "same_fit_group_ids": true,
+      "same_selection_group_ids": true,
+      "same_omega_nrmse_denominator": true
+    },
+    {
+      "stage": "single",
+      "baseline": "lewm",
+      "same_evaluation_protocol_dict": true,
+      "same_evaluation_protocol_sha256": true,
+      "same_dataset_sha256": true,
+      "same_fit_pairs_sha256": true,
+      "same_selection_pairs_sha256": true,
+      "same_fit_group_ids": true,
+      "same_selection_group_ids": true,
+      "same_omega_nrmse_denominator": true
+    },
+    {
+      "stage": "single",
+      "baseline": "hjepa",
+      "same_evaluation_protocol_dict": true,
+      "same_evaluation_protocol_sha256": true,
+      "same_dataset_sha256": true,
+      "same_fit_pairs_sha256": true,
+      "same_selection_pairs_sha256": true,
+      "same_fit_group_ids": true,
+      "same_selection_group_ids": true,
+      "same_omega_nrmse_denominator": true
+    },
+    {
+      "stage": "multi",
+      "baseline": "lehami",
+      "same_evaluation_protocol_dict": true,
+      "same_evaluation_protocol_sha256": true,
+      "same_dataset_sha256": true,
+      "same_fit_pairs_sha256": true,
+      "same_selection_pairs_sha256": true,
+      "same_fit_group_ids": true,
+      "same_selection_group_ids": true,
+      "same_omega_nrmse_denominator": true
+    },
+    {
+      "stage": "multi",
+      "baseline": "lewm",
+      "same_evaluation_protocol_dict": true,
+      "same_evaluation_protocol_sha256": true,
+      "same_dataset_sha256": true,
+      "same_fit_pairs_sha256": true,
+      "same_selection_pairs_sha256": true,
+      "same_fit_group_ids": true,
+      "same_selection_group_ids": true,
+      "same_omega_nrmse_denominator": true
+    },
+    {
+      "stage": "multi",
+      "baseline": "hjepa",
+      "same_evaluation_protocol_dict": true,
+      "same_evaluation_protocol_sha256": true,
+      "same_dataset_sha256": true,
+      "same_fit_pairs_sha256": true,
+      "same_selection_pairs_sha256": true,
+      "same_fit_group_ids": true,
+      "same_selection_group_ids": true,
+      "same_omega_nrmse_denominator": true
+    }
+  ],
+  "updated_at_utc": "2026-11-09T02:11:54.111289+00:00",
+  "four_method_descriptive_rankings": {
+    "a": {
+      "angle_mae_rad": [
+        "lewm",
+        "ours",
+        "lehami"
+      ],
+      "omega_rmse_rad_s": [
+        "lewm",
+        "ours",
+        "lehami"
+      ]
+    },
+    "single": {
+      "angle_mae_rad": [
+        "lewm",
+        "ours",
+        "lehami",
+        "hjepa"
+      ],
+      "omega_rmse_rad_s": [
+        "ours",
+        "lewm",
+        "lehami",
+        "hjepa"
+      ]
+    },
+    "multi": {
+      "angle_mae_rad": [
+        "ours",
+        "lehami",
+        "lewm"
+      ],
+      "omega_rmse_rad_s": [
+        "ours",
+        "lehami",
+        "lewm"
+      ]
+    }
+  },
+  "four_method_multi_per_damping_rankings": {
+    "0": {
+      "teacher_qualified_angle_ranking": [
+        "lehami",
+        "lewm",
+        "ours"
+      ],
+      "teacher_qualified_omega_ranking": [
+        "lehami",
+        "ours",
+        "lewm"
+      ],
+      "ours_angle_mae_rad": 0.10272307736858415,
+      "ours_omega_rmse_rad_s": 0.35985238371672584
+    },
+    "0.05": {
+      "teacher_qualified_angle_ranking": [
+        "ours",
+        "lehami",
+        "lewm"
+      ],
+      "teacher_qualified_omega_ranking": [
+        "ours",
+        "lehami",
+        "lewm"
+      ],
+      "ours_angle_mae_rad": 0.06091450329704841,
+      "ours_omega_rmse_rad_s": 0.2716631907268634
+    },
+    "0.1": {
+      "teacher_qualified_angle_ranking": [
+        "ours",
+        "lehami",
+        "lewm"
+      ],
+      "teacher_qualified_omega_ranking": [
+        "ours",
+        "lehami",
+        "lewm"
+      ],
+      "ours_angle_mae_rad": 0.05975904420117083,
+      "ours_omega_rmse_rad_s": 0.34708153034748196
+    },
+    "0.2": {
+      "teacher_qualified_angle_ranking": [
+        "ours",
+        "lehami",
+        "lewm"
+      ],
+      "teacher_qualified_omega_ranking": [
+        "ours",
+        "lehami",
+        "lewm"
+      ],
+      "ours_angle_mae_rad": 0.07577653012640473,
+      "ours_omega_rmse_rad_s": 0.4252709087105166
+    },
+    "0.5": {
+      "teacher_qualified_angle_ranking": [
+        "lewm",
+        "ours",
+        "lehami"
+      ],
+      "teacher_qualified_omega_ranking": [
+        "lewm",
+        "ours",
+        "lehami"
+      ],
+      "ours_angle_mae_rad": 0.07993637435478874,
+      "ours_omega_rmse_rad_s": 0.30669165519107355
+    },
+    "1": {
+      "teacher_qualified_angle_ranking": [
+        "lewm",
+        "ours",
+        "lehami",
+        "hjepa"
+      ],
+      "teacher_qualified_omega_ranking": [
+        "lewm",
+        "ours",
+        "lehami",
+        "hjepa"
+      ],
+      "ours_angle_mae_rad": 0.0797995970863574,
+      "ours_omega_rmse_rad_s": 0.2103459795261869
+    }
+  }
+}

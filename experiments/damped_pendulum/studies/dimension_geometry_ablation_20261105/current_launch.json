@@ -1,0 +1,51 @@
+{
+  "status": "completed_requested_budget_and_val_evaluation",
+  "local_root": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/dimension_launch_20261105T113319Z",
+  "remote_root": "/home/weizhixin/ssd/dimension_launch_20261105T113319Z",
+  "manifest": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/dimension_launch_20261105T113319Z/launch_manifest.json",
+  "training_jobs": {
+    "8": "47870",
+    "32": "47871"
+  },
+  "submitted_at_utc": "2026-11-05T11:35:23.168131+00:00",
+  "bundle_verified": true,
+  "reference_checkpoint_verified": true,
+  "evaluation_jobs": {
+    "2": "47872",
+    "8": "47873",
+    "32": "47874"
+  },
+  "evaluation_scheduled_at_utc": "2026-11-05T11:39:03.506170+00:00",
+  "test_sealed": true,
+  "startup_audit": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/dimension_launch_20261105T113319Z/startup_audit.json",
+  "startup_audit_passed": true,
+  "observed_steps": {
+    "8": 10000,
+    "32": 10000
+  },
+  "last_checked_at_utc": "2026-11-06T01:57:37.337331+00:00",
+  "d2_evaluation_status": "completed",
+  "d2_evaluation_summary": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/dimension_launch_20261105T113319Z/evaluation/d2/summary.json",
+  "evaluation_status": {
+    "2": "completed",
+    "8": "completed",
+    "32": "completed"
+  },
+  "eta_hours_from_start": {
+    "8": [
+      4,
+      6
+    ],
+    "32": [
+      9,
+      12
+    ]
+  },
+  "eta_basis": "Approximate from initial CUDA qualification K8/K16 forward-backward timings plus observed K4 updates; not a measured complete-run duration. Concurrent runs; update when actual longer-horizon training is observed.",
+  "completion_audit": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/dimension_launch_20261105T113319Z/completion_review_20261106.json",
+  "comparison_summary": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/dimension_launch_20261105T113319Z/comparison_summary_20261106.json",
+  "actual_training_hours": {
+    "8": 4.895689101920774,
+    "32": 9.910713372507857
+  }
+}

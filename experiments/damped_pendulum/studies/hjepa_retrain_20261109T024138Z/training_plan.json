@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "name": "H-JEPA dissipative scratch retraining diagnosis",
+  "created_at_utc": "2026-11-09T02:41:38Z",
+  "remote_root": "/home/weizhixin/ssd/hjepa_retrain_20261109T024138Z",
+  "python": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/.venv/bin/python",
+  "data": {
+    "a": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+    "single": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_single/damping.h5",
+    "multi": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_multi/seen.h5"
+  },
+  "expected_data_sha256": {
+    "a": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+    "single": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+    "multi": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6"
+  },
+  "conditions": [
+    "single",
+    "multi"
+  ],
+  "initialization": "independent scratch, seed0; never inherit A checkpoint",
+  "damping": "official PSD dissipation active and trainable throughout, including b=0 examples",
+  "milestones": [
+    4000,
+    20000
+  ],
+  "physical_dt": 0.1,
+  "history_frames": 21,
+  "train_horizon": 5,
+  "evaluation_horizons": [
+    8,
+    16,
+    32
+  ],
+  "training_batch": 128,
+  "evaluation_batch": 32,
+  "optimizer": "AdamW",
+  "lr": 5e-05,
+  "weight_decay": 0.001,
+  "total_steps_each": 20000,
+  "validation_windows": 256,
+  "why_256_validation_windows": "Two full batch128 covariance estimates; avoid a final batch32 with different Bures rank. Physical evaluation still uses all64 groups.",
+  "lr_schedule": "500 warmup, cosine to0.1x; total steps fixed20000 even at4000 acceptance",
+  "budget_note": "20k x128=2560000 sampled windows per condition; old A20k+B20k x32=1280000 windows along a path. Not compute/sample matched.",
+  "retained_adaptations": [
+    "64px CNN and21frame causal GRU",
+    "192D percept/32D state",
+    "one matched anchor",
+    "float32",
+    "passive zero actions",
+    "official state-detach gradient behavior"
+  ],
+  "qualification": "Every damping condition separately; teacher angle<=.1rad, omegaNRMSE<=.15, full coverage, moving-truth1s exact-angle freezing<=5%, state prediction better than constant-anchor baseline. Engineering screening, not a published H-JEPA criterion.",
+  "publication_state": "prepared_for_upload; no sbatch submission authorized in this request"
+}

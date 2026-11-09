@@ -1,0 +1,201 @@
+{
+  "scope": "Independent read-only recalculation from saved predictions/features; no model execution, integration, fitting or optimization.",
+  "checked_at_utc": "2026-11-06T01:59:58.509788+00:00",
+  "arms": {
+    "2": {
+      "trajectories_sha256": "401008ff99f81b58d4b551dcde4bfcc633c664802e0844023f19dc9ee99678ea",
+      "all64_complete": true,
+      "horizons": {
+        "8": {
+          "angle_mae_rad": 0.08679440081655702,
+          "omega_rmse_rad_s": 0.37012061446601524,
+          "teacher_angle_mae_rad": 0.008967247633950137,
+          "teacher_omega_rmse_rad_s": 0.05803527616347384,
+          "max_report_difference": 0.0
+        },
+        "32": {
+          "angle_mae_rad": 0.19374509517801258,
+          "omega_rmse_rad_s": 1.101582391575351,
+          "teacher_angle_mae_rad": 0.008783804262463696,
+          "teacher_omega_rmse_rad_s": 0.05459453932034224,
+          "max_report_difference": 0.0,
+          "dynamic_windows": 1472,
+          "stopped_dynamic_windows": 0,
+          "decoded_stopped_fraction": 0.0,
+          "physical_velocity_rms_ratio": 1.007134660939121,
+          "physical_velocity_cosine": 0.9096304109282324
+        }
+      },
+      "training_feature_distance_diagnostic": {
+        "teacher_distance_median": 0.016869512009983136,
+        "teacher_distance_p99": 0.061445618190746336,
+        "rollout_distance_median": 0.08815715743940027,
+        "rollout_distance_p90": 0.5508249243323675,
+        "ratio_of_medians": 5.225827361646864,
+        "fraction_rollout_exceeding_own_teacher_p99": 0.6767578125,
+        "interpretation": "Distances in fit-standardized phase features. Compare rollout with teacher within each dimension only; finite sample cloud proximity is not an exact geometric distance to the learned manifold, and raw distances are not comparable across dimensions."
+      },
+      "latent_position_increment_rms_ratio": 0.9208386393911097
+    },
+    "8": {
+      "trajectories_sha256": "bb59bcb367b3b5c90385452d105e3f6a8f3ca5b666672f5fd33f74b569f92b21",
+      "all64_complete": true,
+      "horizons": {
+        "8": {
+          "angle_mae_rad": 0.21082594427258272,
+          "omega_rmse_rad_s": 1.1780680628742999,
+          "teacher_angle_mae_rad": 0.009876420852496785,
+          "teacher_omega_rmse_rad_s": 0.18011901099212663,
+          "max_report_difference": 0.0
+        },
+        "32": {
+          "angle_mae_rad": 0.6038406598167698,
+          "omega_rmse_rad_s": 2.652741859142265,
+          "teacher_angle_mae_rad": 0.010090547231430363,
+          "teacher_omega_rmse_rad_s": 0.15388863758264623,
+          "max_report_difference": 0.0,
+          "dynamic_windows": 1472,
+          "stopped_dynamic_windows": 0,
+          "decoded_stopped_fraction": 0.0,
+          "physical_velocity_rms_ratio": 1.0521379781959819,
+          "physical_velocity_cosine": 0.4995103898679657
+        }
+      },
+      "training_feature_distance_diagnostic": {
+        "teacher_distance_median": 0.0430349530910463,
+        "teacher_distance_p99": 0.16449820962420367,
+        "rollout_distance_median": 0.2564233738884067,
+        "rollout_distance_p90": 2.152185417881113,
+        "ratio_of_medians": 5.95849084222093,
+        "fraction_rollout_exceeding_own_teacher_p99": 0.6865234375,
+        "interpretation": "Distances in fit-standardized phase features. Compare rollout with teacher within each dimension only; finite sample cloud proximity is not an exact geometric distance to the learned manifold, and raw distances are not comparable across dimensions."
+      },
+      "latent_position_increment_rms_ratio": 0.7840538040282528,
+      "final_validation_gate": {
+        "passed": false,
+        "all_representation_groups_pass": true,
+        "failed_groups": [
+          {
+            "group": "h32_regime0_mode0_time2",
+            "representation_passed": true,
+            "target_std_min": 0.697565998244932,
+            "motion_gate_passed": false,
+            "rms_ratio": 0.8056948554637616,
+            "relative_velocity_error": 0.8151272745730044,
+            "cosine": 0.5175761765710316,
+            "stalled_fraction": 0.0,
+            "failed_criteria": [
+              "velocity_relative_error_max0.8"
+            ]
+          }
+        ]
+      }
+    },
+    "32": {
+      "trajectories_sha256": "0612d0ccb472cf1615010cd4b01445baeea6fa22f30903820c52923bdf407ed7",
+      "all64_complete": true,
+      "horizons": {
+        "8": {
+          "angle_mae_rad": 0.2764437924802018,
+          "omega_rmse_rad_s": 1.5352534510239426,
+          "teacher_angle_mae_rad": 0.010058769056101736,
+          "teacher_omega_rmse_rad_s": 0.17194229380074466,
+          "max_report_difference": 0.0
+        },
+        "32": {
+          "angle_mae_rad": 0.7795877821085772,
+          "omega_rmse_rad_s": 3.252501359380932,
+          "teacher_angle_mae_rad": 0.009833635107566732,
+          "teacher_omega_rmse_rad_s": 0.15718596565909312,
+          "max_report_difference": 0.0,
+          "dynamic_windows": 1472,
+          "stopped_dynamic_windows": 0,
+          "decoded_stopped_fraction": 0.0,
+          "physical_velocity_rms_ratio": 1.0015892729240998,
+          "physical_velocity_cosine": 0.20760463105882668
+        }
+      },
+      "training_feature_distance_diagnostic": {
+        "teacher_distance_median": 0.12065036603689668,
+        "teacher_distance_p99": 0.4139694953696881,
+        "rollout_distance_median": 0.8306631984254047,
+        "rollout_distance_p90": 9.541485737397071,
+        "ratio_of_medians": 6.884879223419642,
+        "fraction_rollout_exceeding_own_teacher_p99": 0.796875,
+        "interpretation": "Distances in fit-standardized phase features. Compare rollout with teacher within each dimension only; finite sample cloud proximity is not an exact geometric distance to the learned manifold, and raw distances are not comparable across dimensions."
+      },
+      "latent_position_increment_rms_ratio": 0.6966976613151575,
+      "final_validation_gate": {
+        "passed": false,
+        "all_representation_groups_pass": true,
+        "failed_groups": [
+          {
+            "group": "h32_regime0_mode0_time0",
+            "representation_passed": true,
+            "target_std_min": 0.4986214190320958,
+            "motion_gate_passed": false,
+            "rms_ratio": 0.7458064554444213,
+            "relative_velocity_error": 1.0537664639778874,
+            "cosine": 0.33685737186685455,
+            "stalled_fraction": 0.020833333333333332,
+            "failed_criteria": [
+              "velocity_relative_error_max0.8",
+              "velocity_cosine_min0.5"
+            ]
+          },
+          {
+            "group": "h32_regime0_mode0_time1",
+            "representation_passed": true,
+            "target_std_min": 0.49850132521245666,
+            "motion_gate_passed": false,
+            "rms_ratio": 0.7595607299098669,
+            "relative_velocity_error": 1.0659808986789139,
+            "cosine": 0.33634677493327503,
+            "stalled_fraction": 0.0,
+            "failed_criteria": [
+              "velocity_relative_error_max0.8",
+              "velocity_cosine_min0.5"
+            ]
+          },
+          {
+            "group": "h32_regime0_mode0_time2",
+            "representation_passed": true,
+            "target_std_min": 0.508753473922682,
+            "motion_gate_passed": false,
+            "rms_ratio": 0.7286195152195128,
+            "relative_velocity_error": 1.0242854811759108,
+            "cosine": 0.3476443508586113,
+            "stalled_fraction": 0.010416666666666666,
+            "failed_criteria": [
+              "velocity_relative_error_max0.8",
+              "velocity_cosine_min0.5"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "paired_checks": {
+    "2": {
+      "episode": true,
+      "group_id": true,
+      "energy_band": true,
+      "truth": true,
+      "time": true
+    },
+    "8": {
+      "episode": true,
+      "group_id": true,
+      "energy_band": true,
+      "truth": true,
+      "time": true
+    },
+    "32": {
+      "episode": true,
+      "group_id": true,
+      "energy_band": true,
+      "truth": true,
+      "time": true
+    }
+  }
+}

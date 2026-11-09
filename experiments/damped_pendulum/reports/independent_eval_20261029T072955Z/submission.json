@@ -1,0 +1,9 @@
+{
+  "job_id": "47136",
+  "remote_root": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z",
+  "local_report_dir": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/reports/independent_eval_20261029T072955Z",
+  "study": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/independent_test_20261029T070556Z",
+  "runner_sha256": "8e969f146a6f3ecc1e00abbbf2829b37280a78e02ba811679fd5d9e27e738616",
+  "payload_sha256": "e77ff5fb8a20bc4e3b97faae1bd1f5c06851ff2be0a43d3bcb3b636392c7bb55",
+  "submitted_at_utc": "2026-10-29T07:33:20.696512+00:00"
+}

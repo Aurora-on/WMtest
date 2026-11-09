@@ -1,0 +1,10 @@
+{
+  "launch_directory": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/undamped_stage_a_launch_20261105T053810Z",
+  "remote_root": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z",
+  "training_job_id": 47796,
+  "data_job_id": 47795,
+  "status": "budget_completed",
+  "stop_after_step": 4000,
+  "completed_steps": 4000,
+  "stage_acceptance": false
+}

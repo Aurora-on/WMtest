@@ -1,0 +1,767 @@
+{
+  "data": {
+    "a": {
+      "path": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+      "sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24"
+    },
+    "single": {
+      "path": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_single/damping.h5",
+      "sha256": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304"
+    },
+    "multi": {
+      "path": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_multi/seen.h5",
+      "sha256": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6"
+    }
+  },
+  "pair_audits": {
+    "single": {
+      "status": "matched",
+      "training_scope": "damping_stage_b_single",
+      "multi": false,
+      "selected_damping": [
+        0.2
+      ],
+      "paired_episode_comparisons": 576,
+      "split_counts": {
+        "train": {
+          "a_groups": 384,
+          "b_episodes": 384
+        },
+        "val": {
+          "a_groups": 64,
+          "b_episodes": 64
+        },
+        "test": {
+          "a_groups": 128,
+          "b_episodes": 128
+        }
+      },
+      "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+      "data_a_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+      "data_b_sha256": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+      "parent_source_hashes": {
+        "dpbench/passive_family.py": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae",
+        "dpbench/generate.py": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31"
+      },
+      "pixels_dataset_read": false,
+      "state_trajectories_read": false,
+      "test_pixels_read": false,
+      "scope": "Metadata, initial states, clocks, actions and whole-file hashes only; no model training or test performance evaluation"
+    },
+    "multi": {
+      "status": "matched",
+      "training_scope": "damping_stage_b_multi",
+      "multi": true,
+      "selected_damping": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.5,
+        1.0
+      ],
+      "paired_episode_comparisons": 3456,
+      "split_counts": {
+        "train": {
+          "a_groups": 384,
+          "b_episodes": 2304
+        },
+        "val": {
+          "a_groups": 64,
+          "b_episodes": 384
+        },
+        "test": {
+          "a_groups": 128,
+          "b_episodes": 768
+        }
+      },
+      "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+      "data_a_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+      "data_b_sha256": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6",
+      "parent_source_hashes": {
+        "dpbench/passive_family.py": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae",
+        "dpbench/generate.py": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31"
+      },
+      "pixels_dataset_read": false,
+      "state_trajectories_read": false,
+      "test_pixels_read": false,
+      "scope": "Metadata, initial states, clocks, actions and whole-file hashes only; no model training or test performance evaluation"
+    }
+  },
+  "preflights": {
+    "a": {
+      "path": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+      "dataset_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+      "split_disjoint": true,
+      "split_audit_scope": "Episode IDs and group IDs are disjoint across the existing splits. This is not an audit of exact or near-duplicate RGB clips; the original splits are unchanged.",
+      "split_sizes": {
+        "train": 384,
+        "val": 64,
+        "test": 128
+      },
+      "declared_train_frames": 81,
+      "train_frames": 81,
+      "history": 21,
+      "history_required": 21,
+      "requires_environment_context": false,
+      "sampling_metadata_fields": [
+        "regime_id"
+      ],
+      "max_horizon": 32,
+      "target_tail_frames": 2,
+      "window_frames": 55,
+      "action_dim": 1,
+      "image_shape": [
+        64,
+        64,
+        3
+      ],
+      "model_fields": [
+        "pixels",
+        "action",
+        "dt_frame"
+      ],
+      "target_fields_read": [],
+      "test_samples_read": false,
+      "training_started": false,
+      "windows": {
+        "train": 10368,
+        "val": 1728
+      },
+      "strata_windows": {
+        "train": {
+          "regime0_mode0_time0": 3456,
+          "regime0_mode0_time1": 3456,
+          "regime0_mode0_time2": 3456
+        },
+        "val": {
+          "regime0_mode0_time0": 576,
+          "regime0_mode0_time1": 576,
+          "regime0_mode0_time2": 576
+        }
+      },
+      "sampling_contract": "Available regime/mode/time strata balanced; episode uniform within strata; RGB/action/dt model inputs only",
+      "scope": "Constant physical damping per trajectory tests a special case, not identification of genuine position/velocity-dependent damping. Opaque regime IDs, when present, are sampling metadata only. No damping coefficient or other physical target is read for training.",
+      "mode": "preflight_only",
+      "optimizer_created": false,
+      "run_directory_created": false,
+      "config": {
+        "model": {
+          "history": 21,
+          "velocity_history": 5,
+          "environment_context_dim": 0,
+          "core": {
+            "solver": "picard",
+            "newton_iterations": 12,
+            "line_search_max_backtracks": 12,
+            "line_search_shrink": 0.5,
+            "line_search_c1": 0.0001,
+            "max_bisections": 4,
+            "integrator": "frozen_dg",
+            "picard_iterations": 6,
+            "picard_check_every": 2,
+            "fd_relative_step": 6e-06,
+            "implicit_rcond_min": 1e-08,
+            "adjoint_rtol": 1e-10,
+            "substeps": 3,
+            "potential_mode": "raw",
+            "damping_mode": "none"
+          },
+          "velocity_initializer": "motion_gated",
+          "motion_loss_mode": "normalized_velocity",
+          "motion_scale_floor": 0.1,
+          "momentum_weight": 1.0,
+          "objective_mode": "lehami",
+          "target_tail_frames": 2,
+          "momentum_reference_time": 0.1,
+          "motion_weight": 0.0,
+          "sigreg_weight": 0.25,
+          "initializer_weight": 0.001
+        },
+        "training": {
+          "steps": 20000,
+          "batch_size": 32,
+          "train_frames": 81,
+          "seed": 0,
+          "threads": 4,
+          "encoder_lr": 2e-05,
+          "dynamics_lr": 0.0001,
+          "weight_decay": 0.0001,
+          "warmup_steps": 500,
+          "minimum_lr_ratio": 0.1,
+          "gradient_clip": 1.0,
+          "curriculum": [
+            {
+              "until_step": 1000,
+              "horizon": 4
+            },
+            {
+              "until_step": 4000,
+              "horizon": 8
+            },
+            {
+              "until_step": 10000,
+              "horizon": 16
+            },
+            {
+              "until_step": 20000,
+              "horizon": 32
+            }
+          ],
+          "val_horizons": [
+            8,
+            32
+          ],
+          "val_every": 250,
+          "val_windows": 288,
+          "val_seed": 1009,
+          "minimum_target_std": 0.1,
+          "minimum_target_motion": 0.001,
+          "validation_gate_time_bins": [
+            0
+          ],
+          "required_renderer": "smooth_v1",
+          "validation_motion_weight": 0.0,
+          "prediction_motion_gate": {
+            "min_rms_ratio": 0.5,
+            "max_rms_ratio": 1.5,
+            "max_relative_error": 0.8,
+            "min_cosine": 0.5,
+            "max_stalled_fraction": 0.1
+          },
+          "trainable_modules": [
+            "encoder",
+            "initializer",
+            "potential"
+          ],
+          "required_data_scope": "undamped_stage_a",
+          "validation_score": "position_momentum"
+        }
+      },
+      "config_sha256": "a195292867e1db6abf7013083b5e6d9fb8846ae9ccf3307db33f635d152234ec",
+      "resolved_model_config": {
+        "history": 21,
+        "velocity_history": 5,
+        "environment_context_dim": 0,
+        "dt": 0.1,
+        "q_dim": 2,
+        "encoder_width": 32,
+        "velocity_correction_scale": 1.0,
+        "sigreg_weight": 0.25,
+        "motion_weight": 0.0,
+        "initializer_weight": 0.001,
+        "velocity_initializer": "motion_gated",
+        "motion_loss_mode": "normalized_velocity",
+        "motion_scale_floor": 0.1,
+        "momentum_weight": 1.0,
+        "objective_mode": "lehami",
+        "target_tail_frames": 2,
+        "momentum_reference_time": 0.1,
+        "sigreg_knots": 17,
+        "sigreg_projections": 256,
+        "variance_floor": 0.0001,
+        "core": {
+          "hidden_dim": 32,
+          "action_dim": 1,
+          "damping_mode": "none",
+          "potential_mode": "raw",
+          "integrator": "frozen_dg",
+          "substeps": 3,
+          "newton_iterations": 12,
+          "residual_atol": 1e-08,
+          "residual_rtol": 1e-07,
+          "chain_atol": 1e-10,
+          "strict": true,
+          "solver": "picard",
+          "line_search_max_backtracks": 12,
+          "line_search_shrink": 0.5,
+          "line_search_c1": 0.0001,
+          "max_bisections": 4,
+          "picard_iterations": 6,
+          "picard_check_every": 2,
+          "fd_relative_step": 6e-06,
+          "implicit_rcond_min": 1e-08,
+          "adjoint_rtol": 1e-10
+        }
+      },
+      "renderer": "smooth_v1",
+      "training_scope": "undamped_stage_a",
+      "required_data_scope": "undamped_stage_a",
+      "trainable_modules": [
+        "encoder",
+        "initializer",
+        "potential"
+      ],
+      "checked_frame_intervals": 35840,
+      "validation_horizons_seconds": [
+        0.8,
+        3.2
+      ],
+      "validation_horizons_steps": [
+        8,
+        32
+      ],
+      "validation_score": "position_momentum",
+      "note": "No training runs without --execute. The step budget is unprofiled, not an optimality or cost claim."
+    },
+    "single": {
+      "path": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_single/damping.h5",
+      "dataset_sha256": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+      "split_disjoint": true,
+      "split_audit_scope": "Episode IDs and group IDs are disjoint across the existing splits. This is not an audit of exact or near-duplicate RGB clips; the original splits are unchanged.",
+      "split_sizes": {
+        "train": 384,
+        "val": 64,
+        "test": 128
+      },
+      "declared_train_frames": 81,
+      "train_frames": 81,
+      "history": 21,
+      "history_required": 21,
+      "requires_environment_context": false,
+      "sampling_metadata_fields": [
+        "regime_id"
+      ],
+      "max_horizon": 32,
+      "target_tail_frames": 2,
+      "window_frames": 55,
+      "action_dim": 1,
+      "image_shape": [
+        64,
+        64,
+        3
+      ],
+      "model_fields": [
+        "pixels",
+        "action",
+        "dt_frame"
+      ],
+      "target_fields_read": [],
+      "test_samples_read": false,
+      "training_started": false,
+      "windows": {
+        "train": 10368,
+        "val": 1728
+      },
+      "strata_windows": {
+        "train": {
+          "regime3_mode0_time0": 3456,
+          "regime3_mode0_time1": 3456,
+          "regime3_mode0_time2": 3456
+        },
+        "val": {
+          "regime3_mode0_time0": 576,
+          "regime3_mode0_time1": 576,
+          "regime3_mode0_time2": 576
+        }
+      },
+      "sampling_contract": "Available regime/mode/time strata balanced; episode uniform within strata; RGB/action/dt model inputs only",
+      "scope": "Constant physical damping per trajectory tests a special case, not identification of genuine position/velocity-dependent damping. Opaque regime IDs, when present, are sampling metadata only. No damping coefficient or other physical target is read for training.",
+      "mode": "preflight_only",
+      "optimizer_created": false,
+      "run_directory_created": false,
+      "config": {
+        "model": {
+          "history": 21,
+          "velocity_history": 5,
+          "environment_context_dim": 0,
+          "core": {
+            "solver": "picard",
+            "newton_iterations": 12,
+            "line_search_max_backtracks": 12,
+            "line_search_shrink": 0.5,
+            "line_search_c1": 0.0001,
+            "max_bisections": 4,
+            "integrator": "frozen_dg",
+            "picard_iterations": 6,
+            "picard_check_every": 2,
+            "fd_relative_step": 6e-06,
+            "implicit_rcond_min": 1e-08,
+            "adjoint_rtol": 1e-10,
+            "substeps": 3,
+            "potential_mode": "raw",
+            "damping_mode": "position_velocity"
+          },
+          "velocity_initializer": "motion_gated",
+          "motion_loss_mode": "normalized_velocity",
+          "motion_scale_floor": 0.1,
+          "momentum_weight": 1.0,
+          "objective_mode": "lehami",
+          "target_tail_frames": 2,
+          "momentum_reference_time": 0.1,
+          "motion_weight": 0.0,
+          "sigreg_weight": 0.25,
+          "initializer_weight": 0.001
+        },
+        "training": {
+          "steps": 20000,
+          "batch_size": 32,
+          "train_frames": 81,
+          "seed": 0,
+          "threads": 4,
+          "encoder_lr": 2e-05,
+          "dynamics_lr": 0.0001,
+          "weight_decay": 0.0001,
+          "warmup_steps": 500,
+          "minimum_lr_ratio": 0.1,
+          "gradient_clip": 1.0,
+          "curriculum": [
+            {
+              "until_step": 1000,
+              "horizon": 4
+            },
+            {
+              "until_step": 4000,
+              "horizon": 8
+            },
+            {
+              "until_step": 10000,
+              "horizon": 16
+            },
+            {
+              "until_step": 20000,
+              "horizon": 32
+            }
+          ],
+          "val_horizons": [
+            8,
+            32
+          ],
+          "val_every": 250,
+          "val_windows": 288,
+          "val_seed": 1009,
+          "minimum_target_std": 0.1,
+          "minimum_target_motion": 0.001,
+          "validation_gate_time_bins": [
+            0
+          ],
+          "required_renderer": "smooth_v1",
+          "validation_motion_weight": 0.0,
+          "prediction_motion_gate": {
+            "min_rms_ratio": 0.5,
+            "max_rms_ratio": 1.5,
+            "max_relative_error": 0.8,
+            "min_cosine": 0.5,
+            "max_stalled_fraction": 0.1
+          },
+          "trainable_modules": [
+            "damping"
+          ],
+          "required_data_scope": "damping_stage_b_single",
+          "validation_score": "position_momentum"
+        }
+      },
+      "config_sha256": "08f69157129d9a0290789d45e46c394e60eee9e8d8c42af7794c88ab17cc6648",
+      "resolved_model_config": {
+        "history": 21,
+        "velocity_history": 5,
+        "environment_context_dim": 0,
+        "dt": 0.1,
+        "q_dim": 2,
+        "encoder_width": 32,
+        "velocity_correction_scale": 1.0,
+        "sigreg_weight": 0.25,
+        "motion_weight": 0.0,
+        "initializer_weight": 0.001,
+        "velocity_initializer": "motion_gated",
+        "motion_loss_mode": "normalized_velocity",
+        "motion_scale_floor": 0.1,
+        "momentum_weight": 1.0,
+        "objective_mode": "lehami",
+        "target_tail_frames": 2,
+        "momentum_reference_time": 0.1,
+        "sigreg_knots": 17,
+        "sigreg_projections": 256,
+        "variance_floor": 0.0001,
+        "core": {
+          "hidden_dim": 32,
+          "action_dim": 1,
+          "damping_mode": "position_velocity",
+          "potential_mode": "raw",
+          "integrator": "frozen_dg",
+          "substeps": 3,
+          "newton_iterations": 12,
+          "residual_atol": 1e-08,
+          "residual_rtol": 1e-07,
+          "chain_atol": 1e-10,
+          "strict": true,
+          "solver": "picard",
+          "line_search_max_backtracks": 12,
+          "line_search_shrink": 0.5,
+          "line_search_c1": 0.0001,
+          "max_bisections": 4,
+          "picard_iterations": 6,
+          "picard_check_every": 2,
+          "fd_relative_step": 6e-06,
+          "implicit_rcond_min": 1e-08,
+          "adjoint_rtol": 1e-10
+        }
+      },
+      "renderer": "smooth_v1",
+      "training_scope": "damping_stage_b_single",
+      "required_data_scope": "damping_stage_b_single",
+      "trainable_modules": [
+        "damping"
+      ],
+      "checked_frame_intervals": 35840,
+      "validation_horizons_seconds": [
+        0.8,
+        3.2
+      ],
+      "validation_horizons_steps": [
+        8,
+        32
+      ],
+      "validation_score": "position_momentum",
+      "note": "No training runs without --execute. The step budget is unprofiled, not an optimality or cost claim."
+    },
+    "multi": {
+      "path": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_multi/seen.h5",
+      "dataset_sha256": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6",
+      "split_disjoint": true,
+      "split_audit_scope": "Episode IDs and group IDs are disjoint across the existing splits. This is not an audit of exact or near-duplicate RGB clips; the original splits are unchanged.",
+      "split_sizes": {
+        "train": 2304,
+        "val": 384,
+        "test": 768
+      },
+      "declared_train_frames": 81,
+      "train_frames": 81,
+      "history": 21,
+      "history_required": 21,
+      "requires_environment_context": true,
+      "sampling_metadata_fields": [
+        "regime_id"
+      ],
+      "max_horizon": 32,
+      "target_tail_frames": 2,
+      "window_frames": 55,
+      "action_dim": 1,
+      "image_shape": [
+        64,
+        64,
+        3
+      ],
+      "model_fields": [
+        "pixels",
+        "action",
+        "dt_frame"
+      ],
+      "target_fields_read": [],
+      "test_samples_read": false,
+      "training_started": false,
+      "windows": {
+        "train": 62208,
+        "val": 10368
+      },
+      "strata_windows": {
+        "train": {
+          "regime0_mode0_time0": 3456,
+          "regime0_mode0_time1": 3456,
+          "regime0_mode0_time2": 3456,
+          "regime1_mode0_time0": 3456,
+          "regime1_mode0_time1": 3456,
+          "regime1_mode0_time2": 3456,
+          "regime2_mode0_time0": 3456,
+          "regime2_mode0_time1": 3456,
+          "regime2_mode0_time2": 3456,
+          "regime3_mode0_time0": 3456,
+          "regime3_mode0_time1": 3456,
+          "regime3_mode0_time2": 3456,
+          "regime4_mode0_time0": 3456,
+          "regime4_mode0_time1": 3456,
+          "regime4_mode0_time2": 3456,
+          "regime5_mode0_time0": 3456,
+          "regime5_mode0_time1": 3456,
+          "regime5_mode0_time2": 3456
+        },
+        "val": {
+          "regime0_mode0_time0": 576,
+          "regime0_mode0_time1": 576,
+          "regime0_mode0_time2": 576,
+          "regime1_mode0_time0": 576,
+          "regime1_mode0_time1": 576,
+          "regime1_mode0_time2": 576,
+          "regime2_mode0_time0": 576,
+          "regime2_mode0_time1": 576,
+          "regime2_mode0_time2": 576,
+          "regime3_mode0_time0": 576,
+          "regime3_mode0_time1": 576,
+          "regime3_mode0_time2": 576,
+          "regime4_mode0_time0": 576,
+          "regime4_mode0_time1": 576,
+          "regime4_mode0_time2": 576,
+          "regime5_mode0_time0": 576,
+          "regime5_mode0_time1": 576,
+          "regime5_mode0_time2": 576
+        }
+      },
+      "sampling_contract": "Available regime/mode/time strata balanced; episode uniform within strata; RGB/action/dt model inputs only",
+      "scope": "Constant physical damping per trajectory tests a special case, not identification of genuine position/velocity-dependent damping. Opaque regime IDs, when present, are sampling metadata only. No damping coefficient or other physical target is read for training.",
+      "mode": "preflight_only",
+      "optimizer_created": false,
+      "run_directory_created": false,
+      "config": {
+        "model": {
+          "history": 21,
+          "velocity_history": 5,
+          "environment_context_dim": 4,
+          "core": {
+            "solver": "picard",
+            "newton_iterations": 12,
+            "line_search_max_backtracks": 12,
+            "line_search_shrink": 0.5,
+            "line_search_c1": 0.0001,
+            "max_bisections": 4,
+            "integrator": "frozen_dg",
+            "picard_iterations": 6,
+            "picard_check_every": 2,
+            "fd_relative_step": 6e-06,
+            "implicit_rcond_min": 1e-08,
+            "adjoint_rtol": 1e-10,
+            "substeps": 3,
+            "potential_mode": "raw",
+            "damping_mode": "position_velocity"
+          },
+          "velocity_initializer": "motion_gated",
+          "motion_loss_mode": "normalized_velocity",
+          "motion_scale_floor": 0.1,
+          "momentum_weight": 1.0,
+          "objective_mode": "lehami",
+          "target_tail_frames": 2,
+          "momentum_reference_time": 0.1,
+          "motion_weight": 0.0,
+          "sigreg_weight": 0.25,
+          "initializer_weight": 0.001
+        },
+        "training": {
+          "steps": 20000,
+          "batch_size": 32,
+          "train_frames": 81,
+          "seed": 0,
+          "threads": 4,
+          "encoder_lr": 2e-05,
+          "dynamics_lr": 0.0001,
+          "weight_decay": 0.0001,
+          "warmup_steps": 500,
+          "minimum_lr_ratio": 0.1,
+          "gradient_clip": 1.0,
+          "curriculum": [
+            {
+              "until_step": 1000,
+              "horizon": 4
+            },
+            {
+              "until_step": 4000,
+              "horizon": 8
+            },
+            {
+              "until_step": 10000,
+              "horizon": 16
+            },
+            {
+              "until_step": 20000,
+              "horizon": 32
+            }
+          ],
+          "val_horizons": [
+            8,
+            32
+          ],
+          "val_every": 250,
+          "val_windows": 288,
+          "val_seed": 1009,
+          "minimum_target_std": 0.1,
+          "minimum_target_motion": 0.001,
+          "validation_gate_time_bins": [
+            0
+          ],
+          "required_renderer": "smooth_v1",
+          "validation_motion_weight": 0.0,
+          "prediction_motion_gate": {
+            "min_rms_ratio": 0.5,
+            "max_rms_ratio": 1.5,
+            "max_relative_error": 0.8,
+            "min_cosine": 0.5,
+            "max_stalled_fraction": 0.1
+          },
+          "trainable_modules": [
+            "damping",
+            "environment"
+          ],
+          "required_data_scope": "damping_stage_b_multi",
+          "validation_score": "position_momentum"
+        }
+      },
+      "config_sha256": "85339bbbc74916f6b27f00679f6167506b26d593cefa4a3194dd803617937053",
+      "resolved_model_config": {
+        "history": 21,
+        "velocity_history": 5,
+        "environment_context_dim": 4,
+        "dt": 0.1,
+        "q_dim": 2,
+        "encoder_width": 32,
+        "velocity_correction_scale": 1.0,
+        "sigreg_weight": 0.25,
+        "motion_weight": 0.0,
+        "initializer_weight": 0.001,
+        "velocity_initializer": "motion_gated",
+        "motion_loss_mode": "normalized_velocity",
+        "motion_scale_floor": 0.1,
+        "momentum_weight": 1.0,
+        "objective_mode": "lehami",
+        "target_tail_frames": 2,
+        "momentum_reference_time": 0.1,
+        "sigreg_knots": 17,
+        "sigreg_projections": 256,
+        "variance_floor": 0.0001,
+        "core": {
+          "hidden_dim": 32,
+          "action_dim": 1,
+          "damping_mode": "position_velocity",
+          "potential_mode": "raw",
+          "integrator": "frozen_dg",
+          "substeps": 3,
+          "newton_iterations": 12,
+          "residual_atol": 1e-08,
+          "residual_rtol": 1e-07,
+          "chain_atol": 1e-10,
+          "strict": true,
+          "solver": "picard",
+          "line_search_max_backtracks": 12,
+          "line_search_shrink": 0.5,
+          "line_search_c1": 0.0001,
+          "max_bisections": 4,
+          "picard_iterations": 6,
+          "picard_check_every": 2,
+          "fd_relative_step": 6e-06,
+          "implicit_rcond_min": 1e-08,
+          "adjoint_rtol": 1e-10
+        }
+      },
+      "renderer": "smooth_v1",
+      "training_scope": "damping_stage_b_multi",
+      "required_data_scope": "damping_stage_b_multi",
+      "trainable_modules": [
+        "damping",
+        "environment"
+      ],
+      "checked_frame_intervals": 215040,
+      "validation_horizons_seconds": [
+        0.8,
+        3.2
+      ],
+      "validation_horizons_steps": [
+        8,
+        32
+      ],
+      "validation_score": "position_momentum",
+      "note": "No training runs without --execute. The step budget is unprofiled, not an optimality or cost claim."
+    }
+  },
+  "resume_a": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/inputs/stage_a/last.pt",
+  "input_artifacts": {
+    "inputs/stage_a/last.pt": "746d0e95aeedd53455b158a8d487803d3253ed6feeacb8737f553a3a7eb05872",
+    "inputs/stage_a/best.pt": "3788ca7ed658681a7a67f520f2c5e79b53dbde4685a22ff604f8d127fc0342f3"
+  }
+}

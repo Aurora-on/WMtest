@@ -1,0 +1,16 @@
+{
+  "phase": "lehami_one_seed",
+  "job_id": "47141",
+  "status": "PASS",
+  "started_unix": 1793260209.930601,
+  "slurm": {
+    "SLURM_JOB_PARTITION": "compute",
+    "SLURM_CPUS_PER_TASK": "4",
+    "CUDA_VISIBLE_DEVICES": "3",
+    "SLURM_JOB_ID": "47141",
+    "SLURM_JOB_NODELIST": "ladhpc"
+  },
+  "exit_code": 0,
+  "finished_unix": 1793263791.1601963,
+  "wall_seconds": 3581.2295954227448
+}

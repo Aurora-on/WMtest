@@ -1,0 +1,6 @@
+{
+  "passed": 108,
+  "cuda_numerical_test_cases": 17,
+  "scope": "Core/model/data/trainer + robust solver numerical gradients/fallback/finite guards + migration/resume/profile/generator/evaluation/replay/analyzer",
+  "cuda_test_pending": true
+}

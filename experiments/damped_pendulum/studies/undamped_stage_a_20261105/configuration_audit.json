@@ -1,0 +1,130 @@
+{
+  "scope": "Read-only actual configuration instantiation, no optimizer construction or parameter updates",
+  "resolved_model_config": {
+    "history": 21,
+    "velocity_history": 5,
+    "environment_context_dim": 0,
+    "dt": 0.1,
+    "q_dim": 2,
+    "encoder_width": 32,
+    "velocity_correction_scale": 1.0,
+    "sigreg_weight": 0.25,
+    "motion_weight": 1.0,
+    "initializer_weight": 0.001,
+    "velocity_initializer": "motion_gated",
+    "motion_loss_mode": "normalized_velocity",
+    "motion_scale_floor": 0.1,
+    "momentum_weight": 0.1,
+    "sigreg_knots": 17,
+    "sigreg_projections": 256,
+    "variance_floor": 0.0001,
+    "core": {
+      "hidden_dim": 32,
+      "action_dim": 1,
+      "damping_mode": "none",
+      "potential_mode": "raw",
+      "integrator": "frozen_dg",
+      "substeps": 3,
+      "newton_iterations": 12,
+      "residual_atol": 1e-08,
+      "residual_rtol": 1e-07,
+      "chain_atol": 1e-10,
+      "strict": true,
+      "solver": "picard",
+      "line_search_max_backtracks": 12,
+      "line_search_shrink": 0.5,
+      "line_search_c1": 0.0001,
+      "max_bisections": 4,
+      "picard_iterations": 6,
+      "picard_check_every": 2,
+      "fd_relative_step": 6e-06,
+      "implicit_rcond_min": 1e-08,
+      "adjoint_rtol": 1e-10
+    }
+  },
+  "trainability": {
+    "mode": "explicit_modules",
+    "requested_modules": [
+      "encoder",
+      "initializer",
+      "potential"
+    ],
+    "trainable_modules": [
+      "encoder",
+      "initializer",
+      "potential"
+    ],
+    "modules": {
+      "encoder": {
+        "available": true,
+        "trainable": true,
+        "parameter_tensors": 20,
+        "parameters": 448674,
+        "trainable_parameters": 448674
+      },
+      "initializer": {
+        "available": true,
+        "trainable": true,
+        "parameter_tensors": 4,
+        "parameters": 5442,
+        "trainable_parameters": 5442
+      },
+      "potential": {
+        "available": true,
+        "trainable": true,
+        "parameter_tensors": 6,
+        "parameters": 1185,
+        "trainable_parameters": 1185
+      },
+      "damping": {
+        "available": false,
+        "trainable": false,
+        "parameter_tensors": 0,
+        "parameters": 0,
+        "trainable_parameters": 0
+      },
+      "environment": {
+        "available": false,
+        "trainable": false,
+        "parameter_tensors": 0,
+        "parameters": 0,
+        "trainable_parameters": 0
+      },
+      "input_port": {
+        "available": true,
+        "trainable": false,
+        "parameter_tensors": 6,
+        "parameters": 1218,
+        "trainable_parameters": 0
+      }
+    },
+    "total_parameters": 456519,
+    "trainable_parameters": 455301,
+    "frozen_parameters": 1218
+  },
+  "parameter_groups": [
+    {
+      "name": "encoder",
+      "lr": 2e-05,
+      "parameters": 448674
+    },
+    {
+      "name": "dynamics",
+      "lr": 0.0001,
+      "parameters": 6627
+    }
+  ],
+  "training_source_hashes": {
+    "dpbench/train_dissipative.py": "1f4fb23a4c7422aa6e207194e90d57e53965a233a6b02d4e4949901465bf5466",
+    "dpbench/dissipative_model.py": "302a07687377bbeac2d1de3eb77b406b197db8e4b561f4e51034e2dbded977b6",
+    "dpbench/dissipative_core.py": "077c941d2b897411fc8560dc2dd9e7877bc8125560293a68a2552507b52f603f",
+    "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+    "dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+    "dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+  },
+  "optimizer_created": false,
+  "optimizer_updates": 0,
+  "formal_data_generated": false,
+  "job_submitted": false
+}

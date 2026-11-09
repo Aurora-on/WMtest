@@ -1,0 +1,53 @@
+{
+  "checked_at_utc": "2026-11-06T07:49:40.952296+00:00",
+  "last_step": 10969,
+  "new_optimizer_updates": 969,
+  "queue": "47920|RUNNING|58:03|ladhpc",
+  "stage": {
+    "status": "running_stage_a"
+  },
+  "checkpoint": {
+    "status": "running",
+    "training_started": true,
+    "completed_steps": 10750,
+    "optimizer_steps_this_run": 750
+  },
+  "timing": {
+    "75": {
+      "mean_step_seconds": 1.7391288538773855,
+      "mean_iteration_seconds": 1.7393979739149412
+    },
+    "250": {
+      "mean_step_seconds": 2.3209400647878646,
+      "mean_iteration_seconds": 2.407136137396097
+    },
+    "500": {
+      "mean_step_seconds": 2.6456702792942526,
+      "mean_iteration_seconds": 2.731934357225895
+    }
+  },
+  "validation_history": [
+    {
+      "step": 10250,
+      "gate_passed": true,
+      "score": 0.07645246964329484,
+      "seconds": 21.58753553777933
+    },
+    {
+      "step": 10500,
+      "gate_passed": true,
+      "score": 0.07133741617849859,
+      "seconds": 21.407266922295094
+    },
+    {
+      "step": 10750,
+      "gate_passed": true,
+      "score": 0.06440575241436403,
+      "seconds": 21.390188701450825
+    }
+  ],
+  "health": {
+    "all_losses_and_gradients_finite": true,
+    "max_solver_failed_attempts": 0.0
+  }
+}

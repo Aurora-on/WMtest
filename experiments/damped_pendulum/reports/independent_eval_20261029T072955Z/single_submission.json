@@ -1,0 +1,8 @@
+{
+  "job_id": "47138",
+  "remote_root": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z",
+  "remote_results": "results_single",
+  "supersedes_job": "47136",
+  "reason": "Batch-vs-single discrepancy detected by prespecified check. Use batch=1 for ALL 12 arms to match the original evaluation; preliminary batched-attempt scores are not used.",
+  "submitted_at_utc": "2026-10-29T07:37:35.631052+00:00"
+}

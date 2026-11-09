@@ -1,0 +1,42 @@
+{
+  "status": "startup_verified_running",
+  "checked_at_utc": "2026-11-04T10:09:49.968065+00:00",
+  "job_id": 47726,
+  "scheduler": "47726 RUNNING 2:31 ladhpc",
+  "initial_step": 3750,
+  "completed_step": 3829,
+  "new_optimizer_updates": 79,
+  "target_total_step": 20000,
+  "substeps": 3,
+  "batch_size": 32,
+  "gpu": "L40",
+  "revalidation": {
+    "step": 3750,
+    "gate_passed": true,
+    "groups": 36,
+    "seconds": 48.3135602325201,
+    "score": 2.6715713741337344,
+    "score_scope": "Internal latent validation; not physical test accuracy"
+  },
+  "losses_and_gradients_finite": true,
+  "max_solver_residual_ratio": 0.4999353638977892,
+  "max_chain_defect": 2.1316282072803006e-14,
+  "max_split_depth": 0.0,
+  "mean_step_seconds": 1.0688482464491567,
+  "median_step_seconds": 1.1126535534858704,
+  "current_horizon": 8,
+  "original_checkpoint_unchanged": true,
+  "frozen_source_hashes_verified": true,
+  "physical_test_evaluation_enabled": false,
+  "startup_monitoring_finished": true,
+  "time_estimate": {
+    "rough_remaining_hours": [
+      15,
+      18
+    ],
+    "slurm_limit_hours": 24,
+    "basis": "Current K8 updates; estimated K16 cost from earlier2-substep timing scaled by3/2; observed3-substep K32 benchmark4.04s; current48.3s validation every250steps.",
+    "limits": "Later weights, solver subdivision and GPU load may change runtime; not a completion guarantee."
+  },
+  "remote_root": "/home/weizhixin/ssd/efficient3_training_20261104T100427Z"
+}

@@ -1,0 +1,1840 @@
+{
+  "scope": "Posthoc physical sampling audit. Reconstructed exact generator states; no training or labels supplied to model.",
+  "test_reconstruction_max_difference": 3.978151141836861e-12,
+  "train_initial_groups": 384,
+  "anchor_times_seconds": [
+    2.0,
+    4.8
+  ],
+  "future_times_seconds_max_horizon": [
+    2.1,
+    8.0
+  ],
+  "sampling": "Equal regime and time-bin; uniform initial group and start inside each bin; average metrics across bins.",
+  "records": [
+    {
+      "damping": 0.0,
+      "horizon": 4,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 1.0654446737829115,
+            "omega_rms": 2.6007872285739153,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999999117674
+          },
+          "target": {
+            "angle_rms": 1.0969645873813503,
+            "omega_rms": 2.5418173522986724,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999999078422
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 1.0718149966475174,
+            "omega_rms": 2.616180967141896,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998876583
+          },
+          "target": {
+            "angle_rms": 1.0604951351377172,
+            "omega_rms": 2.6319201378145607,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998789392
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 1.081066347579873,
+            "omega_rms": 2.584809787844609,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998589646
+          },
+          "target": {
+            "angle_rms": 1.0906220382711656,
+            "omega_rms": 2.5700473593501934,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998551901
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 1.082693920263411,
+        "omega_rms": 2.5812616164878084,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.9999999998806571
+      }
+    },
+    {
+      "damping": 0.0,
+      "horizon": 8,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 1.0654446737829115,
+            "omega_rms": 2.6007872285739153,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999999117674
+          },
+          "target": {
+            "angle_rms": 1.0966471543616492,
+            "omega_rms": 2.554887385955014,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.999999999903029
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 1.0718149966475174,
+            "omega_rms": 2.616180967141896,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998876583
+          },
+          "target": {
+            "angle_rms": 1.0614870565659318,
+            "omega_rms": 2.629909581618397,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998739277
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 1.081066347579873,
+            "omega_rms": 2.584809787844609,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998589646
+          },
+          "target": {
+            "angle_rms": 1.0870828686816973,
+            "omega_rms": 2.5799896342259987,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998493302
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 1.081739026536426,
+        "omega_rms": 2.5882622005998033,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.999999999875429
+      }
+    },
+    {
+      "damping": 0.0,
+      "horizon": 16,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 1.0654446737829115,
+            "omega_rms": 2.6007872285739153,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999999117674
+          },
+          "target": {
+            "angle_rms": 1.0802812502552803,
+            "omega_rms": 2.591601731749528,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998913347
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 1.0718149966475174,
+            "omega_rms": 2.616180967141896,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998876583
+          },
+          "target": {
+            "angle_rms": 1.073738942419578,
+            "omega_rms": 2.605464385793334,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998634067
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 1.081066347579873,
+            "omega_rms": 2.584809787844609,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998589646
+          },
+          "target": {
+            "angle_rms": 1.0756878180286826,
+            "omega_rms": 2.603719323681738,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998378745
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 1.0765693369011802,
+        "omega_rms": 2.6002618137415334,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.9999999998642054
+      }
+    },
+    {
+      "damping": 0.0,
+      "horizon": 32,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 1.0654446737829115,
+            "omega_rms": 2.6007872285739153,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999999117674
+          },
+          "target": {
+            "angle_rms": 1.0786599185786028,
+            "omega_rms": 2.5955737296715538,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998692268
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 1.0718149966475174,
+            "omega_rms": 2.616180967141896,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998876583
+          },
+          "target": {
+            "angle_rms": 1.0740022442156965,
+            "omega_rms": 2.605272331817444,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998416577
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 1.081066347579873,
+            "omega_rms": 2.584809787844609,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998589646
+          },
+          "target": {
+            "angle_rms": 1.076387574896578,
+            "omega_rms": 2.6014029319941816,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.9999999998157544
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 1.0763499125636258,
+        "omega_rms": 2.600749664494393,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.999999999842213
+      }
+    },
+    {
+      "damping": 0.05,
+      "horizon": 4,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.9988646239652639,
+            "omega_rms": 2.450844949776383,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8921821952925318
+          },
+          "target": {
+            "angle_rms": 1.009242061195515,
+            "omega_rms": 2.4048498944167442,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8821688447298257
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.9311295889203225,
+            "omega_rms": 2.5081162248418467,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8516805468575687
+          },
+          "target": {
+            "angle_rms": 0.9380177689165734,
+            "omega_rms": 2.4587941884855162,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8417263882109768
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.9363675964053827,
+            "omega_rms": 2.3878507702007847,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8146625799346994
+          },
+          "target": {
+            "angle_rms": 0.9109964781933475,
+            "omega_rms": 2.422253402283114,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8052129647791887
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.9527521027684788,
+        "omega_rms": 2.4286324950617915,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.8430360659066637
+      }
+    },
+    {
+      "damping": 0.05,
+      "horizon": 8,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.9988646239652639,
+            "omega_rms": 2.450844949776383,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8921821952925318
+          },
+          "target": {
+            "angle_rms": 0.9860355581619195,
+            "omega_rms": 2.4491132349286193,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8740470029510706
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.9311295889203225,
+            "omega_rms": 2.5081162248418467,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8516805468575687
+          },
+          "target": {
+            "angle_rms": 0.9423225205128111,
+            "omega_rms": 2.428625976945037,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8339106802165263
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.9363675964053827,
+            "omega_rms": 2.3878507702007847,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8146625799346994
+          },
+          "target": {
+            "angle_rms": 0.9027856830222969,
+            "omega_rms": 2.4181023469851595,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.797547891802311
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.9437145872323424,
+        "omega_rms": 2.4319471862862723,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.8351685249899693
+      }
+    },
+    {
+      "damping": 0.05,
+      "horizon": 16,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.9988646239652639,
+            "omega_rms": 2.450844949776383,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8921821952925318
+          },
+          "target": {
+            "angle_rms": 0.9628529194000007,
+            "omega_rms": 2.454454857728893,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.857910588881624
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.9311295889203225,
+            "omega_rms": 2.5081162248418467,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8516805468575687
+          },
+          "target": {
+            "angle_rms": 0.927266212267431,
+            "omega_rms": 2.421126495276393,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8185744149175606
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.9363675964053827,
+            "omega_rms": 2.3878507702007847,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8146625799346994
+          },
+          "target": {
+            "angle_rms": 0.8997352304466821,
+            "omega_rms": 2.3796358297904323,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.7827775951561835
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.9299514540380379,
+        "omega_rms": 2.418405727598573,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.8197541996517893
+      }
+    },
+    {
+      "damping": 0.05,
+      "horizon": 32,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.9988646239652639,
+            "omega_rms": 2.450844949776383,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8921821952925318
+          },
+          "target": {
+            "angle_rms": 0.937836558591004,
+            "omega_rms": 2.4223038202057525,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8268498144032631
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.9311295889203225,
+            "omega_rms": 2.5081162248418467,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8516805468575687
+          },
+          "target": {
+            "angle_rms": 0.9054114424149686,
+            "omega_rms": 2.3840571859071242,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.788821246916908
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.9363675964053827,
+            "omega_rms": 2.3878507702007847,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.8146625799346994
+          },
+          "target": {
+            "angle_rms": 0.8782542167232076,
+            "omega_rms": 2.3433192285003352,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.7542078660652258
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.9071674059097267,
+        "omega_rms": 2.3832267448710707,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.789959642461799
+      }
+    },
+    {
+      "damping": 0.1,
+      "horizon": 4,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.933525015812432,
+            "omega_rms": 2.314804586068941,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.7952853877365669
+          },
+          "target": {
+            "angle_rms": 0.9234273441691169,
+            "omega_rms": 2.296316160744188,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.7773913909353879
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.842772007444513,
+            "omega_rms": 2.326082073617601,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.723536272593513
+          },
+          "target": {
+            "angle_rms": 0.8502879650511431,
+            "omega_rms": 2.2530928771043697,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.7067105292085424
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.7975881246737428,
+            "omega_rms": 2.2438170042474352,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6612156647859619
+          },
+          "target": {
+            "angle_rms": 0.7863684666283864,
+            "omega_rms": 2.214336327153529,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6455755583907489
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.8533612586162155,
+        "omega_rms": 2.254581788334029,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.709892492844893
+      }
+    },
+    {
+      "damping": 0.1,
+      "horizon": 8,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.933525015812432,
+            "omega_rms": 2.314804586068941,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.7952853877365669
+          },
+          "target": {
+            "angle_rms": 0.8921285621428714,
+            "omega_rms": 2.3389374740004234,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.7628816078672339
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.842772007444513,
+            "omega_rms": 2.326082073617601,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.723536272593513
+          },
+          "target": {
+            "angle_rms": 0.8408025442489303,
+            "omega_rms": 2.238361331212567,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6935979473045447
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.7975881246737428,
+            "omega_rms": 2.2438170042474352,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6612156647859619
+          },
+          "target": {
+            "angle_rms": 0.7862419228688323,
+            "omega_rms": 2.1741333805797627,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6333267227811183
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.839724343086878,
+        "omega_rms": 2.250477395264251,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.6966020926509656
+      }
+    },
+    {
+      "damping": 0.1,
+      "horizon": 16,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.933525015812432,
+            "omega_rms": 2.314804586068941,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.7952853877365669
+          },
+          "target": {
+            "angle_rms": 0.8693669745868725,
+            "omega_rms": 2.3029266386126315,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.734863828416459
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.842772007444513,
+            "omega_rms": 2.326082073617601,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.723536272593513
+          },
+          "target": {
+            "angle_rms": 0.8159971011552708,
+            "omega_rms": 2.2174335099063214,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6680824551154328
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.7975881246737428,
+            "omega_rms": 2.2438170042474352,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6612156647859619
+          },
+          "target": {
+            "angle_rms": 0.7681276750920208,
+            "omega_rms": 2.140869709370317,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6099922239094767
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.817830583611388,
+        "omega_rms": 2.2204099526297565,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.6709795024804562
+      }
+    },
+    {
+      "damping": 0.1,
+      "horizon": 32,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.933525015812432,
+            "omega_rms": 2.314804586068941,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.7952853877365669
+          },
+          "target": {
+            "angle_rms": 0.8284572178688537,
+            "omega_rms": 2.2375862163956466,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.682860600476733
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.842772007444513,
+            "omega_rms": 2.326082073617601,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.723536272593513
+          },
+          "target": {
+            "angle_rms": 0.7806271164670409,
+            "omega_rms": 2.146567231345719,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6205824848198207
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.7975881246737428,
+            "omega_rms": 2.2438170042474352,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6612156647859619
+          },
+          "target": {
+            "angle_rms": 0.7372407847184239,
+            "omega_rms": 2.0655610097484365,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.5664092409861424
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.7821083730181062,
+        "omega_rms": 2.1499048191632673,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.6232841087608988
+      }
+    },
+    {
+      "damping": 0.2,
+      "horizon": 4,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.8111490812434193,
+            "omega_rms": 2.0855159340314255,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6309948941763257
+          },
+          "target": {
+            "angle_rms": 0.7790126653330627,
+            "omega_rms": 2.086770630385448,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6023683324262058
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.704264068376815,
+            "omega_rms": 1.9732497915497902,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.5202631456249537
+          },
+          "target": {
+            "angle_rms": 0.694109079925551,
+            "omega_rms": 1.909642743877883,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.4962786403698139
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.6241869730107985,
+            "omega_rms": 1.8395820001041643,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.4325980782948667
+          },
+          "target": {
+            "angle_rms": 0.6224912481371311,
+            "omega_rms": 1.7581290269350296,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.4124307602068806
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.6985376644652482,
+        "omega_rms": 1.9181808003994536,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.5036925776676334
+      }
+    },
+    {
+      "damping": 0.2,
+      "horizon": 8,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.8111490812434193,
+            "omega_rms": 2.0855159340314255,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6309948941763257
+          },
+          "target": {
+            "angle_rms": 0.7470501528600457,
+            "omega_rms": 2.0922420611197663,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.579706609901971
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.704264068376815,
+            "omega_rms": 1.9732497915497902,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.5202631456249537
+          },
+          "target": {
+            "angle_rms": 0.6713045234158198,
+            "omega_rms": 1.9024738851722753,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.47773408023395597
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.6241869730107985,
+            "omega_rms": 1.8395820001041643,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.4325980782948667
+          },
+          "target": {
+            "angle_rms": 0.6060713013789516,
+            "omega_rms": 1.7403623615404962,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.39693379855365346
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.6748086592182724,
+        "omega_rms": 1.9116927692775125,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.4847914962298601
+      }
+    },
+    {
+      "damping": 0.2,
+      "horizon": 16,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.8111490812434193,
+            "omega_rms": 2.0855159340314255,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6309948941763257
+          },
+          "target": {
+            "angle_rms": 0.7181288095065013,
+            "omega_rms": 2.0124654020662733,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.5381146572270991
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.704264068376815,
+            "omega_rms": 1.9732497915497902,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.5202631456249537
+          },
+          "target": {
+            "angle_rms": 0.6429569403058267,
+            "omega_rms": 1.8379463094167345,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.4432472826564798
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.6241869730107985,
+            "omega_rms": 1.8395820001041643,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.4325980782948667
+          },
+          "target": {
+            "angle_rms": 0.5796526387028131,
+            "omega_rms": 1.6843592755820609,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.3681627205637161
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.6469127961717137,
+        "omega_rms": 1.844923662355023,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.44984155348243166
+      }
+    },
+    {
+      "damping": 0.2,
+      "horizon": 32,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.8111490812434193,
+            "omega_rms": 2.0855159340314255,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.6309948941763257
+          },
+          "target": {
+            "angle_rms": 0.6608548856816754,
+            "omega_rms": 1.8864232597761141,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.46619574481541637
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.704264068376815,
+            "omega_rms": 1.9732497915497902,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.5202631456249537
+          },
+          "target": {
+            "angle_rms": 0.5926779672519376,
+            "omega_rms": 1.7208230398709512,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.3837385760327436
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.6241869730107985,
+            "omega_rms": 1.8395820001041643,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.4325980782948667
+          },
+          "target": {
+            "angle_rms": 0.5350767406457466,
+            "omega_rms": 1.5751263776878597,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.3185545869872666
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.5962031978597865,
+        "omega_rms": 1.7274575591116417,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.38949630261180884
+      }
+    },
+    {
+      "damping": 0.5,
+      "horizon": 4,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.5457223191980569,
+            "omega_rms": 1.518518524086585,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.3138881774563692
+          },
+          "target": {
+            "angle_rms": 0.5033777390105585,
+            "omega_rms": 1.468773506209093,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.27888931764105324
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.41485817467842523,
+            "omega_rms": 1.2115050133936844,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.19157148508515914
+          },
+          "target": {
+            "angle_rms": 0.3887416135630371,
+            "omega_rms": 1.1499448554390843,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.17008369130000006
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.3281306152254435,
+            "omega_rms": 0.948825478691032,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.11945095239076103
+          },
+          "target": {
+            "angle_rms": 0.3055204523304642,
+            "omega_rms": 0.9088954527487122,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.10608658376318976
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.39921326830135323,
+        "omega_rms": 1.1758712714656299,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.1850198642347477
+      }
+    },
+    {
+      "damping": 0.5,
+      "horizon": 8,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.5457223191980569,
+            "omega_rms": 1.518518524086585,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.3138881774563692
+          },
+          "target": {
+            "angle_rms": 0.47186645536275806,
+            "omega_rms": 1.421234885028143,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.2534667202982643
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.41485817467842523,
+            "omega_rms": 1.2115050133936844,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.19157148508515914
+          },
+          "target": {
+            "angle_rms": 0.3650238191048403,
+            "omega_rms": 1.1129741248037492,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.1546091036580936
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.3281306152254435,
+            "omega_rms": 0.948825478691032,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.11945095239076103
+          },
+          "target": {
+            "angle_rms": 0.2854739043761381,
+            "omega_rms": 0.8833366553908556,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.09629403565780555
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.37412139294791213,
+        "omega_rms": 1.1391818884075826,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.1681232865380545
+      }
+    },
+    {
+      "damping": 0.5,
+      "horizon": 16,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.5457223191980569,
+            "omega_rms": 1.518518524086585,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.3138881774563692
+          },
+          "target": {
+            "angle_rms": 0.4313907137437992,
+            "omega_rms": 1.2971614528660635,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.21206775891810106
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.41485817467842523,
+            "omega_rms": 1.2115050133936844,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.19157148508515914
+          },
+          "target": {
+            "angle_rms": 0.3336376295040736,
+            "omega_rms": 1.0162941244735915,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.12925013092174995
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.3281306152254435,
+            "omega_rms": 0.948825478691032,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.11945095239076103
+          },
+          "target": {
+            "angle_rms": 0.26155627824088945,
+            "omega_rms": 0.8047604504246894,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.08047516200594317
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.34219487382958746,
+        "omega_rms": 1.039405342588115,
+        "rest_fraction_theta005_omega01": 0.0,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.14059768394859806
+      }
+    },
+    {
+      "damping": 0.5,
+      "horizon": 32,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.5457223191980569,
+            "omega_rms": 1.518518524086585,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.3138881774563692
+          },
+          "target": {
+            "angle_rms": 0.36572604664093894,
+            "omega_rms": 1.107859394118065,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.15394974592162333
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.41485817467842523,
+            "omega_rms": 1.2115050133936844,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.19157148508515914
+          },
+          "target": {
+            "angle_rms": 0.2830974945357634,
+            "omega_rms": 0.8674858877812401,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.09375259152664585
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.3281306152254435,
+            "omega_rms": 0.948825478691032,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.11945095239076103
+          },
+          "target": {
+            "angle_rms": 0.22226392848582613,
+            "omega_rms": 0.6857563296412054,
+            "rest_fraction_theta005_omega01": 0.0007505063657407407,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.05833668044337683
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.29036248988750946,
+        "omega_rms": 0.8870338705135036,
+        "rest_fraction_theta005_omega01": 0.0002501687885802469,
+        "low_energy_fraction_E001": 0.0,
+        "mean_energy_fraction": 0.102013005963882
+      }
+    },
+    {
+      "damping": 1.0,
+      "horizon": 4,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.30350642426311647,
+            "omega_rms": 0.8602934373483956,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.09926001552583541
+          },
+          "target": {
+            "angle_rms": 0.2655692918699807,
+            "omega_rms": 0.7861607131896167,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.07886303580249941
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.18152316456086653,
+            "omega_rms": 0.5287432212516027,
+            "rest_fraction_theta005_omega01": 0.003125,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.036581106372133874
+          },
+          "target": {
+            "angle_rms": 0.1606106817197775,
+            "omega_rms": 0.47669748150211244,
+            "rest_fraction_theta005_omega01": 0.0068359375,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.029057487730635493
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.1135104188421289,
+            "omega_rms": 0.32393778336930845,
+            "rest_fraction_theta005_omega01": 0.04832175925925926,
+            "low_energy_fraction_E001": 0.16637731481481483,
+            "mean_energy_fraction": 0.014071197882375446
+          },
+          "target": {
+            "angle_rms": 0.09948306358966465,
+            "omega_rms": 0.2961608272917576,
+            "rest_fraction_theta005_omega01": 0.07913773148148148,
+            "low_energy_fraction_E001": 0.42701099537037035,
+            "mean_energy_fraction": 0.011191492409258433
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.17522101239314095,
+        "omega_rms": 0.5196730073278288,
+        "rest_fraction_theta005_omega01": 0.02865788966049383,
+        "low_energy_fraction_E001": 0.14233699845679013,
+        "mean_energy_fraction": 0.03970400531413111
+      }
+    },
+    {
+      "damping": 1.0,
+      "horizon": 8,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.30350642426311647,
+            "omega_rms": 0.8602934373483956,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.09926001552583541
+          },
+          "target": {
+            "angle_rms": 0.23678404312634221,
+            "omega_rms": 0.733510684321089,
+            "rest_fraction_theta005_omega01": 0.00022786458333333334,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.0655711378377702
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.18152316456086653,
+            "omega_rms": 0.5287432212516027,
+            "rest_fraction_theta005_omega01": 0.003125,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.036581106372133874
+          },
+          "target": {
+            "angle_rms": 0.14327596802344558,
+            "omega_rms": 0.44539511962885187,
+            "rest_fraction_theta005_omega01": 0.015201822916666666,
+            "low_energy_fraction_E001": 0.018619791666666666,
+            "mean_energy_fraction": 0.02417593894846113
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.1135104188421289,
+            "omega_rms": 0.32393778336930845,
+            "rest_fraction_theta005_omega01": 0.04832175925925926,
+            "low_energy_fraction_E001": 0.16637731481481483,
+            "mean_energy_fraction": 0.014071197882375446
+          },
+          "target": {
+            "angle_rms": 0.08844134678494428,
+            "omega_rms": 0.27705279297150714,
+            "rest_fraction_theta005_omega01": 0.1095920138888889,
+            "low_energy_fraction_E001": 0.6265552662037037,
+            "mean_energy_fraction": 0.009290624052917364
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.15616711931157737,
+        "omega_rms": 0.48531953230714936,
+        "rest_fraction_theta005_omega01": 0.041673900462962966,
+        "low_energy_fraction_E001": 0.21505835262345682,
+        "mean_energy_fraction": 0.0330125669463829
+      }
+    },
+    {
+      "damping": 1.0,
+      "horizon": 16,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.30350642426311647,
+            "omega_rms": 0.8602934373483956,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.09926001552583541
+          },
+          "target": {
+            "angle_rms": 0.2020314727406197,
+            "omega_rms": 0.6220723746677242,
+            "rest_fraction_theta005_omega01": 0.004231770833333333,
+            "low_energy_fraction_E001": 0.0013834635416666667,
+            "mean_energy_fraction": 0.047515960388758736
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.18152316456086653,
+            "omega_rms": 0.5287432212516027,
+            "rest_fraction_theta005_omega01": 0.003125,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.036581106372133874
+          },
+          "target": {
+            "angle_rms": 0.12224818631670581,
+            "omega_rms": 0.37778767458505236,
+            "rest_fraction_theta005_omega01": 0.05206705729166667,
+            "low_energy_fraction_E001": 0.2503743489583333,
+            "mean_energy_fraction": 0.017510496710958248
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.1135104188421289,
+            "omega_rms": 0.32393778336930845,
+            "rest_fraction_theta005_omega01": 0.04832175925925926,
+            "low_energy_fraction_E001": 0.16637731481481483,
+            "mean_energy_fraction": 0.014071197882375446
+          },
+          "target": {
+            "angle_rms": 0.0755932910932972,
+            "omega_rms": 0.2346189779400007,
+            "rest_fraction_theta005_omega01": 0.1809714988425926,
+            "low_energy_fraction_E001": 0.8109628182870371,
+            "mean_energy_fraction": 0.006729069206407334
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.1332909833835409,
+        "omega_rms": 0.41149300906425906,
+        "rest_fraction_theta005_omega01": 0.07909010898919754,
+        "low_energy_fraction_E001": 0.3542402102623457,
+        "mean_energy_fraction": 0.023918508768708106
+      }
+    },
+    {
+      "damping": 1.0,
+      "horizon": 32,
+      "bins": [
+        {
+          "time_bin": 0,
+          "anchor_times_seconds": [
+            2.0,
+            2.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.30350642426311647,
+            "omega_rms": 0.8602934373483956,
+            "rest_fraction_theta005_omega01": 0.0,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.09926001552583541
+          },
+          "target": {
+            "angle_rms": 0.15633766798852353,
+            "omega_rms": 0.48249537813622656,
+            "rest_fraction_theta005_omega01": 0.06321614583333333,
+            "low_energy_fraction_E001": 0.306494140625,
+            "mean_energy_fraction": 0.028539405637280336
+          }
+        },
+        {
+          "time_bin": 1,
+          "anchor_times_seconds": [
+            3.0,
+            3.9000000000000004
+          ],
+          "anchor": {
+            "angle_rms": 0.18152316456086653,
+            "omega_rms": 0.5287432212516027,
+            "rest_fraction_theta005_omega01": 0.003125,
+            "low_energy_fraction_E001": 0.0,
+            "mean_energy_fraction": 0.036581106372133874
+          },
+          "target": {
+            "angle_rms": 0.09460823779060235,
+            "omega_rms": 0.2930478051406182,
+            "rest_fraction_theta005_omega01": 0.1789306640625,
+            "low_energy_fraction_E001": 0.6189778645833334,
+            "mean_energy_fraction": 0.010514886071202016
+          }
+        },
+        {
+          "time_bin": 2,
+          "anchor_times_seconds": [
+            4.0,
+            4.800000000000001
+          ],
+          "anchor": {
+            "angle_rms": 0.1135104188421289,
+            "omega_rms": 0.32393778336930845,
+            "rest_fraction_theta005_omega01": 0.04832175925925926,
+            "low_energy_fraction_E001": 0.16637731481481483,
+            "mean_energy_fraction": 0.014071197882375446
+          },
+          "target": {
+            "angle_rms": 0.058536471406292416,
+            "omega_rms": 0.18183726696198338,
+            "rest_fraction_theta005_omega01": 0.3862847222222222,
+            "low_energy_fraction_E001": 0.9054814091435185,
+            "mean_energy_fraction": 0.004039553553930985
+          }
+        }
+      ],
+      "target_balanced": {
+        "angle_rms": 0.10316079239513944,
+        "omega_rms": 0.319126816746276,
+        "rest_fraction_theta005_omega01": 0.2094771773726852,
+        "low_energy_fraction_E001": 0.6103178047839507,
+        "mean_energy_fraction": 0.014364615087471113
+      }
+    }
+  ]
+}

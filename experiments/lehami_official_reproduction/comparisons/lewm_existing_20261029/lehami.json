@@ -1,0 +1,13 @@
+{
+  "seed": 42,
+  "file_hashes": {
+    "/home/weizhixin/ssd/lehami_official_reproduction_20261029/data/checkpoints/lehami_sg_sep_sreg_joint_ms_conv_pendulum_multi_v2_sg_sep_conv_w1_multi_exp067_a0m/best.ckpt": "a09021196224d761bf2151919aebbc30ab0a0d8d05fba9f6c0732754f41cc5da",
+    "/home/weizhixin/ssd/lehami_official_reproduction_20261029/LeHami/lehami/experiments/results/exp067_a0m_lehami_w1_multi/probe_k1_knn.pkl": "32984ae3756ed71d6b311b763dac34b2dd40250cf60bdccf44619c5e5b083069",
+    "/home/weizhixin/ssd/lehami_official_reproduction_20261029/LeHami/lehami/experiments/results/exp067_a0m_lehami_w1_multi/probe_mlp.pkl": "fa969ceed31ee2b2ab7c9d24309d4b055c519900252989ad72d50085d5aaf8f4",
+    "/home/weizhixin/ssd/lehami_official_reproduction_20261029/LeHami/lehami/experiments/results/exp067_a0m_lehami_w1_multi/probe.pkl": "c34934bf3949cbdda5cbee495effaf56e1e2835a71f330fa54024a9926d4c930"
+  },
+  "weights_unchanged": true,
+  "readouts_refitted": false,
+  "seconds": 8.382533021271229,
+  "torch_version": "2.12.0+cu126"
+}

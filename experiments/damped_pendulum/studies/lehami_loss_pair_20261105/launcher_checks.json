@@ -1,0 +1,7 @@
+{
+  "test_command": ".venv/bin/python -m pytest tests/test_lehami_pair_preparation.py -q",
+  "result": "13 passed in 0.15s",
+  "scope": "配置配对、纯计划不创建目录、执行边界/覆盖保护、两arm之间代码或配置变更阻止第二组；训练子进程均被替身拦截",
+  "optimizer_updates": false,
+  "remote_submission": false
+}

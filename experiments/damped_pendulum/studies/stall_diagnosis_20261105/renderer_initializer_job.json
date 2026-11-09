@@ -1,0 +1,15 @@
+{
+  "job_id": 47794,
+  "status": "completed_from_artifacts",
+  "device": "cuda_L40",
+  "limit": "2minutes",
+  "optimizer_updates": 0,
+  "cpu_prior_feature_max_abs_difference": 0.0003019613884518435,
+  "cuda_prior_feature_max_abs_difference": 0.0,
+  "artifacts": {
+    "renderer_initializer_check.json": "571f03f8ecd3e8882d0bec468615c8913b173b55cae553d319defd6a00e97723",
+    "renderer_initializer_arrays.npz": "818869c4c4c9efd955cfb5a57f1476201bf65411f414d78cb7fe86a2997b3632",
+    "stall_rest_windows.npz": "1eed25115e149cf70701f16e1294c38ef0c02184d434892a41cde079de13873a",
+    "check_renderer_initializer.py": "d3cbccd6e8bfa1c29f03e16b03684407ac6d7da9a629f72cf329024dcba23e49"
+  }
+}

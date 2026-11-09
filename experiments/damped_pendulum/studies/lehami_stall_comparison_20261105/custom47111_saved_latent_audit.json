@@ -1,0 +1,663 @@
+{
+  "scope": "Retrospective analysis of saved custom-adaptation job47111 passive rollouts only. No training or autonomous rerollout. CPU derivative checks on saved latent states. Old test set, 32 passive episodes per model.",
+  "loss": "MSE(q_pred,q_target) + MSE(p_pred,p_SG_target) + 0.25 SIGReg(q_target), averaged over 8 autoregressive steps. All target encoding differentiable.",
+  "method": {
+    "script": {
+      "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/lehami_stall_comparison_20261105/audit_custom47111_saved_latents.py",
+      "sha256": "a1f9c4556628349f9337b03ac00d257a40c0ec03f53962409222cdb8a7b65118"
+    },
+    "torch_version": "2.8.0",
+    "numpy_version": "2.2.6",
+    "device": "cpu",
+    "torch_threads": 4,
+    "passive_selection": "episode_id % 2 == 0, matching modes=np.arange(n)%2 in dpbench/generate.py:141; this saved test set has 32 passive episodes.",
+    "feature_layout": "features[episode, time, coordinate], first 32 coordinates q and last 32 p; no physical-unit interpretation of latent RMS.",
+    "prediction_readout": "MLP; selected by probe_names rather than assuming its index.",
+    "time_origin": "Saved state index 0 is the rollout anchor (raw video frame 4, simulation time 0.4 seconds). Table times are elapsed from this anchor, with dt=0.1 seconds.",
+    "window_definition": "For each [lo,hi), q and p use saved states at indices lo,...,hi-1, while dq,dp and angular increments use transitions k->k+1 for those same k. Therefore state sample times cover [0,0.9], [7,7.9], [31,31.9] seconds and transition intervals cover [0,1], [7,8], [31,32] seconds.",
+    "window_indices": {
+      "0_to_1s": {
+        "lo_inclusive": 0,
+        "hi_exclusive": 10
+      },
+      "7_to_8s": {
+        "lo_inclusive": 70,
+        "hi_exclusive": 80
+      },
+      "31_to_32s": {
+        "lo_inclusive": 310,
+        "hi_exclusive": 320
+      }
+    },
+    "aggregation": "RMS over all selected episodes, window indices, and latent coordinates; angular increments use shortest wrapped difference in radians. Tanh saturation fractions pool episodes, time, and hidden units.",
+    "derivative_check": "Zero physical action is encoded by the frozen action encoder. Compute p_half=p-0.5*dV/dq and dK(p_half/s)/dp_half on saved states with gauge-time step h=1. Compare this to the saved q[k+1]-q[k].",
+    "interpretation_limits": "Undamped b=0 truth remains oscillatory, so diminishing predicted motion is spurious. Damped b=0.2 truth naturally slows; its late visual stillness alone is not a failure claim. Both conditions show latent p growth and K-network saturation. These checks identify the mechanism of small predicted q increments, not the original cause of long-horizon p drift. They do not establish that joint SIGReg would constrain predicted-p divergence."
+  },
+  "runs": {
+    "lehami_b0p0_seed0": {
+      "inputs": {
+        "checkpoint": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/independent_test_20261029T070556Z/frozen/runs/server_47111/lehami_b0p0_seed0/best.pt",
+          "sha256": "dc02dfa681bdd952abd0a27caba495350d7ba03f64e64a93949f89152cc61ea7"
+        },
+        "features": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p0_seed0/evaluation/trajectories.npz",
+          "sha256": "cd048226df5ce668ad46a1f4b7af95b2ea87cc92baf43f2d2e9cb732fd28d6b4"
+        },
+        "training_history": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p0_seed0/history.jsonl",
+          "sha256": "98ef5466f7d22da69c9328abf457c0a7415bca040b9a4de9e4e3a980bf503649"
+        }
+      },
+      "checkpoint_step": 27750,
+      "passive_episodes": 32,
+      "passive_episode_ids": [
+        24,
+        32,
+        42,
+        50,
+        66,
+        102,
+        106,
+        112,
+        116,
+        130,
+        140,
+        168,
+        184,
+        188,
+        220,
+        232,
+        252,
+        258,
+        262,
+        270,
+        272,
+        316,
+        360,
+        390,
+        416,
+        424,
+        430,
+        432,
+        440,
+        456,
+        482,
+        510
+      ],
+      "log_p_scale_exp_mean": 0.9246571063995361,
+      "windows": {
+        "0_to_1s": {
+          "q_rms": 0.8001651763916016,
+          "p_rms": 0.4134710729122162,
+          "dq_rms": 0.3825361728668213,
+          "dp_rms": 0.23429135978221893,
+          "mlp_pred_angle_increment_rms_rad": 0.27869301261168467,
+          "true_angle_increment_rms_rad": 0.2516021635871751,
+          "dK_dp_at_halfstep_rms": 0.3825361728668213,
+          "saved_dq_vs_Kgrad_max_abs": 2.2649765014648438e-06,
+          "kinetic_first_tanh_abs_above_099_fraction": 3.051757857974735e-06,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.20194092392921448
+        },
+        "7_to_8s": {
+          "q_rms": 2.576286554336548,
+          "p_rms": 8.064227104187012,
+          "dq_rms": 0.09858724474906921,
+          "dp_rms": 0.20253682136535645,
+          "mlp_pred_angle_increment_rms_rad": 0.03940391394982116,
+          "true_angle_increment_rms_rad": 0.23499164279644483,
+          "dK_dp_at_halfstep_rms": 0.09858724474906921,
+          "saved_dq_vs_Kgrad_max_abs": 8.940696716308594e-07,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.5589660406112671,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.295806884765625
+        },
+        "31_to_32s": {
+          "q_rms": 5.227331161499023,
+          "p_rms": 39.70988464355469,
+          "dq_rms": 0.023490263149142265,
+          "dp_rms": 0.15134237706661224,
+          "mlp_pred_angle_increment_rms_rad": 0.003574694995887231,
+          "true_angle_increment_rms_rad": 0.24384295462680985,
+          "dK_dp_at_halfstep_rms": 0.023490259423851967,
+          "saved_dq_vs_Kgrad_max_abs": 1.000240445137024e-06,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.912426769733429,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.33627015352249146
+        }
+      },
+      "loss_first100mean": {
+        "loss": 2.0118113672733307,
+        "pos_loss": 0.5526346015930176,
+        "mom_loss": 0.27149810656905177,
+        "sigreg_loss": 4.750714664459228
+      },
+      "loss_last100mean": {
+        "loss": 1.0246149069070816,
+        "pos_loss": 0.15413367472589015,
+        "mom_loss": 0.08685691967606544,
+        "sigreg_loss": 3.13449725151062
+      }
+    },
+    "lehami_b0p0_seed1": {
+      "inputs": {
+        "checkpoint": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/independent_test_20261029T070556Z/frozen/runs/server_47111/lehami_b0p0_seed1/best.pt",
+          "sha256": "538dfd20432e633134d57eedf16856dcca2cd8173fe9ca4d381ac900aa4339c7"
+        },
+        "features": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p0_seed1/evaluation/trajectories.npz",
+          "sha256": "5c9f7dffa7836a73ff053ba3e6af501afa2f86de65542a8d8bf94cd5083516dc"
+        },
+        "training_history": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p0_seed1/history.jsonl",
+          "sha256": "1df03c03f1ffe591a3a5e6c4e10dc4f6e2770e3344050e87f8e7de5a984b98ce"
+        }
+      },
+      "checkpoint_step": 26250,
+      "passive_episodes": 32,
+      "passive_episode_ids": [
+        24,
+        32,
+        42,
+        50,
+        66,
+        102,
+        106,
+        112,
+        116,
+        130,
+        140,
+        168,
+        184,
+        188,
+        220,
+        232,
+        252,
+        258,
+        262,
+        270,
+        272,
+        316,
+        360,
+        390,
+        416,
+        424,
+        430,
+        432,
+        440,
+        456,
+        482,
+        510
+      ],
+      "log_p_scale_exp_mean": 0.928871214389801,
+      "windows": {
+        "0_to_1s": {
+          "q_rms": 0.8202930688858032,
+          "p_rms": 0.41799095273017883,
+          "dq_rms": 0.3871304988861084,
+          "dp_rms": 0.23492802679538727,
+          "mlp_pred_angle_increment_rms_rad": 0.28193594913835385,
+          "true_angle_increment_rms_rad": 0.2516021635871751,
+          "dK_dp_at_halfstep_rms": 0.3871304988861084,
+          "saved_dq_vs_Kgrad_max_abs": 2.86102294921875e-06,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.0,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.18851013481616974
+        },
+        "7_to_8s": {
+          "q_rms": 2.888949394226074,
+          "p_rms": 7.784825325012207,
+          "dq_rms": 0.10641906410455704,
+          "dp_rms": 0.20896956324577332,
+          "mlp_pred_angle_increment_rms_rad": 0.0453293460995401,
+          "true_angle_increment_rms_rad": 0.23499164279644483,
+          "dK_dp_at_halfstep_rms": 0.10641906410455704,
+          "saved_dq_vs_Kgrad_max_abs": 6.854534149169922e-07,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.5446929931640625,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.282846063375473
+        },
+        "31_to_32s": {
+          "q_rms": 5.691133499145508,
+          "p_rms": 38.81305694580078,
+          "dq_rms": 0.026279382407665253,
+          "dp_rms": 0.14663323760032654,
+          "mlp_pred_angle_increment_rms_rad": 0.00981325683592814,
+          "true_angle_increment_rms_rad": 0.24384295462680985,
+          "dK_dp_at_halfstep_rms": 0.0262793879956007,
+          "saved_dq_vs_Kgrad_max_abs": 9.257346391677856e-07,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.9054352045059204,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.30601197481155396
+        }
+      },
+      "loss_first100mean": {
+        "loss": 2.0036600685119628,
+        "pos_loss": 0.5485173763334751,
+        "mom_loss": 0.28099828243255615,
+        "sigreg_loss": 4.696577661037445
+      },
+      "loss_last100mean": {
+        "loss": 1.025386643409729,
+        "pos_loss": 0.15299938082695008,
+        "mom_loss": 0.08717315599322319,
+        "sigreg_loss": 3.140856409072876
+      }
+    },
+    "lehami_b0p0_seed2": {
+      "inputs": {
+        "checkpoint": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/independent_test_20261029T070556Z/frozen/runs/server_47111/lehami_b0p0_seed2/best.pt",
+          "sha256": "2c7f2e06950c0ab175eb7a7bcf54f927ae585632542fd63d22de98ec37bbcbcf"
+        },
+        "features": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p0_seed2/evaluation/trajectories.npz",
+          "sha256": "9ccfd9efa1d7196e123d93cc021d814a39460b4d63421b095fbf1e439457102b"
+        },
+        "training_history": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p0_seed2/history.jsonl",
+          "sha256": "ece1ed090622a4e2b150c9b167f9bdfef68c79a2492ee635a7676f091930ad81"
+        }
+      },
+      "checkpoint_step": 26750,
+      "passive_episodes": 32,
+      "passive_episode_ids": [
+        24,
+        32,
+        42,
+        50,
+        66,
+        102,
+        106,
+        112,
+        116,
+        130,
+        140,
+        168,
+        184,
+        188,
+        220,
+        232,
+        252,
+        258,
+        262,
+        270,
+        272,
+        316,
+        360,
+        390,
+        416,
+        424,
+        430,
+        432,
+        440,
+        456,
+        482,
+        510
+      ],
+      "log_p_scale_exp_mean": 0.9304382801055908,
+      "windows": {
+        "0_to_1s": {
+          "q_rms": 0.7916408777236938,
+          "p_rms": 0.40210527181625366,
+          "dq_rms": 0.38186413049697876,
+          "dp_rms": 0.23761077225208282,
+          "mlp_pred_angle_increment_rms_rad": 0.2678307166773555,
+          "true_angle_increment_rms_rad": 0.2516021635871751,
+          "dK_dp_at_halfstep_rms": 0.38186410069465637,
+          "saved_dq_vs_Kgrad_max_abs": 2.0265579223632812e-06,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.0,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.20256957411766052
+        },
+        "7_to_8s": {
+          "q_rms": 2.5010271072387695,
+          "p_rms": 4.850557327270508,
+          "dq_rms": 0.1463625580072403,
+          "dp_rms": 0.2111620008945465,
+          "mlp_pred_angle_increment_rms_rad": 0.0631891983594606,
+          "true_angle_increment_rms_rad": 0.23499164279644483,
+          "dK_dp_at_halfstep_rms": 0.1463625580072403,
+          "saved_dq_vs_Kgrad_max_abs": 8.344650268554688e-07,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.31842041015625,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.275930792093277
+        },
+        "31_to_32s": {
+          "q_rms": 5.854280471801758,
+          "p_rms": 25.381776809692383,
+          "dq_rms": 0.042234644293785095,
+          "dp_rms": 0.11662370711565018,
+          "mlp_pred_angle_increment_rms_rad": 0.007374570385575783,
+          "true_angle_increment_rms_rad": 0.24384295462680985,
+          "dK_dp_at_halfstep_rms": 0.042234644293785095,
+          "saved_dq_vs_Kgrad_max_abs": 9.834766387939453e-07,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.8082031011581421,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.3226165771484375
+        }
+      },
+      "loss_first100mean": {
+        "loss": 1.9895142650604247,
+        "pos_loss": 0.5448939387500286,
+        "mom_loss": 0.28238848462700844,
+        "sigreg_loss": 4.648927373886108
+      },
+      "loss_last100mean": {
+        "loss": 1.0231916010379791,
+        "pos_loss": 0.1473569977283478,
+        "mom_loss": 0.08343167625367641,
+        "sigreg_loss": 3.1696117162704467
+      }
+    },
+    "lehami_b0p2_seed0": {
+      "inputs": {
+        "checkpoint": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/independent_test_20261029T070556Z/frozen/runs/server_47111/lehami_b0p2_seed0/best.pt",
+          "sha256": "462dc0b278c030aa65f2f5ec0eef6eb3ac56a5e1bd10f0d2a1ed4845b4e33e89"
+        },
+        "features": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p2_seed0/evaluation/trajectories.npz",
+          "sha256": "e9d3cec0cfa98a4d27ce845b5d8375a8513d294a68d3d910d0252103c5930277"
+        },
+        "training_history": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p2_seed0/history.jsonl",
+          "sha256": "ca1da43dc7a42327dabd21998a550089f59aea9af416426d6cd25c19d3c9711c"
+        }
+      },
+      "checkpoint_step": 28000,
+      "passive_episodes": 32,
+      "passive_episode_ids": [
+        24,
+        32,
+        42,
+        50,
+        66,
+        102,
+        106,
+        112,
+        116,
+        130,
+        140,
+        168,
+        184,
+        188,
+        220,
+        232,
+        252,
+        258,
+        262,
+        270,
+        272,
+        316,
+        360,
+        390,
+        416,
+        424,
+        430,
+        432,
+        440,
+        456,
+        482,
+        510
+      ],
+      "log_p_scale_exp_mean": 0.9213124513626099,
+      "windows": {
+        "0_to_1s": {
+          "q_rms": 1.0448464155197144,
+          "p_rms": 0.5257244110107422,
+          "dq_rms": 0.3357815742492676,
+          "dp_rms": 0.17543306946754456,
+          "mlp_pred_angle_increment_rms_rad": 0.23048242050763593,
+          "true_angle_increment_rms_rad": 0.23529542661197295,
+          "dK_dp_at_halfstep_rms": 0.3357815742492676,
+          "saved_dq_vs_Kgrad_max_abs": 1.9073486328125e-06,
+          "kinetic_first_tanh_abs_above_099_fraction": 4.57763671875e-05,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.22554321587085724
+        },
+        "7_to_8s": {
+          "q_rms": 2.8524224758148193,
+          "p_rms": 7.805645942687988,
+          "dq_rms": 0.06974954903125763,
+          "dp_rms": 0.13890711963176727,
+          "mlp_pred_angle_increment_rms_rad": 0.012570707989101471,
+          "true_angle_increment_rms_rad": 0.12199431834294172,
+          "dK_dp_at_halfstep_rms": 0.06974954158067703,
+          "saved_dq_vs_Kgrad_max_abs": 5.811452865600586e-07,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.6346771121025085,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.27566224336624146
+        },
+        "31_to_32s": {
+          "q_rms": 5.851325988769531,
+          "p_rms": 32.79056930541992,
+          "dq_rms": 0.02436947077512741,
+          "dp_rms": 0.10823244601488113,
+          "mlp_pred_angle_increment_rms_rad": 0.006907080413664766,
+          "true_angle_increment_rms_rad": 0.011230831884993499,
+          "dK_dp_at_halfstep_rms": 0.02436946891248226,
+          "saved_dq_vs_Kgrad_max_abs": 9.723007678985596e-07,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.9063995480537415,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.27955323457717896
+        }
+      },
+      "loss_first100mean": {
+        "loss": 2.071276732683182,
+        "pos_loss": 0.5495582272112369,
+        "mom_loss": 0.29462594270706177,
+        "sigreg_loss": 4.908370265960693
+      },
+      "loss_last100mean": {
+        "loss": 1.1892776572704316,
+        "pos_loss": 0.20917214184999466,
+        "mom_loss": 0.1411765442788601,
+        "sigreg_loss": 3.355715882778168
+      }
+    },
+    "lehami_b0p2_seed1": {
+      "inputs": {
+        "checkpoint": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/independent_test_20261029T070556Z/frozen/runs/server_47111/lehami_b0p2_seed1/best.pt",
+          "sha256": "0cbce1ef0eb3e878db6ad007b113f981de9586d56e6b970c0c6108a9ccb4c9b1"
+        },
+        "features": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p2_seed1/evaluation/trajectories.npz",
+          "sha256": "81632231ada1218cc653eb631ef8c45e9c36be4bdec6cdcbb7ef9b3bc7f40852"
+        },
+        "training_history": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p2_seed1/history.jsonl",
+          "sha256": "ad345aa96ebebc1c181062aaa107396b8c5d8572f5dda1a6f45ed8b56626ebaa"
+        }
+      },
+      "checkpoint_step": 27500,
+      "passive_episodes": 32,
+      "passive_episode_ids": [
+        24,
+        32,
+        42,
+        50,
+        66,
+        102,
+        106,
+        112,
+        116,
+        130,
+        140,
+        168,
+        184,
+        188,
+        220,
+        232,
+        252,
+        258,
+        262,
+        270,
+        272,
+        316,
+        360,
+        390,
+        416,
+        424,
+        430,
+        432,
+        440,
+        456,
+        482,
+        510
+      ],
+      "log_p_scale_exp_mean": 0.928632378578186,
+      "windows": {
+        "0_to_1s": {
+          "q_rms": 1.0631320476531982,
+          "p_rms": 0.5086832642555237,
+          "dq_rms": 0.33313068747520447,
+          "dp_rms": 0.16050034761428833,
+          "mlp_pred_angle_increment_rms_rad": 0.2399467811628091,
+          "true_angle_increment_rms_rad": 0.23529542661197295,
+          "dK_dp_at_halfstep_rms": 0.3331306576728821,
+          "saved_dq_vs_Kgrad_max_abs": 2.2649765014648438e-06,
+          "kinetic_first_tanh_abs_above_099_fraction": 1.220703143189894e-05,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.20227965712547302
+        },
+        "7_to_8s": {
+          "q_rms": 2.649641275405884,
+          "p_rms": 8.824082374572754,
+          "dq_rms": 0.06246054172515869,
+          "dp_rms": 0.15726526081562042,
+          "mlp_pred_angle_increment_rms_rad": 0.024674565662259666,
+          "true_angle_increment_rms_rad": 0.12199431834294172,
+          "dK_dp_at_halfstep_rms": 0.06246054172515869,
+          "saved_dq_vs_Kgrad_max_abs": 6.183981895446777e-07,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.652026355266571,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.261300653219223
+        },
+        "31_to_32s": {
+          "q_rms": 5.152190685272217,
+          "p_rms": 38.571048736572266,
+          "dq_rms": 0.02150624245405197,
+          "dp_rms": 0.13173671066761017,
+          "mlp_pred_angle_increment_rms_rad": 0.002228832552163836,
+          "true_angle_increment_rms_rad": 0.011230831884993499,
+          "dK_dp_at_halfstep_rms": 0.02150624245405197,
+          "saved_dq_vs_Kgrad_max_abs": 9.350478649139404e-07,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.9158355593681335,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.271759033203125
+        }
+      },
+      "loss_first100mean": {
+        "loss": 2.0761482059955596,
+        "pos_loss": 0.5506203360855579,
+        "mom_loss": 0.30543736308813096,
+        "sigreg_loss": 4.88036205291748
+      },
+      "loss_last100mean": {
+        "loss": 1.1987277603149413,
+        "pos_loss": 0.20132356747984886,
+        "mom_loss": 0.13761459700763226,
+        "sigreg_loss": 3.439158411026001
+      }
+    },
+    "lehami_b0p2_seed2": {
+      "inputs": {
+        "checkpoint": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/independent_test_20261029T070556Z/frozen/runs/server_47111/lehami_b0p2_seed2/best.pt",
+          "sha256": "b76f65bba1aeb9f133a932521b539c2152297e91990e800fa3f8426e68a9efcc"
+        },
+        "features": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p2_seed2/evaluation/trajectories.npz",
+          "sha256": "001f100b4d4d5f341b4ac6885e600bf772d354c7d350d395ea8e09539c612459"
+        },
+        "training_history": {
+          "absolute_path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p2_seed2/history.jsonl",
+          "sha256": "a12641feeca1a4bf5ebd87ef16070afc160ab40304e174828c903b6854bfba97"
+        }
+      },
+      "checkpoint_step": 28140,
+      "passive_episodes": 32,
+      "passive_episode_ids": [
+        24,
+        32,
+        42,
+        50,
+        66,
+        102,
+        106,
+        112,
+        116,
+        130,
+        140,
+        168,
+        184,
+        188,
+        220,
+        232,
+        252,
+        258,
+        262,
+        270,
+        272,
+        316,
+        360,
+        390,
+        416,
+        424,
+        430,
+        432,
+        440,
+        456,
+        482,
+        510
+      ],
+      "log_p_scale_exp_mean": 0.922896683216095,
+      "windows": {
+        "0_to_1s": {
+          "q_rms": 1.058440923690796,
+          "p_rms": 0.5204558968544006,
+          "dq_rms": 0.3327002227306366,
+          "dp_rms": 0.17087140679359436,
+          "mlp_pred_angle_increment_rms_rad": 0.23472142759860531,
+          "true_angle_increment_rms_rad": 0.23529542661197295,
+          "dK_dp_at_halfstep_rms": 0.3327002227306366,
+          "saved_dq_vs_Kgrad_max_abs": 2.2649765014648438e-06,
+          "kinetic_first_tanh_abs_above_099_fraction": 1.220703143189894e-05,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.21819762885570526
+        },
+        "7_to_8s": {
+          "q_rms": 2.766526937484741,
+          "p_rms": 7.331838130950928,
+          "dq_rms": 0.08106008172035217,
+          "dp_rms": 0.133818119764328,
+          "mlp_pred_angle_increment_rms_rad": 0.02465384651536337,
+          "true_angle_increment_rms_rad": 0.12199431834294172,
+          "dK_dp_at_halfstep_rms": 0.08106008172035217,
+          "saved_dq_vs_Kgrad_max_abs": 6.854534149169922e-07,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.5936676263809204,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.2717742919921875
+        },
+        "31_to_32s": {
+          "q_rms": 5.709099769592285,
+          "p_rms": 30.530927658081055,
+          "dq_rms": 0.0240175798535347,
+          "dp_rms": 0.09810557961463928,
+          "mlp_pred_angle_increment_rms_rad": 0.003465904555312526,
+          "true_angle_increment_rms_rad": 0.011230831884993499,
+          "dK_dp_at_halfstep_rms": 0.02401757799088955,
+          "saved_dq_vs_Kgrad_max_abs": 1.0076910257339478e-06,
+          "kinetic_first_tanh_abs_above_099_fraction": 0.8894439935684204,
+          "kinetic_second_tanh_abs_above_099_fraction": 0.2818359434604645
+        }
+      },
+      "loss_first100mean": {
+        "loss": 2.071299914121628,
+        "pos_loss": 0.5434820967912674,
+        "mom_loss": 0.30569686129689216,
+        "sigreg_loss": 4.88848388671875
+      },
+      "loss_last100mean": {
+        "loss": 1.2034049570560454,
+        "pos_loss": 0.20781515821814536,
+        "mom_loss": 0.14275072038173675,
+        "sigreg_loss": 3.411356284618378
+      }
+    }
+  },
+  "reproduction_check": {
+    "compared_numeric_metrics": 228,
+    "maximum_absolute_difference": 0.0,
+    "absolute_tolerance": 1e-07,
+    "relative_tolerance": 1e-06,
+    "passed": true
+  }
+}

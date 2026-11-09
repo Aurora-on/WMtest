@@ -1,0 +1,17 @@
+{
+  "job_id": "47539",
+  "phase": "cuda_actual_update_profile",
+  "horizons": [
+    4,
+    8,
+    16,
+    32
+  ],
+  "warmup_updates_per_horizon": 2,
+  "timed_updates_per_horizon": 4,
+  "gpu": "l40:1",
+  "cpus": 4,
+  "memory": "32G",
+  "time_limit": "00:45:00",
+  "formal_training_started": false
+}

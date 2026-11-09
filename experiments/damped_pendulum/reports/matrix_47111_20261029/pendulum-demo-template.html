@@ -1,0 +1,55 @@
+<div id="pendulum-model-demo">
+  <style>
+    #pendulum-model-demo .pendulum-panel svg {display:block;width:100%;aspect-ratio:1.2}
+    #pendulum-model-demo .series-label {font-weight:500}
+    #pendulum-model-demo .series-swatch {display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:6px}
+    #pendulum-model-demo .pendulum-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+    #pendulum-model-demo .state-value {font-variant-numeric:tabular-nums}
+  </style>
+  <h3>真实测试轨迹与模型预测</h3>
+  <div class="viz-controls">
+    <label class="form-label">阻尼<select class="form-select" data-control="damping"><option value="0p2">有阻尼 b = 0.2</option><option value="0p0">无阻尼 b = 0</option></select></label>
+    <label class="form-label">测试轨迹<select class="form-select" data-control="episode"></select></label>
+  </div>
+  <div class="pendulum-grid">
+    <div class="pendulum-panel" data-panel="truth"><div class="series-label"><span class="series-swatch" style="background:var(--viz-series-1)"></span>真实运动</div><svg role="img" aria-label="真实摆的位置"></svg><div class="state-value text-small"></div></div>
+    <div class="pendulum-panel" data-panel="lehami"><div class="series-label"><span class="series-swatch" style="background:var(--viz-series-2)"></span>LeHami</div><svg role="img" aria-label="LeHami预测的摆位置"></svg><div class="state-value text-small"></div></div>
+    <div class="pendulum-panel" data-panel="lewm"><div class="series-label"><span class="series-swatch" style="background:var(--viz-series-3)"></span>LeWM</div><svg role="img" aria-label="LeWM预测的摆位置"></svg><div class="state-value text-small"></div></div>
+  </div>
+  <div class="viz-row"><button class="btn btn-primary" type="button" data-control="play">播放</button><span class="tabular-nums" data-control="time">预测 0.0 / 32.0 秒</span></div>
+  <label class="form-label">预测时间<input class="form-range" data-control="time-range" type="range" min="0" max="320" step="1" value="0" aria-label="预测时间，间隔0.1秒"></label>
+  <div class="text-small text-muted" data-control="identity">种子0 · MLP状态读出 · 真实历史仅用于初始化</div>
+  <script type="application/json" data-demo-data>__ACTUAL_TRAJECTORIES__</script>
+  <script>
+  (()=>{
+    const root=document.getElementById('pendulum-model-demo');
+    const data=JSON.parse(root.querySelector('[data-demo-data]').textContent);
+    const q=n=>root.querySelector('[data-control="'+n+'"]');
+    const damping=q('damping'),episode=q('episode'),slider=q('time-range'),play=q('play');
+    const keys=['truth','lehami','lewm'];let playing=false,baseTime=0,baseIndex=0,frame=0;
+    for(const id of data.episodes){const o=document.createElement('option');o.value=id;o.textContent=(id%2===0?'自由运动':'有外力')+' · 轨迹 '+id;episode.append(o);}
+    function persist(){if(window.openai?.setWidgetState)window.openai.setWidgetState({modelContent:{damping:damping.value,episode:Number(episode.value),seed:0,time_seconds:Number(slider.value)/10},privateContent:null}).catch(()=>{});}
+    function pause(){playing=false;play.textContent='播放';if(frame)cancelAnimationFrame(frame);frame=0;}
+    function setState(saved){const state=saved?.modelContent;if(!state)return;if(['0p0','0p2'].includes(state.damping))damping.value=state.damping;if(data.episodes.includes(state.episode))episode.value=state.episode;if(Number.isFinite(state.time_seconds))slider.value=Math.max(0,Math.min(320,Math.round(state.time_seconds*10)));pause();draw();}
+    function draw(){
+      const i=Number(slider.value),row=data.cases[damping.value][episode.value];
+      q('time').textContent='预测 '+(i/10).toFixed(1)+' / 32.0 秒';
+      keys.forEach((key,k)=>{
+        const panel=root.querySelector('[data-panel="'+key+'"]'),svg=panel.querySelector('svg');
+        const w=panel.clientWidth,h=w/1.2,cx=w/2,cy=h*.28,r=h*.49;
+        const [theta,omega]=row[key][i],x=cx+r*Math.sin(theta),y=cy+r*Math.cos(theta);
+        const ghost=row.truth[i][0],gx=cx+r*Math.sin(ghost),gy=cy+r*Math.cos(ghost);
+        svg.setAttribute('viewBox','0 0 '+w+' '+h);
+        svg.innerHTML='<line x1="'+(cx-28)+'" y1="'+cy+'" x2="'+(cx+28)+'" y2="'+cy+'" stroke="var(--border)" stroke-width="2"/>'+(key==='truth'?'':'<line x1="'+cx+'" y1="'+cy+'" x2="'+gx+'" y2="'+gy+'" stroke="var(--foreground)" opacity=".2" stroke-width="2"/>')+'<line x1="'+cx+'" y1="'+cy+'" x2="'+x+'" y2="'+y+'" stroke="var(--viz-series-'+(k+1)+')" stroke-width="3"/><circle cx="'+x+'" cy="'+y+'" r="8" fill="var(--viz-series-'+(k+1)+')"/><circle cx="'+cx+'" cy="'+cy+'" r="3" fill="var(--foreground)"/>';
+        panel.querySelector('.state-value').textContent='θ '+theta.toFixed(2)+' rad · ω '+omega.toFixed(2)+' rad/s';
+      });
+    }
+    function tick(t){if(!playing)return;const i=Math.min(320,baseIndex+Math.floor((t-baseTime)/100));slider.value=i;draw();if(i>=320){pause();persist();}else frame=requestAnimationFrame(tick);}
+    play.addEventListener('click',()=>{if(playing){pause();persist();return;}if(Number(slider.value)>=320)slider.value=0;playing=true;play.textContent='暂停';baseIndex=Number(slider.value);baseTime=performance.now();frame=requestAnimationFrame(tick);});
+    [damping,episode].forEach(el=>el.addEventListener('change',()=>{pause();slider.value=0;draw();persist();}));
+    slider.addEventListener('input',()=>{pause();draw();});slider.addEventListener('change',persist);
+    window.addEventListener('openai:set_globals',e=>{if(e.detail?.globals?.widgetState)setState(e.detail.globals.widgetState);});
+    new ResizeObserver(draw).observe(root);draw();setState(window.openai?.widgetState);
+  })();
+  </script>
+</div>

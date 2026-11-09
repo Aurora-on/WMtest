@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-29",
+  "scope": "Primary-paper and pinned-author-code audit; no training or mechanism validation",
+  "paper": {
+    "title": "LeHami: Symplectic Latent Dynamics for World Models",
+    "authors": [
+      "Romina Yalovetzky",
+      "Randall Balestriero",
+      "Yann LeCun"
+    ],
+    "arxiv_id": "2610.15267",
+    "version": "v1",
+    "submitted_utc": "2026-10-11T01:28:41Z",
+    "url": "https://arxiv.org/abs/2610.15267v1",
+    "pdf_url": "https://arxiv.org/pdf/2610.15267v1",
+    "pages": 35,
+    "local_pdf": "/Users/weizhixin/Desktop/WM/papers/LEHAMI- SYMPLECTIC LATENT DYNAMICS FOR WORLD MODELS.pdf",
+    "visually_checked_pages": [
+      8,
+      9,
+      29,
+      32
+    ]
+  },
+  "verified_claims": [
+    {
+      "location": "p8 Table1",
+      "claim": "Actuated anchor K=0 MLP velocity MAE is lower for LeHami than W1 LeWM; this tests single-anchor representation, not the full recurrent-context rollout",
+      "metric": "omega MAE rad/s",
+      "lehami": {
+        "mean": 0.184,
+        "sd": 0.019
+      },
+      "lewm_w1": {
+        "mean": 2.419,
+        "sd": 0.001
+      }
+    },
+    {
+      "location": "p29 Table7",
+      "claim": "Conservative-pendulum frozen K=1 25-NN rollout-band velocity MAE advantage",
+      "bands_steps": [
+        [
+          1,
+          10
+        ],
+        [
+          11,
+          20
+        ],
+        [
+          21,
+          70
+        ]
+      ],
+      "lehami_omega_mae": [
+        0.364,
+        0.669,
+        1.534
+      ],
+      "lewm_w1_omega_mae": [
+        1.02,
+        1.169,
+        2.331
+      ]
+    },
+    {
+      "location": "p31 text and p32 Fig15",
+      "claim": "In the actuated rollout comparison, LeHami velocity advantage over W1 LeWM is mainly before K~10; thereafter performance is comparable; LeWM angle error is lower early"
+    },
+    {
+      "location": "p9 Table2",
+      "claim": "W3-untied LeWM already outperforms LeHami in planning at at most15 TFLOP/episode; these are planning-success results, not the same measurement as current rollout RMSE",
+      "velocity_success": {
+        "lewm_w3_untied": [
+          0.8,
+          0.058
+        ],
+        "lehami": [
+          0.527,
+          0.019
+        ]
+      },
+      "joint_position_velocity_success": {
+        "lewm_w3_untied": [
+          0.636,
+          0.025
+        ],
+        "lehami": [
+          0.304,
+          0.088
+        ]
+      }
+    },
+    {
+      "location": "p15 Remarks3/5 and p10 limitations",
+      "claim": "Symplectic latent geometry does not bound rollout prediction error or identify physical coordinates; dissipative modeling is future work"
+    }
+  ],
+  "author_code_commit": "f76f65f8b99afb6b7e3063f573645d3e2f290ede",
+  "code_urls": {
+    "experiment_arms": "https://github.com/rominay/LeHami/blob/f76f65f8b99afb6b7e3063f573645d3e2f290ede/lehami/experiments/actuated_pendulum.sh",
+    "free_w3_config": "https://github.com/rominay/LeHami/blob/f76f65f8b99afb6b7e3063f573645d3e2f290ede/lehami/training/configs/experiment/phase0_lewm_ms_conv_w3_free_swingup_exp099_b3f.yaml",
+    "main_lehami_config": "https://github.com/rominay/LeHami/blob/f76f65f8b99afb6b7e3063f573645d3e2f290ede/lehami/training/configs/experiment/phase2_lehami_sg_sep_conv_w1_swingup_exp079_a0q.yaml",
+    "training": "https://github.com/rominay/LeHami/blob/f76f65f8b99afb6b7e3063f573645d3e2f290ede/lehami/training/train.py",
+    "global_config": "https://github.com/rominay/LeHami/blob/f76f65f8b99afb6b7e3063f573645d3e2f290ede/lehami/training/configs/config.yaml",
+    "capacity_probes": "https://github.com/rominay/LeHami/blob/f76f65f8b99afb6b7e3063f573645d3e2f290ede/lehami/experiments/src/fit_capacity_probes.py",
+    "data_recipe": "https://github.com/rominay/LeHami/blob/f76f65f8b99afb6b7e3063f573645d3e2f290ede/lehami/data/prepare_actuated_data.sh",
+    "generator": "https://github.com/rominay/LeHami/blob/f76f65f8b99afb6b7e3063f573645d3e2f290ede/lehami/data/pendulum_swingup.py"
+  },
+  "protocol_mismatches": [
+    {
+      "field": "lewm_variant",
+      "paper": "Main comparison W1; tied W3 and free W3 controls also reported; free W3 config enc_lag1",
+      "current": "free W3 enc_lag0"
+    },
+    {
+      "field": "readout_input",
+      "paper": "One z64 at K0 or K1; LeHami[q,p]64",
+      "current": "LeWM full recurrent context192; LeHami[q,p]64"
+    },
+    {
+      "field": "main_rollout_metric",
+      "paper": "Frozen K1 25-NN; per-step or rollout-band MAE; about7-7.6seconds",
+      "current": "Anchor-fitted ridge/MLP; cumulative RMSE to4/8/16/32seconds"
+    },
+    {
+      "field": "capacity_mlp",
+      "paper": "sklearn256x256 ReLU,max_iter300,early_stopping,all available dumped training rows by default",
+      "current": "128x128 Tanh,500 mini-batch updates,4096train/1024validation labels"
+    },
+    {
+      "field": "scheduler",
+      "paper": "AdamW plus LinearWarmupCosineAnnealingLR,epoch interval",
+      "current": "AdamW constant learning rate"
+    },
+    {
+      "field": "checkpoint_selection",
+      "paper": "validate/pred_loss with genuine validation split",
+      "current": "Total objective including SIGReg on fixed256validation windows"
+    },
+    {
+      "field": "precision",
+      "paper": "Global bf16-mixed; Hamiltonian pathfp32",
+      "current": "Allfp32"
+    },
+    {
+      "field": "training_budget",
+      "paper_epochs": 35,
+      "current_epochs": 35,
+      "paper_actuated_train_episodes": 630,
+      "current_train_episodes": 384,
+      "current_updates": 28140,
+      "paper_exact_updates": null,
+      "caution": "Same epoch count is not same update/data budget. Exact author update count not independently validated against its loader; do not invent it."
+    },
+    {
+      "field": "data",
+      "paper": "Undamped point-mass equation theta_ddot=-(g/L)sin(theta)+u/(mL^2);3lengthsx3masses,900episodes,630/135/135,80frames,dt0.1,torqueU[-4,4]hold3,RK4substep0.0125,seed42",
+      "current": "Each damping0/.2:512episodes,384/64/64,fixedm=L=1,325frames,train81,halfpassive/halfintermittentdrive,torqueU[-2,2]hold3,RK4substep0.005,seed20261028"
+    }
+  ],
+  "interpretation_boundaries": [
+    "Protocol differences are verified facts; their causal contributions to the observed performance gap have not been isolated.",
+    "Paper Table2 supports that untied LeWM can outperform LeHami in planning, not a claim about the current rollout benchmark.",
+    "Current undamped positive control also underperforms LeWM; dissipation alone is not established as the failure mechanism.",
+    "Do not attribute the whole gap to readout capacity or geometry; new probe-only checks are diagnostics and do not establish a complete mechanism.",
+    "Author code, paper results, current controlled adaptation, and hypotheses must be reported separately."
+  ]
+}

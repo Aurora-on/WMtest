@@ -1,0 +1,409 @@
+{
+  "status": "completed",
+  "training_started": true,
+  "plan": {
+    "schema_version": 1,
+    "configs": {
+      "a": {
+        "model": {
+          "history": 21,
+          "velocity_history": 5,
+          "environment_context_dim": 0,
+          "core": {
+            "solver": "picard",
+            "newton_iterations": 12,
+            "line_search_max_backtracks": 12,
+            "line_search_shrink": 0.5,
+            "line_search_c1": 0.0001,
+            "max_bisections": 4,
+            "integrator": "frozen_dg",
+            "picard_iterations": 6,
+            "picard_check_every": 2,
+            "fd_relative_step": 6e-06,
+            "implicit_rcond_min": 1e-08,
+            "adjoint_rtol": 1e-10,
+            "substeps": 3,
+            "potential_mode": "raw",
+            "damping_mode": "none"
+          },
+          "velocity_initializer": "motion_gated",
+          "motion_loss_mode": "normalized_velocity",
+          "motion_scale_floor": 0.1,
+          "momentum_weight": 1.0,
+          "objective_mode": "lehami",
+          "target_tail_frames": 2,
+          "momentum_reference_time": 0.1,
+          "motion_weight": 0.0,
+          "sigreg_weight": 0.25,
+          "initializer_weight": 0.001
+        },
+        "training": {
+          "steps": 20000,
+          "batch_size": 32,
+          "train_frames": 81,
+          "seed": 0,
+          "threads": 4,
+          "encoder_lr": 2e-05,
+          "dynamics_lr": 0.0001,
+          "weight_decay": 0.0001,
+          "warmup_steps": 500,
+          "minimum_lr_ratio": 0.1,
+          "gradient_clip": 1.0,
+          "curriculum": [
+            {
+              "until_step": 1000,
+              "horizon": 4
+            },
+            {
+              "until_step": 4000,
+              "horizon": 8
+            },
+            {
+              "until_step": 10000,
+              "horizon": 16
+            },
+            {
+              "until_step": 20000,
+              "horizon": 32
+            }
+          ],
+          "val_horizons": [
+            8,
+            32
+          ],
+          "val_every": 250,
+          "val_windows": 288,
+          "val_seed": 1009,
+          "minimum_target_std": 0.1,
+          "minimum_target_motion": 0.001,
+          "validation_gate_time_bins": [
+            0
+          ],
+          "required_renderer": "smooth_v1",
+          "validation_motion_weight": 0.0,
+          "prediction_motion_gate": {
+            "min_rms_ratio": 0.5,
+            "max_rms_ratio": 1.5,
+            "max_relative_error": 0.8,
+            "min_cosine": 0.5,
+            "max_stalled_fraction": 0.1
+          },
+          "trainable_modules": [
+            "encoder",
+            "initializer",
+            "potential"
+          ],
+          "required_data_scope": "undamped_stage_a",
+          "validation_score": "position_momentum"
+        }
+      },
+      "single": {
+        "model": {
+          "history": 21,
+          "velocity_history": 5,
+          "environment_context_dim": 0,
+          "core": {
+            "solver": "picard",
+            "newton_iterations": 12,
+            "line_search_max_backtracks": 12,
+            "line_search_shrink": 0.5,
+            "line_search_c1": 0.0001,
+            "max_bisections": 4,
+            "integrator": "frozen_dg",
+            "picard_iterations": 6,
+            "picard_check_every": 2,
+            "fd_relative_step": 6e-06,
+            "implicit_rcond_min": 1e-08,
+            "adjoint_rtol": 1e-10,
+            "substeps": 3,
+            "potential_mode": "raw",
+            "damping_mode": "position_velocity"
+          },
+          "velocity_initializer": "motion_gated",
+          "motion_loss_mode": "normalized_velocity",
+          "motion_scale_floor": 0.1,
+          "momentum_weight": 1.0,
+          "objective_mode": "lehami",
+          "target_tail_frames": 2,
+          "momentum_reference_time": 0.1,
+          "motion_weight": 0.0,
+          "sigreg_weight": 0.25,
+          "initializer_weight": 0.001
+        },
+        "training": {
+          "steps": 20000,
+          "batch_size": 32,
+          "train_frames": 81,
+          "seed": 0,
+          "threads": 4,
+          "encoder_lr": 2e-05,
+          "dynamics_lr": 0.0001,
+          "weight_decay": 0.0001,
+          "warmup_steps": 500,
+          "minimum_lr_ratio": 0.1,
+          "gradient_clip": 1.0,
+          "curriculum": [
+            {
+              "until_step": 1000,
+              "horizon": 4
+            },
+            {
+              "until_step": 4000,
+              "horizon": 8
+            },
+            {
+              "until_step": 10000,
+              "horizon": 16
+            },
+            {
+              "until_step": 20000,
+              "horizon": 32
+            }
+          ],
+          "val_horizons": [
+            8,
+            32
+          ],
+          "val_every": 250,
+          "val_windows": 288,
+          "val_seed": 1009,
+          "minimum_target_std": 0.1,
+          "minimum_target_motion": 0.001,
+          "validation_gate_time_bins": [
+            0
+          ],
+          "required_renderer": "smooth_v1",
+          "validation_motion_weight": 0.0,
+          "prediction_motion_gate": {
+            "min_rms_ratio": 0.5,
+            "max_rms_ratio": 1.5,
+            "max_relative_error": 0.8,
+            "min_cosine": 0.5,
+            "max_stalled_fraction": 0.1
+          },
+          "trainable_modules": [
+            "damping"
+          ],
+          "required_data_scope": "damping_stage_b_single",
+          "validation_score": "position_momentum"
+        }
+      },
+      "multi": {
+        "model": {
+          "history": 21,
+          "velocity_history": 5,
+          "environment_context_dim": 4,
+          "core": {
+            "solver": "picard",
+            "newton_iterations": 12,
+            "line_search_max_backtracks": 12,
+            "line_search_shrink": 0.5,
+            "line_search_c1": 0.0001,
+            "max_bisections": 4,
+            "integrator": "frozen_dg",
+            "picard_iterations": 6,
+            "picard_check_every": 2,
+            "fd_relative_step": 6e-06,
+            "implicit_rcond_min": 1e-08,
+            "adjoint_rtol": 1e-10,
+            "substeps": 3,
+            "potential_mode": "raw",
+            "damping_mode": "position_velocity"
+          },
+          "velocity_initializer": "motion_gated",
+          "motion_loss_mode": "normalized_velocity",
+          "motion_scale_floor": 0.1,
+          "momentum_weight": 1.0,
+          "objective_mode": "lehami",
+          "target_tail_frames": 2,
+          "momentum_reference_time": 0.1,
+          "motion_weight": 0.0,
+          "sigreg_weight": 0.25,
+          "initializer_weight": 0.001
+        },
+        "training": {
+          "steps": 20000,
+          "batch_size": 32,
+          "train_frames": 81,
+          "seed": 0,
+          "threads": 4,
+          "encoder_lr": 2e-05,
+          "dynamics_lr": 0.0001,
+          "weight_decay": 0.0001,
+          "warmup_steps": 500,
+          "minimum_lr_ratio": 0.1,
+          "gradient_clip": 1.0,
+          "curriculum": [
+            {
+              "until_step": 1000,
+              "horizon": 4
+            },
+            {
+              "until_step": 4000,
+              "horizon": 8
+            },
+            {
+              "until_step": 10000,
+              "horizon": 16
+            },
+            {
+              "until_step": 20000,
+              "horizon": 32
+            }
+          ],
+          "val_horizons": [
+            8,
+            32
+          ],
+          "val_every": 250,
+          "val_windows": 288,
+          "val_seed": 1009,
+          "minimum_target_std": 0.1,
+          "minimum_target_motion": 0.001,
+          "validation_gate_time_bins": [
+            0
+          ],
+          "required_renderer": "smooth_v1",
+          "validation_motion_weight": 0.0,
+          "prediction_motion_gate": {
+            "min_rms_ratio": 0.5,
+            "max_rms_ratio": 1.5,
+            "max_relative_error": 0.8,
+            "min_cosine": 0.5,
+            "max_stalled_fraction": 0.1
+          },
+          "trainable_modules": [
+            "damping",
+            "environment"
+          ],
+          "required_data_scope": "damping_stage_b_multi",
+          "validation_score": "position_momentum"
+        }
+      }
+    },
+    "parent_data_config": {
+      "family_name": "passive_multi_damping_smooth_v1",
+      "groups": {
+        "train": 384,
+        "val": 64,
+        "test": 128
+      },
+      "split_seeds": {
+        "train": 2026110301,
+        "val": 2026110302,
+        "test": 2026110303
+      },
+      "group_id_offset": 10000000,
+      "seen_damping": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.5,
+        1.0
+      ],
+      "interpolation_damping": [
+        0.075,
+        0.15,
+        0.35,
+        0.75
+      ],
+      "extrapolation_damping": [
+        1.5
+      ],
+      "theta_range": [
+        -2.5,
+        2.5
+      ],
+      "omega_range": [
+        -2.0,
+        2.0
+      ],
+      "energy_edges": [
+        0.05,
+        0.25,
+        0.75,
+        1.25,
+        2.01
+      ],
+      "history": 21,
+      "train_frames": 81,
+      "test_frames": 341,
+      "dt": 0.1,
+      "substeps": 20,
+      "image_size": 64,
+      "mass": 1.0,
+      "length": 1.0,
+      "gravity": 9.81,
+      "renderer": "smooth_v1"
+    },
+    "inputs": {
+      "data_a": null,
+      "data_single": null,
+      "data_multi": null,
+      "resume_a": null
+    },
+    "damping": 0.2,
+    "damping_init": 0.01,
+    "device": "cuda",
+    "gpus": "0,1",
+    "stage_a_total_steps": 20000,
+    "stage_b_steps_each": 20000,
+    "stage_b_launch": "parallel_after_A_exact_20000_checkpoint_and_readout",
+    "seen_damping": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.5,
+      1.0
+    ],
+    "readout": "fit once on A20000 train groups; freeze and reuse for both B branches",
+    "selection_policy": "exact last checkpoint at target step; earlier best is diagnostic only",
+    "quality_policy": "record physical quality without manual gate; execution/provenance failure stops dependent work",
+    "test_policy": "train/val only; unseen test damping is never used for fitting or selection",
+    "optimizer_policy": "A resumes optimizer/RNG/sampler; each B starts fresh at step0",
+    "time_settings": {
+      "dt": 0.1,
+      "history": 21,
+      "curriculum": [
+        {
+          "until_step": 1000,
+          "horizon": 4
+        },
+        {
+          "until_step": 4000,
+          "horizon": 8
+        },
+        {
+          "until_step": 10000,
+          "horizon": 16
+        },
+        {
+          "until_step": 20000,
+          "horizon": 32
+        }
+      ],
+      "val_horizons": [
+        8,
+        32
+      ]
+    }
+  },
+  "execution_entrypoint": "scripts/train_staged_damping.py",
+  "slurm_entrypoint": "scripts/slurm_staged_damping.sh",
+  "formal_optimizer_updates_this_task": 50000,
+  "note": "Submission 47920 performed 10000 additional A updates and 20000 updates for each B branch. Historical smoke-test updates are excluded.",
+  "job_id": "47920",
+  "submitted_at_utc": "2026-11-06T06:51:37.045111+00:00",
+  "current_launch": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/launch_manifest.json",
+  "remote_root": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z",
+  "training_started_scope": "Completed: A resumed step10000 to exact step20000, then B-single and B-multi each trained 20000 new updates in parallel; all exact-step evaluations completed.",
+  "observed_a_step": 20000,
+  "last_checked_at_utc": "2026-11-08T08:17:45.284102+00:00",
+  "observed_b_single_step": 20000,
+  "observed_b_multi_step": 20000,
+  "completed_at_utc": "2026-11-07T03:54:43.426515+00:00",
+  "completion_report": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/result_summary_20261108.json",
+  "training_completed": true
+}

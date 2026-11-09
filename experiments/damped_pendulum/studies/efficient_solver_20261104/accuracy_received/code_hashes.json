@@ -1,0 +1,5 @@
+{
+  "scripts/benchmark_efficient_solver.py": "6455136166ce913d1648b46edf9da277c963bacb298e92a2dc0535ad5d60dba9",
+  "configs/dissipative_passive_efficient_3substeps.json": "a6cd4f53e9bd53d303a7d655eade1da7f8f2db8f00f30b02999123a2e96b310e",
+  "studies/efficient_solver_20261104/slurm_accuracy_benchmark.sh": "470c569e99cbedc1523e9f28f09b3ef3aeb33c80ec6f1d7b64625c851db58611"
+}

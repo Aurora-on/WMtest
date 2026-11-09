@@ -1,0 +1,7 @@
+{
+  "job_id": "47806",
+  "submitted_at_utc": "2026-11-05T06:50:22.292021+00:00",
+  "scope": "Frozen step4000, train-only ridge readout and64 val rollouts; no world-model update or test episodes",
+  "script_sha256": "654e1daa1e06e645129c1dff21f94332f778a75dca6aa60eacd914772a58a505",
+  "output": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/animation_eval4000_v1"
+}

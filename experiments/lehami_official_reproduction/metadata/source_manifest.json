@@ -1,0 +1,1985 @@
+{
+  "lehami_commit": "f76f65f8b99afb6b7e3063f573645d3e2f290ede",
+  "lewm_commit": "8edfeb336732b5f3ce7b8b210d0ba370a09e2cac",
+  "archives_sha256": {
+    "runtime-source.tar.gz": "d4640b3d50e1a634bd575eaace3ae146f399b074a3af8edffd278d30f35abd3a",
+    "lehami-source.tar.gz": "aa1af2e0699a28ca329cd51c8eb1731015f13973b8fce884ada177e39cc70c8b",
+    "lewm-source.tar.gz": "83e28223a0d5a5550e65d252932db52b4f5e033f495e17fdaaa7e624a0439ceb"
+  },
+  "official_lehami_files": [
+    {
+      "path": ".gitignore",
+      "git_blob_sha1": "00f2d38d8063d0c6b219c0081e51888063b0c55e",
+      "match": true,
+      "sha256": "4cad133d4f0a6cf4bba15f1b8bbae48d6a55f20b94f75487c51a93cc6a5af59f",
+      "bytes": 26
+    },
+    {
+      "path": "LICENSE",
+      "git_blob_sha1": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "match": true,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    },
+    {
+      "path": "NOTICE",
+      "git_blob_sha1": "ade688e19ddc2a42b9bdbdc5200919928af4c446",
+      "match": true,
+      "sha256": "37935d8f2e8bc5a9d990ac01316242b9410742d13889808e5059284230f40771",
+      "bytes": 244
+    },
+    {
+      "path": "README.md",
+      "git_blob_sha1": "0e3336b4977792dbf26271c244ff8f1f5aafdcba",
+      "match": true,
+      "sha256": "f778f6b1ae5771e0281620779262660496dc3b9e19020e035fb91efbe63bc0d9",
+      "bytes": 12471
+    },
+    {
+      "path": "lehami/data/data_prep.py",
+      "git_blob_sha1": "2f8cb34cb29692f205c3c06b42c94ae1d7cbd74b",
+      "match": true,
+      "sha256": "a728d761e15846ddb3c5d416b2c470aaf26d6b2af3e7eb10cfd1bcca08c31d73",
+      "bytes": 23811
+    },
+    {
+      "path": "lehami/data/generate_pendulum.py",
+      "git_blob_sha1": "f773ce5ea169c401cc0924c6ce8c230c1dc86cb5",
+      "match": true,
+      "sha256": "f2fca139f90e8a59f946bc2674e4a3c0ad895fcfe4ee9a3351fb53077076da5a",
+      "bytes": 7842
+    },
+    {
+      "path": "lehami/data/pendulum_multi.py",
+      "git_blob_sha1": "03bf784f0a4586b4e013fbe36cdb973ef3e6118e",
+      "match": true,
+      "sha256": "bdebe7c2cffbd89258dcfd61d0aa2d572d4a7d7cecd430989d2493de71dea058",
+      "bytes": 12436
+    },
+    {
+      "path": "lehami/data/pendulum_swingup.py",
+      "git_blob_sha1": "05a11c85384a9830cae0133c3d67c69a3c8bbf53",
+      "match": true,
+      "sha256": "ab646106f9cffa82a496776d1af79d9dee0322ff15d2f9b7204fc5cec4417acb",
+      "bytes": 16432
+    },
+    {
+      "path": "lehami/data/prepare_actuated_data.sh",
+      "git_blob_sha1": "119d7e714ce1f9224fbd2f3169e9e482cc934b7f",
+      "match": true,
+      "sha256": "eab4756d633f994ac10552eb8d0bb227066c8adc7ed7a69f99b5a899e33ea9b1",
+      "bytes": 1429
+    },
+    {
+      "path": "lehami/data/prepare_conservative_data.sh",
+      "git_blob_sha1": "e6346b18df852d6a4b03c3e6345ea929a0af7fa1",
+      "match": true,
+      "sha256": "a3de5819e58a3bc5cf5d92a9750b1e23572f9085241e15f452a150667914686e",
+      "bytes": 1982
+    },
+    {
+      "path": "lehami/data/split_pendulum_episode_srnn_K100_seed42.json",
+      "git_blob_sha1": "1bcbb766eaf4658f8901889d60bfc99d4e26e846",
+      "match": true,
+      "sha256": "47e65feabea5fa242e9878dabf5577d9804e464eafdc5986856b1b6dfdcf6c0d",
+      "bytes": 17099
+    },
+    {
+      "path": "lehami/data/split_pendulum_multi_v2_episode_srnn_K80_val.15_dt2_seed42.json",
+      "git_blob_sha1": "04d27f638ee76903db112d08e99ad73158d8ae69",
+      "match": true,
+      "sha256": "740482ae922bea77ebb1a0f39f15ebe115ccb6bf6fdd0048658b45236b1821b1",
+      "bytes": 101644
+    },
+    {
+      "path": "lehami/data/split_pendulum_swingup_episode_srnn_K80_val.15_seed42.json",
+      "git_blob_sha1": "4dbcacaaa28e941691497735c27484cd10631da0",
+      "match": true,
+      "sha256": "90a6857b14e4f9e897ccda4de08f3b6740de1785c9d948a19d6b47880af31616",
+      "bytes": 82109
+    },
+    {
+      "path": "lehami/experiments/README.md",
+      "git_blob_sha1": "3b4e6d665f5ec50cc5d8c1d98ff8fc2315fba281",
+      "match": true,
+      "sha256": "5cfa57c0902cce1c2829378bf0ed04ebce749794643db9192a3f490f71264c38",
+      "bytes": 4180
+    },
+    {
+      "path": "lehami/experiments/_common.sh",
+      "git_blob_sha1": "285c7f71bedb4038187290a39f8565bf916d316d",
+      "match": true,
+      "sha256": "0c30e7dedad50d27fcff7c3f390aca23b9639309e2a79053f948cf5408feb841",
+      "bytes": 3551
+    },
+    {
+      "path": "lehami/experiments/actuated_pendulum.sh",
+      "git_blob_sha1": "f1188398e55af15c85f9433532c5d8a223525789",
+      "match": true,
+      "sha256": "37246c42ca38544119501937c2c837c1021e87b607d72d42402143e2ca0a7292",
+      "bytes": 7211
+    },
+    {
+      "path": "lehami/experiments/actuated_planning.sh",
+      "git_blob_sha1": "eb1a20cd40016a6fd175da811c32685dfd90c778",
+      "match": true,
+      "sha256": "a2f5901772160900caf527662b96757ed2d50527df83118997e2018cd66d9ba3",
+      "bytes": 6253
+    },
+    {
+      "path": "lehami/experiments/conservative_dino.sh",
+      "git_blob_sha1": "5c6438265cf7d87bd3f483b6a152008a501c29a2",
+      "match": true,
+      "sha256": "0a74ea00f79bbfe3db21633e4bd4046d6cecbe33ace5b0b695efe0d13878e585",
+      "bytes": 2721
+    },
+    {
+      "path": "lehami/experiments/conservative_multi_rod.sh",
+      "git_blob_sha1": "5122e93fa2cba5c5765e97ac90553cafd695b249",
+      "match": true,
+      "sha256": "bbcdea0d07a96b243c1a57b1d41a1ef5196581c1565a130be1c8a64aeb3191ea",
+      "bytes": 5900
+    },
+    {
+      "path": "lehami/experiments/conservative_single_rod.sh",
+      "git_blob_sha1": "a9742b3f9bcc0315697fe951b40988a4eb0dd186",
+      "match": true,
+      "sha256": "6698130517462ab0c12dae5dd6b9b2ab21fb82957c4c1a8f9d039eb85c6eb37b",
+      "bytes": 2122
+    },
+    {
+      "path": "lehami/experiments/conservative_training_compute.sh",
+      "git_blob_sha1": "116d5836f1e03dc44837df9b69951fe97d529cec",
+      "match": true,
+      "sha256": "5feacecf3992d1fee621d632b82d155e125e4469e4976117fc040e025faf96a8",
+      "bytes": 2500
+    },
+    {
+      "path": "lehami/experiments/download_dinov2.sh",
+      "git_blob_sha1": "c7455b32ba4f1aaef6101ddf8d04a63dcc7ead2c",
+      "match": true,
+      "sha256": "260aa8faa9d776d5eeae9a76a7f61f25617b9e565286ff832adca1016d7e4aa4",
+      "bytes": 1203
+    },
+    {
+      "path": "lehami/experiments/src/dump_probe_fit_scatter.py",
+      "git_blob_sha1": "d2211e89ac72d4a95ad4452ca8498b6aa245ee8b",
+      "match": true,
+      "sha256": "9a00f92050b70c88e5390aa5e5b40cac6926b0405a901c00e743f242a0d573ec",
+      "bytes": 15499
+    },
+    {
+      "path": "lehami/experiments/src/eval_jacobian_volume.py",
+      "git_blob_sha1": "f482a493cc7164b149bcf250ad44f0dc2860e8a1",
+      "match": true,
+      "sha256": "f61c7cee7352f45cae7270acab755a9d7578100338adb2c2cef8e86c01934336",
+      "bytes": 22733
+    },
+    {
+      "path": "lehami/experiments/src/eval_physics_invariants.py",
+      "git_blob_sha1": "4baef1d651b0d4934362d3e05feca4cf0e81c439",
+      "match": true,
+      "sha256": "0c1e9300c60e950f446f9559c9e931f7bb28f1a4f3628727dc75dfb4864e7dee",
+      "bytes": 25381
+    },
+    {
+      "path": "lehami/experiments/src/export_paper_data.py",
+      "git_blob_sha1": "1c4d038ad911f2bc738e955204bba7782d8cf013",
+      "match": true,
+      "sha256": "f33f11c320840c4410fed4717a041778057f08fb01e4f70d16d28bfac78e656b",
+      "bytes": 20810
+    },
+    {
+      "path": "lehami/experiments/src/fit_capacity_probes.py",
+      "git_blob_sha1": "ca3dbdaa968956ac6895a1545e471a9d3116ad9e",
+      "match": true,
+      "sha256": "9d25d92129fe77ea272df1cd91f2980e50f07ae6245621a3f882135ee55db74d",
+      "bytes": 7743
+    },
+    {
+      "path": "lehami/experiments/src/make_concept_figure.py",
+      "git_blob_sha1": "8e02e4fe557fc9a4a7175cb8f1b637f339c184fc",
+      "match": true,
+      "sha256": "7305a1f55eb9a41a56a38d882ec2fedbf70119c5f60ca60cb702ef1b8ccc7398",
+      "bytes": 8129
+    },
+    {
+      "path": "lehami/experiments/src/make_concept_properties_actuated_figure.py",
+      "git_blob_sha1": "dc87470dbce00238b6fa40b5e96f976d117e1ec2",
+      "match": true,
+      "sha256": "bdedde4479ae3421f21e9902d0ced1089c66395f5a3241d2a5883e7cd1673af7",
+      "bytes": 19762
+    },
+    {
+      "path": "lehami/experiments/src/make_concept_properties_figure.py",
+      "git_blob_sha1": "ec0cc7c66c5217b26c790f13cda903d8572e045b",
+      "match": true,
+      "sha256": "1f84d949245288961e43df2ab7dc5473471efa9add2e3f2cb6fad759ea43147f",
+      "bytes": 17410
+    },
+    {
+      "path": "lehami/experiments/src/make_datasets_strip_pendula.py",
+      "git_blob_sha1": "5381e87eb74e79fb2c8851a0d0505098ab1e7adf",
+      "match": true,
+      "sha256": "29fc043f650c71579b6d3187ddd395f07e77300f202a9ece812e98c646a2909f",
+      "bytes": 9141
+    },
+    {
+      "path": "lehami/experiments/src/make_rollout_error.py",
+      "git_blob_sha1": "d5e52b849992de5871f6faf8f6563b6e9e86a1b6",
+      "match": true,
+      "sha256": "f02d777297f398a013f03d1e0679e7c49f345d33955768f5fc4f44dd8175bd8f",
+      "bytes": 12248
+    },
+    {
+      "path": "lehami/experiments/src/measure_planning_compute.py",
+      "git_blob_sha1": "cb8ad5be8a8fa02d5b9e85004f0a51fdbd223f95",
+      "match": true,
+      "sha256": "b381e8abae8f8d9a834a3cb02f1e7fc8f804dfd13c4d2fc1f167646ed289b57c",
+      "bytes": 21496
+    },
+    {
+      "path": "lehami/experiments/src/measure_training_compute.py",
+      "git_blob_sha1": "9cbe91a29cbcb38164d6c506b17fb4fb379d58a4",
+      "match": true,
+      "sha256": "bfad0572df96c7282c710a15d7da70e05dcf7486e2354f29a823547d9d5dd250",
+      "bytes": 9857
+    },
+    {
+      "path": "lehami/experiments/src/plan_pendulum_swingup.py",
+      "git_blob_sha1": "069487ea0e8ed57175b0b5539c42aa141b2437c0",
+      "match": true,
+      "sha256": "0e5712d86a980e2eda377889e20c82d473e69a545dbfff1269aae5eabd857ec7",
+      "bytes": 93387
+    },
+    {
+      "path": "lehami/experiments/src/plot_latent_phase_portrait.py",
+      "git_blob_sha1": "ef0b35d1bdaee6d270c6cd45ae706538efe1b411",
+      "match": true,
+      "sha256": "b30e95dfc1c27f964525266cfb7e12387e1491d79c65ec942fba5d760b8cd6d3",
+      "bytes": 7796
+    },
+    {
+      "path": "lehami/experiments/src/preflight_dataset_goals.py",
+      "git_blob_sha1": "7ff418e50bb0c93f57db445e16c56f3ee3857e90",
+      "match": true,
+      "sha256": "5f14bc791394dc2c58d2870541143d20cfdc32747386ac4b4ab8ff4b04a3cbb1",
+      "bytes": 10378
+    },
+    {
+      "path": "lehami/experiments/src/probe_targets.py",
+      "git_blob_sha1": "545badc84e9be475a3534b55b909b95f16244351",
+      "match": true,
+      "sha256": "6c2b42373f402cadc9c73f699268a9310cb1fe5d36890ea5d626d002b439b938",
+      "bytes": 8937
+    },
+    {
+      "path": "lehami/experiments/src/run_eval.py",
+      "git_blob_sha1": "3ee890c922c54c39610e23b2a8126003df5c1424",
+      "match": true,
+      "sha256": "6f37bd203f103dc4f96f311b887f4fbd341cd53736b2f49ae1af85d1d64815b4",
+      "bytes": 125233
+    },
+    {
+      "path": "lehami/experiments/src/train_probe_physics.py",
+      "git_blob_sha1": "3cd3b1aa5f5b4e9609022e49a82b47db79bd4596",
+      "match": true,
+      "sha256": "6a703c70ada6909ecd37e12eaa384fc16793574bdfaf67c31c3685516ff6cc52",
+      "bytes": 27410
+    },
+    {
+      "path": "lehami/experiments/src/utils.py",
+      "git_blob_sha1": "b0129a6781068a235c8897227bfaff1df1182bd1",
+      "match": true,
+      "sha256": "8ba444b6445819100d777d68a1020bcdbf38c497384d215898585fab54c888d6",
+      "bytes": 5733
+    },
+    {
+      "path": "lehami/models/lehami/__init__.py",
+      "git_blob_sha1": "7944f264436d16a3d070fa9fc33d3ae71ce67b4f",
+      "match": true,
+      "sha256": "966d11cbc3338de62431ee9b99dee520cc7da71836a2e81d86eb36439643d435",
+      "bytes": 62
+    },
+    {
+      "path": "lehami/models/lehami/builders.py",
+      "git_blob_sha1": "66592b45050d6d4197ccb9672ae0b4bd7124e225",
+      "match": true,
+      "sha256": "92dca7edf2c3ab56a522287c5deb4a2935835892c0ee691f880b324cb9e39ad0",
+      "bytes": 49844
+    },
+    {
+      "path": "lehami/models/lehami/derivative.py",
+      "git_blob_sha1": "383851bee5dc6fcb0cc9e136876ee89176fbfb12",
+      "match": true,
+      "sha256": "ace4a9daf9c7f1ac50d1947cbf71a6384a2bc3c27b747a80eeed6861691a41f5",
+      "bytes": 4483
+    },
+    {
+      "path": "lehami/models/lehami/dino_wm_adapter.py",
+      "git_blob_sha1": "19c1931146f36fcfa6a8db31ffaa65c7dfebfc08",
+      "match": true,
+      "sha256": "8a8b2b2584bbda48674fd35fd826df197c54c9ef794163e4aa702c583874d637",
+      "bytes": 11018
+    },
+    {
+      "path": "lehami/models/lehami/ham_flow.py",
+      "git_blob_sha1": "3e0c469584e8c204509828593ff11dd131189123",
+      "match": true,
+      "sha256": "b3338eb0e35237129985884473c68ad2c34c6bf0869ff39f6e6372ae7bc50f8e",
+      "bytes": 31702
+    },
+    {
+      "path": "lehami/tests/test_action_alignment.py",
+      "git_blob_sha1": "0e6148b4967cd9b107c8e3f9e43c10e3f52453ab",
+      "match": true,
+      "sha256": "022faab0388532af23331d651f4bf6db729d2bb2317f218b30044139a5f46fb5",
+      "bytes": 3718
+    },
+    {
+      "path": "lehami/tests/test_dino_arms.py",
+      "git_blob_sha1": "55f30ed7ce312dd8ffa0be791ca15b3667bcaa42",
+      "match": true,
+      "sha256": "6de47d9f15993448d0b93619cf5da3d248d4d7d6174b4ff67ebf7273ff401469",
+      "bytes": 9205
+    },
+    {
+      "path": "lehami/tests/test_eval_action_alignment.py",
+      "git_blob_sha1": "abe13017da5f4296a478c4ae18edd748278d815a",
+      "match": true,
+      "sha256": "470d8c3ff9eef277a9d4a6c7799f33ca781e9f5eac83f909f4e6bde22f2cedb8",
+      "bytes": 5160
+    },
+    {
+      "path": "lehami/tests/test_ham_flow_even.py",
+      "git_blob_sha1": "e216284b155143adbc1490b7f27ca22c7a80a2c9",
+      "match": true,
+      "sha256": "d5f6c1c06917d58318003e7adcd9b0bf3f76ad76e6cdb0d1145c55f4fbf563f2",
+      "bytes": 12523
+    },
+    {
+      "path": "lehami/tests/test_per_episode_dt.py",
+      "git_blob_sha1": "5eae0964eeccd9ab773c1d31d5043b235d6b7739",
+      "match": true,
+      "sha256": "73e20b6a68c07cfa230945b6a4a030911f1cd561b50e45fc563bce8be8cf303c",
+      "bytes": 10454
+    },
+    {
+      "path": "lehami/tests/test_preflight_dataset_goals.py",
+      "git_blob_sha1": "c1a08c3c8c053af0cae6a5f49747b6be206679c8",
+      "match": true,
+      "sha256": "643f1605933c0339919814f138b1a82c3ee5acef90b1fc28548cbad1274ce46b",
+      "bytes": 5310
+    },
+    {
+      "path": "lehami/tests/test_probe_targets_dispatch.py",
+      "git_blob_sha1": "1f010d0bc4ab4412459ec1fec606fab9ae629f4a",
+      "match": true,
+      "sha256": "11afae8b1a1ec3945d89adde29fe9785f0aebe8c818ff3ea628311764f0c4d4d",
+      "bytes": 9272
+    },
+    {
+      "path": "lehami/tests/test_probe_training.py",
+      "git_blob_sha1": "4eee4dd7e4196e37116ae1f5335fd02f04a54487",
+      "match": true,
+      "sha256": "03fd1978315df393053ece135f2e78e6de4bb564e4476e9f77a13884317caa9d",
+      "bytes": 16825
+    },
+    {
+      "path": "lehami/tests/test_rollout_clips.py",
+      "git_blob_sha1": "3ebfd7bc01f7565064606c5fc920c402790aacf3",
+      "match": true,
+      "sha256": "233a6cfa75e4dbb0e3ce00589cde63fa9c6b6a46af7aae71faff6d704cbb7f78",
+      "bytes": 21699
+    },
+    {
+      "path": "lehami/tests/test_swingup_plan_matches_training.py",
+      "git_blob_sha1": "2e82d23f7900735bbc50e8f168006cce978794b9",
+      "match": true,
+      "sha256": "5f5f08fd32d15274f93404960d7cccd038686298f3f45e6342fef0757ee2e50e",
+      "bytes": 51273
+    },
+    {
+      "path": "lehami/tests/test_temporal_encoder.py",
+      "git_blob_sha1": "52ebaa7c332d501685e3100e07c09a598d7fb3f1",
+      "match": true,
+      "sha256": "d18604b99b64534c3c5e896fd63a3c2bb085f9f9e13695d3386faf4bf6e7eb40",
+      "bytes": 15658
+    },
+    {
+      "path": "lehami/tests/test_three_way_split.py",
+      "git_blob_sha1": "217a23809fb469031a7047bc4ce9f2542ed8b3de",
+      "match": true,
+      "sha256": "af373ebd89b028a6c27301f9449c30c51eb25934c477aece571f7659c7eb6027",
+      "bytes": 9374
+    },
+    {
+      "path": "lehami/training/configs/config.yaml",
+      "git_blob_sha1": "7b29a08c512af8835c1cb5d8361ef392e8e6941f",
+      "match": true,
+      "sha256": "4f02a1c431ce72066533ab39dfdf30c046336ec152552c86185d64eb0099503c",
+      "bytes": 1685
+    },
+    {
+      "path": "lehami/training/configs/data/pendulum.yaml",
+      "git_blob_sha1": "6d30a14f61e104d6c7eec01ca632a14544b380b2",
+      "match": true,
+      "sha256": "7f25a65d55cf6f80e51884da4e75fd82395b56005637e53742341cae8bb0022b",
+      "bytes": 387
+    },
+    {
+      "path": "lehami/training/configs/data/pendulum_multi_v2.yaml",
+      "git_blob_sha1": "2a7793978c51f1b2dd3980fabd681a18a02f28d0",
+      "match": true,
+      "sha256": "ecbee9564666bb3a8a19be26eb852f3b17ba006b94197a60a6fc766bcd2eaa4a",
+      "bytes": 1000
+    },
+    {
+      "path": "lehami/training/configs/data/pendulum_swingup.yaml",
+      "git_blob_sha1": "f451c5b53a9622f52463414efa349f2b068f0520",
+      "match": true,
+      "sha256": "278f9f8aba1705299286bd4fa177ab410b98f1aaf03c2d564efd490eab91ff49",
+      "bytes": 1062
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase0_dino_wm_cls_exp098_b0d.yaml",
+      "git_blob_sha1": "ffb525525e7650900dcf9457a2d03a83a151fd95",
+      "match": true,
+      "sha256": "503f56b62c0efe2a329bdcedb394c298dfb02e3e16113a5b028e298eaf518458",
+      "bytes": 1058
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase0_lewm_ms_conv_te_w3_multi_exp066_b1m.yaml",
+      "git_blob_sha1": "bc59b718630ed70d828730c60dc094c5790a0e08",
+      "match": true,
+      "sha256": "e0b3cc5da869d48a991a6a2caad13d2f6584ae4d7510b72b0de5bbd1ae9f05a3",
+      "bytes": 780
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase0_lewm_ms_conv_w1_multi_exp068_b0m.yaml",
+      "git_blob_sha1": "491f5632d36cfe7b673cdcf1535b27756d89075b",
+      "match": true,
+      "sha256": "271cbabb05243410204894c0b3969893e021ad8df795000c81148385df0e52ef",
+      "bytes": 658
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase0_lewm_ms_conv_w1_swingup_exp072_b0s.yaml",
+      "git_blob_sha1": "9aa9c19393170f7e58a1f531e617a0790aaebf3c",
+      "match": true,
+      "sha256": "aebc09c9e5a10caea9ece2b64d1a442cb7809a8337de09131c688acd1630e680",
+      "bytes": 913
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase0_lewm_ms_conv_w3_free_swingup_exp099_b3f.yaml",
+      "git_blob_sha1": "3ce361831497bd873a1cd86b397a50354f0611d5",
+      "match": true,
+      "sha256": "90aff926c6bb3095e6013889dfeced4127dd1fa4ea2267525f5ae9cfe7aeabb3",
+      "bytes": 1300
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase0_lewm_ms_conv_w3_swingup_exp076_b3s.yaml",
+      "git_blob_sha1": "76d224c758608fdef64a3317b59baedb37137487",
+      "match": true,
+      "sha256": "52c8ddffaf81133a8010432447f5fdb57db5cdef2d1674542985c748d22cdc17",
+      "bytes": 1017
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase0_lewm_ms_srnn_k100_exp030.yaml",
+      "git_blob_sha1": "84a9b0495dccbb8bc98ef2eb0b0392e0df198a38",
+      "match": true,
+      "sha256": "8cf3e3b53d4f7fb5c28306e920f9e7a4b0e307e1f264ff9d12a3df46ca67bd17",
+      "bytes": 701
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase2_lehami_sg_sep_conv_w1_multi_exp067_a0m.yaml",
+      "git_blob_sha1": "9f4754786c63b0b579b71c3213a8c5e36bfb0280",
+      "match": true,
+      "sha256": "d425aec64d02cd7be5da3270c55495c2b595ab0f8ce006c4de104cf8019b8569",
+      "bytes": 871
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase2_lehami_sg_sep_conv_w1_swingup_exp071_a0s.yaml",
+      "git_blob_sha1": "de275b9eb8abe94fb13569e1965d692f3fcd3a9c",
+      "match": true,
+      "sha256": "2f52c02d914954e0681735f99ee4a9e21321d1bb5ac19bd6cc9748aa37c8b5f7",
+      "bytes": 1023
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase2_lehami_sg_sep_conv_w1_swingup_exp079_a0q.yaml",
+      "git_blob_sha1": "96383bda7d0c0c48d65fd70400bbbca766593523",
+      "match": true,
+      "sha256": "1a0bb85da7e3a495d4811a508d17348fe8cfdb0337195aec9acbed05ccf60d31",
+      "bytes": 1020
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase2_lehami_sg_sep_conv_w1_swingup_exp080_a0p.yaml",
+      "git_blob_sha1": "e825df79c21fe70d7c41175a52b88429c3f138d3",
+      "match": true,
+      "sha256": "f84a92e9278cf8787c5489639fc96a01cef65eb9f8189eeadb3bf946a1d05e63",
+      "bytes": 955
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase2_lehami_sg_sep_conv_w3_swingup_exp075_a3s.yaml",
+      "git_blob_sha1": "dcd03d66532bd03373eedc9cac85344b2ec0bd64",
+      "match": true,
+      "sha256": "2f81c36af010629a5d12b11a9a35aab7496138bdb0952cb4e39b07eb946873a2",
+      "bytes": 1089
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase2_lehami_sg_sep_conv_w3_swingup_exp081_a3q.yaml",
+      "git_blob_sha1": "50a49565230e738b1f2f716c5298565ef360e342",
+      "match": true,
+      "sha256": "a1ce8f8ff41d29c02daf3ba6bf395e33466f0f961d32a58e1017ac250838f61f",
+      "bytes": 918
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase2_lehami_sg_sep_conv_w3_swingup_exp082_a3p.yaml",
+      "git_blob_sha1": "1e40df34887b6b01f5116304c26bb797308f894c",
+      "match": true,
+      "sha256": "403264da17bad19fb7912e4ff9bad5ab84fedc0e7483dd6ce07c4231a7456678",
+      "bytes": 934
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase2_lehami_sg_sep_dino_cls_exp098_a0d.yaml",
+      "git_blob_sha1": "7ea5c230c3c5c03cbd437498bc12fc644f2f1e43",
+      "match": true,
+      "sha256": "474b37f691a04fe9e390a490d0946ab55f7851c55588bfaaee7d95e625889801",
+      "bytes": 1387
+    },
+    {
+      "path": "lehami/training/configs/experiment/phase2_lehami_sg_sep_sreg_joint_ms_d32_exp027.yaml",
+      "git_blob_sha1": "002b0a79f43f2e89504b0597789cdff4907fbaf9",
+      "match": true,
+      "sha256": "0c7ced1483189eab0b585b3e29c4a0c16e139fee5ca6b4e050cfd6f6f791d8cc",
+      "bytes": 878
+    },
+    {
+      "path": "lehami/training/configs/model/dino_wm_cls.yaml",
+      "git_blob_sha1": "3a65249607e03319e7782a7259eae3bf7f005503",
+      "match": true,
+      "sha256": "336be0108c67fc67e05a4d900a1d592069ad7e2cebe33bc370fc5ac29278cedf",
+      "bytes": 1625
+    },
+    {
+      "path": "lehami/training/configs/model/lehami_sg_sep_sreg_joint_ms.yaml",
+      "git_blob_sha1": "677eb393cef717887307a4082ee5e9ba4beac1fb",
+      "match": true,
+      "sha256": "6baa971231adce76e7f19e5750a39ae6621fd6209c6d8dda265cb3753f00ae18",
+      "bytes": 740
+    },
+    {
+      "path": "lehami/training/configs/model/lehami_sg_sep_sreg_joint_ms_conv.yaml",
+      "git_blob_sha1": "e7e547cca0f2db97496ae9ba2e666c28fee35436",
+      "match": true,
+      "sha256": "5a2f8b5cfdc0ef63239ed59399bca89141bde3d51540c1f468a9f367ae587c08",
+      "bytes": 594
+    },
+    {
+      "path": "lehami/training/configs/model/lehami_sg_sep_sreg_q_ms_conv.yaml",
+      "git_blob_sha1": "67d50a1f3ecdb34dfba84406f73ea6197a9b570a",
+      "match": true,
+      "sha256": "d174793737406a0f0ae652a6c385ab51fd9bdd98b5a57da688ad6bc248c0a486",
+      "bytes": 557
+    },
+    {
+      "path": "lehami/training/configs/model/lehami_sg_sep_sreg_q_ms_dino.yaml",
+      "git_blob_sha1": "c71791fca581006b24067c50ff80923ee2e7fe53",
+      "match": true,
+      "sha256": "e7000430215cd12fd6010dd313515c146f8349fd9b50cb1bb8632c2c6a59a82f",
+      "bytes": 1251
+    },
+    {
+      "path": "lehami/training/configs/model/lehami_sg_sep_sreg_split_ms_conv.yaml",
+      "git_blob_sha1": "ebbfff267ee25756943b7514bcab72688810fde7",
+      "match": true,
+      "sha256": "92f5e55b527fd198fa9b812a4f8da11f30a78c1a3ea51fed9216005dd8792836",
+      "bytes": 635
+    },
+    {
+      "path": "lehami/training/configs/model/lewm_ms.yaml",
+      "git_blob_sha1": "5608f25ee39c5281cde4a3a44a5ca5961ef10a5c",
+      "match": true,
+      "sha256": "afaa8cc626479e670baa428d9c13754eeb4a784d5884aafd0dd6f46ce0370f28",
+      "bytes": 567
+    },
+    {
+      "path": "lehami/training/configs/model/lewm_ms_conv.yaml",
+      "git_blob_sha1": "2ab80cd4d52d4ad2ab9cbd2ee39cbbe3b409458d",
+      "match": true,
+      "sha256": "15b39fdbe94fab0806ffe046e0b3f84376fae1cf741d31c88b572e676dd31527",
+      "bytes": 606
+    },
+    {
+      "path": "lehami/training/configs/optim/default.yaml",
+      "git_blob_sha1": "09199dfecc56287acbc87b74c20c1f6552607a04",
+      "match": true,
+      "sha256": "051b47091d51bde92ad512a78ae2ba85b2de8703160b1df06a9fffd78d8ff5e2",
+      "bytes": 47
+    },
+    {
+      "path": "lehami/training/train.py",
+      "git_blob_sha1": "6bde619b375e31f6a6efbf115a3e72e56e85a999",
+      "match": true,
+      "sha256": "d0775a468c648d16410bbbf667e5768a17e8de22a29ed71744a274128b9b7dd0",
+      "bytes": 16913
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/capacity_probes.csv",
+      "git_blob_sha1": "69836b2d55c1c97f7d55d15603b23ea639a1d7cd",
+      "match": true,
+      "sha256": "639cc35b7ff6fcb4e08eefa6f671e494928e57a990289c30a0b538e21440c190",
+      "bytes": 14142
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp071_a0s_lehami_s0.npz",
+      "git_blob_sha1": "7ad1b1cab601123aaf325cbeb97c0181f23ad7ee",
+      "match": true,
+      "sha256": "3593ac4202640bee9e7530cf844d28cbfd7dc21bc5ad0dce2228b3a17ff05a8e",
+      "bytes": 2123010
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp071_a0s_lehami_s1.npz",
+      "git_blob_sha1": "21568a0b3fd4da41a32e6d931b33e78057a719b4",
+      "match": true,
+      "sha256": "458f81a7c920331d740d8b7d8ac4588bda2dff71b8dd993f0a0a6a2141b942ae",
+      "bytes": 2124547
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp071_a0s_lehami_s2.npz",
+      "git_blob_sha1": "e04cf3712110596b81c75c0de2e771adb609c56f",
+      "match": true,
+      "sha256": "359347ac68b45d2d64f89e6e61c66ded0752cef48216631851b1842c18352f1e",
+      "bytes": 2117247
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp075_a3s_lehami_s0.npz",
+      "git_blob_sha1": "78ef40746b80f491d8c5c09b6423d3444de8e58d",
+      "match": true,
+      "sha256": "2d275368bb278e1c2e288802ec4873d036ea4dfbb9c8c155de9829fdab737b75",
+      "bytes": 2362258
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp075_a3s_lehami_s1.npz",
+      "git_blob_sha1": "5a1e196ad66071cc490273b99f437e8f17543417",
+      "match": true,
+      "sha256": "2e5e08321e979e976fb2c584a96c9fc764ac7543e40fae5489a7c754d1dd7f1b",
+      "bytes": 2361909
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp075_a3s_lehami_s2.npz",
+      "git_blob_sha1": "b4f5ad702e0d4ef6ef40359953c120a3f148c0c0",
+      "match": true,
+      "sha256": "9522e031f7837089cbfa98c1914c9f6eec03eccab1129296a4344825c17b918f",
+      "bytes": 2363684
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp079_a0q_lehami_s0.npz",
+      "git_blob_sha1": "c008fb263c8f1dba772d5e8fed00fab5539e055f",
+      "match": true,
+      "sha256": "ea9b2a070fd860949e1005a2767dbfda56a7c987c0b8c4852fe47fe798558fa8",
+      "bytes": 2220588
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp079_a0q_lehami_s1.npz",
+      "git_blob_sha1": "8651405dfdb84064c7e77412c32d55a6d2faa287",
+      "match": true,
+      "sha256": "b9730b4cf60dd829bef9269b670b1e5bea8d723dd9981f321ec54792e03ec8b4",
+      "bytes": 2223941
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp079_a0q_lehami_s2.npz",
+      "git_blob_sha1": "fd5515528afe5ff22e292ec522e76a9675bed95f",
+      "match": true,
+      "sha256": "3aa756bea2a98a5e185c7b1bbd77257fe174370e51bafd5732841370d59f0063",
+      "bytes": 2219699
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp080_a0p_lehami_s0.npz",
+      "git_blob_sha1": "f5afefadb1be96abfe8eec497f9acd25e2b186ca",
+      "match": true,
+      "sha256": "38f720a588774c5430db1ece15d286112abb69015afc4b8cc6de6479956f32cb",
+      "bytes": 2245215
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp080_a0p_lehami_s1.npz",
+      "git_blob_sha1": "917e49a3574f5ea40094713a036a60d60efdce12",
+      "match": true,
+      "sha256": "b9be5f2b3364e27e7a05311e1f30230ca0f9056cd536cb1cc82f458f7505bf36",
+      "bytes": 2231527
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp080_a0p_lehami_s2.npz",
+      "git_blob_sha1": "76a4ea1c3c97f028479e08b1c041834a164944c4",
+      "match": true,
+      "sha256": "b0238984f19f43defdc3c98c42842dfa118f8046f173c8307667795fec78cb8e",
+      "bytes": 2234446
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp081_a3q_lehami_s0.npz",
+      "git_blob_sha1": "dfa87ae5ab05a0208cc8208986020df6853b59e6",
+      "match": true,
+      "sha256": "0a66babfae28cae3b45054af5890db2a7651921d917665c312fb0f764b14bb60",
+      "bytes": 2368341
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp081_a3q_lehami_s1.npz",
+      "git_blob_sha1": "fa25df8e630f2ecadf5e10f76e2c22d9e18a80d1",
+      "match": true,
+      "sha256": "66ef43a67c8661689988e1b1274b70e49986bfbd55f23bf22caecb44a9fff974",
+      "bytes": 2372888
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp081_a3q_lehami_s2.npz",
+      "git_blob_sha1": "91967c2456c3f80b757b6ac4a3267c07ed03ff24",
+      "match": true,
+      "sha256": "d6cff9b0bed578f21b4ea4a8d4f060bd0edebc438c4f7641e4a905725dd3aee6",
+      "bytes": 2370993
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp082_a3p_lehami_s0.npz",
+      "git_blob_sha1": "43d070fc8a0a8b5b1d56a4d45a7e561297d7ef0a",
+      "match": true,
+      "sha256": "ef2d01f3de97ee0fe1b3e8096d01589bb4905f17cc918c64b38d296408a467cb",
+      "bytes": 2393818
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp082_a3p_lehami_s1.npz",
+      "git_blob_sha1": "1daa897c3ba9a4fe69f0508255c9e706f3227e0a",
+      "match": true,
+      "sha256": "d874807ace5d62b64df82d748c069b68674250acdf2d9fdc4c36928c2fff1308",
+      "bytes": 2396524
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/encoder_latents/exp082_a3p_lehami_s2.npz",
+      "git_blob_sha1": "9dc849894622cc67392fb06ea8ece78fa9c5c2d6",
+      "match": true,
+      "sha256": "1ae6bb2b62837284e0b9f07d827b16eefed0ce46bb6df64e051e47b7698f3522",
+      "bytes": 2394370
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/episode_parameters.npz",
+      "git_blob_sha1": "706b38622dc1474db86237decdaadb9b2539d9f6",
+      "match": true,
+      "sha256": "23f37be8e22403397850f853a68f242df29d846313452238cf1d1260f0838335",
+      "bytes": 2208
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/landscape_exp079_a0q_s0.npz",
+      "git_blob_sha1": "f50f21f2cf35e3f4650b234998fbb2d80cb36ad6",
+      "match": true,
+      "sha256": "53c73c02048dce07ea7088bfa63c032059e367487d36e9c666dffd8189642b8b",
+      "bytes": 91308
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/latent_volume/jacobian_rollout_actuated.csv",
+      "git_blob_sha1": "c5a3dc48a9cfddc4176b14f32dce2f25c932c7c7",
+      "match": true,
+      "sha256": "6abf439292c427faab8f6cbb1f69347d2b8611fce878254e01b76a52e3605f31",
+      "bytes": 1221089
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/param_probe/exp072_b0s_lewm_s0.npz",
+      "git_blob_sha1": "9e5aa21de7f5adc3f1ea92266e55a0e07dd4165a",
+      "match": true,
+      "sha256": "9ded6c74abbd14cb3386e22c541ff82714d0b164a933a1fab76b130090526079",
+      "bytes": 7007141
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/param_probe/exp072_b0s_lewm_s1.npz",
+      "git_blob_sha1": "08e30cd2bdea516af870a91114d87211b3319a87",
+      "match": true,
+      "sha256": "41dab8f47c8ebf439c29655b7b5ec462a4d6415eead7aae2e5a6a2ed1b3c1fe3",
+      "bytes": 6952759
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/param_probe/exp072_b0s_lewm_s2.npz",
+      "git_blob_sha1": "620b0b8b6262e06d1963236095f0f89ffab53111",
+      "match": true,
+      "sha256": "f313f1998c3fae55eb92b2154a785cfbf21c769154cfe6d691d6b13140a9a10d",
+      "bytes": 6955058
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/param_probe/exp079_a0q_lehami_s0.npz",
+      "git_blob_sha1": "af53f75f690ffff032b31b0ecc25e7b5923e529e",
+      "match": true,
+      "sha256": "c6feecf78ad2f4ff39925ad275ae448f7d3dca2ab39e6daffe71d95d81963f04",
+      "bytes": 9571241
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/param_probe/exp079_a0q_lehami_s1.npz",
+      "git_blob_sha1": "d249a32feafb59bd0b64bdd44118a92fccb546c6",
+      "match": true,
+      "sha256": "ba933f1412914b10feb77ff6ee7d3b5a9f36bd18ef5fb58edfc75d5b4820b407",
+      "bytes": 9590085
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/param_probe/exp079_a0q_lehami_s2.npz",
+      "git_blob_sha1": "e530dff4f9cf151b205c26cf8dfb263b18bd460a",
+      "match": true,
+      "sha256": "3460d446e8e7d52c85bf033d3660240f64ef6ec8329425f93828e7135f4686f7",
+      "bytes": 9562131
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/a0q_s0/meta.json",
+      "git_blob_sha1": "d724889601ecec8fe7b4acc15ba7ec3fa89ea653",
+      "match": true,
+      "sha256": "3ce93ebb53008339155c7710be07926559c36c0a4e8150bb33b3dd68407062db",
+      "bytes": 1258
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/a0q_s0/swingup_episodes.csv",
+      "git_blob_sha1": "f1e5ea3c1aa982a71480e28b7bc97956a400324a",
+      "match": true,
+      "sha256": "c48a29eb5eed1d11f4203a298d92b487a65f84652aa98918150f8bef121d6f3a",
+      "bytes": 55081
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/a0q_s1/meta.json",
+      "git_blob_sha1": "cef08aa36e1d28871f2513751fbf20de52351e39",
+      "match": true,
+      "sha256": "d99f318230f8a75cd50fa1e9935d1440300c9b61a7c95e2673026dddbcd6db67",
+      "bytes": 1258
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/a0q_s1/swingup_episodes.csv",
+      "git_blob_sha1": "f02c69e2980ec9456bf5859afbe50f9be0b63907",
+      "match": true,
+      "sha256": "bef7f3c653e7d0e23c641a2dbe2101bbf02e9fcb7154bbdb43a89405d9273a8b",
+      "bytes": 55223
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/a0q_s2/meta.json",
+      "git_blob_sha1": "1ae3075b2c42a59bd70418671c19433ed7a8ea99",
+      "match": true,
+      "sha256": "96d054bbcb3cf6bf2575c982584e4924cd3e6c7c91218d6dd1147bf9c7d7e947",
+      "bytes": 1258
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/a0q_s2/swingup_episodes.csv",
+      "git_blob_sha1": "f16d36cb938015e01f2c97d4e4e706695be95b83",
+      "match": true,
+      "sha256": "f27513064e72beff268ba60686cc56fdc3a8ce66a98fd1ecffc06bbe8f467313",
+      "bytes": 55230
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b0s_s0/meta.json",
+      "git_blob_sha1": "8c48af16a9c1e20b8a8089fc724e70e1ef982c64",
+      "match": true,
+      "sha256": "3d0f818867c03954dd20944fd829e961abf422b002432d27332cf04e76ae9b92",
+      "bytes": 1236
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b0s_s0/swingup_episodes.csv",
+      "git_blob_sha1": "436ca0675646e1d81e12ec035736a73ddc8f11fa",
+      "match": true,
+      "sha256": "26e6848d2e4f3485b645bd96d87c81a29b479ee779e0a052a403e2098e354760",
+      "bytes": 54968
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b0s_s1/meta.json",
+      "git_blob_sha1": "5978df15ad9f5ebf11c99a0a3d8de0b59c659399",
+      "match": true,
+      "sha256": "f86dad83555f6aef5efebaa18db3777d1b70f226e04b6edabae4cb5033f93f46",
+      "bytes": 1236
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b0s_s1/swingup_episodes.csv",
+      "git_blob_sha1": "a3b8c7bf74f58c736810b3a39b112289552d3dc0",
+      "match": true,
+      "sha256": "41cc3e474ab0bdd644455e74645664f88c8668db0d9f188b5bc85747c3d10cae",
+      "bytes": 55041
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b0s_s2/meta.json",
+      "git_blob_sha1": "1499936ded9cddc83c3dc04fb3c45ca48f33e51b",
+      "match": true,
+      "sha256": "ca6a2debd401530ad93efac623a06b7ebe808b060070894c7d671b2ed5eb20ee",
+      "bytes": 1236
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b0s_s2/swingup_episodes.csv",
+      "git_blob_sha1": "222ab4946faeece1944759b7e6683a861d829806",
+      "match": true,
+      "sha256": "c6dfe92cba9c0d24dd18a217bbc9c3cde2244e0f53f20e196551c2ecd25ec8bc",
+      "bytes": 54917
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b3f_s0/meta.json",
+      "git_blob_sha1": "24b0693573892d9953ad4f65a455bb29e5941129",
+      "match": true,
+      "sha256": "5e2e2bcbd2a9314124e90697dad3425a6fd1338f0d52aee8e5c5fba8d8cdcf5b",
+      "bytes": 1264
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b3f_s0/swingup_episodes.csv",
+      "git_blob_sha1": "06eb0434fbc4f9d71944549babed41b338fa6f6b",
+      "match": true,
+      "sha256": "e59022c3f03c1d50001d233441c25235fd0bd5b6af8218c8084fc5d35dfe55de",
+      "bytes": 55964
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b3f_s1/meta.json",
+      "git_blob_sha1": "da6752a0470a147f9ae256c00aaec28d45ceab0f",
+      "match": true,
+      "sha256": "32aa46981b9dd262658c760853740301127d4cb4cec4b3ca436f3b1eb146fe7c",
+      "bytes": 1264
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b3f_s1/swingup_episodes.csv",
+      "git_blob_sha1": "63eab1a3aed1cdfa56909de2e79660d2437538f0",
+      "match": true,
+      "sha256": "ca549a8fdabe9aa7b276d4ef57ffc93ff28832292d3373744ee1562933b77ef8",
+      "bytes": 55882
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b3f_s2/meta.json",
+      "git_blob_sha1": "63b351a12c9692dc14f1209dffcf14577fb2b73e",
+      "match": true,
+      "sha256": "897278b159b140afa960e2a7483dd0f034089455258b454a51b2793b0b535e1b",
+      "bytes": 1264
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b3f_s2/swingup_episodes.csv",
+      "git_blob_sha1": "87f42651a953377f2ad2bf673ea6edea2417fc9a",
+      "match": true,
+      "sha256": "27334cd99146a1569d04816aa2fcee48698170d933b2cc2b84a2895b358dd78b",
+      "bytes": 55773
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b3s_s0/meta.json",
+      "git_blob_sha1": "5e977c9a9fd630806ec91c4cb82afa7377065bff",
+      "match": true,
+      "sha256": "33d61ac419b0d08a6ca6ae05a054762f02593aaa984e05ede83243eb57e167bb",
+      "bytes": 1236
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b3s_s0/swingup_episodes.csv",
+      "git_blob_sha1": "55a807f11a04d48f7a09c3d3b868230c612b48ae",
+      "match": true,
+      "sha256": "fb8e636a62b0859603224696f68304c3b63f69b86ee5b077495d29084ea86bf3",
+      "bytes": 55648
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b3s_s1/meta.json",
+      "git_blob_sha1": "d749043b6b649c19b6094407e76d1a09711c2706",
+      "match": true,
+      "sha256": "3fc298faa4ed0557dc7de5ee885b6ebd224aabc88b97d93b2da92ca2c42f2aa9",
+      "bytes": 1236
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b3s_s1/swingup_episodes.csv",
+      "git_blob_sha1": "5357cf35e9f955c071c663e4c7d66d379a907ff1",
+      "match": true,
+      "sha256": "790f32c3cabd2b292b028c8cbe1d3e61586560f1f504c4fcf71949255067a126",
+      "bytes": 55569
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b3s_s2/meta.json",
+      "git_blob_sha1": "33480527b76e15c718d0e6ebd15d54ce4cbead63",
+      "match": true,
+      "sha256": "01083f89b0f663689739a89c28e758520a6a1948e21b93df4e3ebc5430a87772",
+      "bytes": 1236
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell1_single_shot_H30_R30/b3s_s2/swingup_episodes.csv",
+      "git_blob_sha1": "6b1ae9e3fefec2a1453b360dfff3d845fdf1bae5",
+      "match": true,
+      "sha256": "68f0a1a25e48abf33b8868959d8b889b5879ee03340882e7b5af3a52503c25a6",
+      "bytes": 55536
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/a0q_s0/meta.json",
+      "git_blob_sha1": "137b9454b4039a685a0baf973929d5d12fbfc8a3",
+      "match": true,
+      "sha256": "bc2f80039f0737bcad544ecf484b7f24c560ad31390e9a4fe1d0f40bbf0590b0",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/a0q_s0/swingup_episodes.csv",
+      "git_blob_sha1": "cf635763d3386df8f6cf29e6638a5da73c875cdf",
+      "match": true,
+      "sha256": "969b99ae1bcb9cf43780e323484bfa173192938713da2104636853f3e91e505b",
+      "bytes": 54089
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/a0q_s1/meta.json",
+      "git_blob_sha1": "22a99be653050a7dc98e7a7311578715cec266d1",
+      "match": true,
+      "sha256": "00d70cad44abe9f9e27214b0d783533552fa264469105552bcef4b789f904248",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/a0q_s1/swingup_episodes.csv",
+      "git_blob_sha1": "64b3fb9cb2c04b3cc3aa4c36f9d15e9a4f1b223a",
+      "match": true,
+      "sha256": "e98a7a27c147af212b4fdf6833a81dc7127899319f6116a0ed57647192a92ee5",
+      "bytes": 54252
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/a0q_s2/meta.json",
+      "git_blob_sha1": "1e11eedc11898e6f6b51ce7017dda80ec5b5db65",
+      "match": true,
+      "sha256": "844176140ebc1b8258ca3e84f15e07f237360abc092cb2da45246f33094e243c",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/a0q_s2/swingup_episodes.csv",
+      "git_blob_sha1": "3f81e685e1f62bcc90a11f432a3dcfa4566d675e",
+      "match": true,
+      "sha256": "30eb43ea1babf7f8380e4a1888c4931d1dbab314e5fb5de54f6cbe8a90bf04c0",
+      "bytes": 54415
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b0s_s0/meta.json",
+      "git_blob_sha1": "096fdc58ab825d4ab30dfe52f9e0f4aac0eda86f",
+      "match": true,
+      "sha256": "b7315b53abd1fafff5e7e9574772151b20113f1e496b55c3b798e3815ef623f5",
+      "bytes": 1228
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b0s_s0/swingup_episodes.csv",
+      "git_blob_sha1": "e5c3a280e0b44ad53accf64c7f9e3fc06e6dcbc2",
+      "match": true,
+      "sha256": "7cca96d67a6d200ad3c4f9c42d69be4deb47e4562280755e04f064475b3b5d02",
+      "bytes": 53955
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b0s_s1/meta.json",
+      "git_blob_sha1": "8dc9b48d45c45b52454e530986fbffb8b6b8fc82",
+      "match": true,
+      "sha256": "43629d0cf17e3e82dbefdf8f7bc7323ae3014e38f4c8fc4e14c740863eff766d",
+      "bytes": 1228
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b0s_s1/swingup_episodes.csv",
+      "git_blob_sha1": "0f738e11cb44717f95d6fcb19b44c46b866a6190",
+      "match": true,
+      "sha256": "e2f80377cfc272ab49735df2f89d19de29fe4aac016b005f8dd905a5ffc47b21",
+      "bytes": 53996
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b0s_s2/meta.json",
+      "git_blob_sha1": "ee020f56445c0087924bf0ab4121677ddb5df4bc",
+      "match": true,
+      "sha256": "bbc15b50a847292017f28c663d78723039b1bc8a8e135537216b1f6f69a31fbb",
+      "bytes": 1228
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b0s_s2/swingup_episodes.csv",
+      "git_blob_sha1": "b9d2d2762ac7b1b086d3cd400f9d53dbb6aab519",
+      "match": true,
+      "sha256": "670740098c6d4b91d8eaeac3b93ebc86e52e31c78c39b74a6574cca82ec60189",
+      "bytes": 53901
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b3f_s0/meta.json",
+      "git_blob_sha1": "f812eb2c95c8e2a2b17eafdca51a1a7b036f64d3",
+      "match": true,
+      "sha256": "d5aaad3bf5bb457fe774f4895d992ab6c5ce1e3ec17bea40afc52518f19b039b",
+      "bytes": 1256
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b3f_s0/swingup_episodes.csv",
+      "git_blob_sha1": "ea5d8a215a17457a47b7a5997bccfabf2a3a0d91",
+      "match": true,
+      "sha256": "8f5c27ccaf67f01d193edd8957c2c25a059ec5b1dbf296b63638bb3714dd1c9c",
+      "bytes": 55507
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b3f_s1/meta.json",
+      "git_blob_sha1": "b3fae70424b1adafa2c2551e0c3df743fde06a23",
+      "match": true,
+      "sha256": "3ef11c0008f4a811e3027dfdea0befc38f9466df13fde8dabdd660648e8cb831",
+      "bytes": 1256
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b3f_s1/swingup_episodes.csv",
+      "git_blob_sha1": "f6721495763d0d313696e715c91e0dedb3b9e16a",
+      "match": true,
+      "sha256": "061a98398e32be45c502928012fe6df5c50f5a35ff9213ca4c6a7aeb25a2a1ad",
+      "bytes": 55103
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b3f_s2/meta.json",
+      "git_blob_sha1": "d0d537e2497b74f90763db230476616f2f6ae0fa",
+      "match": true,
+      "sha256": "e0bc675272c1f03dcbb8b51f30bfc18c23d1fb15e265e71e09e4f0a6cb8f90b9",
+      "bytes": 1256
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b3f_s2/swingup_episodes.csv",
+      "git_blob_sha1": "f4c3f02150bd5594b81df3f5cd427e42cd1a0c93",
+      "match": true,
+      "sha256": "e81bb9cb807f386077c2a8a3d9c494fa9e6b068423b67028ae9b0b6496c09114",
+      "bytes": 55108
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b3s_s0/meta.json",
+      "git_blob_sha1": "897ec315189a0f85d87668d3d75d81ccaa069cb6",
+      "match": true,
+      "sha256": "8f31082b304d0020ad3fb6b0dd2c49940de602e7d15c1852ef5166767e307e39",
+      "bytes": 1229
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b3s_s0/swingup_episodes.csv",
+      "git_blob_sha1": "3c0d7df0045c4bc6a277eb03dc3290b4085d9712",
+      "match": true,
+      "sha256": "b5f3e9b4949fdf5453005fcb76f65e73803390404cfb91fc5c47a44a40959937",
+      "bytes": 54753
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b3s_s1/meta.json",
+      "git_blob_sha1": "72cb2b51cdddc44a67bf6b8579fc3b95b47cdeb5",
+      "match": true,
+      "sha256": "dacb3e2c0dff7b7682e43961b0efe4681b17eb6da754921bc820ce6b325bc450",
+      "bytes": 1229
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b3s_s1/swingup_episodes.csv",
+      "git_blob_sha1": "490be2a7e9cbb622ec4cc45491507c753f6e0e53",
+      "match": true,
+      "sha256": "272155c7eb6126b69e54631313d5ef12b83d4e2f15a93a839906f8d1753b5fd4",
+      "bytes": 54549
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b3s_s2/meta.json",
+      "git_blob_sha1": "394d4c376fbccd44638ac44aa990796bd067228f",
+      "match": true,
+      "sha256": "4e2639fc7450d57ffaffacb74b5b86fcd49395e7402ca3a498e778b692ae2a8e",
+      "bytes": 1229
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell2_goal_H30_R15/b3s_s2/swingup_episodes.csv",
+      "git_blob_sha1": "18a41512b5f7d5d7216d3a643fda6f82c458fe1a",
+      "match": true,
+      "sha256": "4a7dd9e8c40aedbb452f60f6dc9028a4d3f25e8fa1e758a545176d50275b461e",
+      "bytes": 54641
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/a0q_s0/meta.json",
+      "git_blob_sha1": "281a00254b5ccd907ab592780ba9011c1d6e5cc4",
+      "match": true,
+      "sha256": "71f5d56805f9ac14fe9fea43b33c7b60b038653d1aea4eb740ac5e47514b9271",
+      "bytes": 1248
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/a0q_s0/swingup_episodes.csv",
+      "git_blob_sha1": "ae84843041de7ab2d586b5ec2367d2fd37ac31e4",
+      "match": true,
+      "sha256": "42141982de4566029951915b2825d2ec49efff269e2063602642af3aaa33aa11",
+      "bytes": 53968
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/a0q_s1/meta.json",
+      "git_blob_sha1": "75269b405c7ebf2e3f23861f66c1103dbdf736e1",
+      "match": true,
+      "sha256": "a90e5e7d864895cf92caec1ddccbbdc9233c8c1d3e1d256d10ce2557d113a408",
+      "bytes": 1248
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/a0q_s1/swingup_episodes.csv",
+      "git_blob_sha1": "aa1215a63724e1422c1d9de212b8582e70e7e333",
+      "match": true,
+      "sha256": "4332c04319402da81c4a9d7876bd84dd4613fdda229094036c2209476b59bd78",
+      "bytes": 54221
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/a0q_s2/meta.json",
+      "git_blob_sha1": "04e2c22e9a7a4553e0a5a39b3e32b4d689c40595",
+      "match": true,
+      "sha256": "84c91ff1600333ed93b53b4df3cdaf4cfb8fa915e60d24127baef98bee29a10a",
+      "bytes": 1248
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/a0q_s2/swingup_episodes.csv",
+      "git_blob_sha1": "dd1ac2100fb6b270855939f594ce2ebf021fbe7e",
+      "match": true,
+      "sha256": "0a783c0ea00642a24c17223b94847a7c44315841e5df21b2e9ebfbfcd09fce4f",
+      "bytes": 54308
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b0s_s0/meta.json",
+      "git_blob_sha1": "357091772a4395b666babb726a6a67b447174bc1",
+      "match": true,
+      "sha256": "61142157d72e77293036ce706ee6bb1e59fe51e4e069f2fae6fcea1feb191b3e",
+      "bytes": 1226
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b0s_s0/swingup_episodes.csv",
+      "git_blob_sha1": "b4c6d2dfb6eb0ed75c9b41713c71d6f635173934",
+      "match": true,
+      "sha256": "137033b07682552dcc1b05f9d8d2535f1e272607d06ea5dc029d06bb3538b82b",
+      "bytes": 54030
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b0s_s1/meta.json",
+      "git_blob_sha1": "a5bdbd2fb610f20bba22c75af6c706f00db73ca8",
+      "match": true,
+      "sha256": "857324f1d5e3bbd69f2602649fe08833601e3f7daef314c42d3ddc00300701e6",
+      "bytes": 1226
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b0s_s1/swingup_episodes.csv",
+      "git_blob_sha1": "bbd6779bc45beff4b595e0115a01219d37f03989",
+      "match": true,
+      "sha256": "dd8904a8e1663a442d6ff73ff2dc6bece935e99e3c5ae178ae1f556cf3bb0661",
+      "bytes": 53958
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b0s_s2/meta.json",
+      "git_blob_sha1": "8af09f4cab7c4896da29799cfbd489a817d016f5",
+      "match": true,
+      "sha256": "cb23980a8376953dda906710975d10c33a7980a2744938eaa67e6466592ed030",
+      "bytes": 1226
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b0s_s2/swingup_episodes.csv",
+      "git_blob_sha1": "7f9e6db53d67b17ec53c745495f9662852b1d618",
+      "match": true,
+      "sha256": "7e869c358971dfe5a6150eaa03d23e4ab4f9c4bf7f545b0c9a34226686198075",
+      "bytes": 53877
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b3f_s0/meta.json",
+      "git_blob_sha1": "280cf11c7918560521ca4b0b5104ba568bcc5487",
+      "match": true,
+      "sha256": "f05237a41708724ba2abe59273691628179e76192b92cca12e58144be41d5b90",
+      "bytes": 1255
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b3f_s0/swingup_episodes.csv",
+      "git_blob_sha1": "ba004795ca175b3579ad4dfbe314a6bc837e471e",
+      "match": true,
+      "sha256": "e08d3c8a2fd3d718b41f9e4dcfb7c1fd9f3c51a8d643fe094de543b11583e826",
+      "bytes": 55381
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b3f_s1/meta.json",
+      "git_blob_sha1": "bbeb000b65811808d637c0a6de41b6559ce2f8d6",
+      "match": true,
+      "sha256": "e6ed12609b92106135e39f455be85a454a49616b6fc1dc5a1998456144036a09",
+      "bytes": 1255
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b3f_s1/swingup_episodes.csv",
+      "git_blob_sha1": "1cbaceba8600348cbb0ec55bc1661cb5dbc3bcf8",
+      "match": true,
+      "sha256": "4d022724e7378a1b3a3443418192a81682f79ea1600e03b4ad1db5eaf92f76fa",
+      "bytes": 55227
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b3f_s2/meta.json",
+      "git_blob_sha1": "7acdbec49e05bba124722aa35f1a29d05598d977",
+      "match": true,
+      "sha256": "43f64d2033bec78ef8a57acf8d9cc763614dd5bddb424e6c8a9a29e2985bfe40",
+      "bytes": 1254
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b3f_s2/swingup_episodes.csv",
+      "git_blob_sha1": "a8223275b88b3bbced3441f62d8169c124478a5e",
+      "match": true,
+      "sha256": "8edcd439a1d21752c57b5246c0bbbd0e81f449a32fe970b74ca0c21eb1fe2666",
+      "bytes": 55233
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b3s_s0/meta.json",
+      "git_blob_sha1": "8a961d891ddad6c9923d8ec73ebe00d220a2a11b",
+      "match": true,
+      "sha256": "786ee1afb9f9c4420e5ba5e273a6b61b7bbcb75335f85909bc346c32daf9102e",
+      "bytes": 1227
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b3s_s0/swingup_episodes.csv",
+      "git_blob_sha1": "0189e880b4b1e1c1370fc3eb715047aa7fc36dc1",
+      "match": true,
+      "sha256": "c73fe02cd632db7ada7cbb29e98bc993f1cb3f1723b6dd259aeb1694f8779a31",
+      "bytes": 54962
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b3s_s1/meta.json",
+      "git_blob_sha1": "000970b67a85f687c8a928857eefbeee85a9d178",
+      "match": true,
+      "sha256": "3d18019a5bea5ca0dc3389b9e4ebcabbbf1bada57a7321ca66b25bb1e8b7e740",
+      "bytes": 1227
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b3s_s1/swingup_episodes.csv",
+      "git_blob_sha1": "31d3daba9ea4548de806ffca148c1062f5a53ad1",
+      "match": true,
+      "sha256": "744f703aec919505e4f888403a4defb0f30576dce2de9dd6ba2804f91f5351d6",
+      "bytes": 54797
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b3s_s2/meta.json",
+      "git_blob_sha1": "24bc803fb52ae2f1954e7d32d112efd7b7b7ab6b",
+      "match": true,
+      "sha256": "b9ad1cae7582964e4be19d1d5bd869dfa5e7fc423fbe643e08e8ad59ccc267e9",
+      "bytes": 1227
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell3_goal_H30_R9/b3s_s2/swingup_episodes.csv",
+      "git_blob_sha1": "38acc4104962d5fff3294395535cf014c74f6f20",
+      "match": true,
+      "sha256": "a0025a82b1fc303fc7005e299eb24b491b3453a2c709cf5ff7dc92edc0aa08b5",
+      "bytes": 54792
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/a0q_s0/meta.json",
+      "git_blob_sha1": "e75fe0d681ad4ba2458eb6de2f209b4fa63fb00f",
+      "match": true,
+      "sha256": "fff58eea7ca87d7bc4e68d9e6d1de397daea2328a5e0b04bc2bdd90d3045ba44",
+      "bytes": 1272
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/a0q_s0/swingup_episodes.csv",
+      "git_blob_sha1": "c50f0613dc953a0d74e9a60e708583862fc279d5",
+      "match": true,
+      "sha256": "723936efd207d1154584a8069e3f07526585a8b6b96a9c6b5939707fbca521f7",
+      "bytes": 53961
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/a0q_s1/meta.json",
+      "git_blob_sha1": "cf465a627ee86bd666a72dfe772c60a80e809952",
+      "match": true,
+      "sha256": "95e4da3e5ee6c6211f35ace8cb82ef1eb7844f53403701f5c9522ac016f46b93",
+      "bytes": 1272
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/a0q_s1/swingup_episodes.csv",
+      "git_blob_sha1": "0786bc9ec2b561a209f2638c3d730d3154f0ca09",
+      "match": true,
+      "sha256": "c8fdc9774c01958cec1f018da55806becd4fbf7e24f88625cde8c0461294d304",
+      "bytes": 54436
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/a0q_s2/meta.json",
+      "git_blob_sha1": "85c26096c9f27a0032da24c69fc4cf2be48a660a",
+      "match": true,
+      "sha256": "153197bc746743829beb95db7fb62c06afedd161221694cc4801ba3010cff526",
+      "bytes": 1272
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/a0q_s2/swingup_episodes.csv",
+      "git_blob_sha1": "6175f7708643b9d6d4a9a9a76fab66103b6f6149",
+      "match": true,
+      "sha256": "c3a5c3c9a8771284e8f08ab1c8564c50f8ec231b1a4474c5917eb2c040231426",
+      "bytes": 54487
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/b0s_s0/meta.json",
+      "git_blob_sha1": "1b6308e2ad6d654001d677c540d693ba60eda0ef",
+      "match": true,
+      "sha256": "1384940109bb675f53a42e5e1613e647f29099b0dd02e7560167d715950e3082",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/b0s_s0/swingup_episodes.csv",
+      "git_blob_sha1": "57ec3d7f62fc35e1ed42c96523a6b079c01a8a14",
+      "match": true,
+      "sha256": "93ad91a79106f7e6c63196dfe62f8fd591784f105443460c9bcc28281b14c653",
+      "bytes": 54150
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/b0s_s1/meta.json",
+      "git_blob_sha1": "4ba35d41aa618f8be7686531e2a9b74c75399f8a",
+      "match": true,
+      "sha256": "ea38d161ce4c3157ff8a90e94fd0c48626d3d61bff1e4459ff6d3ee2b60b9bbf",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/b0s_s1/swingup_episodes.csv",
+      "git_blob_sha1": "998fad37b79bf09cb8486bb1ab2fa3336b641fde",
+      "match": true,
+      "sha256": "3062ed32be02d4b7d14f1040a894624efd125c49a3efe01e9e1dc4d95c543486",
+      "bytes": 54388
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/b0s_s2/meta.json",
+      "git_blob_sha1": "ca4b31a444f47143c2b5c391e7f2d841bc164f2c",
+      "match": true,
+      "sha256": "4814f57aa2ae6e774f19d7251b3ac10cf65d89dcee2458a5380d556077234ca5",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/b0s_s2/swingup_episodes.csv",
+      "git_blob_sha1": "09df14a640208bd821b39504917e496426e76da6",
+      "match": true,
+      "sha256": "7127b2af7eb5629b8ece1bd07b3e327defc00b6062fb28eecebeeed75e113cb7",
+      "bytes": 54277
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/b3s_s0/meta.json",
+      "git_blob_sha1": "e48cfa80c635cc806a424829d755d709a0d782e4",
+      "match": true,
+      "sha256": "cbb1293d708fd87e45dd74c1300f192b9ff2c0165da9535c2176b832c53210fa",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/b3s_s0/swingup_episodes.csv",
+      "git_blob_sha1": "00b6d9aaa22b60fbd322365158d4b3edfc244582",
+      "match": true,
+      "sha256": "c88c512830520422844724128314173348b199251f7022decdceb8fa3385d7de",
+      "bytes": 54962
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/b3s_s1/meta.json",
+      "git_blob_sha1": "252313b6f7561cbb8c8f8726de09c676656f7b3e",
+      "match": true,
+      "sha256": "c80210bd02c2be60bf55874753c42a80004f7cb06e7fc3b5d1ffac21fb6504a6",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/b3s_s1/swingup_episodes.csv",
+      "git_blob_sha1": "9114ddc01d15edd3820a9e524c7b4cf6c73d9c8c",
+      "match": true,
+      "sha256": "cb823fa42c398b31ed0830e0ebd3a1011d3b84f66f5f1e7ea1c52bbe6a2eaf5a",
+      "bytes": 54831
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/b3s_s2/meta.json",
+      "git_blob_sha1": "a64cd49a2502a23c8b0872f0765bf41f6a6efafa",
+      "match": true,
+      "sha256": "af0abfd3ce15165ff7ee3e2773f24c393d76a2e9fde50982b7bbc4986ecba31b",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell6_goal_H30_R6/b3s_s2/swingup_episodes.csv",
+      "git_blob_sha1": "58f4e946c14a141ae9400cf8fa5eb5cade4121c1",
+      "match": true,
+      "sha256": "224de3b98a473df35e53945e5267b348ea05cb537b11450ece80cfaea903256c",
+      "bytes": 54873
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/a0q_s0/meta.json",
+      "git_blob_sha1": "fe596c698aefa66bdc8938d64a5d9dfc1e81ff45",
+      "match": true,
+      "sha256": "c8fe8382730f3a7a057243219c074352657274059240743904e8020e590fe3e1",
+      "bytes": 1272
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/a0q_s0/swingup_episodes.csv",
+      "git_blob_sha1": "95a491f3a9c0f60f86464e003426e0cd267567a0",
+      "match": true,
+      "sha256": "1fd28a564042d7fd2e1237ab9921283e8330d57d76bcb2006a7d8bb5438b01d1",
+      "bytes": 54624
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/a0q_s1/meta.json",
+      "git_blob_sha1": "936c444de0747d1ed4761b93de1b0e415d57fa22",
+      "match": true,
+      "sha256": "7ee149114183e63e80a310fa262f143e6b3a54346331b58c9c66ec173a422cf6",
+      "bytes": 1272
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/a0q_s1/swingup_episodes.csv",
+      "git_blob_sha1": "44ddc6901435bda6ea6a0769c0d9ff21d7095a99",
+      "match": true,
+      "sha256": "f61d575267a1b8aef92a58772d21fceb86ef429c52a84a4039e35d8b3249717f",
+      "bytes": 54733
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/a0q_s2/meta.json",
+      "git_blob_sha1": "e71bf74f3666d9af0af8c17d2d40b7b252b1679f",
+      "match": true,
+      "sha256": "a511fe97b7c775a8caeab6a5eb289c8e7eaf7cb0cb5a77fa2b6e8cd2820d1e66",
+      "bytes": 1272
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/a0q_s2/swingup_episodes.csv",
+      "git_blob_sha1": "b1c8484bb0b837e59f1408cb4294e062e86a3a17",
+      "match": true,
+      "sha256": "a08331c5f085d26d69344da03c16f625a00713f08c26d86eae24dbc22b0c9ed2",
+      "bytes": 54859
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/b0s_s0/meta.json",
+      "git_blob_sha1": "59fc985aaf7d4557b4f0264547064849aea71ffc",
+      "match": true,
+      "sha256": "511f5487e00d14e3e30dc730dd3e40b530bdf5d620cd24b88b08aaa508a71bc5",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/b0s_s0/swingup_episodes.csv",
+      "git_blob_sha1": "2235fb060430ab5278015f5499df363e83cb7275",
+      "match": true,
+      "sha256": "7ca6ea6ad31d775e004ed99ac99b671d1e4ef9f7272ef2a9d8af13d7a7072b9b",
+      "bytes": 54486
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/b0s_s1/meta.json",
+      "git_blob_sha1": "31eaed68b20f9b95112939e4a5e3ab6d793388e7",
+      "match": true,
+      "sha256": "b138aa0391930efd7e3de1b30359ed47c9878a1e112e0030fd855fee543cee36",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/b0s_s1/swingup_episodes.csv",
+      "git_blob_sha1": "f65759f73f390a6fec9ffe24712d1e2be4e1ec32",
+      "match": true,
+      "sha256": "856d32a8e22b9bb8c3e39a467ff84212b93a6c35172ce4fa62724227ecb8bba6",
+      "bytes": 54448
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/b0s_s2/meta.json",
+      "git_blob_sha1": "10375c245d3d26564074643cc4e3dc512dd27f13",
+      "match": true,
+      "sha256": "b77ec4d6f3be8631c853c2e39edb797c03e1be77eb44443d5e51546aad4e7a9f",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/b0s_s2/swingup_episodes.csv",
+      "git_blob_sha1": "f192246c7492f7bf2ff4283e42a73a1a0ad80267",
+      "match": true,
+      "sha256": "dcb9536129dda56714e4a4948c28f2e8b06619479b0472897c4f3f86c7a1314d",
+      "bytes": 54469
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/b3s_s0/meta.json",
+      "git_blob_sha1": "7475e2ff4f85207e638e2a7ec08e381c8ac39ec3",
+      "match": true,
+      "sha256": "d1c7482210ac6ffb8b51b3815b50304f804df2e7fdb4ca360624a399499845c3",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/b3s_s0/swingup_episodes.csv",
+      "git_blob_sha1": "0581e53b89b466f26c7fd2c0245904213510ac16",
+      "match": true,
+      "sha256": "cf460063025a8137731ea32bb71887334c04d4d370001fc5f953f7bd7502a254",
+      "bytes": 55086
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/b3s_s1/meta.json",
+      "git_blob_sha1": "7ddacdade4417767712167068ed654f3b1491f29",
+      "match": true,
+      "sha256": "8922c5f6a23f60df5f55ab33f44e9b31f28dd5ad10102aec7c9cd31664ae2209",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/b3s_s1/swingup_episodes.csv",
+      "git_blob_sha1": "3e7801c0c01976a6aa0dc805ac228a3b9b7f8aa5",
+      "match": true,
+      "sha256": "c3e63041458da5e47dba53e8e37f20de152af22f8b0a5611b86b32a8745ebcff",
+      "bytes": 55139
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/b3s_s2/meta.json",
+      "git_blob_sha1": "aeb86eec78209add26acbfb17734f117d7b132ba",
+      "match": true,
+      "sha256": "b10764d87fa79fcba0da6787d3d4d353dbf49567dca4ddab96f2726f59071456",
+      "bytes": 1250
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning/cell7_goal_H30_R3/b3s_s2/swingup_episodes.csv",
+      "git_blob_sha1": "ab505f2790f983ca6227efe59731060af82321a1",
+      "match": true,
+      "sha256": "15f418f88ee3d2ee64a6cf449f0cd1b95779f9e8bee833e9888ccb8eefe9ab90",
+      "bytes": 54960
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning_compute/swingup_K30_compute_grid.csv",
+      "git_blob_sha1": "e60f1414ca8bb6ff375cb59e5050aba9c9eedf3e",
+      "match": true,
+      "sha256": "b2711a349c54ae9755f2b89a75618511e0d2a33df4a2a4e628d5ca810c6957ef",
+      "bytes": 4696
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning_compute/swingup_K30_ladder_compute.csv",
+      "git_blob_sha1": "3026232cd54416c2d8b623d1e0e53b7557e48961",
+      "match": true,
+      "sha256": "6d316a1c7ff9d81f6b9bf65015f75a01323d6be73b123f416913d32204d857e9",
+      "bytes": 2127
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning_compute/swingup_K30_ladder_compute_lehami_R3.csv",
+      "git_blob_sha1": "9b86270b4f59be9f71a438b063d5e09dffb73b36",
+      "match": true,
+      "sha256": "2e62d5e351735aed9dbd6d62f2b70ce2b52fe9d2756b91220e7efed83210787d",
+      "bytes": 485
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning_compute/swingup_K30_ladder_compute_lehami_R4.csv",
+      "git_blob_sha1": "7a4542a4ddf1a6b476cd3b02765d927f7f7da303",
+      "match": true,
+      "sha256": "5957b11b755b2212a5aec1a535a37a6c76a820931e91fa31cb056577975ab4c5",
+      "bytes": 478
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning_compute/swingup_K30_ladder_compute_lehami_R6.csv",
+      "git_blob_sha1": "16bc3992340364c61b4eaef52b730cefd254bd2f",
+      "match": true,
+      "sha256": "9f705a99ef36c910ae804f13967d65f9986ad367ad2868acc299b08d53c7672e",
+      "bytes": 479
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning_compute/swingup_K30_ladder_compute_lehami_cem300x48.csv",
+      "git_blob_sha1": "f8d6ea218803e7146c266c72cee8eafea615fb16",
+      "match": true,
+      "sha256": "179f4985126b5d84040bcfbc96c5a855b0b646ead3e68e720d8710e258ad18a0",
+      "bytes": 847
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning_compute/swingup_K30_ladder_compute_lehami_cem600x30.csv",
+      "git_blob_sha1": "ce2f1d20abbc934323ef6f0d4c7dca4442923ed4",
+      "match": true,
+      "sha256": "a993ae0b76101a5db115035b449d84954db25ed32ea13051603eb702fe07952d",
+      "bytes": 468
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning_compute/swingup_K30_ladder_compute_lewm_R3.csv",
+      "git_blob_sha1": "482e90c9b47ec37656be3ce471e3ced47ecbb88c",
+      "match": true,
+      "sha256": "73922a322341dfe82761ad247365b0f4f5a8fa6cfddb1e7ebdf6dd5e2cfbe9a0",
+      "bytes": 471
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning_compute/swingup_K30_ladder_compute_lewm_R6.csv",
+      "git_blob_sha1": "6730f2c9d392e03f203542daf0c410b08dca0a49",
+      "match": true,
+      "sha256": "8de536fb7f3cb942a95692e79673ec6a43ca2ba873b3631debf8bdc8e9ebed03",
+      "bytes": 473
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning_compute/swingup_K30_ladder_compute_lewm_cem300x19.csv",
+      "git_blob_sha1": "46a1b029187e624d6082cf37a05a9dbe6aa14f86",
+      "match": true,
+      "sha256": "49cf6a669318dda3af5ce38f031213aa3e23c6a1dd93614bca335a8a9f0af236",
+      "bytes": 854
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning_compute/swingup_K30_ladder_compute_lewm_w3_R3.csv",
+      "git_blob_sha1": "175f9a5f9c7e80f0382c1de5e598e173a2c16d2f",
+      "match": true,
+      "sha256": "e176a1774f7ee7c76bf43cdf6433061d3e8e14051fc243b324129e083f118b32",
+      "bytes": 498
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning_compute/swingup_K30_ladder_compute_lewm_w3_R6.csv",
+      "git_blob_sha1": "1cd96a7d1b753040180304b2f83095289f61b01a",
+      "match": true,
+      "sha256": "160c01d33b667c7945e22f9adcf1e4f665c954ff07eb8c99ae4aaaa0f5c5d96e",
+      "bytes": 501
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/planning_compute/swingup_K30_ladder_compute_lewm_w3_cem300x18.csv",
+      "git_blob_sha1": "51341f17ab45dcd741182becfe8f69152a39b6ca",
+      "match": true,
+      "sha256": "553adb7875b77e0e0d10aebfa20649f97c04678821df00e4f3726a56cd8ed881",
+      "bytes": 917
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_features_k0/exp072_b0s_lewm_s0.npz",
+      "git_blob_sha1": "bd1106e581251ae0f936500161cffb53b7b523d9",
+      "match": true,
+      "sha256": "f55742e4b5c6cd5875b10b5eb2eb26106dd7d931851c86e5ec87b4c5ae2f366c",
+      "bytes": 4460243
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_features_k0/exp072_b0s_lewm_s1.npz",
+      "git_blob_sha1": "e137cffeb4734cf6fb37d1b1a52083195134aef0",
+      "match": true,
+      "sha256": "1db26dd7d6997b7b2cac5ba2b8164a7eb311eda0fd9774b731fe976914dc4704",
+      "bytes": 4463005
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_features_k0/exp072_b0s_lewm_s2.npz",
+      "git_blob_sha1": "1e3b1bd458c25dcebaadbeecb3296d5fd172e39d",
+      "match": true,
+      "sha256": "4e0ff8e8e77a29ad10fff517687813c0f956afe436aab8aede761eb8256174a9",
+      "bytes": 4463915
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_features_k0/exp076_b3s_lewm_s0.npz",
+      "git_blob_sha1": "2773178c7735ed7c0d8836e9d681c2ee398b427a",
+      "match": true,
+      "sha256": "75fc081a6f6b173c0ebecc774bd09e35f7539415dbe706281a2efebaf798e0dd",
+      "bytes": 5473338
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_features_k0/exp076_b3s_lewm_s1.npz",
+      "git_blob_sha1": "ba17676905016a230d66cabed6bf5235a7231b4f",
+      "match": true,
+      "sha256": "f7d9135c4ff6c2aea653404b8ca26e032fba04b4100cbdf3502181518bf4ca18",
+      "bytes": 5470621
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_features_k0/exp076_b3s_lewm_s2.npz",
+      "git_blob_sha1": "df72afd36203add39c2d07ffabf7f840cec06fa7",
+      "match": true,
+      "sha256": "5e7c6a9ff0d07c9add3d71afc837ab1e5be9a2ed8a8802fecc40dfad41db52e4",
+      "bytes": 5470446
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_features_k0/exp079_a0q_lehami_s0.npz",
+      "git_blob_sha1": "a90bb9d0f0c8f94533f3b3fba0196cb1e6cf1234",
+      "match": true,
+      "sha256": "a24adb1af609a1bb3944f7c7f156e4aa901f94a02ad5b807ef96803f9bade9c4",
+      "bytes": 5126755
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_features_k0/exp079_a0q_lehami_s1.npz",
+      "git_blob_sha1": "bdc629bf95e3be7fdf2a9370011639f66a378892",
+      "match": true,
+      "sha256": "f5050ab30a65183b1cd90ce69560a55d532f35a31a835fd351f1b69b6f2602bb",
+      "bytes": 5133385
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_features_k0/exp079_a0q_lehami_s2.npz",
+      "git_blob_sha1": "1391d28d1dd4ef781c9ebdf287d999f2071c464c",
+      "match": true,
+      "sha256": "cb0ed90a1384c61ef7266d4d7242badf46d48addf54216f54863a154720ee91f",
+      "bytes": 5124743
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_metrics/exp072_b0s_lewm_s0.csv",
+      "git_blob_sha1": "f2d510cfdad0736b9d00a11aec7b71c78ce919b4",
+      "match": true,
+      "sha256": "cf8191c79e2554759a06cec6a9e66038e466599ad00e00ae8923948812992e33",
+      "bytes": 62549
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_metrics/exp072_b0s_lewm_s1.csv",
+      "git_blob_sha1": "affbbd2c97bc5971f77edb8dde03ff42eb5a997e",
+      "match": true,
+      "sha256": "6b747f49da5e11b13ffff5fc99cd69e0e1715c3b3fa3270a98edd29250d1dbd3",
+      "bytes": 62502
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_metrics/exp072_b0s_lewm_s2.csv",
+      "git_blob_sha1": "725e4bba9d7470dbbfa82249962c7e219626a52e",
+      "match": true,
+      "sha256": "aa5dace4872e65565af31f6b4c1ad6f7466e212bce2e041bf79a3efbc9d10300",
+      "bytes": 62481
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_metrics/exp076_b3s_lewm_s0.csv",
+      "git_blob_sha1": "bc7f53c3a55f2a86268b26dd1c430f1426b2574e",
+      "match": true,
+      "sha256": "87d1d5ef6d929da4858678c3939b6edb8602ee4172e303fb6349d74e8f03a551",
+      "bytes": 61923
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_metrics/exp076_b3s_lewm_s1.csv",
+      "git_blob_sha1": "182f235df599f75072d9eeab6b015dfa39e28fad",
+      "match": true,
+      "sha256": "207c303172889fe242eb23368926a85c7e91a4bb8dbe7ce899bf10528a86ad35",
+      "bytes": 61865
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_metrics/exp076_b3s_lewm_s2.csv",
+      "git_blob_sha1": "d313a078498d1161f26bb8338b45af827da41b06",
+      "match": true,
+      "sha256": "3ba48ea3fe643f80b520786df9b2e17c7f77864d6cc325327753a5024489cd61",
+      "bytes": 62030
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_metrics/exp079_a0q_lehami_s0.csv",
+      "git_blob_sha1": "ff7184a56e19e367091c247be7f57aba3fd79942",
+      "match": true,
+      "sha256": "92c06552fc44464b1712e1fe8ca74e5a864849264167ef62635107303bf91e4c",
+      "bytes": 62049
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_metrics/exp079_a0q_lehami_s1.csv",
+      "git_blob_sha1": "3c294f7f8ef332cfa239d4d8686df4eded712880",
+      "match": true,
+      "sha256": "e15c0b3177af2f2099f4064b3f0631b7ce1bfcca4ebb960b7b62066e2966e1a5",
+      "bytes": 62043
+    },
+    {
+      "path": "paper_figures/data/actuated_pendulum/probe_metrics/exp079_a0q_lehami_s2.csv",
+      "git_blob_sha1": "a6678749b9b001428674739c828d2d8ca78b1f5e",
+      "match": true,
+      "sha256": "fec13de5f7e88c277b4172e57e9cf7be8d790572301a525a7914dfe0c008fbb3",
+      "bytes": 62142
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/dino/exp098_a0d_ep059.csv",
+      "git_blob_sha1": "ffbd1a178d6b1a5e9ab88d78701a5a5bee6152c7",
+      "match": true,
+      "sha256": "d38cc7b4fb95c87718f712e20dac4108ad09898d653e75ab8f6bafb0c210e001",
+      "bytes": 100072
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/dino/exp098_b0d_ep059.csv",
+      "git_blob_sha1": "d6056340a86b0c63e489b319e2841991dd89cf8c",
+      "match": true,
+      "sha256": "7b51b2f15e06e3f490b89718607795d74d861cfa33bb9ec8607cbc7132e7af9d",
+      "bytes": 102378
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/exp067_a0m/physics_dt.csv",
+      "git_blob_sha1": "7152fa05abe863b90202ae0867ec739de60b0657",
+      "match": true,
+      "sha256": "1e54e818f29022a470525183462c211ca6fdc977d2690345ca29d731c7f823f0",
+      "bytes": 16363
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/exp067_a0m/physics_reversal.csv",
+      "git_blob_sha1": "ffdbb28977b4a47b8550514daa378f8fdc7c067b",
+      "match": true,
+      "sha256": "7cba9523a0179b8774b3f576df25baaca90991fb9b2d82949db20fe954a94367",
+      "bytes": 351
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/exp067_a0m/rollout_metrics.csv",
+      "git_blob_sha1": "90f7d19678907b76f4b7da9daec3e4c34c6b4e90",
+      "match": true,
+      "sha256": "2d6086f3a9694367aca203b830d73ea30c56c565d859ac2f533d21acbc0d0d69",
+      "bytes": 17619
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/exp096/probe_metrics_per_epoch.csv",
+      "git_blob_sha1": "44975f03208eba7f847a60c9e1b08a987d71fb12",
+      "match": true,
+      "sha256": "142cd4486f34239437be281ad9e46d3a2e4448f923797877047c59e33d8b8a7f",
+      "bytes": 2719006
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/exp096/training_compute_l40s.csv",
+      "git_blob_sha1": "33a2add4d3c8c12e2fa56c6b23d58be299e48be6",
+      "match": true,
+      "sha256": "69b7e24ab1c8ba48f6d3f21f10747e0a1807623256a4213eebf9faa3f5c9c690",
+      "bytes": 1184
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/exp096/wandb_loss_history.csv",
+      "git_blob_sha1": "e773c849154761f830bfb2fa1f6387ee11f7bd33",
+      "match": true,
+      "sha256": "33c74856106042eefafeaf7d4ca47568aa9bcced22c199f1498809889cf4908c",
+      "bytes": 29958
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/latent_volume/epsball.csv",
+      "git_blob_sha1": "a6846bdbaddb9dec42591852f5bc6dda7fd67703",
+      "match": true,
+      "sha256": "a374e78146760bdd364f5f78618df9a1ccc3bdc45dc0b8edf86f29fe07cc959a",
+      "bytes": 4902
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/latent_volume/jacobian_k0.csv",
+      "git_blob_sha1": "2b6db7d65246843fd01ea4626eb6275c3c288670",
+      "match": true,
+      "sha256": "696a1295d4b86485a5974f1220862016bb3aae130d73fd0f145eab56c653a13f",
+      "bytes": 9635
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/latent_volume/jacobian_rollout.csv",
+      "git_blob_sha1": "15b9e9a226ab2c3555eea9cf91254581515bb906",
+      "match": true,
+      "sha256": "0c38dae5cd218d7332d8d0ef574432d2a15dd6a6b6d507ed7b4e7f188b97298b",
+      "bytes": 1050856
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/latents_exp027_exp030.npz",
+      "git_blob_sha1": "74b3dd8cd8a7416aad42fed4a2fa13e2a32a4f71",
+      "match": true,
+      "sha256": "3fbd9c48c64a44b764bf92e11fad2ba7042005c634e873574ff5252de1959bb3",
+      "bytes": 4431851
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/probe_metrics/exp067_a0m_lehami_w1_multi_s0.csv",
+      "git_blob_sha1": "3fa1b7b028b13684771c3892e5feba52fad26788",
+      "match": true,
+      "sha256": "e77336cdd92e215d65d98aa2243498107c314cf734dec09ba51b151593d89caf",
+      "bytes": 56878
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/probe_metrics/exp067_a0m_lehami_w1_multi_s1.csv",
+      "git_blob_sha1": "a2f94c64190c68bb3be0e9a56a2bb63e204b3de2",
+      "match": true,
+      "sha256": "7d8eae998e26d80f8441039d67ec21d364864226b25389dab66f9426ca6e7874",
+      "bytes": 95221
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/probe_metrics/exp067_a0m_lehami_w1_multi_s2.csv",
+      "git_blob_sha1": "39d192926b5e900010921c4057c7f4793e3b529e",
+      "match": true,
+      "sha256": "3b706a551ea31496aed4d267f1e3b83e95a27122b5b5b70a7c2dc1dc90c0bcb9",
+      "bytes": 95160
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/probe_metrics/exp068_b0m_lewm_w1_multi_s0.csv",
+      "git_blob_sha1": "0e53349045cf92bab33763a5d5ea37f4f5b4676b",
+      "match": true,
+      "sha256": "eee404a126956d7218f468de5abd0024819addb20cb1ac873fd0ecf4046c51a8",
+      "bytes": 57366
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/probe_metrics/exp068_b0m_lewm_w1_multi_s1.csv",
+      "git_blob_sha1": "c62b6c709bc7c73e90425856fcc88b1f0c3cfbc0",
+      "match": true,
+      "sha256": "801a8e838aee74f030cc227b4fcd3be951355487550ff3cc1323a9e5a4b16bce",
+      "bytes": 92948
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/probe_metrics/exp068_b0m_lewm_w1_multi_s2.csv",
+      "git_blob_sha1": "e962e2a88eb06755620ec35d35521045f5e8e550",
+      "match": true,
+      "sha256": "e42b3754266a64d170b0882ec4b04467e368b118b70bd87a7f790bac03632e8b",
+      "bytes": 92874
+    },
+    {
+      "path": "paper_figures/data/datasets/manifests/split_pendulum_episode_srnn_K100_seed42.json",
+      "git_blob_sha1": "31da3343051c33ea61dfc5ad563242ac1e2b4f6c",
+      "match": true,
+      "sha256": "955e8c44bc159cf25b1856f97d21dc0997a25d3b8b731b4d7737b7e2c1fce90e",
+      "bytes": 12996
+    },
+    {
+      "path": "paper_figures/data/datasets/manifests/split_pendulum_multi_v2_episode_srnn_K80_val.15_dt2_seed42.json",
+      "git_blob_sha1": "bb3f17e7f5bb7226697c1b99a8788d6a8ecec584",
+      "match": true,
+      "sha256": "f03488d25d1f94d854980af99ea8853370b854169b536dce4799ab7d782aa9da",
+      "bytes": 73295
+    },
+    {
+      "path": "paper_figures/data/datasets/manifests/split_pendulum_swingup_episode_srnn_K80_val.15_seed42.json",
+      "git_blob_sha1": "cdf8f4fed5b86f9209de119a411da7ae073e1ea2",
+      "match": true,
+      "sha256": "e8abe56c290030d79b03d657e2bbe2189ba31625bf2c966ccf1d2c8f57e3a945",
+      "bytes": 59473
+    },
+    {
+      "path": "paper_figures/data/datasets/rod_length_frames.npz",
+      "git_blob_sha1": "3a17d4b891b0792cd218ab59c15a9547d138cf5f",
+      "match": true,
+      "sha256": "f16fb86854dae77b25ceb7de22c117ded0f66eb28edeb386e188f5ec0eb085d4",
+      "bytes": 887
+    },
+    {
+      "path": "paper_figures/data/datasets/single_rod_episode0_frames.npz",
+      "git_blob_sha1": "7ce82009091a7606f6439e2e66e44cbcac0bd848",
+      "match": true,
+      "sha256": "9df4e0ab5d95042f3974e1774d46881aca0cca06c7eebadc8830d652761416ff",
+      "bytes": 1707
+    },
+    {
+      "path": "paper_figures/data/datasets/strip_frames.npz",
+      "git_blob_sha1": "a5a822461837203c20b9d7d57f61da7abdc512ab",
+      "match": true,
+      "sha256": "a296a25741aefeb149cd4cd3c36c0b26071a16a92dd7fad9bd95058e36f47f0f",
+      "bytes": 2494
+    },
+    {
+      "path": "paper_figures/paper_figures.ipynb",
+      "git_blob_sha1": "6b2a435f0d5f11d9fb0c08de735fc13c49445c7c",
+      "match": true,
+      "sha256": "b08074e6517d7bb08fc350373b1c8bcf3c5554db070b37dd868be8160e7baa0b",
+      "bytes": 1675386
+    },
+    {
+      "path": "pyproject.toml",
+      "git_blob_sha1": "f8428fd9102f433aabce0e514616c64e45dee052",
+      "match": true,
+      "sha256": "ca30327ec825f65419ce62c7172a3d17ed2d18a21b6ebdc6f3342e15dc34289e",
+      "bytes": 1493
+    },
+    {
+      "path": "uv.lock",
+      "git_blob_sha1": "2a60bc5b136e2c2d846ba75d5d4599dfe719c6e6",
+      "match": true,
+      "sha256": "35d1e2a75abf4767cdbad4995efbd8beec59087b20b590fff1edc1f5ef729182",
+      "bytes": 1371663
+    }
+  ]
+}

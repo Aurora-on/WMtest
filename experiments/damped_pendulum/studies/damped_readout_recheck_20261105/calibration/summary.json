@@ -1,0 +1,91 @@
+{
+  "status": "completed",
+  "checkpoint_step": 19250,
+  "checkpoint_sha256": "5163a6a293a7c773a90e9ef59a62353a4debdba64c0dc24814bcbdb3b47f9042",
+  "dataset_sha256": "55d2b4687e1a6f743b123ba69e3731a067a5b941817bd9d98738262dfabb1509",
+  "readout_sha256": "f30f7be5de8bca16eee8afcb37b5eb11103d626bb42f0a421a8d8a792ec0581c",
+  "selected_original_readout": "mlp",
+  "manifest_sha256": "9ccb1aa5156b4c9d157b4e5f035e9468dec028534ddc759aff54caf6f04dd4db",
+  "calibration_sha256": "cbb8a701522ef55db197005accd055c2af4d63851cc976d2d1d4cba67dc13b66",
+  "source_hashes": {
+    "dpbench/train_dissipative.py": "dd65dc94bce52daa53a39e90386bee2e3cd50bd269bc15be48083445acbe3339",
+    "dpbench/dissipative_model.py": "22759040e4b6085a4b029f702c0188cd1b230961751ae0307c4202704e53567e",
+    "dpbench/dissipative_core.py": "1eb98f2aafbbe6d215bccdfa6296371096c292ca85a204b663083bf7b461b2fb",
+    "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+    "dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+    "dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+  },
+  "evaluation_source_hashes": {
+    "dpbench/evaluate_passive.py": "e302e5bfd60fdc7e7f9109737ee449e3349f0296e456dfe36d7d12657e9ebcde",
+    "dpbench/evaluate.py": "7b33cddbe590f35956f33fbaba7a50a6262163566080119dece2636811b1ede9",
+    "dpbench/models.py": "7d666b768e34a2158074e5dfb5d39729e7d72c25c3b358d30ce98d8f7650ad75",
+    "dpbench/data.py": "070c038b51ba200d370df9d92a47a6ad6e558048eaee9157d298e6aafdfa9e97",
+    "dpbench/generate.py": "4f05aaee7945a2ebec5d9329834c8bf5eaef98958e8a7b74d9b08c609ce8393d",
+    "dpbench/passive_family.py": "e4be4d69979a015f89938d4949cbacb1ce4836b686ee55c25be2afabfc15dbac"
+  },
+  "script_sha256": "3b45e908ca432b0c56ea1e5c837eba54dbf47d45df3cc66a6689ff2fd9c68904",
+  "model_hash_before": "253fec507d47c0d0e622a4d11997efb5a1d1d036c9ac01a4d32eb120c83b7e9e",
+  "model_hash_after": "253fec507d47c0d0e622a4d11997efb5a1d1d036c9ac01a4d32eb120c83b7e9e",
+  "parameters_unchanged": true,
+  "world_model_updates": 0,
+  "optimizer_created": false,
+  "readout_refitted": false,
+  "test_features_accessed": false,
+  "labels_scope": "Original saved train20000/val4000 pairs only",
+  "train_labels": 20000,
+  "val_labels": 4000,
+  "unique_group_counts": {
+    "train": 384,
+    "val": 64
+  },
+  "feature_dim": 4,
+  "batch_size": 32,
+  "scaler_checks": {
+    "ridge": {
+      "mean": {
+        "max_abs_difference": 0.0,
+        "matches": true
+      },
+      "scale": {
+        "max_abs_difference": 0.0,
+        "matches": true
+      },
+      "ymean": {
+        "max_abs_difference": 0.0,
+        "matches": true
+      },
+      "yscale": {
+        "max_abs_difference": 0.0,
+        "matches": true
+      }
+    },
+    "mlp": {
+      "mean": {
+        "max_abs_difference": 0.0,
+        "matches": true
+      },
+      "scale": {
+        "max_abs_difference": 0.0,
+        "matches": true
+      },
+      "ymean": {
+        "max_abs_difference": 0.0,
+        "matches": true
+      },
+      "yscale": {
+        "max_abs_difference": 0.0,
+        "matches": true
+      }
+    }
+  },
+  "scaler_tolerance": {
+    "rtol": 1e-05,
+    "atol": 1e-05
+  },
+  "code_root": "/home/weizhixin/ssd/efficient3_evaluation_20261105T023318Z/code",
+  "device": "cuda",
+  "torch": "2.8.0+cu126",
+  "elapsed_seconds": 56.382450222969055,
+  "scope": "Calibration feature re-extraction only; no new autonomous rollout or test evaluation"
+}

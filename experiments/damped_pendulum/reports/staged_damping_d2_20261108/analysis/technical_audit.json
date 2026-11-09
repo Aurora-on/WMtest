@@ -1,0 +1,1195 @@
+{
+  "created_at_utc": "2026-11-08T08:31:00.777957+00:00",
+  "scope": "Read-only technical audit of the completed frozen experiment; new metrics computed from already-saved validation arrays only. No training, inference, readout refit, test trajectory access or changes to original files.",
+  "facts": {
+    "state_and_architecture": {
+      "q_dim": 2,
+      "p_dim": 2,
+      "phase_feature_dim": 4,
+      "physical_pendulum_dof": 1,
+      "meaning": "q∈R²是图像编码位置；p由编码轨迹速度初始化。p不是经物理标签校准的角速度或物理角动量。",
+      "encoder": "4个stride2的3×3卷积，通道3→32→64→96→128；每层GroupNorm(8)+GELU；flatten2048→128→2。GroupNorm不在不同图像间共享batch统计。",
+      "potential": "MLP 2→32→32→1，两个Tanh隐藏层，raw输出；无外层Softplus，非强制正值/非coercive势能。",
+      "initializer": "82→64→2的校正MLP；最后5帧在真实秒尺度做因果二次拟合；21帧中心化特征用于有界校正，运动门控scale floor=.1；完全相同末5帧强制p=0。",
+      "environment": "single/A无context；multi c∈R⁴，由初始21帧编码+动作+dt，经82→64→4、Tanh生成，整个自主rollout固定；仅进入D，不进入V或input_port。",
+      "damping": "网络输入[q,p]为4维，multi再拼c为8维；两个32宽Tanh隐藏层输出3个无约束数，填2×2下三角L；D=LLᵀ因此半正定，可奇异，并非严格正定约束。",
+      "precision": "图像encoder/initializer/context为FP32；mechanical q,p,core为FP64。"
+    },
+    "continuous_dynamics": {
+      "formula": "H(q,p)=0.5 pᵀp+V(q); qdot=p; pdot=-∇V(q)-D(q,p,c)p+B(q)u",
+      "mass": "M=I₂是潜坐标约定/固定动力学假设；不是学得的质量矩阵，也不是验证物理质量或canonical embedding的证据。",
+      "power_balance": "dH/dt=pᵀB(q)u-pᵀDp；所有本次数据u=0。A硬设D=0；B学习PSD D。",
+      "physical_vs_latent": "真实生成器m=L=1,g=9.81，theta_dot=omega，omega_dot=-9.81 sin(theta)-b omega。物理b不可直接等同潜D矩阵元素；D可含表示误差补偿。"
+    },
+    "discrete_dynamics": {
+      "method": "frozen_dg，3个名义子步/帧，h=.1/3；困难样本可二分至max_bisections=4，改变数值叶步而非观测dt。",
+      "coefficient_prediction": "D0=D(q,p,c); p_tilde=(I+h D0/2)^-1[p-h(∇V(q)-B(q)u)/2]; q_tilde=q+h p/2; Dhat=D(q_tilde,p_tilde,c), drive=B(q_tilde)u。Dhat/drive在本叶步root求解中固定，但上游梯度保留。",
+      "residual": "R(v)=v-p+(h/2)[discrete_gradient_V(q,q+h v)+Dhat v-drive]=0; q_next=q+h v; p_next=2v-p。",
+      "gradient_and_solver": "本次EfficientCore重写discrete_gradient为逐层对称割线链式离散梯度，不是base类Gonzalez实现；小差值Taylor近似的实际chain defect显式验收。Picard6次起步，有限差分Newton/Armijo与受限细分兜底；反向为通过验收的root方程隐式伴随，非展开全部求解迭代。",
+      "ledger": "W=h vᵀdrive，Diss=h vᵀDhat v≥0；ΔH-W+Diss=chain_defect+residual_work，按有限容差检查，非宣称机器精度绝对零误差。",
+      "scope": "潜离散能量账本不等于物理轨迹正确；本次不是原官方LeHami训练/积分器的严格复现。"
+    },
+    "objective_and_supervision": {
+      "objective": "L=MSE(q_pred,q_target)+MSE(τ p_pred,τ p_target)+0.25 SIGReg([q_center,τ p_center])+0.001 mean(correction²)，τ=.1 s，motion_weight=0。",
+      "targets": "q_target来自同一encoder的未来观测；p_target为5点中心局部二次拟合导数，在均匀dt时=(-2q[t-2]-q[t-1]+q[t+1]+2q[t+2])/(10dt)。LeHami分支targets保持可微，不能描述成stop-gradient targets。额外2帧仅用于最后预测点的中心导数监督。",
+      "sigreg": "联合4维[q,τp]，17个频率结点t∈[0,3]、256个随机投影；来自固定upstream SIGReg。",
+      "inputs": "训练world model仅pixels/action/dt_frame；regime/group用于采样/审计，不作为网络输入；真实theta、omega、b、energy无world-model监督。未来图像只进入训练目标，rollout完成后才编码。",
+      "diagnostic_labels": "非线性物理读出单独使用train的(sinθ,cosθ,ω)标签；故world model是视觉自监督，但完整评测协议含有标签的诊断校准预算。",
+      "test_boundary": "训练/评测没有test图像或物理状态性能访问；训练数据布局检查会读取test split/group元数据来审计无重叠，不能笼统声称代码连test元数据都不读。",
+      "stage_B_gradient": "B冻结encoder、initializer、V、input_port及A全部buffers；SIGReg和initializer penalty仍在标量loss中，但对仅D/context可训练参数无梯度。"
+    },
+    "training_protocol": {
+      "dt_seconds": 0.1,
+      "history_frames": 21,
+      "history_span_seconds": 2.0,
+      "velocity_history_frames": 5,
+      "velocity_fit_span_seconds": 0.4,
+      "target_only_tail_frames": 2,
+      "train_prefix_frames": 81,
+      "train_prefix_duration_seconds": 8.0,
+      "curriculum": [
+        {
+          "updates": "1..1000",
+          "K": 4,
+          "seconds": 0.4
+        },
+        {
+          "updates": "1001..4000",
+          "K": 8,
+          "seconds": 0.8
+        },
+        {
+          "updates": "4001..10000",
+          "K": 16,
+          "seconds": 1.6
+        },
+        {
+          "updates": "10001..20000",
+          "K": 32,
+          "seconds": 3.2
+        }
+      ],
+      "seed": 0,
+      "batch_size": 32,
+      "optimizer": "AdamW;encoder lr2e-5,dynamics lr1e-4,weight_decay1e-4,warmup500,minimum_lr_ratio.1,gradient_clip1",
+      "validation": "每250更新做K8/K32、固定288窗口；精确20000 last用于报告/衔接，非早期best选择。",
+      "A": "原10000 checkpoint精确resume到20000；训练encoder+initializer+V，D硬0；同config/optimizer/RNG/sampler续接。",
+      "B_single": "从A20000复制全部已有state，新D初始化0.01I，只训练D；fresh AdamW、step0→20000；b=.2。",
+      "B_multi": "同一A20000复制全部state，D初值0.01I，新增4维context；只训练D+environment，fresh AdamW、step0→20000；b=0,.05,.1,.2,.5,1。",
+      "parallelism": "两个B在A20000完成并写出readout后并行；不是40000个序列更新。",
+      "data": "384train/64val/128test独立初态group，先按group分割再展开b；smooth_v1的64×64 RGB；真值RK4每.1s含20个子步。未见b/test保持封存。"
+    },
+    "evaluation_and_readout": {
+      "readout": "对冻结模型的因果(q,p)4维特征做uniform Euclidean kNN；特征均值/标准差与目标标准差仅从train fit288估计，std下限1e-6。",
+      "partition": "train384以seed5705分fit288与select96；每group frame20..80共61个pairs，fit17568/select5856。候选k=1,5,25,50，在select96最小化标准化(sinθ,cosθ,ω)MSE；最终k=5。",
+      "decoding": "邻居(sinθ,cosθ,ω)等权均值，再atan2(mean_sin,mean_cos)解码θ。不能称“线性读出”或“直接监督的状态encoder”。",
+      "frozen": "A20000重新校准一次；两B复制A相同readout.npz/provenance原始字节，未对B重拟合。A10000使用其自身train-calibrated读出。",
+      "rollout": "val anchor20，初始21帧仅初始化一次，自主推进32步；teacher每个时间点重新使用真实因果21帧历史编码，teacher非自主预测。",
+      "metric": "wrapped角差atan2(sinΔθ,cosΔθ)；MAE/RMSE汇总未来帧1..K，不含anchor，非仅末帧误差；ωNRMSE=ωRMSE/2.611771043835727 rad/s，该分母是fit288的ω标准差，非val动态范围。",
+      "stop": "10帧滑动速度窗口（10Hz，名义1秒窗口；首末采样跨度.9秒）。真值RMS>.1*fit_train_omega_std才计dynamic；预测RMS<.1*真值RMS判stopped。K8不支持该窗口，NA；自然静止被排除。该定义不同于训练latent速度gate。",
+      "teacher_gate": "诊断门槛angleMAE≤.1rad且ωNRMSE≤.15；整体通过不代表每个b通过。b=1 K32 teacherangle=.1060935856超门槛。",
+      "physical_energy": "E=.5mL²ω²+mgL(1−cosθ)；按max(|E_truth(anchor)|,1e-6mgL)归一化；先各轨迹算未来E MAE或最大漂移，再跨轨迹取median/p90。B真实耗散造成正常能量下降，不应把ΔE≠0判失败。",
+      "coverage": "失败保留NaN后缀，完整前缀覆盖率独立报告，不以冻结最后帧补齐。当前所有val rollout完整。",
+      "geometry_limit": "非线性kNN可能把off-manifold状态映射回训练标签；准确读出不是e(θ)曲率项e″ω²已被正确建模、质量矩阵假设正确或canonical坐标已恢复的证明。"
+    },
+    "future_evaluation_support": {
+      "stored_trajectory_frames": 33,
+      "stored_relative_horizon_seconds": 3.2,
+      "available_future_metrics_without_model_execution": [
+        0.8,
+        1.6,
+        3.2
+      ],
+      "underlying_train_and_val_episode_frames": 81,
+      "underlying_train_and_val_absolute_duration_seconds": 8.0,
+      "evaluation_anchor_frame": 20,
+      "evaluation_anchor_absolute_time_seconds": 2.0,
+      "maximum_existing_val_future_steps_at_same_anchor": 60,
+      "maximum_existing_val_future_seconds_at_same_anchor": 6.0,
+      "evidence": "Frozen passive_family._records uses train_frames for both train and val, test_frames only for test; actual prepared preflights for A/single/multi all report train_frames81. No extra H5 payload read for this audit.",
+      "for_future8_seconds": {
+        "horizon_steps": 80,
+        "required_total_frames_from_original_initial_state": 101,
+        "required_absolute_simulation_seconds": 10.0
+      },
+      "for_future32_seconds": {
+        "horizon_steps": 320,
+        "required_total_frames_from_original_initial_state": 341,
+        "required_absolute_simulation_seconds": 34.0
+      },
+      "required_action_if_proposed": "Generate separate evaluation-only longer validation trajectories for exactly the existing64 validation group IDs and the declared damping conditions, preserving original initial states/seeds, dt=.1, physics, truth RK4substeps20, renderer smooth_v1, and exact first81-frame/state prefix. Do not change trained model, train prefix, curriculum or checkpoint. This audit has not generated them.",
+      "test_boundary": "Existing test episodes have341 frames but are different held-out groups; do not silently use them for validation/baseline tuning.",
+      "evaluator_boundary": "Current staged evaluator hardcodesK32 and binds dataset SHA to the training checkpoint. A new long-horizon evaluation adapter must explicitly preserve original training-data identity while separately recording/validating the longer eval-only dataset SHA and paired-prefix identity; do not silently disable original provenance checks."
+    }
+  },
+  "evidence_file_lines": {
+    "latent_mass_energy_psd": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_core.py",
+        "line_start": 1,
+        "line_end": 6
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_core.py",
+        "line_start": 117,
+        "line_end": 155
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_core.py",
+        "line_start": 170,
+        "line_end": 190
+      }
+    ],
+    "architecture": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_model.py",
+        "line_start": 25,
+        "line_end": 40
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_model.py",
+        "line_start": 156,
+        "line_end": 206
+      }
+    ],
+    "initialization_context": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_model.py",
+        "line_start": 223,
+        "line_end": 251
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_model.py",
+        "line_start": 263,
+        "line_end": 296
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_model.py",
+        "line_start": 308,
+        "line_end": 324
+      }
+    ],
+    "supervision_boundary": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_data.py",
+        "line_start": 20,
+        "line_end": 20
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_data.py",
+        "line_start": 37,
+        "line_end": 52
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_data.py",
+        "line_start": 103,
+        "line_end": 127
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_data.py",
+        "line_start": 142,
+        "line_end": 145
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_model.py",
+        "line_start": 326,
+        "line_end": 348
+      }
+    ],
+    "phase_targets_loss": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_model.py",
+        "line_start": 351,
+        "line_end": 376
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_model.py",
+        "line_start": 402,
+        "line_end": 409
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_model.py",
+        "line_start": 424,
+        "line_end": 468
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/third_party/le-wm/module.py",
+        "line_start": 10,
+        "line_end": 36
+      }
+    ],
+    "integrator": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/efficient_dissipative_core.py",
+        "line_start": 1,
+        "line_end": 12
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/efficient_dissipative_core.py",
+        "line_start": 27,
+        "line_end": 76
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/efficient_dissipative_core.py",
+        "line_start": 109,
+        "line_end": 165
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/efficient_dissipative_core.py",
+        "line_start": 297,
+        "line_end": 332
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/automatic_discrete_gradient.py",
+        "line_start": 1,
+        "line_end": 21
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/automatic_discrete_gradient.py",
+        "line_start": 149,
+        "line_end": 165
+      }
+    ],
+    "physical_data": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/generate.py",
+        "line_start": 18,
+        "line_end": 36
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/configs/passive_family_smooth_v1.json",
+        "line_start": 3,
+        "line_end": 20
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/configs/passive_family_smooth_v1.json",
+        "line_start": 31,
+        "line_end": 55
+      }
+    ],
+    "training_configuration": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/configs/dissipative_loss_pair_lehami_v1.json",
+        "line_start": 3,
+        "line_end": 32
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/configs/dissipative_loss_pair_lehami_v1.json",
+        "line_start": 35,
+        "line_end": 91
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/scripts/train_staged_damping.py",
+        "line_start": 85,
+        "line_end": 116
+      }
+    ],
+    "stage_transfer": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/staged_damping.py",
+        "line_start": 139,
+        "line_end": 158
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/staged_damping.py",
+        "line_start": 194,
+        "line_end": 211
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/scripts/train_staged_damping.py",
+        "line_start": 240,
+        "line_end": 248
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/scripts/train_staged_damping.py",
+        "line_start": 366,
+        "line_end": 398
+      }
+    ],
+    "readout": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/scripts/evaluate_staged_damping.py",
+        "line_start": 198,
+        "line_end": 242
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/scripts/evaluate_staged_damping.py",
+        "line_start": 250,
+        "line_end": 290
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/scripts/evaluate_staged_damping.py",
+        "line_start": 494,
+        "line_end": 539
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/evaluate_passive.py",
+        "line_start": 57,
+        "line_end": 76
+      }
+    ],
+    "autonomous_no_future": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/evaluate_passive.py",
+        "line_start": 101,
+        "line_end": 133
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/scripts/evaluate_staged_damping.py",
+        "line_start": 397,
+        "line_end": 435
+      }
+    ],
+    "physical_metrics": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/scripts/evaluate_staged_damping.py",
+        "line_start": 295,
+        "line_end": 327
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/scripts/evaluate_staged_damping.py",
+        "line_start": 330,
+        "line_end": 349
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/scripts/evaluate_staged_damping.py",
+        "line_start": 363,
+        "line_end": 394
+      }
+    ],
+    "latent_motion_diagnostics": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_model.py",
+        "line_start": 496,
+        "line_end": 515
+      }
+    ],
+    "future_evaluation_support": [
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/passive_family.py",
+        "line_start": 198,
+        "line_end": 212
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/configs/passive_family_smooth_v1.json",
+        "line_start": 46,
+        "line_end": 50
+      },
+      {
+        "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/scripts/evaluate_staged_damping.py",
+        "line_start": 533,
+        "line_end": 546
+      }
+    ]
+  },
+  "source_sha256": {
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/configs/dissipative_loss_pair_lehami_v1.json": "db79b999b7c07295ffcd643c94dc30258c9cbb701adad0e4d3b82a93ec650e2a",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/configs/passive_family_smooth_v1.json": "713011f5f586f130c56aa49f33368dea8d987bb31d6f1b2357b2746a5edff3e4",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_core.py": "077c941d2b897411fc8560dc2dd9e7877bc8125560293a68a2552507b52f603f",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_data.py": "6e6ffb5ad921463cf3631529c06e6b4c73e185f50c8181fe81f076dde0045474",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/dissipative_model.py": "7b7e7acff94662b860e9eaa35ac65fc48578a64d191e8d97d2668da0334d77c9",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/evaluate_passive.py": "e302e5bfd60fdc7e7f9109737ee449e3349f0296e456dfe36d7d12657e9ebcde",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/generate.py": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/staged_damping.py": "c1366d325545c82666a4a868c7d4b7383e54de455163c23ec671b047ead48cf9",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/scripts/evaluate_staged_damping.py": "6d9fef3dbce10ab338a3db11c44c31b1a7eaf74608f1323dcc2d8c899d89b73f",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/scripts/train_staged_damping.py": "ac386f1e9f9f267839f23c4b50810cd7070928127c52756301d76c7c3e07038e",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/code/dpbench/passive_family.py": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae"
+  },
+  "actual_completed_configuration_and_identity": {
+    "A20000": {
+      "resolved_model": {
+        "history": 21,
+        "velocity_history": 5,
+        "environment_context_dim": 0,
+        "dt": 0.1,
+        "q_dim": 2,
+        "encoder_width": 32,
+        "velocity_correction_scale": 1.0,
+        "sigreg_weight": 0.25,
+        "motion_weight": 0.0,
+        "initializer_weight": 0.001,
+        "velocity_initializer": "motion_gated",
+        "motion_loss_mode": "normalized_velocity",
+        "motion_scale_floor": 0.1,
+        "momentum_weight": 1.0,
+        "objective_mode": "lehami",
+        "target_tail_frames": 2,
+        "momentum_reference_time": 0.1,
+        "sigreg_knots": 17,
+        "sigreg_projections": 256,
+        "variance_floor": 0.0001,
+        "core": {
+          "hidden_dim": 32,
+          "action_dim": 1,
+          "damping_mode": "none",
+          "potential_mode": "raw",
+          "integrator": "frozen_dg",
+          "substeps": 3,
+          "newton_iterations": 12,
+          "residual_atol": 1e-08,
+          "residual_rtol": 1e-07,
+          "chain_atol": 1e-10,
+          "strict": true,
+          "solver": "picard",
+          "line_search_max_backtracks": 12,
+          "line_search_shrink": 0.5,
+          "line_search_c1": 0.0001,
+          "max_bisections": 4,
+          "picard_iterations": 6,
+          "picard_check_every": 2,
+          "fd_relative_step": 6e-06,
+          "implicit_rcond_min": 1e-08,
+          "adjoint_rtol": 1e-10
+        }
+      },
+      "trainable_modules": [
+        "encoder",
+        "initializer",
+        "potential"
+      ],
+      "checkpoint_step": 20000,
+      "checkpoint_sha256": "5145d5769b85f1992d2e4fd757bd19ac61a2704e459cbcb00844b3465f8bd068",
+      "dataset_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+      "readout_sha256": "b043b1899a979046a6fbad4e57f183436cdcbeb965a9c95c0ed11d8215d66390",
+      "readout_k": 5,
+      "parameters_unchanged_during_evaluation": true
+    },
+    "B_single": {
+      "resolved_model": {
+        "history": 21,
+        "velocity_history": 5,
+        "environment_context_dim": 0,
+        "dt": 0.1,
+        "q_dim": 2,
+        "encoder_width": 32,
+        "velocity_correction_scale": 1.0,
+        "sigreg_weight": 0.25,
+        "motion_weight": 0.0,
+        "initializer_weight": 0.001,
+        "velocity_initializer": "motion_gated",
+        "motion_loss_mode": "normalized_velocity",
+        "motion_scale_floor": 0.1,
+        "momentum_weight": 1.0,
+        "objective_mode": "lehami",
+        "target_tail_frames": 2,
+        "momentum_reference_time": 0.1,
+        "sigreg_knots": 17,
+        "sigreg_projections": 256,
+        "variance_floor": 0.0001,
+        "core": {
+          "hidden_dim": 32,
+          "action_dim": 1,
+          "damping_mode": "position_velocity",
+          "potential_mode": "raw",
+          "integrator": "frozen_dg",
+          "substeps": 3,
+          "newton_iterations": 12,
+          "residual_atol": 1e-08,
+          "residual_rtol": 1e-07,
+          "chain_atol": 1e-10,
+          "strict": true,
+          "solver": "picard",
+          "line_search_max_backtracks": 12,
+          "line_search_shrink": 0.5,
+          "line_search_c1": 0.0001,
+          "max_bisections": 4,
+          "picard_iterations": 6,
+          "picard_check_every": 2,
+          "fd_relative_step": 6e-06,
+          "implicit_rcond_min": 1e-08,
+          "adjoint_rtol": 1e-10
+        }
+      },
+      "trainable_modules": [
+        "damping"
+      ],
+      "checkpoint_step": 20000,
+      "checkpoint_sha256": "53678a48efff612ccd0572873959c6ccfb80109e13b117d7c2990a2a2ae16f89",
+      "dataset_sha256": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+      "readout_sha256": "b043b1899a979046a6fbad4e57f183436cdcbeb965a9c95c0ed11d8215d66390",
+      "readout_k": 5,
+      "parameters_unchanged_during_evaluation": true,
+      "frozen_audit": {
+        "all_parent_tensors_identical": true,
+        "tensor_count": 40,
+        "parent_sha256": "5145d5769b85f1992d2e4fd757bd19ac61a2704e459cbcb00844b3465f8bd068",
+        "child_sha256": "53678a48efff612ccd0572873959c6ccfb80109e13b117d7c2990a2a2ae16f89"
+      }
+    },
+    "B_multi": {
+      "resolved_model": {
+        "history": 21,
+        "velocity_history": 5,
+        "environment_context_dim": 4,
+        "dt": 0.1,
+        "q_dim": 2,
+        "encoder_width": 32,
+        "velocity_correction_scale": 1.0,
+        "sigreg_weight": 0.25,
+        "motion_weight": 0.0,
+        "initializer_weight": 0.001,
+        "velocity_initializer": "motion_gated",
+        "motion_loss_mode": "normalized_velocity",
+        "motion_scale_floor": 0.1,
+        "momentum_weight": 1.0,
+        "objective_mode": "lehami",
+        "target_tail_frames": 2,
+        "momentum_reference_time": 0.1,
+        "sigreg_knots": 17,
+        "sigreg_projections": 256,
+        "variance_floor": 0.0001,
+        "core": {
+          "hidden_dim": 32,
+          "action_dim": 1,
+          "damping_mode": "position_velocity",
+          "potential_mode": "raw",
+          "integrator": "frozen_dg",
+          "substeps": 3,
+          "newton_iterations": 12,
+          "residual_atol": 1e-08,
+          "residual_rtol": 1e-07,
+          "chain_atol": 1e-10,
+          "strict": true,
+          "solver": "picard",
+          "line_search_max_backtracks": 12,
+          "line_search_shrink": 0.5,
+          "line_search_c1": 0.0001,
+          "max_bisections": 4,
+          "picard_iterations": 6,
+          "picard_check_every": 2,
+          "fd_relative_step": 6e-06,
+          "implicit_rcond_min": 1e-08,
+          "adjoint_rtol": 1e-10
+        }
+      },
+      "trainable_modules": [
+        "damping",
+        "environment"
+      ],
+      "checkpoint_step": 20000,
+      "checkpoint_sha256": "c7815496cf64c84147e99e5aba0bbff58da7ef4bbd7bdd43aea14c7cb79331c2",
+      "dataset_sha256": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6",
+      "readout_sha256": "b043b1899a979046a6fbad4e57f183436cdcbeb965a9c95c0ed11d8215d66390",
+      "readout_k": 5,
+      "parameters_unchanged_during_evaluation": true,
+      "frozen_audit": {
+        "all_parent_tensors_identical": true,
+        "tensor_count": 40,
+        "parent_sha256": "5145d5769b85f1992d2e4fd757bd19ac61a2704e459cbcb00844b3465f8bd068",
+        "child_sha256": "c7815496cf64c84147e99e5aba0bbff58da7ef4bbd7bdd43aea14c7cb79331c2"
+      }
+    }
+  },
+  "additional_saved_trajectory_statistics": {
+    "A10000": {
+      "source": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/dimension_launch_20261105T113319Z/evaluation/d2/val/trajectories.npz",
+      "sha256": "401008ff99f81b58d4b551dcde4bfcc633c664802e0844023f19dc9ee99678ea",
+      "horizons": {
+        "8": {
+          "horizon_seconds": 0.8,
+          "groups": {
+            "all": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.08679440081655704,
+              "per_group_angle_mae_median_rad": 0.06898955558009326,
+              "per_group_angle_mae_p90_rad": 0.1583071095761106,
+              "per_group_angle_mae_max_rad": 0.2424984145730001,
+              "omega_rmse_rad_s": 0.37012061446601524,
+              "omega_nrmse": 0.14171250398826873,
+              "teacher_angle_mae_rad": 0.008967247633950137,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.08679440081655704,
+              "per_group_angle_mae_median_rad": 0.06898955558009326,
+              "per_group_angle_mae_p90_rad": 0.1583071095761106,
+              "per_group_angle_mae_max_rad": 0.2424984145730001,
+              "omega_rmse_rad_s": 0.37012061446601524,
+              "omega_nrmse": 0.14171250398826873,
+              "teacher_angle_mae_rad": 0.008967247633950137,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            }
+          }
+        },
+        "16": {
+          "horizon_seconds": 1.6,
+          "groups": {
+            "all": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.09660711393443476,
+              "per_group_angle_mae_median_rad": 0.0895659323292061,
+              "per_group_angle_mae_p90_rad": 0.1422609069179939,
+              "per_group_angle_mae_max_rad": 0.26131876223470135,
+              "omega_rmse_rad_s": 0.6049753954248125,
+              "omega_nrmse": 0.2316341613682672,
+              "teacher_angle_mae_rad": 0.009096699306552863,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.09660711393443476,
+              "per_group_angle_mae_median_rad": 0.0895659323292061,
+              "per_group_angle_mae_p90_rad": 0.1422609069179939,
+              "per_group_angle_mae_max_rad": 0.26131876223470135,
+              "omega_rmse_rad_s": 0.6049753954248125,
+              "omega_nrmse": 0.2316341613682672,
+              "teacher_angle_mae_rad": 0.009096699306552863,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            }
+          }
+        },
+        "32": {
+          "horizon_seconds": 3.2,
+          "groups": {
+            "all": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.1937450951780126,
+              "per_group_angle_mae_median_rad": 0.13812177424516164,
+              "per_group_angle_mae_p90_rad": 0.2608168435896033,
+              "per_group_angle_mae_max_rad": 1.1274793033096469,
+              "omega_rmse_rad_s": 1.101582391575351,
+              "omega_nrmse": 0.4217760182981175,
+              "teacher_angle_mae_rad": 0.008783804262463696,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.1937450951780126,
+              "per_group_angle_mae_median_rad": 0.13812177424516164,
+              "per_group_angle_mae_p90_rad": 0.2608168435896033,
+              "per_group_angle_mae_max_rad": 1.1274793033096469,
+              "omega_rmse_rad_s": 1.101582391575351,
+              "omega_nrmse": 0.4217760182981175,
+              "teacher_angle_mae_rad": 0.008783804262463696,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            }
+          }
+        }
+      }
+    },
+    "A20000": {
+      "source": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/run/milestones/undamped_step20000/evaluation/val/trajectories.npz",
+      "sha256": "97ea93ccda1fc8f81f28c104254fde76d9269f739d1ed99fed2530b86324d5fd",
+      "horizons": {
+        "8": {
+          "horizon_seconds": 0.8,
+          "groups": {
+            "all": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.05581103647249645,
+              "per_group_angle_mae_median_rad": 0.03894360813382711,
+              "per_group_angle_mae_p90_rad": 0.12783445018661496,
+              "per_group_angle_mae_max_rad": 0.24883714632943688,
+              "omega_rmse_rad_s": 0.18105931822247479,
+              "omega_nrmse": 0.06932434550486688,
+              "teacher_angle_mae_rad": 0.008303094031947456,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.05581103647249645,
+              "per_group_angle_mae_median_rad": 0.03894360813382711,
+              "per_group_angle_mae_p90_rad": 0.12783445018661496,
+              "per_group_angle_mae_max_rad": 0.24883714632943688,
+              "omega_rmse_rad_s": 0.18105931822247479,
+              "omega_nrmse": 0.06932434550486688,
+              "teacher_angle_mae_rad": 0.008303094031947456,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            }
+          }
+        },
+        "16": {
+          "horizon_seconds": 1.6,
+          "groups": {
+            "all": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.0591363054479498,
+              "per_group_angle_mae_median_rad": 0.04426890787022001,
+              "per_group_angle_mae_p90_rad": 0.13273119737603958,
+              "per_group_angle_mae_max_rad": 0.22969907994931868,
+              "omega_rmse_rad_s": 0.22073426170024754,
+              "omega_nrmse": 0.08451516537838265,
+              "teacher_angle_mae_rad": 0.008665522791149932,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.0591363054479498,
+              "per_group_angle_mae_median_rad": 0.04426890787022001,
+              "per_group_angle_mae_p90_rad": 0.13273119737603958,
+              "per_group_angle_mae_max_rad": 0.22969907994931868,
+              "omega_rmse_rad_s": 0.22073426170024754,
+              "omega_nrmse": 0.08451516537838265,
+              "teacher_angle_mae_rad": 0.008665522791149932,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            }
+          }
+        },
+        "32": {
+          "horizon_seconds": 3.2,
+          "groups": {
+            "all": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.06874698781850075,
+              "per_group_angle_mae_median_rad": 0.04744315773490664,
+              "per_group_angle_mae_p90_rad": 0.1500705613451482,
+              "per_group_angle_mae_max_rad": 0.2292511684049762,
+              "omega_rmse_rad_s": 0.29651775493180343,
+              "omega_nrmse": 0.11353129732854697,
+              "teacher_angle_mae_rad": 0.008379570572170756,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.06874698781850075,
+              "per_group_angle_mae_median_rad": 0.04744315773490664,
+              "per_group_angle_mae_p90_rad": 0.1500705613451482,
+              "per_group_angle_mae_max_rad": 0.2292511684049762,
+              "omega_rmse_rad_s": 0.29651775493180343,
+              "omega_nrmse": 0.11353129732854697,
+              "teacher_angle_mae_rad": 0.008379570572170756,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            }
+          }
+        }
+      }
+    },
+    "B_single": {
+      "source": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/run/milestones/damping_single_step20000/evaluation/val/trajectories.npz",
+      "sha256": "b8a5de2ae6ac5a1ef34f404586217447a66bb237f1cf4495cc1f926ceaa70b0c",
+      "horizons": {
+        "8": {
+          "horizon_seconds": 0.8,
+          "groups": {
+            "all": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.03192245340721519,
+              "per_group_angle_mae_median_rad": 0.028034678064419644,
+              "per_group_angle_mae_p90_rad": 0.059838889150365,
+              "per_group_angle_mae_max_rad": 0.08611994163448869,
+              "omega_rmse_rad_s": 0.14672194980868392,
+              "omega_nrmse": 0.05617718680011229,
+              "teacher_angle_mae_rad": 0.009557812006726299,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.2": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.03192245340721519,
+              "per_group_angle_mae_median_rad": 0.028034678064419644,
+              "per_group_angle_mae_p90_rad": 0.059838889150365,
+              "per_group_angle_mae_max_rad": 0.08611994163448869,
+              "omega_rmse_rad_s": 0.14672194980868392,
+              "omega_nrmse": 0.05617718680011229,
+              "teacher_angle_mae_rad": 0.009557812006726299,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            }
+          }
+        },
+        "16": {
+          "horizon_seconds": 1.6,
+          "groups": {
+            "all": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.035421252925546036,
+              "per_group_angle_mae_median_rad": 0.03590896612662525,
+              "per_group_angle_mae_p90_rad": 0.05148911589627666,
+              "per_group_angle_mae_max_rad": 0.07594367752613906,
+              "omega_rmse_rad_s": 0.16365767678411405,
+              "omega_nrmse": 0.06266157103256699,
+              "teacher_angle_mae_rad": 0.009626694160449603,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.2": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.035421252925546036,
+              "per_group_angle_mae_median_rad": 0.03590896612662525,
+              "per_group_angle_mae_p90_rad": 0.05148911589627666,
+              "per_group_angle_mae_max_rad": 0.07594367752613906,
+              "omega_rmse_rad_s": 0.16365767678411405,
+              "omega_nrmse": 0.06266157103256699,
+              "teacher_angle_mae_rad": 0.009626694160449603,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            }
+          }
+        },
+        "32": {
+          "horizon_seconds": 3.2,
+          "groups": {
+            "all": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.04120681442262554,
+              "per_group_angle_mae_median_rad": 0.034407746069415726,
+              "per_group_angle_mae_p90_rad": 0.07049235355924245,
+              "per_group_angle_mae_max_rad": 0.1250029610212161,
+              "omega_rmse_rad_s": 0.20467442218772228,
+              "omega_nrmse": 0.07836614264898624,
+              "teacher_angle_mae_rad": 0.010366210426986669,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.2": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.04120681442262554,
+              "per_group_angle_mae_median_rad": 0.034407746069415726,
+              "per_group_angle_mae_p90_rad": 0.07049235355924245,
+              "per_group_angle_mae_max_rad": 0.1250029610212161,
+              "omega_rmse_rad_s": 0.20467442218772228,
+              "omega_nrmse": 0.07836614264898624,
+              "teacher_angle_mae_rad": 0.010366210426986669,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            }
+          }
+        }
+      }
+    },
+    "B_multi": {
+      "source": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/run/milestones/damping_multi_step20000/evaluation/val/trajectories.npz",
+      "sha256": "d1c1b0fb07247b5f99e2a86485ede272b7bd7928d52c68e6dffa99543a94fcde",
+      "horizons": {
+        "8": {
+          "horizon_seconds": 0.8,
+          "groups": {
+            "all": {
+              "records": 384,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.048199800083746004,
+              "per_group_angle_mae_median_rad": 0.04571485044962211,
+              "per_group_angle_mae_p90_rad": 0.07282420708427399,
+              "per_group_angle_mae_max_rad": 0.09407199844026091,
+              "omega_rmse_rad_s": 0.21497033095998375,
+              "omega_nrmse": 0.08230826031529613,
+              "teacher_angle_mae_rad": 0.014317108135000318,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.05725141760569402,
+              "per_group_angle_mae_median_rad": 0.03855600592635438,
+              "per_group_angle_mae_p90_rad": 0.13094514234525131,
+              "per_group_angle_mae_max_rad": 0.25725682078868134,
+              "omega_rmse_rad_s": 0.1672478941421189,
+              "omega_nrmse": 0.06403620046897125,
+              "teacher_angle_mae_rad": 0.008303094031947456,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.05": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.038303878932665764,
+              "per_group_angle_mae_median_rad": 0.029945842002648795,
+              "per_group_angle_mae_p90_rad": 0.08202911797287372,
+              "per_group_angle_mae_max_rad": 0.1274726490507171,
+              "omega_rmse_rad_s": 0.1801922779726836,
+              "omega_nrmse": 0.06899237144005077,
+              "teacher_angle_mae_rad": 0.008003727584255119,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.1": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.028660346700544535,
+              "per_group_angle_mae_median_rad": 0.023519581732786544,
+              "per_group_angle_mae_p90_rad": 0.045417944712861015,
+              "per_group_angle_mae_max_rad": 0.09559924942519732,
+              "omega_rmse_rad_s": 0.19952144031863425,
+              "omega_nrmse": 0.07639315888333417,
+              "teacher_angle_mae_rad": 0.008155756397407296,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.2": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.029131064832669668,
+              "per_group_angle_mae_median_rad": 0.025829507949446225,
+              "per_group_angle_mae_p90_rad": 0.05430402822847641,
+              "per_group_angle_mae_max_rad": 0.07510470345555977,
+              "omega_rmse_rad_s": 0.21453220428827866,
+              "omega_nrmse": 0.08214050951924563,
+              "teacher_angle_mae_rad": 0.009557812006726299,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.5": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.04524547472854463,
+              "per_group_angle_mae_median_rad": 0.03435162495361564,
+              "per_group_angle_mae_p90_rad": 0.09661452876569637,
+              "per_group_angle_mae_max_rad": 0.147758867969897,
+              "omega_rmse_rad_s": 0.22443765250852724,
+              "omega_nrmse": 0.08593312688654026,
+              "teacher_angle_mae_rad": 0.013091008599027792,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=1": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.0906066177023574,
+              "per_group_angle_mae_median_rad": 0.0763306803912461,
+              "per_group_angle_mae_p90_rad": 0.15494099905952857,
+              "per_group_angle_mae_max_rad": 0.22221540189319847,
+              "omega_rmse_rad_s": 0.28394931296828824,
+              "omega_nrmse": 0.10871906771401814,
+              "teacher_angle_mae_rad": 0.03879125019063795,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            }
+          }
+        },
+        "16": {
+          "horizon_seconds": 1.6,
+          "groups": {
+            "all": {
+              "records": 384,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.06252718419633131,
+              "per_group_angle_mae_median_rad": 0.05509680110122041,
+              "per_group_angle_mae_p90_rad": 0.09335757788048604,
+              "per_group_angle_mae_max_rad": 0.12221493778911174,
+              "omega_rmse_rad_s": 0.26057313434347384,
+              "omega_nrmse": 0.09976875077104314,
+              "teacher_angle_mae_rad": 0.0184413255561606,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.073551540403404,
+              "per_group_angle_mae_median_rad": 0.056634142907661736,
+              "per_group_angle_mae_p90_rad": 0.14551106605016714,
+              "per_group_angle_mae_max_rad": 0.29143903994932896,
+              "omega_rmse_rad_s": 0.21812362919121192,
+              "omega_nrmse": 0.08351560130281131,
+              "teacher_angle_mae_rad": 0.008665522791149932,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.05": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.04489631864595972,
+              "per_group_angle_mae_median_rad": 0.03935080902142506,
+              "per_group_angle_mae_p90_rad": 0.07501543187478134,
+              "per_group_angle_mae_max_rad": 0.10506436797602625,
+              "omega_rmse_rad_s": 0.18456706180911475,
+              "omega_nrmse": 0.07066739722255819,
+              "teacher_angle_mae_rad": 0.007985839402304525,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.1": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.03890054107289051,
+              "per_group_angle_mae_median_rad": 0.033057883712299764,
+              "per_group_angle_mae_p90_rad": 0.06103814629162639,
+              "per_group_angle_mae_max_rad": 0.10907226804998574,
+              "omega_rmse_rad_s": 0.2074622138760123,
+              "omega_nrmse": 0.07943353777723446,
+              "teacher_angle_mae_rad": 0.008275766022869026,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.2": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.04034820798198574,
+              "per_group_angle_mae_median_rad": 0.034708557882197705,
+              "per_group_angle_mae_p90_rad": 0.07079861294705483,
+              "per_group_angle_mae_max_rad": 0.10862655595136121,
+              "omega_rmse_rad_s": 0.26157034853199923,
+              "omega_nrmse": 0.10015056608784857,
+              "teacher_angle_mae_rad": 0.009626694160449603,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.5": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.06214050719309054,
+              "per_group_angle_mae_median_rad": 0.05863460684369001,
+              "per_group_angle_mae_p90_rad": 0.10139762084125782,
+              "per_group_angle_mae_max_rad": 0.15635788108495027,
+              "omega_rmse_rad_s": 0.3040492249908706,
+              "omega_nrmse": 0.11641496129933908,
+              "teacher_angle_mae_rad": 0.017053503798138435,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=1": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.11532598988065744,
+              "per_group_angle_mae_median_rad": 0.09676242181478689,
+              "per_group_angle_mae_p90_rad": 0.19073615188227344,
+              "per_group_angle_mae_max_rad": 0.2432392766464444,
+              "omega_rmse_rad_s": 0.34905828094755276,
+              "omega_nrmse": 0.13364811658027845,
+              "teacher_angle_mae_rad": 0.05904062716205209,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            }
+          }
+        },
+        "32": {
+          "horizon_seconds": 3.2,
+          "groups": {
+            "all": {
+              "records": 384,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.09236135624032049,
+              "per_group_angle_mae_median_rad": 0.08086464204625354,
+              "per_group_angle_mae_p90_rad": 0.14590856596590038,
+              "per_group_angle_mae_max_rad": 0.20407411624861668,
+              "omega_rmse_rad_s": 0.37572799827542125,
+              "omega_nrmse": 0.14385947005661553,
+              "teacher_angle_mae_rad": 0.02834778538336026,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.10268759621877907,
+              "per_group_angle_mae_median_rad": 0.08084960449492666,
+              "per_group_angle_mae_p90_rad": 0.17187450126934503,
+              "per_group_angle_mae_max_rad": 0.3800074277986756,
+              "omega_rmse_rad_s": 0.35696724602053587,
+              "omega_nrmse": 0.1366763165795279,
+              "teacher_angle_mae_rad": 0.008379570572170756,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.05": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.06174057608587018,
+              "per_group_angle_mae_median_rad": 0.046405238260859995,
+              "per_group_angle_mae_p90_rad": 0.10751434511808262,
+              "per_group_angle_mae_max_rad": 0.2055340217916168,
+              "omega_rmse_rad_s": 0.27634157414806054,
+              "omega_nrmse": 0.10580620181094313,
+              "teacher_angle_mae_rad": 0.00826952421521979,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.1": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.06158257961762251,
+              "per_group_angle_mae_median_rad": 0.04455481774764099,
+              "per_group_angle_mae_p90_rad": 0.11919849569252373,
+              "per_group_angle_mae_max_rad": 0.25237426880574854,
+              "omega_rmse_rad_s": 0.3577023230439332,
+              "omega_nrmse": 0.13695776430639975,
+              "teacher_angle_mae_rad": 0.008731300445652394,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.2": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.07834122469391575,
+              "per_group_angle_mae_median_rad": 0.05516086375982822,
+              "per_group_angle_mae_p90_rad": 0.16536012892534238,
+              "per_group_angle_mae_max_rad": 0.2169786970786535,
+              "omega_rmse_rad_s": 0.4463821829442337,
+              "omega_nrmse": 0.17091168232291262,
+              "teacher_angle_mae_rad": 0.010366210426986669,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=0.5": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.09351581730079497,
+              "per_group_angle_mae_median_rad": 0.08413941639905521,
+              "per_group_angle_mae_p90_rad": 0.15482411393021142,
+              "per_group_angle_mae_max_rad": 0.20582823458865404,
+              "omega_rmse_rad_s": 0.3865396361909937,
+              "omega_nrmse": 0.14799905110491987,
+              "teacher_angle_mae_rad": 0.02824652103654548,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            },
+            "b=1": {
+              "records": 64,
+              "unique_groups": 64,
+              "angle_mae_rad": 0.1563003435249404,
+              "per_group_angle_mae_median_rad": 0.14277077638887797,
+              "per_group_angle_mae_p90_rad": 0.2284481288053977,
+              "per_group_angle_mae_max_rad": 0.26243119703163487,
+              "omega_rmse_rad_s": 0.4081886773129118,
+              "omega_nrmse": 0.15628807826639865,
+              "teacher_angle_mae_rad": 0.10609358560358649,
+              "aggregation": "For multi/all, first average each group equally across its6 damping records, then take the64-group quantiles; each per-b/single/A group has1 record."
+            }
+          }
+        }
+      }
+    }
+  },
+  "matched_b0p2_single_vs_multi_per_group_angle": {
+    "8": {
+      "horizon_seconds": 0.8,
+      "n_groups": 64,
+      "single_better_count": 32,
+      "multi_better_count": 32,
+      "tied_count": 0,
+      "fraction_favoring_single": 0.5,
+      "single_minus_multi_group_mae_mean_rad": 0.0027913885745455193,
+      "single_minus_multi_group_mae_median_rad": -8.414130151968013e-05,
+      "single_per_group_mae_median_rad": 0.028034678064419644,
+      "single_per_group_mae_p90_rad": 0.059838889150365,
+      "multi_per_group_mae_median_rad": 0.025829507949446225,
+      "multi_per_group_mae_p90_rad": 0.05430402822847641,
+      "interpretation": "Paired descriptive comparison of64 initial groups at the same b=.2; no across-seed significance claim."
+    },
+    "16": {
+      "horizon_seconds": 1.6,
+      "n_groups": 64,
+      "single_better_count": 36,
+      "multi_better_count": 28,
+      "tied_count": 0,
+      "fraction_favoring_single": 0.5625,
+      "single_minus_multi_group_mae_mean_rad": -0.004926955056439705,
+      "single_minus_multi_group_mae_median_rad": -0.0014901756701368304,
+      "single_per_group_mae_median_rad": 0.03590896612662525,
+      "single_per_group_mae_p90_rad": 0.05148911589627666,
+      "multi_per_group_mae_median_rad": 0.034708557882197705,
+      "multi_per_group_mae_p90_rad": 0.07079861294705483,
+      "interpretation": "Paired descriptive comparison of64 initial groups at the same b=.2; no across-seed significance claim."
+    },
+    "32": {
+      "horizon_seconds": 3.2,
+      "n_groups": 64,
+      "single_better_count": 60,
+      "multi_better_count": 4,
+      "tied_count": 0,
+      "fraction_favoring_single": 0.9375,
+      "single_minus_multi_group_mae_mean_rad": -0.037134410271290205,
+      "single_minus_multi_group_mae_median_rad": -0.01567481082746213,
+      "single_per_group_mae_median_rad": 0.034407746069415726,
+      "single_per_group_mae_p90_rad": 0.07049235355924245,
+      "multi_per_group_mae_median_rad": 0.05516086375982822,
+      "multi_per_group_mae_p90_rad": 0.16536012892534238,
+      "interpretation": "Paired descriptive comparison of64 initial groups at the same b=.2; no across-seed significance claim."
+    }
+  },
+  "prior_independent_recheck": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/independent_recheck.json",
+  "cautions": [
+    "At K16 statistics are newly computed from the existing K32 trajectories; no new rollout was run.",
+    "Geometry/canonical-coordinate claims require separate fixed-encoder/matched-velocity diagnostics; physical decoded accuracy alone cannot establish them.",
+    "Single-seed val64 results are not a test/unseen-condition result.",
+    "Stopping diagnostics only cover the observed3.2s rollout and readout validity boundary.",
+    "The aggregate multi condition has384 records from64 paired initial groups; do not treat384 records as384 independent groups."
+  ]
+}

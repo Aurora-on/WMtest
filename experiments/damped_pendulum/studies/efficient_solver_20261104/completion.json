@@ -1,0 +1,45 @@
+{
+  "status": "redesign_implemented_and_short_tests_completed",
+  "formal_training_resumed": false,
+  "full_training_qualification_complete": false,
+  "default_recommendation": "Prefer the3-substep candidate for subsequent broader accuracy checks;2-substep variant is a measured speed/accuracy tradeoff, not unconditional2x acceleration.",
+  "local_checks": "70 passed in1.31s",
+  "cuda_checks": "21 passed in6.41s",
+  "short_jobs": {
+    "47712": {
+      "state": "COMPLETED",
+      "gpu_seconds": 82,
+      "optimizer_updates": 24
+    },
+    "47717": {
+      "state": "COMPLETED",
+      "gpu_seconds": 52,
+      "optimizer_updates": 8
+    }
+  },
+  "total_short_optimizer_updates": 32,
+  "total_allocated_L40_seconds": 134,
+  "artifacts": {
+    "design": "design.json",
+    "timing_fast": "short_test_summary.json",
+    "timing_three_substeps": "accuracy_benchmark_audit.json",
+    "independent_audit_fast": "independent_audit.json",
+    "time_refinement": "time_refinement.json",
+    "single_fixture_accuracy": "accuracy_substeps3.json"
+  },
+  "current_source_hashes": {
+    "dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+    "dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+    "dpbench/dissipative_model.py": "22759040e4b6085a4b029f702c0188cd1b230961751ae0307c4202704e53567e",
+    "dpbench/train_dissipative.py": "dd65dc94bce52daa53a39e90386bee2e3cd50bd269bc15be48083445acbe3339",
+    "configs/dissipative_passive_efficient.json": "8dc4ce0a133f9fe1d71b7c947e742f099ca45cf2a89f93388744850171eb6283",
+    "configs/dissipative_passive_efficient_3substeps.json": "a6cd4f53e9bd53d303a7d655eade1da7f8f2db8f00f30b02999123a2e96b310e",
+    "scripts/benchmark_efficient_solver.py": "6455136166ce913d1648b46edf9da277c963bacb298e92a2dc0535ad5d60dba9"
+  },
+  "limits": [
+    "Short benchmarks only3 timed updates/case and one3750 checkpoint.",
+    "Accuracy refinement uses one2795 failure fixture, not a physical prediction test set.",
+    "The discrete map and backward definition change; old checkpoint cannot be called unchanged-experiment resume.",
+    "Both default and comparison retain original root/chain acceptance and explicit rejection."
+  ]
+}

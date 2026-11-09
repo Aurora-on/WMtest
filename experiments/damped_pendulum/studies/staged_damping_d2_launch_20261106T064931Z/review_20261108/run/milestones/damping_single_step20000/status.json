@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "training_started": true,
+  "completed_steps": 20000,
+  "optimizer_steps_this_run": 20000,
+  "configured_total_steps": 20000,
+  "stop_after_step": 20000,
+  "full_budget_completed": true,
+  "best_score": 0.003117410446469781,
+  "best_step": 20000,
+  "best_available": true,
+  "elapsed_seconds": 45369.77534519136,
+  "physical_validation": false
+}

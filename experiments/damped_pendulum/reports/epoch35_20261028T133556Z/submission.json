@@ -1,0 +1,16 @@
+{
+  "requested_utc": "2026-10-28T13:36:52.141238+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--job-name=pendulum35-133556",
+    "--array=0-11%1",
+    "--export=ALL,PENDULUM_DATA_DIR=data/server_generated_47106,PENDULUM_STEPS=28140",
+    "scripts/slurm_matrix.sh"
+  ],
+  "cwd": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z",
+  "protocol_sha256": "e1813390a87cdcdb874eeec0f7425426e7b8b5b8278d1f4b1abe4dc7af7a3ad5",
+  "returncode": 0,
+  "stdout": "47111",
+  "stderr": ""
+}

@@ -1,0 +1,124 @@
+{
+  "job_id": "47141",
+  "status": "COMPLETE",
+  "model": "LeHami",
+  "seed": 42,
+  "epochs_completed": 100,
+  "optimizer_updates": 43900,
+  "evaluated_best_epoch_1based": 98,
+  "test_episodes": 45,
+  "readout": "knn_k1, 25 neighbors fitted on model one-step outputs",
+  "time_seconds_per_step": 0.1,
+  "checkpoint_audit": "../received/completed_47141/metadata/final_checkpoint_audit_47141.json",
+  "published_reference": "Author exported s0 corresponds to original config seed42; not a three-seed average",
+  "endpoint_metrics": [
+    {
+      "k": 10,
+      "seconds": 1.0,
+      "ours": {
+        "theta_mae_rad": 0.18404753035691349,
+        "theta_mae_deg": 10.54514671925704,
+        "omega_mae_rad_s": 0.4858983907705932
+      },
+      "author_seed42": {
+        "theta_mae_rad": 0.175531806368756,
+        "theta_mae_deg": 10.057231675237304,
+        "omega_mae_rad_s": 0.4731542251775414
+      }
+    },
+    {
+      "k": 30,
+      "seconds": 3.0,
+      "ours": {
+        "theta_mae_rad": 0.4727379427025522,
+        "theta_mae_deg": 27.085888932553576,
+        "omega_mae_rad_s": 1.4116842322737708
+      },
+      "author_seed42": {
+        "theta_mae_rad": 0.449236501676562,
+        "theta_mae_deg": 25.73935554928873,
+        "omega_mae_rad_s": 1.3118308123610687
+      }
+    },
+    {
+      "k": 70,
+      "seconds": 7.0,
+      "ours": {
+        "theta_mae_rad": 0.7310801285355464,
+        "theta_mae_deg": 41.88780585096855,
+        "omega_mae_rad_s": 2.119283453458241
+      },
+      "author_seed42": {
+        "theta_mae_rad": 0.7573451470688168,
+        "theta_mae_deg": 43.392680561757835,
+        "omega_mae_rad_s": 2.082481864242915
+      }
+    }
+  ],
+  "time_band_means": [
+    {
+      "k_inclusive": [
+        1,
+        10
+      ],
+      "ours": {
+        "theta_mae": 0.10915336409371523,
+        "omega_mae": 0.3671679483243233
+      },
+      "author_seed42": {
+        "theta_mae": 0.10697173550376113,
+        "omega_mae": 0.3643966355726838
+      }
+    },
+    {
+      "k_inclusive": [
+        11,
+        20
+      ],
+      "ours": {
+        "theta_mae": 0.23274280608934944,
+        "omega_mae": 0.6770927059785857
+      },
+      "author_seed42": {
+        "theta_mae": 0.22491507547135442,
+        "omega_mae": 0.668787035883923
+      }
+    },
+    {
+      "k_inclusive": [
+        21,
+        70
+      ],
+      "ours": {
+        "theta_mae": 0.5958874321349118,
+        "omega_mae": 1.6640847636501424
+      },
+      "author_seed42": {
+        "theta_mae": 0.5963802065299888,
+        "omega_mae": 1.5343849860070649
+      }
+    }
+  ],
+  "latent_structure": {
+    "ours": {
+      "mean_abs_normalized_logdet": 1.9214585818110156e-09,
+      "max_abs_normalized_logdet": 1.0884399621959377e-08,
+      "K30_latent_dt_flip_relative_error": 8.86839248015688e-07,
+      "K30_latent_p_flip_relative_error": 0.21472692316176958
+    },
+    "author_seed42": {
+      "mean_abs_normalized_logdet": 1.904685276061653e-09,
+      "max_abs_normalized_logdet": 1.37146946230441e-08,
+      "K30_latent_dt_flip_relative_error": 7.131843754340681e-07,
+      "K30_latent_p_flip_relative_error": 0.23486766275221302
+    }
+  },
+  "limits": [
+    "Single seed only; not a new LeWM comparison.",
+    "Original source/data and protocol, with CUDA12.6 adaptation and checkpoint resume; not bitwise training equivalence.",
+    "Latent volume/reversibility do not establish true mechanical energy conservation or accurate long-horizon trajectories.",
+    "Summary.json un-suffixed physical metrics use ridge_gt; this report follows the paper main knn_k1 readout."
+  ],
+  "resume_job_wall_seconds": 3581.2295954227448,
+  "resume_job_time_note": "Includes 85 resumed epochs and evaluations; earlier pre-resume training/setup is excluded."
+}

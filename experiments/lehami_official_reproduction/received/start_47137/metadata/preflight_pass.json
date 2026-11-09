@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "job_id": "47135",
+  "metadata_dir": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/metadata/preflight_47135",
+  "completed_unix": 1793259166.3337266,
+  "runtime_source_fingerprint": "c855a013ca42a3d896dac3993be01d9bf255011bd3577c17c729a3d67e3fb4b8",
+  "compatibility_manifest_sha256": "b673c7aa76b4f9120aa7bfec2b073613f289dc5eeac4bcb86286a89be4607756",
+  "environment_fingerprint": "56c8b362410a4834ed0660f201ce445565d8973aaff55b2c253b48792542c17a",
+  "dataset_sha256": "4786e18cf6463830bcf3095c5fee0098b16add3efe407381ec065305b40704d8",
+  "smoke_updates": {
+    "a0m": 439,
+    "b0m": 459
+  }
+}

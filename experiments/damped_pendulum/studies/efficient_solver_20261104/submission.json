@@ -1,0 +1,14 @@
+{
+  "job_id": 47712,
+  "remote_root": "/home/weizhixin/ssd/efficient_solver_20261104_v1",
+  "ssh_control": "/tmp/codex-wm-efficient.sock",
+  "scope": "21 CUDA numerical tests and 24 bounded optimizer updates; no formal training",
+  "time_limit_minutes": 10,
+  "gpu_count": 1,
+  "device": "L40",
+  "pre_submit_source_hashes_verified": true,
+  "local_hash_manifest": "code_hashes.json",
+  "status": "COMPLETED",
+  "elapsed_seconds": 82,
+  "optimizer_updates": 24
+}

@@ -1,0 +1,14 @@
+{
+  "exp": "exp067_a0m_lehami_w1_multi",
+  "model_name": "lehami_sg_sep_sreg_joint_ms_conv",
+  "is_lewm": false,
+  "horizon": 40,
+  "n_episodes": 45,
+  "probe": "knn_k1",
+  "g_over_L": 9.77149,
+  "dt_phys": 0.05,
+  "per_episode_constants": true,
+  "reversal_dtflip_maxK": 8.86839248015688e-07,
+  "reversal_pflip_maxK": 0.21472692316176958,
+  "reversal_applicable": true
+}

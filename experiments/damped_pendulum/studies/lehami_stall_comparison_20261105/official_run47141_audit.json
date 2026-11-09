@@ -1,0 +1,698 @@
+{
+  "audit_date": "2026-11-05",
+  "subject": "Official LeHami reproduction job47141, seed42; distinguish from custom dissipative-benchmark LeHami adapter",
+  "actions": "Read existing local artifacts; recomputed statistics from saved decoded trajectories only; no training or checkpoint inference",
+  "actual_config": {
+    "model": {
+      "name": "lehami_sg_sep_sreg_joint_ms_conv",
+      "patch_size": 8,
+      "latent_dim": 32,
+      "fd_dt": 1.0,
+      "momentum_weight": 1.0,
+      "ham_flow": {
+        "hidden_dim": 1024,
+        "n_layers": 3,
+        "dt": 1.0,
+        "phase_space": true,
+        "separable": true,
+        "learnable_scale": true
+      },
+      "enc_window": 1,
+      "enc_variant": "full"
+    },
+    "data": {
+      "name": "pendulum_multi_v2",
+      "frameskip": 1,
+      "action_dim": 1,
+      "keys_to_load": [
+        "pixels",
+        "dt_frame"
+      ]
+    },
+    "optim": {
+      "optimizer": {
+        "lr": 5e-05,
+        "weight_decay": 0.001
+      }
+    },
+    "checkpoint": null,
+    "run_suffix": "_sg_sep_conv_w1_multi_exp067_a0m",
+    "resume_from": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/resume_sources/47137_epoch014_step6585.ckpt",
+    "manifest": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/LeHami/lehami/data/split_pendulum_multi_v2_episode_srnn_K80_val.15_dt2_seed42.json",
+    "allow_num_steps_mismatch": true,
+    "seed": 42,
+    "img_size": 64,
+    "embed_dim": 192,
+    "history_size": 1,
+    "num_preds": 13,
+    "train_split": 0.9,
+    "wandb": {
+      "project": "lehami",
+      "entity": null,
+      "enabled": false
+    },
+    "trainer": {
+      "max_epochs": 100,
+      "devices": "auto",
+      "accelerator": "gpu",
+      "precision": "bf16-mixed",
+      "gradient_clip_val": 1.0
+    },
+    "loader": {
+      "batch_size": 32,
+      "num_workers": 3,
+      "persistent_workers": true,
+      "pin_memory": true,
+      "prefetch_factor": 3
+    },
+    "loss": {
+      "sigreg": {
+        "weight": 0.25,
+        "kwargs": {
+          "knots": 17,
+          "num_proj": 1024
+        }
+      }
+    },
+    "phase": 2
+  },
+  "checkpoint_evidence": {
+    "best.ckpt": {
+      "epoch_0based": 97,
+      "global_step": 43022,
+      "sha256": "a09021196224d761bf2151919aebbc30ab0a0d8d05fba9f6c0732754f41cc5da",
+      "all_parameters_finite": true,
+      "scheduler": {
+        "warmup_steps": 439,
+        "max_steps": 43900,
+        "warmup_start_lr": 0.0,
+        "eta_min": 0.0,
+        "base_lrs": [
+          5e-05
+        ],
+        "last_epoch": 43022,
+        "_step_count": 43023,
+        "_is_initial": false,
+        "_get_lr_called_within_step": false,
+        "_last_lr": [
+          5.033308820288907e-08
+        ]
+      },
+      "best_validation_loss": 0.026168284937739372
+    },
+    "last.ckpt": {
+      "epoch_0based": 97,
+      "global_step": 43022,
+      "sha256": "8e21c1ac178285d3e6f2bc9542a7f1c54c2dd721464b8bc7e2ec92c0645b763d",
+      "all_parameters_finite": true,
+      "scheduler": {
+        "warmup_steps": 439,
+        "max_steps": 43900,
+        "warmup_start_lr": 0.0,
+        "eta_min": 0.0,
+        "base_lrs": [
+          5e-05
+        ],
+        "last_epoch": 43022,
+        "_step_count": 43023,
+        "_is_initial": false,
+        "_get_lr_called_within_step": false,
+        "_last_lr": [
+          5.033308820288907e-08
+        ]
+      },
+      "best_validation_loss": 0.026168284937739372
+    },
+    "epochepoch=099.ckpt": {
+      "epoch_0based": 99,
+      "global_step": 43900,
+      "sha256": "c32f5035aa92d43c485f56175e03cd11c4c3ecd43c920c6ed33b37d457087b90",
+      "all_parameters_finite": true,
+      "scheduler": {
+        "warmup_steps": 439,
+        "max_steps": 43900,
+        "warmup_start_lr": 0.0,
+        "eta_min": 0.0,
+        "base_lrs": [
+          5e-05
+        ],
+        "last_epoch": 43900,
+        "_step_count": 43901,
+        "_is_initial": false,
+        "_get_lr_called_within_step": false,
+        "_last_lr": [
+          0.0
+        ]
+      },
+      "best_validation_loss": 0.026168284937739372
+    }
+  },
+  "verified_source_hashes": {
+    "/Users/weizhixin/Desktop/WM/experiments/lehami_official_reproduction/upstream/LeHami/lehami/models/lehami/builders.py": {
+      "sha256": "92dca7edf2c3ab56a522287c5deb4a2935835892c0ee691f880b324cb9e39ad0",
+      "matches_historical_runtime_manifest": true
+    },
+    "/Users/weizhixin/Desktop/WM/experiments/lehami_official_reproduction/upstream/LeHami/lehami/models/lehami/ham_flow.py": {
+      "sha256": "b3338eb0e35237129985884473c68ad2c34c6bf0869ff39f6e6372ae7bc50f8e",
+      "matches_historical_runtime_manifest": true
+    },
+    "/Users/weizhixin/Desktop/WM/experiments/lehami_official_reproduction/upstream/LeHami/lehami/models/lehami/derivative.py": {
+      "sha256": "ace4a9daf9c7f1ac50d1947cbf71a6384a2bc3c27b747a80eeed6861691a41f5",
+      "matches_historical_runtime_manifest": true
+    }
+  },
+  "objective": {
+    "formula": "mean_8steps MSE(q_pred,q_target) + 1.0 * mean_8steps MSE(p_pred,SG_centered(q_target)) + 0.25 * SIGReg(concat(q_target,p_target))",
+    "sigreg_scope": "joint q,p; config omitted mode and verified builder default is joint",
+    "target_gradient": "Targets generated by same current encoder/projector; no detach/EMA in loss path",
+    "normalization": "MSE averages coordinates/batch; no separate fixed target-variance normalization",
+    "selection": "minimum validation pos_loss+mom_loss; epoch97 selected",
+    "training_horizon": 8,
+    "initialization": "4frame causal quadratic SG; anchor3; no learned correction",
+    "target_stencil": "5frame centered quadratic SG",
+    "clock": "fd_dt=1.0,flow_dt=1.0,dt_ref absent => frame units consistently, actual physical frame interval0.1s",
+    "sigreg_time_window": "centered interior10frames of14frame clip",
+    "source": "upstream/LeHami/lehami/models/lehami/builders.py:846-965"
+  },
+  "architecture": {
+    "latent_q_dim": 32,
+    "latent_p_dim": 32,
+    "encoder": "4block Conv-BatchNorm-GELU, channels32,64,128,192; framewise",
+    "projector": "MLP192->2048->32 with BatchNorm1d",
+    "hamiltonian": "K_MLP(p/exp(log_p_scale))+V_MLP(q,u), K/V 3linear layers hidden1024,Tanh hidden,linear output,no final bias,no Softplus",
+    "kinetic_evenness": "not constrained (default none)",
+    "damping": "none",
+    "integrator": "1 full leapfrog step per frame",
+    "velocity": "gradient_p K(p/s), not prescribed p",
+    "reference": "ham_flow.py:212-291"
+  },
+  "epoch_logs": [
+    {
+      "epoch0based": 0,
+      "stage": "fit",
+      "eff_rank_p_epoch": 17.784244537353516,
+      "eff_rank_q_epoch": 8.596031188964844,
+      "loss_epoch": 1.7878268957138062,
+      "mom_loss_epoch": 0.12559980154037476,
+      "pos_loss_epoch": 0.2958679795265198,
+      "pred_loss_epoch": 0.4214673340320587,
+      "sigreg_loss_epoch": 5.465439796447754,
+      "std_p_epoch": 0.19188229739665985,
+      "std_q_epoch": 0.8831995725631714
+    },
+    {
+      "epoch0based": 0,
+      "stage": "validate",
+      "eff_rank_p_epoch": 11.183263778686523,
+      "eff_rank_q_epoch": 6.150737285614014,
+      "loss_epoch": 5.555811405181885,
+      "mom_loss_epoch": 0.04117760434746742,
+      "pos_loss_epoch": 0.1565716564655304,
+      "pred_loss_epoch": 0.19774922728538513,
+      "sigreg_loss_epoch": 21.4322452545166,
+      "std_p_epoch": 0.11704660207033157,
+      "std_q_epoch": 1.024924874305725
+    },
+    {
+      "epoch0based": 1,
+      "stage": "fit",
+      "eff_rank_p_epoch": 9.067056655883789,
+      "eff_rank_q_epoch": 4.92490291595459,
+      "loss_epoch": 1.1039663553237915,
+      "mom_loss_epoch": 0.037473201751708984,
+      "pos_loss_epoch": 0.18365386128425598,
+      "pred_loss_epoch": 0.22112694382667542,
+      "sigreg_loss_epoch": 3.5313568115234375,
+      "std_p_epoch": 0.16163554787635803,
+      "std_q_epoch": 1.1061360836029053
+    },
+    {
+      "epoch0based": 1,
+      "stage": "validate",
+      "eff_rank_p_epoch": 5.491200923919678,
+      "eff_rank_q_epoch": 2.42931866645813,
+      "loss_epoch": 4.616300106048584,
+      "mom_loss_epoch": 0.017632393166422844,
+      "pos_loss_epoch": 0.08959928900003433,
+      "pred_loss_epoch": 0.10723169147968292,
+      "sigreg_loss_epoch": 18.036277770996094,
+      "std_p_epoch": 0.14089804887771606,
+      "std_q_epoch": 1.0791174173355103
+    },
+    {
+      "epoch0based": 5,
+      "stage": "fit",
+      "eff_rank_p_epoch": 3.6811442375183105,
+      "eff_rank_q_epoch": 4.414056777954102,
+      "loss_epoch": 0.7858489155769348,
+      "mom_loss_epoch": 0.016406411305069923,
+      "pos_loss_epoch": 0.08411307632923126,
+      "pred_loss_epoch": 0.100519560277462,
+      "sigreg_loss_epoch": 2.7413156032562256,
+      "std_p_epoch": 0.22655804455280304,
+      "std_q_epoch": 1.2302285432815552
+    },
+    {
+      "epoch0based": 5,
+      "stage": "validate",
+      "eff_rank_p_epoch": 3.071720600128174,
+      "eff_rank_q_epoch": 1.9877930879592896,
+      "loss_epoch": 4.409354209899902,
+      "mom_loss_epoch": 0.011935043148696423,
+      "pos_loss_epoch": 0.052728377282619476,
+      "pred_loss_epoch": 0.06466341018676758,
+      "sigreg_loss_epoch": 17.37876319885254,
+      "std_p_epoch": 0.18261459469795227,
+      "std_q_epoch": 1.1751710176467896
+    },
+    {
+      "epoch0based": 10,
+      "stage": "fit",
+      "eff_rank_p_epoch": 3.0906808376312256,
+      "eff_rank_q_epoch": 4.28145694732666,
+      "loss_epoch": 0.7397915124893188,
+      "mom_loss_epoch": 0.015703031793236732,
+      "pos_loss_epoch": 0.05787300318479538,
+      "pred_loss_epoch": 0.07357609272003174,
+      "sigreg_loss_epoch": 2.664863348007202,
+      "std_p_epoch": 0.2479623407125473,
+      "std_q_epoch": 1.2565845251083374
+    },
+    {
+      "epoch0based": 10,
+      "stage": "validate",
+      "eff_rank_p_epoch": 2.7093231678009033,
+      "eff_rank_q_epoch": 1.9138972759246826,
+      "loss_epoch": 4.2135467529296875,
+      "mom_loss_epoch": 0.009688308462500572,
+      "pos_loss_epoch": 0.031608324497938156,
+      "pred_loss_epoch": 0.04129662737250328,
+      "sigreg_loss_epoch": 16.689002990722656,
+      "std_p_epoch": 0.1905440241098404,
+      "std_q_epoch": 1.1526585817337036
+    },
+    {
+      "epoch0based": 14,
+      "stage": "fit",
+      "eff_rank_p_epoch": 2.959587335586548,
+      "eff_rank_q_epoch": 4.250853061676025,
+      "loss_epoch": 0.728890597820282,
+      "mom_loss_epoch": 0.014628138393163681,
+      "pos_loss_epoch": 0.05213093012571335,
+      "pred_loss_epoch": 0.06675909459590912,
+      "sigreg_loss_epoch": 2.648526430130005,
+      "std_p_epoch": 0.25048938393592834,
+      "std_q_epoch": 1.259574294090271
+    },
+    {
+      "epoch0based": 14,
+      "stage": "validate",
+      "eff_rank_p_epoch": 2.56516170501709,
+      "eff_rank_q_epoch": 1.8760857582092285,
+      "loss_epoch": 4.205465316772461,
+      "mom_loss_epoch": 0.008336151018738747,
+      "pos_loss_epoch": 0.027110302820801735,
+      "pred_loss_epoch": 0.035446442663669586,
+      "sigreg_loss_epoch": 16.680078506469727,
+      "std_p_epoch": 0.19515055418014526,
+      "std_q_epoch": 1.1617822647094727
+    },
+    {
+      "epoch0based": 15,
+      "stage": "fit",
+      "eff_rank_p_epoch": 2.927222490310669,
+      "eff_rank_q_epoch": 4.245385646820068,
+      "loss_epoch": 0.7255315780639648,
+      "mom_loss_epoch": 0.014560590498149395,
+      "pos_loss_epoch": 0.05225637927651405,
+      "pred_loss_epoch": 0.06681692600250244,
+      "sigreg_loss_epoch": 2.634859085083008,
+      "std_p_epoch": 0.25118565559387207,
+      "std_q_epoch": 1.259342908859253
+    },
+    {
+      "epoch0based": 15,
+      "stage": "validate",
+      "eff_rank_p_epoch": 2.5088844299316406,
+      "eff_rank_q_epoch": 1.854790210723877,
+      "loss_epoch": 4.209934234619141,
+      "mom_loss_epoch": 0.009350111708045006,
+      "pos_loss_epoch": 0.03126725181937218,
+      "pred_loss_epoch": 0.04061736911535263,
+      "sigreg_loss_epoch": 16.677268981933594,
+      "std_p_epoch": 0.1973913013935089,
+      "std_q_epoch": 1.171885371208191
+    },
+    {
+      "epoch0based": 25,
+      "stage": "fit",
+      "eff_rank_p_epoch": 2.7962584495544434,
+      "eff_rank_q_epoch": 4.205061435699463,
+      "loss_epoch": 0.722787618637085,
+      "mom_loss_epoch": 0.013920155353844166,
+      "pos_loss_epoch": 0.048088327050209045,
+      "pred_loss_epoch": 0.062008488923311234,
+      "sigreg_loss_epoch": 2.6431164741516113,
+      "std_p_epoch": 0.25398409366607666,
+      "std_q_epoch": 1.264201283454895
+    },
+    {
+      "epoch0based": 25,
+      "stage": "validate",
+      "eff_rank_p_epoch": 2.441195011138916,
+      "eff_rank_q_epoch": 1.8425309658050537,
+      "loss_epoch": 4.177520751953125,
+      "mom_loss_epoch": 0.008461534045636654,
+      "pos_loss_epoch": 0.02714802324771881,
+      "pred_loss_epoch": 0.03560953959822655,
+      "sigreg_loss_epoch": 16.56764030456543,
+      "std_p_epoch": 0.19647465646266937,
+      "std_q_epoch": 1.1613261699676514
+    },
+    {
+      "epoch0based": 50,
+      "stage": "fit",
+      "eff_rank_p_epoch": 2.6744415760040283,
+      "eff_rank_q_epoch": 4.170611381530762,
+      "loss_epoch": 0.706968367099762,
+      "mom_loss_epoch": 0.012279001995921135,
+      "pos_loss_epoch": 0.04064628854393959,
+      "pred_loss_epoch": 0.052925270050764084,
+      "sigreg_loss_epoch": 2.616173028945923,
+      "std_p_epoch": 0.2564889192581177,
+      "std_q_epoch": 1.2722629308700562
+    },
+    {
+      "epoch0based": 50,
+      "stage": "validate",
+      "eff_rank_p_epoch": 2.253617525100708,
+      "eff_rank_q_epoch": 1.789543628692627,
+      "loss_epoch": 4.196267127990723,
+      "mom_loss_epoch": 0.007860692217946053,
+      "pos_loss_epoch": 0.024937722831964493,
+      "pred_loss_epoch": 0.032798413187265396,
+      "sigreg_loss_epoch": 16.65387725830078,
+      "std_p_epoch": 0.20581337809562683,
+      "std_q_epoch": 1.1878576278686523
+    },
+    {
+      "epoch0based": 75,
+      "stage": "fit",
+      "eff_rank_p_epoch": 2.6569876670837402,
+      "eff_rank_q_epoch": 4.177445888519287,
+      "loss_epoch": 0.7013900279998779,
+      "mom_loss_epoch": 0.011327103711664677,
+      "pos_loss_epoch": 0.0366424061357975,
+      "pred_loss_epoch": 0.04796954616904259,
+      "sigreg_loss_epoch": 2.6136815547943115,
+      "std_p_epoch": 0.2577902674674988,
+      "std_q_epoch": 1.2796839475631714
+    },
+    {
+      "epoch0based": 75,
+      "stage": "validate",
+      "eff_rank_p_epoch": 2.1883087158203125,
+      "eff_rank_q_epoch": 1.7649493217468262,
+      "loss_epoch": 4.1793131828308105,
+      "mom_loss_epoch": 0.0070831733755767345,
+      "pos_loss_epoch": 0.02073289453983307,
+      "pred_loss_epoch": 0.02781606838107109,
+      "sigreg_loss_epoch": 16.60599136352539,
+      "std_p_epoch": 0.2053346484899521,
+      "std_q_epoch": 1.1915992498397827
+    },
+    {
+      "epoch0based": 97,
+      "stage": "fit",
+      "eff_rank_p_epoch": 2.658421516418457,
+      "eff_rank_q_epoch": 4.172871112823486,
+      "loss_epoch": 0.7041195631027222,
+      "mom_loss_epoch": 0.01109292358160019,
+      "pos_loss_epoch": 0.03502347320318222,
+      "pred_loss_epoch": 0.04611637443304062,
+      "sigreg_loss_epoch": 2.632011651992798,
+      "std_p_epoch": 0.25891363620758057,
+      "std_q_epoch": 1.2834566831588745
+    },
+    {
+      "epoch0based": 97,
+      "stage": "validate",
+      "eff_rank_p_epoch": 2.1562418937683105,
+      "eff_rank_q_epoch": 1.7551542520523071,
+      "loss_epoch": 4.114844799041748,
+      "mom_loss_epoch": 0.006795154418796301,
+      "pos_loss_epoch": 0.019373133778572083,
+      "pred_loss_epoch": 0.026168284937739372,
+      "sigreg_loss_epoch": 16.354705810546875,
+      "std_p_epoch": 0.202858105301857,
+      "std_q_epoch": 1.1684650182724
+    },
+    {
+      "epoch0based": 99,
+      "stage": "fit",
+      "eff_rank_p_epoch": 2.654045343399048,
+      "eff_rank_q_epoch": 4.170628070831299,
+      "loss_epoch": 0.6998174786567688,
+      "mom_loss_epoch": 0.011032836511731148,
+      "pos_loss_epoch": 0.03446566313505173,
+      "pred_loss_epoch": 0.045498497784137726,
+      "sigreg_loss_epoch": 2.617276430130005,
+      "std_p_epoch": 0.2586222290992737,
+      "std_q_epoch": 1.2833677530288696
+    },
+    {
+      "epoch0based": 99,
+      "stage": "validate",
+      "eff_rank_p_epoch": 2.1462512016296387,
+      "eff_rank_q_epoch": 1.747362494468689,
+      "loss_epoch": 4.129713535308838,
+      "mom_loss_epoch": 0.006956767290830612,
+      "pos_loss_epoch": 0.019706234335899353,
+      "pred_loss_epoch": 0.026663007214665413,
+      "sigreg_loss_epoch": 16.412199020385742,
+      "std_p_epoch": 0.20273372530937195,
+      "std_q_epoch": 1.1720796823501587
+    }
+  ],
+  "decoded_motion_diagnostic": {
+    "input_files": [
+      "/Users/weizhixin/Desktop/WM/experiments/lehami_official_reproduction/comparisons/lewm_existing_20261029/truth.npz",
+      "/Users/weizhixin/Desktop/WM/experiments/lehami_official_reproduction/comparisons/lewm_existing_20261029/lehami_anchor3.npz",
+      "/Users/weizhixin/Desktop/WM/experiments/lehami_official_reproduction/comparisons/lewm_existing_20261029/lehami_anchor4.npz"
+    ],
+    "definition": "For each episode and transition k in range, rms=sqrt(mean((atan2(sin(theta[k]-theta[k-1]),cos(theta[k]-theta[k-1]))/0.1)^2)); compute pred/GT ratio per episode, then median. GT is offset by anchor raw frame.",
+    "thresholds": "Exploratory descriptive thresholds, not preregistered official metrics or a proof of latent motion correctness",
+    "results": [
+      {
+        "anchor": 3,
+        "readout": "knn_k1",
+        "first_transition": 1,
+        "last_transition": 20,
+        "episodes": 45,
+        "median_rms_angular_speed_pred": 3.053673770866778,
+        "median_rms_angular_speed_true": 3.0201190055686857,
+        "median_per_episode_ratio": 1.001791511597858,
+        "count_ratio_below_0p1": 0,
+        "count_pred_below_0p1_true_above_0p5_radsec": 0,
+        "min_ratio": 0.8600638587679674
+      },
+      {
+        "anchor": 3,
+        "readout": "knn_k1",
+        "first_transition": 51,
+        "last_transition": 70,
+        "episodes": 45,
+        "median_rms_angular_speed_pred": 2.9172389099777574,
+        "median_rms_angular_speed_true": 3.0251362200450624,
+        "median_per_episode_ratio": 0.9889272811826961,
+        "count_ratio_below_0p1": 0,
+        "count_pred_below_0p1_true_above_0p5_radsec": 0,
+        "min_ratio": 0.1555777105455434
+      },
+      {
+        "anchor": 3,
+        "readout": "mlp_gt",
+        "first_transition": 1,
+        "last_transition": 20,
+        "episodes": 45,
+        "median_rms_angular_speed_pred": 3.0767771550745424,
+        "median_rms_angular_speed_true": 3.0201190055686857,
+        "median_per_episode_ratio": 1.006437435157652,
+        "count_ratio_below_0p1": 0,
+        "count_pred_below_0p1_true_above_0p5_radsec": 0,
+        "min_ratio": 0.9171239107324852
+      },
+      {
+        "anchor": 3,
+        "readout": "mlp_gt",
+        "first_transition": 51,
+        "last_transition": 70,
+        "episodes": 45,
+        "median_rms_angular_speed_pred": 3.00375308399615,
+        "median_rms_angular_speed_true": 3.0251362200450624,
+        "median_per_episode_ratio": 1.0595515785304497,
+        "count_ratio_below_0p1": 0,
+        "count_pred_below_0p1_true_above_0p5_radsec": 0,
+        "min_ratio": 0.43398619158659957
+      },
+      {
+        "anchor": 3,
+        "readout": "ridge_gt",
+        "first_transition": 1,
+        "last_transition": 20,
+        "episodes": 45,
+        "median_rms_angular_speed_pred": 2.961668474360117,
+        "median_rms_angular_speed_true": 3.0201190055686857,
+        "median_per_episode_ratio": 0.9672763158254752,
+        "count_ratio_below_0p1": 0,
+        "count_pred_below_0p1_true_above_0p5_radsec": 0,
+        "min_ratio": 0.7451365297355356
+      },
+      {
+        "anchor": 3,
+        "readout": "ridge_gt",
+        "first_transition": 51,
+        "last_transition": 70,
+        "episodes": 45,
+        "median_rms_angular_speed_pred": 2.6866689882767476,
+        "median_rms_angular_speed_true": 3.0251362200450624,
+        "median_per_episode_ratio": 0.9018942581287807,
+        "count_ratio_below_0p1": 0,
+        "count_pred_below_0p1_true_above_0p5_radsec": 0,
+        "min_ratio": 0.13372613287901336
+      },
+      {
+        "anchor": 4,
+        "readout": "knn_k1",
+        "first_transition": 1,
+        "last_transition": 20,
+        "episodes": 45,
+        "median_rms_angular_speed_pred": 3.042694340244036,
+        "median_rms_angular_speed_true": 3.001101059876095,
+        "median_per_episode_ratio": 0.9926854398041856,
+        "count_ratio_below_0p1": 0,
+        "count_pred_below_0p1_true_above_0p5_radsec": 0,
+        "min_ratio": 0.9032380811042127
+      },
+      {
+        "anchor": 4,
+        "readout": "knn_k1",
+        "first_transition": 51,
+        "last_transition": 70,
+        "episodes": 45,
+        "median_rms_angular_speed_pred": 2.895614737211848,
+        "median_rms_angular_speed_true": 2.992319338260449,
+        "median_per_episode_ratio": 0.9930784671160311,
+        "count_ratio_below_0p1": 0,
+        "count_pred_below_0p1_true_above_0p5_radsec": 0,
+        "min_ratio": 0.6399809930031595
+      },
+      {
+        "anchor": 4,
+        "readout": "mlp_gt",
+        "first_transition": 1,
+        "last_transition": 20,
+        "episodes": 45,
+        "median_rms_angular_speed_pred": 3.116108920192876,
+        "median_rms_angular_speed_true": 3.001101059876095,
+        "median_per_episode_ratio": 1.0043940472831048,
+        "count_ratio_below_0p1": 0,
+        "count_pred_below_0p1_true_above_0p5_radsec": 0,
+        "min_ratio": 0.9077035872609764
+      },
+      {
+        "anchor": 4,
+        "readout": "mlp_gt",
+        "first_transition": 51,
+        "last_transition": 70,
+        "episodes": 45,
+        "median_rms_angular_speed_pred": 2.9292788049906484,
+        "median_rms_angular_speed_true": 2.992319338260449,
+        "median_per_episode_ratio": 1.0164188289776774,
+        "count_ratio_below_0p1": 0,
+        "count_pred_below_0p1_true_above_0p5_radsec": 0,
+        "min_ratio": 0.5834916619872199
+      },
+      {
+        "anchor": 4,
+        "readout": "ridge_gt",
+        "first_transition": 1,
+        "last_transition": 20,
+        "episodes": 45,
+        "median_rms_angular_speed_pred": 2.9280628131872657,
+        "median_rms_angular_speed_true": 3.001101059876095,
+        "median_per_episode_ratio": 0.952721105428023,
+        "count_ratio_below_0p1": 0,
+        "count_pred_below_0p1_true_above_0p5_radsec": 0,
+        "min_ratio": 0.7923425836258899
+      },
+      {
+        "anchor": 4,
+        "readout": "ridge_gt",
+        "first_transition": 51,
+        "last_transition": 70,
+        "episodes": 45,
+        "median_rms_angular_speed_pred": 2.7322308146079215,
+        "median_rms_angular_speed_true": 2.992319338260449,
+        "median_per_episode_ratio": 0.9046966497284255,
+        "count_ratio_below_0p1": 0,
+        "count_pred_below_0p1_true_above_0p5_radsec": 0,
+        "min_ratio": 0.20088298256632164
+      }
+    ],
+    "limitations": "Files save decoded(theta,omega), not latent q,p or gradients. Horizon only7s. Small numerical differences from original evaluation recorded by historical protocol."
+  },
+  "conclusions": [
+    "This official run completed100epochs/43900updates and reproduced author main knn_k1 metrics closely; do not describe it as a failed incomplete run.",
+    "Target momentum std grew rather than shrinking to zero; effective rank declined but does not by itself establish collapse for a low-dimensional pendulum.",
+    "Saved45episode decoded trajectories show no broad stop in5-7s: originalanchor3 median predicted/GT angle-increment RMS ratio0.989(knn) or1.060(MLP),0/45below0.1.",
+    "Consequently official reproduction does not corroborate the current models global stagnation. Other old custom runs and longer horizons must be checked separately.",
+    "Joint SIGReg is not a dedicated temporal-motion guarantee; learned K can theoretically flatten and same-encoder latent targets can favor predictable features, but no such mechanism was demonstrated here.",
+    "Physical0.1s vs configured1.0 is a consistent frame-unit time gauge, not alone a time-step bug."
+  ],
+  "main_endpoint_metrics": [
+    {
+      "k": 10,
+      "seconds": 1.0,
+      "ours": {
+        "theta_mae_rad": 0.18404753035691349,
+        "theta_mae_deg": 10.54514671925704,
+        "omega_mae_rad_s": 0.4858983907705932
+      },
+      "author_seed42": {
+        "theta_mae_rad": 0.175531806368756,
+        "theta_mae_deg": 10.057231675237304,
+        "omega_mae_rad_s": 0.4731542251775414
+      }
+    },
+    {
+      "k": 30,
+      "seconds": 3.0,
+      "ours": {
+        "theta_mae_rad": 0.4727379427025522,
+        "theta_mae_deg": 27.085888932553576,
+        "omega_mae_rad_s": 1.4116842322737708
+      },
+      "author_seed42": {
+        "theta_mae_rad": 0.449236501676562,
+        "theta_mae_deg": 25.73935554928873,
+        "omega_mae_rad_s": 1.3118308123610687
+      }
+    },
+    {
+      "k": 70,
+      "seconds": 7.0,
+      "ours": {
+        "theta_mae_rad": 0.7310801285355464,
+        "theta_mae_deg": 41.88780585096855,
+        "omega_mae_rad_s": 2.119283453458241
+      },
+      "author_seed42": {
+        "theta_mae_rad": 0.7573451470688168,
+        "theta_mae_deg": 43.392680561757835,
+        "omega_mae_rad_s": 2.082481864242915
+      }
+    }
+  ],
+  "source_root": "/Users/weizhixin/Desktop/WM/experiments/lehami_official_reproduction"
+}

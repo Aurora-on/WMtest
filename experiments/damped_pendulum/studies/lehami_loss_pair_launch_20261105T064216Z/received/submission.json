@@ -1,0 +1,34 @@
+{
+  "created_at_utc": "2026-11-05T06:42:16.813868+00:00",
+  "user_authorized_training": true,
+  "remote_root": "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z",
+  "local_root": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/lehami_loss_pair_launch_20261105T064216Z",
+  "data": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+  "python": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/.venv/bin/python",
+  "arms": [
+    "control",
+    "lehami"
+  ],
+  "gpu_per_arm": 1,
+  "cpus_per_arm": 4,
+  "fresh": true,
+  "resume": null,
+  "stop_after_step": 4000,
+  "configured_total_steps": 20000,
+  "qualification": "real train windows B32 CUDA K4/K8 backward K32 forward no optimizer before each run",
+  "archive_sha256": "7f842110fa3ffe8e9cf3c0f6d4e359b97bb6181540eb251569e5fed1db54b9a9",
+  "status": "running_initial_segments",
+  "submitted_at_utc": "2026-11-05T06:43:17.390185+00:00",
+  "jobs": {
+    "control": "47800",
+    "lehami": "47801"
+  },
+  "target_step": 10000,
+  "authorization_update": "User requested both arms increase to10000; automatic exact resume from4000 without resetting optimizer or LR schedule",
+  "authorization_updated_at_utc": "2026-11-05T06:45:03.039471+00:00",
+  "continuation_status": "submitted_afterok",
+  "continuation_jobs": {
+    "control": "47802",
+    "lehami": "47803"
+  }
+}

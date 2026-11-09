@@ -1,0 +1,44 @@
+{
+  "checked_at_utc": "2026-11-06T07:47:17.362064+00:00",
+  "job_id": "47920",
+  "queue": "47920|lehami-d2-staged|RUNNING|55:40|2-00:00:00|ladhpc",
+  "stage": {
+    "status": "running_stage_a"
+  },
+  "last_step": 10886,
+  "new_optimizer_updates": 886,
+  "horizon": 32,
+  "recent500_mean_step_seconds": 2.8528141805231573,
+  "recent500_mean_iteration_seconds": 2.939103839367628,
+  "mean_validation_seconds": 21.461663720508415,
+  "all_losses_and_gradients_finite": true,
+  "max_failed_solver_attempts": 0.0,
+  "validation_history": [
+    {
+      "step": 10250,
+      "gate_passed": true,
+      "score": 0.07645246964329484
+    },
+    {
+      "step": 10500,
+      "gate_passed": true,
+      "score": 0.07133741617849859
+    },
+    {
+      "step": 10750,
+      "gate_passed": true,
+      "score": 0.06440575241436403
+    }
+  ],
+  "last_checkpoint": {
+    "status": "running",
+    "training_started": true,
+    "completed_steps": 10750,
+    "optimizer_steps_this_run": 750
+  },
+  "worker_status": {
+    "status": "running",
+    "branch": "a"
+  },
+  "errors": {}
+}

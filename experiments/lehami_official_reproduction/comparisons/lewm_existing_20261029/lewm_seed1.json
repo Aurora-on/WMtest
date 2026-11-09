@@ -1,0 +1,55 @@
+{
+  "seed": 1,
+  "checkpoint_step": 26250,
+  "training_data_sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+  "file_hashes": {
+    "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z/study/frozen/runs/server_47111/lewm_b0p0_seed1/best.pt": "8e16d94c59d69a9495f45c144e39e2e12330e881d788c71eab53708a3b938cd0",
+    "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z/study/frozen/runs/server_47111/lewm_b0p0_seed1/evaluation/readouts.pt": "d2521688c3dcf15f4b944074df89f5b77ccd52dc92e43df75193e8320c1e39c3"
+  },
+  "weights_unchanged": true,
+  "readouts_refitted": false,
+  "batch_size": 1,
+  "seconds": 6.528283268213272,
+  "torch_version": "2.8.0+cu126",
+  "config": {
+    "img_size": 64,
+    "embed_dim": 192,
+    "data": {
+      "action_dim": 1
+    },
+    "history_size": 3,
+    "loss": {
+      "sigreg": {
+        "weight": 0.25,
+        "kwargs": {
+          "knots": 17,
+          "num_proj": 1024
+        }
+      }
+    },
+    "benchmark": {
+      "kind": "lewm",
+      "physical_dt": 0.10000000149011612,
+      "unroll": 8,
+      "anchor": 4,
+      "history": 5,
+      "training_window": 15,
+      "diagnostic_device": "cpu"
+    },
+    "model": {
+      "name": "lewm_ms_conv",
+      "latent_dim": 64,
+      "enc_window": 3,
+      "enc_variant": "free",
+      "enc_lag": 0,
+      "predictor": {
+        "depth": 6,
+        "heads": 16,
+        "mlp_dim": 2048,
+        "dim_head": 64,
+        "dropout": 0.1,
+        "emb_dropout": 0.0
+      }
+    }
+  }
+}

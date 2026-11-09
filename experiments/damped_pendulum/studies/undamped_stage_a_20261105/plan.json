@@ -1,0 +1,278 @@
+{
+  "protocol": "undamped_stage_a_v1",
+  "status": "prepared_not_started",
+  "scope": "Design and code preparation only; no formal data generation, optimizer updates or submitted jobs.",
+  "model_config": "configs/dissipative_undamped_stage_a_v1.json",
+  "parent_data_config": "configs/passive_family_smooth_v1.json",
+  "data_selection": {
+    "cli_flag": "--undamped-only",
+    "file": "undamped.h5",
+    "b": 0.0,
+    "external_torque": 0.0,
+    "groups": {
+      "train": 384,
+      "val": 64,
+      "test": 128
+    },
+    "training_scope": "undamped_stage_a",
+    "preserve_parent_initial_states_splits_seeds": true,
+    "renderer": "smooth_v1",
+    "model_fields": [
+      "pixels",
+      "action",
+      "dt_frame"
+    ],
+    "scope_attribute_is_not_independent_physical_verification": true,
+    "launch_evidence": [
+      "generator manifest",
+      "data SHA256",
+      "config SHA256",
+      "frozen source hashes"
+    ]
+  },
+  "initialization": {
+    "world_model": "fresh seed 0, no old damped checkpoint",
+    "trainable_modules": [
+      "encoder",
+      "initializer",
+      "potential"
+    ],
+    "damping": "hard zero via damping_mode=none",
+    "environment_context_dim": 0,
+    "input_port": "frozen and excluded from optimizer",
+    "mass_matrix": "identity unchanged"
+  },
+  "time_invariants": {
+    "dt_seconds": 0.1,
+    "simulation_substeps": 20,
+    "model_substeps": 3,
+    "history_frames": 21,
+    "velocity_history_frames": 5,
+    "train_frames": 81,
+    "test_frames": 341,
+    "curriculum": [
+      {
+        "until_step": 1000,
+        "horizon": 4
+      },
+      {
+        "until_step": 4000,
+        "horizon": 8
+      },
+      {
+        "until_step": 10000,
+        "horizon": 16
+      },
+      {
+        "until_step": 20000,
+        "horizon": 32
+      }
+    ],
+    "val_horizons": [
+      8,
+      32
+    ],
+    "val_every": 250
+  },
+  "optimization": {
+    "full_budget": 20000,
+    "batch_size": 32,
+    "seed": 0,
+    "encoder_lr": 2e-05,
+    "dynamics_lr": 0.0001,
+    "warmup_steps": 500,
+    "schedule": "original full-budget warmup/cosine; pause using stop-after-step, never steps override"
+  },
+  "milestones": [
+    {
+      "stop_after_step": 250,
+      "resume_step": null,
+      "trained_horizon": 4,
+      "purpose": "pipeline and numerical checks",
+      "requirements": [
+        "finite losses and gradients",
+        "D exactly zero",
+        "input_port unchanged",
+        "checkpoint/optimizer/sampler/RNG consistency",
+        "no future-image rollout input"
+      ],
+      "long_horizon_quality_required": false
+    },
+    {
+      "stop_after_step": 1000,
+      "resume_step": 250,
+      "trained_horizon": 4,
+      "purpose": "learning trend",
+      "requirements": [
+        "inspect fixed train diagnostic windows against initialization and persistence",
+        "check representation and motion do not collapse"
+      ],
+      "note": "Training diagnostic is not a generalization claim; h8 and h32 validation remains recorded; do not require h32 gate yet."
+    },
+    {
+      "stop_after_step": 4000,
+      "resume_step": 1000,
+      "trained_horizon": 8,
+      "purpose": "short-horizon validation",
+      "required_val_horizons": [
+        8
+      ],
+      "requirements": [
+        "h8 prediction gates pass in all dynamic time strata",
+        "h8 required representation strata pass",
+        "h8 mean persistence_ratio < 1",
+        "review phase/amplitude across initial-energy strata"
+      ]
+    },
+    {
+      "stop_after_step": 10000,
+      "resume_step": 4000,
+      "trained_horizon": 16,
+      "purpose": "retain short-horizon quality and inspect longer rollout",
+      "required_val_horizons": [
+        8
+      ],
+      "requirements": [
+        "h8 requirements remain satisfied",
+        "record h32 position/motion/stall trends versus step 4000",
+        "investigate persistent drift or collapse before extending"
+      ],
+      "note": "h32 is diagnostic here, not an unconditional prerequisite for training h32."
+    },
+    {
+      "stop_after_step": 20000,
+      "resume_step": 10000,
+      "trained_horizon": 32,
+      "purpose": "stage A exit",
+      "required_val_horizons": [
+        8,
+        32
+      ],
+      "requirements": [
+        "eligible best.pt exists",
+        "best.pt passes full h8/h32 latent gates",
+        "mean persistence_ratio < 1 at each horizon",
+        "independent physical validation passes",
+        "frozen input_port unchanged"
+      ],
+      "next_stage": "B only after recorded acceptance; no automatic continuation"
+    }
+  ],
+  "latent_gate": {
+    "min_rms_ratio": 0.5,
+    "max_rms_ratio": 1.5,
+    "max_relative_error": 0.8,
+    "min_cosine": 0.5,
+    "max_stalled_fraction": 0.1
+  },
+  "latent_gate_definitions": {
+    "relative_error": "pooled squared velocity error / pooled target velocity power",
+    "dynamic_window": "target latent velocity RMS > 0.1",
+    "stalled_window": "predicted velocity RMS < 0.1 * target RMS",
+    "pooling": "all dynamic time strata; preserve existing representation gate time bins",
+    "status": "preregistered starting thresholds, effectiveness unverified"
+  },
+  "checkpoints": {
+    "resume": "last.pt, new empty output directory per segment; preserve sibling best.pt if present",
+    "best": "existing full h8/h32 gate unchanged, may not exist in early segments",
+    "strict_match": [
+      "configuration",
+      "data hash",
+      "source hashes",
+      "runtime",
+      "device",
+      "validation indices"
+    ],
+    "promotion": "manual evidence review; shell script only enforces bounded execution and previous checkpoint step"
+  },
+  "physical_validation_design": {
+    "implementation_status": "planned; independent stage-A val-only physical evaluator must be completed and checked before stage A promotion",
+    "fit_split": "deterministically permute 384 training group IDs with numpy default_rng seed 5705; first 288 for ridge fitting, remaining 96 for ridge selection",
+    "labels": "sin(theta), cos(theta), omega from training episodes only; frames 20..80 inclusive; no world-model gradient",
+    "readout": "standardize q,p features and output targets using fit subset only, standard-deviation floor 1e-6; ridge with unpenalized intercept minimizing mean squared error + alpha * squared coefficients; alpha grid [1e-6,1e-4,1e-2,1,100]; select normalized target MSE on remaining 96 train groups",
+    "val": "freeze selected readout; all 64 val episodes, anchors 20,32,48; h8/h32 future remains within frame 80; no test access",
+    "readout_quality_gate": {
+      "teacher_encoded_angle_mae_max_rad": 0.1,
+      "teacher_encoded_omega_nrmse_max": 0.15,
+      "failure_action": "physical conclusions inconclusive; diagnose representation/readout, do not attribute to dynamics or promote"
+    },
+    "rollout_gates": {
+      "coverage": 1.0,
+      "angle_mae_max_rad": {
+        "h8": 0.25,
+        "h32": 0.5
+      },
+      "minimum_angle_mae_improvement_vs_best_static_baseline": 0.2,
+      "static_baselines": [
+        "hold readout initial state",
+        "theta=0, omega=0"
+      ],
+      "dynamic_omega_rms_ratio_min": 0.5,
+      "dynamic_omega_rms_ratio_max": 1.5,
+      "dynamic_velocity_cosine_min": 0.5,
+      "stalled_dynamic_fraction_max": 0.1,
+      "dynamic_threshold_rad_s": 0.1,
+      "stalled_ratio": 0.1
+    },
+    "energy_diagnostic": "physical E=0.5*omega^2+9.81*(1-cos(theta)); report initial reconstruction error and relative trajectory drift with denominator max(true E at anchor, 0.05*9.81); do not substitute latent balance for physical accuracy",
+    "energy_drift_provisional_gate": {
+      "median_max_relative_drift": 0.1,
+      "p90_max_relative_drift": 0.25
+    },
+    "aggregation": "episode-equal within each horizon; report all initial-energy strata and failure cases; no window resampling to hide failures",
+    "threshold_policy": "initial design targets, not achieved results; version changes explicitly and do not relax after seeing held-out failures",
+    "metric_definitions": {
+      "angle_error": "abs(atan2(sin(theta_pred-theta_true), cos(theta_pred-theta_true))); angle=atan2(predicted sin, predicted cos)",
+      "omega_nrmse": "omega RMSE / max(standard deviation of true omega in 288-group readout-fit subset, 1e-6)",
+      "baseline_improvement": "at each horizon, compare episode-equal aggregate angle MAE against the better aggregate of the two static baselines; no per-window oracle baseline selection",
+      "readout_quality_sampling": "same 64 val episodes and anchors as autonomous evaluation; teacher-encoded states use causal histories at anchor and each future scoring frame, strictly in a separate readout-only diagnostic, never injected into autonomous rollout",
+      "motion_aggregation": "use readout-predicted omega and true omega at the same future frames, not finite differences of wrapped angles; pool powers with episode-equal weights within each horizon; dynamic/stall fractions are per window; also report energy-stratified values",
+      "energy_drift": "for each episode and anchor, max_t abs(E_pred(t)-E_pred(anchor)) / max(E_true(anchor), 0.05*9.81); average its three anchor values per episode, then compute median and p90 over 64 episodes; initial reconstruction error separate"
+    }
+  },
+  "stop_and_diagnose": [
+    "numerical or nonfinite failure",
+    "h8 still stops/drifts or fails persistence comparison at step 4000",
+    "multi-energy trajectories cannot be fit together",
+    "final latent or physical gates fail; do not use damping to compensate conservative errors"
+  ],
+  "later_stages": [
+    {
+      "name": "B",
+      "purpose": "learn dissipation on multi-damping data",
+      "prerequisite": "A accepted",
+      "trainable": [
+        "damping",
+        "environment"
+      ],
+      "frozen": [
+        "encoder",
+        "initializer",
+        "potential",
+        "input_port"
+      ],
+      "initialization": "explicit validated warm-start transfer of accepted A modules; initialize new D/context; new optimizer; not exact resume",
+      "requirements": [
+        "b=0 replay retains A performance",
+        "positive dissipation matches physical decay without premature stopping",
+        "seen and unseen damping validation protocol fixed before run"
+      ]
+    },
+    {
+      "name": "C",
+      "purpose": "joint small-learning-rate refinement only if B passes",
+      "requirements": [
+        "retain undamped replay and physical motion gates",
+        "controlled ablations and independent final test"
+      ]
+    }
+  ],
+  "not_claimed": [
+    "CUDA new-configuration validation",
+    "successful conservative learning",
+    "physical readout quality",
+    "8-second autonomous acceptance",
+    "32-second autonomous acceptance",
+    "automatic phase promotion"
+  ]
+}

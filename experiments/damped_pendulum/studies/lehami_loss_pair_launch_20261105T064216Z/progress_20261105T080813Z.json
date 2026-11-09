@@ -1,0 +1,1135 @@
+{
+  "checked_utc": "2026-11-05T08:08:13.123887+00:00",
+  "arms": {
+    "control": {
+      "segments": [
+        {
+          "name": "control",
+          "status": {
+            "status": "budget_completed",
+            "training_started": true,
+            "completed_steps": 4000,
+            "optimizer_steps_this_run": 4000,
+            "configured_total_steps": 20000,
+            "stop_after_step": 4000,
+            "full_budget_completed": false,
+            "best_score": null,
+            "best_step": null,
+            "best_available": false,
+            "elapsed_seconds": 2702.38269674778,
+            "physical_validation": false
+          },
+          "resume": null,
+          "stop_after": 4000,
+          "latest_step": 4000,
+          "best_exists": false,
+          "last_bytes": 5560484
+        },
+        {
+          "name": "control_4000_10000",
+          "status": {
+            "status": "running",
+            "training_started": true,
+            "completed_steps": 5750,
+            "optimizer_steps_this_run": 1750
+          },
+          "resume": "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z/runs/control/last.pt",
+          "stop_after": 10000,
+          "latest_step": 5765,
+          "best_exists": false,
+          "last_bytes": 5560484
+        }
+      ],
+      "latest": {
+        "step": 5765,
+        "horizon_steps": 16,
+        "horizon_seconds_at_model_dt": 1.6,
+        "losses": {
+          "loss": 3.216475336801195,
+          "prediction_loss": 3.695818616688269e-07,
+          "motion_loss": 8.837542957222876e-05,
+          "sigreg_loss": 12.86552619934082,
+          "initializer_loss": 7.188959457337548e-14,
+          "target_std_min": 4.197826385523286e-05,
+          "target_std_mean": 5.465251920049598e-05,
+          "target_motion_rms": 6.243780783117645e-05,
+          "target_motion_mse": 3.898479846762919e-09,
+          "persistence_mse": 4.455824919322518e-09,
+          "prediction_mse": 3.695818616688269e-07,
+          "normalized_prediction_mse": 0.0036958186166882686,
+          "persistence_ratio": 0.0036958186166882686,
+          "phase_position_mse": 3.695818616688269e-07,
+          "phase_momentum_mse": 5.489251542326055e-09,
+          "phase_prediction_mse": 3.750711132111529e-07,
+          "phase_target_momentum_power": 3.4508091471679234e-10,
+          "phase_predicted_momentum_power": 5.215706638062347e-09,
+          "predicted_velocity_power": 4.983812102313605e-07,
+          "dynamic_predicted_velocity_power": 0.0,
+          "target_velocity_power": 3.898479730579169e-07,
+          "dynamic_target_velocity_power": 0.0,
+          "velocity_error_power": 8.837542957222878e-07,
+          "dynamic_velocity_error_power": 0.0,
+          "velocity_cross_power": 2.2374437834947868e-09,
+          "dynamic_velocity_cross_power": 0.0,
+          "momentum_loss": 5.041954556284519e-05,
+          "momentum_point_count": 512.0,
+          "dynamic_window_count": 0.0,
+          "stalled_dynamic_window_count": 0.0,
+          "window_count": 32.0,
+          "target_mean_0": -0.0004485072131501511,
+          "target_second_moment_0": 2.0569161481845052e-07,
+          "target_mean_1": 9.400746785104275e-05,
+          "target_second_moment_1": 1.0599578648064385e-08,
+          "work": 0.0,
+          "dissipation": 0.0,
+          "residual_work": -4.763284242221959e-13,
+          "chain_defect": -7.298492779456949e-19,
+          "chain_defect_max": 1.5030182088254343e-16,
+          "numerical_balance_defect": 1.0566825192625626e-11,
+          "solver_residual": 4.996482052081199e-09,
+          "solver_residual_ratio": 0.49856367571167,
+          "solver_picard_iterations": 2.470703125,
+          "solver_newton_iterations": 0.0,
+          "solver_backtracks": 0.0,
+          "solver_line_search_evals": 0.0,
+          "solver_iterations": 2.470703125,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 3.0,
+          "solver_split_depth": 0.0,
+          "solver_replay_iterations": 0.0,
+          "solver_replay_relative_error": 0.0,
+          "energy_delta": -4.763291540713088e-13,
+          "energy_residual": 1.0566825192626084e-11
+        },
+        "gradient_norm": 0.19821337437426087,
+        "lr_factor": 0.8475903393956433,
+        "step_seconds": 1.2968427687883377,
+        "validation_seconds": 0.0,
+        "checkpoint_seconds": 0.0,
+        "training_memory": {
+          "cuda_peak_allocated_bytes": 1084778496,
+          "cuda_peak_reserved_bytes": 1648361472
+        },
+        "iteration_seconds": 1.297184944152832
+      },
+      "nonfinite_steps": [],
+      "maximum_solver_residual_ratio": 0.4999998837489785,
+      "step_seconds_median": {
+        "4": 0.39529286697506905,
+        "8": 0.6901738718152046,
+        "16": 1.2921845577657223
+      },
+      "validation_summary": [
+        {
+          "step": 250,
+          "seconds": 13.68844424188137,
+          "score": 0.004065087099149504,
+          "gate": false,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.004140585484107112,
+              "target_motion_rms": 0.0050854723496051284,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.2144809987423233,
+              "relative_velocity_error": 1.0391432761969963,
+              "velocity_cosine": 0.01598934792528688,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 8.785424720151664
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.003646218064396467,
+              "target_motion_rms": 0.005080746229476814,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.7705843650793435,
+              "relative_velocity_error": 1.7998034185418146,
+              "velocity_cosine": -0.1336668404995919,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 11.731899169240412
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 0.004395720093948412,
+              "target_motion_rms": 0.005932580007117727,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.46644226791702004,
+              "relative_velocity_error": 1.2762062836785557,
+              "velocity_cosine": -0.06285654025399597,
+              "stalled_dynamic_fraction": 0.14285714285714285,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 9.120746785853951
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.0038703935705219883,
+              "target_motion_rms": 0.005058127120913937,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.4494667623237969,
+              "relative_velocity_error": 1.2048528357071302,
+              "velocity_cosine": -0.0031509173878059332,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 97.3658698345708
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.0040145061261758885,
+              "target_motion_rms": 0.004941115316890299,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.6409377717440189,
+              "relative_velocity_error": 1.4407077198414635,
+              "velocity_cosine": -0.023330262243632927,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 98.34409172726907
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.004328285785225381,
+              "target_motion_rms": 0.00518938751027471,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.7131566299496581,
+              "relative_velocity_error": 1.5536044158187703,
+              "velocity_cosine": -0.03155831067629139,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 92.96933254738846
+            }
+          }
+        },
+        {
+          "step": 500,
+          "seconds": 16.422050781548023,
+          "score": 0.000673161127531154,
+          "gate": false,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.0015775172068122672,
+              "target_motion_rms": 0.0018539433717949681,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 10.741889154202651
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.0015118089030641082,
+              "target_motion_rms": 0.0017282516241788537,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 19.104383850694525
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 0.001553157835101165,
+              "target_motion_rms": 0.0018846134925421115,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 19.451797167900995
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.0015589004264603228,
+              "target_motion_rms": 0.0017545035399690557,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 141.53499916587845
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.0015691141997669737,
+              "target_motion_rms": 0.0017977237551134457,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 214.54534128192662
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.0015941048195399637,
+              "target_motion_rms": 0.0018449792422553484,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 225.79597251390865
+            }
+          }
+        },
+        {
+          "step": 1000,
+          "seconds": 16.765462778508663,
+          "score": 0.0001535234175583771,
+          "gate": false,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.000595304130409546,
+              "target_motion_rms": 0.0008992422693632891,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 17.644757220745003
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.0005713631582678264,
+              "target_motion_rms": 0.0008709204734515751,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 16.78598948340618
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 0.0006473152055483685,
+              "target_motion_rms": 0.0009590234366642418,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 17.632555945662563
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.0005885016942441841,
+              "target_motion_rms": 0.0008969057958587431,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 253.9486565528642
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.0005907991300038914,
+              "target_motion_rms": 0.0009000053187032118,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 225.86122589346752
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.0006066518165629253,
+              "target_motion_rms": 0.000925137074385196,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 239.85591649638758
+            }
+          }
+        },
+        {
+          "step": 2000,
+          "seconds": 16.373182989656925,
+          "score": 1.2743426789825785e-05,
+          "gate": false,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.0001528522772487314,
+              "target_motion_rms": 0.0001989227951897466,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 15.634960653978803
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.00015405169490163072,
+              "target_motion_rms": 0.00018603423365752187,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 16.683115531040855
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 0.00015871727185423374,
+              "target_motion_rms": 0.00020174182565284163,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 14.970974320760584
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.00015029452940238747,
+              "target_motion_rms": 0.0001914689959285952,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 431.5670064016425
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.00015272972469196632,
+              "target_motion_rms": 0.0001903070701974204,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 349.2509511015353
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.00015049599779909614,
+              "target_motion_rms": 0.00019568440807086413,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 396.48166459633717
+            }
+          }
+        },
+        {
+          "step": 4000,
+          "seconds": 16.31719511002302,
+          "score": 8.053437503450827e-07,
+          "gate": false,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 4.6011403743176645e-05,
+              "target_motion_rms": 5.5323802340989456e-05,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 6.334463848810221
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 4.1470601531419715e-05,
+              "target_motion_rms": 5.2734976964448055e-05,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 8.19802266724918
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 4.740749899210297e-05,
+              "target_motion_rms": 5.9950117294040034e-05,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 7.177580383190747
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 4.308069645174651e-05,
+              "target_motion_rms": 5.405943571618757e-05,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 149.67556063678484
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 4.286373513720644e-05,
+              "target_motion_rms": 5.367904212017995e-05,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 164.84727466743882
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 4.3091562208423646e-05,
+              "target_motion_rms": 5.4439113596073674e-05,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 144.04458437807065
+            }
+          }
+        },
+        {
+          "step": 5750,
+          "seconds": 13.565755881369114,
+          "score": 1.1286715731523857e-06,
+          "gate": false,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 3.7767716041264245e-05,
+              "target_motion_rms": 6.177372086267155e-05,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 11.864430908478257
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 3.7337487686369226e-05,
+              "target_motion_rms": 6.150329164823038e-05,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 14.1320675227661
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 3.7223547723432906e-05,
+              "target_motion_rms": 6.149733448880418e-05,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 16.518634359125812
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 3.7052313307606235e-05,
+              "target_motion_rms": 6.06212826363846e-05,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 178.97461423742521
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 3.757937702243003e-05,
+              "target_motion_rms": 6.0435534021972605e-05,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 198.77855727656848
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 3.674945579814131e-05,
+              "target_motion_rms": 6.0852259704300945e-05,
+              "prediction_gate_applicable": false,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 253.0169877884417
+            }
+          }
+        }
+      ]
+    },
+    "lehami": {
+      "segments": [
+        {
+          "name": "lehami",
+          "status": {
+            "status": "budget_completed",
+            "training_started": true,
+            "completed_steps": 4000,
+            "optimizer_steps_this_run": 4000,
+            "configured_total_steps": 20000,
+            "stop_after_step": 4000,
+            "full_budget_completed": false,
+            "best_score": null,
+            "best_step": null,
+            "best_available": false,
+            "elapsed_seconds": 2878.591316945851,
+            "physical_validation": false
+          },
+          "resume": null,
+          "stop_after": 4000,
+          "latest_step": 4000,
+          "best_exists": false,
+          "last_bytes": 5560676
+        },
+        {
+          "name": "lehami_4000_10000",
+          "status": {
+            "status": "running",
+            "training_started": true,
+            "completed_steps": 5250,
+            "optimizer_steps_this_run": 1250
+          },
+          "resume": "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z/runs/lehami/last.pt",
+          "stop_after": 10000,
+          "latest_step": 5350,
+          "best_exists": true,
+          "last_bytes": 5560804
+        }
+      ],
+      "latest": {
+        "step": 5350,
+        "horizon_steps": 16,
+        "horizon_seconds_at_model_dt": 1.6,
+        "losses": {
+          "loss": 1.3448934708125895,
+          "prediction_loss": 0.07182060082464108,
+          "motion_loss": 0.12034406997521939,
+          "sigreg_loss": 5.0735249519348145,
+          "initializer_loss": 0.5122391117489149,
+          "target_std_min": 0.877093255764224,
+          "target_std_mean": 1.033500888654109,
+          "target_motion_rms": 0.2499421041425569,
+          "target_motion_mse": 0.06247105542320876,
+          "persistence_mse": 2.2365135130257543,
+          "prediction_mse": 0.07182060082464108,
+          "normalized_prediction_mse": 0.06573441956080003,
+          "persistence_ratio": 0.03211275067481072,
+          "phase_position_mse": 0.07182060082464108,
+          "phase_momentum_mse": 0.0041793928924958226,
+          "phase_prediction_mse": 0.0759999937171369,
+          "phase_target_momentum_power": 0.058573771754561105,
+          "phase_predicted_momentum_power": 0.05116476311714281,
+          "predicted_velocity_power": 5.037910583946493,
+          "dynamic_predicted_velocity_power": 5.037910583946493,
+          "target_velocity_power": 6.247105356142626,
+          "dynamic_target_velocity_power": 6.247105356142626,
+          "velocity_error_power": 0.46037300464007785,
+          "dynamic_velocity_error_power": 0.46037300464007785,
+          "velocity_cross_power": 5.412321467724521,
+          "dynamic_velocity_cross_power": 5.412321467724521,
+          "momentum_loss": 0.0041793928924958226,
+          "momentum_point_count": 512.0,
+          "dynamic_window_count": 32.0,
+          "stalled_dynamic_window_count": 0.0,
+          "window_count": 32.0,
+          "target_mean_0": 0.07264854876120808,
+          "target_second_moment_0": 1.4211601012801234,
+          "target_mean_1": 0.06536679949203972,
+          "target_second_moment_1": 0.7735653977829191,
+          "work": 0.0,
+          "dissipation": 0.0,
+          "residual_work": 3.129718022986225e-07,
+          "chain_defect": 7.867242014097942e-18,
+          "chain_defect_max": 1.432708118809245e-14,
+          "numerical_balance_defect": 3.860986195735956e-06,
+          "solver_residual": 2.653103776950605e-07,
+          "solver_residual_ratio": 0.4998508596773435,
+          "solver_picard_iterations": 6.20703125,
+          "solver_newton_iterations": 0.0,
+          "solver_backtracks": 0.0,
+          "solver_line_search_evals": 0.0,
+          "solver_iterations": 6.20703125,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 3.0,
+          "solver_split_depth": 0.0,
+          "solver_replay_iterations": 0.0,
+          "solver_replay_relative_error": 0.0,
+          "energy_delta": 3.1297180230586974e-07,
+          "energy_residual": 3.860986195647342e-06
+        },
+        "gradient_norm": 23.495471472087303,
+        "lr_factor": 0.8694770679790113,
+        "step_seconds": 1.4940585643053055,
+        "validation_seconds": 0.0,
+        "checkpoint_seconds": 0.0,
+        "training_memory": {
+          "cuda_peak_allocated_bytes": 1128131584,
+          "cuda_peak_reserved_bytes": 1692401664
+        },
+        "iteration_seconds": 1.4944152534008026
+      },
+      "nonfinite_steps": [],
+      "maximum_solver_residual_ratio": 0.4999992749360331,
+      "step_seconds_median": {
+        "4": 0.3945113569498062,
+        "8": 0.7849877625703812,
+        "16": 1.5223363004624844
+      },
+      "validation_summary": [
+        {
+          "step": 250,
+          "seconds": 14.660998836159706,
+          "score": 14.188670216897902,
+          "gate": false,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.3147324291234881,
+              "target_motion_rms": 0.23117308586102478,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 1.1854999733309775,
+              "relative_velocity_error": 1.5239852770230127,
+              "velocity_cosine": 0.3717523954336913,
+              "stalled_dynamic_fraction": 0.03125,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 1.3658293011592484
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.3279721992692338,
+              "target_motion_rms": 0.247238188420177,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 1.0304375148289906,
+              "relative_velocity_error": 1.5694988601917397,
+              "velocity_cosine": 0.23888038075598791,
+              "stalled_dynamic_fraction": 0.010416666666666666,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 1.4961163106547613
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 0.31155534846783295,
+              "target_motion_rms": 0.22842390733265816,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 1.21701322060827,
+              "relative_velocity_error": 1.7950134493193515,
+              "velocity_cosine": 0.28188178985970347,
+              "stalled_dynamic_fraction": 0.020833333333333332,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 1.7335742913367558
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.32315399738415984,
+              "target_motion_rms": 0.24096917917424443,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 1.1378935291705372,
+              "relative_velocity_error": 2.1793780001407836,
+              "velocity_cosine": 0.05071813866080003,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 19.36182551483014
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.3261857296874524,
+              "target_motion_rms": 0.24321710414108835,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 1.0489230857584737,
+              "relative_velocity_error": 2.003052981953592,
+              "velocity_cosine": 0.046326875250919976,
+              "stalled_dynamic_fraction": 0.010416666666666666,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 17.229273142704212
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.32295927280511366,
+              "target_motion_rms": 0.24301346826507156,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 1.1441311436796875,
+              "relative_velocity_error": 2.254054780228821,
+              "velocity_cosine": 0.024027531289875014,
+              "stalled_dynamic_fraction": 0.020833333333333332,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 19.839341331952827
+            }
+          }
+        },
+        {
+          "step": 500,
+          "seconds": 15.198297791182995,
+          "score": 19.19170081086621,
+          "gate": false,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.3696073636867026,
+              "target_motion_rms": 0.29544824005166026,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 1.101243057812709,
+              "relative_velocity_error": 1.0816846156957776,
+              "velocity_cosine": 0.513534068914543,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 0.6595600375412564
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.3606116707430918,
+              "target_motion_rms": 0.31372273206123247,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.9126702343102789,
+              "relative_velocity_error": 0.9066568602320432,
+              "velocity_cosine": 0.5074725029593876,
+              "stalled_dynamic_fraction": 0.03125,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 0.5724376438043127
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 0.38092850885759705,
+              "target_motion_rms": 0.29213583600822507,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 1.0562318536277484,
+              "relative_velocity_error": 1.1762040399113582,
+              "velocity_cosine": 0.44470429739455414,
+              "stalled_dynamic_fraction": 0.020833333333333332,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 0.778531296900577
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.3644215552099858,
+              "target_motion_rms": 0.30599896671370336,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 1.057727881186409,
+              "relative_velocity_error": 1.9712263577696887,
+              "velocity_cosine": 0.06975419457785659,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 14.069095020246639
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.365589435717301,
+              "target_motion_rms": 0.30917213945331506,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.9207680371488001,
+              "relative_velocity_error": 1.7083224033150046,
+              "velocity_cosine": 0.07574729426522589,
+              "stalled_dynamic_fraction": 0.010416666666666666,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 8.594436800326275
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.3686747752290051,
+              "target_motion_rms": 0.30912955114598273,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.9917388974961121,
+              "relative_velocity_error": 1.8749662644409981,
+              "velocity_cosine": 0.05474211843457097,
+              "stalled_dynamic_fraction": 0.020833333333333332,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 11.612735498514855
+            }
+          }
+        },
+        {
+          "step": 1000,
+          "seconds": 16.71863692253828,
+          "score": 19.320610093308577,
+          "gate": false,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.7262867811155004,
+              "target_motion_rms": 0.31107915996993546,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 1.0471231380612886,
+              "relative_velocity_error": 0.9560773407934917,
+              "velocity_cosine": 0.544534584338008,
+              "stalled_dynamic_fraction": 0.020833333333333332,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 0.5399649991550274
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.6574566702112425,
+              "target_motion_rms": 0.32934080028724416,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.9168630305033638,
+              "relative_velocity_error": 0.7677534735734516,
+              "velocity_cosine": 0.5850843078171339,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 0.4458567422150248
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 0.7447523307508261,
+              "target_motion_rms": 0.3097592509574041,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 1.0119633807862787,
+              "relative_velocity_error": 1.087601906713151,
+              "velocity_cosine": 0.4626985497299438,
+              "stalled_dynamic_fraction": 0.010416666666666666,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 0.6926529917767801
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.6886013938030786,
+              "target_motion_rms": 0.321038842773448,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.9856511802077222,
+              "relative_velocity_error": 1.8165676091434193,
+              "velocity_cosine": 0.07859811006810911,
+              "stalled_dynamic_fraction": 0.020833333333333332,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 12.381283985784496
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.6878656013374382,
+              "target_motion_rms": 0.32479264235697775,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.8992500797080926,
+              "relative_velocity_error": 1.6474063825854053,
+              "velocity_cosine": 0.08965488405736205,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 7.580045073023046
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.7048602135656346,
+              "target_motion_rms": 0.32553308105592665,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.9313988447811843,
+              "relative_velocity_error": 1.7408454003578901,
+              "velocity_cosine": 0.0679936465519188,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 10.298785452377414
+            }
+          }
+        },
+        {
+          "step": 2000,
+          "seconds": 14.11570106446743,
+          "score": 5.1145653381004585,
+          "gate": false,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.9084878561358065,
+              "target_motion_rms": 0.24142048191161386,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.9547157363573167,
+              "relative_velocity_error": 0.3372155325207729,
+              "velocity_cosine": 0.8244687632017449,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 0.14083967866987854
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.827823293768544,
+              "target_motion_rms": 0.2573685242130969,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.8815922291812737,
+              "relative_velocity_error": 0.2899316799458844,
+              "velocity_cosine": 0.8435153630994111,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 0.12374718322648653
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 0.926832986766261,
+              "target_motion_rms": 0.23854433588025517,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.8803402786917665,
+              "relative_velocity_error": 0.3194221590917226,
+              "velocity_cosine": 0.8267126260304939,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 0.13013142459626775
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.865086452767448,
+              "target_motion_rms": 0.2509656565427392,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.8103202098182557,
+              "relative_velocity_error": 1.4779491085368417,
+              "velocity_cosine": 0.11024637651770626,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 5.777315713397158
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.8655010216196728,
+              "target_motion_rms": 0.253671911245776,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.8056794951059899,
+              "relative_velocity_error": 1.4009545312407032,
+              "velocity_cosine": 0.15400970181132181,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 3.984559010593999
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.8845584242864604,
+              "target_motion_rms": 0.25357063287889353,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.7473773580108075,
+              "relative_velocity_error": 1.387446465092045,
+              "velocity_cosine": 0.1144846364028433,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 4.052361537896171
+            }
+          }
+        },
+        {
+          "step": 4000,
+          "seconds": 20.5589514747262,
+          "score": 3.3887518448211105,
+          "gate": false,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 1.0055667843588139,
+              "target_motion_rms": 0.26554524332758694,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.9481324232391819,
+              "relative_velocity_error": 0.17206334873633253,
+              "velocity_cosine": 0.910680671251253,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 0.06445741003013472
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.9108442399523581,
+              "target_motion_rms": 0.2813325471926269,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.9031569403290226,
+              "relative_velocity_error": 0.11567209118867076,
+              "velocity_cosine": 0.9411544615139028,
+              "stalled_dynamic_fraction": 0.010416666666666666,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 0.04143980570119902
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 1.025663262960617,
+              "target_motion_rms": 0.2628197117793742,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.8984015868238423,
+              "relative_velocity_error": 0.17056335758922803,
+              "velocity_cosine": 0.9108187683662592,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 0.060317786402811956
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.9569141140310188,
+              "target_motion_rms": 0.27537963207546196,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.8271699438656414,
+              "relative_velocity_error": 0.9807009016670318,
+              "velocity_cosine": 0.42525071152846955,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 3.256341715677582
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.9557283098873404,
+              "target_motion_rms": 0.27768594329989327,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.8195405259193421,
+              "relative_velocity_error": 0.9302241540707028,
+              "velocity_cosine": 0.45234036396292776,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 1.9538202140481755
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.9773296466587147,
+              "target_motion_rms": 0.277915593586321,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.8057828679408726,
+              "relative_velocity_error": 1.0194961983542385,
+              "velocity_cosine": 0.390793759069467,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": false,
+              "persistence_ratio": 2.3735372173694356
+            }
+          }
+        },
+        {
+          "step": 5250,
+          "seconds": 20.917882293462753,
+          "score": 0.5682073380023552,
+          "gate": true,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.8949918667691031,
+              "target_motion_rms": 0.23484660971840118,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.934463462167113,
+              "relative_velocity_error": 0.061452329232187394,
+              "velocity_cosine": 0.9694170538736138,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 0.026430047342753577
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.8170870241815354,
+              "target_motion_rms": 0.24930660768259452,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.9285698213178821,
+              "relative_velocity_error": 0.03796733619454097,
+              "velocity_cosine": 0.9823033954940849,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 0.019136950620587612
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 0.9118284917085795,
+              "target_motion_rms": 0.23140528396284507,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.9316716752036195,
+              "relative_velocity_error": 0.06435862070480175,
+              "velocity_cosine": 0.9679662576828493,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 0.03352150741958956
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.8541056412451192,
+              "target_motion_rms": 0.2435063615701655,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.8943238407140206,
+              "relative_velocity_error": 0.3405469698996164,
+              "velocity_cosine": 0.8158499727597516,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 0.5101179394914865
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.8534901914461084,
+              "target_motion_rms": 0.24545613583552317,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.8939473618620797,
+              "relative_velocity_error": 0.2900572167130026,
+              "velocity_cosine": 0.844056783121865,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 0.46210343439686125
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.8712058295125256,
+              "target_motion_rms": 0.24551534368098424,
+              "prediction_gate_applicable": true,
+              "predicted_target_velocity_rms_ratio": 0.8866869259465793,
+              "relative_velocity_error": 0.31462725310141665,
+              "velocity_cosine": 0.8298230234827199,
+              "stalled_dynamic_fraction": 0.0,
+              "prediction_gate_passed": true,
+              "persistence_ratio": 0.6175198976112172
+            }
+          }
+        }
+      ]
+    }
+  }
+}

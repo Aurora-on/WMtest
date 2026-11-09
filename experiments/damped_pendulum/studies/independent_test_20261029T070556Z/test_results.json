@@ -1,0 +1,9 @@
+{
+  "command": ".venv/bin/python -B -m pytest -q -p no:cacheprovider tests",
+  "passed": 34,
+  "failed": 0,
+  "warnings": 96,
+  "seconds": 8.84,
+  "new_holdout_tests": 6,
+  "scope": "Engineering regressions use pytest temporary fixtures; formal models have not been scored on this holdout."
+}

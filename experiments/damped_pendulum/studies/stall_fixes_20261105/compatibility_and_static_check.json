@@ -1,0 +1,33 @@
+{
+  "checkpoint_step": 19250,
+  "checkpoint_sha256": "5163a6a293a7c773a90e9ef59a62353a4debdba64c0dc24814bcbdb3b47f9042",
+  "legacy_vs_backup_forward_max_abs": {
+    "q": 0.0,
+    "p": 0.0,
+    "correction": 0.0,
+    "context": 0.0
+  },
+  "static_legacy_p": [
+    [
+      -0.8825815320014954,
+      -0.6926926374435425
+    ],
+    [
+      -0.8825815320014954,
+      -0.6926926374435425
+    ]
+  ],
+  "static_fixed_p": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "scope": "CPU two captured histories x four steps; backup model against new legacy defaults; shared pinned SIGReg and default-compatible core; initializer switch is diagnostic, not retraining",
+  "optimizer_updates": 0,
+  "parameters_unchanged": true
+}

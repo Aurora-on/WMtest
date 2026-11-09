@@ -1,0 +1,21 @@
+{
+  "active_model_config_count": 3,
+  "active_configs_previously_passed_existing_resolver": true,
+  "all_active_configs_use_lehami_objective": true,
+  "only_q_dim_differs": true,
+  "active_config_hashes_verified": true,
+  "active_time_and_training_settings_unchanged": true,
+  "existing_d2_reused": 1,
+  "new_runs_planned": 2,
+  "old_control_configs_archived_not_scheduled": true,
+  "new_training_started": true,
+  "new_jobs_submitted": true,
+  "cuda_qualification_pending": false,
+  "cuda_qualification_passed_dimensions": [
+    8,
+    32
+  ],
+  "nonlinear_readout_implemented": true,
+  "test_sealed": true,
+  "startup_audit": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/dimension_launch_20261105T113319Z/startup_audit.json"
+}

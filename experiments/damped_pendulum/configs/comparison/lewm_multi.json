@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "training_route": "staged",
+  "model": {
+    "kind": "lewm",
+    "history": 21,
+    "dt": 0.1,
+    "target_tail_frames": 2,
+    "encoder": "official_conv",
+    "embed_dim": 192,
+    "latent_dim": 64,
+    "projector_hidden_dim": 2048,
+    "sigreg": {
+      "weight": 0.09,
+      "knots": 17,
+      "num_proj": 1024
+    },
+    "tiny_fixture": false,
+    "objective": "native_one_step_shifted_contexts",
+    "readout_feature": "last_two_latents",
+    "predictor": {
+      "depth": 6,
+      "heads": 16,
+      "mlp_dim": 2048,
+      "dim_head": 64,
+      "dropout": 0.1,
+      "emb_dropout": 0.0
+    }
+  },
+  "training": {
+    "steps": 20000,
+    "batch_size": 32,
+    "train_frames": 81,
+    "seed": 0,
+    "threads": 4,
+    "lr": 0.0001,
+    "weight_decay": 0.0001,
+    "warmup_steps": 500,
+    "minimum_lr_ratio": 0.1,
+    "gradient_clip": 1.0,
+    "val_every": 250,
+    "val_windows": 288,
+    "val_seed": 1009,
+    "val_horizons": [
+      8,
+      32
+    ],
+    "checkpoint_every": 250,
+    "curriculum": [
+      {
+        "until_step": 1000,
+        "horizon": 4
+      },
+      {
+        "until_step": 4000,
+        "horizon": 8
+      },
+      {
+        "until_step": 10000,
+        "horizon": 16
+      },
+      {
+        "until_step": 20000,
+        "horizon": 32
+      }
+    ]
+  },
+  "data": {
+    "stage": "multi",
+    "selected_damping": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.5,
+      1.0
+    ],
+    "renderer": "smooth_v1",
+    "history": 21,
+    "dt": 0.1,
+    "train_frames": 81,
+    "expected_groups": {
+      "train": 384,
+      "val": 64
+    }
+  },
+  "fixture_only": false
+}

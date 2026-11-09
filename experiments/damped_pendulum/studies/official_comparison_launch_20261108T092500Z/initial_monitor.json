@@ -1,0 +1,3555 @@
+{
+  "checked_at_utc": "2026-11-08T09:37:25.705743+00:00",
+  "methods": {
+    "lehami": {
+      "formal_stages": {
+        "a": {
+          "segment": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/runs/lehami/lehami_seed0/a/segments/0001",
+          "status": {
+            "status": "running",
+            "completed_steps": 1251,
+            "target_steps": 20000,
+            "fixture_only": false
+          },
+          "last_row": {
+            "step": 1251,
+            "horizon": 8,
+            "losses": {
+              "loss": 1.3287276029586792,
+              "prediction_loss": 0.14332832396030426,
+              "pred_loss": 0.14332832396030426,
+              "sigreg_loss": 4.7415971755981445,
+              "position_loss": 0.11469277739524841,
+              "momentum_loss": 0.028635546565055847,
+              "initializer_correction_rms": 0.15042871236801147,
+              "target_position_std": 1.2850406169891357,
+              "target_momentum_std": 0.3154233694076538
+            },
+            "gradient_norm_before_clip": 5.202850341796875,
+            "learning_rate": 4.983551244216486e-05,
+            "train_seconds": 0.18877895921468735
+          },
+          "history_rows": 1251,
+          "all_recorded_losses_and_gradients_finite": true,
+          "validations": [
+            {
+              "step": 250,
+              "validation_seconds": 3.2127484902739525,
+              "validation": {
+                "horizons": {
+                  "8": {
+                    "loss": 2.359955734676785,
+                    "prediction_loss": 1.1312290231386821,
+                    "pred_loss": 1.1312290231386821,
+                    "sigreg_loss": 4.914906925625271,
+                    "position_loss": 0.9629778729544746,
+                    "momentum_loss": 0.1682511419057846,
+                    "initializer_correction_rms": 0.07807435095310211,
+                    "target_position_std": 0.9675690001911588,
+                    "target_momentum_std": 0.2815784447722965
+                  },
+                  "32": {
+                    "loss": 3.1352288722991943,
+                    "prediction_loss": 1.9125574694739447,
+                    "pred_loss": 1.9125574694739447,
+                    "sigreg_loss": 4.890685452355279,
+                    "position_loss": 1.3150108257929485,
+                    "momentum_loss": 0.5975466039445665,
+                    "initializer_correction_rms": 0.07807435095310211,
+                    "target_position_std": 0.9670683344205221,
+                    "target_momentum_std": 0.274448757370313
+                  }
+                },
+                "score": 1.5218932463063135,
+                "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+              }
+            },
+            {
+              "step": 500,
+              "validation_seconds": 3.1422188207507133,
+              "validation": {
+                "horizons": {
+                  "8": {
+                    "loss": 1.7700493468178644,
+                    "prediction_loss": 0.6406375534004636,
+                    "pred_loss": 0.6406375534004636,
+                    "sigreg_loss": 4.517647133933173,
+                    "position_loss": 0.5595540238751305,
+                    "momentum_loss": 0.08108352538612154,
+                    "initializer_correction_rms": 0.15403126097387737,
+                    "target_position_std": 1.3913798067304823,
+                    "target_momentum_std": 0.3529420528146956
+                  },
+                  "32": {
+                    "loss": 3.9217881891462536,
+                    "prediction_loss": 2.7981935607062445,
+                    "pred_loss": 2.7981935607062445,
+                    "sigreg_loss": 4.494378301832411,
+                    "position_loss": 1.8009898662567139,
+                    "momentum_loss": 0.9972036911381615,
+                    "initializer_correction_rms": 0.15403126097387737,
+                    "target_position_std": 1.3893468512429132,
+                    "target_momentum_std": 0.34893961747487384
+                  }
+                },
+                "score": 1.719415557053354,
+                "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+              }
+            },
+            {
+              "step": 750,
+              "validation_seconds": 2.6336609050631523,
+              "validation": {
+                "horizons": {
+                  "8": {
+                    "loss": 1.6496826940112643,
+                    "prediction_loss": 0.5722281436125437,
+                    "pred_loss": 0.5722281436125437,
+                    "sigreg_loss": 4.309818108876546,
+                    "position_loss": 0.5119822488890754,
+                    "momentum_loss": 0.06024588313367632,
+                    "initializer_correction_rms": 0.22087960607475704,
+                    "target_position_std": 1.4125542905595567,
+                    "target_momentum_std": 0.3688841329680549
+                  },
+                  "32": {
+                    "loss": 5.401673581865099,
+                    "prediction_loss": 4.330688847435845,
+                    "pred_loss": 4.330688847435845,
+                    "sigreg_loss": 4.283938407897949,
+                    "position_loss": 3.809019830491808,
+                    "momentum_loss": 0.5216690798600515,
+                    "initializer_correction_rms": 0.22087960607475704,
+                    "target_position_std": 1.4090012311935425,
+                    "target_momentum_std": 0.3643639451927609
+                  }
+                },
+                "score": 2.4514584955241947,
+                "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+              }
+            },
+            {
+              "step": 1000,
+              "validation_seconds": 3.111255742609501,
+              "validation": {
+                "horizons": {
+                  "8": {
+                    "loss": 1.6331451336542766,
+                    "prediction_loss": 0.5436466932296753,
+                    "pred_loss": 0.5436466932296753,
+                    "sigreg_loss": 4.357993814680311,
+                    "position_loss": 0.488483942217297,
+                    "momentum_loss": 0.05516275639335314,
+                    "initializer_correction_rms": 0.2320142553912269,
+                    "target_position_std": 1.4385615322324965,
+                    "target_momentum_std": 0.3792307476202647
+                  },
+                  "32": {
+                    "loss": 8.69761880238851,
+                    "prediction_loss": 7.614638169606526,
+                    "pred_loss": 7.614638169606526,
+                    "sigreg_loss": 4.3319229814741345,
+                    "position_loss": 7.247548898061116,
+                    "momentum_loss": 0.36708931293752456,
+                    "initializer_correction_rms": 0.2320142553912269,
+                    "target_position_std": 1.4356500175264146,
+                    "target_momentum_std": 0.37494441866874695
+                  }
+                },
+                "score": 4.0791424314181,
+                "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+              }
+            },
+            {
+              "step": 1250,
+              "validation_seconds": 3.308929353952408,
+              "validation": {
+                "horizons": {
+                  "8": {
+                    "loss": 1.4380505217446222,
+                    "prediction_loss": 0.20845451619890001,
+                    "pred_loss": 0.20845451619890001,
+                    "sigreg_loss": 4.918384022182888,
+                    "position_loss": 0.1776909132798513,
+                    "momentum_loss": 0.030763602091206446,
+                    "initializer_correction_rms": 0.21056767304738364,
+                    "target_position_std": 1.5129209889305963,
+                    "target_momentum_std": 0.35726500550905865
+                  },
+                  "32": {
+                    "loss": 5.2592531310187445,
+                    "prediction_loss": 4.038705163531834,
+                    "pred_loss": 4.038705163531834,
+                    "sigreg_loss": 4.882192293802897,
+                    "position_loss": 3.874180303679572,
+                    "momentum_loss": 0.16452480107545853,
+                    "initializer_correction_rms": 0.21056767304738364,
+                    "target_position_std": 1.5106081697675917,
+                    "target_momentum_std": 0.3551128109296163
+                  }
+                },
+                "score": 2.123579839865367,
+                "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+              }
+            }
+          ],
+          "recent_training_timing": {
+            "window_rows": 200,
+            "horizon": 8,
+            "median_seconds": 0.18777432665228844,
+            "mean_seconds_excluding_pauses": 0.19277859956026078,
+            "outlier_threshold_seconds": 2,
+            "excluded_rows": 0,
+            "scope": "Exclude explicit profiling suspension or isolated large stalls; compute prediction remains early-stage only"
+          },
+          "last_checkpoint_bytes": 37642309
+        }
+      },
+      "profiles": [
+        {
+          "path": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/profiles/lehami_48044.json",
+          "status": "completed",
+          "phase": "completed",
+          "elapsed_seconds": 70.50157707184553,
+          "error": null,
+          "estimate": {
+            "stages": {
+              "a": {
+                "step_seconds_by_horizon": {
+                  "4": 0.1529949501156807,
+                  "8": 0.16592398807406425,
+                  "16": 0.20988465920090676,
+                  "32": 0.34164597019553183
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 5326.534571498632,
+                "latent_validation_seconds": 232.08414375782013,
+                "subtotal_seconds": 5558.618715256453
+              },
+              "single": {
+                "step_seconds_by_horizon": {
+                  "4": 0.14986872300505638,
+                  "8": 0.17953821644186974,
+                  "16": 0.23860299214720726,
+                  "32": 0.36016481295228003
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 5721.74945473671,
+                "latent_validation_seconds": 238.53695452213287,
+                "subtotal_seconds": 5960.2864092588425
+              },
+              "multi": {
+                "step_seconds_by_horizon": {
+                  "4": 0.15109868794679643,
+                  "8": 0.169021175801754,
+                  "16": 0.24142638146877288,
+                  "32": 0.38357305228710176
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 5942.451027035713,
+                "latent_validation_seconds": 244.85742390155792,
+                "subtotal_seconds": 6187.308450937271
+              }
+            },
+            "single_gpu_sequential_subtotal_seconds": 17706.213575452566,
+            "single_gpu_sequential_subtotal_hours": 4.918392659847935,
+            "two_gpu_parallel_b_subtotal_seconds": 11745.927166193724,
+            "two_gpu_parallel_b_subtotal_hours": 3.262757546164923,
+            "formula_per_stage": "1000*t4 + 3000*t8 + 6000*t16 + 10000*t32 + 80*validation288_K8_K32",
+            "excluded": [
+              "queue time",
+              "preflight/startup",
+              "checkpoint and status file writes",
+              "three final physical readout evaluations",
+              "contention and later-model numerical changes"
+            ],
+            "not_a_completion_deadline": true,
+            "interpretation": "Measured early-model compute/data estimate; add excluded costs and refine using formal history.jsonl"
+          },
+          "stages": {
+            "a": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 2.9010517969727516,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 2.4211840629577637,
+                      "prediction_loss": 0.8880492978625827,
+                      "pred_loss": 0.8880492978625827,
+                      "sigreg_loss": 6.132539060380724,
+                      "position_loss": 0.6417050891452365,
+                      "momentum_loss": 0.24634421368439993,
+                      "initializer_correction_rms": 0.03674312225646443,
+                      "target_position_std": 0.6958203779326545,
+                      "target_momentum_std": 0.2596454603804482
+                    },
+                    "32": {
+                      "loss": 2.407001336415609,
+                      "prediction_loss": 0.8843263917499118,
+                      "pred_loss": 0.8843263917499118,
+                      "sigreg_loss": 6.090699937608507,
+                      "position_loss": 0.651550206873152,
+                      "momentum_loss": 0.2327761732869678,
+                      "initializer_correction_rms": 0.03674312225646443,
+                      "target_position_std": 0.6958257092369927,
+                      "target_momentum_std": 0.24653690391116673
+                    }
+                  },
+                  "score": 0.8861878448062472,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 1348342784,
+                "peak_reserved_bytes": 9198108672,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.1529949501156807,
+                      "median": 0.15273014083504677,
+                      "min": 0.14733242988586426,
+                      "max": 0.16336140036582947
+                    },
+                    "data_seconds": {
+                      "mean": 0.07111443355679511,
+                      "median": 0.07074755057692528,
+                      "min": 0.06675941497087479,
+                      "max": 0.07820437848567963
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.0073568418622016905,
+                      "median": 0.007715798914432526,
+                      "min": 0.005747094750404358,
+                      "max": 0.008008912205696106
+                    },
+                    "compute_seconds": {
+                      "mean": 0.07388833910226822,
+                      "median": 0.07314614206552505,
+                      "min": 0.07269171625375748,
+                      "max": 0.07692918926477432
+                    }
+                  },
+                  "peak_allocated_bytes": 3563122688,
+                  "peak_reserved_bytes": 3615490048,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.16592398807406425,
+                      "median": 0.16211146488785744,
+                      "min": 0.157250314950943,
+                      "max": 0.18502091616392136
+                    },
+                    "data_seconds": {
+                      "mean": 0.06835758611559868,
+                      "median": 0.06497897580265999,
+                      "min": 0.06305258721113205,
+                      "max": 0.07788041979074478
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.00555507093667984,
+                      "median": 0.005522225052118301,
+                      "min": 0.00501415878534317,
+                      "max": 0.006353072822093964
+                    },
+                    "compute_seconds": {
+                      "mean": 0.09146616384387016,
+                      "median": 0.08921334147453308,
+                      "min": 0.08858970552682877,
+                      "max": 0.10065167397260666
+                    }
+                  },
+                  "peak_allocated_bytes": 4106206208,
+                  "peak_reserved_bytes": 4135583744,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.20988465920090676,
+                      "median": 0.20953888446092606,
+                      "min": 0.1977706104516983,
+                      "max": 0.22384534031152725
+                    },
+                    "data_seconds": {
+                      "mean": 0.07862484455108643,
+                      "median": 0.07859637960791588,
+                      "min": 0.07454431802034378,
+                      "max": 0.08436883240938187
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.008459197729825974,
+                      "median": 0.008169900625944138,
+                      "min": 0.00643177330493927,
+                      "max": 0.012569636106491089
+                    },
+                    "compute_seconds": {
+                      "mean": 0.12230000570416451,
+                      "median": 0.12132969498634338,
+                      "min": 0.11476324498653412,
+                      "max": 0.13464275747537613
+                    }
+                  },
+                  "peak_allocated_bytes": 5171139584,
+                  "peak_reserved_bytes": 5194645504,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.34164597019553183,
+                      "median": 0.3390721008181572,
+                      "min": 0.31009915471076965,
+                      "max": 0.3752950429916382
+                    },
+                    "data_seconds": {
+                      "mean": 0.11512824892997742,
+                      "median": 0.11549004539847374,
+                      "min": 0.106299489736557,
+                      "max": 0.126086063683033
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.012386498600244522,
+                      "median": 0.012159522622823715,
+                      "min": 0.011266171932220459,
+                      "max": 0.013955093920230865
+                    },
+                    "compute_seconds": {
+                      "mean": 0.2135956473648548,
+                      "median": 0.2123548574745655,
+                      "min": 0.1905069500207901,
+                      "max": 0.23607219755649567
+                    }
+                  },
+                  "peak_allocated_bytes": 7312540672,
+                  "peak_reserved_bytes": 7352614912,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            },
+            "single": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 2.981711931526661,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 2.758799340989855,
+                      "prediction_loss": 1.1116322345203824,
+                      "pred_loss": 1.1116322345203824,
+                      "sigreg_loss": 6.588668399386936,
+                      "position_loss": 0.7725214627054002,
+                      "momentum_loss": 0.3391107569138209,
+                      "initializer_correction_rms": 0.0638079076177544,
+                      "target_position_std": 0.8319083915816413,
+                      "target_momentum_std": 0.2989108893606398
+                    },
+                    "32": {
+                      "loss": 2.6189845403035483,
+                      "prediction_loss": 0.9800539612770081,
+                      "pred_loss": 0.9800539612770081,
+                      "sigreg_loss": 6.555722342597114,
+                      "position_loss": 0.6872066325611539,
+                      "momentum_loss": 0.2928473287158542,
+                      "initializer_correction_rms": 0.0638079076177544,
+                      "target_position_std": 0.7631091939078437,
+                      "target_momentum_std": 0.26765848365094924
+                    }
+                  },
+                  "score": 1.0458430978986952,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 1349260288,
+                "peak_reserved_bytes": 9198108672,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.14986872300505638,
+                      "median": 0.14977753907442093,
+                      "min": 0.148767851293087,
+                      "max": 0.1517902985215187
+                    },
+                    "data_seconds": {
+                      "mean": 0.06886314153671265,
+                      "median": 0.06887774541974068,
+                      "min": 0.06837643682956696,
+                      "max": 0.06936166435480118
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.006651498377323151,
+                      "median": 0.006692416965961456,
+                      "min": 0.006067216396331787,
+                      "max": 0.0074728503823280334
+                    },
+                    "compute_seconds": {
+                      "mean": 0.07373032867908477,
+                      "median": 0.07356368377804756,
+                      "min": 0.07300453633069992,
+                      "max": 0.07557260990142822
+                    }
+                  },
+                  "peak_allocated_bytes": 3563122688,
+                  "peak_reserved_bytes": 3615490048,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.17953821644186974,
+                      "median": 0.1795119270682335,
+                      "min": 0.17871251702308655,
+                      "max": 0.17996061593294144
+                    },
+                    "data_seconds": {
+                      "mean": 0.0753725714981556,
+                      "median": 0.07539395242929459,
+                      "min": 0.07510820776224136,
+                      "max": 0.07565813511610031
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.006767353415489197,
+                      "median": 0.006746649742126465,
+                      "min": 0.006652854382991791,
+                      "max": 0.00693964958190918
+                    },
+                    "compute_seconds": {
+                      "mean": 0.09677222445607185,
+                      "median": 0.09682177752256393,
+                      "min": 0.0962800681591034,
+                      "max": 0.09704220294952393
+                    }
+                  },
+                  "peak_allocated_bytes": 4106206208,
+                  "peak_reserved_bytes": 4135583744,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.23860299214720726,
+                      "median": 0.23658989742398262,
+                      "min": 0.23526442050933838,
+                      "max": 0.24517719447612762
+                    },
+                    "data_seconds": {
+                      "mean": 0.08823370039463044,
+                      "median": 0.08657077699899673,
+                      "min": 0.08574513345956802,
+                      "max": 0.0934455618262291
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.007693959772586823,
+                      "median": 0.007495131343603134,
+                      "min": 0.007429450750350952,
+                      "max": 0.008217565715312958
+                    },
+                    "compute_seconds": {
+                      "mean": 0.14200083315372466,
+                      "median": 0.14158287644386292,
+                      "min": 0.1409197300672531,
+                      "max": 0.14457125216722488
+                    }
+                  },
+                  "peak_allocated_bytes": 5171139584,
+                  "peak_reserved_bytes": 5194645504,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.36016481295228003,
+                      "median": 0.3593732602894306,
+                      "min": 0.3579627797007561,
+                      "max": 0.36333179473876953
+                    },
+                    "data_seconds": {
+                      "mean": 0.11530653908848762,
+                      "median": 0.11422219127416611,
+                      "min": 0.11339364945888519,
+                      "max": 0.11845923215150833
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.010397987067699432,
+                      "median": 0.010341376066207886,
+                      "min": 0.010224848985671997,
+                      "max": 0.010837934911251068
+                    },
+                    "compute_seconds": {
+                      "mean": 0.2337959498167038,
+                      "median": 0.23369235917925835,
+                      "min": 0.23339727520942688,
+                      "max": 0.23429818451404572
+                    }
+                  },
+                  "peak_allocated_bytes": 7312540672,
+                  "peak_reserved_bytes": 7352614912,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            },
+            "multi": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 3.060717798769474,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 2.4427877532111273,
+                      "prediction_loss": 0.7969576385286119,
+                      "pred_loss": 0.7969576385286119,
+                      "sigreg_loss": 6.583320352766249,
+                      "position_loss": 0.5189046925968595,
+                      "momentum_loss": 0.2780529459317525,
+                      "initializer_correction_rms": 0.045072353134552635,
+                      "target_position_std": 0.7390141950713264,
+                      "target_momentum_std": 0.270905723174413
+                    },
+                    "32": {
+                      "loss": 2.3476014137268066,
+                      "prediction_loss": 0.7503442565600077,
+                      "pred_loss": 0.7503442565600077,
+                      "sigreg_loss": 6.389028602176243,
+                      "position_loss": 0.497639666001002,
+                      "momentum_loss": 0.25270458890332115,
+                      "initializer_correction_rms": 0.045072353134552635,
+                      "target_position_std": 0.7294566366407607,
+                      "target_momentum_std": 0.24060524337821537
+                    }
+                  },
+                  "score": 0.7736509475443099,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 1349260288,
+                "peak_reserved_bytes": 9198108672,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.15109868794679643,
+                      "median": 0.15108131244778633,
+                      "min": 0.15046747028827667,
+                      "max": 0.15200040489435196
+                    },
+                    "data_seconds": {
+                      "mean": 0.06978962048888207,
+                      "median": 0.06974298506975174,
+                      "min": 0.06948103755712509,
+                      "max": 0.07009442150592804
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.006897767633199691,
+                      "median": 0.00691358745098114,
+                      "min": 0.006529659032821655,
+                      "max": 0.0073874518275260925
+                    },
+                    "compute_seconds": {
+                      "mean": 0.07372573986649514,
+                      "median": 0.07374885305762291,
+                      "min": 0.07345286011695862,
+                      "max": 0.07393497228622437
+                    }
+                  },
+                  "peak_allocated_bytes": 3563122688,
+                  "peak_reserved_bytes": 3615490048,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.169021175801754,
+                      "median": 0.17223049700260162,
+                      "min": 0.1578558385372162,
+                      "max": 0.17897950112819672
+                    },
+                    "data_seconds": {
+                      "mean": 0.06814660727977753,
+                      "median": 0.07168841734528542,
+                      "min": 0.061135321855545044,
+                      "max": 0.07341180741786957
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.006976117938756942,
+                      "median": 0.006963089108467102,
+                      "min": 0.006243295967578888,
+                      "max": 0.007785268127918243
+                    },
+                    "compute_seconds": {
+                      "mean": 0.09327122494578362,
+                      "median": 0.09325215220451355,
+                      "min": 0.08934654295444489,
+                      "max": 0.09717881679534912
+                    }
+                  },
+                  "peak_allocated_bytes": 4106206208,
+                  "peak_reserved_bytes": 4135583744,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.24142638146877288,
+                      "median": 0.24043407663702965,
+                      "min": 0.22996659576892853,
+                      "max": 0.2507948875427246
+                    },
+                    "data_seconds": {
+                      "mean": 0.09006164073944092,
+                      "median": 0.08851238712668419,
+                      "min": 0.087764210999012,
+                      "max": 0.09638792276382446
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.009270372986793517,
+                      "median": 0.009133454412221909,
+                      "min": 0.008978836238384247,
+                      "max": 0.0100550577044487
+                    },
+                    "compute_seconds": {
+                      "mean": 0.1414179176092148,
+                      "median": 0.14210230112075806,
+                      "min": 0.13110611587762833,
+                      "max": 0.14460685104131699
+                    }
+                  },
+                  "peak_allocated_bytes": 5171139584,
+                  "peak_reserved_bytes": 5194645504,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.38357305228710176,
+                      "median": 0.38503869250416756,
+                      "min": 0.3705606907606125,
+                      "max": 0.3938138782978058
+                    },
+                    "data_seconds": {
+                      "mean": 0.1317327983677387,
+                      "median": 0.1312296986579895,
+                      "min": 0.12076959758996964,
+                      "max": 0.13894568383693695
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.013231917470693588,
+                      "median": 0.013243693858385086,
+                      "min": 0.013005919754505157,
+                      "max": 0.013506479561328888
+                    },
+                    "compute_seconds": {
+                      "mean": 0.23792110458016397,
+                      "median": 0.2365698367357254,
+                      "min": 0.23559560626745224,
+                      "max": 0.24186035990715027
+                    }
+                  },
+                  "peak_allocated_bytes": 7312540672,
+                  "peak_reserved_bytes": 7352614912,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "lewm": {
+      "formal_stages": {
+        "a": {
+          "segment": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/runs/lewm/lewm_seed0/a/segments/0001",
+          "status": {
+            "status": "running",
+            "completed_steps": 1227,
+            "target_steps": 20000,
+            "fixture_only": false
+          },
+          "last_row": {
+            "step": 1227,
+            "horizon": 8,
+            "losses": {
+              "loss": 0.2074323296546936,
+              "prediction_loss": 0.04941723495721817,
+              "pred_loss": 0.04941723495721817,
+              "sigreg_loss": 1.755723237991333,
+              "target_position_std": 0.902791440486908
+            },
+            "gradient_norm_before_clip": 0.5580980777740479,
+            "learning_rate": 9.96916916230409e-05,
+            "train_seconds": 0.19069096446037292
+          },
+          "history_rows": 1227,
+          "all_recorded_losses_and_gradients_finite": true,
+          "validations": [
+            {
+              "step": 250,
+              "validation_seconds": 2.8119244128465652,
+              "validation": {
+                "horizons": {
+                  "8": {
+                    "loss": 0.4100571672121684,
+                    "prediction_loss": 0.08754878987868626,
+                    "pred_loss": 0.08754878987868626,
+                    "sigreg_loss": 3.5834262635972767,
+                    "target_position_std": 0.8470912112130059
+                  },
+                  "32": {
+                    "loss": 0.40330011314815944,
+                    "prediction_loss": 0.08745780338843663,
+                    "pred_loss": 0.08745780338843663,
+                    "sigreg_loss": 3.509358935885959,
+                    "target_position_std": 0.8457863926887512
+                  }
+                },
+                "score": 0.08750329663356145,
+                "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+              }
+            },
+            {
+              "step": 500,
+              "validation_seconds": 2.9473204165697098,
+              "validation": {
+                "horizons": {
+                  "8": {
+                    "loss": 0.3062145743105147,
+                    "prediction_loss": 0.044222946796152324,
+                    "pred_loss": 0.044222946796152324,
+                    "sigreg_loss": 2.911017974217733,
+                    "target_position_std": 0.9616573519176908
+                  },
+                  "32": {
+                    "loss": 0.29920388261477154,
+                    "prediction_loss": 0.04370735875434346,
+                    "pred_loss": 0.04370735875434346,
+                    "sigreg_loss": 2.838850180308024,
+                    "target_position_std": 0.9593998723559909
+                  }
+                },
+                "score": 0.04396515277524789,
+                "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+              }
+            },
+            {
+              "step": 750,
+              "validation_seconds": 2.593888930976391,
+              "validation": {
+                "horizons": {
+                  "8": {
+                    "loss": 0.26964011622799766,
+                    "prediction_loss": 0.036801533152659736,
+                    "pred_loss": 0.036801533152659736,
+                    "sigreg_loss": 2.587095260620117,
+                    "target_position_std": 0.938620408376058
+                  },
+                  "32": {
+                    "loss": 0.26750117871496415,
+                    "prediction_loss": 0.03632262100776037,
+                    "pred_loss": 0.03632262100776037,
+                    "sigreg_loss": 2.5686505370669894,
+                    "target_position_std": 0.9372238119443258
+                  }
+                },
+                "score": 0.03656207708021005,
+                "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+              }
+            },
+            {
+              "step": 1000,
+              "validation_seconds": 2.374688670039177,
+              "validation": {
+                "horizons": {
+                  "8": {
+                    "loss": 0.2543914367755254,
+                    "prediction_loss": 0.0341155119240284,
+                    "pred_loss": 0.0341155119240284,
+                    "sigreg_loss": 2.447510176234775,
+                    "target_position_std": 0.9271137317021688
+                  },
+                  "32": {
+                    "loss": 0.2516275594631831,
+                    "prediction_loss": 0.03364775412612491,
+                    "pred_loss": 0.03364775412612491,
+                    "sigreg_loss": 2.421997759077284,
+                    "target_position_std": 0.9255635870827569
+                  }
+                },
+                "score": 0.03388163302507666,
+                "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+              }
+            }
+          ],
+          "recent_training_timing": {
+            "window_rows": 200,
+            "horizon": 8,
+            "median_seconds": 0.190457571297884,
+            "mean_seconds_excluding_pauses": 0.19497254770249128,
+            "outlier_threshold_seconds": 2,
+            "excluded_rows": 0,
+            "scope": "Exclude explicit profiling suspension or isolated large stalls; compute prediction remains early-stage only"
+          },
+          "last_checkpoint_bytes": 53584898
+        }
+      },
+      "profiles": [
+        {
+          "path": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/profiles/lewm_48045.json",
+          "status": "completed",
+          "phase": "completed",
+          "elapsed_seconds": 72.18239717930555,
+          "error": null,
+          "estimate": {
+            "stages": {
+              "a": {
+                "step_seconds_by_horizon": {
+                  "4": 0.18427070751786231,
+                  "8": 0.19825253635644913,
+                  "16": 0.25161410570144654,
+                  "32": 0.37361357510089876
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 6024.848701804876,
+                "latent_validation_seconds": 225.13542771339417,
+                "subtotal_seconds": 6249.9841295182705
+              },
+              "single": {
+                "step_seconds_by_horizon": {
+                  "4": 0.16771190315485002,
+                  "8": 0.1882304258644581,
+                  "16": 0.24209036380052568,
+                  "32": 0.3540866807103157
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 5725.812170654535,
+                "latent_validation_seconds": 214.9033087491989,
+                "subtotal_seconds": 5940.715479403734
+              },
+              "multi": {
+                "step_seconds_by_horizon": {
+                  "4": 0.16132139340043067,
+                  "8": 0.2060476414859295,
+                  "16": 0.2504996292293072,
+                  "32": 0.3635211646556854
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 5917.673739790916,
+                "latent_validation_seconds": 206.74464464187622,
+                "subtotal_seconds": 6124.418384432793
+              }
+            },
+            "single_gpu_sequential_subtotal_seconds": 18315.117993354797,
+            "single_gpu_sequential_subtotal_hours": 5.087532775931888,
+            "two_gpu_parallel_b_subtotal_seconds": 12374.402513951063,
+            "two_gpu_parallel_b_subtotal_hours": 3.437334031653073,
+            "formula_per_stage": "1000*t4 + 3000*t8 + 6000*t16 + 10000*t32 + 80*validation288_K8_K32",
+            "excluded": [
+              "queue time",
+              "preflight/startup",
+              "checkpoint and status file writes",
+              "three final physical readout evaluations",
+              "contention and later-model numerical changes"
+            ],
+            "not_a_completion_deadline": true,
+            "interpretation": "Measured early-model compute/data estimate; add excluded costs and refine using formal history.jsonl"
+          },
+          "stages": {
+            "a": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 2.814192846417427,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 0.5022052625815073,
+                      "prediction_loss": 0.17400864594512516,
+                      "pred_loss": 0.17400864594512516,
+                      "sigreg_loss": 3.6466289626227484,
+                      "target_position_std": 0.7918885350227356
+                    },
+                    "32": {
+                      "loss": 0.5034964316421084,
+                      "prediction_loss": 0.17434602148003048,
+                      "pred_loss": 0.17434602148003048,
+                      "sigreg_loss": 3.657226668463813,
+                      "target_position_std": 0.7918414937125312
+                    }
+                  },
+                  "score": 0.17417733371257782,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 2043390464,
+                "peak_reserved_bytes": 15913189376,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.18427070751786231,
+                      "median": 0.1858876273036003,
+                      "min": 0.17917323112487793,
+                      "max": 0.18832970410585403
+                    },
+                    "data_seconds": {
+                      "mean": 0.08511187955737114,
+                      "median": 0.08641588315367699,
+                      "min": 0.0802144780755043,
+                      "max": 0.08946098387241364
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.006961607187986374,
+                      "median": 0.006918281316757202,
+                      "min": 0.0067724063992500305,
+                      "max": 0.007250919938087463
+                    },
+                    "compute_seconds": {
+                      "mean": 0.09155983850359917,
+                      "median": 0.09103841334581375,
+                      "min": 0.09000778943300247,
+                      "max": 0.09291676431894302
+                    }
+                  },
+                  "peak_allocated_bytes": 4107577344,
+                  "peak_reserved_bytes": 4198498304,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.19825253635644913,
+                      "median": 0.19628987461328506,
+                      "min": 0.19219475984573364,
+                      "max": 0.2145971804857254
+                    },
+                    "data_seconds": {
+                      "mean": 0.08487844914197921,
+                      "median": 0.08209274709224701,
+                      "min": 0.07959657907485962,
+                      "max": 0.10168353468179703
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.008176226168870926,
+                      "median": 0.00798996165394783,
+                      "min": 0.007771581411361694,
+                      "max": 0.010296918451786041
+                    },
+                    "compute_seconds": {
+                      "mean": 0.10454612076282502,
+                      "median": 0.10443135350942612,
+                      "min": 0.10404029488563538,
+                      "max": 0.10577268153429031
+                    }
+                  },
+                  "peak_allocated_bytes": 5350491648,
+                  "peak_reserved_bytes": 5549064192,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.25161410570144654,
+                      "median": 0.24799419194459915,
+                      "min": 0.24495770782232285,
+                      "max": 0.2650488540530205
+                    },
+                    "data_seconds": {
+                      "mean": 0.10191335082054138,
+                      "median": 0.09816434979438782,
+                      "min": 0.0954616442322731,
+                      "max": 0.11561524122953415
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.009888503700494766,
+                      "median": 0.009897086769342422,
+                      "min": 0.009584836661815643,
+                      "max": 0.010159708559513092
+                    },
+                    "compute_seconds": {
+                      "mean": 0.139165560901165,
+                      "median": 0.13923900574445724,
+                      "min": 0.13878097385168076,
+                      "max": 0.13948196917772293
+                    }
+                  },
+                  "peak_allocated_bytes": 7824916992,
+                  "peak_reserved_bytes": 8172601344,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.37361357510089876,
+                      "median": 0.3728671185672283,
+                      "min": 0.3714127615094185,
+                      "max": 0.3780030831694603
+                    },
+                    "data_seconds": {
+                      "mean": 0.13478993400931358,
+                      "median": 0.13464158028364182,
+                      "min": 0.13386274874210358,
+                      "max": 0.13669771701097488
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.013370136171579361,
+                      "median": 0.013297747820615768,
+                      "min": 0.013059020042419434,
+                      "max": 0.013891324400901794
+                    },
+                    "compute_seconds": {
+                      "mean": 0.22480439990758896,
+                      "median": 0.22433728724718094,
+                      "min": 0.2233821600675583,
+                      "max": 0.2282603159546852
+                    }
+                  },
+                  "peak_allocated_bytes": 12805579264,
+                  "peak_reserved_bytes": 13161725952,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            },
+            "single": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 2.6862913593649864,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 0.5840486221843295,
+                      "prediction_loss": 0.23291544285085466,
+                      "pred_loss": 0.23291544285085466,
+                      "sigreg_loss": 3.901479641596476,
+                      "target_position_std": 0.909518818060557
+                    },
+                    "32": {
+                      "loss": 0.5570666127734714,
+                      "prediction_loss": 0.20438102549976772,
+                      "pred_loss": 0.20438102549976772,
+                      "sigreg_loss": 3.9187286959754095,
+                      "target_position_std": 0.8497778044806586
+                    }
+                  },
+                  "score": 0.2186482341753112,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 2043390464,
+                "peak_reserved_bytes": 15921577984,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.16771190315485002,
+                      "median": 0.1673702895641327,
+                      "min": 0.16567440330982208,
+                      "max": 0.17176010459661484
+                    },
+                    "data_seconds": {
+                      "mean": 0.06942461878061294,
+                      "median": 0.06902912631630898,
+                      "min": 0.0679575726389885,
+                      "max": 0.0733800083398819
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.006787782907485962,
+                      "median": 0.006731845438480377,
+                      "min": 0.006442941725254059,
+                      "max": 0.007562451064586639
+                    },
+                    "compute_seconds": {
+                      "mean": 0.09086958691477776,
+                      "median": 0.09079477190971375,
+                      "min": 0.09032639116048813,
+                      "max": 0.09134779125452042
+                    }
+                  },
+                  "peak_allocated_bytes": 4108429312,
+                  "peak_reserved_bytes": 4152360960,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.1882304258644581,
+                      "median": 0.1871538683772087,
+                      "min": 0.18606016039848328,
+                      "max": 0.19172561913728714
+                    },
+                    "data_seconds": {
+                      "mean": 0.07555764764547349,
+                      "median": 0.07478364184498787,
+                      "min": 0.07456357777118683,
+                      "max": 0.077912837266922
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.007323700934648514,
+                      "median": 0.007334906607866287,
+                      "min": 0.006974861025810242,
+                      "max": 0.007727667689323425
+                    },
+                    "compute_seconds": {
+                      "mean": 0.10468785464763641,
+                      "median": 0.10425924509763718,
+                      "min": 0.10359613597393036,
+                      "max": 0.10957410931587219
+                    }
+                  },
+                  "peak_allocated_bytes": 5347280384,
+                  "peak_reserved_bytes": 5557452800,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.24209036380052568,
+                      "median": 0.24188745021820068,
+                      "min": 0.2408377081155777,
+                      "max": 0.2438477948307991
+                    },
+                    "data_seconds": {
+                      "mean": 0.09015354216098785,
+                      "median": 0.08993227779865265,
+                      "min": 0.08949124813079834,
+                      "max": 0.09197089821100235
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.01160360723733902,
+                      "median": 0.011570777744054794,
+                      "min": 0.011488698422908783,
+                      "max": 0.01181843876838684
+                    },
+                    "compute_seconds": {
+                      "mean": 0.13966946601867675,
+                      "median": 0.13925280049443245,
+                      "min": 0.13888974487781525,
+                      "max": 0.14117786288261414
+                    }
+                  },
+                  "peak_allocated_bytes": 7830028800,
+                  "peak_reserved_bytes": 8180989952,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.3540866807103157,
+                      "median": 0.35356397926807404,
+                      "min": 0.32923524081707,
+                      "max": 0.37052276730537415
+                    },
+                    "data_seconds": {
+                      "mean": 0.1149658665060997,
+                      "median": 0.1134401336312294,
+                      "min": 0.10387655347585678,
+                      "max": 0.1279178187251091
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.014810223132371902,
+                      "median": 0.014845199882984161,
+                      "min": 0.012256428599357605,
+                      "max": 0.015838459134101868
+                    },
+                    "compute_seconds": {
+                      "mean": 0.22364121824502944,
+                      "median": 0.22474050894379616,
+                      "min": 0.21248485893011093,
+                      "max": 0.22587872296571732
+                    }
+                  },
+                  "peak_allocated_bytes": 12807152128,
+                  "peak_reserved_bytes": 13170114560,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            },
+            "multi": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 2.5843080580234528,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 0.5420005586412218,
+                      "prediction_loss": 0.2058288554350535,
+                      "pred_loss": 0.2058288554350535,
+                      "sigreg_loss": 3.7352410422431097,
+                      "target_position_std": 0.8217319846153259
+                    },
+                    "32": {
+                      "loss": 0.5249563455581665,
+                      "prediction_loss": 0.19498766130871242,
+                      "pred_loss": 0.19498766130871242,
+                      "sigreg_loss": 3.666318655014038,
+                      "target_position_std": 0.797450045744578
+                    }
+                  },
+                  "score": 0.20040825837188297,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 2043390464,
+                "peak_reserved_bytes": 15921577984,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.16132139340043067,
+                      "median": 0.1593848541378975,
+                      "min": 0.1591477319598198,
+                      "max": 0.176611490547657
+                    },
+                    "data_seconds": {
+                      "mean": 0.06501924246549606,
+                      "median": 0.06339346244931221,
+                      "min": 0.06307019293308258,
+                      "max": 0.079888254404068
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.003943916410207748,
+                      "median": 0.0039050988852977753,
+                      "min": 0.0038008317351341248,
+                      "max": 0.004193902015686035
+                    },
+                    "compute_seconds": {
+                      "mean": 0.09168089553713799,
+                      "median": 0.09142406657338142,
+                      "min": 0.09113233536481857,
+                      "max": 0.09424210339784622
+                    }
+                  },
+                  "peak_allocated_bytes": 4108429312,
+                  "peak_reserved_bytes": 4152360960,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.2060476414859295,
+                      "median": 0.1945876181125641,
+                      "min": 0.1938299611210823,
+                      "max": 0.3098878636956215
+                    },
+                    "data_seconds": {
+                      "mean": 0.08115479871630668,
+                      "median": 0.08100295439362526,
+                      "min": 0.08084183186292648,
+                      "max": 0.08204340934753418
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.007853327691555024,
+                      "median": 0.007804159075021744,
+                      "min": 0.007569044828414917,
+                      "max": 0.008343562483787537
+                    },
+                    "compute_seconds": {
+                      "mean": 0.11635781079530716,
+                      "median": 0.10482209548354149,
+                      "min": 0.10451984405517578,
+                      "max": 0.22018568217754364
+                    }
+                  },
+                  "peak_allocated_bytes": 5347280384,
+                  "peak_reserved_bytes": 5557452800,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.2504996292293072,
+                      "median": 0.2494499348104,
+                      "min": 0.24769780784845352,
+                      "max": 0.25835829228162766
+                    },
+                    "data_seconds": {
+                      "mean": 0.10065270289778709,
+                      "median": 0.09939735382795334,
+                      "min": 0.09855234622955322,
+                      "max": 0.10895372927188873
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.00979505553841591,
+                      "median": 0.009843047708272934,
+                      "min": 0.009601958096027374,
+                      "max": 0.00991109013557434
+                    },
+                    "compute_seconds": {
+                      "mean": 0.13932620882987976,
+                      "median": 0.13906625285744667,
+                      "min": 0.13866017758846283,
+                      "max": 0.14222025126218796
+                    }
+                  },
+                  "peak_allocated_bytes": 7830028800,
+                  "peak_reserved_bytes": 8180989952,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.3635211646556854,
+                      "median": 0.3647119775414467,
+                      "min": 0.35511088371276855,
+                      "max": 0.3690507337450981
+                    },
+                    "data_seconds": {
+                      "mean": 0.12583049535751342,
+                      "median": 0.12645846232771873,
+                      "min": 0.1183747723698616,
+                      "max": 0.13150113075971603
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.012200633436441422,
+                      "median": 0.012171480804681778,
+                      "min": 0.011838674545288086,
+                      "max": 0.012817442417144775
+                    },
+                    "compute_seconds": {
+                      "mean": 0.2247532121837139,
+                      "median": 0.22447557374835014,
+                      "min": 0.22384078055620193,
+                      "max": 0.22687503695487976
+                    }
+                  },
+                  "peak_allocated_bytes": 12807152128,
+                  "peak_reserved_bytes": 13170114560,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            }
+          }
+        },
+        {
+          "path": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/profiles/lewm_probe_in_48044.json",
+          "status": "completed",
+          "phase": "completed",
+          "elapsed_seconds": 72.44812110066414,
+          "error": null,
+          "estimate": {
+            "stages": {
+              "a": {
+                "step_seconds_by_horizon": {
+                  "4": 0.1850137583911419,
+                  "8": 0.20798539668321608,
+                  "16": 0.2594190388917923,
+                  "32": 0.3828746810555458
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 6194.230992347002,
+                "latent_validation_seconds": 224.0111881494522,
+                "subtotal_seconds": 6418.242180496454
+              },
+              "single": {
+                "step_seconds_by_horizon": {
+                  "4": 0.1717820093035698,
+                  "8": 0.19216859713196754,
+                  "16": 0.24711496978998185,
+                  "32": 0.36750958636403086
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 5906.073483079672,
+                "latent_validation_seconds": 217.09595680236816,
+                "subtotal_seconds": 6123.16943988204
+              },
+              "multi": {
+                "step_seconds_by_horizon": {
+                  "4": 0.16881328597664833,
+                  "8": 0.2001766689121723,
+                  "16": 0.2394249603152275,
+                  "32": 0.3645524986088276
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 5851.418040692806,
+                "latent_validation_seconds": 212.554492354393,
+                "subtotal_seconds": 6063.972533047199
+              }
+            },
+            "single_gpu_sequential_subtotal_seconds": 18605.384153425694,
+            "single_gpu_sequential_subtotal_hours": 5.16816226484047,
+            "two_gpu_parallel_b_subtotal_seconds": 12541.411620378494,
+            "two_gpu_parallel_b_subtotal_hours": 3.4837254501051373,
+            "formula_per_stage": "1000*t4 + 3000*t8 + 6000*t16 + 10000*t32 + 80*validation288_K8_K32",
+            "excluded": [
+              "queue time",
+              "preflight/startup",
+              "checkpoint and status file writes",
+              "three final physical readout evaluations",
+              "contention and later-model numerical changes"
+            ],
+            "not_a_completion_deadline": true,
+            "interpretation": "Measured early-model compute/data estimate; add excluded costs and refine using formal history.jsonl"
+          },
+          "stages": {
+            "a": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 2.8001398518681526,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 0.502211954858568,
+                      "prediction_loss": 0.17402362161212498,
+                      "pred_loss": 0.17402362161212498,
+                      "sigreg_loss": 3.646536933051215,
+                      "target_position_std": 0.7918605009714762
+                    },
+                    "32": {
+                      "loss": 0.5035105480088128,
+                      "prediction_loss": 0.174360121289889,
+                      "pred_loss": 0.174360121289889,
+                      "sigreg_loss": 3.657226800918579,
+                      "target_position_std": 0.7918132278654311
+                    }
+                  },
+                  "score": 0.174191871451007,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 2043390464,
+                "peak_reserved_bytes": 15913189376,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.1850137583911419,
+                      "median": 0.18482627347111702,
+                      "min": 0.18092773854732513,
+                      "max": 0.18948562443256378
+                    },
+                    "data_seconds": {
+                      "mean": 0.0830962173640728,
+                      "median": 0.0829128697514534,
+                      "min": 0.0789833590388298,
+                      "max": 0.08809692412614822
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.008658059686422349,
+                      "median": 0.008641336113214493,
+                      "min": 0.00837012380361557,
+                      "max": 0.00886157900094986
+                    },
+                    "compute_seconds": {
+                      "mean": 0.092598208039999,
+                      "median": 0.09258691221475601,
+                      "min": 0.09211880713701248,
+                      "max": 0.09316583722829819
+                    }
+                  },
+                  "peak_allocated_bytes": 4107577344,
+                  "peak_reserved_bytes": 4198498304,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.20798539668321608,
+                      "median": 0.2068537436425686,
+                      "min": 0.20326979458332062,
+                      "max": 0.21831969171762466
+                    },
+                    "data_seconds": {
+                      "mean": 0.09165870696306229,
+                      "median": 0.09052781760692596,
+                      "min": 0.08698440343141556,
+                      "max": 0.10216271877288818
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.009315887838602066,
+                      "median": 0.009433485567569733,
+                      "min": 0.008849039673805237,
+                      "max": 0.009607993066310883
+                    },
+                    "compute_seconds": {
+                      "mean": 0.10633299425244332,
+                      "median": 0.10602658987045288,
+                      "min": 0.10564866662025452,
+                      "max": 0.10946661233901978
+                    }
+                  },
+                  "peak_allocated_bytes": 5350491648,
+                  "peak_reserved_bytes": 5549064192,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.2594190388917923,
+                      "median": 0.2595268785953522,
+                      "min": 0.2547532171010971,
+                      "max": 0.2673846632242203
+                    },
+                    "data_seconds": {
+                      "mean": 0.107897087931633,
+                      "median": 0.10802256688475609,
+                      "min": 0.10369087755680084,
+                      "max": 0.1156272366642952
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.011852922290563584,
+                      "median": 0.011802468448877335,
+                      "min": 0.011600777506828308,
+                      "max": 0.012578137218952179
+                    },
+                    "compute_seconds": {
+                      "mean": 0.13898730874061585,
+                      "median": 0.13888413086533546,
+                      "min": 0.13850859552621841,
+                      "max": 0.1400231346487999
+                    }
+                  },
+                  "peak_allocated_bytes": 7824916992,
+                  "peak_reserved_bytes": 8172601344,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.3828746810555458,
+                      "median": 0.3809593431651592,
+                      "min": 0.3729698061943054,
+                      "max": 0.3980337753891945
+                    },
+                    "data_seconds": {
+                      "mean": 0.1434349797666073,
+                      "median": 0.14266492798924446,
+                      "min": 0.13428644835948944,
+                      "max": 0.15509698539972305
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.015930324047803878,
+                      "median": 0.015898581594228745,
+                      "min": 0.01583268493413925,
+                      "max": 0.016109146177768707
+                    },
+                    "compute_seconds": {
+                      "mean": 0.22283780574798584,
+                      "median": 0.22200382873415947,
+                      "min": 0.22151174396276474,
+                      "max": 0.22986961901187897
+                    }
+                  },
+                  "peak_allocated_bytes": 12805579264,
+                  "peak_reserved_bytes": 13161725952,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            },
+            "single": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 2.713699460029602,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 0.5840227007865906,
+                      "prediction_loss": 0.23290892276499006,
+                      "pred_loss": 0.23290892276499006,
+                      "sigreg_loss": 3.901264031728109,
+                      "target_position_std": 0.9094987776544359
+                    },
+                    "32": {
+                      "loss": 0.5570467776722379,
+                      "prediction_loss": 0.20437866118219164,
+                      "pred_loss": 0.20437866118219164,
+                      "sigreg_loss": 3.918534517288208,
+                      "target_position_std": 0.8497629695468478
+                    }
+                  },
+                  "score": 0.21864379197359085,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 2043390464,
+                "peak_reserved_bytes": 15921577984,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.1717820093035698,
+                      "median": 0.17186782881617546,
+                      "min": 0.17018292099237442,
+                      "max": 0.17322493344545364
+                    },
+                    "data_seconds": {
+                      "mean": 0.07025054842233658,
+                      "median": 0.0703069157898426,
+                      "min": 0.06910892575979233,
+                      "max": 0.07140108197927475
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.008139560371637345,
+                      "median": 0.008231159299612045,
+                      "min": 0.007741905748844147,
+                      "max": 0.008482463657855988
+                    },
+                    "compute_seconds": {
+                      "mean": 0.09273530766367913,
+                      "median": 0.09272486343979836,
+                      "min": 0.09231368452310562,
+                      "max": 0.09331288188695908
+                    }
+                  },
+                  "peak_allocated_bytes": 4108429312,
+                  "peak_reserved_bytes": 4152360960,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.19216859713196754,
+                      "median": 0.19177215546369553,
+                      "min": 0.19097042828798294,
+                      "max": 0.19751722365617752
+                    },
+                    "data_seconds": {
+                      "mean": 0.07681738957762718,
+                      "median": 0.0763082280755043,
+                      "min": 0.07589208334684372,
+                      "max": 0.0816597118973732
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.008784554898738861,
+                      "median": 0.008772723376750946,
+                      "min": 0.008718088269233704,
+                      "max": 0.008913055062294006
+                    },
+                    "compute_seconds": {
+                      "mean": 0.10587921589612961,
+                      "median": 0.10586681589484215,
+                      "min": 0.1055649071931839,
+                      "max": 0.10641747713088989
+                    }
+                  },
+                  "peak_allocated_bytes": 5347280384,
+                  "peak_reserved_bytes": 5557452800,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.24711496978998185,
+                      "median": 0.24463079124689102,
+                      "min": 0.24372176826000214,
+                      "max": 0.26809654384851456
+                    },
+                    "data_seconds": {
+                      "mean": 0.0940069817006588,
+                      "median": 0.09368302673101425,
+                      "min": 0.09310054779052734,
+                      "max": 0.0961909219622612
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.011008849740028382,
+                      "median": 0.010832875967025757,
+                      "min": 0.010788075625896454,
+                      "max": 0.012185432016849518
+                    },
+                    "compute_seconds": {
+                      "mean": 0.14139442145824432,
+                      "median": 0.13916290551424026,
+                      "min": 0.1385241076350212,
+                      "max": 0.15905901789665222
+                    }
+                  },
+                  "peak_allocated_bytes": 7830028800,
+                  "peak_reserved_bytes": 8180989952,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.36750958636403086,
+                      "median": 0.36551622301340103,
+                      "min": 0.3647948428988457,
+                      "max": 0.3744436800479889
+                    },
+                    "data_seconds": {
+                      "mean": 0.12739250138401986,
+                      "median": 0.1266779862344265,
+                      "min": 0.1265013888478279,
+                      "max": 0.1313311979174614
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.014875062555074692,
+                      "median": 0.014856614172458649,
+                      "min": 0.014800630509853363,
+                      "max": 0.01503591239452362
+                    },
+                    "compute_seconds": {
+                      "mean": 0.22453219443559647,
+                      "median": 0.22315939515829086,
+                      "min": 0.22271288931369781,
+                      "max": 0.22947749495506287
+                    }
+                  },
+                  "peak_allocated_bytes": 12807152128,
+                  "peak_reserved_bytes": 13170114560,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            },
+            "multi": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 2.6569311544299126,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 0.5419806838035583,
+                      "prediction_loss": 0.20582922134134504,
+                      "pred_loss": 0.20582922134134504,
+                      "sigreg_loss": 3.7350161605411105,
+                      "target_position_std": 0.8217664294772677
+                    },
+                    "32": {
+                      "loss": 0.5249469810061984,
+                      "prediction_loss": 0.1949847953187095,
+                      "pred_loss": 0.1949847953187095,
+                      "sigreg_loss": 3.6662463347117105,
+                      "target_position_std": 0.7974822454982333
+                    }
+                  },
+                  "score": 0.20040700833002728,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 2043390464,
+                "peak_reserved_bytes": 15921577984,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.16881328597664833,
+                      "median": 0.1687765009701252,
+                      "min": 0.16785114258527756,
+                      "max": 0.17001283913850784
+                    },
+                    "data_seconds": {
+                      "mean": 0.07171201780438423,
+                      "median": 0.07140614837408066,
+                      "min": 0.07091642171144485,
+                      "max": 0.07309557497501373
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.0063811056315898895,
+                      "median": 0.006382431834936142,
+                      "min": 0.006260596215724945,
+                      "max": 0.006536789238452911
+                    },
+                    "compute_seconds": {
+                      "mean": 0.09002033025026321,
+                      "median": 0.08983128517866135,
+                      "min": 0.08950605243444443,
+                      "max": 0.09114540368318558
+                    }
+                  },
+                  "peak_allocated_bytes": 4108429312,
+                  "peak_reserved_bytes": 4152360960,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.2001766689121723,
+                      "median": 0.18870510160923004,
+                      "min": 0.18605072051286697,
+                      "max": 0.3041227012872696
+                    },
+                    "data_seconds": {
+                      "mean": 0.0777900129556656,
+                      "median": 0.07811129465699196,
+                      "min": 0.07637985050678253,
+                      "max": 0.0787559226155281
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.007296686619520187,
+                      "median": 0.007120337337255478,
+                      "min": 0.0066257864236831665,
+                      "max": 0.008283577859401703
+                    },
+                    "compute_seconds": {
+                      "mean": 0.11439497917890548,
+                      "median": 0.10267799347639084,
+                      "min": 0.10223962366580963,
+                      "max": 0.21904192864894867
+                    }
+                  },
+                  "peak_allocated_bytes": 5347280384,
+                  "peak_reserved_bytes": 5557452800,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.2394249603152275,
+                      "median": 0.23936781659722328,
+                      "min": 0.23763123899698257,
+                      "max": 0.24172760546207428
+                    },
+                    "data_seconds": {
+                      "mean": 0.09378753304481506,
+                      "median": 0.09337330237030983,
+                      "min": 0.09254477918148041,
+                      "max": 0.09549131244421005
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.008306938409805297,
+                      "median": 0.008317288011312485,
+                      "min": 0.008152201771736145,
+                      "max": 0.008444339036941528
+                    },
+                    "compute_seconds": {
+                      "mean": 0.1366128958761692,
+                      "median": 0.13648958131670952,
+                      "min": 0.1360749825835228,
+                      "max": 0.13732852786779404
+                    }
+                  },
+                  "peak_allocated_bytes": 7830028800,
+                  "peak_reserved_bytes": 8180989952,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.3645524986088276,
+                      "median": 0.3637859486043453,
+                      "min": 0.3603908270597458,
+                      "max": 0.3698779493570328
+                    },
+                    "data_seconds": {
+                      "mean": 0.1290053643286228,
+                      "median": 0.1281292624771595,
+                      "min": 0.12601173669099808,
+                      "max": 0.13426954299211502
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.011960942298173904,
+                      "median": 0.011839568614959717,
+                      "min": 0.011252321302890778,
+                      "max": 0.012791365385055542
+                    },
+                    "compute_seconds": {
+                      "mean": 0.22282538712024688,
+                      "median": 0.2227543368935585,
+                      "min": 0.22101791948080063,
+                      "max": 0.22595329582691193
+                    }
+                  },
+                  "peak_allocated_bytes": 12807152128,
+                  "peak_reserved_bytes": 13170114560,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "hjepa": {
+      "formal_stages": {
+        "a": {
+          "segment": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/runs/hjepa/hjepa_seed0/a/segments/0001",
+          "status": {
+            "status": "running",
+            "completed_steps": 479,
+            "target_steps": 20000,
+            "fixture_only": false
+          },
+          "last_row": {
+            "step": 479,
+            "horizon": 4,
+            "losses": {
+              "loss": 0.9986928701400757,
+              "pred_loss": 0.05750780925154686,
+              "pic_loss": 0.035287320613861084,
+              "iso_loss": 0.9058977365493774,
+              "prediction_loss": 0.05750780925154686
+            },
+            "gradient_norm_before_clip": 15.522478103637695,
+            "learning_rate": 9.58e-05,
+            "train_seconds": 0.21387171000242233
+          },
+          "history_rows": 479,
+          "all_recorded_losses_and_gradients_finite": true,
+          "validations": [
+            {
+              "step": 250,
+              "validation_seconds": 5.4505883157253265,
+              "validation": {
+                "horizons": {
+                  "8": {
+                    "loss": 1.2397565444310505,
+                    "pred_loss": 0.11105447345309788,
+                    "pic_loss": 0.06443904340267181,
+                    "iso_loss": 1.0642630524105496,
+                    "prediction_loss": 0.11105447345309788
+                  },
+                  "32": {
+                    "loss": 1.1898857487572565,
+                    "pred_loss": 0.11723729223012924,
+                    "pic_loss": 0.05921491566631529,
+                    "iso_loss": 1.0134335491392348,
+                    "prediction_loss": 0.11723729223012924
+                  }
+                },
+                "score": 0.11414588284161356,
+                "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+              }
+            }
+          ],
+          "recent_training_timing": {
+            "window_rows": 200,
+            "horizon": 4,
+            "median_seconds": 0.19616030156612396,
+            "mean_seconds_excluding_pauses": 0.19086372949182986,
+            "outlier_threshold_seconds": 2,
+            "excluded_rows": 0,
+            "scope": "Exclude explicit profiling suspension or isolated large stalls; compute prediction remains early-stage only"
+          },
+          "last_checkpoint_bytes": 20794571
+        }
+      },
+      "profiles": [
+        {
+          "path": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/profiles/hjepa_48046.json",
+          "status": "completed",
+          "phase": "completed",
+          "elapsed_seconds": 108.62927792966366,
+          "error": null,
+          "estimate": {
+            "stages": {
+              "a": {
+                "step_seconds_by_horizon": {
+                  "4": 0.19902171418070794,
+                  "8": 0.27851632088422773,
+                  "16": 0.43837257772684096,
+                  "32": 0.8055578961968421
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 11720.385105162859,
+                "latent_validation_seconds": 428.1259489059448,
+                "subtotal_seconds": 12148.511054068804
+              },
+              "single": {
+                "step_seconds_by_horizon": {
+                  "4": 0.19226579368114471,
+                  "8": 0.2742052398622036,
+                  "16": 0.44857546389102937,
+                  "32": 0.7962355650961399
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 11668.68994757533,
+                "latent_validation_seconds": 416.64321064949036,
+                "subtotal_seconds": 12085.333158224821
+              },
+              "multi": {
+                "step_seconds_by_horizon": {
+                  "4": 0.19096787571907042,
+                  "8": 0.2762776970863342,
+                  "16": 0.44680304154753686,
+                  "32": 0.8038229271769524
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 11738.848488032818,
+                "latent_validation_seconds": 403.46960067749023,
+                "subtotal_seconds": 12142.318088710308
+              }
+            },
+            "single_gpu_sequential_subtotal_seconds": 36376.16230100393,
+            "single_gpu_sequential_subtotal_hours": 10.104489528056648,
+            "two_gpu_parallel_b_subtotal_seconds": 24290.829142779112,
+            "two_gpu_parallel_b_subtotal_hours": 6.7474525396608644,
+            "formula_per_stage": "1000*t4 + 3000*t8 + 6000*t16 + 10000*t32 + 80*validation288_K8_K32",
+            "excluded": [
+              "queue time",
+              "preflight/startup",
+              "checkpoint and status file writes",
+              "three final physical readout evaluations",
+              "contention and later-model numerical changes"
+            ],
+            "not_a_completion_deadline": true,
+            "interpretation": "Measured early-model compute/data estimate; add excluded costs and refine using formal history.jsonl"
+          },
+          "stages": {
+            "a": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 5.35157436132431,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 1.5317523347006903,
+                      "pred_loss": 0.05231482204463747,
+                      "pic_loss": 0.031221954358948603,
+                      "iso_loss": 1.448215577337477,
+                      "prediction_loss": 0.05231482204463747
+                    },
+                    "32": {
+                      "loss": 1.509073535601298,
+                      "pred_loss": 0.05426094929377238,
+                      "pic_loss": 0.03050359504090415,
+                      "iso_loss": 1.4243089887830946,
+                      "prediction_loss": 0.05426094929377238
+                    }
+                  },
+                  "score": 0.05328788566920492,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 1993065472,
+                "peak_reserved_bytes": 9644802048,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.19902171418070794,
+                      "median": 0.19926687702536583,
+                      "min": 0.19313262403011322,
+                      "max": 0.20449163019657135
+                    },
+                    "data_seconds": {
+                      "mean": 0.07831671610474586,
+                      "median": 0.07893640547990799,
+                      "min": 0.07288005948066711,
+                      "max": 0.08336597681045532
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.008632972091436385,
+                      "median": 0.00861169770359993,
+                      "min": 0.008142560720443726,
+                      "max": 0.009182475507259369
+                    },
+                    "compute_seconds": {
+                      "mean": 0.11144412234425545,
+                      "median": 0.11140061542391777,
+                      "min": 0.1110483705997467,
+                      "max": 0.11176196485757828
+                    }
+                  },
+                  "peak_allocated_bytes": 3080336384,
+                  "peak_reserved_bytes": 3158310912,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.27851632088422773,
+                      "median": 0.2777414992451668,
+                      "min": 0.27394726872444153,
+                      "max": 0.2875397056341171
+                    },
+                    "data_seconds": {
+                      "mean": 0.08045862466096879,
+                      "median": 0.08017449826002121,
+                      "min": 0.07900913059711456,
+                      "max": 0.08500716090202332
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.009232757985591889,
+                      "median": 0.009061802178621292,
+                      "min": 0.008816145360469818,
+                      "max": 0.01045699417591095
+                    },
+                    "compute_seconds": {
+                      "mean": 0.18817592188715934,
+                      "median": 0.18812599405646324,
+                      "min": 0.1850748509168625,
+                      "max": 0.1912737563252449
+                    }
+                  },
+                  "peak_allocated_bytes": 3611840512,
+                  "peak_reserved_bytes": 3665821696,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.43837257772684096,
+                      "median": 0.43753357231616974,
+                      "min": 0.4370415061712265,
+                      "max": 0.44228366017341614
+                    },
+                    "data_seconds": {
+                      "mean": 0.08651689291000367,
+                      "median": 0.08632488176226616,
+                      "min": 0.08589562773704529,
+                      "max": 0.08903247863054276
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.011311832070350646,
+                      "median": 0.01129278913140297,
+                      "min": 0.011174105107784271,
+                      "max": 0.011628016829490662
+                    },
+                    "compute_seconds": {
+                      "mean": 0.33991397395730016,
+                      "median": 0.33947617933154106,
+                      "min": 0.33907411247491837,
+                      "max": 0.3440045043826103
+                    }
+                  },
+                  "peak_allocated_bytes": 4669637632,
+                  "peak_reserved_bytes": 4771020800,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.8055578961968421,
+                      "median": 0.8047421984374523,
+                      "min": 0.7998021468520164,
+                      "max": 0.8120705559849739
+                    },
+                    "data_seconds": {
+                      "mean": 0.12055142372846603,
+                      "median": 0.12088372558355331,
+                      "min": 0.1167411282658577,
+                      "max": 0.12577376514673233
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.016447535157203673,
+                      "median": 0.016344308853149414,
+                      "min": 0.015698686242103577,
+                      "max": 0.017148151993751526
+                    },
+                    "compute_seconds": {
+                      "mean": 0.6678968727588653,
+                      "median": 0.6672534793615341,
+                      "min": 0.6651191636919975,
+                      "max": 0.6725674569606781
+                    }
+                  },
+                  "peak_allocated_bytes": 6791426560,
+                  "peak_reserved_bytes": 6893338624,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            },
+            "single": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 5.2080401331186295,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 1.5922982427808974,
+                      "pred_loss": 0.0458552125427458,
+                      "pic_loss": 0.024559419602155685,
+                      "iso_loss": 1.5218836201561823,
+                      "prediction_loss": 0.0458552125427458
+                    },
+                    "32": {
+                      "loss": 1.5863651302125719,
+                      "pred_loss": 0.04862713110115793,
+                      "pic_loss": 0.023987523797485564,
+                      "iso_loss": 1.5137504869037204,
+                      "prediction_loss": 0.04862713110115793
+                    }
+                  },
+                  "score": 0.047241171821951866,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 1993065472,
+                "peak_reserved_bytes": 9642704896,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.19226579368114471,
+                      "median": 0.19168642535805702,
+                      "min": 0.1902971714735031,
+                      "max": 0.196417436003685
+                    },
+                    "data_seconds": {
+                      "mean": 0.06984826624393463,
+                      "median": 0.06990818679332733,
+                      "min": 0.06904648244380951,
+                      "max": 0.07074746489524841
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.009169397503137588,
+                      "median": 0.00903424620628357,
+                      "min": 0.008925430476665497,
+                      "max": 0.00988556444644928
+                    },
+                    "compute_seconds": {
+                      "mean": 0.11260394975543023,
+                      "median": 0.11221320554614067,
+                      "min": 0.11170139163732529,
+                      "max": 0.11591781675815582
+                    }
+                  },
+                  "peak_allocated_bytes": 3077190656,
+                  "peak_reserved_bytes": 3093299200,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.2742052398622036,
+                      "median": 0.2741570807993412,
+                      "min": 0.2731798589229584,
+                      "max": 0.27595070749521255
+                    },
+                    "data_seconds": {
+                      "mean": 0.07644790336489678,
+                      "median": 0.07626171037554741,
+                      "min": 0.07593542337417603,
+                      "max": 0.07819216698408127
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.010328806936740875,
+                      "median": 0.010311584919691086,
+                      "min": 0.010041452944278717,
+                      "max": 0.01075560599565506
+                    },
+                    "compute_seconds": {
+                      "mean": 0.18678717985749244,
+                      "median": 0.18675747141242027,
+                      "min": 0.18610846251249313,
+                      "max": 0.18772213906049728
+                    }
+                  },
+                  "peak_allocated_bytes": 3607056896,
+                  "peak_reserved_bytes": 3644850176,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.44857546389102937,
+                      "median": 0.4460175074636936,
+                      "min": 0.44100209325551987,
+                      "max": 0.46449848264455795
+                    },
+                    "data_seconds": {
+                      "mean": 0.09161800369620324,
+                      "median": 0.09076263383030891,
+                      "min": 0.08891045302152634,
+                      "max": 0.1007833182811737
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.012287922948598862,
+                      "median": 0.012242980301380157,
+                      "min": 0.011744424700737,
+                      "max": 0.013051226735115051
+                    },
+                    "compute_seconds": {
+                      "mean": 0.34400349855422974,
+                      "median": 0.3423783406615257,
+                      "min": 0.33970146626234055,
+                      "max": 0.3580695390701294
+                    }
+                  },
+                  "peak_allocated_bytes": 4667802624,
+                  "peak_reserved_bytes": 4735369216,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.7962355650961399,
+                      "median": 0.7958238162100315,
+                      "min": 0.7922482192516327,
+                      "max": 0.8019763603806496
+                    },
+                    "data_seconds": {
+                      "mean": 0.11694169864058494,
+                      "median": 0.11760244518518448,
+                      "min": 0.11407291889190674,
+                      "max": 0.1184481829404831
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.01595640406012535,
+                      "median": 0.0159122534096241,
+                      "min": 0.01567879319190979,
+                      "max": 0.016501612961292267
+                    },
+                    "compute_seconds": {
+                      "mean": 0.6626779668033123,
+                      "median": 0.6619567796587944,
+                      "min": 0.6606068164110184,
+                      "max": 0.6681737527251244
+                    }
+                  },
+                  "peak_allocated_bytes": 6788583936,
+                  "peak_reserved_bytes": 6891241472,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            },
+            "multi": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 5.043370008468628,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 1.627673241827223,
+                      "pred_loss": 0.036466111739476524,
+                      "pic_loss": 0.05292347177035279,
+                      "iso_loss": 1.5382836792204115,
+                      "prediction_loss": 0.036466111739476524
+                    },
+                    "32": {
+                      "loss": 1.6053883102205064,
+                      "pred_loss": 0.03928034711215231,
+                      "pic_loss": 0.04758861495388879,
+                      "iso_loss": 1.5185193485683866,
+                      "prediction_loss": 0.03928034711215231
+                    }
+                  },
+                  "score": 0.03787322942581442,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 1993065472,
+                "peak_reserved_bytes": 9642704896,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.19096787571907042,
+                      "median": 0.1909600906074047,
+                      "min": 0.19007469713687897,
+                      "max": 0.19194122403860092
+                    },
+                    "data_seconds": {
+                      "mean": 0.06954331994056702,
+                      "median": 0.06959597766399384,
+                      "min": 0.0690908282995224,
+                      "max": 0.07002779096364975
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.008367391675710678,
+                      "median": 0.008389286696910858,
+                      "min": 0.008078977465629578,
+                      "max": 0.00860554724931717
+                    },
+                    "compute_seconds": {
+                      "mean": 0.11234666705131531,
+                      "median": 0.11245856806635857,
+                      "min": 0.11130695790052414,
+                      "max": 0.11296640336513519
+                    }
+                  },
+                  "peak_allocated_bytes": 3077190656,
+                  "peak_reserved_bytes": 3093299200,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.2762776970863342,
+                      "median": 0.2739810086786747,
+                      "min": 0.27276428788900375,
+                      "max": 0.28453273326158524
+                    },
+                    "data_seconds": {
+                      "mean": 0.0771781049668789,
+                      "median": 0.07647665590047836,
+                      "min": 0.0757872685790062,
+                      "max": 0.08064253628253937
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.009791629016399383,
+                      "median": 0.009661968797445297,
+                      "min": 0.009302519261837006,
+                      "max": 0.010643243789672852
+                    },
+                    "compute_seconds": {
+                      "mean": 0.18862985149025918,
+                      "median": 0.1871938705444336,
+                      "min": 0.18660468608140945,
+                      "max": 0.19258922338485718
+                    }
+                  },
+                  "peak_allocated_bytes": 3607056896,
+                  "peak_reserved_bytes": 3644850176,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.44680304154753686,
+                      "median": 0.44638560339808464,
+                      "min": 0.44296707957983017,
+                      "max": 0.45280881226062775
+                    },
+                    "data_seconds": {
+                      "mean": 0.0924714595079422,
+                      "median": 0.09228333085775375,
+                      "min": 0.0917835533618927,
+                      "max": 0.09395802021026611
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.012387783080339432,
+                      "median": 0.012254375964403152,
+                      "min": 0.012145079672336578,
+                      "max": 0.012782208621501923
+                    },
+                    "compute_seconds": {
+                      "mean": 0.34118991270661353,
+                      "median": 0.3405207023024559,
+                      "min": 0.338040828704834,
+                      "max": 0.34667834639549255
+                    }
+                  },
+                  "peak_allocated_bytes": 4667802624,
+                  "peak_reserved_bytes": 4735369216,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.8038229271769524,
+                      "median": 0.8033066764473915,
+                      "min": 0.8021534383296967,
+                      "max": 0.8072487041354179
+                    },
+                    "data_seconds": {
+                      "mean": 0.12071262896060944,
+                      "median": 0.12068616226315498,
+                      "min": 0.11987245827913284,
+                      "max": 0.12173561751842499
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.016943918913602828,
+                      "median": 0.016897153109312057,
+                      "min": 0.016681939363479614,
+                      "max": 0.017293483018875122
+                    },
+                    "compute_seconds": {
+                      "mean": 0.6653960265219212,
+                      "median": 0.6650948226451874,
+                      "min": 0.6635908856987953,
+                      "max": 0.6683145686984062
+                    }
+                  },
+                  "peak_allocated_bytes": 6788583936,
+                  "peak_reserved_bytes": 6891241472,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            }
+          }
+        },
+        {
+          "path": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/profiles/hjepa_probe_in_48044.json",
+          "status": "completed",
+          "phase": "completed",
+          "elapsed_seconds": 103.0559132695198,
+          "error": null,
+          "estimate": {
+            "stages": {
+              "a": {
+                "step_seconds_by_horizon": {
+                  "4": 0.18569272384047508,
+                  "8": 0.2579243965446949,
+                  "16": 0.42502195835113527,
+                  "32": 0.7764979407191277
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 11274.577070772648,
+                "latent_validation_seconds": 411.90609395504,
+                "subtotal_seconds": 11686.483164727688
+              },
+              "single": {
+                "step_seconds_by_horizon": {
+                  "4": 0.1840904876589775,
+                  "8": 0.2631789855659008,
+                  "16": 0.430626405775547,
+                  "32": 0.7817630439996719
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 11375.016319006681,
+                "latent_validation_seconds": 364.55392956733704,
+                "subtotal_seconds": 11739.570248574018
+              },
+              "multi": {
+                "step_seconds_by_horizon": {
+                  "4": 0.18817568123340606,
+                  "8": 0.26707456409931185,
+                  "16": 0.43219164833426477,
+                  "32": 0.7781997427344323
+                },
+                "measured_horizons": [
+                  4,
+                  8,
+                  16,
+                  32
+                ],
+                "estimated_horizons": [],
+                "unmeasured_horizon_rule": "A curve multiplied by this stage K32 / A K32",
+                "optimizer_updates": 20000,
+                "validation_calls": 80,
+                "training_seconds": 11364.546690881252,
+                "latent_validation_seconds": 410.847447514534,
+                "subtotal_seconds": 11775.394138395786
+              }
+            },
+            "single_gpu_sequential_subtotal_seconds": 35201.44755169749,
+            "single_gpu_sequential_subtotal_hours": 9.778179875471526,
+            "two_gpu_parallel_b_subtotal_seconds": 23461.877303123474,
+            "two_gpu_parallel_b_subtotal_hours": 6.517188139756521,
+            "formula_per_stage": "1000*t4 + 3000*t8 + 6000*t16 + 10000*t32 + 80*validation288_K8_K32",
+            "excluded": [
+              "queue time",
+              "preflight/startup",
+              "checkpoint and status file writes",
+              "three final physical readout evaluations",
+              "contention and later-model numerical changes"
+            ],
+            "not_a_completion_deadline": true,
+            "interpretation": "Measured early-model compute/data estimate; add excluded costs and refine using formal history.jsonl"
+          },
+          "stages": {
+            "a": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 5.148826174438,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 1.551573011610243,
+                      "pred_loss": 0.04956851195957926,
+                      "pic_loss": 0.05630428302619192,
+                      "iso_loss": 1.445700208346049,
+                      "prediction_loss": 0.04956851195957926
+                    },
+                    "32": {
+                      "loss": 1.5237429406907823,
+                      "pred_loss": 0.05119039987524351,
+                      "pic_loss": 0.051597610116004944,
+                      "iso_loss": 1.4209549294577704,
+                      "prediction_loss": 0.05119039987524351
+                    }
+                  },
+                  "score": 0.050379455917411387,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 1993065472,
+                "peak_reserved_bytes": 9644802048,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.18569272384047508,
+                      "median": 0.18824917078018188,
+                      "min": 0.17302031815052032,
+                      "max": 0.19160489737987518
+                    },
+                    "data_seconds": {
+                      "mean": 0.07249810323119163,
+                      "median": 0.07312658056616783,
+                      "min": 0.06362903863191605,
+                      "max": 0.07657261192798615
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.0057593569159507755,
+                      "median": 0.005764666944742203,
+                      "min": 0.004725068807601929,
+                      "max": 0.006737411022186279
+                    },
+                    "compute_seconds": {
+                      "mean": 0.10682540833950042,
+                      "median": 0.10787452384829521,
+                      "min": 0.09864433109760284,
+                      "max": 0.10916458070278168
+                    }
+                  },
+                  "peak_allocated_bytes": 3080336384,
+                  "peak_reserved_bytes": 3158310912,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.2579243965446949,
+                      "median": 0.2577873468399048,
+                      "min": 0.2482852265238762,
+                      "max": 0.26692457497119904
+                    },
+                    "data_seconds": {
+                      "mean": 0.07269833534955979,
+                      "median": 0.07249121367931366,
+                      "min": 0.07111219316720963,
+                      "max": 0.07476842403411865
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.00614820346236229,
+                      "median": 0.0061001405119895935,
+                      "min": 0.006028033792972565,
+                      "max": 0.00657305121421814
+                    },
+                    "compute_seconds": {
+                      "mean": 0.1784283086657524,
+                      "median": 0.17881951108574867,
+                      "min": 0.1695164367556572,
+                      "max": 0.18577904999256134
+                    }
+                  },
+                  "peak_allocated_bytes": 3611840512,
+                  "peak_reserved_bytes": 3665821696,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.42502195835113527,
+                      "median": 0.42560137063264847,
+                      "min": 0.42164384573698044,
+                      "max": 0.4290075972676277
+                    },
+                    "data_seconds": {
+                      "mean": 0.09104504212737083,
+                      "median": 0.09149392321705818,
+                      "min": 0.08751434087753296,
+                      "max": 0.09504397213459015
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.00785394236445427,
+                      "median": 0.007986597716808319,
+                      "min": 0.007403574883937836,
+                      "max": 0.008208483457565308
+                    },
+                    "compute_seconds": {
+                      "mean": 0.32549388259649276,
+                      "median": 0.3253343850374222,
+                      "min": 0.3250124081969261,
+                      "max": 0.32612624019384384
+                    }
+                  },
+                  "peak_allocated_bytes": 4669637632,
+                  "peak_reserved_bytes": 4771020800,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.7764979407191277,
+                      "median": 0.7754463404417038,
+                      "min": 0.7662941589951515,
+                      "max": 0.791233129799366
+                    },
+                    "data_seconds": {
+                      "mean": 0.12282454073429108,
+                      "median": 0.12409229204058647,
+                      "min": 0.11393624544143677,
+                      "max": 0.1281101256608963
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.01325579360127449,
+                      "median": 0.012727539986371994,
+                      "min": 0.011005572974681854,
+                      "max": 0.01658027619123459
+                    },
+                    "compute_seconds": {
+                      "mean": 0.6397441335022449,
+                      "median": 0.6395271234214306,
+                      "min": 0.6348035410046577,
+                      "max": 0.6505683586001396
+                    }
+                  },
+                  "peak_allocated_bytes": 6791426560,
+                  "peak_reserved_bytes": 6893338624,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            },
+            "single": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 4.556924119591713,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 1.6122896803749933,
+                      "pred_loss": 0.04627914188636674,
+                      "pic_loss": 0.04086903317107095,
+                      "iso_loss": 1.5251415173212688,
+                      "prediction_loss": 0.04627914188636674
+                    },
+                    "32": {
+                      "loss": 1.602772249115838,
+                      "pred_loss": 0.04884371368421449,
+                      "pic_loss": 0.0364200116859542,
+                      "iso_loss": 1.517508520020379,
+                      "prediction_loss": 0.04884371368421449
+                    }
+                  },
+                  "score": 0.047561427785290614,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 1993065472,
+                "peak_reserved_bytes": 9642704896,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.1840904876589775,
+                      "median": 0.18408580124378204,
+                      "min": 0.1835564747452736,
+                      "max": 0.18470904976129532
+                    },
+                    "data_seconds": {
+                      "mean": 0.06813635751605034,
+                      "median": 0.06815188750624657,
+                      "min": 0.06789208203554153,
+                      "max": 0.06844095140695572
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.007968483865261078,
+                      "median": 0.00796438753604889,
+                      "min": 0.007883235812187195,
+                      "max": 0.008054696023464203
+                    },
+                    "compute_seconds": {
+                      "mean": 0.10733629018068314,
+                      "median": 0.1073172427713871,
+                      "min": 0.10694779455661774,
+                      "max": 0.10770316421985626
+                    }
+                  },
+                  "peak_allocated_bytes": 3077190656,
+                  "peak_reserved_bytes": 3093299200,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.2631789855659008,
+                      "median": 0.26237699016928673,
+                      "min": 0.2615532949566841,
+                      "max": 0.2719689756631851
+                    },
+                    "data_seconds": {
+                      "mean": 0.07534740269184112,
+                      "median": 0.074561707675457,
+                      "min": 0.07404610514640808,
+                      "max": 0.08195967227220535
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.00878191962838173,
+                      "median": 0.008727740496397018,
+                      "min": 0.008610770106315613,
+                      "max": 0.009321220219135284
+                    },
+                    "compute_seconds": {
+                      "mean": 0.17839112207293512,
+                      "median": 0.17812871560454369,
+                      "min": 0.17766037583351135,
+                      "max": 0.18076786398887634
+                    }
+                  },
+                  "peak_allocated_bytes": 3607056896,
+                  "peak_reserved_bytes": 3644850176,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.430626405775547,
+                      "median": 0.43056783825159073,
+                      "min": 0.42004214227199554,
+                      "max": 0.43948884308338165
+                    },
+                    "data_seconds": {
+                      "mean": 0.09378165528178214,
+                      "median": 0.09380241483449936,
+                      "min": 0.09113378822803497,
+                      "max": 0.09533913433551788
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.012021176517009735,
+                      "median": 0.012065522372722626,
+                      "min": 0.01064293086528778,
+                      "max": 0.012702256441116333
+                    },
+                    "compute_seconds": {
+                      "mean": 0.32419655472040176,
+                      "median": 0.3241153433918953,
+                      "min": 0.311384454369545,
+                      "max": 0.33699048310518265
+                    }
+                  },
+                  "peak_allocated_bytes": 4667802624,
+                  "peak_reserved_bytes": 4735369216,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.7817630439996719,
+                      "median": 0.7809984348714352,
+                      "min": 0.7788385152816772,
+                      "max": 0.7859038934111595
+                    },
+                    "data_seconds": {
+                      "mean": 0.12698082998394966,
+                      "median": 0.1270097754895687,
+                      "min": 0.12653864920139313,
+                      "max": 0.12727288901805878
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.016579807549715043,
+                      "median": 0.016511227935552597,
+                      "min": 0.016365423798561096,
+                      "max": 0.016956232488155365
+                    },
+                    "compute_seconds": {
+                      "mean": 0.6375169590115547,
+                      "median": 0.6366349048912525,
+                      "min": 0.6348203867673874,
+                      "max": 0.6418932974338531
+                    }
+                  },
+                  "peak_allocated_bytes": 6788583936,
+                  "peak_reserved_bytes": 6891241472,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            },
+            "multi": {
+              "status": "passed",
+              "validation": {
+                "elapsed_seconds": 5.135593093931675,
+                "windows": 288,
+                "horizons": [
+                  8,
+                  32
+                ],
+                "metrics": {
+                  "horizons": {
+                    "8": {
+                      "loss": 1.582821832762824,
+                      "pred_loss": 0.05484999260968632,
+                      "pic_loss": 0.07090400697456466,
+                      "iso_loss": 1.4570678340064154,
+                      "prediction_loss": 0.05484999260968632
+                    },
+                    "32": {
+                      "loss": 1.563364068667094,
+                      "pred_loss": 0.05869479104876518,
+                      "pic_loss": 0.07327824251519309,
+                      "iso_loss": 1.4313910404841106,
+                      "prediction_loss": 0.05869479104876518
+                    }
+                  },
+                  "score": 0.05677239182922575,
+                  "score_scope": "model-specific latent validation; not a cross-method physical ranking"
+                },
+                "peak_allocated_bytes": 1993065472,
+                "peak_reserved_bytes": 9642704896,
+                "scope": "Full formal latent validation, including permitted HDF5 reads; not final physical kNN evaluation"
+              },
+              "horizons": {
+                "4": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.18817568123340606,
+                      "median": 0.1880881004035473,
+                      "min": 0.18729016929864883,
+                      "max": 0.18990108370780945
+                    },
+                    "data_seconds": {
+                      "mean": 0.07058419808745384,
+                      "median": 0.0703510120511055,
+                      "min": 0.06994062662124634,
+                      "max": 0.07242714613676071
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.008590587973594665,
+                      "median": 0.00859648734331131,
+                      "min": 0.008498385548591614,
+                      "max": 0.008654288947582245
+                    },
+                    "compute_seconds": {
+                      "mean": 0.10832739397883415,
+                      "median": 0.10830045863986015,
+                      "min": 0.10788936913013458,
+                      "max": 0.10902725905179977
+                    }
+                  },
+                  "peak_allocated_bytes": 3077190656,
+                  "peak_reserved_bytes": 3093299200,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "8": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.26707456409931185,
+                      "median": 0.26701850816607475,
+                      "min": 0.26594697684049606,
+                      "max": 0.2686934322118759
+                    },
+                    "data_seconds": {
+                      "mean": 0.07724967375397682,
+                      "median": 0.0770643949508667,
+                      "min": 0.07699034363031387,
+                      "max": 0.0781439021229744
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.009830179810523986,
+                      "median": 0.009752392768859863,
+                      "min": 0.009568504989147186,
+                      "max": 0.010336652398109436
+                    },
+                    "compute_seconds": {
+                      "mean": 0.1793132998049259,
+                      "median": 0.1792343556880951,
+                      "min": 0.17844706028699875,
+                      "max": 0.18057092279195786
+                    }
+                  },
+                  "peak_allocated_bytes": 3607056896,
+                  "peak_reserved_bytes": 3644850176,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "16": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.43219164833426477,
+                      "median": 0.4313829727470875,
+                      "min": 0.42705588042736053,
+                      "max": 0.4380472004413605
+                    },
+                    "data_seconds": {
+                      "mean": 0.09443942606449127,
+                      "median": 0.09448326379060745,
+                      "min": 0.09123785048723221,
+                      "max": 0.0972641184926033
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.01215388923883438,
+                      "median": 0.012094639241695404,
+                      "min": 0.011952117085456848,
+                      "max": 0.012467287480831146
+                    },
+                    "compute_seconds": {
+                      "mean": 0.324902269244194,
+                      "median": 0.32433246076107025,
+                      "min": 0.32303586602211,
+                      "max": 0.33057091385126114
+                    }
+                  },
+                  "peak_allocated_bytes": 4667802624,
+                  "peak_reserved_bytes": 4735369216,
+                  "status": "passed",
+                  "measured_steps": 10
+                },
+                "32": {
+                  "statistics": {
+                    "train_seconds": {
+                      "mean": 0.7781997427344323,
+                      "median": 0.7780274525284767,
+                      "min": 0.7699928656220436,
+                      "max": 0.7848048508167267
+                    },
+                    "data_seconds": {
+                      "mean": 0.12225467041134834,
+                      "median": 0.12316898629069328,
+                      "min": 0.1184571385383606,
+                      "max": 0.1260833591222763
+                    },
+                    "transfer_seconds": {
+                      "mean": 0.015494594722986222,
+                      "median": 0.01534758135676384,
+                      "min": 0.015123166143894196,
+                      "max": 0.016329199075698853
+                    },
+                    "compute_seconds": {
+                      "mean": 0.6397095941007137,
+                      "median": 0.6393599137663841,
+                      "min": 0.6347385719418526,
+                      "max": 0.6447262763977051
+                    }
+                  },
+                  "peak_allocated_bytes": 6788583936,
+                  "peak_reserved_bytes": 6891241472,
+                  "status": "passed",
+                  "measured_steps": 10
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "squeue": {
+    "exit_code": 0,
+    "stdout": "             JOBID                     NAME ST       TIME        TRES_PER_NODE NODELIST(REASON)\n             48044              comp-lehami  R       8:25       gres:gpu:l40:1 ladhpc\n             48045                comp-lewm  R       5:25       gres:gpu:l40:1 ladhpc\n             48046               comp-hjepa  R       3:55       gres:gpu:l40:1 ladhpc\n",
+    "stderr": ""
+  },
+  "queue_start_estimates": {
+    "exit_code": 0,
+    "stdout": "             JOBID PARTITION     NAME     USER ST          START_TIME  NODES SCHEDNODES           NODELIST(REASON)\n",
+    "stderr": ""
+  },
+  "sacct": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Slurm accounting storage is disabled\n"
+  },
+  "gpu": {
+    "exit_code": 0,
+    "stdout": "index, uuid, name, memory.used [MiB], memory.total [MiB], utilization.gpu [%]\n0, GPU-d4a0383d-78b8-d91d-a9ee-7aefdeb55fa3, NVIDIA L40, 6135 MiB, 46068 MiB, 3 %\n1, GPU-4942c632-0eb4-4475-731e-873971a38217, NVIDIA L40, 43639 MiB, 46068 MiB, 100 %\n2, GPU-52852aa7-e7ce-8e15-e18e-2cff483d5021, NVIDIA L40, 43609 MiB, 46068 MiB, 100 %\n3, GPU-9edd849a-8984-3f76-a95d-d63897668565, NVIDIA L40, 9903 MiB, 46068 MiB, 100 %\n4, GPU-98db8277-e63d-670f-e853-55ba4f2e7f51, NVIDIA L40, 40113 MiB, 46068 MiB, 100 %\n5, GPU-0ff2fe2e-7886-0f84-897e-01fcee086636, NVIDIA L40, 40689 MiB, 46068 MiB, 100 %\n6, GPU-ebde09a0-c033-2624-b56e-76e628ce2c72, NVIDIA L40, 7245 MiB, 46068 MiB, 29 %\n7, GPU-629adf29-5c05-c0d3-ee80-684548d6061e, NVIDIA L40, 6371 MiB, 46068 MiB, 23 %\n",
+    "stderr": ""
+  },
+  "profile_bridge.json": {
+    "status": "completed",
+    "allocation_job_id": "48044",
+    "methods": [
+      "lewm",
+      "hjepa"
+    ],
+    "formal_jobs_unchanged": [
+      "48044",
+      "48045",
+      "48046"
+    ],
+    "updated_at_utc": "2026-11-08T09:34:28.737606+00:00",
+    "paused_worker_pid": 3478472,
+    "paused_after_step": 266,
+    "paused_at_utc": "2026-11-08T09:31:24.728661+00:00",
+    "command": [
+      "srun",
+      "--jobid=48044",
+      "--overlap",
+      "--ntasks=1",
+      "--cpus-per-task=4",
+      "--gres=gpu:l40:1",
+      "--time=00:15:00",
+      "bash",
+      "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/profile_pending.sh"
+    ],
+    "profile_exit_code": 0,
+    "formal_worker_resumed": true,
+    "resumed_at_utc": "2026-11-08T09:34:28.737580+00:00"
+  },
+  "storage_migration.json": {
+    "started_at_utc": "2026-11-08T09:25:45.260812+00:00",
+    "status": "completed",
+    "archive_root": "/home/weizhixin/hdd/archive_20261108/ssd",
+    "items": [
+      {
+        "source": "/home/weizhixin/ssd/MOSH_validation_20260924/MOSH_WM_Server/data",
+        "destination": "/home/weizhixin/hdd/archive_20261108/ssd/MOSH_validation_20260924/MOSH_WM_Server/data",
+        "files": 17900,
+        "bytes": 409496842,
+        "sha256_verified": true,
+        "source_symlink_preserved": true,
+        "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_00.jsonl",
+        "file_manifest_sha256": "c8469464e65952c0e50966228b0de793671d2b43abe3771a90a4723c2a41d507"
+      },
+      {
+        "source": "/home/weizhixin/ssd/MOSH_appearance_20261005/MOSH_WM_Appearance8000/data",
+        "destination": "/home/weizhixin/hdd/archive_20261108/ssd/MOSH_appearance_20261005/MOSH_WM_Appearance8000/data",
+        "files": 156000,
+        "bytes": 3564660367,
+        "sha256_verified": true,
+        "source_symlink_preserved": true,
+        "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_01.jsonl",
+        "file_manifest_sha256": "657abb872b43bbc9921bc354299aba76487083b4a4553b1791afb93126a371f2"
+      },
+      {
+        "source": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/data",
+        "destination": "/home/weizhixin/hdd/archive_20261108/ssd/damped_pendulum_profile_20261028/data",
+        "files": 5,
+        "bytes": 219760267,
+        "sha256_verified": true,
+        "source_symlink_preserved": true,
+        "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_02.jsonl",
+        "file_manifest_sha256": "cd1317a1212600428ea276acd6ece24b411157c2968e800f58c4600295206781"
+      },
+      {
+        "source": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z/study/data",
+        "destination": "/home/weizhixin/hdd/archive_20261108/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z/study/data",
+        "files": 2,
+        "bytes": 35985960,
+        "sha256_verified": true,
+        "source_symlink_preserved": true,
+        "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_03.jsonl",
+        "file_manifest_sha256": "421ed2d067e01afecedbdbce6566361272f9bcada31699c80f57cff7f1650910"
+      },
+      {
+        "source": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/data",
+        "destination": "/home/weizhixin/hdd/archive_20261108/ssd/dissipative_passive_20261103T051548Z/data",
+        "files": 4,
+        "bytes": 303954846,
+        "sha256_verified": true,
+        "source_symlink_preserved": true,
+        "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_04.jsonl",
+        "file_manifest_sha256": "97e96936990b840a92c1529170080dee3dfb047d01b257e43c705e4c686536ed"
+      },
+      {
+        "source": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/data",
+        "destination": "/home/weizhixin/hdd/archive_20261108/ssd/lehami_official_reproduction_20261029/data",
+        "files": 24,
+        "bytes": 508329765,
+        "sha256_verified": true,
+        "source_symlink_preserved": true,
+        "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_05.jsonl",
+        "file_manifest_sha256": "8e063f58b48cc932cdfc57ae54ad61d9964fe5b417810e2e8ebf8e73f421d248"
+      },
+      {
+        "source": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/smoke/data",
+        "destination": "/home/weizhixin/hdd/archive_20261108/ssd/lehami_official_reproduction_20261029/smoke/data",
+        "files": 14,
+        "bytes": 180007784,
+        "sha256_verified": true,
+        "source_symlink_preserved": true,
+        "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_06.jsonl",
+        "file_manifest_sha256": "38dfc0c34b05a255eca2f06528e8681b36e4088646a2883dacbdb5a8dfc8dea0"
+      },
+      {
+        "source": "/home/weizhixin/ssd/MOSH_appearance_20261005/moshwm_appearance8000.tar.gz",
+        "destination": "/home/weizhixin/hdd/archive_20261108/ssd/MOSH_appearance_20261005/moshwm_appearance8000.tar.gz",
+        "files": 1,
+        "bytes": 3802666187,
+        "sha256_verified": true,
+        "source_symlink_preserved": true,
+        "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_07.jsonl",
+        "file_manifest_sha256": "63ec63b3d801e28f4a9b3dc8f1bd276f1e030a37b5c03afac957486c054264a1"
+      },
+      {
+        "source": "/home/weizhixin/ssd/MOSH_appearance_20261005/early_preflight_payload.tar.gz",
+        "destination": "/home/weizhixin/hdd/archive_20261108/ssd/MOSH_appearance_20261005/early_preflight_payload.tar.gz",
+        "files": 1,
+        "bytes": 53208656,
+        "sha256_verified": true,
+        "source_symlink_preserved": true,
+        "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_08.jsonl",
+        "file_manifest_sha256": "a99def9776f413fccc4c3194caa9a4ee293113e24aa63d8c2d5e13caa834cc34"
+      },
+      {
+        "source": "/home/weizhixin/ssd/mosh-transfer/moshwm_ladhpc.tar.gz",
+        "destination": "/home/weizhixin/hdd/archive_20261108/ssd/mosh-transfer/moshwm_ladhpc.tar.gz",
+        "files": 1,
+        "bytes": 700213287,
+        "sha256_verified": true,
+        "source_symlink_preserved": true,
+        "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_09.jsonl",
+        "file_manifest_sha256": "378c4c9c5416f2cfa7a106d065ac469b17881f68ab17f742fb68a9bf362a8fa7"
+      }
+    ],
+    "logical_bytes_migrated": 9778283961,
+    "current": null,
+    "completed_at_utc": "2026-11-08T09:28:13.424913+00:00"
+  },
+  "submission.json": {
+    "created_at_utc": "2026-11-08T09:28:48.365776+00:00",
+    "jobs": {
+      "lehami": {
+        "job_id": "48044",
+        "submitted_at_utc": "2026-11-08T09:28:48.379000+00:00",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/submit_lehami.sh"
+        ]
+      },
+      "lewm": {
+        "job_id": "48045",
+        "submitted_at_utc": "2026-11-08T09:28:48.384755+00:00",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/submit_lewm.sh"
+        ]
+      },
+      "hjepa": {
+        "job_id": "48046",
+        "submitted_at_utc": "2026-11-08T09:28:48.389923+00:00",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/submit_hjepa.sh"
+        ]
+      }
+    },
+    "status": "submitted",
+    "methods": [
+      "lehami",
+      "lewm",
+      "hjepa"
+    ],
+    "seed": 0,
+    "gpus_per_job": 1,
+    "training_plan": "A20000 -> single20000 -> multi20000",
+    "profile_before_training": true
+  }
+}

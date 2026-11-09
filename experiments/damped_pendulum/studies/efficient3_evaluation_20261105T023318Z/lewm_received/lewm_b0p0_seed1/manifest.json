@@ -1,0 +1,34 @@
+{
+  "run": "lewm_b0p0_seed1",
+  "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+  "seed": 1,
+  "damping": 0.0,
+  "checkpoint_step": 26250,
+  "checkpoint_sha256": "8e16d94c59d69a9495f45c144e39e2e12330e881d788c71eab53708a3b938cd0",
+  "readout_sha256": "d2521688c3dcf15f4b944074df89f5b77ccd52dc92e43df75193e8320c1e39c3",
+  "episodes": 128,
+  "full_rollouts": 128,
+  "state_and_readouts_unchanged": true,
+  "complete_readout_rollouts": {
+    "ridge": 128,
+    "mlp": 128
+  },
+  "historical_protocol": {
+    "training_steps": 28140,
+    "training_data_sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+    "history_frames": 5,
+    "train_labels": 4096,
+    "val_labels": 1024,
+    "probe_optimization_steps": 500
+  },
+  "readouts_refitted": false,
+  "batch_check": {
+    "actual_batch_size": 1,
+    "max_angle_difference": 0.005730597548202376,
+    "max_omega_difference": 0.01259498256308067,
+    "tolerances": [
+      0.001,
+      0.01
+    ]
+  }
+}

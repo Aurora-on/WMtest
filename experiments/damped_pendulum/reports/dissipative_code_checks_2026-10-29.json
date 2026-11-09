@@ -1,0 +1,357 @@
+{
+  "date": "2026-10-29",
+  "training_started": false,
+  "optimizer_updates": 0,
+  "server_jobs_submitted": false,
+  "device": "cpu",
+  "torch_version": "2.8.0",
+  "data_preflights": [
+    {
+      "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/data/basic/pendulum_b0p0.h5",
+      "dataset_sha256": "8f6f4eae3beece6a88f3c5fa622cde458cd7f42a25295a3d7e69eb26865e5839",
+      "split_disjoint": true,
+      "split_audit_scope": "Episode IDs and group IDs are disjoint across the existing splits. This is not an audit of exact or near-duplicate RGB clips; the original splits are unchanged.",
+      "split_sizes": {
+        "train": 384,
+        "val": 64,
+        "test": 64
+      },
+      "declared_train_frames": 81,
+      "train_frames": 81,
+      "history": 5,
+      "max_horizon": 32,
+      "window_frames": 37,
+      "action_dim": 1,
+      "image_shape": [
+        64,
+        64,
+        3
+      ],
+      "model_fields": [
+        "pixels",
+        "action",
+        "dt_frame"
+      ],
+      "target_fields_read": [],
+      "test_samples_read": false,
+      "training_started": false,
+      "windows": {
+        "train": 17280,
+        "val": 2880
+      },
+      "strata_windows": {
+        "train": {
+          "mode0_time0": 2880,
+          "mode0_time1": 2880,
+          "mode0_time2": 2880,
+          "mode1_time0": 2880,
+          "mode1_time1": 2880,
+          "mode1_time2": 2880
+        },
+        "val": {
+          "mode0_time0": 480,
+          "mode0_time1": 480,
+          "mode0_time2": 480,
+          "mode1_time0": 480,
+          "mode1_time1": 480,
+          "mode1_time2": 480
+        }
+      },
+      "sampling_contract": "mode/time strata balanced; episode uniform within strata; RGB/action/dt only",
+      "scope": "The existing basic pendulum datasets use constant physical damping. They test the constant-damping special case, not identification of genuine position/velocity-dependent damping. No damping coefficient or other physical target is read for training.",
+      "mode": "preflight_only",
+      "optimizer_created": false,
+      "run_directory_created": false,
+      "config": {
+        "model": {},
+        "training": {
+          "steps": 20000,
+          "batch_size": 32,
+          "train_frames": 81,
+          "seed": 0,
+          "threads": 4,
+          "encoder_lr": 2e-05,
+          "dynamics_lr": 0.0001,
+          "weight_decay": 0.0001,
+          "warmup_steps": 500,
+          "minimum_lr_ratio": 0.1,
+          "gradient_clip": 1.0,
+          "curriculum": [
+            {
+              "until_step": 1000,
+              "horizon": 4
+            },
+            {
+              "until_step": 4000,
+              "horizon": 8
+            },
+            {
+              "until_step": 10000,
+              "horizon": 16
+            },
+            {
+              "until_step": 20000,
+              "horizon": 32
+            }
+          ],
+          "val_horizons": [
+            8,
+            32
+          ],
+          "val_every": 250,
+          "val_windows": 256,
+          "val_seed": 1009,
+          "minimum_target_std": 0.1,
+          "minimum_target_motion": 0.001
+        }
+      },
+      "config_sha256": "fa853bff94d9f7bfeb2c960870ef49b505c9e73b7574c5b42baa45afff806812",
+      "resolved_model_config": {
+        "history": 5,
+        "dt": 0.1,
+        "q_dim": 2,
+        "encoder_width": 32,
+        "velocity_correction_scale": 1.0,
+        "sigreg_weight": 0.25,
+        "motion_weight": 1.0,
+        "initializer_weight": 0.001,
+        "sigreg_knots": 17,
+        "sigreg_projections": 256,
+        "variance_floor": 0.0001,
+        "core": {
+          "hidden_dim": 32,
+          "action_dim": 1,
+          "damping_mode": "position_velocity",
+          "integrator": "discrete_gradient",
+          "substeps": 2,
+          "newton_iterations": 6,
+          "residual_atol": 1e-08,
+          "residual_rtol": 1e-07,
+          "chain_atol": 1e-10,
+          "strict": true
+        }
+      },
+      "checked_frame_intervals": 35840,
+      "validation_horizons_seconds": [
+        0.8,
+        3.2
+      ],
+      "validation_horizons_steps": [
+        8,
+        32
+      ],
+      "note": "No training runs without --execute. The step budget is unprofiled, not an optimality or cost claim."
+    },
+    {
+      "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/data/basic/pendulum_b0p2.h5",
+      "dataset_sha256": "dab5143c7403e9cfc9cdd0a5ebb5d74cbb9b7e97692630a81baad97cd22201ae",
+      "split_disjoint": true,
+      "split_audit_scope": "Episode IDs and group IDs are disjoint across the existing splits. This is not an audit of exact or near-duplicate RGB clips; the original splits are unchanged.",
+      "split_sizes": {
+        "train": 384,
+        "val": 64,
+        "test": 64
+      },
+      "declared_train_frames": 81,
+      "train_frames": 81,
+      "history": 5,
+      "max_horizon": 32,
+      "window_frames": 37,
+      "action_dim": 1,
+      "image_shape": [
+        64,
+        64,
+        3
+      ],
+      "model_fields": [
+        "pixels",
+        "action",
+        "dt_frame"
+      ],
+      "target_fields_read": [],
+      "test_samples_read": false,
+      "training_started": false,
+      "windows": {
+        "train": 17280,
+        "val": 2880
+      },
+      "strata_windows": {
+        "train": {
+          "mode0_time0": 2880,
+          "mode0_time1": 2880,
+          "mode0_time2": 2880,
+          "mode1_time0": 2880,
+          "mode1_time1": 2880,
+          "mode1_time2": 2880
+        },
+        "val": {
+          "mode0_time0": 480,
+          "mode0_time1": 480,
+          "mode0_time2": 480,
+          "mode1_time0": 480,
+          "mode1_time1": 480,
+          "mode1_time2": 480
+        }
+      },
+      "sampling_contract": "mode/time strata balanced; episode uniform within strata; RGB/action/dt only",
+      "scope": "The existing basic pendulum datasets use constant physical damping. They test the constant-damping special case, not identification of genuine position/velocity-dependent damping. No damping coefficient or other physical target is read for training.",
+      "mode": "preflight_only",
+      "optimizer_created": false,
+      "run_directory_created": false,
+      "config": {
+        "model": {},
+        "training": {
+          "steps": 20000,
+          "batch_size": 32,
+          "train_frames": 81,
+          "seed": 0,
+          "threads": 4,
+          "encoder_lr": 2e-05,
+          "dynamics_lr": 0.0001,
+          "weight_decay": 0.0001,
+          "warmup_steps": 500,
+          "minimum_lr_ratio": 0.1,
+          "gradient_clip": 1.0,
+          "curriculum": [
+            {
+              "until_step": 1000,
+              "horizon": 4
+            },
+            {
+              "until_step": 4000,
+              "horizon": 8
+            },
+            {
+              "until_step": 10000,
+              "horizon": 16
+            },
+            {
+              "until_step": 20000,
+              "horizon": 32
+            }
+          ],
+          "val_horizons": [
+            8,
+            32
+          ],
+          "val_every": 250,
+          "val_windows": 256,
+          "val_seed": 1009,
+          "minimum_target_std": 0.1,
+          "minimum_target_motion": 0.001
+        }
+      },
+      "config_sha256": "fa853bff94d9f7bfeb2c960870ef49b505c9e73b7574c5b42baa45afff806812",
+      "resolved_model_config": {
+        "history": 5,
+        "dt": 0.1,
+        "q_dim": 2,
+        "encoder_width": 32,
+        "velocity_correction_scale": 1.0,
+        "sigreg_weight": 0.25,
+        "motion_weight": 1.0,
+        "initializer_weight": 0.001,
+        "sigreg_knots": 17,
+        "sigreg_projections": 256,
+        "variance_floor": 0.0001,
+        "core": {
+          "hidden_dim": 32,
+          "action_dim": 1,
+          "damping_mode": "position_velocity",
+          "integrator": "discrete_gradient",
+          "substeps": 2,
+          "newton_iterations": 6,
+          "residual_atol": 1e-08,
+          "residual_rtol": 1e-07,
+          "chain_atol": 1e-10,
+          "strict": true
+        }
+      },
+      "checked_frame_intervals": 35840,
+      "validation_horizons_seconds": [
+        0.8,
+        3.2
+      ],
+      "validation_horizons_steps": [
+        8,
+        32
+      ],
+      "note": "No training runs without --execute. The step budget is unprofiled, not an optimality or cost claim."
+    }
+  ],
+  "forward_backward_checks": [
+    {
+      "dataset": "pendulum_b0p0.h5",
+      "batch": 2,
+      "horizon_steps": 4,
+      "finite_loss_and_gradients": true,
+      "parameters_and_buffers_unchanged": true,
+      "solver_residual_max": 5.856750614000039e-09,
+      "energy_residual_max": 3.4344673663193326e-09
+    },
+    {
+      "dataset": "pendulum_b0p2.h5",
+      "batch": 2,
+      "horizon_steps": 4,
+      "finite_loss_and_gradients": true,
+      "parameters_and_buffers_unchanged": true,
+      "solver_residual_max": 3.137190982254595e-09,
+      "energy_residual_max": 1.5633384348352763e-09
+    }
+  ],
+  "validation_integration": {
+    "untrained_model": true,
+    "windows": 6,
+    "horizons_steps": [
+      8,
+      32
+    ],
+    "groups": 12,
+    "finite_metrics": true,
+    "parameters_and_buffers_unchanged": true,
+    "performance_claim": false,
+    "physical_readout_fit": false
+  },
+  "model_parameter_sha256_before_and_after": "1cf1e6e68504258f3766d06082ce534cc85f589e6399183bc1029bae8c812b88",
+  "source_hashes": {
+    "dpbench/train_dissipative.py": "0a22bd2f0fe59034aa80aa0c75c0e4f92541fac23616eb2d19e8db19721ec283",
+    "dpbench/dissipative_model.py": "15d21bc9a5f98c4a14c2e30cb1c5ff31d46915598dad543966e94957cd4f20ea",
+    "dpbench/dissipative_core.py": "ce689c779ad9cde7da28a810222206192d06f2f862077158853dd9d413e5a797",
+    "dpbench/dissipative_data.py": "06c4f2c461286781753942118f58c71dc23e2b73c411765abf51ebdbd8220c83",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+  },
+  "untested": [
+    "CUDA execution",
+    "optimizer-update training loop",
+    "nonempty Adam-state resumed training",
+    "convergence",
+    "training throughput and memory cost",
+    "physical prediction accuracy"
+  ],
+  "post_review_integration": {
+    "dataset": "pendulum_b0p2.h5",
+    "forward_backward_batch": 2,
+    "horizon_steps": 4,
+    "validation_windows": 6,
+    "validation_groups": 12,
+    "parameters_and_buffers_unchanged": true,
+    "optimizer_updates": 0
+  },
+  "tests": {
+    "passed": 43,
+    "deselected": 2,
+    "deselection_reason": "Legacy baseline tests call optimizer.step; excluded to respect code-only request",
+    "command": ".venv/bin/python -m pytest tests/test_dissipative_core.py tests/test_dissipative_data.py tests/test_dissipative_model.py tests/test_dissipative_training.py tests/test_models.py -k 'not official_training_objective_has_finite_predictor_gradients' -q"
+  },
+  "final_source_hashes": {
+    "dpbench/train_dissipative.py": "d2bfa70eb59bca50f762a4ad69d6dbbe5eb97241b316aa8e61d124c89e692df5",
+    "dpbench/dissipative_model.py": "15d21bc9a5f98c4a14c2e30cb1c5ff31d46915598dad543966e94957cd4f20ea",
+    "dpbench/dissipative_core.py": "2062a1af5e3b42ba811de685ac98b6c52bbf39bc6b4c6d621e98fe489bcc21ed",
+    "dpbench/dissipative_data.py": "06c4f2c461286781753942118f58c71dc23e2b73c411765abf51ebdbd8220c83",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+  },
+  "review_fixes": [
+    "Reject non-finite residuals before convergence masks and reject non-finite numerical ledgers",
+    "Keep maxima of solver and balance defects across validation batches; pool target moments before normalization"
+  ]
+}

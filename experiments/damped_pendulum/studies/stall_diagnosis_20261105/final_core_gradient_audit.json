@@ -1,0 +1,1213 @@
+{
+  "scope": "Finite differences of frozen 3-substep core, no optimizer/model/readout fitting",
+  "checkpoint_sha256": "5163a6a293a7c773a90e9ef59a62353a4debdba64c0dc24814bcbdb3b47f9042",
+  "checkpoint_step": 19250,
+  "selected_episodes": [
+    {
+      "file": "seen",
+      "episode": 451,
+      "family": "seen",
+      "damping": 0.0,
+      "energy_band": 0,
+      "group_id": 10000451
+    },
+    {
+      "file": "seen",
+      "episode": 457,
+      "family": "seen",
+      "damping": 0.0,
+      "energy_band": 2,
+      "group_id": 10000457
+    },
+    {
+      "file": "seen",
+      "episode": 2179,
+      "family": "seen",
+      "damping": 0.2,
+      "energy_band": 0,
+      "group_id": 10000451
+    },
+    {
+      "file": "seen",
+      "episode": 2185,
+      "family": "seen",
+      "damping": 0.2,
+      "energy_band": 2,
+      "group_id": 10000457
+    }
+  ],
+  "selection": "Minimum group_id in b0/b.2 x energy bands0/2, not errors",
+  "existing_test_result": "36 passed in 2.25s; tests/test_efficient_dissipative_core.py and test_automatic_discrete_gradient.py",
+  "tolerance_scope": "Forward tolerance tightened only for derivative diagnostics to separate root error from FD error",
+  "runs": [
+    {
+      "at_s": 0.0,
+      "steps": 1,
+      "objective": 0.5673420843545869,
+      "max_split_depth": 0,
+      "targets": [
+        {
+          "name": "q",
+          "gradient_norm": 0.49852797622003675,
+          "directional_derivative": -0.27781833016029567,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.27781833015771973,
+              "absolute_error": 2.5759394617352882e-12,
+              "relative_error": 9.272028452006828e-12,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.2778183301410664,
+              "absolute_error": 1.9229284831112636e-11,
+              "relative_error": 6.921532074581875e-11,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "p",
+          "gradient_norm": 0.022915958432956123,
+          "directional_derivative": 0.0014797174307148234,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.0014797174319181037,
+              "absolute_error": 1.2032803139300219e-12,
+              "relative_error": 8.131824955054111e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.0014797174374692188,
+              "absolute_error": 6.7543954370558046e-12,
+              "relative_error": 4.5646521869796575e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "context",
+          "gradient_norm": 0.19775204329104037,
+          "directional_derivative": 0.10817389259502175,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.10817389259065723,
+              "absolute_error": 4.364522632194223e-12,
+              "relative_error": 4.0347282763818025e-11,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.10817389261008613,
+              "absolute_error": 1.5064380298746016e-11,
+              "relative_error": 1.3926077665565502e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "dt",
+          "gradient_norm": 1.0928328811815462,
+          "directional_derivative": 0.7777425208761441,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.7777425262533998,
+              "absolute_error": 5.377255640759415e-09,
+              "relative_error": 6.91392775789584e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.7777425211741295,
+              "absolute_error": 2.9798530309932403e-10,
+              "relative_error": 3.831413288930976e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "damping_first_weight",
+          "gradient_norm": 1.9959341532403503,
+          "directional_derivative": 0.0017021267218171859,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.0017021267312289365,
+              "absolute_error": 9.411750675689112e-12,
+              "relative_error": 5.5294065377222665e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.001702126728453379,
+              "absolute_error": 6.636193114126221e-12,
+              "relative_error": 3.898765587305085e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "damping_last_weight",
+          "gradient_norm": 0.3044588172338851,
+          "directional_derivative": 0.018621630081516044,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.018621630076820495,
+              "absolute_error": 4.6955495047740214e-12,
+              "relative_error": 2.52155664365541e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.01862163009347384,
+              "absolute_error": 1.1957795864603327e-11,
+              "relative_error": 6.421454944910581e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "potential_first_weight",
+          "gradient_norm": 0.007084949334781666,
+          "directional_derivative": -0.00022372811222211758,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.00022372811103732457,
+              "absolute_error": 1.184793013480831e-12,
+              "relative_error": 5.295682342791892e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.0002237280805061914,
+              "absolute_error": 3.1715926190672636e-11,
+              "relative_error": 1.4176102357304574e-07,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "potential_last_weight",
+          "gradient_norm": 0.0041807140934537156,
+          "directional_derivative": 0.0006564244064986915,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.0006564244064977132,
+              "absolute_error": 9.783840404509192e-16,
+              "relative_error": 1.4904748067938718e-12,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.0006564244037221556,
+              "absolute_error": 2.7765359456033423e-12,
+              "relative_error": 4.229787799044728e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "at_s": 0.0,
+      "steps": 5,
+      "objective": 0.6329744514386773,
+      "max_split_depth": 0,
+      "targets": [
+        {
+          "name": "q",
+          "gradient_norm": 0.7387418747389832,
+          "directional_derivative": -0.5325105385088517,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.5325105384451634,
+              "absolute_error": 6.368827687452949e-11,
+              "relative_error": 1.196000309268449e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.5325105383868767,
+              "absolute_error": 1.219749856673502e-10,
+              "relative_error": 2.2905647277687197e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "p",
+          "gradient_norm": 0.041869390787851776,
+          "directional_derivative": -0.012715346756994077,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.012715346731084763,
+              "absolute_error": 2.5909314624317226e-11,
+              "relative_error": 2.0376412157274286e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.012715346797698144,
+              "absolute_error": 4.070406685319217e-11,
+              "relative_error": 3.20117630299795e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "context",
+          "gradient_norm": 0.45481938443881736,
+          "directional_derivative": 0.22308387148723607,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.22308387148117778,
+              "absolute_error": 6.05829275635017e-12,
+              "relative_error": 2.7157018192132282e-11,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.22308387146452444,
+              "absolute_error": 2.2711638125727518e-11,
+              "relative_error": 1.0180762048961923e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "dt",
+          "gradient_norm": 0.5706893898006232,
+          "directional_derivative": -0.11184883171465732,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.11184883688120094,
+              "absolute_error": 5.166543623480457e-09,
+              "relative_error": 4.619219803749991e-08,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.11184883208503747,
+              "absolute_error": 3.703801570997811e-10,
+              "relative_error": 3.311435177241592e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "damping_first_weight",
+          "gradient_norm": 3.563163189672852,
+          "directional_derivative": 0.0019068577158800285,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.0019068576939673674,
+              "absolute_error": 2.191266113872603e-11,
+              "relative_error": 1.1491502987475486e-08,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.0019068578382963606,
+              "absolute_error": 1.2241633206254432e-10,
+              "relative_error": 6.419793316732749e-08,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "damping_last_weight",
+          "gradient_norm": 0.7310831842222975,
+          "directional_derivative": 0.04222483440402968,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.04222483439841884,
+              "absolute_error": 5.610838182956712e-12,
+              "relative_error": 1.3288005180243521e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.042224834395643285,
+              "absolute_error": 8.386395744519604e-12,
+              "relative_error": 1.9861287469535363e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "potential_first_weight",
+          "gradient_norm": 0.05547628567226116,
+          "directional_derivative": -0.0012106455903305798,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.0012106455865579235,
+              "absolute_error": 3.772656232553517e-12,
+              "relative_error": 3.1162350589517722e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.0012106456503957475,
+              "absolute_error": 6.006516768339298e-11,
+              "relative_error": 4.961416056280242e-08,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "potential_last_weight",
+          "gradient_norm": 0.03730428145749564,
+          "directional_derivative": 0.007184346758696001,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.007184346800803708,
+              "absolute_error": 4.2107707078076206e-11,
+              "relative_error": 5.8610348644870045e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.007184346728639212,
+              "absolute_error": 3.005678952255897e-11,
+              "relative_error": 4.1836496110349835e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "at_s": 0.0,
+      "steps": 20,
+      "objective": 0.28095261510561187,
+      "max_split_depth": 0,
+      "targets": [
+        {
+          "name": "q",
+          "gradient_norm": 0.6537811403281403,
+          "directional_derivative": -0.42084538040629627,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.4208453806789358,
+              "absolute_error": 2.7263952206979525e-10,
+              "relative_error": 6.478377441851804e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.4208453802279077,
+              "absolute_error": 1.783885816841746e-10,
+              "relative_error": 4.238815251148845e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "p",
+          "gradient_norm": 0.045676655450555416,
+          "directional_derivative": -0.013028428879834367,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.013028428821892922,
+              "absolute_error": 5.794144504467358e-11,
+              "relative_error": 4.447308695398904e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.013028428913486321,
+              "absolute_error": 3.3651954486901836e-11,
+              "relative_error": 2.582963357313725e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "context",
+          "gradient_norm": 0.3857494570414316,
+          "directional_derivative": 0.16638602551159218,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.16638602553381565,
+              "absolute_error": 2.2223473061799837e-11,
+              "relative_error": 1.3356574261871062e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.16638602543528336,
+              "absolute_error": 7.63088203736828e-11,
+              "relative_error": 4.5862517683834176e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "dt",
+          "gradient_norm": 1.7962329053662531,
+          "directional_derivative": -1.3006343623589656,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -1.3006342813551286,
+              "absolute_error": 8.100383697140501e-08,
+              "relative_error": 6.228025286406245e-08,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -1.3006343572707912,
+              "absolute_error": 5.088174326317585e-09,
+              "relative_error": 3.91207127350468e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "damping_first_weight",
+          "gradient_norm": 3.294603785602906,
+          "directional_derivative": 0.045948686558283186,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.045948686518137986,
+              "absolute_error": 4.01451996645541e-11,
+              "relative_error": 8.736963485045931e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.045948686677732546,
+              "absolute_error": 1.1944936012531215e-10,
+              "relative_error": 2.599625120149499e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "damping_last_weight",
+          "gradient_norm": 0.6867987166443621,
+          "directional_derivative": 0.020743472371290986,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.020743472353701442,
+              "absolute_error": 1.7589544404339463e-11,
+              "relative_error": 8.479556406710109e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.02074347234537477,
+              "absolute_error": 2.5916217089028137e-11,
+              "relative_error": 1.2493673491664896e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "potential_first_weight",
+          "gradient_norm": 0.12785477640524037,
+          "directional_derivative": 0.002029892078711232,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.002029892107180409,
+              "absolute_error": 2.846917666887716e-11,
+              "relative_error": 1.4024970375603777e-08,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.0020298919267691673,
+              "absolute_error": 1.5194206483271078e-10,
+              "relative_error": 7.485228718621238e-08,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "potential_last_weight",
+          "gradient_norm": 0.04146695989957064,
+          "directional_derivative": 0.009008146607897526,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.009008146661937388,
+              "absolute_error": 5.403986286234286e-11,
+              "relative_error": 5.998999005053995e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.009008146700795194,
+              "absolute_error": 9.289766872422334e-11,
+              "relative_error": 1.0312628314104032e-08,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "at_s": 2.0,
+      "steps": 1,
+      "objective": 0.031598538934631576,
+      "max_split_depth": 0,
+      "targets": [
+        {
+          "name": "q",
+          "gradient_norm": 0.3823654860162875,
+          "directional_derivative": -0.15292273411227442,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.15292273410696944,
+              "absolute_error": 5.3049786785663855e-12,
+              "relative_error": 3.4690582203895993e-11,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.15292273411390833,
+              "absolute_error": 1.6339152253408429e-12,
+              "relative_error": 1.0684580254259515e-11,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "p",
+          "gradient_norm": 0.02154880675243118,
+          "directional_derivative": -0.010365276892508213,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.010365276524940126,
+              "absolute_error": 3.6756808707849586e-10,
+              "relative_error": 3.5461482687854265e-08,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.010365276894436226,
+              "absolute_error": 1.928013304564047e-12,
+              "relative_error": 1.860069271857993e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "context",
+          "gradient_norm": 0.0012148201838130658,
+          "directional_derivative": 0.0004696617356153069,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.00046966173606471923,
+              "absolute_error": 4.494123172563147e-13,
+              "relative_error": 9.568850999485848e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.0004696617331156893,
+              "absolute_error": 2.4996175919042574e-12,
+              "relative_error": 5.322165725571601e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "dt",
+          "gradient_norm": 0.0371804387186702,
+          "directional_derivative": -0.017005733652592375,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.017005733654075483,
+              "absolute_error": 1.4831087746802751e-12,
+              "relative_error": 8.721227821446228e-11,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.017005733650432564,
+              "absolute_error": 2.1598105248710198e-12,
+              "relative_error": 1.2700484254272531e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "damping_first_weight",
+          "gradient_norm": 0.0028770778458230254,
+          "directional_derivative": -4.7703213819275206e-05,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -4.7703213254535186e-05,
+              "absolute_error": 5.647400204270882e-13,
+              "relative_error": 1.1838615791519196e-08,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -4.770321429536927e-05,
+              "absolute_error": 4.760940651589961e-13,
+              "relative_error": 9.980335123983716e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "damping_last_weight",
+          "gradient_norm": 0.004212254054919057,
+          "directional_derivative": 0.0005966595160138947,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.0005966595157183563,
+              "absolute_error": 2.9553844180935096e-13,
+              "relative_error": 4.953217603630218e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.0005966595148509946,
+              "absolute_error": 1.1629001797977545e-12,
+              "relative_error": 1.9490180724288883e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "potential_first_weight",
+          "gradient_norm": 0.0010708616442723935,
+          "directional_derivative": 6.014003181050638e-05,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 6.0140032363820144e-05,
+              "absolute_error": 5.533137628090622e-13,
+              "relative_error": 9.200423429468125e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 6.01400318434031e-05,
+              "absolute_error": 3.2896720016020037e-14,
+              "relative_error": 5.470020385369742e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "potential_last_weight",
+          "gradient_norm": 0.0008986402753569803,
+          "directional_derivative": -0.00010138004268091999,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.00010138004238186003,
+              "absolute_error": 2.990599575706382e-13,
+              "relative_error": 2.949889836916809e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.00010138004186144299,
+              "absolute_error": 8.194770003636803e-13,
+              "relative_error": 8.083218143267838e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "at_s": 2.0,
+      "steps": 5,
+      "objective": 0.023795278282334475,
+      "max_split_depth": 0,
+      "targets": [
+        {
+          "name": "q",
+          "gradient_norm": 0.37059146047437774,
+          "directional_derivative": -0.14390850881081288,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.1439085087724841,
+              "absolute_error": 3.832878459064659e-11,
+              "relative_error": 2.663413366407329e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.1439085087991121,
+              "absolute_error": 1.1700779234402603e-11,
+              "relative_error": 8.130707024269742e-11,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "p",
+          "gradient_norm": 0.04141347619028072,
+          "directional_derivative": -0.01912814627421016,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.019128145882247455,
+              "absolute_error": 3.9196270534835875e-10,
+              "relative_error": 2.049141091506755e-08,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.019128146271085722,
+              "absolute_error": 3.124438208157443e-12,
+              "relative_error": 1.6334244643298333e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "context",
+          "gradient_norm": 0.008320621518311182,
+          "directional_derivative": 0.0030413403262496783,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.003041340325589392,
+              "absolute_error": 6.602864956184451e-13,
+              "relative_error": 2.1710378477526522e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.0030413403240281407,
+              "absolute_error": 2.2215376239975715e-12,
+              "relative_error": 7.304469035653706e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "dt",
+          "gradient_norm": 0.06718292388449619,
+          "directional_derivative": -0.03021444991140055,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.030214449941827478,
+              "absolute_error": 3.042692833798988e-11,
+              "relative_error": 1.007032343682294e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.03021444991459232,
+              "absolute_error": 3.1917697651540067e-12,
+              "relative_error": 1.056371959170607e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "damping_first_weight",
+          "gradient_norm": 0.016479383588132394,
+          "directional_derivative": -0.00017541274798438017,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.00017541274838911433,
+              "absolute_error": 4.0473416176682597e-13,
+              "relative_error": 2.3073246698638624e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.0001754127475217526,
+              "absolute_error": 4.626275762215776e-13,
+              "relative_error": 2.6373657646750553e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "damping_last_weight",
+          "gradient_norm": 0.026725490617084534,
+          "directional_derivative": 0.0035989744121414195,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.0035989744098102734,
+              "absolute_error": 2.331146126827166e-12,
+              "relative_error": 6.477251182900506e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.0035989744094633287,
+              "absolute_error": 2.6780908220225275e-12,
+              "relative_error": 7.441261079789232e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "potential_first_weight",
+          "gradient_norm": 0.006992799129898667,
+          "directional_derivative": 0.00038384546903926084,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.00038384547059941426,
+              "absolute_error": 1.5601534278895934e-12,
+              "relative_error": 4.0645352033287065e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.00038384547068615044,
+              "absolute_error": 1.6468896016884338e-12,
+              "relative_error": 4.290501588424384e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "potential_last_weight",
+          "gradient_norm": 0.005901440514474215,
+          "directional_derivative": -0.0006826015438632565,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.0006826015451662225,
+              "absolute_error": 1.3029659816365946e-12,
+              "relative_error": 1.9088236627406183e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.0006826015461203204,
+              "absolute_error": 2.2570638934238385e-12,
+              "relative_error": 3.3065613552331327e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "at_s": 2.0,
+      "steps": 20,
+      "objective": 0.011332094745324548,
+      "max_split_depth": 0,
+      "targets": [
+        {
+          "name": "q",
+          "gradient_norm": 0.3449262840394174,
+          "directional_derivative": -0.11709889866443388,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.11709889855479604,
+              "absolute_error": 1.0963784047302028e-10,
+              "relative_error": 9.362841301112961e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.11709889861377663,
+              "absolute_error": 5.0657242289808835e-11,
+              "relative_error": 4.32602209479147e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "p",
+          "gradient_norm": 0.050269516948989894,
+          "directional_derivative": -0.023569515542297727,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.023569515126675013,
+              "absolute_error": 4.1562271332895584e-10,
+              "relative_error": 1.7633909894460137e-08,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.023569515520370506,
+              "absolute_error": 2.192722045601947e-11,
+              "relative_error": 9.303212200806163e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "context",
+          "gradient_norm": 0.026981372898440884,
+          "directional_derivative": 0.009794133232128613,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.009794133225575138,
+              "absolute_error": 6.553474776738177e-12,
+              "relative_error": 6.691224860246132e-10,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.009794133225271562,
+              "absolute_error": 6.8570513850341186e-12,
+              "relative_error": 7.001182465580813e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "dt",
+          "gradient_norm": 0.0771859978570378,
+          "directional_derivative": -0.0340068806211397,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.0340068807363602,
+              "absolute_error": 1.1522049980783322e-10,
+              "relative_error": 3.38815255362834e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.034006880642381554,
+              "absolute_error": 2.1241855496789697e-11,
+              "relative_error": 6.246340474497016e-10,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "damping_first_weight",
+          "gradient_norm": 0.050496233987396444,
+          "directional_derivative": -0.000406739080213153,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.0004067390811310356,
+              "absolute_error": 9.178825776702537e-13,
+              "relative_error": 2.2566864613005983e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.00040673907731464393,
+              "absolute_error": 2.898509069478722e-12,
+              "relative_error": 7.126212381558586e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "damping_last_weight",
+          "gradient_norm": 0.08333091850701609,
+          "directional_derivative": 0.011126103466725221,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.011126103454132603,
+              "absolute_error": 1.259261792063704e-11,
+              "relative_error": 1.13180845012791e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.011126103454522916,
+              "absolute_error": 1.2202305138542258e-11,
+              "relative_error": 1.0967276347047847e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "potential_first_weight",
+          "gradient_norm": 0.025103086081533763,
+          "directional_derivative": 0.0013116113555348677,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": 0.0013116113590193323,
+              "absolute_error": 3.48446466992558e-12,
+              "relative_error": 2.6566289213375294e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": 0.0013116113624020431,
+              "absolute_error": 6.867175448080354e-12,
+              "relative_error": 5.235678528664183e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        },
+        {
+          "name": "potential_last_weight",
+          "gradient_norm": 0.021736257152287608,
+          "directional_derivative": -0.0026394205328564794,
+          "finite_differences": [
+            {
+              "epsilon": 2e-05,
+              "numerical": -0.002639420537296419,
+              "absolute_error": 4.439939735312315e-12,
+              "relative_error": 1.6821645783889303e-09,
+              "same_subdivision": true,
+              "passed": true
+            },
+            {
+              "epsilon": 5e-06,
+              "numerical": -0.0026394205383806213,
+              "absolute_error": 5.524141907797819e-12,
+              "relative_error": 2.092937380561219e-09,
+              "same_subdivision": true,
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "explicit_potential_gradient": [
+    {
+      "at_s": 0.0,
+      "gradient_max_abs_error": 0.0,
+      "hessian_contraction_max_abs_error": 4.440892098500626e-16
+    },
+    {
+      "at_s": 2.0,
+      "gradient_max_abs_error": 5.551115123125783e-17,
+      "hessian_contraction_max_abs_error": 8.673617379884035e-19
+    }
+  ],
+  "all_finite_difference_checks_passed": true,
+  "max_absolute_fd_error": 8.100383697140501e-08,
+  "max_relative_fd_error": 1.4176102357304574e-07,
+  "parameters_unchanged": true,
+  "elapsed_seconds": 15.224718500045128
+}

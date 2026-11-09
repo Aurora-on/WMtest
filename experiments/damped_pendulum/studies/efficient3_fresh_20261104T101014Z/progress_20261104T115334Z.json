@@ -1,0 +1,78 @@
+{
+  "checked_at_utc": "2026-11-04T11:54:14.583291+00:00",
+  "job_id": 47727,
+  "queue": "47727 RUNNING 1:42:58 ladhpc",
+  "completed_step": 4773,
+  "total_steps": 20000,
+  "progress_percent": 23.865,
+  "history_contiguous_from_one": true,
+  "current_prediction_horizon": 16,
+  "recent_median_update_seconds": 2.0827443450689316,
+  "recent_mean_update_seconds": 2.077934255331755,
+  "all_logged_losses_gradients_finite": true,
+  "recent_max_solver_residual_ratio": 0.49999838077894376,
+  "recent_max_split_depth": 0.0,
+  "completed_validation_rounds": 19,
+  "all_validation_gates_passed": true,
+  "recent_validation": [
+    {
+      "step": 3750,
+      "score": 2.9023983879331756,
+      "gate_passed": true,
+      "seconds": 46.661170311272144
+    },
+    {
+      "step": 4000,
+      "score": 2.5892226743066145,
+      "gate_passed": true,
+      "seconds": 47.139498859643936
+    },
+    {
+      "step": 4250,
+      "score": 1.4773700382272166,
+      "gate_passed": true,
+      "seconds": 39.903070725500584
+    },
+    {
+      "step": 4500,
+      "score": 1.7308904508483927,
+      "gate_passed": true,
+      "seconds": 47.093110390007496
+    },
+    {
+      "step": 4750,
+      "score": 1.6899081765014599,
+      "gate_passed": true,
+      "seconds": 42.87257990986109
+    }
+  ],
+  "checkpoints": {
+    "last.pt": {
+      "step": 4750,
+      "sampler_next_step": 4750,
+      "best_step": 4250,
+      "best_score": 1.4773700382272166,
+      "validation_status": "completed"
+    },
+    "best.pt": {
+      "step": 4250,
+      "sampler_next_step": 4250,
+      "best_step": 4250,
+      "best_score": 1.4773700382272166,
+      "validation_status": "completed"
+    }
+  },
+  "eta": {
+    "projected_remaining_hours": 14.99763186627116,
+    "rough_remaining_hours": [
+      15,
+      18
+    ],
+    "measured_K16_seconds": 2.077934255331755,
+    "previous_checkpoint_measured_K32_seconds": 4.040134531756242,
+    "measured_validation_seconds": 44.73388603925705,
+    "scope": "CurrentK16 is measured;K32 is from previous3750checkpoint benchmark, so futureweights or harder solves may change runtime."
+  },
+  "physical_test_metrics_available": false,
+  "operation": "read_only_no_training_change"
+}

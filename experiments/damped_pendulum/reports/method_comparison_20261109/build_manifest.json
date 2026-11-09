@@ -1,0 +1,20 @@
+{
+  "pdf": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/output/pdf/four_method_comparison_20261109.pdf",
+  "html": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/reports/method_comparison_20261109/comparison_report.html",
+  "pdf_sha256": "de39235f72d270f537e4b010ea5cf547b9fbde6f58583f9ff892c6e7020624f2",
+  "html_sha256": "f04be1c3b2a91b586e2d7ab723e9ec72f447a6b2a7e3e020913e5b23dba7fa7e",
+  "data_summary_hashes": {
+    "ours/a": "7b39b68af408afe7675d6d8ceced51f758e018014ade2b077700eacd37be6ea8",
+    "ours/single": "f7fa78d80359987696920d72fc0e7ed44c0b57e429f75f062a9e18f587718cb9",
+    "ours/multi": "1c9f4315e49f3d4199e6708363a77ba80f4ff0e4f3d246c8a800b32a9cfe3e16",
+    "lehami/a": "bc9d2f14f80effd94f4fd819c6917a97002f867c72aea7480b2e2e3b34b005e3",
+    "lehami/single": "3c3f8127386a89655df798195fdae2ce58b17a0f427069b48ae50a30cfa6453f",
+    "lehami/multi": "83f301dfb07af908b7550bc53f548a295e0f89dfcc3d0f82d24a6768ffde9899",
+    "lewm/a": "c88461a48647f3cb748d734ae461ac71f99941013158531165c445e4364ff8f6",
+    "lewm/single": "fbc24ba1310b64c61a43592422cf393094f566c16793e22a1d7b0e3087b00ee0",
+    "lewm/multi": "c91bacd2ae0f7063dc0b3703c23d9e4d49cb79a0cfc04667906016120a3f6775",
+    "hjepa/a": "c91b9a3d0a517b579cd84769b9c45c1c3d085674baf3815c77de820eb60b4946",
+    "hjepa/single": "3f2a79ce31f0eb22973c42a7a36b97bd8475625f3da558cacfdc9c6ffcff6d26",
+    "hjepa/multi": "629ba63eef19e5999a3de370b787b704ac84def1603b1e6c839847a28ab99ef0"
+  }
+}

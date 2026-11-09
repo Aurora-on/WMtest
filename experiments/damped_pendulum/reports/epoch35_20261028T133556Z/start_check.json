@@ -1,0 +1,59 @@
+{
+  "checked_utc": "2026-10-28T13:37:42.931311+00:00",
+  "job_id": "47111",
+  "queue": "             JOBID                     NAME    STATE       TIME NODELIST(REASON)\n    47111_[1-11%1]        pendulum35-133556  PENDING       0:00 (JobArrayTaskLimit)\n           47111_0        pendulum35-133556  RUNNING       0:49 ladhpc\n",
+  "first_task": "JobId=47112 ArrayJobId=47111 ArrayTaskId=0 ArrayTaskThrottle=1 JobName=pendulum35-133556\n   UserId=weizhixin(1025) GroupId=weizhixin(1026) MCS_label=N/A\n   Priority=4294888331 Nice=0 Account=(null) QOS=(null)\n   JobState=RUNNING Reason=None Dependency=(null)\n   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0\n   RunTime=00:00:49 TimeLimit=02:00:00 TimeMin=N/A\n   SubmitTime=2026-10-28T13:36:52 EligibleTime=2026-10-28T13:36:53\n   AccrueTime=2026-10-28T13:36:53\n   StartTime=2026-10-28T13:36:53 EndTime=2026-10-28T15:36:53 Deadline=N/A\n   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-28T13:36:53 Scheduler=Main\n   Partition=compute AllocNode:Sid=ladhpc:2321314\n   ReqNodeList=(null) ExcNodeList=(null)\n   NodeList=ladhpc\n   BatchHost=ladhpc\n   NumNodes=1 NumCPUs=4 NumTasks=1 CPUs/Task=4 ReqB:S:C:T=0:0:*:*\n   TRES=cpu=4,mem=32G,node=1,billing=4\n   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*\n   MinCPUsNode=4 MinMemoryNode=32G MinTmpDiskNode=0\n   Features=(null) DelayBoot=00:00:00\n   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)\n   Command=/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/scripts/slurm_matrix.sh\n   WorkDir=/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z\n   StdErr=/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/pendulum-47111_0.log\n   StdIn=/dev/null\n   StdOut=/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/pendulum-47111_0.log\n   Power=\n   TresPerNode=gres:gpu:l40:1\n   \n\n",
+  "scope": "Initial start check only; no ongoing monitoring",
+  "observed_steps": 501,
+  "latest": {
+    "step": 501,
+    "loss": 1.5756072998046875,
+    "pred_loss": 0.5591030716896057,
+    "pos_loss": 0.3441440165042877,
+    "mom_loss": 0.214959055185318,
+    "sigreg_loss": 4.066017150878906,
+    "grad_norm": 3.1488492488861084,
+    "wall_step_seconds": 0.08958494663238525,
+    "compute_step_seconds": 0.05788123607635498
+  },
+  "all_observed_loss_and_grad_finite": true,
+  "latest_validation": {
+    "step": 500,
+    "loss": 1.5739582777023315,
+    "pred_loss": 0.5382269620895386,
+    "pos_loss": 0.3569517135620117,
+    "mom_loss": 0.18127523362636566,
+    "sigreg_loss": 4.142925262451172,
+    "grad_norm": 4.67999792098999,
+    "wall_step_seconds": 0.08953332155942917,
+    "compute_step_seconds": 0.056293219327926636,
+    "validation_loss": 1.692428007721901
+  },
+  "training_args": {
+    "data": "data/server_generated_47106/pendulum_b0p0.h5",
+    "model": "lehami",
+    "output": "runs/server_47111/lehami_b0p0_seed0",
+    "device": "cuda",
+    "steps": 28140,
+    "batch_size": 32,
+    "train_frames": 81,
+    "unroll": 8,
+    "lr": 5e-05,
+    "weight_decay": 0.001,
+    "seed": 0,
+    "threads": 4,
+    "workers": 0,
+    "val_every": 250,
+    "val_windows": 256,
+    "benchmark": false,
+    "warmup": 20
+  },
+  "actual_device": "cuda",
+  "train_windows": 25728,
+  "dataset_sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+  "checkpoint_bytes": {
+    "best.pt": 36475399,
+    "last.pt": 36475399
+  },
+  "log_tail": "{\"step\": 500, \"loss\": 1.5739582777023315, \"pred_loss\": 0.5382269620895386, \"pos_loss\": 0.3569517135620117, \"mom_loss\": 0.18127523362636566, \"sigreg_loss\": 4.142925262451172, \"grad_norm\": 4.67999792098999, \"wall_step_seconds\": 0.08953332155942917, \"compute_step_seconds\": 0.056293219327926636, \"validation_loss\": 1.692428007721901}\n{\"step\": 501, \"loss\": 1.5756072998046875, \"pred_loss\": 0.5591030716896057, \"pos_loss\": 0.3441440165042877, \"mom_loss\": 0.214959055185318, \"sigreg_loss\": 4.066017150878906, \"grad_norm\": 3.1488492488861084, \"wall_step_seconds\": 0.08958494663238525, \"compute_step_seconds\": 0.05788123607635498}\n{\"step\": 502, \"loss\": 1.6293118000030518, \"pred_loss\": 0.5609644055366516, \"pos_loss\": 0.36257028579711914, \"mom_loss\": 0.19839411973953247, \"sigreg_loss\": 4.27338981628418, \"grad_norm\": 3.6352641582489014, \"wall_step_seconds\": 0.09245654195547104, \"compute_step_seconds\": 0.0574411004781723}"
+}

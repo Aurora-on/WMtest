@@ -1,0 +1,478 @@
+{
+  "scope": "One frozen training batch, original objective differentiated. No optimizer created or updates. Not a causal training ablation.",
+  "checkpoint_step": 19250,
+  "batch_sampler_step0": 19249,
+  "batch_windows": [
+    {
+      "episode": 2580,
+      "start": 342111,
+      "start_local": 11,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 4
+    },
+    {
+      "episode": 2628,
+      "start": 345991,
+      "start_local": 3,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 4
+    },
+    {
+      "episode": 3258,
+      "start": 430314,
+      "start_local": 16,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 5
+    },
+    {
+      "episode": 3112,
+      "start": 418497,
+      "start_local": 25,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 5
+    },
+    {
+      "episode": 3169,
+      "start": 423105,
+      "start_local": 16,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 5
+    },
+    {
+      "episode": 74,
+      "start": 6002,
+      "start_local": 8,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 0
+    },
+    {
+      "episode": 213,
+      "start": 17263,
+      "start_local": 10,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 0
+    },
+    {
+      "episode": 1164,
+      "start": 160868,
+      "start_local": 24,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 2
+    },
+    {
+      "episode": 768,
+      "start": 95491,
+      "start_local": 3,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 1
+    },
+    {
+      "episode": 1900,
+      "start": 253747,
+      "start_local": 7,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 3
+    },
+    {
+      "episode": 3235,
+      "start": 428444,
+      "start_local": 9,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 5
+    },
+    {
+      "episode": 1898,
+      "start": 253593,
+      "start_local": 15,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 3
+    },
+    {
+      "episode": 131,
+      "start": 10629,
+      "start_local": 18,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 0
+    },
+    {
+      "episode": 788,
+      "start": 97108,
+      "start_local": 0,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 1
+    },
+    {
+      "episode": 1961,
+      "start": 258706,
+      "start_local": 25,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 3
+    },
+    {
+      "episode": 2418,
+      "start": 329005,
+      "start_local": 27,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 4
+    },
+    {
+      "episode": 1906,
+      "start": 254243,
+      "start_local": 17,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 3
+    },
+    {
+      "episode": 2362,
+      "start": 324442,
+      "start_local": 0,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 4
+    },
+    {
+      "episode": 24,
+      "start": 1945,
+      "start_local": 1,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 0
+    },
+    {
+      "episode": 1820,
+      "start": 247262,
+      "start_local": 2,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 3
+    },
+    {
+      "episode": 2312,
+      "start": 320402,
+      "start_local": 10,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 4
+    },
+    {
+      "episode": 1864,
+      "start": 250850,
+      "start_local": 26,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 3
+    },
+    {
+      "episode": 644,
+      "start": 85456,
+      "start_local": 12,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 1
+    },
+    {
+      "episode": 3181,
+      "start": 424088,
+      "start_local": 27,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 5
+    },
+    {
+      "episode": 218,
+      "start": 17685,
+      "start_local": 27,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 0
+    },
+    {
+      "episode": 1480,
+      "start": 186442,
+      "start_local": 2,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 2
+    },
+    {
+      "episode": 820,
+      "start": 99725,
+      "start_local": 25,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 1
+    },
+    {
+      "episode": 1302,
+      "start": 172045,
+      "start_local": 23,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 2
+    },
+    {
+      "episode": 3214,
+      "start": 426736,
+      "start_local": 2,
+      "mode": 0,
+      "time_bin": 0,
+      "regime_id": 5
+    },
+    {
+      "episode": 2571,
+      "start": 341393,
+      "start_local": 22,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 4
+    },
+    {
+      "episode": 41,
+      "start": 3346,
+      "start_local": 25,
+      "mode": 0,
+      "time_bin": 2,
+      "regime_id": 0
+    },
+    {
+      "episode": 1274,
+      "start": 169772,
+      "start_local": 18,
+      "mode": 0,
+      "time_bin": 1,
+      "regime_id": 2
+    }
+  ],
+  "horizon": 32,
+  "batch_size": 32,
+  "terms": {
+    "prediction": {
+      "value": 0.3186094380484959,
+      "gradnorms": {
+        "damping": 0.14772794600076306,
+        "encoder": 3.3221992447380067,
+        "environment_context": 0.05638249579743568,
+        "input_port": 0.0,
+        "potential": 0.017831788949307554,
+        "velocity_correction": 0.0007038294623916089
+      }
+    },
+    "motion_weighted": {
+      "value": 0.10383774769100085,
+      "gradnorms": {
+        "damping": 0.03659905726001358,
+        "encoder": 1.267665680214528,
+        "environment_context": 0.0186792444615179,
+        "input_port": 0.0,
+        "potential": 0.009489463375784764,
+        "velocity_correction": 0.0006372078579640395
+      }
+    },
+    "sigreg_weighted": {
+      "value": 0.47464701533317566,
+      "gradnorms": {
+        "damping": 0.0,
+        "encoder": 5.326632732961935,
+        "environment_context": 0.0,
+        "input_port": 0.0,
+        "potential": 0.0,
+        "velocity_correction": 0.0
+      }
+    },
+    "initializer_weighted": {
+      "value": 0.0009523126645945013,
+      "gradnorms": {
+        "damping": 0.0,
+        "encoder": 0.0006193740986988048,
+        "environment_context": 0.0,
+        "input_port": 0.0,
+        "potential": 0.0,
+        "velocity_correction": 0.0001495518883700488
+      }
+    }
+  },
+  "gradient_cosines": [
+    {
+      "group": "damping",
+      "first": "prediction",
+      "second": "motion_weighted",
+      "cosine": 0.762317988578324
+    },
+    {
+      "group": "damping",
+      "first": "prediction",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "damping",
+      "first": "motion_weighted",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "encoder",
+      "first": "prediction",
+      "second": "motion_weighted",
+      "cosine": 0.8611892224358149
+    },
+    {
+      "group": "encoder",
+      "first": "prediction",
+      "second": "sigreg_weighted",
+      "cosine": -0.809203781282898
+    },
+    {
+      "group": "encoder",
+      "first": "motion_weighted",
+      "second": "sigreg_weighted",
+      "cosine": -0.7677069399596095
+    },
+    {
+      "group": "environment_context",
+      "first": "prediction",
+      "second": "motion_weighted",
+      "cosine": -0.09729548274782189
+    },
+    {
+      "group": "environment_context",
+      "first": "prediction",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "environment_context",
+      "first": "motion_weighted",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "input_port",
+      "first": "prediction",
+      "second": "motion_weighted",
+      "cosine": null
+    },
+    {
+      "group": "input_port",
+      "first": "prediction",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "input_port",
+      "first": "motion_weighted",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "potential",
+      "first": "prediction",
+      "second": "motion_weighted",
+      "cosine": 0.6563004212817183
+    },
+    {
+      "group": "potential",
+      "first": "prediction",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "potential",
+      "first": "motion_weighted",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "velocity_correction",
+      "first": "prediction",
+      "second": "motion_weighted",
+      "cosine": 0.4879907236098675
+    },
+    {
+      "group": "velocity_correction",
+      "first": "prediction",
+      "second": "sigreg_weighted",
+      "cosine": null
+    },
+    {
+      "group": "velocity_correction",
+      "first": "motion_weighted",
+      "second": "sigreg_weighted",
+      "cosine": null
+    }
+  ],
+  "total_grad_norm": 3.0494320162892548,
+  "would_clip_scale": 0.3279298133975292,
+  "total_grad_norm_by_group": {
+    "damping": 0.17721820385916578,
+    "encoder": 3.043628582751481,
+    "environment_context": 0.057645123137978614,
+    "input_port": 0.0,
+    "potential": 0.025102453928577666,
+    "velocity_correction": 0.001134475317821647
+  },
+  "future_p_sg_mse": 4.364211007495549,
+  "future_zero_p_sg_mse": 5.2659667725488815,
+  "future_p_vs_zero_ratio": 0.8287577943419389,
+  "predicted_motion_rms": 0.08234882983928307,
+  "target_motion_rms": 0.3409677984151258,
+  "p_state_rms_steps_0_1_2_5_10_20_32": [
+    3.455160517999569,
+    1.945715207336386,
+    1.7346329409283978,
+    1.3556286325026814,
+    0.734334415743939,
+    0.20660726407717797,
+    0.10815446988971306
+  ],
+  "damping_eigenvalues": [
+    {
+      "step": 0,
+      "D_eigenvalue_mean": [
+        4.408619762413599,
+        107.43373235462796
+      ]
+    },
+    {
+      "step": 1,
+      "D_eigenvalue_mean": [
+        1.552699496679061,
+        101.94149517105004
+      ]
+    },
+    {
+      "step": 10,
+      "D_eigenvalue_mean": [
+        13.062886194568915,
+        65.28536686110178
+      ]
+    },
+    {
+      "step": 32,
+      "D_eigenvalue_mean": [
+        13.24016552301008,
+        53.105420933867435
+      ]
+    }
+  ],
+  "state_unchanged": true,
+  "optimizer_updates": 0,
+  "elapsed_seconds": 9.098183549940586
+}

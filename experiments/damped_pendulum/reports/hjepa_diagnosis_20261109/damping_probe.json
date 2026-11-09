@@ -1,0 +1,17 @@
+{
+  "scope": "One fixed validation batch, frozen A20000 checkpoint; inference-only removal of damping, not retraining",
+  "n": 32,
+  "anchor_median_norms": {
+    "conservative": 0.21329307556152344,
+    "dissipative": 0.40359118580818176,
+    "combined": 0.291789174079895
+  },
+  "original": {
+    "mse": 0.014574440196156502,
+    "median_step_norm": 0.0074423435144126415
+  },
+  "zero_damping": {
+    "mse": 0.5192199349403381,
+    "median_step_norm": 0.210763081908226
+  }
+}

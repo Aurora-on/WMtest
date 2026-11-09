@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "declared_at_utc": "2026-10-29T07:13:36.029470+00:00",
+  "status": "models_and_readouts_frozen_before_new_data_generation",
+  "frozen_manifest_sha256": "1b995d4e91abbf5db7cd244a9407e8ffabcbcfa07ce5eb399cb478fb1846dc60",
+  "generation": {
+    "episodes": 128,
+    "frames": 325,
+    "dt": 0.1,
+    "substeps": 20,
+    "image_size": 64,
+    "mass": 1.0,
+    "length": 1.0,
+    "gravity": 9.81,
+    "damping_values": [
+      0.0,
+      0.2
+    ],
+    "data_seed": 2026102901,
+    "torque_max": 2.0,
+    "action_hold_frames": 3,
+    "drive_cycle_frames": 80,
+    "drive_off_frames": [
+      24,
+      56
+    ],
+    "group_id_offset": 1000000
+  },
+  "references": [
+    {
+      "damping": 0.0,
+      "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/probe_diagnostic_inputs/pendulum_b0p0.h5",
+      "sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13"
+    },
+    {
+      "damping": 0.2,
+      "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/probe_diagnostic_inputs/pendulum_b0p2.h5",
+      "sha256": "e112f2d176993f3d8e6b7277bc80d114d4a1cae5100ba82d29940d59795b7ca5"
+    }
+  ],
+  "source_sha256": {
+    "configs/basic.json": "9a8519ff0f0d57d78fe1fecbe838bab1d6766d8fd9901c9e737bf4172d7c5dc4",
+    "dpbench/__init__.py": "b450b411e74d9cd2eecbf484ba8b6d83fc06c9b057537127056fbb1be7781a3e",
+    "dpbench/data.py": "070c038b51ba200d370df9d92a47a6ad6e558048eaee9157d298e6aafdfa9e97",
+    "dpbench/evaluate.py": "7b33cddbe590f35956f33fbaba7a50a6262163566080119dece2636811b1ede9",
+    "dpbench/generate.py": "4f05aaee7945a2ebec5d9329834c8bf5eaef98958e8a7b74d9b08c609ce8393d",
+    "dpbench/holdout.py": "f35efb2f47419d0dbfb818ad910843aaadfacdd8def1fc1f8e144ab42b2d8cf2",
+    "dpbench/models.py": "36446d045d1e687453bcabb4b72b7da0e572d447d624b42b9b9ccced1558d24a",
+    "dpbench/train.py": "620e4b95d731884a798513710248ab364460cdfc5344f032988a3ebf8bcc5cb1",
+    "tests/test_holdout.py": "f0c106f8db178ec7b57150ddb0522200cd8325e8de44f8c9f752d25b3992d143",
+    "tests/test_no_future_leakage.py": "e89d19a48be9790f6410ddd913b0acf81148bf034a43d884690339f06af36772",
+    "third_party/LeHami/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "third_party/LeHami/NOTICE": "37935d8f2e8bc5a9d990ac01316242b9410742d13889808e5059284230f40771",
+    "third_party/LeHami/README.md": "f778f6b1ae5771e0281620779262660496dc3b9e19020e035fb91efbe63bc0d9",
+    "third_party/LeHami/lehami/models/lehami/__init__.py": "966d11cbc3338de62431ee9b99dee520cc7da71836a2e81d86eb36439643d435",
+    "third_party/LeHami/lehami/models/lehami/builders.py": "92dca7edf2c3ab56a522287c5deb4a2935835892c0ee691f880b324cb9e39ad0",
+    "third_party/LeHami/lehami/models/lehami/derivative.py": "ace4a9daf9c7f1ac50d1947cbf71a6384a2bc3c27b747a80eeed6861691a41f5",
+    "third_party/LeHami/lehami/models/lehami/ham_flow.py": "b3338eb0e35237129985884473c68ad2c34c6bf0869ff39f6e6372ae7bc50f8e",
+    "third_party/LeHami/lehami/training/configs/config.yaml": "4f02a1c431ce72066533ab39dfdf30c046336ec152552c86185d64eb0099503c",
+    "third_party/LeHami/lehami/training/configs/experiment/phase0_lewm_ms_conv_w3_free_swingup_exp099_b3f.yaml": "90aff926c6bb3095e6013889dfeced4127dd1fa4ea2267525f5ae9cfe7aeabb3",
+    "third_party/LeHami/lehami/training/configs/experiment/phase0_lewm_ms_conv_w3_swingup_exp076_b3s.yaml": "52c8ddffaf81133a8010432447f5fdb57db5cdef2d1674542985c748d22cdc17",
+    "third_party/LeHami/lehami/training/configs/experiment/phase2_lehami_sg_sep_conv_w1_swingup_exp079_a0q.yaml": "1a0bb85da7e3a495d4811a508d17348fe8cfdb0337195aec9acbed05ccf60d31",
+    "third_party/LeHami/lehami/training/configs/model/lehami_sg_sep_sreg_q_ms_conv.yaml": "d174793737406a0f0ae652a6c385ab51fd9bdd98b5a57da688ad6bc248c0a486",
+    "third_party/LeHami/lehami/training/configs/model/lewm_ms_conv.yaml": "15b39fdbe94fab0806ffe046e0b3f84376fae1cf741d31c88b572e676dd31527",
+    "third_party/LeHami/lehami/training/configs/optim/default.yaml": "051b47091d51bde92ad512a78ae2ba85b2de8703160b1df06a9fffd78d8ff5e2",
+    "third_party/LeHami/pyproject.toml": "ca30327ec825f65419ce62c7172a3d17ed2d18a21b6ebdc6f3342e15dc34289e",
+    "third_party/le-wm/LICENSE": "4882021920cbd61e050e4dc2e02440e9bd36ea4cbc5803e738a2ee3d63502e07",
+    "third_party/le-wm/README.md": "598ec180a74926d389499ebfc99044b7167bcdc3e20f8da0d0f4142df3f68b0f",
+    "third_party/le-wm/jepa.py": "41bad7fd21e0f14aea4c9c3d39a9c87037e787746d953ab62cdc0677e938ce96",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620",
+    "third_party/sources.json": "562de60456c15396b4536985a066ba261158ea3dbaf4acf5d2ffb046aaf5e788"
+  },
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]",
+    "packages": {
+      "numpy": "2.2.6",
+      "scipy": "1.18.1",
+      "h5py": "3.16.0",
+      "pillow": "11.3.0",
+      "torch": "2.8.0"
+    }
+  },
+  "sampling": "One fixed draw; same initial-state and action distributions as the original experiment. 128 paired episodes per damping: 64 passive, 64 driven. No rejection sampling or seed search.",
+  "primary_split": "splits/test: exclude the union, across both new damping variants, of episodes whose initial LeWM 13-frame or LeHami 14-frame image-plus-action training-length payload exactly matches any old development window in either damping dataset.",
+  "secondary_splits": {
+    "test_all": "All 128 fresh draws; preserves original distribution. Report overlap counts.",
+    "test_strict_context": "Primary set additionally excluding 4/5-frame initial visual-context matches; paired IDs across damping."
+  },
+  "overlap_check_scope": {
+    "old_pool": "First 81 frames of old train/val episodes; all 325 frames of previously inspected old test episodes, from both damping files. All contiguous windows in this pool (a conservative superset of actual training starts).",
+    "checks": "Exact float64 initial states, full physical-state/float32-action trajectories, initial 4/5 RGB frames, initial 13/14 RGB-plus-action training-length payloads. SHA256 indexes with witnesses.",
+    "limits": "No near-duplicate guarantee; no claim that every future RGB window is absent from old data. Similar states and shared rendered equilibrium frames are expected in low-dimensional deterministic physics. Deduplicated subsets are filtered distributions, not the raw sampling distribution.",
+    "distribution_audit": "Save mode counts and initial |theta|, |omega|, and energy quantiles before and after filtering."
+  },
+  "frozen_inference_contract": {
+    "cohort": "All 12 original validation-selected best.pt files; no re-selection",
+    "readouts": "Use original saved ridge AND mlp readouts; no refitting, no new normalization statistics, no selection by new-test scores.",
+    "model_mode": "eval(); disable parameter gradients; retain internal state derivatives needed by Hamiltonian flow; verify hashes before/after",
+    "authorized_inputs": "Exactly first five real RGB frames at raw indices 0..4 (LeHami internally uses 1..4), historical controls 0..3, and exogenous future controls 4..323. Anchor raw frame 4; 320 autonomous steps (32 s).",
+    "forbidden_inputs": "Future RGB and all physical-state labels must be kept outside the model input path. No teacher forcing, state corrections, re-encoding, or parameter updates.",
+    "evaluation_entry": "Do not use dpbench.evaluate.evaluate directly: it binds the old dataset and refits readouts. A separate frozen-only evaluator must preserve original training provenance and separately verify the new-test SHA256."
+  },
+  "scoring": "No model scoring during creation. Future evaluation should report both fixed probes, all 3 seeds, passive/driven separately, with the original absolute angle/omega/energy metrics and horizons. Any additional metric must be labeled separately.",
+  "reuse_policy": "Any tuning based on this holdout makes it development data; obtain another independent test set for subsequent final claims."
+}

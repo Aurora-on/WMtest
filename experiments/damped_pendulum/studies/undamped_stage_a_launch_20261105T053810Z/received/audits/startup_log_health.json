@@ -1,0 +1,183 @@
+{
+  "checked_at_utc": "2026-11-05T05:46:04.573957+00:00",
+  "run_root": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z",
+  "training_directory": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/training",
+  "operation": "read_only_training_artifact_audit",
+  "test_data_read": false,
+  "optimizer_created": false,
+  "training_updates": 0,
+  "history_parse": {
+    "exists": true,
+    "partial_tail_ignored": false,
+    "parse_errors": [],
+    "mtime_utc": "2026-11-05T05:46:04.271899+00:00"
+  },
+  "history": {
+    "rows": 298,
+    "latest_step": 298,
+    "contiguous_from_1": true,
+    "finite_loss_and_gradient": true,
+    "nonfinite_count": 0,
+    "nonfinite_examples": [],
+    "logged_work_and_dissipation_exactly_zero": true,
+    "nonzero_work_or_dissipation_count": 0,
+    "nonzero_examples": [],
+    "missing_or_invalid_diagnostics_count": 0,
+    "missing_examples": [],
+    "maximum_solver_residual_ratio": 0.4903850337589104,
+    "solver_residual_ratios_within_tolerance": true,
+    "maximum_split_depth": 0.0,
+    "nonzero_split_diagnostic_count": 0,
+    "latest_losses": {
+      "loss": 3.354508737229404,
+      "prediction_loss": 5.1687726231489437e-05,
+      "motion_loss": 0.13244324802436463,
+      "sigreg_loss": 12.867178916931152,
+      "initializer_loss": 2.587675447856659e-07,
+      "target_std_min": 0.002613180251862429,
+      "target_std_mean": 0.003467613794177168,
+      "target_motion_rms": 0.0027850776516726745,
+      "target_motion_mse": 7.75665752584658e-06,
+      "persistence_mse": 8.921446174374903e-06,
+      "prediction_mse": 5.1687726231489437e-05,
+      "normalized_prediction_mse": 0.5168772623148944,
+      "persistence_ratio": 0.5168772623148944,
+      "predicted_velocity_power": 0.00048528317034023767,
+      "dynamic_predicted_velocity_power": 0.0,
+      "target_velocity_power": 0.0007756657294680177,
+      "dynamic_target_velocity_power": 0.0,
+      "velocity_error_power": 0.0013244324802436465,
+      "dynamic_velocity_error_power": 0.0,
+      "velocity_cross_power": -3.174179021769556e-05,
+      "dynamic_velocity_cross_power": 0.0,
+      "momentum_loss": 0.0521907198725191,
+      "momentum_point_count": 128.0,
+      "dynamic_window_count": 0.0,
+      "stalled_dynamic_window_count": 0.0,
+      "window_count": 32.0,
+      "target_mean_0": 0.00020111899357289076,
+      "target_second_moment_0": 1.8720542028452568e-05,
+      "target_mean_1": -0.012890964600956067,
+      "target_second_moment_1": 0.0001730056793718262,
+      "work": 0.0,
+      "dissipation": 0.0,
+      "residual_work": -1.0435560136170486e-12,
+      "chain_defect": -7.203655392831364e-19,
+      "chain_defect_max": 1.6751601191258847e-16,
+      "numerical_balance_defect": 1.1021850097414172e-11,
+      "solver_residual": 4.610902924664234e-11,
+      "solver_residual_ratio": 0.002444443681524379,
+      "solver_picard_iterations": 3.0,
+      "solver_newton_iterations": 0.0,
+      "solver_backtracks": 0.0,
+      "solver_line_search_evals": 0.0,
+      "solver_iterations": 3.0,
+      "solver_failed_attempts": 0.0,
+      "solver_leaf_steps": 3.0,
+      "solver_split_depth": 0.0,
+      "solver_replay_iterations": 0.0,
+      "solver_replay_relative_error": 0.0,
+      "energy_delta": -1.0435567340816299e-12,
+      "energy_residual": 1.1021850099268704e-11
+    },
+    "latest_gradient_norm": 68.19049991202569,
+    "validation_rounds": 1,
+    "latest_validation": {
+      "step": 250,
+      "score": 36.96880803296501,
+      "gate_passed": false,
+      "position_score": 35.65911635979884,
+      "motion_score": 1.3096916731661732,
+      "validation_seconds": 17.316719986498356,
+      "failed_prediction_groups": [
+        "h8_regime0_mode0_time0",
+        "h8_regime0_mode0_time1",
+        "h8_regime0_mode0_time2",
+        "h32_regime0_mode0_time0",
+        "h32_regime0_mode0_time1",
+        "h32_regime0_mode0_time2"
+      ]
+    },
+    "recent_validations": [
+      {
+        "step": 250,
+        "score": 36.96880803296501,
+        "gate_passed": false,
+        "position_score": 35.65911635979884,
+        "motion_score": 1.3096916731661732,
+        "validation_seconds": 17.316719986498356,
+        "failed_prediction_groups": [
+          "h8_regime0_mode0_time0",
+          "h8_regime0_mode0_time1",
+          "h8_regime0_mode0_time2",
+          "h32_regime0_mode0_time0",
+          "h32_regime0_mode0_time1",
+          "h32_regime0_mode0_time2"
+        ]
+      }
+    ],
+    "numerical_log_health_passed": true,
+    "scope": "Logged aggregated work/dissipation only, not a fresh per-sample physical audit. Prediction gate failures are reported separately from numerical/log health."
+  },
+  "status_file": {
+    "status": "running",
+    "training_started": true,
+    "completed_steps": 250,
+    "optimizer_steps_this_run": 250
+  },
+  "protocol_checks": {
+    "damping_disabled": true,
+    "environment_disabled": true,
+    "data_scope_bound": true,
+    "trainable_modules_bound": true,
+    "fresh_seed0": true,
+    "bound_4000": true
+  },
+  "protocol_matches_stage_a": true,
+  "eta": {
+    "target_step": 4000,
+    "latest_completed_step": 298,
+    "schedule_matches_estimator": true,
+    "recent_step_timings": {
+      "4": {
+        "samples": 200,
+        "median_seconds": 0.40786226093769073,
+        "minimum_seconds": 0.39854832738637924,
+        "maximum_seconds": 0.48418717831373215
+      },
+      "8": {
+        "samples": 0,
+        "median_seconds": null,
+        "minimum_seconds": null,
+        "maximum_seconds": null
+      }
+    },
+    "K4_seconds_used": 0.40786226093769073,
+    "K4_timing_source": "current_K4_recent_median",
+    "K8_seconds_used": 0.8426827380703765,
+    "K8_timing_source": "EXTRAPOLATED_current_K4_times_historical_K8_over_K4",
+    "validation_seconds_used": 17.316719986498356,
+    "validation_timing_source": "current_recent_median",
+    "checkpoint_seconds_used": 0.21604067832231522,
+    "remaining_counts": {
+      "K4": 702,
+      "K8": 3000,
+      "validation": 15
+    },
+    "remaining_seconds": 3077.3589313616985,
+    "estimated_completion_utc": "2026-11-05T06:37:21.932888+00:00",
+    "current_validation_measured": true,
+    "confidence": "provisional_extrapolation_or_prior",
+    "historical_prior": {
+      "source": "47727 L40/batch32/3-substeps, first 4000 history rows; old damped model",
+      "source_file": "studies/stall_diagnosis_20261105/frozen_training/history.jsonl",
+      "k4_median_seconds": 0.5224075242877007,
+      "k8_median_seconds": 1.0793442912399769,
+      "validation_median_seconds": 45.53769016265869,
+      "checkpoint_median_seconds": 0.14940977096557617,
+      "limits": "Old damped dynamics and 18 validation strata; A changes losses, D and batch organization. Prior only."
+    },
+    "limits": "Excludes queue, data generation and startup outside trainer. Assumes uninterrupted execution, unchanged throughput and successful solves. No uncertainty confidence interval. step_seconds excludes validation; do not add validation again to iteration_seconds."
+  },
+  "overall_numerical_health_passed": true
+}

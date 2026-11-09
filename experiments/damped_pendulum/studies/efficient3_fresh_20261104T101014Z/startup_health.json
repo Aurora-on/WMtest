@@ -1,0 +1,30 @@
+{
+  "status": "fresh_training_startup_verified",
+  "checked_at_utc": "2026-11-04T10:12:27.610674+00:00",
+  "job_id": 47727,
+  "scheduler": "47727 RUNNING 1:11 ladhpc",
+  "cancelled_prior_job": 47726,
+  "initial_step": 0,
+  "resume": null,
+  "completed_step": 111,
+  "target_total_step": 20000,
+  "substeps": 3,
+  "batch_size": 32,
+  "seed": 0,
+  "gpu": "L40",
+  "losses_and_gradients_finite": true,
+  "max_solver_residual_ratio": 0.003480907267958192,
+  "max_split_depth": 0.0,
+  "current_horizon": 4,
+  "median_update_seconds": 0.5268235132098198,
+  "fresh_initialization_verified": true,
+  "source_hashes_verified": true,
+  "physical_test_evaluation_enabled": false,
+  "startup_monitoring_finished": true,
+  "rough_runtime_hours": [
+    16,
+    20
+  ],
+  "runtime_estimate_scope": "Planning range based on earlyK4 timings plus3750checkpoint short timings forK8/16/32; futureweights/stiffness may change cost;24h schedulerlimit is not a completion guarantee.",
+  "remote_root": "/home/weizhixin/ssd/efficient3_fresh_20261104T101014Z"
+}

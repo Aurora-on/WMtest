@@ -1,0 +1,68 @@
+{
+  "checked_at_utc": "2026-11-05T05:54:25.472758+00:00",
+  "training_job_id": 47796,
+  "status": "RUNNING_at_last_scheduler_check",
+  "checked_through_step": 1131,
+  "configured_stop_step": 4000,
+  "numerical_log_health_passed": true,
+  "checkpoint250_same_server_seed0_audit_passed": true,
+  "checkpoint1000_hash_verified": true,
+  "frozen_input_port_250_to1000_bitwise_equal": true,
+  "checkpoint1000_optimizer_steps": [
+    1000.0
+  ],
+  "quality_gate_passed": false,
+  "quality_warning": "Encoder target spread/motion shrink across250/500/750/1000; no dynamic validation support after500. This is a latent representation warning, not proof real trajectories are static.",
+  "parameters_or_training_recipe_changed_during_run": false,
+  "eta": {
+    "target_step": 4000,
+    "latest_completed_step": 1131,
+    "schedule_matches_estimator": true,
+    "recent_step_timings": {
+      "4": {
+        "samples": 200,
+        "median_seconds": 0.4019348509609699,
+        "minimum_seconds": 0.39673496782779694,
+        "maximum_seconds": 0.45178814977407455
+      },
+      "8": {
+        "samples": 111,
+        "median_seconds": 0.7182377800345421,
+        "minimum_seconds": 0.7133699208498001,
+        "maximum_seconds": 0.7271046340465546
+      }
+    },
+    "K4_seconds_used": 0.4019348509609699,
+    "K4_timing_source": "current_K4_recent_median",
+    "K8_seconds_used": 0.7182377800345421,
+    "K8_timing_source": "current_K8_recent_median",
+    "validation_seconds_used": 17.293643798679113,
+    "validation_timing_source": "current_recent_median",
+    "checkpoint_seconds_used": 0.22228866443037987,
+    "remaining_counts": {
+      "K4": 0,
+      "K8": 2869,
+      "validation": 12
+    },
+    "remaining_seconds": 2270.815380476415,
+    "estimated_completion_utc": "2026-11-05T06:31:05.270416+00:00",
+    "current_validation_measured": true,
+    "confidence": "current_both_stages_and_validation",
+    "historical_prior": {
+      "source": "47727 L40/batch32/3-substeps, first 4000 history rows; old damped model",
+      "source_file": "studies/stall_diagnosis_20261105/frozen_training/history.jsonl",
+      "k4_median_seconds": 0.5224075242877007,
+      "k8_median_seconds": 1.0793442912399769,
+      "validation_median_seconds": 45.53769016265869,
+      "checkpoint_median_seconds": 0.14940977096557617,
+      "limits": "Old damped dynamics and 18 validation strata; A changes losses, D and batch organization. Prior only."
+    },
+    "limits": "Excludes queue, data generation and startup outside trainer. Assumes uninterrupted execution, unchanged throughput and successful solves. No uncertainty confidence interval. step_seconds excludes validation; do not add validation again to iteration_seconds."
+  },
+  "local_cross_runtime_note": "Mac normal_ seeded initialization differs from Linux by up to1.21e-8 in18 input weight entries; exact frozen-input comparison was therefore performed on the training server, passed, and independently chained via250/1000 tensors. Local inspector now marks cross-runtime comparisons inconclusive.",
+  "code_manifest_sha256": "1f32ba8317f16f4fd893682e656e1bda1db0e44398ee05ca918ade0d86b78104",
+  "inspector_used_on_server_sha256": "7f39a149289b5dbb675cfad5b6541ec63b7b65b339c8a9cd1230639887356b73",
+  "source_snapshot": "payload.tar.gz",
+  "training_continues_after_short_monitor": true,
+  "automatic_beyond4000": false
+}

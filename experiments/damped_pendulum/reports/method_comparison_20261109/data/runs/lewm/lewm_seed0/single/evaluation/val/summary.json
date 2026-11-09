@@ -1,0 +1,1495 @@
+{
+  "split": "val",
+  "record_count": 64,
+  "unique_group_count": 64,
+  "condition_count": 1,
+  "damping_values": [
+    0.2
+  ],
+  "anchor_frame": 20,
+  "horizon_steps": 32,
+  "horizon_seconds": 3.2,
+  "rollout": {
+    "8": {
+      "horizon_steps": 8,
+      "horizon_seconds": 0.8,
+      "groups": {
+        "all": {
+          "n_total": 64,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "n_complete": 64,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.005201791972363605,
+            "angle_rmse_rad": 0.007971204429110743,
+            "omega_rmse_rad_s": 0.10779538837748572,
+            "omega_nrmse": 0.06144360803237482
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.018807837480415094,
+            "angle_rmse_rad": 0.038464069168870116,
+            "omega_rmse_rad_s": 0.1440959341181186,
+            "omega_nrmse": 0.08213499879983545,
+            "velocity_rms_ratio": 0.9922990965316776,
+            "velocity_cosine": 0.9974727439895272,
+            "direction_agreement": 0.9939148073022313,
+            "stopped_dynamic_window_fraction": null,
+            "trajectory_with_stop_fraction": null,
+            "stop_status": "NA: horizon shorter than1second",
+            "dynamic_window_count": 0
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.026867646597265767,
+            "max_relative_drift_median": 0.15254163676883298,
+            "max_relative_drift_p90": 0.2442598695030522,
+            "future_energy_relative_mae_median": 0.030721511859469718,
+            "energy_change_relative_mae_median": 0.04183731826419618,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.6299528812163591,
+              "angle_rmse_rad": 0.8484950232146188,
+              "omega_rmse_rad_s": 2.0227319785979554,
+              "omega_nrmse": 1.1529616685668982
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 0.6871579265215119,
+              "angle_rmse_rad": 0.9935816018836244,
+              "omega_rmse_rad_s": 2.9638558171331395,
+              "omega_nrmse": 1.6894043227032738
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.6290462583500143,
+              "angle_rmse_rad": 0.8461926572938042,
+              "omega_rmse_rad_s": 2.0227319785979554,
+              "omega_nrmse": 1.1529616685668982
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 0.7004294545448473,
+              "angle_rmse_rad": 1.0116849199538842,
+              "omega_rmse_rad_s": 3.001359520251508,
+              "omega_nrmse": 1.7107815158174913
+            }
+          }
+        },
+        "energy_band0": {
+          "n_total": 16,
+          "n_records": 16,
+          "n_unique_groups": 16,
+          "n_complete": 16,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.002288154186915041,
+            "angle_rmse_rad": 0.002833109927302084,
+            "omega_rmse_rad_s": 0.042679734057576926,
+            "omega_nrmse": 0.02432754211317886
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.0029070072130196667,
+            "angle_rmse_rad": 0.0036541798417832993,
+            "omega_rmse_rad_s": 0.04528331821354933,
+            "omega_nrmse": 0.025811590798069373,
+            "velocity_rms_ratio": 1.0087432219969354,
+            "velocity_cosine": 0.9990258344520943,
+            "direction_agreement": 1.0,
+            "stopped_dynamic_window_fraction": null,
+            "trajectory_with_stop_fraction": null,
+            "stop_status": "NA: horizon shorter than1second",
+            "dynamic_window_count": 0
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.025205992887519277,
+            "max_relative_drift_median": 0.16792767631652356,
+            "max_relative_drift_p90": 0.264711904885758,
+            "future_energy_relative_mae_median": 0.037458854512928214,
+            "energy_change_relative_mae_median": 0.04520561790495417,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.3988299988588233,
+              "angle_rmse_rad": 0.4774208648513119,
+              "omega_rmse_rad_s": 1.0021451056423383,
+              "omega_nrmse": 0.5712249103553618
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 0.2577295212195909,
+              "angle_rmse_rad": 0.37484834945353407,
+              "omega_rmse_rad_s": 1.0978860684568652,
+              "omega_nrmse": 0.625797469352205
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.40043762280072726,
+              "angle_rmse_rad": 0.4786505798895168,
+              "omega_rmse_rad_s": 1.0021451056423383,
+              "omega_nrmse": 0.5712249103553618
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 0.2573269958243352,
+              "angle_rmse_rad": 0.36971336419215917,
+              "omega_rmse_rad_s": 1.0892307996181674,
+              "omega_nrmse": 0.6208639471121121
+            }
+          }
+        },
+        "energy_band1": {
+          "n_total": 16,
+          "n_records": 16,
+          "n_unique_groups": 16,
+          "n_complete": 16,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.0029442684014841032,
+            "angle_rmse_rad": 0.0035773397306823954,
+            "omega_rmse_rad_s": 0.05522516131184573,
+            "omega_nrmse": 0.03147846319071693
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.006668555297733034,
+            "angle_rmse_rad": 0.008297342809971794,
+            "omega_rmse_rad_s": 0.05426351183082505,
+            "omega_nrmse": 0.03093032087530121,
+            "velocity_rms_ratio": 1.001545153945514,
+            "velocity_cosine": 0.9995115304585047,
+            "direction_agreement": 1.0,
+            "stopped_dynamic_window_fraction": null,
+            "trajectory_with_stop_fraction": null,
+            "stop_status": "NA: horizon shorter than1second",
+            "dynamic_window_count": 0
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.01600892398087696,
+            "max_relative_drift_median": 0.15254163676883298,
+            "max_relative_drift_p90": 0.18517896230883685,
+            "future_energy_relative_mae_median": 0.019276670671114673,
+            "energy_change_relative_mae_median": 0.025395347335796285,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.4566528275423396,
+              "angle_rmse_rad": 0.6111524653176076,
+              "omega_rmse_rad_s": 1.7326453406621245,
+              "omega_nrmse": 0.987611648078625
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 0.7146539152590464,
+              "angle_rmse_rad": 0.9289124021053088,
+              "omega_rmse_rad_s": 2.4976981979465376,
+              "omega_nrmse": 1.423693456350582
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.4579750069807312,
+              "angle_rmse_rad": 0.612586078041549,
+              "omega_rmse_rad_s": 1.7326453406621245,
+              "omega_nrmse": 0.987611648078625
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 0.719714410973137,
+              "angle_rmse_rad": 0.9319330097649133,
+              "omega_rmse_rad_s": 2.4994622908887774,
+              "omega_nrmse": 1.424698993200601
+            }
+          }
+        },
+        "energy_band2": {
+          "n_total": 16,
+          "n_records": 16,
+          "n_unique_groups": 16,
+          "n_complete": 16,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.004424063732406166,
+            "angle_rmse_rad": 0.005592863037196987,
+            "omega_rmse_rad_s": 0.08720378328624045,
+            "omega_nrmse": 0.049706347922941575
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.012739570939835326,
+            "angle_rmse_rad": 0.01592176389757385,
+            "omega_rmse_rad_s": 0.09488563805468453,
+            "omega_nrmse": 0.054085022005927574,
+            "velocity_rms_ratio": 0.9911065404389716,
+            "velocity_cosine": 0.9991216507597241,
+            "direction_agreement": 1.0,
+            "stopped_dynamic_window_fraction": null,
+            "trajectory_with_stop_fraction": null,
+            "stop_status": "NA: horizon shorter than1second",
+            "dynamic_window_count": 0
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.03278141146849128,
+            "max_relative_drift_median": 0.1253306297421703,
+            "max_relative_drift_p90": 0.2016656929836463,
+            "future_energy_relative_mae_median": 0.02324841175624552,
+            "energy_change_relative_mae_median": 0.0385809521297457,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.4547720341257274,
+              "angle_rmse_rad": 0.6067067977762965,
+              "omega_rmse_rad_s": 2.224050418811721,
+              "omega_nrmse": 1.2677136214692475
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.009381691192877,
+              "angle_rmse_rad": 1.3037994847513708,
+              "omega_rmse_rad_s": 3.67814130864557,
+              "omega_nrmse": 2.096548621029013
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.4543774070315951,
+              "angle_rmse_rad": 0.6069882700780522,
+              "omega_rmse_rad_s": 2.224050418811721,
+              "omega_nrmse": 1.2677136214692475
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.0314637681795602,
+              "angle_rmse_rad": 1.3254603369967817,
+              "omega_rmse_rad_s": 3.71651043400149,
+              "omega_nrmse": 2.1184191067186084
+            }
+          }
+        },
+        "energy_band3": {
+          "n_total": 16,
+          "n_records": 16,
+          "n_unique_groups": 16,
+          "n_complete": 16,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.011150681568649108,
+            "angle_rmse_rad": 0.014214654826655416,
+            "omega_rmse_rad_s": 0.18440039333264308,
+            "omega_nrmse": 0.10510862903772523
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.05291621647107235,
+            "angle_rmse_rad": 0.0747143692637375,
+            "omega_rmse_rad_s": 0.26278538959349407,
+            "omega_nrmse": 0.149788248995167,
+            "velocity_rms_ratio": 0.9870725048765958,
+            "velocity_cosine": 0.9953658933015809,
+            "direction_agreement": 0.9761904761904762,
+            "stopped_dynamic_window_fraction": null,
+            "trajectory_with_stop_fraction": null,
+            "stop_status": "NA: horizon shorter than1second",
+            "dynamic_window_count": 0
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.06463372060886198,
+            "max_relative_drift_median": 0.1712250423397222,
+            "max_relative_drift_p90": 0.25529306859373746,
+            "future_energy_relative_mae_median": 0.053835193233253996,
+            "energy_change_relative_mae_median": 0.07178114212463853,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 1.2095566643385456,
+              "angle_rmse_rad": 1.382115791514146,
+              "omega_rmse_rad_s": 2.7226868483675353,
+              "omega_nrmse": 1.5519374810373385
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 0.7668665784145329,
+              "angle_rmse_rad": 1.1160353785142667,
+              "omega_rmse_rad_s": 3.763667310657759,
+              "omega_nrmse": 2.1452986299422943
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 1.2033949965870032,
+              "angle_rmse_rad": 1.3752691417975444,
+              "omega_rmse_rad_s": 2.7226868483675353,
+              "omega_nrmse": 1.5519374810373385
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 0.7932126432023564,
+              "angle_rmse_rad": 1.1541201400829082,
+              "omega_rmse_rad_s": 3.8453154090092148,
+              "omega_nrmse": 2.1918382252552924
+            }
+          }
+        },
+        "damping_0.2": {
+          "n_total": 64,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "n_complete": 64,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.005201791972363605,
+            "angle_rmse_rad": 0.007971204429110743,
+            "omega_rmse_rad_s": 0.10779538837748572,
+            "omega_nrmse": 0.06144360803237482
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.018807837480415094,
+            "angle_rmse_rad": 0.038464069168870116,
+            "omega_rmse_rad_s": 0.1440959341181186,
+            "omega_nrmse": 0.08213499879983545,
+            "velocity_rms_ratio": 0.9922990965316776,
+            "velocity_cosine": 0.9974727439895272,
+            "direction_agreement": 0.9939148073022313,
+            "stopped_dynamic_window_fraction": null,
+            "trajectory_with_stop_fraction": null,
+            "stop_status": "NA: horizon shorter than1second",
+            "dynamic_window_count": 0
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.026867646597265767,
+            "max_relative_drift_median": 0.15254163676883298,
+            "max_relative_drift_p90": 0.2442598695030522,
+            "future_energy_relative_mae_median": 0.030721511859469718,
+            "energy_change_relative_mae_median": 0.04183731826419618,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.6299528812163591,
+              "angle_rmse_rad": 0.8484950232146188,
+              "omega_rmse_rad_s": 2.0227319785979554,
+              "omega_nrmse": 1.1529616685668982
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 0.6871579265215119,
+              "angle_rmse_rad": 0.9935816018836244,
+              "omega_rmse_rad_s": 2.9638558171331395,
+              "omega_nrmse": 1.6894043227032738
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.6290462583500143,
+              "angle_rmse_rad": 0.8461926572938042,
+              "omega_rmse_rad_s": 2.0227319785979554,
+              "omega_nrmse": 1.1529616685668982
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 0.7004294545448473,
+              "angle_rmse_rad": 1.0116849199538842,
+              "omega_rmse_rad_s": 3.001359520251508,
+              "omega_nrmse": 1.7107815158174913
+            }
+          }
+        }
+      },
+      "teacher_metrics": {
+        "angle_mae_rad": 0.005201791972363605,
+        "angle_rmse_rad": 0.007971204429110743,
+        "omega_rmse_rad_s": 0.10779538837748572,
+        "omega_nrmse": 0.06144360803237482
+      },
+      "teacher_quality_gate_passed": true,
+      "conditional_physical_score": 0.04406085970379481,
+      "ranking_eligible": true,
+      "score_definition": "0.5*(future-time angleMAE/pi+omegaNRMSE), conditional on complete trajectories; compare with coverage and teacher quality"
+    },
+    "16": {
+      "horizon_steps": 16,
+      "horizon_seconds": 1.6,
+      "groups": {
+        "all": {
+          "n_total": 64,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "n_complete": 64,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.004665329140505631,
+            "angle_rmse_rad": 0.006993843169314245,
+            "omega_rmse_rad_s": 0.09635503587292535,
+            "omega_nrmse": 0.0549225819882846
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.026362050414309147,
+            "angle_rmse_rad": 0.05708640881344465,
+            "omega_rmse_rad_s": 0.16958002037079323,
+            "omega_nrmse": 0.09666098391238237,
+            "velocity_rms_ratio": 0.9808755833826798,
+            "velocity_cosine": 0.9966804851156148,
+            "direction_agreement": 0.9958890030832477,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 448,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 64,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.026867646597265767,
+            "max_relative_drift_median": 0.26548145567017317,
+            "max_relative_drift_p90": 0.391648250631228,
+            "future_energy_relative_mae_median": 0.030485773871801264,
+            "energy_change_relative_mae_median": 0.04056111798842271,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.8745618252861627,
+              "angle_rmse_rad": 1.0915853664183797,
+              "omega_rmse_rad_s": 2.044794827012209,
+              "omega_nrmse": 1.1655375406004576
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.1585687059079521,
+              "angle_rmse_rad": 1.4928022979154343,
+              "omega_rmse_rad_s": 3.652013696069774,
+              "omega_nrmse": 2.08165582449947
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.8743616162012642,
+              "angle_rmse_rad": 1.0910043110552903,
+              "omega_rmse_rad_s": 2.044794827012209,
+              "omega_nrmse": 1.1655375406004576
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.1651463993578015,
+              "angle_rmse_rad": 1.497814375325327,
+              "omega_rmse_rad_s": 3.705907961664831,
+              "omega_nrmse": 2.1123756742097295
+            }
+          }
+        },
+        "energy_band0": {
+          "n_total": 16,
+          "n_records": 16,
+          "n_unique_groups": 16,
+          "n_complete": 16,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.0022915441312057775,
+            "angle_rmse_rad": 0.0028271329109417656,
+            "omega_rmse_rad_s": 0.04376105299489247,
+            "omega_nrmse": 0.02494389628140854
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.0034660063393541106,
+            "angle_rmse_rad": 0.004374427723506635,
+            "omega_rmse_rad_s": 0.04940415977754128,
+            "omega_nrmse": 0.028160479536563154,
+            "velocity_rms_ratio": 1.0099105944564912,
+            "velocity_cosine": 0.9987613172578077,
+            "direction_agreement": 1.0,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 112,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 16,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.025205992887519277,
+            "max_relative_drift_median": 0.30524747750497966,
+            "max_relative_drift_p90": 0.40245696585901874,
+            "future_energy_relative_mae_median": 0.040648064810809,
+            "energy_change_relative_mae_median": 0.04306215551316738,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.4320769942351597,
+              "angle_rmse_rad": 0.5087712905800162,
+              "omega_rmse_rad_s": 0.9688696628517641,
+              "omega_nrmse": 0.5522578349108358
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 0.6817486483957546,
+              "angle_rmse_rad": 0.9914626209807863,
+              "omega_rmse_rad_s": 1.4759090192736577,
+              "omega_nrmse": 0.8412713812406282
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.43278710016543753,
+              "angle_rmse_rad": 0.5093753968608807,
+              "omega_rmse_rad_s": 0.9688696628517641,
+              "omega_nrmse": 0.5522578349108358
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 0.6740280619761886,
+              "angle_rmse_rad": 0.9789840639643029,
+              "omega_rmse_rad_s": 1.4667855163083043,
+              "omega_nrmse": 0.8360709645203664
+            }
+          }
+        },
+        "energy_band1": {
+          "n_total": 16,
+          "n_records": 16,
+          "n_unique_groups": 16,
+          "n_complete": 16,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.002791881647420231,
+            "angle_rmse_rad": 0.0035008416648526493,
+            "omega_rmse_rad_s": 0.05338722559719748,
+            "omega_nrmse": 0.03043083579830859
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.008124451090219947,
+            "angle_rmse_rad": 0.010103750639218704,
+            "omega_rmse_rad_s": 0.05938366830794081,
+            "omega_nrmse": 0.033848821308201306,
+            "velocity_rms_ratio": 1.0033061747921324,
+            "velocity_cosine": 0.999309713576102,
+            "direction_agreement": 1.0,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 112,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 16,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.01600892398087696,
+            "max_relative_drift_median": 0.2605382710727424,
+            "max_relative_drift_p90": 0.340903841670367,
+            "future_energy_relative_mae_median": 0.02254357965174609,
+            "energy_change_relative_mae_median": 0.026093838998117257,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.8217580336178887,
+              "angle_rmse_rad": 0.9768879354685093,
+              "omega_rmse_rad_s": 1.5893287039288524,
+              "omega_nrmse": 0.9059208504990447
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.2655801110829328,
+              "angle_rmse_rad": 1.5669305599381744,
+              "omega_rmse_rad_s": 2.3398823226836676,
+              "omega_nrmse": 1.3337380609770706
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.8231333884645698,
+              "angle_rmse_rad": 0.978272477653679,
+              "omega_rmse_rad_s": 1.5893287039288524,
+              "omega_nrmse": 0.9059208504990447
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.2800353506323168,
+              "angle_rmse_rad": 1.576138874428817,
+              "omega_rmse_rad_s": 2.331617843864673,
+              "omega_nrmse": 1.3290272899061606
+            }
+          }
+        },
+        "energy_band2": {
+          "n_total": 16,
+          "n_records": 16,
+          "n_unique_groups": 16,
+          "n_complete": 16,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.004227400831357104,
+            "angle_rmse_rad": 0.005357154607451469,
+            "omega_rmse_rad_s": 0.07660501687888094,
+            "omega_nrmse": 0.043665027801899035
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.01300991966157974,
+            "angle_rmse_rad": 0.016368665774444097,
+            "omega_rmse_rad_s": 0.0918749461130577,
+            "omega_nrmse": 0.052368920989437476,
+            "velocity_rms_ratio": 0.9959579118636586,
+            "velocity_cosine": 0.9990186984689547,
+            "direction_agreement": 0.9959016393442623,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 112,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 16,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.03278141146849128,
+            "max_relative_drift_median": 0.20177006457644173,
+            "max_relative_drift_p90": 0.2653493609592733,
+            "future_energy_relative_mae_median": 0.022484008052347466,
+            "energy_change_relative_mae_median": 0.04455494058489313,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 1.0693729924425155,
+              "angle_rmse_rad": 1.3003169344052938,
+              "omega_rmse_rad_s": 2.06944003269005,
+              "omega_nrmse": 1.1795853619436458
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.5456900302470347,
+              "angle_rmse_rad": 1.8225573959134904,
+              "omega_rmse_rad_s": 3.46296306470441,
+              "omega_nrmse": 1.9738965495738228
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 1.0706433351569375,
+              "angle_rmse_rad": 1.3022265072037216,
+              "omega_rmse_rad_s": 2.06944003269005,
+              "omega_nrmse": 1.1795853619436458
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.5364829072018193,
+              "angle_rmse_rad": 1.8129613271182838,
+              "omega_rmse_rad_s": 3.5019923216032303,
+              "omega_nrmse": 1.996143311692144
+            }
+          }
+        },
+        "energy_band3": {
+          "n_total": 16,
+          "n_records": 16,
+          "n_unique_groups": 16,
+          "n_complete": 16,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.00935048995203941,
+            "angle_rmse_rad": 0.012112295024528479,
+            "omega_rmse_rad_s": 0.1627993167218138,
+            "omega_nrmse": 0.09279596794590525
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.08084782456608278,
+            "angle_rmse_rad": 0.11245566980254827,
+            "omega_rmse_rad_s": 0.3172086638910182,
+            "omega_nrmse": 0.18080963482723394,
+            "velocity_rms_ratio": 0.9640162797787546,
+            "velocity_cosine": 0.9948583043599543,
+            "direction_agreement": 0.988,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 112,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 16,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.06463372060886198,
+            "max_relative_drift_median": 0.29826876957119597,
+            "max_relative_drift_p90": 0.4229064692221764,
+            "future_energy_relative_mae_median": 0.065367848288437,
+            "energy_change_relative_mae_median": 0.06824534408952043,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 1.175039280849087,
+              "angle_rmse_rad": 1.3646435630711158,
+              "omega_rmse_rad_s": 2.99624554011795,
+              "omega_nrmse": 1.7078665359139789
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.1412560339060867,
+              "angle_rmse_rad": 1.4676000247946268,
+              "omega_rmse_rad_s": 5.805458314417306,
+              "omega_nrmse": 3.3091239846940517
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 1.1708826410181121,
+              "angle_rmse_rad": 1.3597379951443083,
+              "omega_rmse_rad_s": 2.99624554011795,
+              "omega_nrmse": 1.7078665359139789
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.170039277620881,
+              "angle_rmse_rad": 1.4981119080751306,
+              "omega_rmse_rad_s": 5.923104214858556,
+              "omega_nrmse": 3.37618240622888
+            }
+          }
+        },
+        "damping_0.2": {
+          "n_total": 64,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "n_complete": 64,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.004665329140505631,
+            "angle_rmse_rad": 0.006993843169314245,
+            "omega_rmse_rad_s": 0.09635503587292535,
+            "omega_nrmse": 0.0549225819882846
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.026362050414309147,
+            "angle_rmse_rad": 0.05708640881344465,
+            "omega_rmse_rad_s": 0.16958002037079323,
+            "omega_nrmse": 0.09666098391238237,
+            "velocity_rms_ratio": 0.9808755833826798,
+            "velocity_cosine": 0.9966804851156148,
+            "direction_agreement": 0.9958890030832477,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 448,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 64,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.026867646597265767,
+            "max_relative_drift_median": 0.26548145567017317,
+            "max_relative_drift_p90": 0.391648250631228,
+            "future_energy_relative_mae_median": 0.030485773871801264,
+            "energy_change_relative_mae_median": 0.04056111798842271,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.8745618252861627,
+              "angle_rmse_rad": 1.0915853664183797,
+              "omega_rmse_rad_s": 2.044794827012209,
+              "omega_nrmse": 1.1655375406004576
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.1585687059079521,
+              "angle_rmse_rad": 1.4928022979154343,
+              "omega_rmse_rad_s": 3.652013696069774,
+              "omega_nrmse": 2.08165582449947
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.8743616162012642,
+              "angle_rmse_rad": 1.0910043110552903,
+              "omega_rmse_rad_s": 2.044794827012209,
+              "omega_nrmse": 1.1655375406004576
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.1651463993578015,
+              "angle_rmse_rad": 1.497814375325327,
+              "omega_rmse_rad_s": 3.705907961664831,
+              "omega_nrmse": 2.1123756742097295
+            }
+          }
+        }
+      },
+      "teacher_metrics": {
+        "angle_mae_rad": 0.004665329140505631,
+        "angle_rmse_rad": 0.006993843169314245,
+        "omega_rmse_rad_s": 0.09635503587292535,
+        "omega_nrmse": 0.0549225819882846
+      },
+      "teacher_quality_gate_passed": true,
+      "conditional_physical_score": 0.05252614258966623,
+      "ranking_eligible": true,
+      "score_definition": "0.5*(future-time angleMAE/pi+omegaNRMSE), conditional on complete trajectories; compare with coverage and teacher quality"
+    },
+    "32": {
+      "horizon_steps": 32,
+      "horizon_seconds": 3.2,
+      "groups": {
+        "all": {
+          "n_total": 64,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "n_complete": 64,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.004134795264824754,
+            "angle_rmse_rad": 0.005995848020420556,
+            "omega_rmse_rad_s": 0.08060016628971801,
+            "omega_nrmse": 0.04594227173714624
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.03343961373943078,
+            "angle_rmse_rad": 0.0711436273991554,
+            "omega_rmse_rad_s": 0.2091010442663986,
+            "omega_nrmse": 0.11918805429851104,
+            "velocity_rms_ratio": 0.9840278747757831,
+            "velocity_cosine": 0.9941560628506567,
+            "direction_agreement": 0.9906928645294726,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 1472,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 64,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.026867646597265767,
+            "max_relative_drift_median": 0.45426370733321964,
+            "max_relative_drift_p90": 0.5379786431107535,
+            "future_energy_relative_mae_median": 0.027959581247507442,
+            "energy_change_relative_mae_median": 0.03872496169056038,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.7486272592168559,
+              "angle_rmse_rad": 0.9600580059290997,
+              "omega_rmse_rad_s": 1.9285052182467224,
+              "omega_nrmse": 1.0992522082984577
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.3810354806960297,
+              "angle_rmse_rad": 1.6842632294010167,
+              "omega_rmse_rad_s": 3.177821847419223,
+              "omega_nrmse": 1.8113654297137405
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.7489318143255307,
+              "angle_rmse_rad": 0.9598648527727928,
+              "omega_rmse_rad_s": 1.9285052182467224,
+              "omega_nrmse": 1.0992522082984577
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.367059483996309,
+              "angle_rmse_rad": 1.669415105488972,
+              "omega_rmse_rad_s": 3.227156295423043,
+              "omega_nrmse": 1.839486173386235
+            }
+          }
+        },
+        "energy_band0": {
+          "n_total": 16,
+          "n_records": 16,
+          "n_unique_groups": 16,
+          "n_complete": 16,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.00236892828409988,
+            "angle_rmse_rad": 0.002917873295808914,
+            "omega_rmse_rad_s": 0.042508964913084576,
+            "omega_nrmse": 0.024230203325906554
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.004256299135875061,
+            "angle_rmse_rad": 0.005217005039496632,
+            "omega_rmse_rad_s": 0.04516238822452657,
+            "omega_nrmse": 0.0257426604388331,
+            "velocity_rms_ratio": 1.012728433275834,
+            "velocity_cosine": 0.9987766335130159,
+            "direction_agreement": 1.0,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 368,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 16,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.025205992887519277,
+            "max_relative_drift_median": 0.4755891577466793,
+            "max_relative_drift_p90": 0.5486349703984716,
+            "future_energy_relative_mae_median": 0.037131567634564086,
+            "energy_change_relative_mae_median": 0.036974594095964985,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.38593052329474903,
+              "angle_rmse_rad": 0.470144520796668,
+              "omega_rmse_rad_s": 0.878990256856017,
+              "omega_nrmse": 0.5010263761693337
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.190705255169993,
+              "angle_rmse_rad": 1.547450586415632,
+              "omega_rmse_rad_s": 1.3206930439837583,
+              "omega_nrmse": 0.7527979345596079
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.38657578368541656,
+              "angle_rmse_rad": 0.4707665903612814,
+              "omega_rmse_rad_s": 0.878990256856017,
+              "omega_nrmse": 0.5010263761693337
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.1648911084275126,
+              "angle_rmse_rad": 1.5341556499333477,
+              "omega_rmse_rad_s": 1.3115206923079725,
+              "omega_nrmse": 0.7475696739671558
+            }
+          }
+        },
+        "energy_band1": {
+          "n_total": 16,
+          "n_records": 16,
+          "n_unique_groups": 16,
+          "n_complete": 16,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.0027046580715635224,
+            "angle_rmse_rad": 0.0034007922259116498,
+            "omega_rmse_rad_s": 0.04971843735226923,
+            "omega_nrmse": 0.028339618444132443
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.010624603569534263,
+            "angle_rmse_rad": 0.013230270044010103,
+            "omega_rmse_rad_s": 0.06531385023073734,
+            "omega_nrmse": 0.03722903802349344,
+            "velocity_rms_ratio": 1.0083581883959118,
+            "velocity_cosine": 0.9991118104061771,
+            "direction_agreement": 1.0,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 368,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 16,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.01600892398087696,
+            "max_relative_drift_median": 0.46144023633432996,
+            "max_relative_drift_p90": 0.4819890822464332,
+            "future_energy_relative_mae_median": 0.02402218429761012,
+            "energy_change_relative_mae_median": 0.028084561351768646,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.6975561256653618,
+              "angle_rmse_rad": 0.8600064235262944,
+              "omega_rmse_rad_s": 1.5139867933793965,
+              "omega_nrmse": 0.8629757960779793
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.3153369931882677,
+              "angle_rmse_rad": 1.6120822064417435,
+              "omega_rmse_rad_s": 2.161066222461381,
+              "omega_nrmse": 1.231812491272172
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.6990556887407162,
+              "angle_rmse_rad": 0.8613774825891272,
+              "omega_rmse_rad_s": 1.5139867933793965,
+              "omega_nrmse": 0.8629757960779793
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.3343188495611296,
+              "angle_rmse_rad": 1.6248590197449018,
+              "omega_rmse_rad_s": 2.153635313456084,
+              "omega_nrmse": 1.2275768568251137
+            }
+          }
+        },
+        "energy_band2": {
+          "n_total": 16,
+          "n_records": 16,
+          "n_unique_groups": 16,
+          "n_complete": 16,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.0037764951846665593,
+            "angle_rmse_rad": 0.004758692744906401,
+            "omega_rmse_rad_s": 0.06638208853939041,
+            "omega_nrmse": 0.03783793620466791
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.01744331992965917,
+            "angle_rmse_rad": 0.021608709155340713,
+            "omega_rmse_rad_s": 0.09171440413819128,
+            "omega_nrmse": 0.052277411711304976,
+            "velocity_rms_ratio": 1.0019209682204635,
+            "velocity_cosine": 0.9990389819452998,
+            "direction_agreement": 0.9979591836734694,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 368,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 16,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.03278141146849128,
+            "max_relative_drift_median": 0.4351123415352689,
+            "max_relative_drift_p90": 0.47522461641397995,
+            "future_energy_relative_mae_median": 0.020556114259167767,
+            "energy_change_relative_mae_median": 0.03875552882983915,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.8847676434760617,
+              "angle_rmse_rad": 1.1096391145842708,
+              "omega_rmse_rad_s": 2.0879704164615305,
+              "omega_nrmse": 1.1901477213755465
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.5280657014908334,
+              "angle_rmse_rad": 1.7790354894901441,
+              "omega_rmse_rad_s": 3.1835861073792793,
+              "omega_nrmse": 1.8146510705460006
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.8864732849473159,
+              "angle_rmse_rad": 1.1115237259132587,
+              "omega_rmse_rad_s": 2.0879704164615305,
+              "omega_nrmse": 1.1901477213755465
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.5233027210218864,
+              "angle_rmse_rad": 1.7757317716581906,
+              "omega_rmse_rad_s": 3.2186969156502316,
+              "omega_nrmse": 1.8346643083437584
+            }
+          }
+        },
+        "energy_band3": {
+          "n_total": 16,
+          "n_records": 16,
+          "n_unique_groups": 16,
+          "n_complete": 16,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.007689099518969055,
+            "angle_rmse_rad": 0.010053668234096631,
+            "omega_rmse_rad_s": 0.13152958007283358,
+            "omega_nrmse": 0.07497214940547484
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.10143423232265464,
+            "angle_rmse_rad": 0.1399159368322985,
+            "omega_rmse_rad_s": 0.4002198328227426,
+            "omega_nrmse": 0.22812618336351087,
+            "velocity_rms_ratio": 0.962637301444841,
+            "velocity_cosine": 0.9895609651527897,
+            "direction_agreement": 0.9658634538152611,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 368,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 16,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.06463372060886198,
+            "max_relative_drift_median": 0.45860064131262246,
+            "max_relative_drift_p90": 0.5622258188698877,
+            "future_energy_relative_mae_median": 0.0663964593433616,
+            "energy_change_relative_mae_median": 0.06350991860479527,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 1.026254744431251,
+              "angle_rmse_rad": 1.2226608750742192,
+              "omega_rmse_rad_s": 2.7298588177826675,
+              "omega_nrmse": 1.5560255193495192
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.4900339729350254,
+              "angle_rmse_rad": 1.785662586565493,
+              "omega_rmse_rad_s": 4.883088053511913,
+              "omega_nrmse": 2.78337091097882
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 1.0236224999286745,
+              "angle_rmse_rad": 1.2191328061265838,
+              "omega_rmse_rad_s": 2.7298588177826675,
+              "omega_nrmse": 1.5560255193495192
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.4457252569747077,
+              "angle_rmse_rad": 1.732271185638643,
+              "omega_rmse_rad_s": 4.993987344379332,
+              "omega_nrmse": 2.8465837502448568
+            }
+          }
+        },
+        "damping_0.2": {
+          "n_total": 64,
+          "n_records": 64,
+          "n_unique_groups": 64,
+          "n_complete": 64,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.004134795264824754,
+            "angle_rmse_rad": 0.005995848020420556,
+            "omega_rmse_rad_s": 0.08060016628971801,
+            "omega_nrmse": 0.04594227173714624
+          },
+          "teacher_quality_gate_passed": true,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.03343961373943078,
+            "angle_rmse_rad": 0.0711436273991554,
+            "omega_rmse_rad_s": 0.2091010442663986,
+            "omega_nrmse": 0.11918805429851104,
+            "velocity_rms_ratio": 0.9840278747757831,
+            "velocity_cosine": 0.9941560628506567,
+            "direction_agreement": 0.9906928645294726,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 1472,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 64,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.026867646597265767,
+            "max_relative_drift_median": 0.45426370733321964,
+            "max_relative_drift_p90": 0.5379786431107535,
+            "future_energy_relative_mae_median": 0.027959581247507442,
+            "energy_change_relative_mae_median": 0.03872496169056038,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.7486272592168559,
+              "angle_rmse_rad": 0.9600580059290997,
+              "omega_rmse_rad_s": 1.9285052182467224,
+              "omega_nrmse": 1.0992522082984577
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.3810354806960297,
+              "angle_rmse_rad": 1.6842632294010167,
+              "omega_rmse_rad_s": 3.177821847419223,
+              "omega_nrmse": 1.8113654297137405
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.7489318143255307,
+              "angle_rmse_rad": 0.9598648527727928,
+              "omega_rmse_rad_s": 1.9285052182467224,
+              "omega_nrmse": 1.0992522082984577
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.367059483996309,
+              "angle_rmse_rad": 1.669415105488972,
+              "omega_rmse_rad_s": 3.227156295423043,
+              "omega_nrmse": 1.839486173386235
+            }
+          }
+        }
+      },
+      "teacher_metrics": {
+        "angle_mae_rad": 0.004134795264824754,
+        "angle_rmse_rad": 0.005995848020420556,
+        "omega_rmse_rad_s": 0.08060016628971801,
+        "omega_nrmse": 0.04594227173714624
+      },
+      "teacher_quality_gate_passed": true,
+      "conditional_physical_score": 0.06491610697096958,
+      "ranking_eligible": true,
+      "score_definition": "0.5*(future-time angleMAE/pi+omegaNRMSE), conditional on complete trajectories; compare with coverage and teacher quality"
+    }
+  },
+  "curves": [
+    {
+      "step": 1,
+      "seconds": 0.1,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.006075141525052634,
+      "angle_rmse_rad": 0.010030956370565862,
+      "omega_rmse_rad_s": 0.12142963731546473,
+      "omega_nrmse": 0.06921515986005929
+    },
+    {
+      "step": 2,
+      "seconds": 0.2,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.006904019464288102,
+      "angle_rmse_rad": 0.009782191488581102,
+      "omega_rmse_rad_s": 0.1210502310680443,
+      "omega_nrmse": 0.06899889746606985
+    },
+    {
+      "step": 3,
+      "seconds": 0.30000000000000004,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.011933455339470614,
+      "angle_rmse_rad": 0.0179225114316525,
+      "omega_rmse_rad_s": 0.1587977033085262,
+      "omega_nrmse": 0.09051503951506996
+    },
+    {
+      "step": 4,
+      "seconds": 0.4,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.013536875539373515,
+      "angle_rmse_rad": 0.021762259303327446,
+      "omega_rmse_rad_s": 0.11652403999754632,
+      "omega_nrmse": 0.06641895861895125
+    },
+    {
+      "step": 5,
+      "seconds": 0.5,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.01779155415258532,
+      "angle_rmse_rad": 0.02886649027632141,
+      "omega_rmse_rad_s": 0.11999395719165062,
+      "omega_nrmse": 0.06839681903755031
+    },
+    {
+      "step": 6,
+      "seconds": 0.6000000000000001,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.026191386318802516,
+      "angle_rmse_rad": 0.04395888432028858,
+      "omega_rmse_rad_s": 0.1674911684904861,
+      "omega_nrmse": 0.09547033375467964
+    },
+    {
+      "step": 7,
+      "seconds": 0.7000000000000001,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.031182001963008937,
+      "angle_rmse_rad": 0.05530550881805485,
+      "omega_rmse_rad_s": 0.13186647558227674,
+      "omega_nrmse": 0.07516418058548788
+    },
+    {
+      "step": 8,
+      "seconds": 0.8,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.0368482655407391,
+      "angle_rmse_rad": 0.07085475394784135,
+      "omega_rmse_rad_s": 0.19512975025369522,
+      "omega_nrmse": 0.11122438603827488
+    },
+    {
+      "step": 9,
+      "seconds": 0.9,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.039990564603502234,
+      "angle_rmse_rad": 0.08091755195851635,
+      "omega_rmse_rad_s": 0.16664629511861553,
+      "omega_nrmse": 0.09498875407785325
+    },
+    {
+      "step": 10,
+      "seconds": 1.0,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.040410219205918946,
+      "angle_rmse_rad": 0.08495309955187778,
+      "omega_rmse_rad_s": 0.1291358068174407,
+      "omega_nrmse": 0.07360769339453975
+    },
+    {
+      "step": 11,
+      "seconds": 1.1,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.04036617218116333,
+      "angle_rmse_rad": 0.08865344251196716,
+      "omega_rmse_rad_s": 0.12931841258938528,
+      "omega_nrmse": 0.07371177908544632
+    },
+    {
+      "step": 12,
+      "seconds": 1.2000000000000002,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.04012716186336686,
+      "angle_rmse_rad": 0.08555920951097894,
+      "omega_rmse_rad_s": 0.13328054888026758,
+      "omega_nrmse": 0.07597020546984132
+    },
+    {
+      "step": 13,
+      "seconds": 1.3,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.0346282413787944,
+      "angle_rmse_rad": 0.07340577441881631,
+      "omega_rmse_rad_s": 0.2011983382145029,
+      "omega_nrmse": 0.11468349449909411
+    },
+    {
+      "step": 14,
+      "seconds": 1.4000000000000001,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.029611174371516565,
+      "angle_rmse_rad": 0.05790756775375782,
+      "omega_rmse_rad_s": 0.23908741777740414,
+      "omega_nrmse": 0.13628035303276217
+    },
+    {
+      "step": 15,
+      "seconds": 1.5,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.024245221222708883,
+      "angle_rmse_rad": 0.04110064980480485,
+      "omega_rmse_rad_s": 0.23046250083330827,
+      "omega_nrmse": 0.13136413143922787
+    },
+    {
+      "step": 16,
+      "seconds": 1.6,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.021951351958654348,
+      "angle_rmse_rad": 0.030502526581819192,
+      "omega_rmse_rad_s": 0.25361091726234863,
+      "omega_nrmse": 0.1445587796245041
+    },
+    {
+      "step": 17,
+      "seconds": 1.7000000000000002,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.025713252758635844,
+      "angle_rmse_rad": 0.038509629101612125,
+      "omega_rmse_rad_s": 0.2825198037069797,
+      "omega_nrmse": 0.16103690836537463
+    },
+    {
+      "step": 18,
+      "seconds": 1.8,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.03249905466373579,
+      "angle_rmse_rad": 0.05620285593764517,
+      "omega_rmse_rad_s": 0.26144016218114485,
+      "omega_nrmse": 0.14902146641677558
+    },
+    {
+      "step": 19,
+      "seconds": 1.9000000000000001,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.04009980999579003,
+      "angle_rmse_rad": 0.07511629448135955,
+      "omega_rmse_rad_s": 0.21460310144871803,
+      "omega_nrmse": 0.1223242389718134
+    },
+    {
+      "step": 20,
+      "seconds": 2.0,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.046884354197001765,
+      "angle_rmse_rad": 0.09404442033780579,
+      "omega_rmse_rad_s": 0.21942328295169314,
+      "omega_nrmse": 0.12507175301087933
+    },
+    {
+      "step": 21,
+      "seconds": 2.1,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.05075421195579398,
+      "angle_rmse_rad": 0.10790213280207998,
+      "omega_rmse_rad_s": 0.17511258410458197,
+      "omega_nrmse": 0.09981455738699725
+    },
+    {
+      "step": 22,
+      "seconds": 2.2,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.05273451395286875,
+      "angle_rmse_rad": 0.11444499102006017,
+      "omega_rmse_rad_s": 0.13111485587956967,
+      "omega_nrmse": 0.07473575570481655
+    },
+    {
+      "step": 23,
+      "seconds": 2.3000000000000003,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.05235065126695025,
+      "angle_rmse_rad": 0.11505350855076414,
+      "omega_rmse_rad_s": 0.12486894691453511,
+      "omega_nrmse": 0.07117557388229218
+    },
+    {
+      "step": 24,
+      "seconds": 2.4000000000000004,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.05074849616850291,
+      "angle_rmse_rad": 0.10958282207379008,
+      "omega_rmse_rad_s": 0.17149406732871653,
+      "omega_nrmse": 0.09775199488055439
+    },
+    {
+      "step": 25,
+      "seconds": 2.5,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.045626075921737626,
+      "angle_rmse_rad": 0.09177147499656756,
+      "omega_rmse_rad_s": 0.26659210770582376,
+      "omega_nrmse": 0.1519580866765773
+    },
+    {
+      "step": 26,
+      "seconds": 2.6,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.03816113680081973,
+      "angle_rmse_rad": 0.07112015546024596,
+      "omega_rmse_rad_s": 0.29497580180748756,
+      "omega_nrmse": 0.16813685462893352
+    },
+    {
+      "step": 27,
+      "seconds": 2.7,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.031700158881416134,
+      "angle_rmse_rad": 0.05093066269881041,
+      "omega_rmse_rad_s": 0.3060336583121268,
+      "omega_nrmse": 0.1744398571133256
+    },
+    {
+      "step": 28,
+      "seconds": 2.8000000000000003,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.027661884264472456,
+      "angle_rmse_rad": 0.03887002933799614,
+      "omega_rmse_rad_s": 0.29008260645535705,
+      "omega_nrmse": 0.16534772253555224
+    },
+    {
+      "step": 29,
+      "seconds": 2.9000000000000004,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.028797039856371033,
+      "angle_rmse_rad": 0.04454124890372374,
+      "omega_rmse_rad_s": 0.29815877486919834,
+      "omega_nrmse": 0.16995115626210258
+    },
+    {
+      "step": 30,
+      "seconds": 3.0,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.034221436709801566,
+      "angle_rmse_rad": 0.0627242475803241,
+      "omega_rmse_rad_s": 0.27642579131914957,
+      "omega_nrmse": 0.15756330792533504
+    },
+    {
+      "step": 31,
+      "seconds": 3.1,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.042351818731060364,
+      "angle_rmse_rad": 0.08423696372133135,
+      "omega_rmse_rad_s": 0.251772734814766,
+      "omega_nrmse": 0.1435110115937815
+    },
+    {
+      "step": 32,
+      "seconds": 3.2,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.04797093690788057,
+      "angle_rmse_rad": 0.10054734119483191,
+      "omega_rmse_rad_s": 0.1980210264090819,
+      "omega_nrmse": 0.11287241979443911
+    }
+  ],
+  "failures": [],
+  "failed_trajectory_fraction": 0.0,
+  "aggregation": "Equal record/time weights on complete support; paired conditions share initial groups and are not independent samples"
+}

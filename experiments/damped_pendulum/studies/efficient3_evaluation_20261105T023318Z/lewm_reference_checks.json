@@ -1,0 +1,12 @@
+{
+  "tests": "3passed2.15s",
+  "teacher_diagnostic_checks": "compile andCLI passed; bounded396windows; no modelupdates/refit",
+  "scope": "HistoricalLeWMspecialists, evaluationonly, nooptimizer orrefit",
+  "hashes": {
+    "scripts/evaluate_historical_lewm_reference.py": "9c07e26a16daaf17d204841056f39b992b563629bceb906992ca6eead14ae4ec",
+    "tests/test_historical_lewm_reference.py": "4c309d9e58f82c2227f29aaa4310376263545ee73b774f9e3abf971e587e4f2b",
+    "scripts/diagnose_teacher_forced_readout.py": "0067cb993c0c9d1b3d6c5362d5cd8ebca587f575957d0fa0631b839ff24d31cd",
+    "studies/independent_test_20261029T070556Z/frozen_manifest.json": "1b995d4e91abbf5db7cd244a9407e8ffabcbcfa07ce5eb399cb478fb1846dc60",
+    "studies/efficient3_evaluation_20261105T023318Z/slurm_lewm_reference.sh": "827302de2377b25755ea4238952faf921cd3eb4ea5b58cbde1828808bb4cd289"
+  }
+}

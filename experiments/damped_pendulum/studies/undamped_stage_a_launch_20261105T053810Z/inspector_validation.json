@@ -1,0 +1,54 @@
+{
+  "real_old_history_parse": {
+    "rows": 20000,
+    "contiguous": true,
+    "finite_loss_and_gradient": true,
+    "nonzero_D_or_work_count": 22880,
+    "overall_numerical_health_passed": false
+  },
+  "eta_after_historical_step250": {
+    "target_step": 4000,
+    "latest_completed_step": 250,
+    "schedule_matches_estimator": true,
+    "recent_step_timings": {
+      "4": {
+        "samples": 200,
+        "median_seconds": 0.5257839225232601,
+        "minimum_seconds": 0.5183215588331223,
+        "maximum_seconds": 0.5367634147405624
+      },
+      "8": {
+        "samples": 0,
+        "median_seconds": null,
+        "minimum_seconds": null,
+        "maximum_seconds": null
+      }
+    },
+    "K4_seconds_used": 0.5257839225232601,
+    "K4_timing_source": "current_K4_recent_median",
+    "K8_seconds_used": 1.086320255388795,
+    "K8_timing_source": "EXTRAPOLATED_current_K4_times_historical_K8_over_K4",
+    "validation_seconds_used": 39.98997242003679,
+    "validation_timing_source": "current_recent_median",
+    "checkpoint_seconds_used": 0.1437598317861557,
+    "remaining_counts": {
+      "K4": 750,
+      "K8": 3000,
+      "validation": 15
+    },
+    "remaining_seconds": 4255.304691836174,
+    "estimated_completion_utc": "2026-11-05T06:53:54.743489+00:00",
+    "current_validation_measured": true,
+    "confidence": "provisional_extrapolation_or_prior",
+    "historical_prior": {
+      "source": "47727 L40/batch32/3-substeps, first 4000 history rows; old damped model",
+      "source_file": "studies/stall_diagnosis_20261105/frozen_training/history.jsonl",
+      "k4_median_seconds": 0.5224075242877007,
+      "k8_median_seconds": 1.0793442912399769,
+      "validation_median_seconds": 45.53769016265869,
+      "checkpoint_median_seconds": 0.14940977096557617,
+      "limits": "Old damped dynamics and 18 validation strata; A changes losses, D and batch organization. Prior only."
+    },
+    "limits": "Excludes queue, data generation and startup outside trainer. Assumes uninterrupted execution, unchanged throughput and successful solves. No uncertainty confidence interval. step_seconds excludes validation; do not add validation again to iteration_seconds."
+  }
+}

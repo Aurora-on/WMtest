@@ -1,0 +1,43 @@
+{
+  "checked_at_utc": "2026-11-08T09:36:44.335938+00:00",
+  "status": "passed",
+  "scope": "early real Stage A checkpoints; not scientific performance acceptance",
+  "methods": {
+    "lehami": {
+      "path": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/runs/lehami/lehami_seed0/a/segments/0001/last.pt",
+      "sha256": "734d70370c7b76ba9e60a18c82d684b5e5ea434c5e04d0ebd769ad5545da42ad",
+      "step": 1000,
+      "validation_status": "completed",
+      "validation_score": 4.0791424314181,
+      "all_model_floats_finite": true,
+      "source_and_data_match": true,
+      "sampler_next_step": 1000,
+      "optimizer_saved": true,
+      "rng_saved": true
+    },
+    "lewm": {
+      "path": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/runs/lewm/lewm_seed0/a/segments/0001/last.pt",
+      "sha256": "5e7c2344d253e45eaf17c6d10639d158156663b2790591f12f14dfba887a06dd",
+      "step": 1000,
+      "validation_status": "completed",
+      "validation_score": 0.03388163302507666,
+      "all_model_floats_finite": true,
+      "source_and_data_match": true,
+      "sampler_next_step": 1000,
+      "optimizer_saved": true,
+      "rng_saved": true
+    },
+    "hjepa": {
+      "path": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/runs/hjepa/hjepa_seed0/a/segments/0001/last.pt",
+      "sha256": "32d212a3b824255ecd8dfb0d4640d65bcb2ad598434196c0dbf6a4f72fef4474",
+      "step": 250,
+      "validation_status": "completed",
+      "validation_score": 0.11414588284161356,
+      "all_model_floats_finite": true,
+      "source_and_data_match": true,
+      "sampler_next_step": 250,
+      "optimizer_saved": true,
+      "rng_saved": true
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "checked_at_utc": "2026-11-06T06:50:22.941504+00:00",
+  "bundle_verified": true,
+  "verified_files": 63,
+  "a_step": 10000,
+  "a_best_step": 9750,
+  "a_data_hash_matched": true,
+  "a_checkpoint_hash_matched": true,
+  "source_hashes_matched": true,
+  "raw_resume_config_matched": true,
+  "versions": {
+    "python": "3.12.14",
+    "torch": "2.8.0+cu126",
+    "scipy": "1.18.1",
+    "numpy": "2.2.6",
+    "h5py": "3.16.0"
+  },
+  "bootstrap": "Verified 19 files against pinned Git blob hashes.",
+  "cuda_runtime_qualification": "will run inside allocated single-GPU A worker before generating B data",
+  "optimizer_updates": 0
+}

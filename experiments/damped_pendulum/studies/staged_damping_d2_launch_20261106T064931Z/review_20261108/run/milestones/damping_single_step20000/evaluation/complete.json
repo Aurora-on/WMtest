@@ -1,0 +1,19 @@
+{
+  "request": {
+    "checkpoint_sha256": "53678a48efff612ccd0572873959c6ccfb80109e13b117d7c2990a2a2ae16f89",
+    "data_sha256": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+    "stage": "b",
+    "expected_step": 20000,
+    "readout_sha256": "b043b1899a979046a6fbad4e57f183436cdcbeb965a9c95c0ed11d8215d66390"
+  },
+  "artifacts": {
+    "readout.npz": "b043b1899a979046a6fbad4e57f183436cdcbeb965a9c95c0ed11d8215d66390",
+    "readout_provenance.json": "868c3d5c90f7f7a3529e0e4ab3f019d1b3efab2e9a089a5df84197b104ac40de",
+    "summary.json": "c65cc5d5045b0af9931971abf6a93f579c12d854cbf35f0c042312309a015ea6",
+    "trajectories.npz": "b8a5de2ae6ac5a1ef34f404586217447a66bb237f1cf4495cc1f926ceaa70b0c",
+    "val/animation_inputs.npz": "8fa9adcb937acfe4e6cf18b783595c3526023b9e4fb59f622ac065a65d094868",
+    "val/animation_meta.json": "b2e5efaacfd262d5dc5068b23c089668d277f55c74f8683e21e8d1c7545f0fba",
+    "val/summary.json": "808abb33fcce7c4e34d9e000c2e8f6dc5f959c317628debe395344de25fe06cf",
+    "val/trajectories.npz": "b8a5de2ae6ac5a1ef34f404586217447a66bb237f1cf4495cc1f926ceaa70b0c"
+  }
+}

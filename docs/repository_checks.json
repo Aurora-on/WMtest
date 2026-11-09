@@ -1,0 +1,13 @@
+{
+  "software_tests": {
+    "command": "python -m pytest tests/test_hjepa_retrain.py tests/test_hjepa_acceptance.py tests/test_comparison_training.py -q",
+    "cwd": "experiments/damped_pendulum",
+    "result": "51 passed in11.36s",
+    "environment": "Existing local Python3.12/PyTorch2.8 CPU environment; no new training"
+  },
+  "navigation_links": "passed",
+  "credential_pattern_scan": "No candidate matches in copied text; checked private key headers, common token prefixes, credential URLs, hardcoded password/API-key assignments and sshpass literals",
+  "source_workspace_modified": false,
+  "server_accessed": false,
+  "held_out_test_evaluated": false
+}

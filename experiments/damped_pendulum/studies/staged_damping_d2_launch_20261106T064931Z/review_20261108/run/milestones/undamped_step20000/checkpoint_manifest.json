@@ -1,0 +1,12 @@
+{
+  "exact_step": 20000,
+  "source": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/stage_a/segments/0001/last.pt",
+  "best_is_not_handoff": true,
+  "artifacts": {
+    "last.pt": "5145d5769b85f1992d2e4fd757bd19ac61a2704e459cbcb00844b3465f8bd068",
+    "best.pt": "1c9c38edc5ced3b183c7988275ab3e7fd34175dccc57fef5c2579a8a0f368084",
+    "history.jsonl": "c3345debc6392a27e1e02563928d86a98a2b99f37f3662e87702d3c5e4d4b666",
+    "run.json": "032b0e94aefd4cb5679ae1fc97858de8d5072e769fc7f4e62dbdbeceb4f3500a",
+    "status.json": "abf885aae4855a8562b5462cd1364bf284ce74aee59edd7684411ec60e9c7819"
+  }
+}

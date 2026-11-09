@@ -1,0 +1,82 @@
+{
+  "checked_at_utc": "2026-11-05T01:43:43.057180+00:00",
+  "job_id": 47727,
+  "queue": "47727 RUNNING 15:32:27 ladhpc",
+  "status": {
+    "status": "running",
+    "training_started": true,
+    "completed_steps": 19500,
+    "optimizer_steps_this_run": 19500
+  },
+  "completed_step": 19524,
+  "total_steps": 20000,
+  "progress_percent": 97.62,
+  "history_contiguous_from_one": true,
+  "current_prediction_horizon": 32,
+  "recent_median_update_seconds": 3.8301184065639973,
+  "recent_mean_update_seconds": 3.833323183685541,
+  "recent_max_update_seconds": 3.965114690363407,
+  "all_logged_losses_gradients_finite": true,
+  "recent_max_solver_residual_ratio": 0.49998067625550086,
+  "recent_max_split_depth": 0.0,
+  "completed_validation_rounds": 78,
+  "all_validation_gates_passed": true,
+  "recent_validation": [
+    {
+      "step": 18500,
+      "score": 0.6157720161930219,
+      "gate_passed": true,
+      "seconds": 41.177216067910194
+    },
+    {
+      "step": 18750,
+      "score": 0.6160406205076914,
+      "gate_passed": true,
+      "seconds": 46.27212914079428
+    },
+    {
+      "step": 19000,
+      "score": 0.6193106505930284,
+      "gate_passed": true,
+      "seconds": 46.812644354999065
+    },
+    {
+      "step": 19250,
+      "score": 0.6135867631618955,
+      "gate_passed": true,
+      "seconds": 46.38430232554674
+    },
+    {
+      "step": 19500,
+      "score": 0.6138009621417126,
+      "gate_passed": true,
+      "seconds": 46.0613592043519
+    }
+  ],
+  "checkpoints": {
+    "last.pt": {
+      "step": 19500,
+      "sampler_next_step": 19500,
+      "best_step": 19250,
+      "best_score": 0.6135867631618955,
+      "validation_status": "completed"
+    },
+    "best.pt": {
+      "step": 19250,
+      "sampler_next_step": 19250,
+      "best_step": 19250,
+      "best_score": 0.6135867631618955,
+      "validation_status": "completed"
+    }
+  },
+  "eta": {
+    "projected_remaining_minutes": 31.922414931195974,
+    "projected_finish_utc": "2026-11-05T02:15:38.402076+00:00",
+    "measured_K32_seconds": 3.833323183685541,
+    "measured_validation_seconds": 45.341530218720436,
+    "remaining_validation_rounds": 2,
+    "scope": "Measured recent250trainingupdates and last5validations; runtime may still change."
+  },
+  "physical_test_metrics_available": false,
+  "operation": "read_only_no_training_change"
+}

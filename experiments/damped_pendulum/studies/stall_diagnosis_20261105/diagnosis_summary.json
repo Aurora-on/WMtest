@@ -1,0 +1,100 @@
+{
+  "completed_at_utc": "2026-11-05T04:29:39.388353+00:00",
+  "scope": "Frozen final checkpoint, training-log audit, force/step-size/gradient/data/initializer diagnostics; no optimizer updates or production edits.",
+  "checkpoint_step": 19250,
+  "checkpoint_sha256": "5163a6a293a7c773a90e9ef59a62353a4debdba64c0dc24814bcbdb3b47f9042",
+  "confirmed_findings": [
+    {
+      "finding": "Latent near-stationarity is genuine; update loop remains active",
+      "evidence": "450560/450560 q,p transitions change; all128 undamped reference trajectories remain active"
+    },
+    {
+      "finding": "Large learned damping depletes momentum; final latent restoring force becomes extremely weak",
+      "evidence": "Undamped mean damping eigenvalues atanchor6.1267/96.1811; mean|gradV|8.2578 atanchor to.002208 at8s"
+    },
+    {
+      "finding": "Outer Softplus attenuates restoring force in stalled states",
+      "evidence": "Undamped8s median sigmoid(rawV)=5.11e-5;96.875%below1e-3; internal Tanh remains responsive"
+    },
+    {
+      "finding": "Static image history can generate nonzero initialized momentum",
+      "evidence": "21 identicaltheta0frames yield p=(-.88261,-.69277) entirelyfrom learned correction"
+    },
+    {
+      "finding": "Actual near-rest images have rasterization jumps amplified by differentiation",
+      "evidence": "theta±1e-12 changes30pixels; encodedqjumpRMS.16523; originalCUDAteacherinitialization exactlyreproduced"
+    },
+    {
+      "finding": "Future momentum is not directly constrained; validation gate inspects only targetmotion",
+      "evidence": "Onefrozen32windowtrainingbatch predictedmotionRMS.08235 vs target.34097;92.1875%correctioncomponentsabove.95"
+    },
+    {
+      "finding": "Finer integration does not restore motion in tested frozencheckpoint paths",
+      "evidence": "8stratifiedepisodes,3/6/12/24substepsandRK4_64allstall; RK4_64vs128featureRMSE3.10e-7"
+    },
+    {
+      "finding": "No backward-sign or detached-D error found on checked finalcheckpoint paths",
+      "evidence": "96directionalgradientchecks pass, maxabserror8.10e-8;36existingnumericaltests pass"
+    },
+    {
+      "finding": "Predominantly static training targets unsupported",
+      "evidence": "BalancedK32nearrestfraction3.50%;b<=.2groups0%"
+    }
+  ],
+  "not_established": [
+    "Unique causal history of how optimization entered this regime",
+    "Softplus removal alone fixes training",
+    "Finer-step retraining cannot change optimization",
+    "Global gradient clipping causes failed learning",
+    "Late-rest raster jitter alone causes undamped rollout collapse"
+  ],
+  "recommended_order": [
+    "Fix validation so dynamic target clips require faithful predicted motion and momentum",
+    "Fix rasterization and require static histories to initialize zero momentum",
+    "Normalize motion targets and add consistent future/initial momentum targets",
+    "Replace outer Softplus potential with force-preserving lower-bounded parametrization and retrain in controlled ablations",
+    "Check damping/context ablations after conservative motion can be preserved"
+  ],
+  "evidence": [
+    {
+      "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/stall_diagnosis_20261105/stall_quantification.json",
+      "sha256": "5fe5b834ecb714ed3b400cf9d54752e873ff7f71a48092f3d890ef8fb58c1a92"
+    },
+    {
+      "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/stall_diagnosis_20261105/frozen_force_audit.json",
+      "sha256": "d51c21af3a783ae27b3b6a595335496667b4fd94d5fb16001c9fece6f0a88a2d"
+    },
+    {
+      "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/stall_diagnosis_20261105/step_sensitivity.json",
+      "sha256": "37773561ade1e168765b0b0eb76a1a9927e7dfbacb3b46736d455a7a1b29402c"
+    },
+    {
+      "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/stall_diagnosis_20261105/rk4_reference_check.json",
+      "sha256": "13ed2451f4df53f545fc28b7acb3a113af7b5075d897d771599384a9a66f04c1"
+    },
+    {
+      "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/stall_diagnosis_20261105/final_core_gradient_audit.json",
+      "sha256": "042aad748bd10d077941121ed0789e5a9e05e93cfe2d897fee71f337ce885282"
+    },
+    {
+      "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/stall_diagnosis_20261105/potential_flatness_audit.json",
+      "sha256": "3630d48fcd708c5212cad825f01c7f6cfd5351c289cdb1ff00561185a04b22b9"
+    },
+    {
+      "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/stall_diagnosis_20261105/training_distribution_audit.json",
+      "sha256": "5300b5a5a1bee6b6bd8220d8e81ac137114c0bdf8bce09d739283dd46e552a0a"
+    },
+    {
+      "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/stall_diagnosis_20261105/training_log_audit.json",
+      "sha256": "76fbaa8cb8d62ffb34a50e43940e20640af7a399471bc931fec42a329c46426a"
+    },
+    {
+      "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/stall_diagnosis_20261105/loss_gradient_audit_extended.json",
+      "sha256": "7bbbeefc2b981b5d1812bd64a33651fd6a9f0d2e6f852883014c431c700f5353"
+    },
+    {
+      "file": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/stall_diagnosis_20261105/renderer_initializer_check.json",
+      "sha256": "571f03f8ecd3e8882d0bec468615c8913b173b55cae553d319defd6a00e97723"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "started_at_utc": "2026-11-08T09:25:45.260812+00:00",
+  "status": "completed",
+  "archive_root": "/home/weizhixin/hdd/archive_20261108/ssd",
+  "items": [
+    {
+      "source": "/home/weizhixin/ssd/MOSH_validation_20260924/MOSH_WM_Server/data",
+      "destination": "/home/weizhixin/hdd/archive_20261108/ssd/MOSH_validation_20260924/MOSH_WM_Server/data",
+      "files": 17900,
+      "bytes": 409496842,
+      "sha256_verified": true,
+      "source_symlink_preserved": true,
+      "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_00.jsonl",
+      "file_manifest_sha256": "c8469464e65952c0e50966228b0de793671d2b43abe3771a90a4723c2a41d507"
+    },
+    {
+      "source": "/home/weizhixin/ssd/MOSH_appearance_20261005/MOSH_WM_Appearance8000/data",
+      "destination": "/home/weizhixin/hdd/archive_20261108/ssd/MOSH_appearance_20261005/MOSH_WM_Appearance8000/data",
+      "files": 156000,
+      "bytes": 3564660367,
+      "sha256_verified": true,
+      "source_symlink_preserved": true,
+      "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_01.jsonl",
+      "file_manifest_sha256": "657abb872b43bbc9921bc354299aba76487083b4a4553b1791afb93126a371f2"
+    },
+    {
+      "source": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/data",
+      "destination": "/home/weizhixin/hdd/archive_20261108/ssd/damped_pendulum_profile_20261028/data",
+      "files": 5,
+      "bytes": 219760267,
+      "sha256_verified": true,
+      "source_symlink_preserved": true,
+      "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_02.jsonl",
+      "file_manifest_sha256": "cd1317a1212600428ea276acd6ece24b411157c2968e800f58c4600295206781"
+    },
+    {
+      "source": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z/study/data",
+      "destination": "/home/weizhixin/hdd/archive_20261108/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z/study/data",
+      "files": 2,
+      "bytes": 35985960,
+      "sha256_verified": true,
+      "source_symlink_preserved": true,
+      "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_03.jsonl",
+      "file_manifest_sha256": "421ed2d067e01afecedbdbce6566361272f9bcada31699c80f57cff7f1650910"
+    },
+    {
+      "source": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/data",
+      "destination": "/home/weizhixin/hdd/archive_20261108/ssd/dissipative_passive_20261103T051548Z/data",
+      "files": 4,
+      "bytes": 303954846,
+      "sha256_verified": true,
+      "source_symlink_preserved": true,
+      "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_04.jsonl",
+      "file_manifest_sha256": "97e96936990b840a92c1529170080dee3dfb047d01b257e43c705e4c686536ed"
+    },
+    {
+      "source": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/data",
+      "destination": "/home/weizhixin/hdd/archive_20261108/ssd/lehami_official_reproduction_20261029/data",
+      "files": 24,
+      "bytes": 508329765,
+      "sha256_verified": true,
+      "source_symlink_preserved": true,
+      "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_05.jsonl",
+      "file_manifest_sha256": "8e063f58b48cc932cdfc57ae54ad61d9964fe5b417810e2e8ebf8e73f421d248"
+    },
+    {
+      "source": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/smoke/data",
+      "destination": "/home/weizhixin/hdd/archive_20261108/ssd/lehami_official_reproduction_20261029/smoke/data",
+      "files": 14,
+      "bytes": 180007784,
+      "sha256_verified": true,
+      "source_symlink_preserved": true,
+      "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_06.jsonl",
+      "file_manifest_sha256": "38dfc0c34b05a255eca2f06528e8681b36e4088646a2883dacbdb5a8dfc8dea0"
+    },
+    {
+      "source": "/home/weizhixin/ssd/MOSH_appearance_20261005/moshwm_appearance8000.tar.gz",
+      "destination": "/home/weizhixin/hdd/archive_20261108/ssd/MOSH_appearance_20261005/moshwm_appearance8000.tar.gz",
+      "files": 1,
+      "bytes": 3802666187,
+      "sha256_verified": true,
+      "source_symlink_preserved": true,
+      "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_07.jsonl",
+      "file_manifest_sha256": "63ec63b3d801e28f4a9b3dc8f1bd276f1e030a37b5c03afac957486c054264a1"
+    },
+    {
+      "source": "/home/weizhixin/ssd/MOSH_appearance_20261005/early_preflight_payload.tar.gz",
+      "destination": "/home/weizhixin/hdd/archive_20261108/ssd/MOSH_appearance_20261005/early_preflight_payload.tar.gz",
+      "files": 1,
+      "bytes": 53208656,
+      "sha256_verified": true,
+      "source_symlink_preserved": true,
+      "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_08.jsonl",
+      "file_manifest_sha256": "a99def9776f413fccc4c3194caa9a4ee293113e24aa63d8c2d5e13caa834cc34"
+    },
+    {
+      "source": "/home/weizhixin/ssd/mosh-transfer/moshwm_ladhpc.tar.gz",
+      "destination": "/home/weizhixin/hdd/archive_20261108/ssd/mosh-transfer/moshwm_ladhpc.tar.gz",
+      "files": 1,
+      "bytes": 700213287,
+      "sha256_verified": true,
+      "source_symlink_preserved": true,
+      "file_manifest": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/archive_files_09.jsonl",
+      "file_manifest_sha256": "378c4c9c5416f2cfa7a106d065ac469b17881f68ab17f742fb68a9bf362a8fa7"
+    }
+  ],
+  "logical_bytes_migrated": 9778283961,
+  "current": null,
+  "completed_at_utc": "2026-11-08T09:28:13.424913+00:00"
+}

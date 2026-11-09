@@ -1,0 +1,21 @@
+{
+  "verified_at_utc": "2026-11-09T03:03:00.961105+00:00",
+  "remote_root": "/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z",
+  "training_route": "staged",
+  "stages": [
+    "a20000",
+    "single20000",
+    "multi20000"
+  ],
+  "package_files_verified": 201,
+  "source_files_verified": 62,
+  "bundle_sha256": "767aa5359da67034f897474f664073ad24c7256464011f9a4868fcbf4919afc1",
+  "remote_preflight_sha256": "238cce8bf2d1770a661340c8e16449270d7a9a1e9e0d6002253f94feb00e3665",
+  "software_tests_passed": 51,
+  "final_wrapper_regression_tests_passed": 23,
+  "formal_jobs_submitted": false,
+  "gpu_profile": "not yet run; startup inside allocated jobs",
+  "old_scratch_package_marked_superseded": "/home/weizhixin/ssd/hjepa_retrain_20261109T024138Z",
+  "submission_entrypoint": "/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z/submit_jobs.sh",
+  "dependency": "A afterok -> single and multi, with strict qualified A20000 validation before profiling and training"
+}

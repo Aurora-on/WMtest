@@ -1,0 +1,17 @@
+
+[a0m] LeHami (EXP-067)  mom=sg  history_size=1  latent_dim=32  episodes=10  actions=none (unactuated)
+/home/weizhixin/ssd/lehami_official_reproduction_20261029/.venv/lib/python3.12/site-packages/torch/autograd/graph.py:882: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at /pytorch/aten/src/ATen/cuda/CublasHandlePool.cpp:370.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+wrote /home/weizhixin/ssd/lehami_official_reproduction_20261029/LeHami/lehami/experiments/results/latent_volume/epsball.csv  (30 rows)
+
+Epsilon-ball vs autograd Jacobian, (1/n) log|det|.
+Independent estimators of the same quantity: they must agree, and
+halving eps must not move the ball estimate.
+
+                         jac     ball  ball_std   n  abs_diff
+label            eps                                         
+LeHami (EXP-067) 0.0001  0.0 -0.00000   0.00001  10   0.00000
+                 0.0010  0.0  0.00000   0.00000  10   0.00000
+                 0.0100  0.0  0.00002   0.00002  10   0.00002 
+

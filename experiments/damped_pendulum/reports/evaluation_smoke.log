@@ -1,0 +1,233 @@
+/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/dpbench/evaluate.py:94: RuntimeWarning: divide by zero encountered in matmul
+  w = np.linalg.solve(a.T@a + penalty, a.T@yn)
+/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/dpbench/evaluate.py:94: RuntimeWarning: overflow encountered in matmul
+  w = np.linalg.solve(a.T@a + penalty, a.T@yn)
+/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/dpbench/evaluate.py:94: RuntimeWarning: invalid value encountered in matmul
+  w = np.linalg.solve(a.T@a + penalty, a.T@yn)
+/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/dpbench/evaluate.py:95: RuntimeWarning: divide by zero encountered in matmul
+  score = float(np.mean((va@w-vyn)**2))
+/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/dpbench/evaluate.py:95: RuntimeWarning: overflow encountered in matmul
+  score = float(np.mean((va@w-vyn)**2))
+/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/dpbench/evaluate.py:95: RuntimeWarning: invalid value encountered in matmul
+  score = float(np.mean((va@w-vyn)**2))
+/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/dpbench/evaluate.py:70: RuntimeWarning: divide by zero encountered in matmul
+  y = np.c_[z, np.ones(len(z))] @ self.weights
+/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/dpbench/evaluate.py:70: RuntimeWarning: overflow encountered in matmul
+  y = np.c_[z, np.ones(len(z))] @ self.weights
+/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/dpbench/evaluate.py:70: RuntimeWarning: invalid value encountered in matmul
+  y = np.c_[z, np.ones(len(z))] @ self.weights
+{
+  "model": "lehami",
+  "checkpoint_step": 4,
+  "seed": 0,
+  "checkpoint": "runs/agent_cli_check/best.pt",
+  "data": "data/smoke/pendulum_b0p2.h5",
+  "probe_info": {
+    "ridge": {
+      "validation_standardized_mse": 0.5495451146672986,
+      "alpha": 10.0
+    },
+    "mlp": {
+      "validation_standardized_mse": 0.5348295569419861,
+      "best_step": 50,
+      "optimization_steps": 50,
+      "hidden_layers": [
+        128,
+        128
+      ],
+      "label_budget": 128
+    }
+  },
+  "calibration_train_labels": 128,
+  "calibration_val_labels": 64,
+  "aggregate": [
+    {
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 4.0,
+      "episodes": 2,
+      "mean": {
+        "angle_rmse_rad": 2.2153945211770196,
+        "omega_rmse_rad_s": 16228.453114935606,
+        "energy_rmse_J": 173063062.28693753,
+        "reference_budget_rmse_J": 10252220.491454095,
+        "anchor_angle_error_rad": 0.07942761155360159,
+        "anchor_omega_error_rad_s": 1.9362682458021494,
+        "passive_energy_increase_fraction": 1.0
+      },
+      "episode_std": {
+        "angle_rmse_rad": 0.08253389554177826,
+        "omega_rmse_rad_s": 0.38321733687735104,
+        "energy_rmse_J": 2373.2018747478724,
+        "reference_budget_rmse_J": 115.55224296450615,
+        "anchor_angle_error_rad": 0.004525267545782391,
+        "anchor_omega_error_rad_s": 0.12039520069222542,
+        "passive_energy_increase_fraction": 0.0
+      }
+    },
+    {
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 2,
+      "mean": {
+        "angle_rmse_rad": 2.2579331855380986,
+        "omega_rmse_rad_s": 29648.17961896502,
+        "energy_rmse_J": 566112002.5483339,
+        "reference_budget_rmse_J": 15723059.366127301,
+        "anchor_angle_error_rad": 0.07942761155360159,
+        "anchor_omega_error_rad_s": 1.9362682458021494,
+        "passive_energy_increase_fraction": 1.0
+      },
+      "episode_std": {
+        "angle_rmse_rad": 0.056118389816436576,
+        "omega_rmse_rad_s": 0.27500217073429667,
+        "energy_rmse_J": 7341.277464568615,
+        "reference_budget_rmse_J": 203.89768378343433,
+        "anchor_angle_error_rad": 0.004525267545782391,
+        "anchor_omega_error_rad_s": 0.12039520069222542,
+        "passive_energy_increase_fraction": 0.0
+      }
+    },
+    {
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 4.0,
+      "episodes": 2,
+      "mean": {
+        "angle_rmse_rad": 2.153927637838091,
+        "omega_rmse_rad_s": 16142.621509709934,
+        "energy_rmse_J": 171415528.17820463,
+        "reference_budget_rmse_J": 10187339.081561327,
+        "anchor_angle_error_rad": 0.08965830798773428,
+        "anchor_omega_error_rad_s": 2.4538263273216367
+      },
+      "episode_std": {
+        "angle_rmse_rad": 0.04656692691947617,
+        "omega_rmse_rad_s": 8.588476378929954,
+        "energy_rmse_J": 131409.94775024056,
+        "reference_budget_rmse_J": 2409.9983121631667,
+        "anchor_angle_error_rad": 0.061075622716701805,
+        "anchor_omega_error_rad_s": 1.4895347555854697
+      }
+    },
+    {
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 2,
+      "mean": {
+        "angle_rmse_rad": 2.2001350992328677,
+        "omega_rmse_rad_s": 29542.626526200784,
+        "energy_rmse_J": 562343617.8081291,
+        "reference_budget_rmse_J": 15624653.661312405,
+        "anchor_angle_error_rad": 0.08965830798773428,
+        "anchor_omega_error_rad_s": 2.4538263273216367
+      },
+      "episode_std": {
+        "angle_rmse_rad": 0.005877652253137855,
+        "omega_rmse_rad_s": 0.2074034308134287,
+        "energy_rmse_J": 102103.59966748953,
+        "reference_budget_rmse_J": 31133.1745343823,
+        "anchor_angle_error_rad": 0.061075622716701805,
+        "anchor_omega_error_rad_s": 1.4895347555854697
+      }
+    },
+    {
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 4.0,
+      "episodes": 2,
+      "mean": {
+        "angle_rmse_rad": 1.047630160361307,
+        "omega_rmse_rad_s": 3.617687942444322,
+        "energy_rmse_J": 4.733052486285306,
+        "reference_budget_rmse_J": 0.6939900108680426,
+        "anchor_angle_error_rad": 0.06467880453530625,
+        "anchor_omega_error_rad_s": 1.9585055907906253,
+        "passive_energy_increase_fraction": 0.25
+      },
+      "episode_std": {
+        "angle_rmse_rad": 0.11880300608897443,
+        "omega_rmse_rad_s": 0.24421762618708098,
+        "energy_rmse_J": 1.4299503825684323,
+        "reference_budget_rmse_J": 0.3559502674578636,
+        "anchor_angle_error_rad": 0.024971653463303906,
+        "anchor_omega_error_rad_s": 0.5069446799594044,
+        "passive_energy_increase_fraction": 0.02500000000000001
+      }
+    },
+    {
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 2,
+      "mean": {
+        "angle_rmse_rad": 0.9844404165769944,
+        "omega_rmse_rad_s": 3.60223203645218,
+        "energy_rmse_J": 6.174349814591318,
+        "reference_budget_rmse_J": 0.5483946022806961,
+        "anchor_angle_error_rad": 0.06467880453530625,
+        "anchor_omega_error_rad_s": 1.9585055907906253,
+        "passive_energy_increase_fraction": 0.1875
+      },
+      "episode_std": {
+        "angle_rmse_rad": 0.08745389101836554,
+        "omega_rmse_rad_s": 0.19744995068561644,
+        "energy_rmse_J": 0.9715438148418971,
+        "reference_budget_rmse_J": 0.21942206634439296,
+        "anchor_angle_error_rad": 0.024971653463303906,
+        "anchor_omega_error_rad_s": 0.5069446799594044,
+        "passive_energy_increase_fraction": 0.012500000000000011
+      }
+    },
+    {
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 4.0,
+      "episodes": 2,
+      "mean": {
+        "angle_rmse_rad": 1.2790733419649467,
+        "omega_rmse_rad_s": 4.0337230874659,
+        "energy_rmse_J": 5.665157274125066,
+        "reference_budget_rmse_J": 0.8639611357481956,
+        "anchor_angle_error_rad": 0.17215849437595532,
+        "anchor_omega_error_rad_s": 3.009978726223846
+      },
+      "episode_std": {
+        "angle_rmse_rad": 0.4322768558019863,
+        "omega_rmse_rad_s": 0.7565346755696791,
+        "energy_rmse_J": 0.8989579379606347,
+        "reference_budget_rmse_J": 0.2514695345698436,
+        "anchor_angle_error_rad": 0.0023721354503716263,
+        "anchor_omega_error_rad_s": 1.7951404486387657
+      }
+    },
+    {
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 2,
+      "mean": {
+        "angle_rmse_rad": 1.1489861202958547,
+        "omega_rmse_rad_s": 3.92426195566707,
+        "energy_rmse_J": 5.780891058091239,
+        "reference_budget_rmse_J": 0.6681760996328849,
+        "anchor_angle_error_rad": 0.17215849437595532,
+        "anchor_omega_error_rad_s": 3.009978726223846
+      },
+      "episode_std": {
+        "angle_rmse_rad": 0.27400126543531206,
+        "omega_rmse_rad_s": 0.5888719160479439,
+        "energy_rmse_J": 1.571391604029695,
+        "reference_budget_rmse_J": 0.15524345865388428,
+        "anchor_angle_error_rad": 0.0023721354503716263,
+        "anchor_omega_error_rad_s": 1.7951404486387657
+      }
+    }
+  ],
+  "rollout_seconds": 1.443441123017692,
+  "total_seconds": 2.1064327919884818,
+  "independent_training_seeds": 1,
+  "interpretation": "Physical state inferred by separately calibrated frozen probes; report anchor error. Reference-budget residual uses true trajectory W,D, not intrinsic model energy balance. Short runs are pipeline checks only."
+}

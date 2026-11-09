@@ -1,0 +1,23 @@
+{
+  "job_id": 47767,
+  "submitted_at_utc": "2026-11-05T02:37:19.662406+00:00",
+  "remote_root": "/home/weizhixin/ssd/efficient3_evaluation_20261105T023318Z",
+  "selected_checkpoint_step": 19250,
+  "episodes": 1408,
+  "horizons_seconds": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "world_model_updates": 0,
+  "gpu": "L40",
+  "slurm_limit_hours": 2,
+  "status": "RUNNING",
+  "phase": "testing",
+  "startup_verified": true,
+  "episodes_completed_at_check": 192,
+  "checked_at_utc": "2026-11-05T02:39:17.505986+00:00"
+}

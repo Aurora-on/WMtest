@@ -1,0 +1,422 @@
+{
+  "scope": "Independent calculation from existing frozen 8-second DG12 intervention arrays; no new optimization, integration or test-based model selection.",
+  "checkpoint_sha256": "5163a6a293a7c773a90e9ef59a62353a4debdba64c0dc24814bcbdb3b47f9042",
+  "source_hashes_match_checkpoint": true,
+  "weights_unchanged": true,
+  "optimizer_updates": 0,
+  "sampling": "Four metadata-selected genuinely undamped episodes, one per energy band, selected before inspecting prediction error.",
+  "limits": "Intervening on D changes the learned model; readout may extrapolate outside its calibrated latent manifold. This is a mechanism probe, not a corrected-model benchmark. Four episodes do not establish population performance.",
+  "true_encoded_q_norm_range": [
+    0.7038927549136785,
+    2.140528174720015
+  ],
+  "variants": [
+    {
+      "variant": "dg12",
+      "n": 4,
+      "duration_seconds": 8,
+      "cumulative_angle_rmse_rad": 1.115678367005072,
+      "cumulative_omega_rmse_rad_s": 2.6553823559846204,
+      "final_q_step_rms": 0.00032951987919334694,
+      "final_p_rms": 0.003274380671383837,
+      "final_potential_mean": 0.0005599479936092854,
+      "final_restoring_force_mean": 0.007953683435656422,
+      "final_q_norm_mean": 0.7708343651515674,
+      "rows": [
+        {
+          "evaluation_index": 3,
+          "energy_band": 0,
+          "cumulative_angle_rmse_rad": 0.30273427242171724,
+          "cumulative_omega_rmse_rad_s": 1.0113694627868726,
+          "q_initial": [
+            0.24995797872543335,
+            0.7071173787117004
+          ],
+          "q_final": [
+            -0.5042464224327878,
+            0.08590353770691381
+          ],
+          "p_final": [
+            0.001976006815587349,
+            0.008991917398713849
+          ],
+          "q_path_length": 1.6285873293547146,
+          "q_chord_length": 0.977103328713167,
+          "path_straightness": 0.5999698702680677,
+          "potential_initial": 5.997994092152538e-07,
+          "potential_final": 0.0018559641987800457,
+          "kinetic_initial": 1.629519271735174,
+          "kinetic_final": 4.237959072027025e-05,
+          "learned_energy_initial": 1.6295198715345833,
+          "learned_energy_final": 0.0018983437895003159,
+          "learned_energy_max_abs_change": 1.627621527745083,
+          "restoring_force_initial": 2.681028086922437e-06,
+          "restoring_force_final": 0.027268267656503725
+        },
+        {
+          "evaluation_index": 0,
+          "energy_band": 1,
+          "cumulative_angle_rmse_rad": 0.9107389224428267,
+          "cumulative_omega_rmse_rad_s": 2.007480583610274,
+          "q_initial": [
+            0.2051345854997635,
+            0.7017859816551208
+          ],
+          "q_final": [
+            0.44574921157830816,
+            0.8207060164210523
+          ],
+          "p_final": [
+            3.220516114007887e-08,
+            2.5580475309261507e-08
+          ],
+          "q_path_length": 0.2684519699403763,
+          "q_chord_length": 0.2683977886489533,
+          "path_straightness": 0.9997981713770436,
+          "potential_initial": 6.5766737951995e-07,
+          "potential_final": 3.124818439759283e-07,
+          "kinetic_initial": 49.61377802254103,
+          "kinetic_final": 8.457665605530918e-16,
+          "learned_energy_initial": 49.613778680208405,
+          "learned_energy_final": 3.124818448216949e-07,
+          "learned_energy_max_abs_change": 49.61377836772656,
+          "restoring_force_initial": 3.047353638900064e-06,
+          "restoring_force_final": 1.0112009917420469e-06
+        },
+        {
+          "evaluation_index": 9,
+          "energy_band": 2,
+          "cumulative_angle_rmse_rad": 1.1818739181418925,
+          "cumulative_omega_rmse_rad_s": 3.0076870815131103,
+          "q_initial": [
+            0.28689104318618774,
+            -0.9870068430900574
+          ],
+          "q_final": [
+            0.620131500279593,
+            0.11123829822235766
+          ],
+          "p_final": [
+            4.732050290375061e-06,
+            5.176248073559178e-06
+          ],
+          "q_path_length": 2.841292971171886,
+          "q_chord_length": 1.1476896761146491,
+          "path_straightness": 0.4039321843115976,
+          "potential_initial": 6.19436867535772,
+          "potential_final": 1.5337011393301405e-05,
+          "kinetic_initial": 87.82043875656801,
+          "kinetic_final": 2.45929220348319e-11,
+          "learned_energy_initial": 94.01480743192573,
+          "learned_energy_final": 1.533703598622344e-05,
+          "learned_energy_max_abs_change": 94.01479209488974,
+          "restoring_force_initial": 19.785407808955995,
+          "restoring_force_final": 0.00014298709007615104
+        },
+        {
+          "evaluation_index": 1,
+          "energy_band": 3,
+          "cumulative_angle_rmse_rad": 1.6312674494016364,
+          "cumulative_omega_rmse_rad_s": 3.755688187505298,
+          "q_initial": [
+            1.4371143579483032,
+            0.5059416890144348
+          ],
+          "q_final": [
+            0.9741102288893859,
+            -0.2586059987910011
+          ],
+          "p_final": [
+            -0.00033821417891100763,
+            0.000948119607520066
+          ],
+          "q_path_length": 3.5001651622390986,
+          "q_chord_length": 0.8938154118464532,
+          "path_straightness": 0.2553637815407169,
+          "potential_initial": 5.009919314239451e-07,
+          "potential_final": 0.0003681782824198185,
+          "kinetic_initial": 8.461474221042865,
+          "kinetic_final": 5.066598104902256e-07,
+          "learned_energy_initial": 8.461474722034795,
+          "learned_energy_final": 0.00036868494223030873,
+          "learned_energy_max_abs_change": 8.461106037092565,
+          "restoring_force_initial": 2.1360798937569374e-06,
+          "restoring_force_final": 0.004402467795054069
+        }
+      ]
+    },
+    {
+      "variant": "dg12_D01",
+      "n": 4,
+      "duration_seconds": 8,
+      "cumulative_angle_rmse_rad": 1.7527251880113195,
+      "cumulative_omega_rmse_rad_s": 2.7765852395079262,
+      "final_q_step_rms": 0.02327789802319771,
+      "final_p_rms": 0.23054159836268548,
+      "final_potential_mean": 3.884722040175308,
+      "final_restoring_force_mean": 0.24445369048216842,
+      "final_q_norm_mean": 8.142042360868544,
+      "rows": [
+        {
+          "evaluation_index": 3,
+          "energy_band": 0,
+          "cumulative_angle_rmse_rad": 0.8646656023139376,
+          "cumulative_omega_rmse_rad_s": 1.0970322021432501,
+          "q_initial": [
+            0.24995797872543335,
+            0.7071173787117004
+          ],
+          "q_final": [
+            2.004945741563783,
+            1.206077959593463
+          ],
+          "p_final": [
+            0.38115552203167213,
+            0.08881404009828045
+          ],
+          "q_path_length": 4.587380085251693,
+          "q_chord_length": 1.8245393141793962,
+          "path_straightness": 0.39773013795940787,
+          "potential_initial": 5.997994092152538e-07,
+          "potential_final": 1.0147494086704636e-07,
+          "kinetic_initial": 1.629519271735174,
+          "kinetic_final": 0.07658373284690773,
+          "learned_energy_initial": 1.6295198715345833,
+          "learned_energy_final": 0.07658383432184859,
+          "learned_energy_max_abs_change": 1.5529360372127348,
+          "restoring_force_initial": 2.681028086922437e-06,
+          "restoring_force_final": 9.988312056602415e-08
+        },
+        {
+          "evaluation_index": 0,
+          "energy_band": 1,
+          "cumulative_angle_rmse_rad": 2.1691028281410887,
+          "cumulative_omega_rmse_rad_s": 2.327295481960766,
+          "q_initial": [
+            0.2051345854997635,
+            0.7017859816551208
+          ],
+          "q_final": [
+            12.092839691899364,
+            4.41261728552342
+          ],
+          "p_final": [
+            0.21403637935861358,
+            0.054708160167547024
+          ],
+          "q_path_length": 12.49096973367622,
+          "q_chord_length": 12.453425298386305,
+          "path_straightness": 0.996994273776143,
+          "potential_initial": 6.5766737951995e-07,
+          "potential_final": 9.757666603542253e-08,
+          "kinetic_initial": 49.61377802254103,
+          "kinetic_final": 0.024402277238931163,
+          "learned_energy_initial": 49.613778680208405,
+          "learned_energy_final": 0.0244023748155972,
+          "learned_energy_max_abs_change": 49.58937630539281,
+          "restoring_force_initial": 3.047353638900064e-06,
+          "restoring_force_final": 2.54973577983624e-08
+        },
+        {
+          "evaluation_index": 9,
+          "energy_band": 2,
+          "cumulative_angle_rmse_rad": 1.9744660376501464,
+          "cumulative_omega_rmse_rad_s": 3.320440368486479,
+          "q_initial": [
+            0.28689104318618774,
+            -0.9870068430900574
+          ],
+          "q_final": [
+            8.809859553199251,
+            -8.635296392165252
+          ],
+          "p_final": [
+            0.0971346828318457,
+            -0.011204906400237871
+          ],
+          "q_path_length": 11.499225282240793,
+          "q_chord_length": 11.451520652261303,
+          "path_straightness": 0.9958514918345704,
+          "potential_initial": 6.19436867535772,
+          "potential_final": 15.538887684719993,
+          "kinetic_initial": 87.82043875656801,
+          "kinetic_final": 0.0047803482681406766,
+          "learned_energy_initial": 94.01480743192573,
+          "learned_energy_final": 15.543668032988133,
+          "learned_energy_max_abs_change": 78.4711393989376,
+          "restoring_force_initial": 19.785407808955995,
+          "restoring_force_final": 0.977814147299212
+        },
+        {
+          "evaluation_index": 1,
+          "energy_band": 3,
+          "cumulative_angle_rmse_rad": 1.713771432265341,
+          "cumulative_omega_rmse_rad_s": 3.632161094368512,
+          "q_initial": [
+            1.4371143579483032,
+            0.5059416890144348
+          ],
+          "q_final": [
+            4.915074973545135,
+            1.0183057235562492
+          ],
+          "p_final": [
+            0.45149965668298275,
+            0.0990493407962102
+          ],
+          "q_path_length": 8.14997223733879,
+          "q_chord_length": 3.515498108026039,
+          "path_straightness": 0.4313509304878263,
+          "potential_initial": 5.009919314239451e-07,
+          "potential_final": 2.7692963202461517e-07,
+          "kinetic_initial": 8.461474221042865,
+          "kinetic_final": 0.10683135594850754,
+          "learned_energy_initial": 8.461474722034795,
+          "learned_energy_final": 0.10683163287813957,
+          "learned_energy_max_abs_change": 8.354643089156657,
+          "restoring_force_initial": 2.1360798937569374e-06,
+          "restoring_force_final": 4.892489832899942e-07
+        }
+      ]
+    },
+    {
+      "variant": "dg12_Dzero",
+      "n": 4,
+      "duration_seconds": 8,
+      "cumulative_angle_rmse_rad": 1.6246913423529499,
+      "cumulative_omega_rmse_rad_s": 3.1164819847950236,
+      "final_q_step_rms": 0.5843733556102856,
+      "final_p_rms": 5.843736102794311,
+      "final_potential_mean": 4.280656852579559,
+      "final_restoring_force_mean": 0.0009582398058305528,
+      "final_q_norm_mean": 55.98285084313428,
+      "rows": [
+        {
+          "evaluation_index": 3,
+          "energy_band": 0,
+          "cumulative_angle_rmse_rad": 1.057651114678807,
+          "cumulative_omega_rmse_rad_s": 1.5695505897784838,
+          "q_initial": [
+            0.24995797872543335,
+            0.7071173787117004
+          ],
+          "q_final": [
+            5.050088851621968,
+            11.14967018260224
+          ],
+          "p_final": [
+            0.7373928195908933,
+            1.647815037564618
+          ],
+          "q_path_length": 14.17820539515477,
+          "q_chord_length": 11.492961561711438,
+          "path_straightness": 0.8106076362555037,
+          "potential_initial": 5.997994092152538e-07,
+          "potential_final": 5.551139215599614e-08,
+          "kinetic_initial": 1.629519271735174,
+          "kinetic_final": 1.6295212842041455,
+          "learned_energy_initial": 1.6295198715345833,
+          "learned_energy_final": 1.6295213397155377,
+          "learned_energy_max_abs_change": 1.468180954367071e-06,
+          "restoring_force_initial": 2.681028086922437e-06,
+          "restoring_force_final": 6.885551045098204e-11
+        },
+        {
+          "evaluation_index": 0,
+          "energy_band": 1,
+          "cumulative_angle_rmse_rad": 1.6494535267636643,
+          "cumulative_omega_rmse_rad_s": 2.50926762031831,
+          "q_initial": [
+            0.2051345854997635,
+            0.7017859816551208
+          ],
+          "q_final": [
+            65.67909000577417,
+            46.13002431641815
+          ],
+          "p_final": [
+            8.184244427290826,
+            5.678529792578449
+          ],
+          "q_path_length": 79.69042399545954,
+          "q_chord_length": 79.69042399545954,
+          "path_straightness": 1.0,
+          "potential_initial": 6.5766737951995e-07,
+          "potential_final": 6.589226218523061e-08,
+          "kinetic_initial": 49.61377802254103,
+          "kinetic_final": 49.613778725421,
+          "learned_energy_initial": 49.613778680208405,
+          "learned_energy_final": 49.61377879131326,
+          "learned_energy_max_abs_change": 1.1112607012364606e-07,
+          "restoring_force_initial": 3.047353638900064e-06,
+          "restoring_force_final": 1.1829085559204552e-11
+        },
+        {
+          "evaluation_index": 9,
+          "energy_band": 2,
+          "cumulative_angle_rmse_rad": 1.8970009024165355,
+          "cumulative_omega_rmse_rad_s": 4.0901443549177365,
+          "q_initial": [
+            0.28689104318618774,
+            -0.9870068430900574
+          ],
+          "q_final": [
+            59.39265821126805,
+            -80.5631150351587
+          ],
+          "p_final": [
+            7.582673169050574,
+            -9.81264997085173
+          ],
+          "q_path_length": 99.1507925960923,
+          "q_chord_length": 99.12541907867688,
+          "path_straightness": 0.9997440916330464,
+          "potential_initial": 6.19436867535772,
+          "potential_final": 17.12233746488347,
+          "kinetic_initial": 87.82043875656801,
+          "kinetic_final": 76.89251591954798,
+          "learned_energy_initial": 94.01480743192573,
+          "learned_energy_final": 94.01485338443145,
+          "learned_energy_max_abs_change": 4.5952505715263214e-05,
+          "restoring_force_initial": 19.785407808955995,
+          "restoring_force_final": 0.0036135024423005987
+        },
+        {
+          "evaluation_index": 1,
+          "energy_band": 3,
+          "cumulative_angle_rmse_rad": 1.7665085877410727,
+          "cumulative_omega_rmse_rad_s": 3.655221738539317,
+          "q_initial": [
+            1.4371143579483032,
+            0.5059416890144348
+          ],
+          "q_final": [
+            -26.776082435238102,
+            16.289079619103834
+          ],
+          "p_final": [
+            -3.424307294662251,
+            2.2795834720820816
+          ],
+          "q_path_length": 32.830367669158186,
+          "q_chord_length": 32.32788140616842,
+          "path_straightness": 0.9846944673890505,
+          "potential_initial": 5.009919314239451e-07,
+          "potential_final": 0.00028982403111342455,
+          "kinetic_initial": 8.461474221042865,
+          "kinetic_final": 8.46119062723345,
+          "learned_energy_initial": 8.461474722034795,
+          "learned_energy_final": 8.461480451264563,
+          "learned_energy_max_abs_change": 5.729229767936772e-06,
+          "restoring_force_initial": 2.1360798937569374e-06,
+          "restoring_force_final": 0.00021945670033701636
+        }
+      ]
+    }
+  ],
+  "input_sha256": {
+    "step_sensitivity.json": "37773561ade1e168765b0b0eb76a1a9927e7dfbacb3b46736d455a7a1b29402c",
+    "step_sensitivity_arrays.npz": "911649d72f04a6d8e18cdbe2613617ab4d8f064989034a49a58791fe5cf728b2",
+    "readouts.pt": "f30f7be5de8bca16eee8afcb37b5eb11103d626bb42f0a421a8d8a792ec0581c"
+  }
+}

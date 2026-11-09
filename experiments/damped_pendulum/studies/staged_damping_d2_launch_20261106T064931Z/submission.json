@@ -1,0 +1,21 @@
+{
+  "submitted_at_utc": "2026-11-06T06:51:37.045111+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/submit_full.sh"
+  ],
+  "returncode": 0,
+  "stdout": "47920",
+  "stderr": "",
+  "remote_root": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z",
+  "user_authorized_full_training": true,
+  "a_resume_step": 10000,
+  "a_target_step": 20000,
+  "b_steps_each": 20000,
+  "b_parallel": true,
+  "gpu_count": 2,
+  "gpu_type": "l40",
+  "job_id": "47920",
+  "status": "submitted"
+}

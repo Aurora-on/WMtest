@@ -1,0 +1,11 @@
+{
+  "job_id": 47717,
+  "remote_root": "/home/weizhixin/ssd/efficient_solver_20261104_v2",
+  "status": "COMPLETED",
+  "elapsed_seconds": 52,
+  "optimizer_updates": 8,
+  "horizon": 32,
+  "reference_substeps": 2,
+  "candidate_substeps": 3,
+  "formal_training": false
+}

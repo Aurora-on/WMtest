@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-11-08",
+  "purpose": "Detailed staged-damping report: primary-source verified comparison plan",
+  "execution_status": "Literature/code inspection only; no baseline training or new model inference",
+  "decision_zh": "建议主表采用 LeHami、LeWM、H-JEPA、CpAE 四个外部方法；另用容量匹配的无约束潜动力学和少量阻尼/冻结消融解释收益。先完成单工况方法对比，再推进共享多工况与未见阻尼泛化。",
+  "methods": [
+    {
+      "id": "lehami",
+      "name": "LeHami",
+      "title": "LeHami: Symplectic Latent Dynamics for World Models",
+      "authors": "Romina Yalovetzky; Randall Balestriero; Yann LeCun",
+      "paper_version": "arXiv:2610.15267v1 (2026-10-11)",
+      "paper": "https://arxiv.org/abs/2610.15267",
+      "fulltext": "https://arxiv.org/html/2610.15267v1",
+      "code": "https://github.com/rominay/LeHami",
+      "live_default_branch_sha": "f76f65f8b99afb6b7e3063f573645d3e2f290ede",
+      "priority": "P1 必须",
+      "role_zh": "最直接的保守结构外部基线，回答新增耗散机制能否改善阻尼预测，同时保留无阻尼性能。",
+      "verified_facts_zh": [
+        "由视觉编码与时间差分得到 q,p；可分离 Hamiltonian 经 leapfrog 递推。",
+        "论文对其潜空间映射给出辛性与体积保持结论；明确承认不能界定预测误差，强耗散系统是局限。",
+        "官方保守摆图4以各模型 K=1 输出拟合25近邻读出并冻结；这与当前项目的训练组 K=0 标准化读出协议不同。"
+      ],
+      "evidence_locations": [
+        "Paper §2, Appendix C.2, limitations §4",
+        "Paper Figure4 / Appendix D.4, official README"
+      ],
+      "adaptation_zh": "在本项目数据上重新训练官方结构，保留无阻尼预测器；不得把本项目 A 分支称为官方 LeHami，因为积分器、动能、初始化等不同。主表统一评测协议；原始数据和原始 knn_k1 协议复现放附录单列。",
+      "cost_zh": "相对较低：已有本地实现及历史复现经验；当前数据的完整匹配训练尚需重新验收。"
+    },
+    {
+      "id": "lewm",
+      "name": "LeWM",
+      "title": "LeWorldModel: Stable End-to-End Joint-Embedding Predictive Architecture from Pixels",
+      "authors": "Lucas Maes; Quentin Le Lidec; Damien Scieur; Yann LeCun; Randall Balestriero",
+      "paper_version": "arXiv:2603.19312v3 (2026-06-03)",
+      "paper": "https://arxiv.org/abs/2603.19312",
+      "project": "https://le-wm.github.io/",
+      "code": "https://github.com/lucas-maes/le-wm",
+      "live_default_branch_sha": "8edfeb336732b5f3ce7b8b210d0ba370a09e2cac",
+      "priority": "P1 必须",
+      "role_zh": "通用视觉 JEPA 基线，回答物理结构是否优于具有相同历史信息的无约束预测器。",
+      "verified_facts_zh": [
+        "官方方法从像素端到端训练，以潜表示预测损失和 SIGReg 构成目标。",
+        "其预测器没有本项目的显式 PSD 阻尼或离散能量平衡约束。"
+      ],
+      "evidence_locations": [
+        "Official project Approach / Training Objective",
+        "Official README and repository"
+      ],
+      "adaptation_zh": "统一数据、因果观察窗口和读出。必须保证能够利用运动方向与历史信息，不能以单帧无速度的弱设置作为唯一对手。完整官方 LeWM 保留原生目标；若改为我们的相空间损失，须另名为受控架构适配。",
+      "cost_zh": "相对较低至中等：有现成数据接口/本地历史路径，但需要检查与当前 smooth_v1、划分和窗口一致。"
+    },
+    {
+      "id": "hjepa",
+      "name": "H-JEPA",
+      "title": "Hamiltonian JEPA: Action-Conditioned World Models with an Inherited Control State",
+      "authors": "Tamim Zoabi; Ameen Ali; Lior Wolf",
+      "paper_version": "arXiv:2609.33497v1 (2026-09-27)",
+      "paper": "https://arxiv.org/abs/2609.33497",
+      "fulltext": "https://arxiv.org/html/2609.33497v1",
+      "code": "https://github.com/tmz-lab/hjepa",
+      "predictor": "https://github.com/tmz-lab/hjepa/blob/fd4f7de927daa7831a6d51e95e0959a813c13901/hamiltonian_predictor.py",
+      "live_default_branch_sha": "fd4f7de927daa7831a6d51e95e0959a813c13901",
+      "priority": "P1 核心耗散对手",
+      "role_zh": "最接近的视觉耗散 JEPA 比较对象，检验我们的离散结构及分阶段方案是否有额外价值。",
+      "verified_facts_zh": [
+        "固定正交切片产生控制状态，使用带 PSD 矩阵 R=LL^T 的相位条件 port-Hamiltonian 预测器。",
+        "原生目标包括多步预测、PIC 与 Bures-Wasserstein 表示正则；原实验是像素控制任务。",
+        "论文式6与官方 forward 均使用显式 Euler；连续时间 PSD 性质不自动成为离散步的机械能收支保证。"
+      ],
+      "evidence_locations": [
+        "Paper §3.4 equations5-6; §3.5 equations7-12; §5 limitations",
+        "Official predictor forward returns s+dt*(passive+push)"
+      ],
+      "adaptation_zh": "先做零动作被动预测；这不检验完整控制/PIC优势。保留官方方法的原生正则与损失并报告适配；如果只接其 pH 头到我们的损失/编码器，称 H-JEPA-inspired predictor，另列结构对照。",
+      "cost_zh": "中等：官方代码存在且核心很短，但需要被动数据、历史窗口和物理读出适配；未在本任务训练验证。"
+    },
+    {
+      "id": "cpae",
+      "name": "CpAE + Neural ODE",
+      "title": "Continuity-Preserving Convolutional Autoencoders for Learning Continuous Latent Dynamical Models from Images",
+      "authors": "Aiqing Zhu; Yuting Pan; Qianxiao Li",
+      "paper_version": "ICLR2025; arXiv:2502.00754v1 (2025-02-02)",
+      "paper": "https://arxiv.org/abs/2502.00754",
+      "fulltext": "https://arxiv.org/html/2502.00754v1",
+      "code": "https://github.com/Aiqing-Zhu/CpAE",
+      "live_default_branch_sha": "aff6463ccbde19ca251e77abeb984e99354f8911",
+      "generator": "https://github.com/Aiqing-Zhu/CpAE/blob/aff6463ccbde19ca251e77abeb984e99354f8911/datainfo/collect/single_pendulum/make_data.py",
+      "priority": "P2 优先补充",
+      "role_zh": "表示连续性 + 通用潜 ODE 的外部基线，直接检验是否不依赖耗散结构也能学好视觉阻尼摆。",
+      "verified_facts_zh": [
+        "先训练带连续性正则的卷积自编码器，再单独训练潜 Neural ODE。",
+        "论文包含 RGB 阻尼单摆；原生输入由连续两帧拼接构成。",
+        "论文 Appendix A.3.1 的潜 ODE 为两层128隐藏单元 tanh FNN，显式中点离散；模型不是 PSD 耗散结构。",
+        "实时官方生成器为均匀杆动力学，l=.5、lam=.2、dt=2/fps；这些与当前项目质点摆和论文参数均不能直接混同。"
+      ],
+      "evidence_locations": [
+        "Paper §4, Appendix A.3.1/A.3.2",
+        "Official README, TrainSP.sh, generator"
+      ],
+      "adaptation_zh": "使用本项目相同轨迹，不另换作者数据；维持重建/连续性训练作为方法的一部分。64像素到原实现128像素如需确定性缩放须披露。原生两帧结果不能当作与21帧环境推断完全同信息量；多工况需额外明确历史适配。",
+      "cost_zh": "中等：现成模型与单摆入口，但需要分两段训练和独立解码器，准备成本高于现有 LeWM/LeHami。"
+    }
+  ],
+  "internal_controls": [
+    {
+      "id": "matched_unconstrained",
+      "priority": "P1",
+      "label_zh": "容量匹配的无约束潜动力学",
+      "question_zh": "收益来自耗散/能量结构，还是较灵活的普通预测器即可达到？",
+      "design_zh": "冻结同一 A 编码器/读出，在相同4维相状态及同一因果环境上下文上训练无约束残差加速度 MLP 或潜 Neural ODE；报告近似匹配的参数数、函数评估次数及同样 B 更新预算。使用相同 LeHami 式损失。不是一个完整外部论文方法复现。"
+    },
+    {
+      "id": "zero_damping",
+      "priority": "P0",
+      "label_zh": "D=0",
+      "question_zh": "B 网络是否带来实际阻尼收益？",
+      "design_zh": "用冻结 A20k 在各阻尼条件上评测，零新增训练；注意结果只能回答无适配基线，并不等于充分训练的官方 LeHami。"
+    },
+    {
+      "id": "constant_psd",
+      "priority": "P1",
+      "label_zh": "标量非负阻尼",
+      "question_zh": "复杂状态依赖 D(q,p,c) 是否必要？",
+      "design_zh": "单工况训练 D=softplus(gamma)I；多工况用 D=softplus(gamma(c))I，保留同一个由历史推断的 c；不给真实 b。其余冻结、损失、预算相同。"
+    },
+    {
+      "id": "position_only",
+      "priority": "P2",
+      "label_zh": "D(q,c) 对 D(q,p,c)",
+      "question_zh": "速度依赖是否改善强阻尼及高能量轨迹？",
+      "design_zh": "只去掉 p 输入，保持 PSD 参数化、训练条件与可比容量。"
+    },
+    {
+      "id": "unfreeze",
+      "priority": "P1",
+      "label_zh": "相同 A 初始化下 B 联合微调",
+      "question_zh": "冻结无阻尼表示/势能是否限制强阻尼适配？",
+      "design_zh": "从同一 A20k 出发，以相同 B20000 更新全模型而非仅 D/context；报告各模型独立校准的训练组读出及旧读出迁移诊断。和纯从头训练比较时须计入 A20k，不做40k对20k的不公平预算比较。"
+    },
+    {
+      "id": "no_context",
+      "priority": "P2",
+      "label_zh": "多工况去除环境上下文",
+      "question_zh": "c 是否携带必要的工况信息？",
+      "design_zh": "固定数据和其余结构，仅去掉历史环境分支；作为消融，不将已知真实 b 输入当作等价替代。"
+    }
+  ],
+  "fair_protocol_zh": [
+    "固定当前 dt=.1、原始图像渲染器、初态组划分、训练轨迹长度和测试封存策略；不改变时间设置来迎合论文。",
+    "先用 seed0 检查 b=0 与 b=.2 单工况外部基线；跑通后正式至少3个训练种子，报告每种子指标和均值±标准差。",
+    "把外部完整方法比较与内部容量匹配消融分两张表。完整方法保留其核心目标；我们自己的消融全部使用已决定的 LeHami 式损失，不恢复旧对照损失。",
+    "多工况比较必须对齐因果可见历史：同一21帧窗口，并披露每方法实际使用帧数。为了让两帧方法获得同等工况信息而加的上下文编码器，应标记为 adapted。",
+    "训练模型只接收图像/动作/时间；真实 theta、omega、b 不得作为训练条件或状态监督。若设置物理状态 oracle，独立表中明确其额外监督。",
+    "每个外部模型的读出都在相同训练组上单独拟合并在训练内选择，冻结后评测；不同潜空间不能共用同一权重。当前两个 B 分支与 A 共享的读出只因共享表示被严格冻结。",
+    "主比较统一训练组校准及物理指标；LeHami 原生 knn_k1、原始数据的官方复现单列，不能混入当前 val3.2s表中直接排序。",
+    "计入全部预训练和适配更新。我们的单个完整 A->B 路径总预算40k；当前提交只新增10kA并不意味着总A只有10k。给对手可比数据暴露及总预算，并同时报告 GPU小时、参数数、rollout耗时。",
+    "多工况按初态组联合抽样，所有阻尼版本同组划分；不把384条条件轨迹当作384个独立初态。统计区间按初态组而非逐帧自助重采样。",
+    "预先固定短期0.8/1.6/3.2s及长时8/16/32s报告口径（只增加后续评测长度，不改变训练dt/时域），同时报告角度/角速度、真实能量变化误差、衰减包络/相位和动态窗口停滞率；长时数据可用性需实施时再检查。",
+    "当前强阻尼读出有退化，因此必须同时报告 observed-history readout 与 autonomous rollout 指标，不能把二者的误差简单相减当作可精确分解的动力学误差。",
+    "未见阻尼在最终协议冻结后做一次封存测试：预先列出的插值.075/.15/.35/.75与外推1.5；不据测试结果再挑超参。"
+  ],
+  "proposed_order_zh": [
+    "P0：先补当前检查点的长时验证和逐阻尼读出诊断，并评估 D=0 对照；不训练新模型。",
+    "P1：seed0 完成 LeHami、LeWM、H-JEPA 的匹配单工况适配，同时训练标量阻尼、无约束潜残差和 B 联合微调三个内部对照。",
+    "P2：加入 CpAE 表示连续性基线；验证历史条件适配后扩展共享多工况。对强阻尼问题有区分力时再做 D(q) 与去环境上下文。",
+    "P3：锁定协议后将主要方法扩至至少3种子，最后一次性报告长时、未见阻尼测试。"
+  ],
+  "deferred": [
+    {
+      "name": "DFLNN",
+      "title": "Learning mechanical systems from real-world data using discrete forced Lagrangian dynamics",
+      "paper": "https://arxiv.org/abs/2505.20370",
+      "verified_fact_zh": "原论文从位置测量学习离散受迫拉格朗日动力学，并包括自编码图像潜变量；保守与非保守分量分开建模。",
+      "reason_zh": "方法相关性很高，应在相关工作讨论。此轮未确认可立即复用的官方完整代码，不让重新实现成为首轮基线的前置条件；这是本次可复现性边界，不是断言代码不存在。"
+    },
+    {
+      "name": "state-supervised HNN / dissipative HNN / port-Hamiltonian networks",
+      "reason_zh": "只有当原方法的输入和监督已核实并具备可比像素接口时才进入视觉主表；直接给真实角度和速度的实现只能作为状态 oracle 辅助上界，不能与像素模型混排。"
+    },
+    {
+      "name": "Dreamer / foundation video predictors / multi-object models",
+      "reason_zh": "当前问题是被动单摆的离线物理预测；在线控制、外部预训练和多物体分解引入不必要变量，首轮优先四个更直接的视觉动力学方法。"
+    }
+  ],
+  "references": [
+    {
+      "key": "R1",
+      "title": "LeHami: Symplectic Latent Dynamics for World Models",
+      "url": "https://arxiv.org/abs/2610.15267"
+    },
+    {
+      "key": "R2",
+      "title": "LeWorldModel: Stable End-to-End Joint-Embedding Predictive Architecture from Pixels",
+      "url": "https://arxiv.org/abs/2603.19312"
+    },
+    {
+      "key": "R3",
+      "title": "Hamiltonian JEPA: Action-Conditioned World Models with an Inherited Control State",
+      "url": "https://arxiv.org/abs/2609.33497"
+    },
+    {
+      "key": "R4",
+      "title": "Continuity-Preserving Convolutional Autoencoders for Learning Continuous Latent Dynamical Models from Images",
+      "url": "https://arxiv.org/abs/2502.00754"
+    },
+    {
+      "key": "R5",
+      "title": "Learning mechanical systems from real-world data using discrete forced Lagrangian dynamics",
+      "url": "https://arxiv.org/abs/2505.20370"
+    }
+  ],
+  "verification_boundary_zh": "以上优先级、适配成本及实验计划为项目分析；文献事实由2026-11-08原论文页面和官方仓库实时核对。公开代码存在不等于已完成依赖安装、训练或匹配评测。未借用论文结果来声称当前模型优于这些方法。"
+}

@@ -1,0 +1,22 @@
+{
+  "job_id": "47541",
+  "phase": "formal_training",
+  "submitted_utc": "2026-11-03T05:21:14Z",
+  "remote_root": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z",
+  "run_dir": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/runs/seed0_47541",
+  "code_dir": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/code",
+  "steps": 20000,
+  "seed": 0,
+  "batch_size": 32,
+  "gpu": "l40:1",
+  "cpus": 4,
+  "memory": "32G",
+  "time_limit": "08:00:00",
+  "profile_job": "47539",
+  "profile_total_seconds_estimate": 18799.79124300182,
+  "operational_estimate_hours": [
+    5,
+    7
+  ],
+  "physical_validation_included": false
+}

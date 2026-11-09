@@ -1,0 +1,408 @@
+{
+  "status": "passed",
+  "audited_at_utc": "2026-11-05T03:14:33.540052+00:00",
+  "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+  "primary_probe_predeclared": "mlp",
+  "completed_model_episode_rollouts": 768,
+  "unique_test_episodes": 256,
+  "steps_per_rollout": 320,
+  "all_six_runs_truth_exactly_equal_to_current": true,
+  "all_six_episode_records_exactly_equal": true,
+  "same_seen_dataset_sha256": "55d2b4687e1a6f743b123ba69e3731a067a5b941817bd9d98738262dfabb1509",
+  "same_anchor_frame": 20,
+  "same_anchor_time_s": 2.0,
+  "all_valid_steps_320_and_predictions_finite": true,
+  "frozen_provenance_checked_against_original_sealed_manifest": true,
+  "published_metrics_independently_recomputed": true,
+  "metric_definition": "For each run and damping, wrap theta error into [-pi,pi] and pool squared errors over all 128 episodes and future frames 1..h/0.1 inclusive; take square root. LeWM mean and sample SD(ddof=1) are over 3 per-seed RMSEs. Anchor excluded.",
+  "comparison": [
+    {
+      "damping": 0.0,
+      "horizon_s": 8.0,
+      "episodes": 128,
+      "current_model_one_seed": {
+        "angle_rmse_rad": 1.0991963314900537,
+        "omega_rmse_rad_s": 2.636339086195627
+      },
+      "historical_lewm_mlp": {
+        "mean": {
+          "angle_rmse_rad": 0.2948518538727368,
+          "omega_rmse_rad_s": 0.7239415595273021
+        },
+        "sample_sd": {
+          "angle_rmse_rad": 0.15565787323657643,
+          "omega_rmse_rad_s": 0.36250131317641576
+        },
+        "seed_values": [
+          {
+            "seed": 0,
+            "angle_rmse_rad": 0.4706762916337233,
+            "omega_rmse_rad_s": 1.1098403297660013
+          },
+          {
+            "seed": 1,
+            "angle_rmse_rad": 0.174633307205588,
+            "omega_rmse_rad_s": 0.39056850688420297
+          },
+          {
+            "seed": 2,
+            "angle_rmse_rad": 0.23924596277889912,
+            "omega_rmse_rad_s": 0.6714158419317017
+          }
+        ]
+      },
+      "historical_lewm_ridge": {
+        "mean": {
+          "angle_rmse_rad": 0.2967730738133481,
+          "omega_rmse_rad_s": 0.7389775489859103
+        },
+        "sample_sd": {
+          "angle_rmse_rad": 0.1581874369763468,
+          "omega_rmse_rad_s": 0.3930391344612653
+        },
+        "seed_values": [
+          {
+            "seed": 0,
+            "angle_rmse_rad": 0.4754705351470453,
+            "omega_rmse_rad_s": 1.1576333696122072
+          },
+          {
+            "seed": 1,
+            "angle_rmse_rad": 0.17465731395838816,
+            "omega_rmse_rad_s": 0.37790894172612194
+          },
+          {
+            "seed": 2,
+            "angle_rmse_rad": 0.24019137233461083,
+            "omega_rmse_rad_s": 0.6813903356194015
+          }
+        ]
+      }
+    },
+    {
+      "damping": 0.0,
+      "horizon_s": 32.0,
+      "episodes": 128,
+      "current_model_one_seed": {
+        "angle_rmse_rad": 1.174533817617494,
+        "omega_rmse_rad_s": 2.625169294839007
+      },
+      "historical_lewm_mlp": {
+        "mean": {
+          "angle_rmse_rad": 0.9340622493350553,
+          "omega_rmse_rad_s": 2.4816556252262356
+        },
+        "sample_sd": {
+          "angle_rmse_rad": 0.15590475451900812,
+          "omega_rmse_rad_s": 0.416684731497805
+        },
+        "seed_values": [
+          {
+            "seed": 0,
+            "angle_rmse_rad": 1.0694903358465626,
+            "omega_rmse_rad_s": 2.8649990539478787
+          },
+          {
+            "seed": 1,
+            "angle_rmse_rad": 0.7636315203875118,
+            "omega_rmse_rad_s": 2.038166462690454
+          },
+          {
+            "seed": 2,
+            "angle_rmse_rad": 0.9690648917710917,
+            "omega_rmse_rad_s": 2.5418013590403747
+          }
+        ]
+      },
+      "historical_lewm_ridge": {
+        "mean": {
+          "angle_rmse_rad": 0.9334645225356728,
+          "omega_rmse_rad_s": 2.4781673404520803
+        },
+        "sample_sd": {
+          "angle_rmse_rad": 0.1559818292353996,
+          "omega_rmse_rad_s": 0.45386912179490735
+        },
+        "seed_values": [
+          {
+            "seed": 0,
+            "angle_rmse_rad": 1.0691468914238347,
+            "omega_rmse_rad_s": 2.8802821291548484
+          },
+          {
+            "seed": 1,
+            "angle_rmse_rad": 0.7630414092186469,
+            "omega_rmse_rad_s": 1.9860344365696185
+          },
+          {
+            "seed": 2,
+            "angle_rmse_rad": 0.968205266964537,
+            "omega_rmse_rad_s": 2.5681854556317747
+          }
+        ]
+      }
+    },
+    {
+      "damping": 0.2,
+      "horizon_s": 8.0,
+      "episodes": 128,
+      "current_model_one_seed": {
+        "angle_rmse_rad": 0.6766756855643111,
+        "omega_rmse_rad_s": 1.6734718890411846
+      },
+      "historical_lewm_mlp": {
+        "mean": {
+          "angle_rmse_rad": 0.05934666482701248,
+          "omega_rmse_rad_s": 0.16358356918933017
+        },
+        "sample_sd": {
+          "angle_rmse_rad": 0.023653873741159893,
+          "omega_rmse_rad_s": 0.0063382819933278855
+        },
+        "seed_values": [
+          {
+            "seed": 0,
+            "angle_rmse_rad": 0.03890584590100146,
+            "omega_rmse_rad_s": 0.16850432119085837
+          },
+          {
+            "seed": 1,
+            "angle_rmse_rad": 0.05387837025850998,
+            "omega_rmse_rad_s": 0.15643134190878996
+          },
+          {
+            "seed": 2,
+            "angle_rmse_rad": 0.085255778321526,
+            "omega_rmse_rad_s": 0.16581504446834217
+          }
+        ]
+      },
+      "historical_lewm_ridge": {
+        "mean": {
+          "angle_rmse_rad": 0.06282119660283315,
+          "omega_rmse_rad_s": 0.2179866066858526
+        },
+        "sample_sd": {
+          "angle_rmse_rad": 0.022297402300620394,
+          "omega_rmse_rad_s": 0.014212827792508194
+        },
+        "seed_values": [
+          {
+            "seed": 0,
+            "angle_rmse_rad": 0.04209000738157338,
+            "omega_rmse_rad_s": 0.2174616569624815
+          },
+          {
+            "seed": 1,
+            "angle_rmse_rad": 0.059964178216783695,
+            "omega_rmse_rad_s": 0.23245463661238666
+          },
+          {
+            "seed": 2,
+            "angle_rmse_rad": 0.08640940421014238,
+            "omega_rmse_rad_s": 0.20404352648268967
+          }
+        ]
+      }
+    },
+    {
+      "damping": 0.2,
+      "horizon_s": 32.0,
+      "episodes": 128,
+      "current_model_one_seed": {
+        "angle_rmse_rad": 0.6015837911520674,
+        "omega_rmse_rad_s": 0.9576706629422346
+      },
+      "historical_lewm_mlp": {
+        "mean": {
+          "angle_rmse_rad": 0.06816591122557544,
+          "omega_rmse_rad_s": 0.18662448295145384
+        },
+        "sample_sd": {
+          "angle_rmse_rad": 0.01686572143171187,
+          "omega_rmse_rad_s": 0.049437476876115494
+        },
+        "seed_values": [
+          {
+            "seed": 0,
+            "angle_rmse_rad": 0.06365211327272154,
+            "omega_rmse_rad_s": 0.24255701560350088
+          },
+          {
+            "seed": 1,
+            "angle_rmse_rad": 0.054016354751701315,
+            "omega_rmse_rad_s": 0.1487724711693596
+          },
+          {
+            "seed": 2,
+            "angle_rmse_rad": 0.08682926565230348,
+            "omega_rmse_rad_s": 0.16854396208150105
+          }
+        ]
+      },
+      "historical_lewm_ridge": {
+        "mean": {
+          "angle_rmse_rad": 0.06275544738749657,
+          "omega_rmse_rad_s": 0.22010236459220037
+        },
+        "sample_sd": {
+          "angle_rmse_rad": 0.007752196189787095,
+          "omega_rmse_rad_s": 0.06385528204313079
+        },
+        "seed_values": [
+          {
+            "seed": 0,
+            "angle_rmse_rad": 0.05400940950923825,
+            "omega_rmse_rad_s": 0.2938111053459126
+          },
+          {
+            "seed": 1,
+            "angle_rmse_rad": 0.06547720564490331,
+            "omega_rmse_rad_s": 0.18158570748186126
+          },
+          {
+            "seed": 2,
+            "angle_rmse_rad": 0.06877972700834818,
+            "omega_rmse_rad_s": 0.18491028094882728
+          }
+        ]
+      }
+    }
+  ],
+  "runs": [
+    {
+      "run": "lewm_b0p0_seed0",
+      "episodes": 128,
+      "steps": 320,
+      "truth_exactly_equal_to_main": true,
+      "same_episode_records": true,
+      "finite_both_readouts": true,
+      "frozen_checkpoint_and_readout_hashes_match": true,
+      "checkpoint_step": 19000,
+      "batch_check": {
+        "actual_batch_size": 32,
+        "max_angle_difference": 0.000533637161399203,
+        "max_omega_difference": 0.0013180109617602076,
+        "tolerances": [
+          0.001,
+          0.01
+        ]
+      },
+      "trajectories_sha256": "29e533b97928853ca3c403f0aa9aaebfc2d65a28305859960fd10b6f88030786"
+    },
+    {
+      "run": "lewm_b0p0_seed1",
+      "episodes": 128,
+      "steps": 320,
+      "truth_exactly_equal_to_main": true,
+      "same_episode_records": true,
+      "finite_both_readouts": true,
+      "frozen_checkpoint_and_readout_hashes_match": true,
+      "checkpoint_step": 26250,
+      "batch_check": {
+        "actual_batch_size": 1,
+        "max_angle_difference": 0.005730597548202376,
+        "max_omega_difference": 0.01259498256308067,
+        "tolerances": [
+          0.001,
+          0.01
+        ]
+      },
+      "trajectories_sha256": "3039c4252e7a89d2a3d01959282dfc36a9c98bca9da976389d3e659f4f3c1090"
+    },
+    {
+      "run": "lewm_b0p0_seed2",
+      "episodes": 128,
+      "steps": 320,
+      "truth_exactly_equal_to_main": true,
+      "same_episode_records": true,
+      "finite_both_readouts": true,
+      "frozen_checkpoint_and_readout_hashes_match": true,
+      "checkpoint_step": 26750,
+      "batch_check": {
+        "actual_batch_size": 1,
+        "max_angle_difference": 0.0017819849900940208,
+        "max_omega_difference": 0.0043246949906761145,
+        "tolerances": [
+          0.001,
+          0.01
+        ]
+      },
+      "trajectories_sha256": "28be6e17be0d5e61ea0930ba91396a1cc8acd0095614e41bbe8ab0c9b130ff8e"
+    },
+    {
+      "run": "lewm_b0p2_seed0",
+      "episodes": 128,
+      "steps": 320,
+      "truth_exactly_equal_to_main": true,
+      "same_episode_records": true,
+      "finite_both_readouts": true,
+      "frozen_checkpoint_and_readout_hashes_match": true,
+      "checkpoint_step": 28000,
+      "batch_check": {
+        "actual_batch_size": 32,
+        "max_angle_difference": 0.00018091825535043737,
+        "max_omega_difference": 0.0007281533762379944,
+        "tolerances": [
+          0.001,
+          0.01
+        ]
+      },
+      "trajectories_sha256": "00b65638f93c3be2d23d68391ec3b88dbf4634c3aecda57ba1c2277f40acc94a"
+    },
+    {
+      "run": "lewm_b0p2_seed1",
+      "episodes": 128,
+      "steps": 320,
+      "truth_exactly_equal_to_main": true,
+      "same_episode_records": true,
+      "finite_both_readouts": true,
+      "frozen_checkpoint_and_readout_hashes_match": true,
+      "checkpoint_step": 24250,
+      "batch_check": {
+        "actual_batch_size": 32,
+        "max_angle_difference": 0.00023532080949267842,
+        "max_omega_difference": 0.0008677826297533997,
+        "tolerances": [
+          0.001,
+          0.01
+        ]
+      },
+      "trajectories_sha256": "ce8060d45578987bbfcab3428a32387b86d3a544db8c7b5a8238ff03aa213073"
+    },
+    {
+      "run": "lewm_b0p2_seed2",
+      "episodes": 128,
+      "steps": 320,
+      "truth_exactly_equal_to_main": true,
+      "same_episode_records": true,
+      "finite_both_readouts": true,
+      "frozen_checkpoint_and_readout_hashes_match": true,
+      "checkpoint_step": 24000,
+      "batch_check": {
+        "actual_batch_size": 32,
+        "max_angle_difference": 0.0003372287621699055,
+        "max_omega_difference": 0.0011645083304596682,
+        "tolerances": [
+          0.001,
+          0.01
+        ]
+      },
+      "trajectories_sha256": "e5f70eb85327d12cb0f96fa6ec3938a3d3973a7853948d5f3d9b925b301a9f56"
+    }
+  ],
+  "input_sha256": {
+    "main_trajectories": "150916cef31642b7e5832b9c4cef020a746bd6dfe8944d98413415b4e5f55845",
+    "main_manifest": "9ccb1aa5156b4c9d157b4e5f035e9468dec028534ddc759aff54caf6f04dd4db",
+    "lewm_manifest": "8fb46857a649c4d74bfbc41fbdf9c6ea660948ca1cf59bebe85ec42e79c6b171",
+    "lewm_summary": "93d217c4a60ea3c0f4d65c89e5067f45ad8eab4d6583cee5c6e2201f02f1872d"
+  },
+  "limitations": [
+    "Historical single-damping specialists selected using known damping; current model infers context jointly for all six seen damping values.",
+    "Only damping 0 and 0.2 evaluated for LeWM; no interpolation or extrapolation claim.",
+    "Historical LeWM uses 5 frames (1.6-2.0 s); current model 21 frames (0-2.0 s). Both begin forecast at 2.0 s.",
+    "Historical training had 28140 updates, different data with mixed passive/forced trajectories; current training had 20000 updates on passive multi-damping data.",
+    "Old and current probe training data budgets and architectures differ; historical probes stayed frozen and MLP primary was predeclared.",
+    "LeWM mean and sample SD describe 3 historical seeds; current model has only one training seed. This is not a matched architectural comparison."
+  ]
+}

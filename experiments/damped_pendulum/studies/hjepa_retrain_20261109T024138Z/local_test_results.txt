@@ -1,0 +1,5 @@
+Command: .venv/bin/python -m pytest tests/test_hjepa_acceptance.py tests/test_hjepa_retrain.py tests/test_comparison_hjepa.py tests/test_comparison_training.py -q
+Result: 47 passed in 19.40s
+Coverage: new acceptance and pipeline transactions (24), existing official-core and actual tiny-data trainer/resume checks (23).
+These are software checks, not scientific training results or GPU memory qualification.
+All three new shell entries passed bash -n; three new Python entrypoints passed --help.

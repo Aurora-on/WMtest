@@ -1,0 +1,6 @@
+# Preserve exact source and evidence bytes, including historical hashes.
+* -text
+*.npz binary
+*.png binary
+*.gif binary
+*.pdf binary

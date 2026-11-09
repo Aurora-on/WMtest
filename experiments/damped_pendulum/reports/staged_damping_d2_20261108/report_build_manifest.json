@@ -1,0 +1,40 @@
+{
+  "output": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/output/pdf/staged_damping_d2_technical_report_20261108.pdf",
+  "pages": 12,
+  "section_count": 12,
+  "page_text_lengths": [
+    783,
+    1029,
+    1087,
+    1054,
+    822,
+    888,
+    656,
+    447,
+    845,
+    1040,
+    1096,
+    1410
+  ],
+  "inputs": {
+    "audit": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/completion_audit_20261108.json",
+    "history": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/reports/staged_damping_d2_20261108/analysis/training_history_summary.json"
+  },
+  "created_at": "2026-11-08T16:39:20.274997+08:00",
+  "sha256": "28f623cb6d6dcb04aeb000dd82b9a749aed8b106d825a796385efea5d0450e89",
+  "bytes": 1419793,
+  "verification": {
+    "pages": 12,
+    "all_pages_visually_reviewed": true,
+    "changed_pages_rechecked": [
+      3,
+      4,
+      5,
+      9
+    ],
+    "missing_glyph_count": 0,
+    "factual_review_completed": true,
+    "source_metrics_independently_recomputed": true,
+    "new_model_training_or_inference": false
+  }
+}

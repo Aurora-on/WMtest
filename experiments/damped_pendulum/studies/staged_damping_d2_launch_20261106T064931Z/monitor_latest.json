@@ -1,0 +1,60 @@
+{
+  "checked_at_beijing": "2026-11-06T15:49:40.952296+08:00",
+  "job_id": "47920",
+  "stage": {
+    "status": "running_stage_a"
+  },
+  "step": 10969,
+  "new_optimizer_updates": 969,
+  "checkpoint_step": 10750,
+  "health": {
+    "all_losses_and_gradients_finite": true,
+    "max_solver_failed_attempts": 0.0
+  },
+  "validation_history": [
+    {
+      "step": 10250,
+      "gate_passed": true,
+      "score": 0.07645246964329484,
+      "seconds": 21.58753553777933
+    },
+    {
+      "step": 10500,
+      "gate_passed": true,
+      "score": 0.07133741617849859,
+      "seconds": 21.407266922295094
+    },
+    {
+      "step": 10750,
+      "gate_passed": true,
+      "score": 0.06440575241436403,
+      "seconds": 21.390188701450825
+    }
+  ],
+  "observed_speed_change": {
+    "earlier_step_seconds": 2.975517739593983,
+    "latest75_step_seconds": 1.7391288538773855,
+    "cause": "Not established; no configuration change made during monitoring."
+  },
+  "remaining_A_steps": 9031,
+  "A_remaining_hours_scenarios": [
+    4.583376176951522,
+    7.684995073314464
+  ],
+  "A_training_finish_beijing_scenarios": [
+    "2026-11-06T20:24:41.106533+08:00",
+    "2026-11-06T23:30:46.934560+08:00"
+  ],
+  "A_post_training_evaluation_reference_seconds": 61.115470707416534,
+  "B_provisional_hours_parallel": [
+    12,
+    18
+  ],
+  "B_evidence": "Prior same-2D L40 full-A budget about12h; older joint-D about16.06h. New frozen-D/context branches have not started; range is a planning assumption, not validated, may be exceeded.",
+  "parallel_rule": "A remaining + A evaluation + max(Bsingle,Bmulti), not sum of both B branches.",
+  "full_finish_beijing_provisional": [
+    "2026-11-07T08:26:41.106533+08:00",
+    "2026-11-07T17:32:46.934560+08:00"
+  ],
+  "timing_scope": "A calculation includes remaining periodic validation; final B evaluation cost unmeasured. These are conditional estimates, not guarantees."
+}

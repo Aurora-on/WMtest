@@ -1,0 +1,7 @@
+{
+  "job_id": "47836",
+  "remote_root": "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z/control_visuals_20261105",
+  "submitted_at_utc": "2026-11-05T10:22:38.476243+00:00",
+  "purpose": "Frozen control10000 readout calibration and validation figures",
+  "world_model_training": false
+}

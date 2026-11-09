@@ -1,0 +1,166 @@
+{
+  "kind": "explicit_integrator_and_backward_migration",
+  "original_checkpoint": "/home/weizhixin/ssd/robust_solver_20261104_v2/continuation/last.pt",
+  "original_checkpoint_sha256": "ed5686271c1645fbb53ac384bc5dc5bb56d172e4c50d4b52cb63f057dbc017fd",
+  "original_source_root": "/home/weizhixin/ssd/robust_solver_20261104_v2/code",
+  "original_source_hashes": {
+    "dpbench/train_dissipative.py": "bca056b9c088fdabf845b38ddb93fc59ac3dd2079217046a7f1cf7ac0d03f284",
+    "dpbench/dissipative_model.py": "bf0b419f4d6a23866cc22018905ff11972ac9c8b4002fc8476236987e4cee30a",
+    "dpbench/dissipative_core.py": "1eb98f2aafbbe6d215bccdfa6296371096c292ca85a204b663083bf7b461b2fb",
+    "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+  },
+  "new_source_hashes": {
+    "dpbench/train_dissipative.py": "dd65dc94bce52daa53a39e90386bee2e3cd50bd269bc15be48083445acbe3339",
+    "dpbench/dissipative_model.py": "22759040e4b6085a4b029f702c0188cd1b230961751ae0307c4202704e53567e",
+    "dpbench/dissipative_core.py": "1eb98f2aafbbe6d215bccdfa6296371096c292ca85a204b663083bf7b461b2fb",
+    "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+    "dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+    "dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+  },
+  "source_changes": {
+    "dpbench/automatic_discrete_gradient.py": {
+      "before": null,
+      "after": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+      "kind": "added"
+    },
+    "dpbench/dissipative_model.py": {
+      "before": "bf0b419f4d6a23866cc22018905ff11972ac9c8b4002fc8476236987e4cee30a",
+      "after": "22759040e4b6085a4b029f702c0188cd1b230961751ae0307c4202704e53567e",
+      "kind": "modified"
+    },
+    "dpbench/efficient_dissipative_core.py": {
+      "before": null,
+      "after": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+      "kind": "added"
+    },
+    "dpbench/train_dissipative.py": {
+      "before": "bca056b9c088fdabf845b38ddb93fc59ac3dd2079217046a7f1cf7ac0d03f284",
+      "after": "dd65dc94bce52daa53a39e90386bee2e3cd50bd269bc15be48083445acbe3339",
+      "kind": "modified"
+    }
+  },
+  "algorithm_changes": {
+    "adjoint_rtol": {
+      "before": null,
+      "after": 1e-10
+    },
+    "fd_relative_step": {
+      "before": null,
+      "after": 6e-06
+    },
+    "implicit_rcond_min": {
+      "before": null,
+      "after": 1e-08
+    },
+    "integrator": {
+      "before": "discrete_gradient",
+      "after": "frozen_dg"
+    },
+    "picard_check_every": {
+      "before": null,
+      "after": 2
+    },
+    "picard_iterations": {
+      "before": null,
+      "after": 6
+    },
+    "solver": {
+      "before": "backtracking",
+      "after": "picard"
+    },
+    "substeps": {
+      "before": 2,
+      "after": 3
+    }
+  },
+  "original_config_sha256": "28c78ffe7e12e912c66f8e4ed99a2ade8ed5a3aec8f695a7089be05c7adbd31d",
+  "new_config_sha256": "a1accd4b268e7669417f919333b943f4e4e35e4c8de13fa736978a58664db16d",
+  "step": 3750,
+  "preserved": [
+    "state_dict",
+    "optimizer",
+    "rng",
+    "step",
+    "sampler_next_step",
+    "validation_indices",
+    "dataset_sha256"
+  ],
+  "reset": [
+    "validation",
+    "validation_status",
+    "best_score",
+    "best_step",
+    "best_checkpoint_path"
+  ],
+  "previous_migration": {
+    "kind": "explicit_solver_only_migration",
+    "original_checkpoint": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/runs/seed0_47541/last.pt",
+    "original_checkpoint_sha256": "ebaa2a0158336162f6abaedb98f1ff0732887739d4c1481138409c1012759da7",
+    "original_source_root": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/code",
+    "original_source_hashes": {
+      "dpbench/train_dissipative.py": "83e5d07c3e26d518b6ad1a7983cc75d376ab263e28f449ca54dc0e06cac229ed",
+      "dpbench/dissipative_model.py": "e1e37a7e8d967a3175250a83881144694bd424d1873c85398486c65e8abbc1b9",
+      "dpbench/dissipative_core.py": "28ffabd06e86b1968a8f32a33015e3ab01bc839015e83466460bf111800fc54e",
+      "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+      "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+    },
+    "new_source_hashes": {
+      "dpbench/train_dissipative.py": "bca056b9c088fdabf845b38ddb93fc59ac3dd2079217046a7f1cf7ac0d03f284",
+      "dpbench/dissipative_model.py": "bf0b419f4d6a23866cc22018905ff11972ac9c8b4002fc8476236987e4cee30a",
+      "dpbench/dissipative_core.py": "1eb98f2aafbbe6d215bccdfa6296371096c292ca85a204b663083bf7b461b2fb",
+      "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+      "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+    },
+    "source_changes": {
+      "dpbench/train_dissipative.py": {
+        "before": "83e5d07c3e26d518b6ad1a7983cc75d376ab263e28f449ca54dc0e06cac229ed",
+        "after": "bca056b9c088fdabf845b38ddb93fc59ac3dd2079217046a7f1cf7ac0d03f284"
+      },
+      "dpbench/dissipative_model.py": {
+        "before": "e1e37a7e8d967a3175250a83881144694bd424d1873c85398486c65e8abbc1b9",
+        "after": "bf0b419f4d6a23866cc22018905ff11972ac9c8b4002fc8476236987e4cee30a"
+      },
+      "dpbench/dissipative_core.py": {
+        "before": "28ffabd06e86b1968a8f32a33015e3ab01bc839015e83466460bf111800fc54e",
+        "after": "1eb98f2aafbbe6d215bccdfa6296371096c292ca85a204b663083bf7b461b2fb"
+      }
+    },
+    "solver_changes": {
+      "newton_iterations": {
+        "before": 6,
+        "after": 12
+      },
+      "max_bisections": {
+        "before": 0,
+        "after": 4
+      },
+      "solver": {
+        "before": "full",
+        "after": "backtracking"
+      }
+    },
+    "original_config_sha256": "afa7aca0c58df4ba6c62a85bcf3111fface8ff3f095270005465757f343d7a32",
+    "new_config_sha256": "28c78ffe7e12e912c66f8e4ed99a2ade8ed5a3aec8f695a7089be05c7adbd31d",
+    "step": 2750,
+    "preserved": [
+      "state_dict",
+      "optimizer",
+      "rng",
+      "sampler_next_step",
+      "validation_indices",
+      "dataset_sha256"
+    ],
+    "reset": [
+      "validation",
+      "best_score",
+      "best_step",
+      "best_checkpoint_path"
+    ],
+    "scope": "Changed numerical solver; same architecture/data/schedule. This is not an unchanged-experiment resume.",
+    "migration_script_sha256": "a12372ac78e425fc74a8d46d611a18dcdd37674291113894d67bb9c95e1c6fae"
+  },
+  "scope": "New discrete map and implicit-root backward; unchanged architecture/data/schedule. This is a new experiment initialized from the old weights and Adam state, not an unchanged-experiment resume. Revalidate before the first update.",
+  "migration_script_sha256": "f0edf03205434b3a01cdf21800f7ef775d56c4f4fd36197d171e00e53a2ec737"
+}

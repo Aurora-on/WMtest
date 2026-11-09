@@ -1,0 +1,181 @@
+{
+  "checkpoint_step": 10000,
+  "checkpoint_sha256": {
+    "control": "bef8db8773e7d16df40221deb82b194acd2ff700c87c1e3b135c2d9bebb4f8b5",
+    "lehami": "746d0e95aeedd53455b158a8d487803d3253ed6feeacb8737f553a3a7eb05872"
+  },
+  "dataset_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+  "selected_records": [
+    {
+      "energy_band": 0,
+      "group_id": 10000385,
+      "episode": 385
+    },
+    {
+      "energy_band": 1,
+      "group_id": 10000387,
+      "episode": 387
+    },
+    {
+      "energy_band": 2,
+      "group_id": 10000384,
+      "episode": 384
+    },
+    {
+      "energy_band": 3,
+      "group_id": 10000386,
+      "episode": 386
+    }
+  ],
+  "selection": "Same four fixed validation cases as prior figures; minimum group_id per initial energy band",
+  "source_sha256": {
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/control_visuals_20261105/readout_diagnostic/summary.json": "1408a91de2d7617f8abb17341c3696d557311cbcc2934b7b1b93fe1d832b8a25",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/nonlinear_readout_visuals_20261105/rollout/summary.json": "8851f13a46f7c9df302104b9f112ca7a52569846055b0e86730417de7bf57cee",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/control_visuals_20261105/evaluation/summary.json": "20b7575c3329f4a43bf2c5a491e24aac6f555ad42069a54c2d42bf1930fe0431",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/nonlinear_readout_visuals_20261105/rollout/trajectories.npz": "3404fe416f569dcae1c7758426caeb2b621534ec22bce156e8e0d66bad0addde",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/control_visuals_20261105/evaluation/trajectories.npz": "52bf0b1d7325dc117e5fa8a06f82988ae943837f120c09414a5a1ec382f493c6",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/control_visuals_20261105/evaluation/animation_inputs.npz": "e701ba6d6d1f76bf72e6191697dcb9e5f049810778654d87e697f456b812a867",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/control_visuals_20261105/readout_diagnostic/control_features.npz": "52a72838ac4b9b0abd18533af55fb992d37abf00533a11cba89f8d80a0098791",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/control_visuals_20261105/readout_diagnostic/lehami_features.npz": "faacacf27b63b01d0d1ef780ae53094044444652db200353c3e397ae03cf7d1c"
+  },
+  "script_sha256": "5d21a325b29c552745403a5e6937381828269797cb2645ae720303017c936c47",
+  "metrics": {
+    "control_ridge": {
+      "observation_readout": {
+        "angle_mae_rad": 0.8136506734234306,
+        "angle_rmse_rad": 1.039251433417557,
+        "omega_rmse_rad_s": 2.575089384853412,
+        "omega_nrmse": 0.9859552547422215,
+        "normalized_target_mse": 0.9696150176678175,
+        "quality_gate_passed": false
+      },
+      "autonomous_rollout": {
+        "8": {
+          "n_total": 64,
+          "n_complete": 64,
+          "seconds": 0.8,
+          "metrics": {
+            "angle_mae_rad": 1.1299782133388716,
+            "omega_rmse_rad_s": 2.690133557805505,
+            "omega_nrmse": 1.030003592449165
+          }
+        },
+        "32": {
+          "n_total": 64,
+          "n_complete": 64,
+          "seconds": 3.2,
+          "metrics": {
+            "angle_mae_rad": 1.3262529961023497,
+            "omega_rmse_rad_s": 4.043650710676018,
+            "omega_nrmse": 1.5482408843684048
+          }
+        }
+      }
+    },
+    "control_knn": {
+      "observation_readout": {
+        "angle_mae_rad": 0.721870557507934,
+        "angle_rmse_rad": 0.9763390485571031,
+        "omega_rmse_rad_s": 2.482992936113731,
+        "omega_nrmse": 0.9506931865157411,
+        "normalized_target_mse": 0.8376149085070453,
+        "quality_gate_passed": false
+      },
+      "autonomous_rollout": {
+        "8": {
+          "n_total": 64,
+          "n_complete": 64,
+          "seconds": 0.8,
+          "metrics": {
+            "angle_mae_rad": 1.2314934745048831,
+            "omega_rmse_rad_s": 2.7201700628438736,
+            "omega_nrmse": 1.0415040281819452
+          }
+        },
+        "32": {
+          "n_total": 64,
+          "n_complete": 64,
+          "seconds": 3.2,
+          "metrics": {
+            "angle_mae_rad": 1.3825690704857792,
+            "omega_rmse_rad_s": 2.6151505334475678,
+            "omega_nrmse": 1.0012939455852445
+          }
+        }
+      }
+    },
+    "lehami_ridge": {
+      "observation_readout": {
+        "angle_mae_rad": 0.21786914640593968,
+        "angle_rmse_rad": 0.3129370506609452,
+        "omega_rmse_rad_s": 0.2382574868454679,
+        "omega_nrmse": 0.09122449205790858,
+        "normalized_target_mse": 0.27227516945374197,
+        "quality_gate_passed": false
+      },
+      "autonomous_rollout": {
+        "8": {
+          "n_total": 64,
+          "n_complete": 64,
+          "seconds": 0.8,
+          "metrics": {
+            "angle_mae_rad": 1.1428095293533296,
+            "omega_rmse_rad_s": 0.5619133104834407,
+            "omega_nrmse": 0.21514646615355593
+          }
+        },
+        "32": {
+          "n_total": 64,
+          "n_complete": 64,
+          "seconds": 3.2,
+          "metrics": {
+            "angle_mae_rad": 1.151342711238411,
+            "omega_rmse_rad_s": 3.586711990716116,
+            "omega_nrmse": 1.3732872945281454
+          }
+        }
+      }
+    },
+    "lehami_knn": {
+      "observation_readout": {
+        "angle_mae_rad": 0.008783804262463696,
+        "angle_rmse_rad": 0.012075432820156079,
+        "omega_rmse_rad_s": 0.05459453932034224,
+        "omega_nrmse": 0.020903263878813447,
+        "normalized_target_mse": 0.00030821416774904487,
+        "quality_gate_passed": true
+      },
+      "autonomous_rollout": {
+        "8": {
+          "n_total": 64,
+          "n_complete": 64,
+          "seconds": 0.8,
+          "metrics": {
+            "angle_mae_rad": 0.08679440081655702,
+            "omega_rmse_rad_s": 0.37012061446601524,
+            "omega_nrmse": 0.14171250398826873
+          }
+        },
+        "32": {
+          "n_total": 64,
+          "n_complete": 64,
+          "seconds": 3.2,
+          "metrics": {
+            "angle_mae_rad": 0.19374509517801258,
+            "omega_rmse_rad_s": 1.101582391575351,
+            "omega_nrmse": 0.4217760182981175
+          }
+        }
+      }
+    }
+  },
+  "selected_knn_k": {
+    "control": 50,
+    "lehami": 5
+  },
+  "readout_refitted": false,
+  "hyperparameters_changed": false,
+  "world_model_updates": 0,
+  "scope": "Observation readout sees a fresh true 21-frame history at each time. Autonomous rollout sees only initial21 frames. Both use the same frozen train-only readouts. Val diagnostics, not held-out test evaluation.",
+  "limitation": "kNN maps a query to nearby training labels, even for off-manifold latent predictions. Better decoded images alone do not establish accurate latent dynamics."
+}

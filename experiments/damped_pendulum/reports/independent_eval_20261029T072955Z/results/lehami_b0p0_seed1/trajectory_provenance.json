@@ -1,0 +1,12 @@
+{
+  "source_file": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z/results_single/lehami_b0p0_seed1/trajectories.npz",
+  "source_sha256": "af383505b33b3c0c37687ecd1ce14bbc7b5e240b03c340fc4b96e95f0d9ba7c4",
+  "features_shape": [
+    128,
+    321,
+    64
+  ],
+  "all_features_finite": true,
+  "compact_file": "predictions.npz",
+  "compact_sha256": "727a3fb275070ba195b6418e30953b66a99ea7621c273dd40be1daaa5b818c11"
+}

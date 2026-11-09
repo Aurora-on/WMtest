@@ -1,0 +1,11 @@
+{
+  "pdf_pages": 7,
+  "all_pages_visually_reviewed": true,
+  "html_embedded_images": 10,
+  "html_embedded_gifs": 5,
+  "all_gifs_33_frames": true,
+  "all_twelve_exact_checkpoints_and_frozen_evaluations": true,
+  "source_summary_hashes_match": true,
+  "no_external_image_dependencies": true,
+  "scope": "layout and artifact integrity; scientific limits in report"
+}

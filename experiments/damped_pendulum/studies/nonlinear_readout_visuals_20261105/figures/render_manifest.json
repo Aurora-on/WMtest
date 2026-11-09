@@ -1,0 +1,75 @@
+{
+  "kind": "frozen_nonlinear_readout_comparison",
+  "checkpoint_step": 10000,
+  "checkpoint_sha256": {
+    "control": "bef8db8773e7d16df40221deb82b194acd2ff700c87c1e3b135c2d9bebb4f8b5",
+    "lehami": "746d0e95aeedd53455b158a8d487803d3253ed6feeacb8737f553a3a7eb05872"
+  },
+  "selected_records": [
+    {
+      "energy_band": 0,
+      "group_id": 10000385,
+      "episode": 385
+    },
+    {
+      "energy_band": 1,
+      "group_id": 10000387,
+      "episode": 387
+    },
+    {
+      "energy_band": 2,
+      "group_id": 10000384,
+      "episode": 384
+    },
+    {
+      "energy_band": 3,
+      "group_id": 10000386,
+      "episode": 386
+    }
+  ],
+  "sampling": "4 fixed validation cases, original dt0.1 and times0..3.2, no interpolation",
+  "teacher": "Each time point sees its real history; not autonomous prediction",
+  "rollout": "Same latent trajectory decoded by two fixed readouts; only initial21 real frames",
+  "display": "Stored true RGB; all readout images redrawn by fixed renderer; no image decoder",
+  "source_sha256": {
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/nonlinear_readout_visuals_20261105/comparison_inputs.npz": "fc998531c5270040f7d5c2da3d88621231067afe0bb128155f97806f61cdbbd4",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/nonlinear_readout_visuals_20261105/comparison_meta.json": "2de430d68fda18b06370e450aeedb415e3517329921324bbf9cc2abb6641d77c"
+  },
+  "script_sha256": "a9cac0aaeea754d347c88dabe07cc3d66f7c91b443af8b596c4fbb303487ce01",
+  "renderer_sha256": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31",
+  "font": "/System/Library/Fonts/STHeiti Medium.ttc",
+  "outputs": {
+    "lehami_teacher_band1.png": {
+      "sha256": "b860bad51dc8534b72bc4c7680e3287a9ddef51255797629fb54f2ce665bd3f6",
+      "bytes": 148350
+    },
+    "lehami_teacher_band3.png": {
+      "sha256": "4960fb6ee9013e382054fa9501b0c2dfcea5f7146d2602a3f32abe2254c3002f",
+      "bytes": 146481
+    },
+    "control_teacher_band1.png": {
+      "sha256": "e6ff70f8360156dc97da7379d9aa86fc22d8dbb0ed240c2b0cefb932e488e7b1",
+      "bytes": 140534
+    },
+    "lehami_teacher_comparison.gif": {
+      "sha256": "db2a95533dc462ed6177e2a3c91e1492eac237e4edbbf85caf599f6f6d84653d",
+      "bytes": 1510056
+    },
+    "lehami_teacher_preview.png": {
+      "sha256": "756848c76b97968046e4bbdae40594892ad9716746b5e70bebe33e33ea015eef",
+      "bytes": 96331
+    },
+    "lehami_rollout_comparison.gif": {
+      "sha256": "04f6a829b8acfe6ef3cee1b414f7a1dd619e8d296a4cc12bd9b88767a04b278c",
+      "bytes": 1544549
+    },
+    "lehami_rollout_preview.png": {
+      "sha256": "6dbeb5f3e5c8b2046d58518563180f95ef24ffb4b107ec7aee036c365f15d497",
+      "bytes": 96621
+    },
+    "lehami_readout_and_rollout_curves.png": {
+      "sha256": "05c6825f6e44110b317bf4bc28feb3800028e05673d5bc1f2f2c1632e24cf4c3",
+      "bytes": 295249
+    }
+  }
+}

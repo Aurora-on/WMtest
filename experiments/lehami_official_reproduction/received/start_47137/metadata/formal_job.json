@@ -1,0 +1,19 @@
+{
+  "job_id": "47137",
+  "submitted_unix": 1793259235.0493379,
+  "preflight_job": "47135",
+  "recipe": "conservative_multi_rod.sh --arms a0m,b0m",
+  "seeds": [
+    42,
+    1,
+    2
+  ],
+  "epochs": 100,
+  "estimated_wall_hours": [
+    8,
+    10
+  ],
+  "estimate_basis": "One full epoch + validation: a0m48.55s, b0m57.59s. Startup amortizes; full physics/Jacobian cost remains uncertain.",
+  "status": "running_verified",
+  "health_evidence": "formal_start_health.json"
+}

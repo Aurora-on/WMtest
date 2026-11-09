@@ -1,0 +1,281 @@
+{
+  "checked_at_utc": "2026-11-05T05:53:14.455036+00:00",
+  "run_root": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z",
+  "training_directory": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/training",
+  "operation": "read_only_training_artifact_audit",
+  "test_data_read": false,
+  "optimizer_created": false,
+  "training_updates": 0,
+  "history_parse": {
+    "exists": true,
+    "partial_tail_ignored": false,
+    "parse_errors": [],
+    "mtime_utc": "2026-11-05T05:53:14.281979+00:00"
+  },
+  "history": {
+    "rows": 1131,
+    "latest_step": 1131,
+    "contiguous_from_1": true,
+    "finite_loss_and_gradient": true,
+    "nonfinite_count": 0,
+    "nonfinite_examples": [],
+    "logged_work_and_dissipation_exactly_zero": true,
+    "nonzero_work_or_dissipation_count": 0,
+    "nonzero_examples": [],
+    "missing_or_invalid_diagnostics_count": 0,
+    "missing_examples": [],
+    "maximum_solver_residual_ratio": 0.4996829769121233,
+    "solver_residual_ratios_within_tolerance": true,
+    "maximum_split_depth": 0.0,
+    "nonzero_split_diagnostic_count": 0,
+    "latest_losses": {
+      "loss": 3.221406394987491,
+      "prediction_loss": 5.9119928868262435e-06,
+      "motion_loss": 0.00479146830593744,
+      "sigreg_loss": 12.865553855895996,
+      "initializer_loss": 2.2092383632902056e-10,
+      "target_std_min": 0.0004099939761846292,
+      "target_std_mean": 0.0004218945105041546,
+      "target_motion_rms": 0.0005082955111034734,
+      "target_motion_mse": 2.583643266079413e-07,
+      "persistence_mse": 3.7030112658262455e-07,
+      "prediction_mse": 5.9119928868262435e-06,
+      "normalized_prediction_mse": 0.05911992886826243,
+      "persistence_ratio": 0.05911992886826243,
+      "predicted_velocity_power": 1.8615618330571336e-05,
+      "dynamic_predicted_velocity_power": 0.0,
+      "target_velocity_power": 2.583643189080845e-05,
+      "dynamic_target_velocity_power": 0.0,
+      "velocity_error_power": 4.791468305937442e-05,
+      "dynamic_velocity_error_power": 0.0,
+      "velocity_cross_power": -1.7313164189973196e-06,
+      "dynamic_velocity_cross_power": 0.0,
+      "momentum_loss": 0.002205507144470941,
+      "momentum_point_count": 256.0,
+      "dynamic_window_count": 0.0,
+      "stalled_dynamic_window_count": 0.0,
+      "window_count": 32.0,
+      "target_mean_0": -0.0012454574753064662,
+      "target_second_moment_0": 1.7393424637103354e-06,
+      "target_mean_1": -0.0011885156272910535,
+      "target_second_moment_1": 1.5806644568227288e-06,
+      "work": 0.0,
+      "dissipation": 0.0,
+      "residual_work": -3.182177384042006e-14,
+      "chain_defect": 2.2322829800345043e-19,
+      "chain_defect_max": 1.3908831565331327e-16,
+      "numerical_balance_defect": 3.1483149492062676e-13,
+      "solver_residual": 6.5057111173910664e-12,
+      "solver_residual_ratio": 0.0005732383093143053,
+      "solver_picard_iterations": 3.0,
+      "solver_newton_iterations": 0.0,
+      "solver_backtracks": 0.0,
+      "solver_line_search_evals": 0.0,
+      "solver_iterations": 3.0,
+      "solver_failed_attempts": 0.0,
+      "solver_leaf_steps": 3.0,
+      "solver_split_depth": 0.0,
+      "solver_replay_iterations": 0.0,
+      "solver_replay_relative_error": 0.0,
+      "energy_delta": -3.182155060288405e-14,
+      "energy_residual": 3.1483149420807877e-13
+    },
+    "latest_gradient_norm": 5.400081759425657,
+    "validation_rounds": 4,
+    "latest_validation": {
+      "step": 1000,
+      "score": 0.8262092974187801,
+      "gate_passed": false,
+      "position_score": 0.8262092974187801,
+      "motion_score": 0.0,
+      "validation_seconds": 17.410678908228874,
+      "failed_prediction_groups": []
+    },
+    "recent_validations": [
+      {
+        "step": 250,
+        "score": 36.96880803296501,
+        "gate_passed": false,
+        "position_score": 35.65911635979884,
+        "motion_score": 1.3096916731661732,
+        "validation_seconds": 17.316719986498356,
+        "failed_prediction_groups": [
+          "h8_regime0_mode0_time0",
+          "h8_regime0_mode0_time1",
+          "h8_regime0_mode0_time2",
+          "h32_regime0_mode0_time0",
+          "h32_regime0_mode0_time1",
+          "h32_regime0_mode0_time2"
+        ]
+      },
+      {
+        "step": 500,
+        "score": 4.822463356248321,
+        "gate_passed": false,
+        "position_score": 4.822463356248321,
+        "motion_score": 0.0,
+        "validation_seconds": 17.213126964867115,
+        "failed_prediction_groups": []
+      },
+      {
+        "step": 750,
+        "score": 2.409553477259946,
+        "gate_passed": false,
+        "position_score": 2.409553477259946,
+        "motion_score": 0.0,
+        "validation_seconds": 17.27056761085987,
+        "failed_prediction_groups": []
+      },
+      {
+        "step": 1000,
+        "score": 0.8262092974187801,
+        "gate_passed": false,
+        "position_score": 0.8262092974187801,
+        "motion_score": 0.0,
+        "validation_seconds": 17.410678908228874,
+        "failed_prediction_groups": []
+      }
+    ],
+    "numerical_log_health_passed": true,
+    "scope": "Logged aggregated work/dissipation only, not a fresh per-sample physical audit. Prediction gate failures are reported separately from numerical/log health."
+  },
+  "status_file": {
+    "status": "running",
+    "training_started": true,
+    "completed_steps": 1000,
+    "optimizer_steps_this_run": 1000
+  },
+  "protocol_checks": {
+    "damping_disabled": true,
+    "environment_disabled": true,
+    "data_scope_bound": true,
+    "trainable_modules_bound": true,
+    "fresh_seed0": true,
+    "bound_4000": true
+  },
+  "protocol_matches_stage_a": true,
+  "eta": {
+    "target_step": 4000,
+    "latest_completed_step": 1131,
+    "schedule_matches_estimator": true,
+    "recent_step_timings": {
+      "4": {
+        "samples": 200,
+        "median_seconds": 0.4019348509609699,
+        "minimum_seconds": 0.39673496782779694,
+        "maximum_seconds": 0.45178814977407455
+      },
+      "8": {
+        "samples": 111,
+        "median_seconds": 0.7182377800345421,
+        "minimum_seconds": 0.7133699208498001,
+        "maximum_seconds": 0.7271046340465546
+      }
+    },
+    "K4_seconds_used": 0.4019348509609699,
+    "K4_timing_source": "current_K4_recent_median",
+    "K8_seconds_used": 0.7182377800345421,
+    "K8_timing_source": "current_K8_recent_median",
+    "validation_seconds_used": 17.293643798679113,
+    "validation_timing_source": "current_recent_median",
+    "checkpoint_seconds_used": 0.22228866443037987,
+    "remaining_counts": {
+      "K4": 0,
+      "K8": 2869,
+      "validation": 12
+    },
+    "remaining_seconds": 2270.815380476415,
+    "estimated_completion_utc": "2026-11-05T06:31:05.270416+00:00",
+    "current_validation_measured": true,
+    "confidence": "current_both_stages_and_validation",
+    "historical_prior": {
+      "source": "47727 L40/batch32/3-substeps, first 4000 history rows; old damped model",
+      "source_file": "studies/stall_diagnosis_20261105/frozen_training/history.jsonl",
+      "k4_median_seconds": 0.5224075242877007,
+      "k8_median_seconds": 1.0793442912399769,
+      "validation_median_seconds": 45.53769016265869,
+      "checkpoint_median_seconds": 0.14940977096557617,
+      "limits": "Old damped dynamics and 18 validation strata; A changes losses, D and batch organization. Prior only."
+    },
+    "limits": "Excludes queue, data generation and startup outside trainer. Assumes uninterrupted execution, unchanged throughput and successful solves. No uncertainty confidence interval. step_seconds excludes validation; do not add validation again to iteration_seconds."
+  },
+  "overall_numerical_health_passed": true,
+  "scheduler": "             JOBID                             NAME      STATE       TIME NODELIST(REASON)\n             47796          undamped-a-fresh4000-s0    RUNNING       9:45 ladhpc\n",
+  "learning_quality_review": {
+    "verdict": "Early latent representation contraction/collapse warning; quality gates have not passed. Numerical execution is healthy. Continue to user-authorized4000, no recipe changes.",
+    "validation_trend": [
+      {
+        "step": 250,
+        "gate_passed": false,
+        "dynamic_validation_support": true,
+        "target_std_min_range": [
+          0.003272289529025419,
+          0.004391231532236598
+        ],
+        "target_motion_rms_range": [
+          0.00469821570505375,
+          0.005187362744143719
+        ],
+        "h8_persistence_ratio_range": [
+          8.24398135345877,
+          11.290096513185757
+        ]
+      },
+      {
+        "step": 500,
+        "gate_passed": false,
+        "dynamic_validation_support": false,
+        "target_std_min_range": [
+          0.0011483308624019143,
+          0.0012238778866374143
+        ],
+        "target_motion_rms_range": [
+          0.0017207038535249832,
+          0.001785581013912365
+        ],
+        "h8_persistence_ratio_range": [
+          15.649958863527162,
+          21.525422534144834
+        ]
+      },
+      {
+        "step": 750,
+        "gate_passed": false,
+        "dynamic_validation_support": false,
+        "target_std_min_range": [
+          0.0007313435241311394,
+          0.0008705394372683907
+        ],
+        "target_motion_rms_range": [
+          0.0010493397217481528,
+          0.0012233367409071707
+        ],
+        "h8_persistence_ratio_range": [
+          13.194420626434006,
+          20.70296460630737
+        ]
+      },
+      {
+        "step": 1000,
+        "gate_passed": false,
+        "dynamic_validation_support": false,
+        "target_std_min_range": [
+          0.0005315266822763154,
+          0.0005725679646635981
+        ],
+        "target_motion_rms_range": [
+          0.0006531635239238764,
+          0.0007035077306932476
+        ],
+        "h8_persistence_ratio_range": [
+          16.73957049286394,
+          18.074890532097598
+        ]
+      }
+    ]
+  },
+  "preserved_step1000_checkpoint": {
+    "path": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/audits/checkpoints/step1000.pt",
+    "sha256": "e00ba983774dfea9ee862a5e81a1ed57644f9e3a0a76cdeb9c726ea4717d6479"
+  }
+}

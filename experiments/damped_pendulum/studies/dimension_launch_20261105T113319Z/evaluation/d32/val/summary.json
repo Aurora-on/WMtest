@@ -1,0 +1,870 @@
+{
+  "split": "val",
+  "episode_count": 64,
+  "anchor_frame": 20,
+  "horizon_steps": 32,
+  "horizon_seconds": 3.2,
+  "rollout": {
+    "8": {
+      "horizon_steps": 8,
+      "horizon_seconds": 0.8,
+      "groups": {
+        "all": {
+          "n_total": 64,
+          "n_complete": 64,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.2764437924802018,
+            "angle_rmse_rad": 0.3478917706084145,
+            "omega_rmse_rad_s": 1.5352534510239426,
+            "omega_nrmse": 0.5878208408227171,
+            "velocity_rms_ratio": 1.1291854249614188,
+            "velocity_cosine": 0.8595468737965365,
+            "direction_agreement": 0.8225469728601252,
+            "stopped_dynamic_window_fraction": null,
+            "trajectory_with_stop_fraction": null,
+            "stop_status": "NA: horizon shorter than1second",
+            "dynamic_window_count": 0
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.014787007418680938,
+            "max_relative_drift_median": 0.3760466623015442,
+            "max_relative_drift_p90": 0.7645848720097167,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.8246626192648849,
+              "angle_rmse_rad": 1.1217080541809572,
+              "omega_rmse_rad_s": 2.6569427726366412,
+              "omega_nrmse": 1.0172954397773601
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 0.7586599070079384,
+              "angle_rmse_rad": 1.078560207572443,
+              "omega_rmse_rad_s": 3.163126493052478,
+              "omega_nrmse": 1.2111040516043907
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.8250422842728506,
+              "angle_rmse_rad": 1.1224770377444366,
+              "omega_rmse_rad_s": 2.6569427726366412,
+              "omega_nrmse": 1.0172954397773601
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 0.76209112681579,
+              "angle_rmse_rad": 1.0822542664691843,
+              "omega_rmse_rad_s": 3.1683305480723596,
+              "omega_nrmse": 1.2130965903578026
+            }
+          }
+        },
+        "energy_band0": {
+          "n_total": 16,
+          "n_complete": 16,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.28040522089728903,
+            "angle_rmse_rad": 0.32827994216153816,
+            "omega_rmse_rad_s": 1.4720710391270808,
+            "omega_nrmse": 0.5636294355132876,
+            "velocity_rms_ratio": 1.4873342424905696,
+            "velocity_cosine": 0.6387333344330188,
+            "direction_agreement": 0.7606837606837606,
+            "stopped_dynamic_window_fraction": null,
+            "trajectory_with_stop_fraction": null,
+            "stop_status": "NA: horizon shorter than1second",
+            "dynamic_window_count": 0
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.017448512028419245,
+            "max_relative_drift_median": 0.5797433232665326,
+            "max_relative_drift_p90": 1.2879895363587823,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.5071725941197189,
+              "angle_rmse_rad": 0.6099436681314777,
+              "omega_rmse_rad_s": 1.285103619772753,
+              "omega_nrmse": 0.49204298470413027
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 0.3219683839812364,
+              "angle_rmse_rad": 0.4569472827813,
+              "omega_rmse_rad_s": 1.33882080598538,
+              "omega_nrmse": 0.5126103259109369
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.5084670109221414,
+              "angle_rmse_rad": 0.6109553956418191,
+              "omega_rmse_rad_s": 1.285103619772753,
+              "omega_nrmse": 0.49204298470413027
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 0.32564976334517554,
+              "angle_rmse_rad": 0.45922175275391186,
+              "omega_rmse_rad_s": 1.3397914605068362,
+              "omega_nrmse": 0.5129819720105241
+            }
+          }
+        },
+        "energy_band1": {
+          "n_total": 16,
+          "n_complete": 16,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.18276978059937266,
+            "angle_rmse_rad": 0.21750350676088795,
+            "omega_rmse_rad_s": 1.7097001982192785,
+            "omega_nrmse": 0.6546133522134315,
+            "velocity_rms_ratio": 1.0382329319915167,
+            "velocity_cosine": 0.6970887335844247,
+            "direction_agreement": 0.7457627118644068,
+            "stopped_dynamic_window_fraction": null,
+            "trajectory_with_stop_fraction": null,
+            "stop_status": "NA: horizon shorter than1second",
+            "dynamic_window_count": 0
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.017067928628571573,
+            "max_relative_drift_median": 0.5441001811821464,
+            "max_relative_drift_p90": 0.78847861110276,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.5329822377674621,
+              "angle_rmse_rad": 0.7177961502224698,
+              "omega_rmse_rad_s": 2.1532566015211736,
+              "omega_nrmse": 0.824443094506031
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 0.879918210846625,
+              "angle_rmse_rad": 1.1406353447032578,
+              "omega_rmse_rad_s": 3.150512685860974,
+              "omega_nrmse": 1.2062744524627376
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.5345456842599844,
+              "angle_rmse_rad": 0.7194404811853532,
+              "omega_rmse_rad_s": 2.1532566015211736,
+              "omega_nrmse": 0.824443094506031
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 0.8803629876362304,
+              "angle_rmse_rad": 1.140276865864821,
+              "omega_rmse_rad_s": 3.152869242811299,
+              "omega_nrmse": 1.2071767355919907
+            }
+          }
+        },
+        "energy_band2": {
+          "n_total": 16,
+          "n_complete": 16,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.23590417663400493,
+            "angle_rmse_rad": 0.2688244709761439,
+            "omega_rmse_rad_s": 1.2086504630652608,
+            "omega_nrmse": 0.46277045069394734,
+            "velocity_rms_ratio": 0.9972102297459977,
+            "velocity_cosine": 0.8831408614616422,
+            "direction_agreement": 0.8666666666666667,
+            "stopped_dynamic_window_fraction": null,
+            "trajectory_with_stop_fraction": null,
+            "stop_status": "NA: horizon shorter than1second",
+            "dynamic_window_count": 0
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.008656615196362693,
+            "max_relative_drift_median": 0.3700582457117945,
+            "max_relative_drift_p90": 0.5753482263420231,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.5122068578459006,
+              "angle_rmse_rad": 0.6478696760696868,
+              "omega_rmse_rad_s": 2.503535598266145,
+              "omega_nrmse": 0.9585586011357932
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.1417108198835777,
+              "angle_rmse_rad": 1.4884213187709234,
+              "omega_rmse_rad_s": 4.430253772553949,
+              "omega_nrmse": 1.696264220024257
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.507598358335527,
+              "angle_rmse_rad": 0.6449811574771418,
+              "omega_rmse_rad_s": 2.503535598266145,
+              "omega_nrmse": 0.9585586011357932
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.1514327745926416,
+              "angle_rmse_rad": 1.4961598656503445,
+              "omega_rmse_rad_s": 4.434151324751015,
+              "omega_nrmse": 1.6977565224242952
+            }
+          }
+        },
+        "energy_band3": {
+          "n_total": 16,
+          "n_complete": 16,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.4066959917901407,
+            "angle_rmse_rad": 0.5067273864256407,
+            "omega_rmse_rad_s": 1.696204227570521,
+            "omega_nrmse": 0.649445988603742,
+            "velocity_rms_ratio": 1.1605251082329677,
+            "velocity_cosine": 0.93205615838104,
+            "direction_agreement": 0.9112903225806451,
+            "stopped_dynamic_window_fraction": null,
+            "trajectory_with_stop_fraction": null,
+            "stop_status": "NA: horizon shorter than1second",
+            "dynamic_window_count": 0
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.013419467388592113,
+            "max_relative_drift_median": 0.20023596671854008,
+            "max_relative_drift_p90": 0.2786035984188118,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 1.746288787326458,
+              "angle_rmse_rad": 1.9302637453258027,
+              "omega_rmse_rad_s": 3.960010579648868,
+              "omega_nrmse": 1.516216587589192
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 0.691042213320314,
+              "angle_rmse_rad": 0.9632863823575707,
+              "omega_rmse_rad_s": 2.9455317042366227,
+              "omega_nrmse": 1.1277909337377157
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 1.74955808357375,
+              "angle_rmse_rad": 1.9320861797863689,
+              "omega_rmse_rad_s": 3.960010579648868,
+              "omega_nrmse": 1.516216587589192
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 0.6909189816891124,
+              "angle_rmse_rad": 0.9672057157354261,
+              "omega_rmse_rad_s": 2.9590454975701674,
+              "omega_nrmse": 1.1329651213317773
+            }
+          }
+        }
+      },
+      "teacher_metrics": {
+        "angle_mae_rad": 0.010058769056101736,
+        "angle_rmse_rad": 0.015038682584393469,
+        "omega_rmse_rad_s": 0.17194229380074466,
+        "omega_nrmse": 0.06583360138192854
+      },
+      "teacher_quality_gate_passed": true,
+      "conditional_physical_score": 0.3379078164716528,
+      "ranking_eligible": true,
+      "score_definition": "0.5*(future-time angleMAE/pi+omegaNRMSE), conditional on complete trajectories; compare with coverage and teacher quality"
+    },
+    "32": {
+      "horizon_steps": 32,
+      "horizon_seconds": 3.2,
+      "groups": {
+        "all": {
+          "n_total": 64,
+          "n_complete": 64,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.7795877821085772,
+            "angle_rmse_rad": 1.050144557826015,
+            "omega_rmse_rad_s": 3.252501359380932,
+            "omega_nrmse": 1.2453240750399808,
+            "velocity_rms_ratio": 1.0015892729240998,
+            "velocity_cosine": 0.20760463105882668,
+            "direction_agreement": 0.542080501829587,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 1472,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 64,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.014787007418680938,
+            "max_relative_drift_median": 0.62816269885128,
+            "max_relative_drift_p90": 1.7884726279695486,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.9705524699700147,
+              "angle_rmse_rad": 1.2572925351868367,
+              "omega_rmse_rad_s": 2.5815845111596065,
+              "omega_nrmse": 0.9884421213921617
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.3516649903629807,
+              "angle_rmse_rad": 1.65096395924864,
+              "omega_rmse_rad_s": 3.793045997712128,
+              "omega_nrmse": 1.452288862250936
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.9705404414452371,
+              "angle_rmse_rad": 1.2576883162788572,
+              "omega_rmse_rad_s": 2.5815845111596065,
+              "omega_nrmse": 0.9884421213921617
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.3369504998013817,
+              "angle_rmse_rad": 1.6401411875626275,
+              "omega_rmse_rad_s": 3.799173870224471,
+              "omega_nrmse": 1.4546351140507658
+            }
+          }
+        },
+        "energy_band0": {
+          "n_total": 16,
+          "n_complete": 16,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.49794701674071684,
+            "angle_rmse_rad": 0.6391978244257163,
+            "omega_rmse_rad_s": 2.191061689097611,
+            "omega_nrmse": 0.8389179802988207,
+            "velocity_rms_ratio": 1.4612241311382825,
+            "velocity_cosine": 0.01618338130891639,
+            "direction_agreement": 0.5446623093681917,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 368,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 16,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.017448512028419245,
+            "max_relative_drift_median": 1.665740443115877,
+            "max_relative_drift_p90": 3.4674804053792543,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.5101729879874498,
+              "angle_rmse_rad": 0.6296686391668639,
+              "omega_rmse_rad_s": 1.24687907577803,
+              "omega_nrmse": 0.47740749661839615
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.278407422155718,
+              "angle_rmse_rad": 1.6262247745299987,
+              "omega_rmse_rad_s": 1.7159247382086897,
+              "omega_nrmse": 0.6569966162457449
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.5104189336257513,
+              "angle_rmse_rad": 0.6299078911732862,
+              "omega_rmse_rad_s": 1.24687907577803,
+              "omega_nrmse": 0.47740749661839615
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.246745003055699,
+              "angle_rmse_rad": 1.6037849422358805,
+              "omega_rmse_rad_s": 1.7010212074327105,
+              "omega_nrmse": 0.6512903232645303
+            }
+          }
+        },
+        "energy_band1": {
+          "n_total": 16,
+          "n_complete": 16,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.7235470925911137,
+            "angle_rmse_rad": 0.935243117152735,
+            "omega_rmse_rad_s": 3.164174258209103,
+            "omega_nrmse": 1.2115052219746258,
+            "velocity_rms_ratio": 1.0538275323960986,
+            "velocity_cosine": -0.03166341497531946,
+            "direction_agreement": 0.4885654885654886,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 368,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 16,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.017067928628571573,
+            "max_relative_drift_median": 0.7728071782566859,
+            "max_relative_drift_p90": 1.4659581810452167,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 0.8564980338304324,
+              "angle_rmse_rad": 1.0922349592587302,
+              "omega_rmse_rad_s": 2.1443834713397365,
+              "omega_nrmse": 0.8210457330863233
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.4121888780513077,
+              "angle_rmse_rad": 1.703776386062964,
+              "omega_rmse_rad_s": 2.9113267553717805,
+              "omega_nrmse": 1.1146944760885766
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 0.8560069026140822,
+              "angle_rmse_rad": 1.0917984438423372,
+              "omega_rmse_rad_s": 2.1443834713397365,
+              "omega_nrmse": 0.8210457330863233
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.4018049016463157,
+              "angle_rmse_rad": 1.69420998867705,
+              "omega_rmse_rad_s": 2.909369489231686,
+              "omega_nrmse": 1.113945074204857
+            }
+          }
+        },
+        "energy_band2": {
+          "n_total": 16,
+          "n_complete": 16,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 0.6347077775216265,
+            "angle_rmse_rad": 0.8376473771544775,
+            "omega_rmse_rad_s": 3.2447911303187493,
+            "omega_nrmse": 1.2423719674728262,
+            "velocity_rms_ratio": 1.0396529828009626,
+            "velocity_cosine": 0.3673531484492,
+            "direction_agreement": 0.621900826446281,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 368,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 16,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.008656615196362693,
+            "max_relative_drift_median": 0.5663560243308616,
+            "max_relative_drift_p90": 1.0724278402386758,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 1.0593252984628863,
+              "angle_rmse_rad": 1.3676077921771352,
+              "omega_rmse_rad_s": 2.8274014260615647,
+              "omega_nrmse": 1.0825609820335385
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.4689315219821333,
+              "angle_rmse_rad": 1.7353857221052673,
+              "omega_rmse_rad_s": 4.213627539395447,
+              "omega_nrmse": 1.6133219446399805
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 1.0604553466687467,
+              "angle_rmse_rad": 1.3713724515439523,
+              "omega_rmse_rad_s": 2.8274014260615647,
+              "omega_nrmse": 1.0825609820335385
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.4685176485245832,
+              "angle_rmse_rad": 1.7321831686923568,
+              "omega_rmse_rad_s": 4.218938590491357,
+              "omega_nrmse": 1.6153554502600251
+            }
+          }
+        },
+        "energy_band3": {
+          "n_total": 16,
+          "n_complete": 16,
+          "coverage": 1.0,
+          "metrics": {
+            "angle_mae_rad": 1.2621492415808513,
+            "angle_rmse_rad": 1.5576609688698233,
+            "omega_rmse_rad_s": 4.119907866683383,
+            "omega_nrmse": 1.5774383732475876,
+            "velocity_rms_ratio": 0.879432300338453,
+            "velocity_cosine": 0.23691806288188905,
+            "direction_agreement": 0.5132924335378323,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 368,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 16,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "physical_energy": {
+            "initial_energy_relative_error_median": 0.013419467388592113,
+            "max_relative_drift_median": 0.24673493172519784,
+            "max_relative_drift_p90": 0.42092363270472444,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy"
+          },
+          "baselines_matched_support": {
+            "decoded_hold": {
+              "angle_mae_rad": 1.4562135595992904,
+              "angle_rmse_rad": 1.6921368743530723,
+              "omega_rmse_rad_s": 3.5370931041143994,
+              "omega_nrmse": 1.354289118283399
+            },
+            "decoded_constant_velocity": {
+              "angle_mae_rad": 1.247132139262764,
+              "angle_rmse_rad": 1.530915864266891,
+              "omega_rmse_rad_s": 5.3267169568645265,
+              "omega_nrmse": 2.03950379549409
+            },
+            "oracle_hold": {
+              "angle_mae_rad": 1.4552805828723683,
+              "angle_rmse_rad": 1.6904583430019187,
+              "omega_rmse_rad_s": 3.5370931041143994,
+              "omega_nrmse": 1.354289118283399
+            },
+            "oracle_constant_velocity": {
+              "angle_mae_rad": 1.2307344459789287,
+              "angle_rmse_rad": 1.5222747137033623,
+              "omega_rmse_rad_s": 5.345796627392429,
+              "omega_nrmse": 2.046809057022635
+            }
+          }
+        }
+      },
+      "teacher_metrics": {
+        "angle_mae_rad": 0.009833635107566732,
+        "angle_rmse_rad": 0.014084486226719595,
+        "omega_rmse_rad_s": 0.15718596565909312,
+        "omega_nrmse": 0.06018366963294186
+      },
+      "teacher_quality_gate_passed": true,
+      "conditional_physical_score": 0.7467372866166179,
+      "ranking_eligible": true,
+      "score_definition": "0.5*(future-time angleMAE/pi+omegaNRMSE), conditional on complete trajectories; compare with coverage and teacher quality"
+    }
+  },
+  "curves": [
+    {
+      "step": 1,
+      "seconds": 0.1,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.11358013968830849,
+      "angle_rmse_rad": 0.12215302613473841,
+      "omega_rmse_rad_s": 0.5435290263042379,
+      "omega_nrmse": 0.20810745550880852
+    },
+    {
+      "step": 2,
+      "seconds": 0.2,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.2171488168499206,
+      "angle_rmse_rad": 0.2368069968227791,
+      "omega_rmse_rad_s": 0.8680885406040988,
+      "omega_nrmse": 0.3323754364506612
+    },
+    {
+      "step": 3,
+      "seconds": 0.30000000000000004,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.26853643556643275,
+      "angle_rmse_rad": 0.3057486536086374,
+      "omega_rmse_rad_s": 1.0473872271497917,
+      "omega_nrmse": 0.40102566785929544
+    },
+    {
+      "step": 4,
+      "seconds": 0.4,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.3002893218137231,
+      "angle_rmse_rad": 0.3586919717132423,
+      "omega_rmse_rad_s": 1.299731258584405,
+      "omega_nrmse": 0.4976436436310205
+    },
+    {
+      "step": 5,
+      "seconds": 0.5,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.32105941008529076,
+      "angle_rmse_rad": 0.4040975263058759,
+      "omega_rmse_rad_s": 1.5986710249681513,
+      "omega_nrmse": 0.6121022854362815
+    },
+    {
+      "step": 6,
+      "seconds": 0.6000000000000001,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.3164255694806031,
+      "angle_rmse_rad": 0.41184750907391676,
+      "omega_rmse_rad_s": 1.840036494380084,
+      "omega_nrmse": 0.7045167679314455
+    },
+    {
+      "step": 7,
+      "seconds": 0.7000000000000001,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.3237274725665416,
+      "angle_rmse_rad": 0.4101301993599088,
+      "omega_rmse_rad_s": 2.0397112854816655,
+      "omega_nrmse": 0.7809686420621629
+    },
+    {
+      "step": 8,
+      "seconds": 0.8,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.35078317379079416,
+      "angle_rmse_rad": 0.41709522322776516,
+      "omega_rmse_rad_s": 2.2178360920729796,
+      "omega_nrmse": 0.8491694160204017
+    },
+    {
+      "step": 9,
+      "seconds": 0.9,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.4039044789352285,
+      "angle_rmse_rad": 0.45528001677115243,
+      "omega_rmse_rad_s": 2.4853213044920555,
+      "omega_nrmse": 0.9515846767494736
+    },
+    {
+      "step": 10,
+      "seconds": 1.0,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.4547642966027427,
+      "angle_rmse_rad": 0.5230062326308244,
+      "omega_rmse_rad_s": 2.8236906178757497,
+      "omega_nrmse": 1.0811401805453784
+    },
+    {
+      "step": 11,
+      "seconds": 1.1,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.5144765379821121,
+      "angle_rmse_rad": 0.621985395308463,
+      "omega_rmse_rad_s": 3.105944730793666,
+      "omega_nrmse": 1.1892101867521205
+    },
+    {
+      "step": 12,
+      "seconds": 1.2000000000000002,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.5895211488827868,
+      "angle_rmse_rad": 0.7454800209159232,
+      "omega_rmse_rad_s": 3.3848855211515003,
+      "omega_nrmse": 1.2960115815436692
+    },
+    {
+      "step": 13,
+      "seconds": 1.3,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.6806422065197357,
+      "angle_rmse_rad": 0.8906305933166612,
+      "omega_rmse_rad_s": 3.5897036453216185,
+      "omega_nrmse": 1.3744327450884322
+    },
+    {
+      "step": 14,
+      "seconds": 1.4000000000000001,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.7639252673619734,
+      "angle_rmse_rad": 1.0170568047043669,
+      "omega_rmse_rad_s": 3.8433413669639465,
+      "omega_nrmse": 1.4715460514944285
+    },
+    {
+      "step": 15,
+      "seconds": 1.5,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.800731102641969,
+      "angle_rmse_rad": 1.0605935413996814,
+      "omega_rmse_rad_s": 3.9933829232257168,
+      "omega_nrmse": 1.528994255698965
+    },
+    {
+      "step": 16,
+      "seconds": 1.6,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.8420590973126194,
+      "angle_rmse_rad": 1.0873244761140417,
+      "omega_rmse_rad_s": 4.003371304471222,
+      "omega_nrmse": 1.5328186266250001
+    },
+    {
+      "step": 17,
+      "seconds": 1.7000000000000002,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.8938190340568671,
+      "angle_rmse_rad": 1.1112392129269042,
+      "omega_rmse_rad_s": 4.001389751558983,
+      "omega_nrmse": 1.5320599257745116
+    },
+    {
+      "step": 18,
+      "seconds": 1.8,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.9607055708833563,
+      "angle_rmse_rad": 1.1736393516979386,
+      "omega_rmse_rad_s": 4.031009995218958,
+      "omega_nrmse": 1.5434009825374635
+    },
+    {
+      "step": 19,
+      "seconds": 1.9000000000000001,
+      "coverage": 1.0,
+      "angle_mae_rad": 1.094888883093703,
+      "angle_rmse_rad": 1.2961298985232472,
+      "omega_rmse_rad_s": 3.9967316854867,
+      "omega_nrmse": 1.53027643633608
+    },
+    {
+      "step": 20,
+      "seconds": 2.0,
+      "coverage": 1.0,
+      "angle_mae_rad": 1.2437703942878877,
+      "angle_rmse_rad": 1.4527353652678965,
+      "omega_rmse_rad_s": 3.902143170812414,
+      "omega_nrmse": 1.4940602010356954
+    },
+    {
+      "step": 21,
+      "seconds": 2.1,
+      "coverage": 1.0,
+      "angle_mae_rad": 1.3190191082051408,
+      "angle_rmse_rad": 1.530245204356154,
+      "omega_rmse_rad_s": 3.709903246843441,
+      "omega_nrmse": 1.42045500335855
+    },
+    {
+      "step": 22,
+      "seconds": 2.2,
+      "coverage": 1.0,
+      "angle_mae_rad": 1.3383474354198364,
+      "angle_rmse_rad": 1.5185599654184982,
+      "omega_rmse_rad_s": 3.4621419851100637,
+      "omega_nrmse": 1.3255916874036002
+    },
+    {
+      "step": 23,
+      "seconds": 2.3000000000000003,
+      "coverage": 1.0,
+      "angle_mae_rad": 1.2783640346369012,
+      "angle_rmse_rad": 1.4459185990238226,
+      "omega_rmse_rad_s": 3.1735784118765062,
+      "omega_nrmse": 1.215105902704125
+    },
+    {
+      "step": 24,
+      "seconds": 2.4000000000000004,
+      "coverage": 1.0,
+      "angle_mae_rad": 1.2142835656511923,
+      "angle_rmse_rad": 1.4188035929701048,
+      "omega_rmse_rad_s": 3.2572494284593003,
+      "omega_nrmse": 1.2471420250052254
+    },
+    {
+      "step": 25,
+      "seconds": 2.5,
+      "coverage": 1.0,
+      "angle_mae_rad": 1.1380012446683678,
+      "angle_rmse_rad": 1.3997116094105524,
+      "omega_rmse_rad_s": 3.4049938987959596,
+      "omega_nrmse": 1.303710716462834
+    },
+    {
+      "step": 26,
+      "seconds": 2.6,
+      "coverage": 1.0,
+      "angle_mae_rad": 1.0743191901084739,
+      "angle_rmse_rad": 1.3498161457812485,
+      "omega_rmse_rad_s": 3.611571274650091,
+      "omega_nrmse": 1.3828054657295024
+    },
+    {
+      "step": 27,
+      "seconds": 2.7,
+      "coverage": 1.0,
+      "angle_mae_rad": 1.0335885388319783,
+      "angle_rmse_rad": 1.2845458477884912,
+      "omega_rmse_rad_s": 3.759661973450536,
+      "omega_nrmse": 1.4395067218177675
+    },
+    {
+      "step": 28,
+      "seconds": 2.8000000000000003,
+      "coverage": 1.0,
+      "angle_mae_rad": 1.0030314076811093,
+      "angle_rmse_rad": 1.2179490764158645,
+      "omega_rmse_rad_s": 3.871949611559345,
+      "omega_nrmse": 1.4824996320783466
+    },
+    {
+      "step": 29,
+      "seconds": 2.9000000000000004,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.9812660365239589,
+      "angle_rmse_rad": 1.2017861121277473,
+      "omega_rmse_rad_s": 3.8849049987483797,
+      "omega_nrmse": 1.487460016036815
+    },
+    {
+      "step": 30,
+      "seconds": 3.0,
+      "coverage": 1.0,
+      "angle_mae_rad": 0.9556361282945123,
+      "angle_rmse_rad": 1.2306218355857708,
+      "omega_rmse_rad_s": 3.956067229300774,
+      "omega_nrmse": 1.5147067499036102
+    },
+    {
+      "step": 31,
+      "seconds": 3.1,
+      "coverage": 1.0,
+      "angle_mae_rad": 1.0053945290849502,
+      "angle_rmse_rad": 1.3049268863910979,
+      "omega_rmse_rad_s": 3.9130331701558294,
+      "omega_nrmse": 1.4982297852605904
+    },
+    {
+      "step": 32,
+      "seconds": 3.2,
+      "coverage": 1.0,
+      "angle_mae_rad": 1.1507994499654508,
+      "angle_rmse_rad": 1.4258545508901599,
+      "omega_rmse_rad_s": 3.881705088438524,
+      "omega_nrmse": 1.4862348281255666
+    }
+  ],
+  "failures": [],
+  "solver_failure_trajectory_fraction": 0.0,
+  "selected_records": [
+    {
+      "episode": 385,
+      "group_id": 10000385,
+      "energy_band": 0,
+      "evaluation_index": 1
+    },
+    {
+      "episode": 387,
+      "group_id": 10000387,
+      "energy_band": 1,
+      "evaluation_index": 3
+    },
+    {
+      "episode": 384,
+      "group_id": 10000384,
+      "energy_band": 2,
+      "evaluation_index": 0
+    },
+    {
+      "episode": 386,
+      "group_id": 10000386,
+      "energy_band": 3,
+      "evaluation_index": 2
+    }
+  ],
+  "selection": "Minimum group_id in each energy band, independent of prediction quality"
+}

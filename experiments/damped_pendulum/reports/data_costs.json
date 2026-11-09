@@ -1,0 +1,44 @@
+{
+  "datasets": [
+    {
+      "file": "pendulum_b0p0.h5",
+      "damping": 0.0,
+      "bytes": 68818791,
+      "sha256": "8f6f4eae3beece6a88f3c5fa622cde458cd7f42a25295a3d7e69eb26865e5839",
+      "simulation_seconds": 0.216313375000027,
+      "generation_total_seconds": 3.096650249994127,
+      "frames": 166400,
+      "valid_transitions": 165888,
+      "numerical_audit": {
+        "state_max_abs": 7.985867722659634e-08,
+        "work_max_abs": 9.908180997886262e-09,
+        "dissipation_max_abs": 0.0,
+        "audited_episodes": 2,
+        "reference": "scipy.solve_ivp DOP853 rtol=1e-11 atol=1e-12; full horizon",
+        "energy_balance_max_abs": 3.7094911697899136e-08
+      }
+    },
+    {
+      "file": "pendulum_b0p2.h5",
+      "damping": 0.2,
+      "bytes": 75462893,
+      "sha256": "dab5143c7403e9cfc9cdd0a5ebb5d74cbb9b7e97692630a81baad97cd22201ae",
+      "simulation_seconds": 0.2046156249998603,
+      "generation_total_seconds": 2.840461250001681,
+      "frames": 166400,
+      "valid_transitions": 165888,
+      "numerical_audit": {
+        "state_max_abs": 2.8056692663591676e-08,
+        "work_max_abs": 4.301913075765995e-09,
+        "dissipation_max_abs": 1.5017947024853484e-09,
+        "audited_episodes": 2,
+        "reference": "scipy.solve_ivp DOP853 rtol=1e-11 atol=1e-12; full horizon",
+        "energy_balance_max_abs": 8.83426143349908e-09
+      }
+    }
+  ],
+  "total_bytes": 144281684,
+  "generation_seconds": 5.937111499995808,
+  "total_frames": 332800,
+  "note": "Data generation timing includes simulation, two-episode independent DOP853 audit, rendering, HDF5 writing and hashing; excludes process startup and installation."
+}

@@ -1,0 +1,6 @@
+{
+  "status": "running",
+  "training_started": true,
+  "completed_steps": 500,
+  "optimizer_steps_this_run": 500
+}

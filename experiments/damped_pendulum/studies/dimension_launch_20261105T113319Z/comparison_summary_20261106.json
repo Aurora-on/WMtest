@@ -1,0 +1,129 @@
+{
+  "checked_at_utc": "2026-11-06T01:57:37.337331+00:00",
+  "scope": "Existing final10000 checkpoint results, K0 uniform KNN selected only on train, val64, test sealed. Table metrics averaged over future0.1-3.2s; figure gives per-time errors.",
+  "rows": [
+    {
+      "dimension": 2,
+      "checkpoint_step": 10000,
+      "readout_k": 5,
+      "teacher": {
+        "angle_mae_rad": 0.008783804262463696,
+        "angle_rmse_rad": 0.012075432820156079,
+        "omega_rmse_rad_s": 0.05459453932034224,
+        "omega_nrmse": 0.020903263878813447
+      },
+      "rollout_0p1_to3p2": {
+        "angle_mae_rad": 0.19374509517801258,
+        "angle_rmse_rad": 0.38996268561680497,
+        "omega_rmse_rad_s": 1.101582391575351,
+        "omega_nrmse": 0.4217760182981175,
+        "velocity_rms_ratio": 1.007134660939121,
+        "velocity_cosine": 0.9096304109282324,
+        "direction_agreement": 0.8881338212232096,
+        "stopped_dynamic_window_fraction": 0.0,
+        "trajectory_with_stop_fraction": 0.0,
+        "dynamic_window_count": 1472,
+        "stopped_dynamic_window_count": 0,
+        "dynamic_trajectory_count": 64,
+        "stop_status": "truth-defined one-second windows"
+      },
+      "coverage": 1.0,
+      "k8": {
+        "angle_mae_rad": 0.08679440081655702,
+        "angle_rmse_rad": 0.10920866219003982,
+        "omega_rmse_rad_s": 0.37012061446601524,
+        "omega_nrmse": 0.14171250398826873,
+        "velocity_rms_ratio": 1.0292274903234426,
+        "velocity_cosine": 0.990987836101116,
+        "direction_agreement": 0.9812108559498957,
+        "stopped_dynamic_window_fraction": null,
+        "trajectory_with_stop_fraction": null,
+        "stop_status": "NA: horizon shorter than1second",
+        "dynamic_window_count": 0
+      }
+    },
+    {
+      "dimension": 8,
+      "checkpoint_step": 10000,
+      "readout_k": 1,
+      "teacher": {
+        "angle_mae_rad": 0.010090547231430363,
+        "angle_rmse_rad": 0.014704577088543152,
+        "omega_rmse_rad_s": 0.15388863758264623,
+        "omega_nrmse": 0.05892118221689167
+      },
+      "rollout_0p1_to3p2": {
+        "angle_mae_rad": 0.6038406598167698,
+        "angle_rmse_rad": 0.8885801552083352,
+        "omega_rmse_rad_s": 2.652741859142265,
+        "omega_nrmse": 1.0156869858111173,
+        "velocity_rms_ratio": 1.0521379781959819,
+        "velocity_cosine": 0.4995103898679657,
+        "direction_agreement": 0.661787767903816,
+        "stopped_dynamic_window_fraction": 0.0,
+        "trajectory_with_stop_fraction": 0.0,
+        "dynamic_window_count": 1472,
+        "stopped_dynamic_window_count": 0,
+        "dynamic_trajectory_count": 64,
+        "stop_status": "truth-defined one-second windows"
+      },
+      "coverage": 1.0,
+      "k8": {
+        "angle_mae_rad": 0.21082594427258272,
+        "angle_rmse_rad": 0.2636089685240336,
+        "omega_rmse_rad_s": 1.1780680628742999,
+        "omega_nrmse": 0.4510610015586025,
+        "velocity_rms_ratio": 1.1381679987173379,
+        "velocity_cosine": 0.9220210162062961,
+        "direction_agreement": 0.906054279749478,
+        "stopped_dynamic_window_fraction": null,
+        "trajectory_with_stop_fraction": null,
+        "stop_status": "NA: horizon shorter than1second",
+        "dynamic_window_count": 0
+      }
+    },
+    {
+      "dimension": 32,
+      "checkpoint_step": 10000,
+      "readout_k": 1,
+      "teacher": {
+        "angle_mae_rad": 0.009833635107566732,
+        "angle_rmse_rad": 0.014084486226719595,
+        "omega_rmse_rad_s": 0.15718596565909312,
+        "omega_nrmse": 0.06018366963294186
+      },
+      "rollout_0p1_to3p2": {
+        "angle_mae_rad": 0.7795877821085772,
+        "angle_rmse_rad": 1.050144557826015,
+        "omega_rmse_rad_s": 3.252501359380932,
+        "omega_nrmse": 1.2453240750399808,
+        "velocity_rms_ratio": 1.0015892729240998,
+        "velocity_cosine": 0.20760463105882668,
+        "direction_agreement": 0.542080501829587,
+        "stopped_dynamic_window_fraction": 0.0,
+        "trajectory_with_stop_fraction": 0.0,
+        "dynamic_window_count": 1472,
+        "stopped_dynamic_window_count": 0,
+        "dynamic_trajectory_count": 64,
+        "stop_status": "truth-defined one-second windows"
+      },
+      "coverage": 1.0,
+      "k8": {
+        "angle_mae_rad": 0.2764437924802018,
+        "angle_rmse_rad": 0.3478917706084145,
+        "omega_rmse_rad_s": 1.5352534510239426,
+        "omega_nrmse": 0.5878208408227171,
+        "velocity_rms_ratio": 1.1291854249614188,
+        "velocity_cosine": 0.8595468737965365,
+        "direction_agreement": 0.8225469728601252,
+        "stopped_dynamic_window_fraction": null,
+        "trajectory_with_stop_fraction": null,
+        "stop_status": "NA: horizon shorter than1second",
+        "dynamic_window_count": 0
+      }
+    }
+  ],
+  "figure": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/dimension_launch_20261105T113319Z/figures/dimension_errors_20261106.png",
+  "independent_recheck": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/dimension_launch_20261105T113319Z/result_recheck_20261106.json",
+  "interpretation": "At fixed10000 updates and seed0, higher dimensions worsen autonomous physical prediction while observed-history readouts remain accurate. All64 trajectories complete; no decoded sustained stopping under the1s/10percent rule withinK32. This does not isolate dimension from changed parameter count, optimization statistics or off-manifold readout behavior."
+}

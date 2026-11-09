@@ -1,0 +1,765 @@
+{
+  "status": "completed",
+  "optimizer_created": false,
+  "optimizer_updates": 0,
+  "allocation": {
+    "job_id": "47796",
+    "allocated_gpus": "0",
+    "node": "ladhpc",
+    "partition": "compute"
+  },
+  "test_samples_read": false,
+  "formal_training_started": false,
+  "script_sha256": "ba4f8378bc96769c9b1ef184171255ff34579510007a9de54305e9937b3c1e48",
+  "config": {
+    "model": {
+      "history": 21,
+      "velocity_history": 5,
+      "environment_context_dim": 0,
+      "core": {
+        "solver": "picard",
+        "newton_iterations": 12,
+        "line_search_max_backtracks": 12,
+        "line_search_shrink": 0.5,
+        "line_search_c1": 0.0001,
+        "max_bisections": 4,
+        "integrator": "frozen_dg",
+        "picard_iterations": 6,
+        "picard_check_every": 2,
+        "fd_relative_step": 6e-06,
+        "implicit_rcond_min": 1e-08,
+        "adjoint_rtol": 1e-10,
+        "substeps": 3,
+        "potential_mode": "raw",
+        "damping_mode": "none"
+      },
+      "velocity_initializer": "motion_gated",
+      "motion_loss_mode": "normalized_velocity",
+      "motion_scale_floor": 0.1,
+      "momentum_weight": 0.1
+    },
+    "training": {
+      "steps": 20000,
+      "batch_size": 32,
+      "train_frames": 81,
+      "seed": 0,
+      "threads": 4,
+      "encoder_lr": 2e-05,
+      "dynamics_lr": 0.0001,
+      "weight_decay": 0.0001,
+      "warmup_steps": 500,
+      "minimum_lr_ratio": 0.1,
+      "gradient_clip": 1.0,
+      "curriculum": [
+        {
+          "until_step": 1000,
+          "horizon": 4
+        },
+        {
+          "until_step": 4000,
+          "horizon": 8
+        },
+        {
+          "until_step": 10000,
+          "horizon": 16
+        },
+        {
+          "until_step": 20000,
+          "horizon": 32
+        }
+      ],
+      "val_horizons": [
+        8,
+        32
+      ],
+      "val_every": 250,
+      "val_windows": 288,
+      "val_seed": 1009,
+      "minimum_target_std": 0.1,
+      "minimum_target_motion": 0.001,
+      "validation_gate_time_bins": [
+        0
+      ],
+      "required_renderer": "smooth_v1",
+      "validation_motion_weight": 1.0,
+      "prediction_motion_gate": {
+        "min_rms_ratio": 0.5,
+        "max_rms_ratio": 1.5,
+        "max_relative_error": 0.8,
+        "min_cosine": 0.5,
+        "max_stalled_fraction": 0.1
+      },
+      "trainable_modules": [
+        "encoder",
+        "initializer",
+        "potential"
+      ],
+      "required_data_scope": "undamped_stage_a"
+    }
+  },
+  "config_sha256": "72131432a19df4250e813dfafdd1fcb8bef27431375616370da8d80afd697f39",
+  "dataset_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+  "source_hashes": {
+    "dpbench/train_dissipative.py": "1f4fb23a4c7422aa6e207194e90d57e53965a233a6b02d4e4949901465bf5466",
+    "dpbench/dissipative_model.py": "302a07687377bbeac2d1de3eb77b406b197db8e4b561f4e51034e2dbded977b6",
+    "dpbench/dissipative_core.py": "077c941d2b897411fc8560dc2dd9e7877bc8125560293a68a2552507b52f603f",
+    "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+    "dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+    "dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "torch": "2.8.0+cu126",
+    "cuda_build": "12.6",
+    "device_type": "cuda",
+    "cuda_devices": [
+      "NVIDIA L40"
+    ],
+    "deterministic_algorithms": false,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false
+  },
+  "data_path": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+  "fixed_train_window_indices": [
+    1978,
+    4329,
+    7127,
+    2277,
+    10351,
+    5985,
+    1191,
+    10259,
+    4859,
+    6326,
+    1156,
+    7208,
+    9296,
+    1033,
+    3032,
+    7037,
+    10763,
+    7792,
+    410,
+    3599,
+    135,
+    3935,
+    1611,
+    4085,
+    1078,
+    3569,
+    3515,
+    6981,
+    5263,
+    3444,
+    4692,
+    6329
+  ],
+  "sampler_step": 0,
+  "preflight": {
+    "path": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+    "dataset_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+    "split_disjoint": true,
+    "split_audit_scope": "Episode IDs and group IDs are disjoint across the existing splits. This is not an audit of exact or near-duplicate RGB clips; the original splits are unchanged.",
+    "split_sizes": {
+      "train": 384,
+      "val": 64,
+      "test": 128
+    },
+    "declared_train_frames": 81,
+    "train_frames": 81,
+    "history": 21,
+    "history_required": 21,
+    "requires_environment_context": false,
+    "sampling_metadata_fields": [
+      "regime_id"
+    ],
+    "max_horizon": 32,
+    "window_frames": 53,
+    "action_dim": 1,
+    "image_shape": [
+      64,
+      64,
+      3
+    ],
+    "model_fields": [
+      "pixels",
+      "action",
+      "dt_frame"
+    ],
+    "target_fields_read": [],
+    "test_samples_read": false,
+    "training_started": false,
+    "windows": {
+      "train": 11136,
+      "val": 1856
+    },
+    "strata_windows": {
+      "train": {
+        "regime0_mode0_time0": 3840,
+        "regime0_mode0_time1": 3840,
+        "regime0_mode0_time2": 3456
+      },
+      "val": {
+        "regime0_mode0_time0": 640,
+        "regime0_mode0_time1": 640,
+        "regime0_mode0_time2": 576
+      }
+    },
+    "sampling_contract": "Available regime/mode/time strata balanced; episode uniform within strata; RGB/action/dt model inputs only",
+    "scope": "Constant physical damping per trajectory tests a special case, not identification of genuine position/velocity-dependent damping. Opaque regime IDs, when present, are sampling metadata only. No damping coefficient or other physical target is read for training.",
+    "mode": "preflight_only",
+    "optimizer_created": false,
+    "run_directory_created": false,
+    "config": {
+      "model": {
+        "history": 21,
+        "velocity_history": 5,
+        "environment_context_dim": 0,
+        "core": {
+          "solver": "picard",
+          "newton_iterations": 12,
+          "line_search_max_backtracks": 12,
+          "line_search_shrink": 0.5,
+          "line_search_c1": 0.0001,
+          "max_bisections": 4,
+          "integrator": "frozen_dg",
+          "picard_iterations": 6,
+          "picard_check_every": 2,
+          "fd_relative_step": 6e-06,
+          "implicit_rcond_min": 1e-08,
+          "adjoint_rtol": 1e-10,
+          "substeps": 3,
+          "potential_mode": "raw",
+          "damping_mode": "none"
+        },
+        "velocity_initializer": "motion_gated",
+        "motion_loss_mode": "normalized_velocity",
+        "motion_scale_floor": 0.1,
+        "momentum_weight": 0.1
+      },
+      "training": {
+        "steps": 20000,
+        "batch_size": 32,
+        "train_frames": 81,
+        "seed": 0,
+        "threads": 4,
+        "encoder_lr": 2e-05,
+        "dynamics_lr": 0.0001,
+        "weight_decay": 0.0001,
+        "warmup_steps": 500,
+        "minimum_lr_ratio": 0.1,
+        "gradient_clip": 1.0,
+        "curriculum": [
+          {
+            "until_step": 1000,
+            "horizon": 4
+          },
+          {
+            "until_step": 4000,
+            "horizon": 8
+          },
+          {
+            "until_step": 10000,
+            "horizon": 16
+          },
+          {
+            "until_step": 20000,
+            "horizon": 32
+          }
+        ],
+        "val_horizons": [
+          8,
+          32
+        ],
+        "val_every": 250,
+        "val_windows": 288,
+        "val_seed": 1009,
+        "minimum_target_std": 0.1,
+        "minimum_target_motion": 0.001,
+        "validation_gate_time_bins": [
+          0
+        ],
+        "required_renderer": "smooth_v1",
+        "validation_motion_weight": 1.0,
+        "prediction_motion_gate": {
+          "min_rms_ratio": 0.5,
+          "max_rms_ratio": 1.5,
+          "max_relative_error": 0.8,
+          "min_cosine": 0.5,
+          "max_stalled_fraction": 0.1
+        },
+        "trainable_modules": [
+          "encoder",
+          "initializer",
+          "potential"
+        ],
+        "required_data_scope": "undamped_stage_a"
+      }
+    },
+    "config_sha256": "72131432a19df4250e813dfafdd1fcb8bef27431375616370da8d80afd697f39",
+    "resolved_model_config": {
+      "history": 21,
+      "velocity_history": 5,
+      "environment_context_dim": 0,
+      "dt": 0.1,
+      "q_dim": 2,
+      "encoder_width": 32,
+      "velocity_correction_scale": 1.0,
+      "sigreg_weight": 0.25,
+      "motion_weight": 1.0,
+      "initializer_weight": 0.001,
+      "velocity_initializer": "motion_gated",
+      "motion_loss_mode": "normalized_velocity",
+      "motion_scale_floor": 0.1,
+      "momentum_weight": 0.1,
+      "sigreg_knots": 17,
+      "sigreg_projections": 256,
+      "variance_floor": 0.0001,
+      "core": {
+        "hidden_dim": 32,
+        "action_dim": 1,
+        "damping_mode": "none",
+        "potential_mode": "raw",
+        "integrator": "frozen_dg",
+        "substeps": 3,
+        "newton_iterations": 12,
+        "residual_atol": 1e-08,
+        "residual_rtol": 1e-07,
+        "chain_atol": 1e-10,
+        "strict": true,
+        "solver": "picard",
+        "line_search_max_backtracks": 12,
+        "line_search_shrink": 0.5,
+        "line_search_c1": 0.0001,
+        "max_bisections": 4,
+        "picard_iterations": 6,
+        "picard_check_every": 2,
+        "fd_relative_step": 6e-06,
+        "implicit_rcond_min": 1e-08,
+        "adjoint_rtol": 1e-10
+      }
+    },
+    "renderer": "smooth_v1",
+    "training_scope": "undamped_stage_a",
+    "required_data_scope": "undamped_stage_a",
+    "trainable_modules": [
+      "encoder",
+      "initializer",
+      "potential"
+    ],
+    "checked_frame_intervals": 35840,
+    "validation_horizons_seconds": [
+      0.8,
+      3.2
+    ],
+    "validation_horizons_steps": [
+      8,
+      32
+    ],
+    "note": "No training runs without --execute. The step budget is unprofiled, not an optimality or cost claim."
+  },
+  "checks": {
+    "status": "completed",
+    "optimizer_created": false,
+    "optimizer_updates": 0,
+    "checkpoint_saved": false,
+    "parameters_unchanged": true,
+    "initial_state_sha256": "4e7834d071f9d66be2f5083919bfa9c92b3352dea778654d24db8cac5f776b0b",
+    "final_state_sha256": "4e7834d071f9d66be2f5083919bfa9c92b3352dea778654d24db8cac5f776b0b",
+    "trainability": {
+      "mode": "explicit_modules",
+      "requested_modules": [
+        "encoder",
+        "initializer",
+        "potential"
+      ],
+      "trainable_modules": [
+        "encoder",
+        "initializer",
+        "potential"
+      ],
+      "modules": {
+        "encoder": {
+          "available": true,
+          "trainable": true,
+          "parameter_tensors": 20,
+          "parameters": 448674,
+          "trainable_parameters": 448674
+        },
+        "initializer": {
+          "available": true,
+          "trainable": true,
+          "parameter_tensors": 4,
+          "parameters": 5442,
+          "trainable_parameters": 5442
+        },
+        "potential": {
+          "available": true,
+          "trainable": true,
+          "parameter_tensors": 6,
+          "parameters": 1185,
+          "trainable_parameters": 1185
+        },
+        "damping": {
+          "available": false,
+          "trainable": false,
+          "parameter_tensors": 0,
+          "parameters": 0,
+          "trainable_parameters": 0
+        },
+        "environment": {
+          "available": false,
+          "trainable": false,
+          "parameter_tensors": 0,
+          "parameters": 0,
+          "trainable_parameters": 0
+        },
+        "input_port": {
+          "available": true,
+          "trainable": false,
+          "parameter_tensors": 6,
+          "parameters": 1218,
+          "trainable_parameters": 0
+        }
+      },
+      "total_parameters": 456519,
+      "trainable_parameters": 455301,
+      "frozen_parameters": 1218
+    },
+    "optimizer_group_names": [
+      "encoder",
+      "dynamics"
+    ],
+    "batch_size": 32,
+    "history_frames": 21,
+    "rows": [
+      {
+        "horizon": 4,
+        "backward": true,
+        "losses": {
+          "loss": 6.522453987341846,
+          "prediction_loss": 0.04209379941968361,
+          "motion_loss": 2.1559992720423327,
+          "sigreg_loss": 12.894147872924805,
+          "initializer_loss": 0.0,
+          "target_std_min": 0.05458621492369675,
+          "target_std_mean": 0.057175422309868565,
+          "target_motion_rms": 0.0669702048637599,
+          "target_motion_mse": 0.00448500833949397,
+          "persistence_mse": 0.005869188394045605,
+          "prediction_mse": 0.04209379941968361,
+          "normalized_prediction_mse": 12.850192784569222,
+          "persistence_ratio": 7.1719966362620955,
+          "predicted_velocity_power": 0.38696729004905756,
+          "dynamic_predicted_velocity_power": 0.38696729004905756,
+          "target_velocity_power": 0.44850082058303076,
+          "dynamic_target_velocity_power": 0.44850082058303076,
+          "velocity_error_power": 0.8728755909942958,
+          "dynamic_velocity_error_power": 0.8728755909942958,
+          "velocity_cross_power": -0.01870374018110372,
+          "dynamic_velocity_cross_power": -0.01870374018110372,
+          "momentum_loss": 11.008239476486278,
+          "momentum_point_count": 128.0,
+          "dynamic_window_count": 32.0,
+          "stalled_dynamic_window_count": 0.0,
+          "window_count": 32.0,
+          "target_mean_0": 0.11170792917255312,
+          "target_second_moment_0": 0.016050472402724978,
+          "target_mean_1": 0.014176801487337798,
+          "target_second_moment_1": 0.0031806365601073977,
+          "work": 0.0,
+          "dissipation": 0.0,
+          "residual_work": -9.57667499778594e-10,
+          "chain_defect": -2.1059356651110042e-19,
+          "chain_defect_max": 4.0766001685454967e-16,
+          "numerical_balance_defect": 8.250123917243299e-09,
+          "solver_residual": 1.5750175831521357e-09,
+          "solver_residual_ratio": 0.011394054423259477,
+          "solver_picard_iterations": 3.0,
+          "solver_newton_iterations": 0.0,
+          "solver_backtracks": 0.0,
+          "solver_line_search_evals": 0.0,
+          "solver_iterations": 3.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 3.0,
+          "solver_split_depth": 0.0,
+          "solver_replay_iterations": 0.0,
+          "solver_replay_relative_error": 0.0,
+          "energy_delta": -9.57667499988657e-10,
+          "energy_residual": 8.250123917363794e-09
+        },
+        "forward_seconds": 0.7328976765275002,
+        "backward_seconds": 0.6856598928570747,
+        "gradients": {
+          "modules": {
+            "encoder": {
+              "norm": 184.0151760967238,
+              "finite": true,
+              "nonzero": true,
+              "tensors_with_gradient": 20
+            },
+            "initializer": {
+              "norm": 2.2825173392310316,
+              "finite": true,
+              "nonzero": true,
+              "tensors_with_gradient": 4
+            },
+            "potential": {
+              "norm": 0.49795260028407634,
+              "finite": true,
+              "nonzero": true,
+              "tensors_with_gradient": 5
+            }
+          },
+          "permitted_gauge_parameters_without_gradient": [
+            "core.potential_net.0.4.bias"
+          ],
+          "frozen_parameters_have_no_gradient": true
+        },
+        "numerical_audit": {
+          "core_steps": 4,
+          "maximum_abs_damping": 0.0,
+          "maximum_abs_work": 0.0,
+          "maximum_abs_dissipation": 0.0,
+          "ledger_identity_error": 2.192586142998384e-18,
+          "max_diagnostics": {
+            "work": 0.0,
+            "dissipation": 0.0,
+            "residual_work": 8.25012355338505e-09,
+            "chain_defect": 3.642919299551295e-16,
+            "chain_defect_max": 4.0766001685454967e-16,
+            "numerical_balance_defect": 8.250123917243299e-09,
+            "solver_residual": 1.5750175831521357e-09,
+            "solver_residual_ratio": 0.011394054423259477,
+            "solver_picard_iterations": 3.0,
+            "solver_newton_iterations": 0.0,
+            "solver_backtracks": 0.0,
+            "solver_line_search_evals": 0.0,
+            "solver_iterations": 3.0,
+            "solver_failed_attempts": 0.0,
+            "solver_leaf_steps": 3.0,
+            "solver_split_depth": 0.0,
+            "solver_replay_iterations": 0.0,
+            "solver_replay_relative_error": 0.0,
+            "energy_delta": 8.250123917363794e-09,
+            "energy_residual": 8.250123917363794e-09
+          }
+        },
+        "parameters_unchanged": true,
+        "cuda_peak_allocated_bytes": 777863680,
+        "cuda_peak_reserved_bytes": 1258291200
+      },
+      {
+        "horizon": 8,
+        "backward": true,
+        "losses": {
+          "loss": 6.743537228163527,
+          "prediction_loss": 0.12019482009349067,
+          "motion_loss": 2.02743149161548,
+          "sigreg_loss": 12.8865966796875,
+          "initializer_loss": 0.0,
+          "target_std_min": 0.05667556459617373,
+          "target_std_mean": 0.059933812945438425,
+          "target_motion_rms": 0.07080502640195656,
+          "target_motion_mse": 0.005013351763781766,
+          "persistence_mse": 0.006219113056015049,
+          "prediction_mse": 0.12019482009349067,
+          "normalized_prediction_mse": 33.3626308560655,
+          "persistence_ratio": 19.32668195784602,
+          "predicted_velocity_power": 0.39328995961851854,
+          "dynamic_predicted_velocity_power": 0.39328995961851854,
+          "target_velocity_power": 0.5013351614372245,
+          "dynamic_target_velocity_power": 0.5013351614372245,
+          "velocity_error_power": 0.9339050306349679,
+          "dynamic_velocity_error_power": 0.9339050306349679,
+          "velocity_cross_power": -0.019639954789612515,
+          "dynamic_velocity_cross_power": -0.019639954789612515,
+          "momentum_loss": 13.742617465326811,
+          "momentum_point_count": 256.0,
+          "dynamic_window_count": 32.0,
+          "stalled_dynamic_window_count": 0.0,
+          "window_count": 32.0,
+          "target_mean_0": 0.11149688246950973,
+          "target_second_moment_0": 0.01642479141109318,
+          "target_mean_1": 0.010139209451153874,
+          "target_second_moment_1": 0.003314923190589429,
+          "work": 0.0,
+          "dissipation": 0.0,
+          "residual_work": -8.914542169773317e-10,
+          "chain_defect": -2.5098645018328987e-19,
+          "chain_defect_max": 4.0766001685454967e-16,
+          "numerical_balance_defect": 8.250123917243299e-09,
+          "solver_residual": 1.5750175831521357e-09,
+          "solver_residual_ratio": 0.012236721312878247,
+          "solver_picard_iterations": 3.0,
+          "solver_newton_iterations": 0.0,
+          "solver_backtracks": 0.0,
+          "solver_line_search_evals": 0.0,
+          "solver_iterations": 3.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 3.0,
+          "solver_split_depth": 0.0,
+          "solver_replay_iterations": 0.0,
+          "solver_replay_relative_error": 0.0,
+          "energy_delta": -8.91454217193631e-10,
+          "energy_residual": 8.250123917363794e-09
+        },
+        "forward_seconds": 0.3795624375343323,
+        "backward_seconds": 0.28858646750450134,
+        "gradients": {
+          "modules": {
+            "encoder": {
+              "norm": 192.70502325545465,
+              "finite": true,
+              "nonzero": true,
+              "tensors_with_gradient": 20
+            },
+            "initializer": {
+              "norm": 1.3754371459846846,
+              "finite": true,
+              "nonzero": true,
+              "tensors_with_gradient": 4
+            },
+            "potential": {
+              "norm": 0.7092666975294669,
+              "finite": true,
+              "nonzero": true,
+              "tensors_with_gradient": 5
+            }
+          },
+          "permitted_gauge_parameters_without_gradient": [
+            "core.potential_net.0.4.bias"
+          ],
+          "frozen_parameters_have_no_gradient": true
+        },
+        "numerical_audit": {
+          "core_steps": 8,
+          "maximum_abs_damping": 0.0,
+          "maximum_abs_work": 0.0,
+          "maximum_abs_dissipation": 0.0,
+          "ledger_identity_error": 2.192586142998384e-18,
+          "max_diagnostics": {
+            "work": 0.0,
+            "dissipation": 0.0,
+            "residual_work": 8.25012355338505e-09,
+            "chain_defect": 3.642919299551295e-16,
+            "chain_defect_max": 4.0766001685454967e-16,
+            "numerical_balance_defect": 8.250123917243299e-09,
+            "solver_residual": 1.5750175831521357e-09,
+            "solver_residual_ratio": 0.012236721312878247,
+            "solver_picard_iterations": 3.0,
+            "solver_newton_iterations": 0.0,
+            "solver_backtracks": 0.0,
+            "solver_line_search_evals": 0.0,
+            "solver_iterations": 3.0,
+            "solver_failed_attempts": 0.0,
+            "solver_leaf_steps": 3.0,
+            "solver_split_depth": 0.0,
+            "solver_replay_iterations": 0.0,
+            "solver_replay_relative_error": 0.0,
+            "energy_delta": 8.250123917363794e-09,
+            "energy_residual": 8.250123917363794e-09
+          }
+        },
+        "parameters_unchanged": true,
+        "cuda_peak_allocated_bytes": 887817728,
+        "cuda_peak_reserved_bytes": 1258291200
+      },
+      {
+        "horizon": 32,
+        "backward": false,
+        "losses": {
+          "loss": 7.903528938978556,
+          "prediction_loss": 1.5874373302642408,
+          "motion_loss": 1.8994709339955655,
+          "sigreg_loss": 12.883539199829102,
+          "initializer_loss": 0.0,
+          "target_std_min": 0.052368783848216686,
+          "target_std_mean": 0.05997012046441347,
+          "target_motion_rms": 0.0735085757739842,
+          "target_motion_mse": 0.005403510712319578,
+          "persistence_mse": 0.00633726130954595,
+          "prediction_mse": 1.5874373302642408,
+          "normalized_prediction_mse": 434.4149780092087,
+          "persistence_ratio": 250.49264228272403,
+          "predicted_velocity_power": 0.44746672670113935,
+          "dynamic_predicted_velocity_power": 0.44746672670113935,
+          "target_velocity_power": 0.5403510551282413,
+          "dynamic_target_velocity_power": 0.5403510551282413,
+          "velocity_error_power": 0.9914536523052879,
+          "dynamic_velocity_error_power": 0.9914536523052879,
+          "velocity_cross_power": -0.001817935237953597,
+          "dynamic_velocity_cross_power": -0.001817935237953597,
+          "momentum_loss": 11.957358747614737,
+          "momentum_point_count": 1024.0,
+          "dynamic_window_count": 32.0,
+          "stalled_dynamic_window_count": 0.0,
+          "window_count": 32.0,
+          "target_mean_0": 0.11524997510787216,
+          "target_second_moment_0": 0.017848458574361903,
+          "target_mean_1": 0.0061068723371136,
+          "target_second_moment_1": 0.0027797834114830435,
+          "work": 0.0,
+          "dissipation": 0.0,
+          "residual_work": -6.586973296252267e-10,
+          "chain_defect": -4.351185088988189e-19,
+          "chain_defect_max": 4.34114549863196e-16,
+          "numerical_balance_defect": 8.250123917243299e-09,
+          "solver_residual": 1.6386929718986004e-09,
+          "solver_residual_ratio": 0.012236721312878247,
+          "solver_picard_iterations": 3.0,
+          "solver_newton_iterations": 0.0,
+          "solver_backtracks": 0.0,
+          "solver_line_search_evals": 0.0,
+          "solver_iterations": 3.0,
+          "solver_failed_attempts": 0.0,
+          "solver_leaf_steps": 3.0,
+          "solver_split_depth": 0.0,
+          "solver_replay_iterations": 0.0,
+          "solver_replay_relative_error": 0.0,
+          "energy_delta": -6.58697330051727e-10,
+          "energy_residual": 8.250123917363794e-09
+        },
+        "forward_seconds": 1.4320504665374756,
+        "backward_seconds": null,
+        "gradients": null,
+        "numerical_audit": {
+          "core_steps": 32,
+          "maximum_abs_damping": 0.0,
+          "maximum_abs_work": 0.0,
+          "maximum_abs_dissipation": 0.0,
+          "ledger_identity_error": 2.192586142998384e-18,
+          "max_diagnostics": {
+            "work": 0.0,
+            "dissipation": 0.0,
+            "residual_work": 8.25012355338505e-09,
+            "chain_defect": 4.106415728288848e-16,
+            "chain_defect_max": 4.34114549863196e-16,
+            "numerical_balance_defect": 8.250123917243299e-09,
+            "solver_residual": 1.6386929718986004e-09,
+            "solver_residual_ratio": 0.012236721312878247,
+            "solver_picard_iterations": 3.0,
+            "solver_newton_iterations": 0.0,
+            "solver_backtracks": 0.0,
+            "solver_line_search_evals": 0.0,
+            "solver_iterations": 3.0,
+            "solver_failed_attempts": 0.0,
+            "solver_leaf_steps": 3.0,
+            "solver_split_depth": 0.0,
+            "solver_replay_iterations": 0.0,
+            "solver_replay_relative_error": 0.0,
+            "energy_delta": 8.250123917363794e-09,
+            "energy_residual": 8.250123917363794e-09
+          }
+        },
+        "parameters_unchanged": true,
+        "cuda_peak_allocated_bytes": 472412672,
+        "cuda_peak_reserved_bytes": 1392508928
+      }
+    ],
+    "physical_accuracy_evaluated": false,
+    "timing_scope": "Forward/backward with synchronized numerical/gradient auditing; no optimizer. Not training-step timing or ETA."
+  },
+  "elapsed_seconds": 5.124335423111916
+}

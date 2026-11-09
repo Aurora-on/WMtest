@@ -1,0 +1,169 @@
+{
+  "checkpoint_sha256": "cfe8f8124269dab15ae09a225b631f335251a3f2419ef7d3005e6601776ed0b6",
+  "step": 20000,
+  "batch_size": 32,
+  "horizon": 32,
+  "scope": "One deterministic train batch and one validation batch; frozen weights; no test data",
+  "train": {
+    "indices": [
+      8114,
+      4600,
+      3154,
+      1519,
+      4364,
+      1785,
+      889,
+      1240,
+      1107,
+      6016,
+      3625,
+      762,
+      630,
+      5482,
+      5099,
+      7195,
+      10232,
+      3833,
+      3069,
+      5488,
+      6206,
+      1765,
+      8170,
+      3752,
+      575,
+      2836,
+      5709,
+      3465,
+      4294,
+      8052,
+      431,
+      2442
+    ],
+    "eval": {
+      "percept_spectrum": {
+        "mean_coordinate_variance": 0.9968441865057812,
+        "participation_rank": 147.17687957698212,
+        "variance_within_trajectory": 0.9151465535752225,
+        "variance_between_trajectory_means": 0.08075365169333736,
+        "mean_square": 0.9996958018719284
+      },
+      "state_spectrum": {
+        "mean_coordinate_variance": 0.407362945331402,
+        "participation_rank": 10.90825755292365,
+        "variance_within_trajectory": 0.009420654288905771,
+        "variance_between_trajectory_means": 0.397556530677599,
+        "mean_square": 0.4169702937212246
+      },
+      "percept_isotropy_loss": 0.1279795914888382,
+      "prediction_mse": 0.011715738102793694,
+      "constant_state_mse": 0.018358808010816574,
+      "prediction_mse_over_constant": 0.638153528044471,
+      "median_target_step_norm": 0.6809840798377991,
+      "median_predicted_step_norm": 0.007455645594745874
+    },
+    "train": {
+      "percept_spectrum": {
+        "mean_coordinate_variance": 0.9985089965649249,
+        "participation_rank": 148.5126022962257,
+        "variance_within_trajectory": 0.9148814779278726,
+        "variance_between_trajectory_means": 0.08268196087515385,
+        "mean_square": 0.9996912148872094
+      },
+      "state_spectrum": {
+        "mean_coordinate_variance": 0.4195600906468875,
+        "participation_rank": 11.081569034139036,
+        "variance_within_trajectory": 0.009684016591198026,
+        "variance_between_trajectory_means": 0.40947876336378897,
+        "mean_square": 0.42947774344458656
+      },
+      "percept_isotropy_loss": 0.12265384197235107,
+      "prediction_mse": 0.012254247441887856,
+      "constant_state_mse": 0.019314603880047798,
+      "prediction_mse_over_constant": 0.6344550226342789,
+      "median_target_step_norm": 0.6900203227996826,
+      "median_predicted_step_norm": 0.007616326678544283
+    },
+    "batchnorm_train_eval_state_rms_difference": 0.10156558454036713
+  },
+  "val": {
+    "indices": [
+      734,
+      849,
+      1611,
+      783,
+      1604,
+      698,
+      141,
+      38,
+      861,
+      4,
+      712,
+      1072,
+      1301,
+      636,
+      1265,
+      327,
+      1259,
+      1530,
+      895,
+      256,
+      485,
+      710,
+      422,
+      1454,
+      383,
+      205,
+      912,
+      247,
+      530,
+      157,
+      1000,
+      173
+    ],
+    "eval": {
+      "percept_spectrum": {
+        "mean_coordinate_variance": 0.9954052891032887,
+        "participation_rank": 137.74867323609834,
+        "variance_within_trajectory": 0.9033395803805777,
+        "variance_between_trajectory_means": 0.09112309007772675,
+        "mean_square": 0.9997085850853025
+      },
+      "state_spectrum": {
+        "mean_coordinate_variance": 0.4661878638530157,
+        "participation_rank": 9.383952744575886,
+        "variance_within_trajectory": 0.01024762103300576,
+        "variance_between_trajectory_means": 0.4554987770398461,
+        "mean_square": 0.4793033159270983
+      },
+      "percept_isotropy_loss": 0.15054677426815033,
+      "prediction_mse": 0.014574440196156502,
+      "constant_state_mse": 0.02171577513217926,
+      "prediction_mse_over_constant": 0.6711452898846583,
+      "median_target_step_norm": 0.6917269825935364,
+      "median_predicted_step_norm": 0.0074423435144126415
+    },
+    "train": {
+      "percept_spectrum": {
+        "mean_coordinate_variance": 0.9981867492808923,
+        "participation_rank": 142.04227304508365,
+        "variance_within_trajectory": 0.9127333863310501,
+        "variance_between_trajectory_means": 0.08450811034635664,
+        "mean_square": 0.9997093270998146
+      },
+      "state_spectrum": {
+        "mean_coordinate_variance": 0.43018652857099376,
+        "participation_rank": 10.885658701915075,
+        "variance_within_trajectory": 0.010540040651558547,
+        "variance_between_trajectory_means": 0.41923911431283395,
+        "mean_square": 0.4410905796818774
+      },
+      "percept_isotropy_loss": 0.13783003389835358,
+      "prediction_mse": 0.015221130102872849,
+      "constant_state_mse": 0.02199404127895832,
+      "prediction_mse_over_constant": 0.6920569944294362,
+      "median_target_step_norm": 0.7016823291778564,
+      "median_predicted_step_norm": 0.00721152126789093
+    },
+    "batchnorm_train_eval_state_rms_difference": 0.3439745604991913
+  }
+}

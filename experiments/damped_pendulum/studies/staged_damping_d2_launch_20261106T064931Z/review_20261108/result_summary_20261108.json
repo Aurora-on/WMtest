@@ -1,0 +1,507 @@
+{
+  "generated_at_utc": "2026-11-08T08:23:26.989187+00:00",
+  "live_checked_at_utc": "2026-11-08T08:17:45.284102+00:00",
+  "job_id": "47920",
+  "status": "completed",
+  "completion_time_from_pipeline_status_mtime_utc": "2026-11-07T03:54:43.426515+00:00",
+  "queue": [],
+  "scope": {
+    "split": "val",
+    "groups": 64,
+    "multi_records": 384,
+    "prediction_seconds": 3.2,
+    "metric_time_range_seconds": [
+      0.1,
+      3.2
+    ],
+    "checkpoint_selection": "exact_step_20000_last",
+    "single_seed": 0,
+    "unseen_damping_tested": false
+  },
+  "stages": {
+    "a": {
+      "step": 20000,
+      "optimizer_updates_this_submission": 10000,
+      "training_elapsed_seconds": 27231.768761105835,
+      "evaluation_finished_at_utc": "2026-11-06T14:38:06.313603+00:00",
+      "metrics": {
+        "angle_mae_rad": 0.06874698781850075,
+        "angle_rmse_rad": 0.10150005478939479,
+        "omega_rmse_rad_s": 0.29651775493180343,
+        "omega_nrmse": 0.11353129732854697,
+        "velocity_rms_ratio": 1.0096893774832085,
+        "velocity_cosine": 0.9935135175401242,
+        "direction_agreement": 0.9895452169367486,
+        "stopped_dynamic_window_fraction": 0.0,
+        "trajectory_with_stop_fraction": 0.0,
+        "dynamic_window_count": 1472,
+        "stopped_dynamic_window_count": 0,
+        "dynamic_trajectory_count": 64,
+        "stop_status": "truth-defined one-second windows"
+      },
+      "teacher_metrics": {
+        "angle_mae_rad": 0.008379570572170756,
+        "angle_rmse_rad": 0.011301092476676367,
+        "omega_rmse_rad_s": 0.042481734996201434,
+        "omega_nrmse": 0.0162654896938483
+      },
+      "physical_energy": {
+        "initial_energy_relative_error_median": 0.0123825686418572,
+        "max_relative_drift_median": 0.10594165510003767,
+        "max_relative_drift_p90": 0.26195114208302644,
+        "future_energy_relative_mae_median": 0.049554110412201785,
+        "energy_change_relative_mae_median": 0.046797857933631545,
+        "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+        "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+      },
+      "per_damping": {
+        "damping_0": {
+          "metrics": {
+            "angle_mae_rad": 0.06874698781850075,
+            "angle_rmse_rad": 0.10150005478939479,
+            "omega_rmse_rad_s": 0.29651775493180343,
+            "omega_nrmse": 0.11353129732854697,
+            "velocity_rms_ratio": 1.0096893774832085,
+            "velocity_cosine": 0.9935135175401242,
+            "direction_agreement": 0.9895452169367486,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 1472,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 64,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "teacher": {
+            "angle_mae_rad": 0.008379570572170756,
+            "angle_rmse_rad": 0.011301092476676367,
+            "omega_rmse_rad_s": 0.042481734996201434,
+            "omega_nrmse": 0.0162654896938483
+          },
+          "energy": {
+            "initial_energy_relative_error_median": 0.0123825686418572,
+            "max_relative_drift_median": 0.10594165510003767,
+            "max_relative_drift_p90": 0.26195114208302644,
+            "future_energy_relative_mae_median": 0.049554110412201785,
+            "energy_change_relative_mae_median": 0.046797857933631545,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          }
+        }
+      },
+      "final_latent_validation_gate": {
+        "passed": true,
+        "score": 0.01821063910152027,
+        "failed_validation_steps": []
+      },
+      "frozen_shared_state_matches_A": true,
+      "readout_sha256": "b043b1899a979046a6fbad4e57f183436cdcbeb965a9c95c0ed11d8215d66390",
+      "solver_failed_attempts": 0.0
+    },
+    "single": {
+      "step": 20000,
+      "optimizer_updates_this_submission": 20000,
+      "training_elapsed_seconds": 45369.77534519136,
+      "evaluation_finished_at_utc": "2026-11-07T03:14:35.139595+00:00",
+      "metrics": {
+        "angle_mae_rad": 0.04120681442262554,
+        "angle_rmse_rad": 0.05823614977769407,
+        "omega_rmse_rad_s": 0.20467442218772228,
+        "omega_nrmse": 0.07836614264898624,
+        "velocity_rms_ratio": 0.9948130694529169,
+        "velocity_cosine": 0.994352250131882,
+        "direction_agreement": 0.9840170484816196,
+        "stopped_dynamic_window_fraction": 0.0,
+        "trajectory_with_stop_fraction": 0.0,
+        "dynamic_window_count": 1472,
+        "stopped_dynamic_window_count": 0,
+        "dynamic_trajectory_count": 64,
+        "stop_status": "truth-defined one-second windows"
+      },
+      "teacher_metrics": {
+        "angle_mae_rad": 0.010366210426986669,
+        "angle_rmse_rad": 0.018972811124508035,
+        "omega_rmse_rad_s": 0.069421191787163,
+        "omega_nrmse": 0.026580121542816748
+      },
+      "physical_energy": {
+        "initial_energy_relative_error_median": 0.026375900451892066,
+        "max_relative_drift_median": 0.4913902946840618,
+        "max_relative_drift_p90": 0.5813694366702941,
+        "future_energy_relative_mae_median": 0.04445675723336834,
+        "energy_change_relative_mae_median": 0.05821863505260423,
+        "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+        "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+      },
+      "per_damping": {
+        "damping_0.2": {
+          "metrics": {
+            "angle_mae_rad": 0.04120681442262554,
+            "angle_rmse_rad": 0.05823614977769407,
+            "omega_rmse_rad_s": 0.20467442218772228,
+            "omega_nrmse": 0.07836614264898624,
+            "velocity_rms_ratio": 0.9948130694529169,
+            "velocity_cosine": 0.994352250131882,
+            "direction_agreement": 0.9840170484816196,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 1472,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 64,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "teacher": {
+            "angle_mae_rad": 0.010366210426986669,
+            "angle_rmse_rad": 0.018972811124508035,
+            "omega_rmse_rad_s": 0.069421191787163,
+            "omega_nrmse": 0.026580121542816748
+          },
+          "energy": {
+            "initial_energy_relative_error_median": 0.026375900451892066,
+            "max_relative_drift_median": 0.4913902946840618,
+            "max_relative_drift_p90": 0.5813694366702941,
+            "future_energy_relative_mae_median": 0.04445675723336834,
+            "energy_change_relative_mae_median": 0.05821863505260423,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          }
+        }
+      },
+      "final_latent_validation_gate": {
+        "passed": true,
+        "score": 0.003117410446469781,
+        "failed_validation_steps": []
+      },
+      "frozen_shared_state_matches_A": true,
+      "readout_sha256": "b043b1899a979046a6fbad4e57f183436cdcbeb965a9c95c0ed11d8215d66390",
+      "solver_failed_attempts": 0.0
+    },
+    "multi": {
+      "step": 20000,
+      "optimizer_updates_this_submission": 20000,
+      "training_elapsed_seconds": 47721.99886483699,
+      "evaluation_finished_at_utc": "2026-11-07T03:54:42.590510+00:00",
+      "metrics": {
+        "angle_mae_rad": 0.09236135624032049,
+        "angle_rmse_rad": 0.13397958790927153,
+        "omega_rmse_rad_s": 0.37572799827542125,
+        "omega_nrmse": 0.14385947005661553,
+        "velocity_rms_ratio": 1.0276007797501827,
+        "velocity_cosine": 0.9827108115351738,
+        "direction_agreement": 0.9693925897848953,
+        "stopped_dynamic_window_fraction": 0.0,
+        "trajectory_with_stop_fraction": 0.0,
+        "dynamic_window_count": 8470,
+        "stopped_dynamic_window_count": 0,
+        "dynamic_trajectory_count": 381,
+        "stop_status": "truth-defined one-second windows"
+      },
+      "teacher_metrics": {
+        "angle_mae_rad": 0.02834778538336026,
+        "angle_rmse_rad": 0.06302434121578483,
+        "omega_rmse_rad_s": 0.16273915109964013,
+        "omega_nrmse": 0.062309884123930105
+      },
+      "physical_energy": {
+        "initial_energy_relative_error_median": 0.026627148155504515,
+        "max_relative_drift_median": 0.37188874092988733,
+        "max_relative_drift_p90": 0.8752024471191127,
+        "future_energy_relative_mae_median": 0.1142581657997849,
+        "energy_change_relative_mae_median": 0.0946839992059671,
+        "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+        "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+      },
+      "per_damping": {
+        "damping_0": {
+          "metrics": {
+            "angle_mae_rad": 0.10268759621877907,
+            "angle_rmse_rad": 0.14942065692725662,
+            "omega_rmse_rad_s": 0.35696724602053587,
+            "omega_nrmse": 0.1366763165795279,
+            "velocity_rms_ratio": 0.9802756752281725,
+            "velocity_cosine": 0.9904461661901768,
+            "direction_agreement": 0.9874542603240982,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 1472,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 64,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "teacher": {
+            "angle_mae_rad": 0.008379570572170756,
+            "angle_rmse_rad": 0.011301092476676367,
+            "omega_rmse_rad_s": 0.042481734996201434,
+            "omega_nrmse": 0.0162654896938483
+          },
+          "energy": {
+            "initial_energy_relative_error_median": 0.0123825686418572,
+            "max_relative_drift_median": 0.2181364529322688,
+            "max_relative_drift_p90": 0.4218008804861292,
+            "future_energy_relative_mae_median": 0.11507040446536422,
+            "energy_change_relative_mae_median": 0.10505970336091965,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          }
+        },
+        "damping_0.05": {
+          "metrics": {
+            "angle_mae_rad": 0.061740576085870184,
+            "angle_rmse_rad": 0.09420889958298607,
+            "omega_rmse_rad_s": 0.27634157414806054,
+            "omega_nrmse": 0.10580620181094313,
+            "velocity_rms_ratio": 0.9985047454891676,
+            "velocity_cosine": 0.9936642963005451,
+            "direction_agreement": 0.9864158829676071,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 1472,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 64,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "teacher": {
+            "angle_mae_rad": 0.00826952421521979,
+            "angle_rmse_rad": 0.010814204274205085,
+            "omega_rmse_rad_s": 0.03891184083431244,
+            "omega_nrmse": 0.014898641642479242
+          },
+          "energy": {
+            "initial_energy_relative_error_median": 0.013688604609689134,
+            "max_relative_drift_median": 0.25444774587719726,
+            "max_relative_drift_p90": 0.44829898979144883,
+            "future_energy_relative_mae_median": 0.06791428342530423,
+            "energy_change_relative_mae_median": 0.067605305791475,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          }
+        },
+        "damping_0.1": {
+          "metrics": {
+            "angle_mae_rad": 0.06158257961762251,
+            "angle_rmse_rad": 0.10514657705573265,
+            "omega_rmse_rad_s": 0.3577023230439332,
+            "omega_nrmse": 0.13695776430639975,
+            "velocity_rms_ratio": 1.0304099653989343,
+            "velocity_cosine": 0.9884258417946313,
+            "direction_agreement": 0.9842022116903634,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 1472,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 64,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "teacher": {
+            "angle_mae_rad": 0.008731300445652394,
+            "angle_rmse_rad": 0.012622276458200325,
+            "omega_rmse_rad_s": 0.04708088972291162,
+            "omega_nrmse": 0.018026423041189392
+          },
+          "energy": {
+            "initial_energy_relative_error_median": 0.019551586639944128,
+            "max_relative_drift_median": 0.29595609876058376,
+            "max_relative_drift_p90": 0.49651072091731163,
+            "future_energy_relative_mae_median": 0.06504646541248665,
+            "energy_change_relative_mae_median": 0.07906452058810953,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          }
+        },
+        "damping_0.2": {
+          "metrics": {
+            "angle_mae_rad": 0.07834122469391575,
+            "angle_rmse_rad": 0.12441063923548515,
+            "omega_rmse_rad_s": 0.4463821829442337,
+            "omega_nrmse": 0.17091168232291262,
+            "velocity_rms_ratio": 1.0716886212766183,
+            "velocity_cosine": 0.9774015696813065,
+            "direction_agreement": 0.9675013319126265,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 1472,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 64,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "teacher": {
+            "angle_mae_rad": 0.010366210426986669,
+            "angle_rmse_rad": 0.018972811124508035,
+            "omega_rmse_rad_s": 0.069421191787163,
+            "omega_nrmse": 0.026580121542816748
+          },
+          "energy": {
+            "initial_energy_relative_error_median": 0.026375900451892066,
+            "max_relative_drift_median": 0.38883381719045434,
+            "max_relative_drift_p90": 0.5510813490109449,
+            "future_energy_relative_mae_median": 0.08735236343706769,
+            "energy_change_relative_mae_median": 0.09035054105745946,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          }
+        },
+        "damping_0.5": {
+          "metrics": {
+            "angle_mae_rad": 0.09351581730079497,
+            "angle_rmse_rad": 0.1249473493166431,
+            "omega_rmse_rad_s": 0.3865396361909937,
+            "omega_nrmse": 0.14799905110491987,
+            "velocity_rms_ratio": 1.1507951927122615,
+            "velocity_cosine": 0.9646767701817205,
+            "direction_agreement": 0.9531791907514451,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 1460,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 64,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "teacher": {
+            "angle_mae_rad": 0.02824652103654548,
+            "angle_rmse_rad": 0.05538041541487714,
+            "omega_rmse_rad_s": 0.17733919411346785,
+            "omega_nrmse": 0.06789997711783421
+          },
+          "energy": {
+            "initial_energy_relative_error_median": 0.07330900038501859,
+            "max_relative_drift_median": 0.675336247363805,
+            "max_relative_drift_p90": 0.8466267405444897,
+            "future_energy_relative_mae_median": 0.17382873470951615,
+            "energy_change_relative_mae_median": 0.12387760136862208,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          }
+        },
+        "damping_1": {
+          "metrics": {
+            "angle_mae_rad": 0.15630034352494043,
+            "angle_rmse_rad": 0.1853528539247368,
+            "omega_rmse_rad_s": 0.4081886773129118,
+            "omega_nrmse": 0.15628807826639865,
+            "velocity_rms_ratio": 1.332330692262766,
+            "velocity_cosine": 0.8455558738792097,
+            "direction_agreement": 0.9172131147540984,
+            "stopped_dynamic_window_fraction": 0.0,
+            "trajectory_with_stop_fraction": 0.0,
+            "dynamic_window_count": 1122,
+            "stopped_dynamic_window_count": 0,
+            "dynamic_trajectory_count": 61,
+            "stop_status": "truth-defined one-second windows"
+          },
+          "teacher": {
+            "angle_mae_rad": 0.10609358560358648,
+            "angle_rmse_rad": 0.14142653206655945,
+            "omega_rmse_rad_s": 0.34219914789975936,
+            "omega_nrmse": 0.13102187831793832
+          },
+          "energy": {
+            "initial_energy_relative_error_median": 0.36260034318504847,
+            "max_relative_drift_median": 0.9072690263326095,
+            "max_relative_drift_p90": 1.3553890571085807,
+            "future_energy_relative_mae_median": 0.37339200510158266,
+            "energy_change_relative_mae_median": 0.1726561261864324,
+            "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy",
+            "interpretation": "Physical energy drift is expected with damping; compare true energy/change error, not a conservation gate"
+          }
+        }
+      },
+      "final_latent_validation_gate": {
+        "passed": true,
+        "score": 0.008427021565121047,
+        "failed_validation_steps": [
+          250,
+          500,
+          750
+        ]
+      },
+      "frozen_shared_state_matches_A": true,
+      "readout_sha256": "b043b1899a979046a6fbad4e57f183436cdcbeb965a9c95c0ed11d8215d66390",
+      "solver_failed_attempts": 0.0
+    }
+  },
+  "matched_b0p2": {
+    "metadata_equal": {
+      "group_id": true,
+      "energy_band": true,
+      "damping": true
+    },
+    "truth_bitwise_equal": true,
+    "teacher_bitwise_equal": true,
+    "teacher_features_bitwise_equal": true,
+    "horizons": {
+      "8": {
+        "single": {
+          "angle_mae_rad": 0.03192245340721519,
+          "angle_rmse_rad": 0.0409926230364602,
+          "omega_rmse_rad_s": 0.14672194980868392,
+          "omega_nrmse": 0.05617718680011229
+        },
+        "multi": {
+          "angle_mae_rad": 0.029131064832669668,
+          "angle_rmse_rad": 0.0395732088669952,
+          "omega_rmse_rad_s": 0.21453220428827866,
+          "omega_nrmse": 0.08214050951924563
+        },
+        "single_relative_error_reduction_vs_multi": {
+          "angle_mae_rad": -0.09582171439936715,
+          "omega_nrmse": 0.3160842667167787
+        }
+      },
+      "32": {
+        "single": {
+          "angle_mae_rad": 0.04120681442262554,
+          "angle_rmse_rad": 0.05823614977769407,
+          "omega_rmse_rad_s": 0.20467442218772228,
+          "omega_nrmse": 0.07836614264898624
+        },
+        "multi": {
+          "angle_mae_rad": 0.07834122469391575,
+          "angle_rmse_rad": 0.12441063923548515,
+          "omega_rmse_rad_s": 0.4463821829442337,
+          "omega_nrmse": 0.17091168232291262
+        },
+        "single_relative_error_reduction_vs_multi": {
+          "angle_mae_rad": 0.4740085493477637,
+          "omega_nrmse": 0.5414816495637502
+        }
+      }
+    }
+  },
+  "A10000_to_A20000": {
+    "same_group_ids": true,
+    "same_truth": true,
+    "same_time": true,
+    "horizons": {
+      "8": {
+        "relative_error_reduction": {
+          "angle_mae_rad": 0.35697422935777834,
+          "omega_nrmse": 0.5108099599269963
+        },
+        "energy_drift_median_reduction": 0.516786083343082
+      },
+      "32": {
+        "relative_error_reduction": {
+          "angle_mae_rad": 0.6451678544154309,
+          "omega_nrmse": 0.7308256221236804
+        },
+        "energy_drift_median_reduction": 0.6368244616645049
+      }
+    }
+  },
+  "validation_gate_source": "Live read of each exact step20000 checkpoint and complete history on 2026-11-08; gate is latent training validation, not a physical accuracy guarantee.",
+  "evidence": {
+    "remote_completion_audit": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/completion_audit_20261108.json",
+    "independent_numpy_recheck": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/independent_recheck.json"
+  },
+  "interpretation": [
+    "No sustained stop detected by the saved one-second dynamic-window criterion within these 3.2-second validation rollouts.",
+    "Compare single and multi at the same damping coefficient, not single against pooled multi.",
+    "Multi b=1 observed-history readout angle MAE exceeds the preset 0.1 rad readout threshold.",
+    "A10000 and A20000 use separately fitted train-only readouts; the training curriculum also changes after step10000.",
+    "Slurm accounting is disabled: completion is established from the pipeline state, checkpoint steps, contiguous histories, and validated evaluation artifacts."
+  ],
+  "figures": {
+    "animation": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/figures/staged_prediction_demo.gif",
+    "multi_damping_curves": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/figures/multi_damping_six_conditions.png",
+    "provenance": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/figures/visual_provenance.json"
+  }
+}

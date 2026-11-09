@@ -1,0 +1,182 @@
+{
+  "checked_at_utc": "2026-11-06T06:44:12.392619+00:00",
+  "hostname": "ladhpc",
+  "read_only_remote": true,
+  "squeue": {
+    "returncode": 0,
+    "rows": [],
+    "stderr": ""
+  },
+  "accounting": {
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Slurm accounting storage is disabled\n"
+  },
+  "search": {
+    "roots": [
+      "/home/weizhixin/ssd",
+      "/home/weizhixin/hdd",
+      "/home/weizhixin/logs"
+    ],
+    "max_depth": 8,
+    "staged_markers_found": [],
+    "candidate_last_checkpoints": [
+      "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z/runs/lehami/last.pt",
+      "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z/runs/control/last.pt",
+      "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z/runs/control_4000_10000/last.pt",
+      "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z/runs/lehami_4000_10000/last.pt",
+      "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/training/last.pt",
+      "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/audits/completed4000/training/last.pt",
+      "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/audits/startup_snapshot/training/last.pt",
+      "/home/weizhixin/ssd/efficient3_training_20261104T100427Z/training/last.pt",
+      "/home/weizhixin/ssd/efficient3_training_20261104T100427Z/migration/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/runs/server_47111/lewm_b0p0_seed1/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/runs/server_47111/lehami_b0p0_seed2/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/runs/server_47111/lehami_b0p2_seed1/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/runs/server_47111/lewm_b0p2_seed1/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/runs/server_47111/lehami_b0p2_seed2/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/runs/server_47111/lehami_b0p0_seed1/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/runs/server_47111/lehami_b0p0_seed0/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/runs/server_47111/lewm_b0p2_seed2/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/runs/server_47111/lewm_b0p0_seed2/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/runs/server_47111/lewm_b0p0_seed0/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/runs/server_47111/lehami_b0p2_seed0/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/runs/server_47111/lewm_b0p2_seed0/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/runs/server_matched_47106/lewm/last.pt",
+      "/home/weizhixin/ssd/damped_pendulum_profile_20261028/runs/server_matched_47106/lehami/last.pt",
+      "/home/weizhixin/ssd/efficient3_fresh_20261104T101014Z/training/last.pt"
+    ]
+  },
+  "checkpoints": {
+    "new_undamped_2d": {
+      "path": "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z/runs/lehami_4000_10000/last.pt",
+      "sha256": "746d0e95aeedd53455b158a8d487803d3253ed6feeacb8737f553a3a7eb05872",
+      "step": 10000,
+      "sampler_next_step": 10000,
+      "validation_status": "completed",
+      "q_dim": 2,
+      "environment_context_dim": 0,
+      "objective_mode": "lehami",
+      "damping_mode": "none",
+      "trainable_modules": [
+        "encoder",
+        "initializer",
+        "potential"
+      ],
+      "configured_total_steps": 20000,
+      "data_path": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+      "dataset_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+      "best_step": 9750,
+      "motion_weight": 0.0,
+      "mtime_utc": "2026-11-05T10:11:29.476365+00:00"
+    },
+    "old_joint_damping_2d": {
+      "path": "/home/weizhixin/ssd/efficient3_fresh_20261104T101014Z/training/last.pt",
+      "sha256": "b5a859c1269d3de62276ba356c1614a6e1681b4c4ce8d73cda97acfb5861d1c2",
+      "step": 20000,
+      "sampler_next_step": 20000,
+      "validation_status": "completed",
+      "q_dim": 2,
+      "environment_context_dim": 4,
+      "objective_mode": "absent_legacy_default",
+      "damping_mode": "position_velocity",
+      "trainable_modules": "unspecified_legacy_all",
+      "configured_total_steps": 20000,
+      "data_path": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/data/passive_family_v1/seen.h5",
+      "dataset_sha256": "55d2b4687e1a6f743b123ba69e3731a067a5b941817bd9d98738262dfabb1509",
+      "best_step": 19250,
+      "motion_weight": 1.0,
+      "mtime_utc": "2026-11-05T02:15:17.201654+00:00"
+    }
+  },
+  "new_d2_run_status": {
+    "status": "budget_completed",
+    "training_started": true,
+    "completed_steps": 10000,
+    "optimizer_steps_this_run": 6000,
+    "configured_total_steps": 20000,
+    "stop_after_step": 10000,
+    "full_budget_completed": false,
+    "best_score": 0.19025722756967126,
+    "best_step": 9750,
+    "best_available": true,
+    "elapsed_seconds": 9598.972092099488,
+    "physical_validation": false
+  },
+  "old_joint_run_status": {
+    "status": "completed",
+    "training_started": true,
+    "completed_steps": 20000,
+    "optimizer_steps_this_run": 20000,
+    "configured_total_steps": 20000,
+    "stop_after_step": 20000,
+    "full_budget_completed": true,
+    "best_score": 0.6135867631618955,
+    "best_step": 19250,
+    "best_available": true,
+    "elapsed_seconds": 57829.32956085354,
+    "physical_validation": false
+  },
+  "new_d2_evaluation": {
+    "status": "completed",
+    "checkpoint_step": 10000,
+    "checkpoint_sha256": "746d0e95aeedd53455b158a8d487803d3253ed6feeacb8737f553a3a7eb05872",
+    "q_dim": 2,
+    "parameters_unchanged": true,
+    "test_split_accessed": false,
+    "K32": {
+      "n_total": 64,
+      "n_complete": 64,
+      "coverage": 1.0,
+      "metrics": {
+        "angle_mae_rad": 0.19374509517801258,
+        "angle_rmse_rad": 0.38996268561680497,
+        "omega_rmse_rad_s": 1.101582391575351,
+        "omega_nrmse": 0.4217760182981175,
+        "velocity_rms_ratio": 1.007134660939121,
+        "velocity_cosine": 0.9096304109282324,
+        "direction_agreement": 0.8881338212232096,
+        "stopped_dynamic_window_fraction": 0.0,
+        "trajectory_with_stop_fraction": 0.0,
+        "dynamic_window_count": 1472,
+        "stopped_dynamic_window_count": 0,
+        "dynamic_trajectory_count": 64,
+        "stop_status": "truth-defined one-second windows"
+      },
+      "physical_energy": {
+        "initial_energy_relative_error_median": 0.014358843478471422,
+        "max_relative_drift_median": 0.29170922575234315,
+        "max_relative_drift_p90": 0.6455012743098437,
+        "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy"
+      },
+      "baselines_matched_support": {
+        "decoded_hold": {
+          "angle_mae_rad": 0.9704198807955358,
+          "angle_rmse_rad": 1.2573202625313336,
+          "omega_rmse_rad_s": 2.5815845111596065,
+          "omega_nrmse": 0.9884421213921617
+        },
+        "decoded_constant_velocity": {
+          "angle_mae_rad": 1.3381503278868196,
+          "angle_rmse_rad": 1.6374749681570506,
+          "omega_rmse_rad_s": 3.785641061598647,
+          "omega_nrmse": 1.4494536458444454
+        },
+        "oracle_hold": {
+          "angle_mae_rad": 0.9705404414452371,
+          "angle_rmse_rad": 1.2576883162788572,
+          "omega_rmse_rad_s": 2.5815845111596065,
+          "omega_nrmse": 0.9884421213921617
+        },
+        "oracle_constant_velocity": {
+          "angle_mae_rad": 1.3369504998013817,
+          "angle_rmse_rad": 1.6401411875626275,
+          "omega_rmse_rad_s": 3.799173870224471,
+          "omega_nrmse": 1.4546351140507658
+        }
+      }
+    },
+    "trajectories_sha256": "401008ff99f81b58d4b551dcde4bfcc633c664802e0844023f19dc9ee99678ea"
+  },
+  "assessment": "No staged-run scripts, manifests or results found in searched owned experiment locations. New LeHami undamped2D remains at10000, not20000. Existing20000 checkpoint belongs to older jointly trained damping model, not new A->B pipeline."
+}

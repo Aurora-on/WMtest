@@ -1,0 +1,45 @@
+{
+  "selected_method": "Per-sample Armijo Newton with bounded binary substeps, discrete gradient and unchanged physical acceptance",
+  "equations": {
+    "implicit": "F(v)=v-p+(h/2)[G(q,q+h v)+D(q+h v/2,v,c)v-B(q+h v/2)u]=0",
+    "newton": "J(v)d=-F(v); candidate=v+alpha*d",
+    "merit": "phi(v)=0.5||F(v)||_2^2; phi(candidate)<=(1-2*c1*alpha)phi(v)",
+    "energy_ledger": "Delta H=sum(W_leaf-D_leaf)+sum(residual_work_leaf+chain_defect_leaf)"
+  },
+  "controls": {
+    "newton_iterations": 12,
+    "max_backtracks": 12,
+    "shrink": 0.5,
+    "c1": 0.0001,
+    "base_substeps": 2,
+    "max_bisections": 4,
+    "residual_atol": 1e-08,
+    "residual_rtol": 1e-07,
+    "chain_atol": 1e-10
+  },
+  "gradient": "Detached per-sample plan followed by differentiable replay of accepted alpha sequence and substep tree; branch decisions fixed during backward; state/context/action/dt/parameter gradients preserved. No failed candidate graph reaches returned states.",
+  "guarantee_limits": [
+    "PSD D implies nonnegative power, not monotonic resistance or Newton convergence.",
+    "Finite bisection can exhaust; explicit failure remains.",
+    "Subdivision changes numerical map; leaf defects accumulate and macro energy identity is audited rather than claiming unchanged macro tolerance.",
+    "Unrolled gradients are local derivatives of selected finite execution branch; no smoothness guarantee at branch changes.",
+    "Implicit-root backward requires converged root and nonsingular J, and is not used.",
+    "Numerical readiness does not establish learned physical prediction accuracy or global future-training success."
+  ],
+  "primary_sources": {
+    "line_search": "https://petsc.org/main/manual/snes/",
+    "stopping_and_scaling": "https://sundials.readthedocs.io/en/latest/kinsol/Mathematics_link.html",
+    "invalid_graph_masking": "https://docs.pytorch.org/docs/2.8/notes/autograd.html",
+    "implicit_derivative_assumptions": "https://docs.jax.dev/en/latest/_autosummary/jax.lax.custom_root.html"
+  },
+  "rejected_as_primary_fix": [
+    "Relaxing residual tolerance or skipping failed samples",
+    "Silently replacing discrete-gradient integration with RK4",
+    "Applying implicit differentiation to an unconverged forward root",
+    "Constraining general D(q,v,c) to constant damping before testing safeguarded solving"
+  ],
+  "future_options": "Half-step explicit/frozen-D predictors reduced iterations on one captured CPU sample; not adopted without broad cost/branch validation. Structural derivative/latent-scale regularization remains a later evidence-driven ablation.",
+  "time_refinement_evidence": "time_refinement.json",
+  "time_refinement_result": "Frozen failure-field fine-grid endpoint orders2.031,2.010; independent harmonic orders\u22482. Fixed local tolerances accumulate, so cumulative ledger defect need not decrease monotonically with dt.",
+  "strict_rollout_coverage": "An additional direct model.rollout audit on normal4250 checkpoint avoids evaluator-induced batch retries."
+}

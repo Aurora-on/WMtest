@@ -1,0 +1,10 @@
+{
+  "archive": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/lehami_loss_pair_20261105/prepared_code.tar.gz",
+  "sha256": "7f842110fa3ffe8e9cf3c0f6d4e359b97bb6181540eb251569e5fed1db54b9a9",
+  "bytes": 153475,
+  "files": 65,
+  "contains_dataset": false,
+  "contains_checkpoints": false,
+  "deployment": "Extract to a fresh server directory; regenerate the plan there so paths use that snapshot; do not overwrite the previous stage A directory.",
+  "archive_manifest_verified": true
+}

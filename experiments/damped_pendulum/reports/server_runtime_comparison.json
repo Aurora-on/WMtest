@@ -1,0 +1,499 @@
+{
+  "schema_version": 1,
+  "server_directory": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/server_profile_47106",
+  "local_directory": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/runs/pilot500",
+  "job_id": "47106",
+  "hardware": {
+    "job_id": "47106",
+    "python": "3.12.14",
+    "hostname": "ladhpc",
+    "cuda_visible_devices": "0",
+    "gpu_name": "NVIDIA L40",
+    "gpu_total_memory_bytes": 47576711168,
+    "cuda_runtime": "12.6",
+    "versions": {
+      "torch": "2.8.0+cu126",
+      "numpy": "2.2.6",
+      "scipy": "1.18.1",
+      "h5py": "3.16.0",
+      "Pillow": "11.3.0",
+      "omegaconf": "2.3.1",
+      "einops": "0.8.1",
+      "PyYAML": "6.0.2"
+    },
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "dataset_sha256": "dab5143c7403e9cfc9cdd0a5ebb5d74cbb9b7e97692630a81baad97cd22201ae",
+    "steps": 500,
+    "warmup_for_statistics": 20,
+    "batch_size": 32,
+    "protocol": "Same fixed b=.2 data, seed0, FP32 parameters, 500 updates, validation every250 with256 windows, full64-episode evaluation and fixed4096/1024 readout labels. No autocast; backend TF32 defaults recorded separately."
+  },
+  "completed": true,
+  "warmup_for_statistics": 20,
+  "matched_workload": {
+    "profile_training_steps": 500,
+    "batch_size": 32,
+    "validation_interval": 250,
+    "validation_windows": 256,
+    "train_labels": 4096,
+    "validation_labels": 1024,
+    "mlp_steps": 500,
+    "test_episodes": 64,
+    "horizons": [
+      4.0,
+      8.0,
+      16.0,
+      32.0
+    ]
+  },
+  "auxiliary_measurements": {
+    "slurm": {
+      "job_id": "47106",
+      "state": "COMPLETED",
+      "exit_code": "0:0",
+      "runtime": "00:03:37",
+      "runtime_seconds": 217,
+      "source": "received/server_profile_47106/slurm_completion.txt",
+      "evidence_method": "Downloaded scontrol show job output; no sacct query"
+    },
+    "simulation": {
+      "server_internal_generation_seconds": 14.349488265812397,
+      "server_ode_simulation_seconds": 0.9518221318721771,
+      "total_frames": 332800,
+      "server_total_bytes": 144281706,
+      "server_regenerated_dataset_hashes": {
+        "pendulum_b0p0.h5": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+        "pendulum_b0p2.h5": "e112f2d176993f3d8e6b7277bc80d114d4a1cae5100ba82d29940d59795b7ca5"
+      },
+      "configuration_matches_workload": true,
+      "scope": "Internal generation includes ODE, rendering, independent numerical audit, HDF5 writing and hashing. Regeneration is a separate timing task; model timing uses transferred matching data.",
+      "server_process_seconds": 14.75,
+      "local_internal_generation_seconds": 5.937111499995808,
+      "server_divided_by_local_internal_time": 2.416914060957509,
+      "local_data_costs_source": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/reports/data_costs.json",
+      "regenerated_hdf5_hashes_equal_local": false
+    }
+  },
+  "models": {
+    "lehami": {
+      "verification": {
+        "matched": true,
+        "checked": [
+          "dataset_sha256",
+          "upstream",
+          "config",
+          "parameters",
+          "trainable_parameters",
+          "train_windows",
+          "validation_windows_used",
+          "scheduler",
+          "gradient_clip_norm",
+          "checkpoint_rule",
+          "training_args_except_paths_device_original_warmup",
+          "readout_and_evaluation_budget_and_test_episode_ids"
+        ]
+      },
+      "local": {
+        "timing": {
+          "warmup_steps_excluded": 20,
+          "measured_steps": 480,
+          "step_seconds_mean": 0.19146669567483818,
+          "step_seconds_median": 0.18730637499538716,
+          "step_seconds_p90": 0.21314844169537536,
+          "compute_seconds_mean": 0.1708277756936089,
+          "clips_per_second": 167.13089389887725,
+          "first_half_step_seconds_mean": 0.18717467935033102,
+          "second_half_step_seconds_mean": 0.1957587119993453,
+          "training_internal_wall_seconds": 97.64476858401031,
+          "all_step_wall_seconds_sum": 95.66921075894788,
+          "validation_save_log_other_seconds": 1.975557825062424,
+          "observed_validation_events": 2,
+          "warmup_excess_seconds": 0.0,
+          "evaluation_internal_wall_seconds": 19.539422417001333,
+          "rollout_internal_seconds": 15.459138125937898,
+          "second_over_first_half_ratio": 1.0458610784258255
+        },
+        "device": "mps",
+        "torch": "2.8.0",
+        "python": "3.12.14",
+        "machine": "arm64",
+        "checkpoint_step": 500
+      },
+      "server": {
+        "timing": {
+          "warmup_steps_excluded": 20,
+          "measured_steps": 480,
+          "step_seconds_mean": 0.08949836489434043,
+          "step_seconds_median": 0.08801057189702988,
+          "step_seconds_p90": 0.09456266388297081,
+          "compute_seconds_mean": 0.05800211209182938,
+          "clips_per_second": 357.54843161412407,
+          "first_half_step_seconds_mean": 0.0920553111160795,
+          "second_half_step_seconds_mean": 0.08694141867260138,
+          "training_internal_wall_seconds": 47.73264382779598,
+          "all_step_wall_seconds_sum": 46.60837505757809,
+          "validation_save_log_other_seconds": 1.1242687702178955,
+          "observed_validation_events": 2,
+          "warmup_excess_seconds": 1.859192610407869,
+          "evaluation_internal_wall_seconds": 32.08601579070091,
+          "rollout_internal_seconds": 25.49098275601864,
+          "second_over_first_half_ratio": 0.9444476110994876
+        },
+        "train_process_wall_seconds": 51.65504342317581,
+        "evaluate_process_wall_seconds": 34.62422589957714,
+        "train_process_extra_seconds": 3.9223995953798294,
+        "evaluation_process_extra_seconds": 2.5382101088762283,
+        "cuda_and_host_memory": {
+          "cuda_peak_allocated_bytes": 1859633152,
+          "cuda_peak_reserved_bytes": 2896166912,
+          "process_peak_rss_bytes": 1780424704
+        },
+        "device": "cuda",
+        "memory_scope": "Training process only; evaluation peak CUDA memory was not recorded.",
+        "torch": "2.8.0+cu126",
+        "python": "3.12.14",
+        "machine": "x86_64",
+        "checkpoint_step": 500
+      },
+      "local_divided_by_server_speed_ratios": {
+        "steady_training_step": 2.1393317732774118,
+        "training_internal_total": 2.0456601762156987,
+        "evaluation_internal_total": 0.6089700430386311
+      }
+    },
+    "lewm": {
+      "verification": {
+        "matched": true,
+        "checked": [
+          "dataset_sha256",
+          "upstream",
+          "config",
+          "parameters",
+          "trainable_parameters",
+          "train_windows",
+          "validation_windows_used",
+          "scheduler",
+          "gradient_clip_norm",
+          "checkpoint_rule",
+          "training_args_except_paths_device_original_warmup",
+          "readout_and_evaluation_budget_and_test_episode_ids"
+        ]
+      },
+      "local": {
+        "timing": {
+          "warmup_steps_excluded": 20,
+          "measured_steps": 480,
+          "step_seconds_mean": 0.2450382608354327,
+          "step_seconds_median": 0.22950260449579218,
+          "step_seconds_p90": 0.27840391310164714,
+          "compute_seconds_mean": 0.2239513568433722,
+          "clips_per_second": 130.59185080280645,
+          "first_half_step_seconds_mean": 0.26069716804170945,
+          "second_half_step_seconds_mean": 0.22937935362915596,
+          "training_internal_wall_seconds": 125.33137566701043,
+          "all_step_wall_seconds_sum": 123.18352444804623,
+          "validation_save_log_other_seconds": 2.147851218964206,
+          "observed_validation_events": 2,
+          "warmup_excess_seconds": 0.6643940303298823,
+          "evaluation_internal_wall_seconds": 33.173919749999186,
+          "rollout_internal_seconds": 28.893588753970107,
+          "second_over_first_half_ratio": 0.8798689888048845
+        },
+        "device": "mps",
+        "torch": "2.8.0",
+        "python": "3.12.14",
+        "machine": "arm64",
+        "checkpoint_step": 500
+      },
+      "server": {
+        "timing": {
+          "warmup_steps_excluded": 20,
+          "measured_steps": 480,
+          "step_seconds_mean": 0.11341512524522841,
+          "step_seconds_median": 0.11227833852171898,
+          "step_seconds_p90": 0.11634410172700882,
+          "compute_seconds_mean": 0.08376314514316618,
+          "clips_per_second": 282.14931589423344,
+          "first_half_step_seconds_mean": 0.1128693461107711,
+          "second_half_step_seconds_mean": 0.11396090437968572,
+          "training_internal_wall_seconds": 58.603151582181454,
+          "all_step_wall_seconds_sum": 57.2855084836483,
+          "validation_save_log_other_seconds": 1.3176430985331535,
+          "observed_validation_events": 2,
+          "warmup_excess_seconds": 0.5779458610340953,
+          "evaluation_internal_wall_seconds": 48.47086724638939,
+          "rollout_internal_seconds": 41.6968070268631,
+          "second_over_first_half_ratio": 1.0096709895691551
+        },
+        "train_process_wall_seconds": 61.35268237441778,
+        "evaluate_process_wall_seconds": 50.55953653156757,
+        "train_process_extra_seconds": 2.749530792236328,
+        "evaluation_process_extra_seconds": 2.0886692851781845,
+        "cuda_and_host_memory": {
+          "cuda_peak_allocated_bytes": 1906717184,
+          "cuda_peak_reserved_bytes": 2780823552,
+          "process_peak_rss_bytes": 1705525248
+        },
+        "device": "cuda",
+        "memory_scope": "Training process only; evaluation peak CUDA memory was not recorded.",
+        "torch": "2.8.0+cu126",
+        "python": "3.12.14",
+        "machine": "x86_64",
+        "checkpoint_step": 500
+      },
+      "local_divided_by_server_speed_ratios": {
+        "steady_training_step": 2.1605430519571898,
+        "training_internal_total": 2.138645657840661,
+        "evaluation_internal_total": 0.6844094532364763
+      }
+    }
+  },
+  "budgets": [
+    {
+      "steps_per_run": 5000,
+      "per_model": {
+        "lehami": {
+          "local_internal": {
+            "optimizer_steps": 5000,
+            "validation_events": 20,
+            "steady_step_work_seconds": 957.3334783741909,
+            "warmup_excess_seconds": 0.0,
+            "empirical_validation_save_log_seconds": 19.75557825062424,
+            "training_internal_seconds": 977.0890566248152,
+            "process_startup_extra_seconds": 0.0,
+            "evaluation_seconds": 19.539422417001333,
+            "total_seconds": 996.6284790418165
+          },
+          "server_internal": {
+            "optimizer_steps": 5000,
+            "validation_events": 20,
+            "steady_step_work_seconds": 447.49182447170216,
+            "warmup_excess_seconds": 1.859192610407869,
+            "empirical_validation_save_log_seconds": 11.242687702178955,
+            "training_internal_seconds": 460.593704784289,
+            "process_startup_extra_seconds": 0.0,
+            "evaluation_seconds": 32.08601579070091,
+            "total_seconds": 492.6797205749899
+          },
+          "server_process": {
+            "optimizer_steps": 5000,
+            "validation_events": 20,
+            "steady_step_work_seconds": 447.49182447170216,
+            "warmup_excess_seconds": 1.859192610407869,
+            "empirical_validation_save_log_seconds": 11.242687702178955,
+            "training_internal_seconds": 460.593704784289,
+            "process_startup_extra_seconds": 3.9223995953798294,
+            "evaluation_seconds": 34.62422589957714,
+            "total_seconds": 499.140330279246
+          }
+        },
+        "lewm": {
+          "local_internal": {
+            "optimizer_steps": 5000,
+            "validation_events": 20,
+            "steady_step_work_seconds": 1225.1913041771636,
+            "warmup_excess_seconds": 0.6643940303298823,
+            "empirical_validation_save_log_seconds": 21.47851218964206,
+            "training_internal_seconds": 1247.3342103971356,
+            "process_startup_extra_seconds": 0.0,
+            "evaluation_seconds": 33.173919749999186,
+            "total_seconds": 1280.5081301471348
+          },
+          "server_internal": {
+            "optimizer_steps": 5000,
+            "validation_events": 20,
+            "steady_step_work_seconds": 567.075626226142,
+            "warmup_excess_seconds": 0.5779458610340953,
+            "empirical_validation_save_log_seconds": 13.176430985331535,
+            "training_internal_seconds": 580.8300030725077,
+            "process_startup_extra_seconds": 0.0,
+            "evaluation_seconds": 48.47086724638939,
+            "total_seconds": 629.3008703188971
+          },
+          "server_process": {
+            "optimizer_steps": 5000,
+            "validation_events": 20,
+            "steady_step_work_seconds": 567.075626226142,
+            "warmup_excess_seconds": 0.5779458610340953,
+            "empirical_validation_save_log_seconds": 13.176430985331535,
+            "training_internal_seconds": 580.8300030725077,
+            "process_startup_extra_seconds": 2.749530792236328,
+            "evaluation_seconds": 50.55953653156757,
+            "total_seconds": 634.1390703963116
+          }
+        }
+      },
+      "totals": {
+        "1_seed_4_runs": {
+          "local_internal": {
+            "seconds": 4554.273218377903,
+            "hours": 1.2650758939938618,
+            "planning_upper_seconds": 5692.841522972378,
+            "planning_upper_hours": 1.5813448674923272
+          },
+          "server_internal": {
+            "seconds": 2243.961181787774,
+            "hours": 0.6233225504966039,
+            "planning_upper_seconds": 2804.9514772347175,
+            "planning_upper_hours": 0.7791531881207548
+          },
+          "server_process": {
+            "seconds": 2266.558801351115,
+            "hours": 0.6295996670419765,
+            "planning_upper_seconds": 2833.198501688894,
+            "planning_upper_hours": 0.7869995838024705
+          }
+        },
+        "3_seed_12_runs": {
+          "local_internal": {
+            "seconds": 13662.819655133708,
+            "hours": 3.7952276819815856,
+            "planning_upper_seconds": 17078.524568917135,
+            "planning_upper_hours": 4.744034602476982
+          },
+          "server_internal": {
+            "seconds": 6731.883545363322,
+            "hours": 1.8699676514898116,
+            "planning_upper_seconds": 8414.854431704152,
+            "planning_upper_hours": 2.3374595643622644
+          },
+          "server_process": {
+            "seconds": 6799.676404053345,
+            "hours": 1.8887990011259292,
+            "planning_upper_seconds": 8499.595505066682,
+            "planning_upper_hours": 2.3609987514074118
+          }
+        }
+      }
+    },
+    {
+      "steps_per_run": 28140,
+      "per_model": {
+        "lehami": {
+          "local_internal": {
+            "optimizer_steps": 28140,
+            "validation_events": 113,
+            "steady_step_work_seconds": 5387.872816289946,
+            "warmup_excess_seconds": 0.0,
+            "empirical_validation_save_log_seconds": 111.61901711602695,
+            "training_internal_seconds": 5499.491833405973,
+            "process_startup_extra_seconds": 0.0,
+            "evaluation_seconds": 19.539422417001333,
+            "total_seconds": 5519.031255822974
+          },
+          "server_internal": {
+            "optimizer_steps": 28140,
+            "validation_events": 113,
+            "steady_step_work_seconds": 2518.48398812674,
+            "warmup_excess_seconds": 1.859192610407869,
+            "empirical_validation_save_log_seconds": 63.521185517311096,
+            "training_internal_seconds": 2583.8643662544587,
+            "process_startup_extra_seconds": 0.0,
+            "evaluation_seconds": 32.08601579070091,
+            "total_seconds": 2615.9503820451596
+          },
+          "server_process": {
+            "optimizer_steps": 28140,
+            "validation_events": 113,
+            "steady_step_work_seconds": 2518.48398812674,
+            "warmup_excess_seconds": 1.859192610407869,
+            "empirical_validation_save_log_seconds": 63.521185517311096,
+            "training_internal_seconds": 2583.8643662544587,
+            "process_startup_extra_seconds": 3.9223995953798294,
+            "evaluation_seconds": 34.62422589957714,
+            "total_seconds": 2622.4109917494156
+          }
+        },
+        "lewm": {
+          "local_internal": {
+            "optimizer_steps": 28140,
+            "validation_events": 113,
+            "steady_step_work_seconds": 6895.376659909076,
+            "warmup_excess_seconds": 0.6643940303298823,
+            "empirical_validation_save_log_seconds": 121.35359387147764,
+            "training_internal_seconds": 7017.394647810884,
+            "process_startup_extra_seconds": 0.0,
+            "evaluation_seconds": 33.173919749999186,
+            "total_seconds": 7050.568567560883
+          },
+          "server_internal": {
+            "optimizer_steps": 28140,
+            "validation_events": 113,
+            "steady_step_work_seconds": 3191.5016244007275,
+            "warmup_excess_seconds": 0.5779458610340953,
+            "empirical_validation_save_log_seconds": 74.44683506712317,
+            "training_internal_seconds": 3266.5264053288847,
+            "process_startup_extra_seconds": 0.0,
+            "evaluation_seconds": 48.47086724638939,
+            "total_seconds": 3314.997272575274
+          },
+          "server_process": {
+            "optimizer_steps": 28140,
+            "validation_events": 113,
+            "steady_step_work_seconds": 3191.5016244007275,
+            "warmup_excess_seconds": 0.5779458610340953,
+            "empirical_validation_save_log_seconds": 74.44683506712317,
+            "training_internal_seconds": 3266.5264053288847,
+            "process_startup_extra_seconds": 2.749530792236328,
+            "evaluation_seconds": 50.55953653156757,
+            "total_seconds": 3319.8354726526886
+          }
+        }
+      },
+      "totals": {
+        "1_seed_4_runs": {
+          "local_internal": {
+            "seconds": 25139.199646767716,
+            "hours": 6.983111012991032,
+            "planning_upper_seconds": 31423.999558459647,
+            "planning_upper_hours": 8.728888766238791
+          },
+          "server_internal": {
+            "seconds": 11861.895309240866,
+            "hours": 3.294970919233574,
+            "planning_upper_seconds": 14827.369136551082,
+            "planning_upper_hours": 4.118713649041967
+          },
+          "server_process": {
+            "seconds": 11884.492928804208,
+            "hours": 3.3012480357789467,
+            "planning_upper_seconds": 14855.616161005259,
+            "planning_upper_hours": 4.126560044723683
+          }
+        },
+        "3_seed_12_runs": {
+          "local_internal": {
+            "seconds": 75417.59894030314,
+            "hours": 20.949333038973094,
+            "planning_upper_seconds": 94271.99867537893,
+            "planning_upper_hours": 26.186666298716368
+          },
+          "server_internal": {
+            "seconds": 35585.6859277226,
+            "hours": 9.884912757700723,
+            "planning_upper_seconds": 44482.107409653254,
+            "planning_upper_hours": 12.356140947125905
+          },
+          "server_process": {
+            "seconds": 35653.47878641263,
+            "hours": 9.903744107336841,
+            "planning_upper_seconds": 44566.84848301578,
+            "planning_upper_hours": 12.379680134171052
+          }
+        }
+      }
+    }
+  ],
+  "planning_margin_fraction": 0.25,
+  "method": {
+    "speed_ratio": "local time / server time; >1 means server faster; only same internal scope compared",
+    "data_scope": "Measured fixed b=0.2, seed0. Other damping settings and seeds are budget extrapolations, not measured runs.",
+    "precision": "FP32 parameter workload, no autocast; CUDA/cuDNN TF32 defaults disclosed. Backend arithmetic and RNG need not match MPS bitwise.",
+    "overhead": "Training cycle wall minus all timed step walls includes validation, saving, logging and other loop work; grouped overhead is scaled by validation event count. It is not a separately measured validation latency.",
+    "budget": "N*post-warmup mean + measured warmup excess + grouped overhead scaled by validation count + one full evaluation per run. Server process scope additionally includes measured training startup extra and full evaluation process wall.",
+    "local_limit": "Local lacks outer process timer, so its budget omits startup/final output outside internal timers; no matched full-process speedup is claimed.",
+    "uncertainty": "Upper budget adds a 25% planning margin, not a statistical confidence interval. Excludes queue/setup/upload, future searches, long-duration/shared-load drift and pricing.",
+    "memory": "CUDA allocated/reserved are true reported peaks; local MPS current driver allocation is not comparable peak memory."
+  }
+}

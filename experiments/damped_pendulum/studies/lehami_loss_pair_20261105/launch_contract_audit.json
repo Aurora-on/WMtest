@@ -1,0 +1,46 @@
+{
+  "scope": "Read-only local archive and launch-contract audit; no remote check, training or optimizer",
+  "archive_sha256": "7f842110fa3ffe8e9cf3c0f6d4e359b97bb6181540eb251569e5fed1db54b9a9",
+  "manifest_verified": true,
+  "manifest_files": 64,
+  "pair_configuration_differences": [
+    [
+      ".model.momentum_weight",
+      0.1,
+      1.0
+    ],
+    [
+      ".model.objective_mode",
+      "current",
+      "lehami"
+    ],
+    [
+      ".model.motion_weight",
+      1.0,
+      0.0
+    ]
+  ],
+  "blocking_findings": [],
+  "execution_plan": "Two independent compute jobs, each gres=gpu:l40:1 and cpus-per-task=4, one arm per job, no distributed synchronization.",
+  "before_updates": [
+    "Extract to fresh directory; no editing frozen sources",
+    "Verify archive, manifest and exact data SHA",
+    "Per-job CUDA_VISIBLE_DEVICES and GPU UUID evidence",
+    "Real-data B32 CUDA K4/K8 forward/backward plus K32 forward, target_tail_frames=2; no optimizer updates",
+    "Explicit --arm control or --arm lehami --device cuda --stop-after-step 4000 --execute"
+  ],
+  "startup_acceptance": [
+    "Both scheduler states RUNNING on distinct physical GPUs",
+    "Both history.jsonl steps progress with finite loss/gradient_norm, nonzero LR",
+    "Fresh run.json resume=null, matching data SHA/source hashes/validation_indices and intended config difference only",
+    "After checkpoint, Adam state exists and step consistent; frozen input_port unchanged; expected raw V additive bias may have no gradient",
+    "First scheduled validation at250 completes; failure of early learned-motion gate is a quality warning, not job failure"
+  ],
+  "status_caveats": [
+    "status.json is refreshed at step1 and validation checkpoints; use history tail for live progress",
+    "best.pt may be absent until full motion gates pass",
+    "At4000 final status=budget_completed and full_budget_completed=false is expected",
+    "CPU qualification in prepared bundle is not CUDA qualification"
+  ],
+  "eta_method": "Use recent step_seconds and observed validation_seconds. K1-1000 are K4, K1001-4000 are K8; never extrapolate all remaining steps from K4 alone. Concurrent wall time is max(arms), not sum."
+}

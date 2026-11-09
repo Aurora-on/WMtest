@@ -1,0 +1,75 @@
+{
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 133,
+      "sha256": "35d3718feaa2cb448cbae04241d4af729c3da03fe61fc862faf338b2c968115e"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 472,
+      "sha256": "747fa03f20a4056b39d9d6157442fc76de8bc6af55325c9b8225a0eb82311f60"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3389,
+      "sha256": "f8f0dd89c37b41d9f509f1d87885b395b6569677ed3a1c6ca3b5cfe690d66317"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 1077,
+      "sha256": "23cd360afb8d369b1595a710420638a73a3e983bc56acfe27d26f1052e6fc4bf"
+    },
+    {
+      "path": "docs/ARTIFACTS.md",
+      "bytes": 1774,
+      "sha256": "d85e3f82a6323a9703f6dbeb29b82780ebcc8d83c82cdc6996d641674468f373"
+    },
+    {
+      "path": "docs/RESULTS.md",
+      "bytes": 3967,
+      "sha256": "d3fe89be49efed2fd5adfcdc8aba5bb6783ca19223d0c0fc9febc99343d50a9b"
+    },
+    {
+      "path": "docs/TRAINING.md",
+      "bytes": 3668,
+      "sha256": "8d69cb9371350c962d4f98853eea99228bd35d8abf9acd2c319779857bd3f055"
+    },
+    {
+      "path": "docs/repository_checks.json",
+      "bytes": 662,
+      "sha256": "554bf8b30cf4944ccc33d5fe8de74d9d93b8ad0c9c81ef956e8947b17fb1e02c"
+    },
+    {
+      "path": "docs/snapshot_inventory.json",
+      "bytes": 1475193,
+      "sha256": "f3a0280df6f17dd2c17c35540a04de68aaa08338b84eb51ef17ccff9798afee9"
+    },
+    {
+      "path": "experiments/damped_pendulum/reports/hjepa_diagnosis_20261109/training_curves/a.json",
+      "bytes": 96589,
+      "sha256": "f37207043d8c94ad1f186e76ddf512bc171c17b17bf753147d23917ebdfd9201"
+    },
+    {
+      "path": "experiments/damped_pendulum/reports/hjepa_diagnosis_20261109/training_curves/multi.json",
+      "bytes": 96565,
+      "sha256": "000ffcb3df39be059f57ae433a589a1382e0cf54da5d323869c330a62c9dcfac"
+    },
+    {
+      "path": "experiments/damped_pendulum/reports/hjepa_diagnosis_20261109/training_curves/single.json",
+      "bytes": 96396,
+      "sha256": "e9740e094e85005d3c3659d607c49689a4ddfe50e461e758770957b9b15fc8fe"
+    },
+    {
+      "path": "tools/export_snapshot.py",
+      "bytes": 4107,
+      "sha256": "09e9718b992b25a649c008c856d520256eb550d330afb452652a16f693fde448"
+    },
+    {
+      "path": "tools/verify_snapshot.py",
+      "bytes": 1287,
+      "sha256": "246987da3a7eab5f24e374f126d2e14e925794d11e070c19fb67cbfc1c36ee55"
+    }
+  ],
+  "note": "Publication additions; this manifest does not hash itself"
+}

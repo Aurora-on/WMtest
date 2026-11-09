@@ -1,0 +1,49 @@
+{
+  "checkpoint_step": 20000,
+  "checkpoint_sha256": "5145d5769b85f1992d2e4fd757bd19ac61a2704e459cbcb00844b3465f8bd068",
+  "selected_readout": "uniform_knn",
+  "selected_k": 5,
+  "teacher_readout_quality": {
+    "angle_mae_rad": 0.008379570572170756,
+    "angle_rmse_rad": 0.011301092476676367,
+    "omega_rmse_rad_s": 0.042481734996201434,
+    "omega_nrmse": 0.0162654896938483
+  },
+  "readout_quality_passed": true,
+  "interpretation": "Frozen physical readout diagnostic; not a proof of latent dynamics correctness.",
+  "damping": 0.0,
+  "selected_records": [
+    {
+      "episode": 385,
+      "group_id": 10000385,
+      "energy_band": 0,
+      "damping": 0.0,
+      "evaluation_index": 1,
+      "valid_steps": 32
+    },
+    {
+      "episode": 387,
+      "group_id": 10000387,
+      "energy_band": 1,
+      "damping": 0.0,
+      "evaluation_index": 3,
+      "valid_steps": 32
+    },
+    {
+      "episode": 384,
+      "group_id": 10000384,
+      "energy_band": 2,
+      "damping": 0.0,
+      "evaluation_index": 0,
+      "valid_steps": 32
+    },
+    {
+      "episode": 386,
+      "group_id": 10000386,
+      "energy_band": 3,
+      "damping": 0.0,
+      "evaluation_index": 2,
+      "valid_steps": 32
+    }
+  ]
+}

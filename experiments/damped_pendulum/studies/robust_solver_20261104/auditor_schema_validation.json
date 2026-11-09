@@ -1,0 +1,184 @@
+{
+  "scope": "Read-only current remote partial run; final-completion checks expected to fail while running",
+  "checks": [
+    {
+      "name": "frozen_source_files",
+      "status": "pass",
+      "evidence": {
+        "count": 61,
+        "mismatch": []
+      }
+    },
+    {
+      "name": "cuda_numerical_suite",
+      "status": "pass",
+      "evidence": ".................                                                        [100%]\n17 passed in 9.07s\n"
+    },
+    {
+      "name": "fresh_profile_complete",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "fresh_all_horizons_updated",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "fresh_profile_finite",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "fresh_profile_source_config_data_runtime",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "migration_input_hash",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "migration_preserves_training_state",
+      "status": "pass",
+      "evidence": [
+        "state_dict",
+        "optimizer",
+        "rng",
+        "sampler_next_step",
+        "validation_indices",
+        "dataset_sha256"
+      ]
+    },
+    {
+      "name": "migration_selection_reset",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "migration_step_and_schedule",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "migration_strict_original_tolerances",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "migration_robust_controls",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "migration_new_source_binding",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "migration_provenance_binding",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "migration_trainer_resume_contract",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "continuation_budget_complete",
+      "status": "fail",
+      "evidence": null
+    },
+    {
+      "name": "continuation_complete_step_sequence",
+      "status": "fail",
+      "evidence": null
+    },
+    {
+      "name": "continuation_correct_curriculum",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "continuation_original_full_budget_lr",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "continuation_finite_log",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "continuation_residual_bounds",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "scheduled_validations_present",
+      "status": "fail",
+      "evidence": [
+        3000,
+        3250,
+        3500
+      ]
+    },
+    {
+      "name": "migration_mandatory_revalidation",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "continuation_resumable_checkpoint",
+      "status": "fail",
+      "evidence": null
+    },
+    {
+      "name": "continuation_source_binding",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "continuation_trainer_resume_contract",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "continuation_migrated_contract_preserved",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "continuation_parameters_actually_changed",
+      "status": "pass",
+      "evidence": null
+    },
+    {
+      "name": "continuation_resume_best_pair",
+      "status": "pass",
+      "evidence": null
+    }
+  ],
+  "summary": {
+    "fresh_profile_step_seconds": {
+      "4": 0.39225029200315475,
+      "8": 0.6950142495334148,
+      "16": 1.3045375142246485,
+      "32": 2.543596090748906
+    },
+    "continuation": {
+      "elapsed_seconds": null,
+      "best_step": 2750,
+      "last_validation_score": 3.0081589144337437,
+      "last_validation_gate": true,
+      "mean_seconds_by_horizon": {
+        "8": 1.4997365388178057
+      },
+      "max_solver_split_depth": 1.0,
+      "max_replay_relative_error": 1.1420452768165333e-14,
+      "resumed_model_path": "continuation/last.pt"
+    }
+  }
+}

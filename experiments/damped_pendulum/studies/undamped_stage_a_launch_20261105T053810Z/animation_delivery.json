@@ -1,0 +1,42 @@
+{
+  "status": "completed",
+  "training_checkpoint_step": 4000,
+  "model_updates": 0,
+  "evaluation_job": 47806,
+  "evaluation_elapsed_seconds": 53.270740173757076,
+  "readout_quality_passed": false,
+  "teacher_angle_mae_rad": 0.6478377208345187,
+  "predicted_angle_mae_3p2s_rad": 1.374578369568766,
+  "interpretation": "Val diagnostic only; teacher readout failed quality gate, so decoded prediction errors cannot be attributed solely to dynamics.",
+  "gif_checks": {
+    "comparison.gif": {
+      "frames": 33,
+      "unique_frames": 33,
+      "frame_duration_ms": 100,
+      "dimensions": [
+        930,
+        1160
+      ]
+    },
+    "single_band0.gif": {
+      "frames": 33,
+      "unique_frames": 33,
+      "frame_duration_ms": 100,
+      "dimensions": [
+        930,
+        580
+      ]
+    },
+    "single_band3.gif": {
+      "frames": 33,
+      "unique_frames": 33,
+      "frame_duration_ms": 100,
+      "dimensions": [
+        930,
+        580
+      ]
+    }
+  },
+  "visual_preview_review": "Actual t=1.6s preview inspected: all4 rows and3 labeled columns visible, CJK labels readable, readout warning displayed",
+  "main_animation": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/undamped_stage_a_launch_20261105T053810Z/animations/comparison.gif"
+}

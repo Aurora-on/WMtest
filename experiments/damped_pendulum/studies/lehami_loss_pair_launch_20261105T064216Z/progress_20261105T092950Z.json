@@ -1,0 +1,1052 @@
+{
+  "checked_utc": "2026-11-05T09:29:50.424118+00:00",
+  "arms": {
+    "control": {
+      "segments": [
+        {
+          "name": "control",
+          "status": {
+            "status": "budget_completed",
+            "training_started": true,
+            "completed_steps": 4000,
+            "optimizer_steps_this_run": 4000,
+            "configured_total_steps": 20000,
+            "stop_after_step": 4000,
+            "full_budget_completed": false,
+            "best_score": null,
+            "best_step": null,
+            "best_available": false,
+            "elapsed_seconds": 2702.38269674778,
+            "physical_validation": false
+          },
+          "latest_logged_step": 4000,
+          "best_exists": false
+        },
+        {
+          "name": "control_4000_10000",
+          "status": {
+            "status": "running",
+            "training_started": true,
+            "completed_steps": 9250,
+            "optimizer_steps_this_run": 5250
+          },
+          "latest_logged_step": 9381,
+          "best_exists": false
+        }
+      ],
+      "step": 9381,
+      "latest_loss": 3.216390130975031,
+      "last_gradient_norm": 0.03548715924819829,
+      "nonfinite_steps": [],
+      "continuous_steps": true,
+      "max_solver_residual_ratio": 0.4999998837489785,
+      "first_gate_pass": null,
+      "passed_validation_count": 0,
+      "best_gate_step": null,
+      "seconds_per_step": 1.2938774898648262,
+      "seconds_per_validation": 16.502369314432144,
+      "remaining_seconds": 850.4172741696239,
+      "estimated_finish_utc": "2026-11-05T09:44:01.369424+00:00",
+      "validations": [
+        {
+          "step": 4000,
+          "gate": false,
+          "score": 8.053437503450827e-07,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 4.6011403743176645e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 6.334463848810221,
+              "normalized_prediction_mse": 0.000633446384881022,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 4.1470601531419715e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 8.19802266724918,
+              "normalized_prediction_mse": 0.0008198022667249181,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 4.740749899210297e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 7.177580383190747,
+              "normalized_prediction_mse": 0.0007177580383190747,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 4.308069645174651e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 149.67556063678484,
+              "normalized_prediction_mse": 0.014967556063678484,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 4.286373513720644e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 164.84727466743882,
+              "normalized_prediction_mse": 0.016484727466743884,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 4.3091562208423646e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 144.04458437807065,
+              "normalized_prediction_mse": 0.014404458437807063,
+              "prediction_gate_passed": true
+            }
+          }
+        },
+        {
+          "step": 5000,
+          "gate": false,
+          "score": 4.640228530648079e-07,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 4.220916113831078e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 7.322809477077725,
+              "normalized_prediction_mse": 0.0007322809477077725,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 4.1225242812838276e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 6.334951763757922,
+              "normalized_prediction_mse": 0.0006334951763757922,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 4.0392811220445536e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 6.471288070248932,
+              "normalized_prediction_mse": 0.0006471288070248932,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 4.123515347412382e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 91.6887298029705,
+              "normalized_prediction_mse": 0.00916887298029705,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 4.0668335538337455e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 81.13828729059306,
+              "normalized_prediction_mse": 0.008113828729059304,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 4.042876053282302e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 83.94199148495113,
+              "normalized_prediction_mse": 0.008394199148495114,
+              "prediction_gate_passed": true
+            }
+          }
+        },
+        {
+          "step": 6000,
+          "gate": false,
+          "score": 3.003880960230263e-07,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 2.856480893743427e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 2.923582716582304,
+              "normalized_prediction_mse": 0.0002923582716582304,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 2.8183920932996787e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 3.676497341565999,
+              "normalized_prediction_mse": 0.0003676497341565999,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 3.4157244817802476e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 3.6164856345922956,
+              "normalized_prediction_mse": 0.00036164856345922953,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 2.9050341550360377e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 49.357014539334415,
+              "normalized_prediction_mse": 0.004935701453933441,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 2.8838089368903774e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 59.04729261667831,
+              "normalized_prediction_mse": 0.0059047292616678316,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 3.000177355886157e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 60.5703743508166,
+              "normalized_prediction_mse": 0.006057037435081659,
+              "prediction_gate_passed": true
+            }
+          }
+        },
+        {
+          "step": 7000,
+          "gate": false,
+          "score": 2.708326442384487e-07,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 3.202712228665255e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 3.3354193628108204,
+              "normalized_prediction_mse": 0.00033354193628108204,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 3.1040039902850786e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 4.185461395391429,
+              "normalized_prediction_mse": 0.0004185461395391429,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 3.340918738554815e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 4.15765105405088,
+              "normalized_prediction_mse": 0.000415765105405088,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 3.148281519427257e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 44.03022047480623,
+              "normalized_prediction_mse": 0.004403022047480622,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 3.156199661345762e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 51.35719111018322,
+              "normalized_prediction_mse": 0.005135719111018322,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 3.151129056387016e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 54.523477898596724,
+              "normalized_prediction_mse": 0.005452347789859672,
+              "prediction_gate_passed": true
+            }
+          }
+        },
+        {
+          "step": 8000,
+          "gate": false,
+          "score": 2.16305155990385e-07,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 1.9297588860007022e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 3.2255735496596145,
+              "normalized_prediction_mse": 0.00032255735496596147,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 1.9143933793489388e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 2.532059977852527,
+              "normalized_prediction_mse": 0.0002532059977852527,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 1.8842907591607128e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 2.7936042280555395,
+              "normalized_prediction_mse": 0.00027936042280555395,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 1.8889049633781912e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 45.827141658090135,
+              "normalized_prediction_mse": 0.004582714165809014,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 1.897936212389795e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 34.85919520898721,
+              "normalized_prediction_mse": 0.003485919520898721,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 1.9244789326839337e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 39.832469539240066,
+              "normalized_prediction_mse": 0.003983246953924006,
+              "prediction_gate_passed": true
+            }
+          }
+        },
+        {
+          "step": 9000,
+          "gate": false,
+          "score": 1.8688397601406515e-07,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 2.9054114109625977e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 2.7252975028423223,
+              "normalized_prediction_mse": 0.00027252975028423224,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 2.8492993847419757e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 2.9536132448530372,
+              "normalized_prediction_mse": 0.0002953613244853037,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 2.8754292951648023e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 2.296690726775532,
+              "normalized_prediction_mse": 0.00022966907267755318,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 2.9364338139212704e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 34.9116521674451,
+              "normalized_prediction_mse": 0.0034911652167445096,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 2.9445794853718696e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 39.63302983848776,
+              "normalized_prediction_mse": 0.003963302983848775,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 2.9971992136445104e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 28.97466524939248,
+              "normalized_prediction_mse": 0.002897466524939248,
+              "prediction_gate_passed": true
+            }
+          }
+        },
+        {
+          "step": 9250,
+          "gate": false,
+          "score": 1.4701025498430262e-07,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 2.1376940937559734e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 1.9506811566218545,
+              "normalized_prediction_mse": 0.00019506811566218546,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 2.017712480769181e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 1.956474567067627,
+              "normalized_prediction_mse": 0.00019564745670676268,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 2.0854749864506674e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 2.1622388780633037,
+              "normalized_prediction_mse": 0.00021622388780633036,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 2.0767193457733302e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 25.805190418007108,
+              "normalized_prediction_mse": 0.0025805190418007108,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 2.051928042770128e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 26.95920052109295,
+              "normalized_prediction_mse": 0.002695920052109295,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 2.0949202113455023e-05,
+              "dynamic_window_fraction": 0.0,
+              "predicted_target_velocity_rms_ratio": null,
+              "relative_velocity_error": null,
+              "velocity_cosine": null,
+              "stalled_dynamic_fraction": null,
+              "persistence_ratio": 28.8876804704954,
+              "normalized_prediction_mse": 0.00288876804704954,
+              "prediction_gate_passed": true
+            }
+          }
+        }
+      ]
+    },
+    "lehami": {
+      "segments": [
+        {
+          "name": "lehami",
+          "status": {
+            "status": "budget_completed",
+            "training_started": true,
+            "completed_steps": 4000,
+            "optimizer_steps_this_run": 4000,
+            "configured_total_steps": 20000,
+            "stop_after_step": 4000,
+            "full_budget_completed": false,
+            "best_score": null,
+            "best_step": null,
+            "best_available": false,
+            "elapsed_seconds": 2878.591316945851,
+            "physical_validation": false
+          },
+          "latest_logged_step": 4000,
+          "best_exists": false
+        },
+        {
+          "name": "lehami_4000_10000",
+          "status": {
+            "status": "running",
+            "training_started": true,
+            "completed_steps": 8250,
+            "optimizer_steps_this_run": 4250
+          },
+          "latest_logged_step": 8457,
+          "best_exists": true
+        }
+      ],
+      "step": 8457,
+      "latest_loss": 1.1595476537161493,
+      "last_gradient_norm": 4.267323468497006,
+      "nonfinite_steps": [],
+      "continuous_steps": true,
+      "max_solver_residual_ratio": 0.4999996253297835,
+      "first_gate_pass": 4250,
+      "passed_validation_count": 17,
+      "best_gate_step": 6000,
+      "seconds_per_step": 1.5519933253526688,
+      "seconds_per_validation": 20.78967771306634,
+      "remaining_seconds": 2540.2534450106323,
+      "estimated_finish_utc": "2026-11-05T10:12:11.677538+00:00",
+      "validations": [
+        {
+          "step": 4000,
+          "gate": false,
+          "score": 3.3887518448211105,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 1.0055667843588139,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9481324232391819,
+              "relative_velocity_error": 0.17206334873633253,
+              "velocity_cosine": 0.910680671251253,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.06445741003013472,
+              "normalized_prediction_mse": 0.06364355639556789,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.9108442399523581,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9031569403290226,
+              "relative_velocity_error": 0.11567209118867076,
+              "velocity_cosine": 0.9411544615139028,
+              "stalled_dynamic_fraction": 0.010416666666666666,
+              "persistence_ratio": 0.04143980570119902,
+              "normalized_prediction_mse": 0.051934639463806095,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 1.025663262960617,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.8984015868238423,
+              "relative_velocity_error": 0.17056335758922803,
+              "velocity_cosine": 0.9108187683662592,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.060317786402811956,
+              "normalized_prediction_mse": 0.051147998719526966,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.9569141140310188,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.8271699438656414,
+              "relative_velocity_error": 0.9807009016670318,
+              "velocity_cosine": 0.42525071152846955,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 3.256341715677582,
+              "normalized_prediction_mse": 5.878027255644842,
+              "prediction_gate_passed": false
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.9557283098873404,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.8195405259193421,
+              "relative_velocity_error": 0.9302241540707028,
+              "velocity_cosine": 0.45234036396292776,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 1.9538202140481755,
+              "normalized_prediction_mse": 4.082137628786425,
+              "prediction_gate_passed": false
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.9773296466587147,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.8057828679408726,
+              "relative_velocity_error": 1.0194961983542385,
+              "velocity_cosine": 0.390793759069467,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 2.3735372173694356,
+              "normalized_prediction_mse": 4.566981187723102,
+              "prediction_gate_passed": false
+            }
+          }
+        },
+        {
+          "step": 5000,
+          "gate": true,
+          "score": 0.5022843644515657,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.8919680284873576,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9398115205301726,
+              "relative_velocity_error": 0.04795727136089836,
+              "velocity_cosine": 0.9764130267976507,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.021296278362171902,
+              "normalized_prediction_mse": 0.021265525509491418,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.8140068948042944,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9303394095546516,
+              "relative_velocity_error": 0.03585938877223992,
+              "velocity_cosine": 0.9833357640272985,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.021846649374263262,
+              "normalized_prediction_mse": 0.02745366103666697,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 0.9098788403700611,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.933155094310438,
+              "relative_velocity_error": 0.0482551818509333,
+              "velocity_cosine": 0.9765382299784563,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.0205018112824667,
+              "normalized_prediction_mse": 0.017433835220311698,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.8510252809502172,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.8960421673690442,
+              "relative_velocity_error": 0.32693557746894647,
+              "velocity_cosine": 0.8235973941763056,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.44513078853923316,
+              "normalized_prediction_mse": 0.8062004735905143,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.8509064133932002,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.8902380460529918,
+              "relative_velocity_error": 0.29504502074921946,
+              "velocity_cosine": 0.8410552461391271,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.39665312187933316,
+              "normalized_prediction_mse": 0.8282072768984454,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.8686022159765784,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.8778354291019959,
+              "relative_velocity_error": 0.32868026493129593,
+              "velocity_cosine": 0.8212899182768418,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.55619386586099,
+              "normalized_prediction_mse": 1.0713164323434097,
+              "prediction_gate_passed": true
+            }
+          }
+        },
+        {
+          "step": 6000,
+          "gate": true,
+          "score": 0.1951347336868748,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.8924108776189468,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9626434855973524,
+              "relative_velocity_error": 0.03263608892905053,
+              "velocity_cosine": 0.9837735463709342,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.018841820623516935,
+              "normalized_prediction_mse": 0.018773838449257074,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.8140902954007575,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9611602224380517,
+              "relative_velocity_error": 0.026462589972114828,
+              "velocity_cosine": 0.9870187815368827,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.015112812402594463,
+              "normalized_prediction_mse": 0.01895422967784526,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 0.9104317119181337,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9697489915080506,
+              "relative_velocity_error": 0.03825768850311486,
+              "velocity_cosine": 0.9807462728420766,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.02755572850674045,
+              "normalized_prediction_mse": 0.023502316049136374,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.852023002446456,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9328816353785999,
+              "relative_velocity_error": 0.17534768062330874,
+              "velocity_cosine": 0.9084327532696455,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.13015055277450205,
+              "normalized_prediction_mse": 0.2358431903826764,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.85127407559721,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.914368204100706,
+              "relative_velocity_error": 0.19462432790050227,
+              "velocity_cosine": 0.8975841884092154,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.26894861239085194,
+              "normalized_prediction_mse": 0.5614017331634009,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.8694728068753701,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9191510859011103,
+              "relative_velocity_error": 0.16839654124195153,
+              "velocity_cosine": 0.9119513664218224,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.12716527511327377,
+              "normalized_prediction_mse": 0.2447237229767604,
+              "prediction_gate_passed": true
+            }
+          }
+        },
+        {
+          "step": 7000,
+          "gate": true,
+          "score": 0.257735095469705,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.9403406819541116,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9591048348401284,
+              "relative_velocity_error": 0.030061950235547856,
+              "velocity_cosine": 0.9851999830097683,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.017135661414713982,
+              "normalized_prediction_mse": 0.01705109459756319,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.8567536795255778,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.956897271018881,
+              "relative_velocity_error": 0.023428607511674398,
+              "velocity_cosine": 0.9887287993605172,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.014437951133592544,
+              "normalized_prediction_mse": 0.01811539218963152,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 0.9588947398984082,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.950435622809179,
+              "relative_velocity_error": 0.02869682178639492,
+              "velocity_cosine": 0.9861957013866319,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.014948863210130878,
+              "normalized_prediction_mse": 0.012740870393472208,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.8969134228313801,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9237670299590666,
+              "relative_velocity_error": 0.17645531962450156,
+              "velocity_cosine": 0.9076369645327127,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.14409020826684632,
+              "normalized_prediction_mse": 0.2607005936517745,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.8961129722053758,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9229821971673147,
+              "relative_velocity_error": 0.18349721303563443,
+              "velocity_cosine": 0.9038088320514641,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.31311259980099515,
+              "normalized_prediction_mse": 0.655330392104585,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.9154602200469479,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.924232222047951,
+              "relative_velocity_error": 0.1697664941132057,
+              "velocity_cosine": 0.9112637852130065,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.186250271166085,
+              "normalized_prediction_mse": 0.3590058597801247,
+              "prediction_gate_passed": true
+            }
+          }
+        },
+        {
+          "step": 8000,
+          "gate": true,
+          "score": 0.349076797139006,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.9820835532507436,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9562950692310519,
+              "relative_velocity_error": 0.029848819152207787,
+              "velocity_cosine": 0.9853922188466607,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.015876595649929784,
+              "normalized_prediction_mse": 0.01566340359394957,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.8929814444632229,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9525689984824447,
+              "relative_velocity_error": 0.01977348672193026,
+              "velocity_cosine": 0.9908018280854776,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.01201476706526024,
+              "normalized_prediction_mse": 0.01503548447501693,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 1.0020973882748874,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9418285136072047,
+              "relative_velocity_error": 0.0282722491677716,
+              "velocity_cosine": 0.9867872298518006,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.014399017925968538,
+              "normalized_prediction_mse": 0.012190423989512242,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.9361377473115621,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9319962500822035,
+              "relative_velocity_error": 0.21451380905309034,
+              "velocity_cosine": 0.8873979916594643,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.31455167416682256,
+              "normalized_prediction_mse": 0.5676467642590939,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.9350355531080238,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9116998447845697,
+              "relative_velocity_error": 0.17944874012282291,
+              "velocity_cosine": 0.9058616584758141,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.29679677489218587,
+              "normalized_prediction_mse": 0.6200360139112436,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.9554194498085065,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9053394547046535,
+              "relative_velocity_error": 0.21200652950441817,
+              "velocity_cosine": 0.8878620004829872,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.23199436929664435,
+              "normalized_prediction_mse": 0.44689144996442,
+              "prediction_gate_passed": true
+            }
+          }
+        },
+        {
+          "step": 8250,
+          "gate": true,
+          "score": 0.27368903677513295,
+          "groups": {
+            "h8_regime0_mode0_time0": {
+              "target_std_min": 0.9937232417759415,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9516359917901532,
+              "relative_velocity_error": 0.026490546458017,
+              "velocity_cosine": 0.98731055289194,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.013018056023636312,
+              "normalized_prediction_mse": 0.012957959009144274,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time1": {
+              "target_std_min": 0.9078759140437072,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9465649318738086,
+              "relative_velocity_error": 0.020886975323313267,
+              "velocity_cosine": 0.9904752076637957,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.011045867032938807,
+              "normalized_prediction_mse": 0.013837006115720054,
+              "prediction_gate_passed": true
+            },
+            "h8_regime0_mode0_time2": {
+              "target_std_min": 1.0149618065472996,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9395117037964824,
+              "relative_velocity_error": 0.030811888948813378,
+              "velocity_cosine": 0.9855493790755955,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.01533590937590944,
+              "normalized_prediction_mse": 0.013066020432954822,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time0": {
+              "target_std_min": 0.9486603118635014,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9314146861501449,
+              "relative_velocity_error": 0.19766693800949986,
+              "velocity_cosine": 0.8964140271766605,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.16365506978456512,
+              "normalized_prediction_mse": 0.29626352744035656,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time1": {
+              "target_std_min": 0.948263442456022,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9164433523166278,
+              "relative_velocity_error": 0.169601287997379,
+              "velocity_cosine": 0.911276799480176,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.273215019719856,
+              "normalized_prediction_mse": 0.5701828472163207,
+              "prediction_gate_passed": true
+            },
+            "h32_regime0_mode0_time2": {
+              "target_std_min": 0.968292161920366,
+              "dynamic_window_fraction": 1.0,
+              "predicted_target_velocity_rms_ratio": 0.9138145516419797,
+              "relative_velocity_error": 0.20680634862237657,
+              "velocity_cosine": 0.890908709674489,
+              "stalled_dynamic_fraction": 0.0,
+              "persistence_ratio": 0.19093306629770898,
+              "normalized_prediction_mse": 0.3677935342551973,
+              "prediction_gate_passed": true
+            }
+          }
+        }
+      ]
+    }
+  }
+}

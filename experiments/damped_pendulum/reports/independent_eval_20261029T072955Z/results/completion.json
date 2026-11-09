@@ -1,0 +1,8 @@
+{
+  "status": "COMPLETE",
+  "runs": 12,
+  "all_canaries_passed": true,
+  "frozen_files_and_data_unchanged": true,
+  "total_run_seconds": 1198.2830691635609,
+  "inference_seconds": 793.6301552057266
+}

@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "source_commit": "f76f65f8b99afb6b7e3063f573645d3e2f290ede",
+  "data": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/data/pendulum_multi_v2.h5",
+  "manifest": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/LeHami/lehami/data/split_pendulum_multi_v2_episode_srnn_K80_val.15_dt2_seed42.json",
+  "checks": {
+    "manifest_is_pinned_author_file": {
+      "passed": true
+    },
+    "manifest_historical_sha_is_pinned": {
+      "passed": true
+    },
+    "manifest_recipe": {
+      "passed": true,
+      "detail": {
+        "split_method": "episode_srnn",
+        "train_frames": 80,
+        "num_steps": 16,
+        "clip_stride": 1,
+        "seed": 42,
+        "n_total_episodes": 1200,
+        "n_train_episodes": 210,
+        "n_val_episodes": 45,
+        "n_test_episodes": 45
+      }
+    },
+    "required_datasets": {
+      "passed": true,
+      "detail": [
+        "dt",
+        "dt_frame",
+        "dt_mult",
+        "ep_len",
+        "ep_offset",
+        "is_train_dt",
+        "length",
+        "pixels",
+        "state"
+      ]
+    },
+    "dataset_shapes": {
+      "passed": true
+    },
+    "dataset_dtypes": {
+      "passed": true
+    },
+    "parameter_grid_and_episode_order": {
+      "passed": true,
+      "detail": "3 rod lengths x 4 dt rates x 100 episodes; rod-major, then dt-major"
+    },
+    "episode_lengths_and_offsets": {
+      "passed": true,
+      "detail": "160/80/53/40 frames per dt cell; 99,900 total"
+    },
+    "sampling_intervals": {
+      "passed": true
+    },
+    "generation_rate_flags": {
+      "passed": true
+    },
+    "generator_attributes": {
+      "passed": true
+    },
+    "manifest_episode_metadata_matches_file": {
+      "passed": true
+    },
+    "manifest_selects_only_dt2": {
+      "passed": true
+    },
+    "split_counts_unique_valid_ids": {
+      "passed": true,
+      "detail": {
+        "train": 210,
+        "val": 45,
+        "test": 45
+      }
+    },
+    "splits_disjoint_cover_dt2": {
+      "passed": true
+    },
+    "split_stratification_by_length": {
+      "passed": true,
+      "detail": {
+        "train": [
+          70,
+          70,
+          70
+        ],
+        "val": [
+          15,
+          15,
+          15
+        ],
+        "test": [
+          15,
+          15,
+          15
+        ]
+      }
+    },
+    "states_finite": {
+      "passed": true
+    },
+    "initial_state_bounds": {
+      "passed": true
+    }
+  },
+  "historical_byte_match": true,
+  "semantic_checks_passed": true,
+  "manifest_sha256": "740482ae922bea77ebb1a0f39f15ebe115ccb6bf6fdd0048658b45236b1821b1",
+  "dataset_bytes": 21186687,
+  "dataset_sha256": "4786e18cf6463830bcf3095c5fee0098b16add3efe407381ec065305b40704d8",
+  "manifest_dataset_sha256": "4786e18cf6463830bcf3095c5fee0098b16add3efe407381ec065305b40704d8",
+  "dataset_schema": {
+    "ep_len": {
+      "shape": [
+        1200
+      ],
+      "dtype": "int64"
+    },
+    "ep_offset": {
+      "shape": [
+        1200
+      ],
+      "dtype": "int64"
+    },
+    "pixels": {
+      "shape": [
+        99900,
+        64,
+        64,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    "state": {
+      "shape": [
+        99900,
+        2
+      ],
+      "dtype": "float32"
+    },
+    "length": {
+      "shape": [
+        1200
+      ],
+      "dtype": "float32"
+    },
+    "dt": {
+      "shape": [
+        1200
+      ],
+      "dtype": "float32"
+    },
+    "dt_mult": {
+      "shape": [
+        1200
+      ],
+      "dtype": "int64"
+    },
+    "is_train_dt": {
+      "shape": [
+        1200
+      ],
+      "dtype": "bool"
+    },
+    "dt_frame": {
+      "shape": [
+        99900,
+        1
+      ],
+      "dtype": "float32"
+    }
+  },
+  "generator_attributes": {
+    "base_dt": 0.05,
+    "substep": 0.0125,
+    "window": 8.0,
+    "lengths": [
+      0.699999988079071,
+      1.0,
+      1.399999976158142
+    ],
+    "train_dt_mults": [
+      2,
+      3,
+      4
+    ],
+    "test_dt_mults": [
+      1
+    ],
+    "omega_scale": 0.638550856814101,
+    "seed": 42,
+    "rod_to_scale": true
+  },
+  "expected_training_counts": {
+    "a0m": {
+      "raw_window": 14,
+      "train_windows": 14070,
+      "val_windows": 3015,
+      "batch_size": 32,
+      "drop_last": true,
+      "updates_per_epoch": 439,
+      "epochs": 100,
+      "total_updates": 43900
+    },
+    "b0m": {
+      "raw_window": 11,
+      "train_windows": 14700,
+      "val_windows": 3150,
+      "batch_size": 32,
+      "drop_last": true,
+      "updates_per_epoch": 459,
+      "epochs": 100,
+      "total_updates": 45900
+    }
+  },
+  "status": "SEMANTIC_AND_BYTE_CHECKS_PASS",
+  "exit_code": 0,
+  "interpretation": "All reads leave data and manifest untouched. Semantic checks cover schema, episode ordering, parameter grid, frame counts, fixed official split, finite states and initial-state bounds. If byte hashes differ, these checks do not prove trajectory or rendered-image equality to the historical author file. Image payloads are not decompressed by this structural audit."
+}

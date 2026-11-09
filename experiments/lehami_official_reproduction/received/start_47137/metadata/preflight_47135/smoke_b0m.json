@@ -1,0 +1,26 @@
+{
+  "arm": "b0m",
+  "status": "PASS",
+  "checkpoint": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/smoke/data/checkpoints/lewm_ms_conv_pendulum_multi_v2_preflight_b0m_47135/last.ckpt",
+  "global_step": 459,
+  "epoch": 0,
+  "scheduler": {
+    "warmup_steps": 4,
+    "max_steps": 459,
+    "warmup_start_lr": 0.0,
+    "eta_min": 0.0,
+    "base_lrs": [
+      5e-05
+    ],
+    "last_epoch": 459,
+    "_step_count": 460,
+    "_is_initial": false,
+    "_get_lr_called_within_step": false,
+    "_last_lr": [
+      0.0
+    ]
+  },
+  "seed": 42,
+  "precision": "bf16-mixed",
+  "note": "One complete epoch; its scheduler horizon is intentionally one epoch. Not a scientific result."
+}

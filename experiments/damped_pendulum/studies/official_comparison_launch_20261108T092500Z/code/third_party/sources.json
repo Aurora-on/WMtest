@@ -1,0 +1,92 @@
+[
+  {
+    "directory": "LeHami",
+    "repository": "rominay/LeHami",
+    "commit": "f76f65f8b99afb6b7e3063f573645d3e2f290ede",
+    "files": [
+      {
+        "path": "LICENSE",
+        "git_blob_sha1": "d645695673349e3947e8e5ae42332d0ac3164cd7"
+      },
+      {
+        "path": "NOTICE",
+        "git_blob_sha1": "ade688e19ddc2a42b9bdbdc5200919928af4c446"
+      },
+      {
+        "path": "README.md",
+        "git_blob_sha1": "0e3336b4977792dbf26271c244ff8f1f5aafdcba"
+      },
+      {
+        "path": "pyproject.toml",
+        "git_blob_sha1": "f8428fd9102f433aabce0e514616c64e45dee052"
+      },
+      {
+        "path": "lehami/models/lehami/__init__.py",
+        "git_blob_sha1": "7944f264436d16a3d070fa9fc33d3ae71ce67b4f"
+      },
+      {
+        "path": "lehami/models/lehami/builders.py",
+        "git_blob_sha1": "66592b45050d6d4197ccb9672ae0b4bd7124e225"
+      },
+      {
+        "path": "lehami/models/lehami/ham_flow.py",
+        "git_blob_sha1": "3e0c469584e8c204509828593ff11dd131189123"
+      },
+      {
+        "path": "lehami/models/lehami/derivative.py",
+        "git_blob_sha1": "383851bee5dc6fcb0cc9e136876ee89176fbfb12"
+      },
+      {
+        "path": "lehami/training/configs/config.yaml",
+        "git_blob_sha1": "7b29a08c512af8835c1cb5d8361ef392e8e6941f"
+      },
+      {
+        "path": "lehami/training/configs/model/lehami_sg_sep_sreg_q_ms_conv.yaml",
+        "git_blob_sha1": "67d50a1f3ecdb34dfba84406f73ea6197a9b570a"
+      },
+      {
+        "path": "lehami/training/configs/model/lewm_ms_conv.yaml",
+        "git_blob_sha1": "2ab80cd4d52d4ad2ab9cbd2ee39cbbe3b409458d"
+      },
+      {
+        "path": "lehami/training/configs/experiment/phase2_lehami_sg_sep_conv_w1_swingup_exp079_a0q.yaml",
+        "git_blob_sha1": "96383bda7d0c0c48d65fd70400bbbca766593523"
+      },
+      {
+        "path": "lehami/training/configs/experiment/phase0_lewm_ms_conv_w3_swingup_exp076_b3s.yaml",
+        "git_blob_sha1": "76d224c758608fdef64a3317b59baedb37137487"
+      },
+      {
+        "path": "lehami/training/configs/experiment/phase0_lewm_ms_conv_w3_free_swingup_exp099_b3f.yaml",
+        "git_blob_sha1": "3ce361831497bd873a1cd86b397a50354f0611d5"
+      },
+      {
+        "path": "lehami/training/configs/optim/default.yaml",
+        "git_blob_sha1": "09199dfecc56287acbc87b74c20c1f6552607a04"
+      }
+    ]
+  },
+  {
+    "directory": "le-wm",
+    "repository": "lucas-maes/le-wm",
+    "commit": "8edfeb336732b5f3ce7b8b210d0ba370a09e2cac",
+    "files": [
+      {
+        "path": "LICENSE",
+        "git_blob_sha1": "9a0803f84d34cc1a436408b7fab6c02fd87937b4"
+      },
+      {
+        "path": "README.md",
+        "git_blob_sha1": "e429e9cd26fe3152102a7c7b6e1be22354705713"
+      },
+      {
+        "path": "jepa.py",
+        "git_blob_sha1": "486fe93a60f7e7af1fce34e80cc3abdf557559f6"
+      },
+      {
+        "path": "module.py",
+        "git_blob_sha1": "16c490797006c18f16d4f0c27528474694b7e669"
+      }
+    ]
+  }
+]

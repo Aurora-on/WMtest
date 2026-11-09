@@ -1,0 +1,25 @@
+{
+  "protocol": "Same parameters, FP32, eval mode (dropout disabled); identical SIGReg random projections; gradients enabled for objective comparison. Monitoring SVD on CPU for both.",
+  "results": [
+    {
+      "kind": "lehami",
+      "cpu_loss": 0.2548803985118866,
+      "mps_loss": 0.2548803985118866,
+      "loss_absolute_difference": 0.0,
+      "gradient_relative_l2": 3.4413091043461463e-07,
+      "gradient_max_absolute": 3.2961793294816744e-08,
+      "all_finite": true,
+      "rollout_features_max_absolute": 1.30385160446167e-07
+    },
+    {
+      "kind": "lewm",
+      "cpu_loss": 0.23531198501586914,
+      "mps_loss": 0.23531201481819153,
+      "loss_absolute_difference": 2.9802322387695312e-08,
+      "gradient_relative_l2": 3.565980364328425e-07,
+      "gradient_max_absolute": 1.4901161193847656e-08,
+      "all_finite": true,
+      "rollout_features_max_absolute": 8.344650268554688e-07
+    }
+  ]
+}

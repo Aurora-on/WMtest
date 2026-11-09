@@ -1,0 +1,31 @@
+{
+  "status": "preparing",
+  "user_authorized_formal_training": true,
+  "configuration": "configs/dissipative_passive_efficient_3substeps.json",
+  "initial_checkpoint_step": 3750,
+  "target_total_step": 20000,
+  "additional_updates": 16250,
+  "gpu": "1 x NVIDIA L40",
+  "batch_size": 32,
+  "substeps": 3,
+  "slurm_time_limit_hours": 24,
+  "remote_root": "/home/weizhixin/ssd/efficient3_training_20261104T100427Z",
+  "source_checkpoint": "/home/weizhixin/ssd/robust_solver_20261104_v2/continuation/last.pt",
+  "source_checkpoint_sha256": "ed5686271c1645fbb53ac384bc5dc5bb56d172e4c50d4b52cb63f057dbc017fd",
+  "data": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/data/passive_family_v1/seen.h5",
+  "preserve": [
+    "weights",
+    "optimizer",
+    "RNG",
+    "sampler",
+    "full-budget schedule",
+    "validation anchors"
+  ],
+  "reset": [
+    "validation",
+    "best model selection"
+  ],
+  "physical_test_evaluation_enabled": false,
+  "numerical_core_changes_since_short_benchmark": false,
+  "scope": "New algorithm branch initialized from old step3750; not an unchanged-experiment resume."
+}

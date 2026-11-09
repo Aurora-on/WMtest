@@ -1,0 +1,1675 @@
+--- a/README.md
++++ b/README.md
+@@ -1,4 +1,57 @@
+ # LeHami / LeWM 阻尼摆基础实验
++
++## 2026年11月5日 预测停止问题的代码修复
++
++本轮完成代码修复和无优化器更新的检查，**未重新训练、未生成正式新数据**。
++推荐的新实验入口配置为 `configs/dissipative_passive_fixed_v1.json`；仅改变势能选项的对照为
++`configs/dissipative_passive_fixed_v1_softplus.json`。配套数据配置为
++`configs/passive_family_smooth_v1.json`。旧配置、数据、权重和训练记录保持原实验语义。
++
++- **渲染**：新增显式版本 `smooth_v1`，用连续几何距离和平滑像素覆盖率绘制杆和圆。
++  `theta=±1e-12` 的旧30像素跳变消失；uint8保存仍有量化边界，不能当作连续可微观测。
++  renderer版本写入HDF5、清单和生成计划；新训练配置要求`smooth_v1`，预检会拒绝旧像素数据。
++- **初始化**：`velocity_initializer=motion_gated`使用中心化局部二次拟合和基于观测运动的
++  修正门控；末尾速度窗口内完全相同的原始图像严格产生零初始动量，不受编码器批次舍入扰动影响。
++  这不保证亚像素运动可被识别，也不保证任意静态图像都是学到的势能平衡点。
++- **损失**：`motion_loss_mode=normalized_velocity`先按实际dt计算位移速度，再用每窗口目标
++  速度均方（下限`motion_scale_floor²`，分母停止梯度）归一化向量误差。
++  新增`momentum_weight`，在anchor及未来有左右邻帧的时刻，以中心二次拟合的潜位置导数
++  约束p；优先5点、边界3点，排除末帧。导数目标停止梯度，只进入损失，未来图像不进入自主推演。
++  它是视觉潜状态的一致性目标，不是真实角速度或canonical momentum标签。
++- **验证**：启用`prediction_motion_gate`后，对所有时间分组中的动态目标窗口检查预测/目标
++  速度RMS比、相对向量误差、速度内积相似度和近静止比例；不局限于原来的早期表示检查分组。
++  静止目标没有预测运动下限；整个验证集缺乏动态支持时不能通过新门槛。
++  统计先池化再求比例，计数相加；不完整最后批次不会改变分数。模型选择分数可通过
++  `validation_motion_weight`加入相对速度误差，仍然只是潜空间验证，不是物理准确性的保证。
++- **势能**：`core.potential_mode=raw`移除外层Softplus，避免额外的sigmoid乘子压低恢复力。
++  Tanh末隐藏层使固定参数的raw输出仍有下界；势能零点不影响力或能量差。
++  默认`softplus`与旧权重前向兼容；不能直接把旧权重切到raw后称作已修复模型。
++
++新配置的`motion_scale_floor=0.1`、`momentum_weight=0.1`及运动门槛
++（RMS比0.5–1.5、相对误差≤0.8、相似度≥0.5、近静止率≤0.1）是待验证的起始值，
++不是已经证明有效的训练配方。动态窗口定义为目标速度RMS大于`motion_scale_floor`，
++预测速度RMS小于目标的0.1倍计为近静止。训练预算沿用旧配置以便比较，未据此启动作业。
++本轮没有更换潜坐标/动能结构，也没有实现或启动分阶段训练；二维嵌入与单位质量的兼容性
++仍需单独的结构实验。若新配置无法通过无阻尼运动验收，应先检查这一点，而不是放宽门槛。
++
++只查看新数据计划（不写数据、不训练）：
++
++```bash
++.venv/bin/python -m dpbench.passive_family --config configs/passive_family_smooth_v1.json
++```
++
++后续新数据须写到新的目录；保留原物理初态和划分可做配对诊断，正式最终测试应另外预先
++固定未用于本次诊断的测试种子。新数据生成后可用下列命令只读预检：
++
++```bash
++.venv/bin/python -m dpbench.train_dissipative \
++  --config configs/dissipative_passive_fixed_v1.json --data <新数据目录>/seen.h5
++```
++
++没有`--execute`不会创建优化器。旧检查点可以按旧配置加载做前向复查，但源码/配置/数据
++发生变化后，严格恢复和正式评测检查仍拒绝将其当作原实验的无变化续训/评测；
++复现旧运行需使用原冻结源码，不应绕过源码hash检查。
++修改前快照、差异和检查记录位于`studies/stall_fixes_20261105/`。
+ 
+ 本项目比较两个既有模型在**同一视觉阻尼摆数据**上的自主预测。平台为 Python + PyTorch，仿真为显式单摆 ODE 和固定相机 RGB 渲染，不依赖 MuJoCo。下文原有实验结果均属于 LeHami／LeWM；新增耗散 JEPA 分支的首次训练于第2795步隐式求解失败；稳健求解器的服务器验收已于2026-11-04按用户要求暂停，尚无物理评测结论。
+ 
+--- a/configs/dissipative_passive_fixed_v1.json
++++ b/configs/dissipative_passive_fixed_v1.json
+@@ -0,0 +1,79 @@
++{
++  "model": {
++    "history": 21,
++    "velocity_history": 5,
++    "environment_context_dim": 4,
++    "core": {
++      "solver": "picard",
++      "newton_iterations": 12,
++      "line_search_max_backtracks": 12,
++      "line_search_shrink": 0.5,
++      "line_search_c1": 0.0001,
++      "max_bisections": 4,
++      "integrator": "frozen_dg",
++      "picard_iterations": 6,
++      "picard_check_every": 2,
++      "fd_relative_step": 6e-06,
++      "implicit_rcond_min": 1e-08,
++      "adjoint_rtol": 1e-10,
++      "substeps": 3,
++      "potential_mode": "raw"
++    },
++    "velocity_initializer": "motion_gated",
++    "motion_loss_mode": "normalized_velocity",
++    "motion_scale_floor": 0.1,
++    "momentum_weight": 0.1
++  },
++  "training": {
++    "steps": 20000,
++    "batch_size": 32,
++    "train_frames": 81,
++    "seed": 0,
++    "threads": 4,
++    "encoder_lr": 2e-05,
++    "dynamics_lr": 0.0001,
++    "weight_decay": 0.0001,
++    "warmup_steps": 500,
++    "minimum_lr_ratio": 0.1,
++    "gradient_clip": 1.0,
++    "curriculum": [
++      {
++        "until_step": 1000,
++        "horizon": 4
++      },
++      {
++        "until_step": 4000,
++        "horizon": 8
++      },
++      {
++        "until_step": 10000,
++        "horizon": 16
++      },
++      {
++        "until_step": 20000,
++        "horizon": 32
++      }
++    ],
++    "val_horizons": [
++      8,
++      32
++    ],
++    "val_every": 250,
++    "val_windows": 288,
++    "val_seed": 1009,
++    "minimum_target_std": 0.1,
++    "minimum_target_motion": 0.001,
++    "validation_gate_time_bins": [
++      0
++    ],
++    "required_renderer": "smooth_v1",
++    "validation_motion_weight": 1.0,
++    "prediction_motion_gate": {
++      "min_rms_ratio": 0.5,
++      "max_rms_ratio": 1.5,
++      "max_relative_error": 0.8,
++      "min_cosine": 0.5,
++      "max_stalled_fraction": 0.1
++    }
++  }
++}
+--- a/configs/dissipative_passive_fixed_v1_softplus.json
++++ b/configs/dissipative_passive_fixed_v1_softplus.json
+@@ -0,0 +1,79 @@
++{
++  "model": {
++    "history": 21,
++    "velocity_history": 5,
++    "environment_context_dim": 4,
++    "core": {
++      "solver": "picard",
++      "newton_iterations": 12,
++      "line_search_max_backtracks": 12,
++      "line_search_shrink": 0.5,
++      "line_search_c1": 0.0001,
++      "max_bisections": 4,
++      "integrator": "frozen_dg",
++      "picard_iterations": 6,
++      "picard_check_every": 2,
++      "fd_relative_step": 6e-06,
++      "implicit_rcond_min": 1e-08,
++      "adjoint_rtol": 1e-10,
++      "substeps": 3,
++      "potential_mode": "softplus"
++    },
++    "velocity_initializer": "motion_gated",
++    "motion_loss_mode": "normalized_velocity",
++    "motion_scale_floor": 0.1,
++    "momentum_weight": 0.1
++  },
++  "training": {
++    "steps": 20000,
++    "batch_size": 32,
++    "train_frames": 81,
++    "seed": 0,
++    "threads": 4,
++    "encoder_lr": 2e-05,
++    "dynamics_lr": 0.0001,
++    "weight_decay": 0.0001,
++    "warmup_steps": 500,
++    "minimum_lr_ratio": 0.1,
++    "gradient_clip": 1.0,
++    "curriculum": [
++      {
++        "until_step": 1000,
++        "horizon": 4
++      },
++      {
++        "until_step": 4000,
++        "horizon": 8
++      },
++      {
++        "until_step": 10000,
++        "horizon": 16
++      },
++      {
++        "until_step": 20000,
++        "horizon": 32
++      }
++    ],
++    "val_horizons": [
++      8,
++      32
++    ],
++    "val_every": 250,
++    "val_windows": 288,
++    "val_seed": 1009,
++    "minimum_target_std": 0.1,
++    "minimum_target_motion": 0.001,
++    "validation_gate_time_bins": [
++      0
++    ],
++    "required_renderer": "smooth_v1",
++    "validation_motion_weight": 1.0,
++    "prediction_motion_gate": {
++      "min_rms_ratio": 0.5,
++      "max_rms_ratio": 1.5,
++      "max_relative_error": 0.8,
++      "min_cosine": 0.5,
++      "max_stalled_fraction": 0.1
++    }
++  }
++}
+--- a/configs/passive_family_smooth_v1.json
++++ b/configs/passive_family_smooth_v1.json
+@@ -0,0 +1,56 @@
++{
++  "family_name": "passive_multi_damping_smooth_v1",
++  "groups": {
++    "train": 384,
++    "val": 64,
++    "test": 128
++  },
++  "split_seeds": {
++    "train": 2026110301,
++    "val": 2026110302,
++    "test": 2026110303
++  },
++  "group_id_offset": 10000000,
++  "seen_damping": [
++    0.0,
++    0.05,
++    0.1,
++    0.2,
++    0.5,
++    1.0
++  ],
++  "interpolation_damping": [
++    0.075,
++    0.15,
++    0.35,
++    0.75
++  ],
++  "extrapolation_damping": [
++    1.5
++  ],
++  "theta_range": [
++    -2.5,
++    2.5
++  ],
++  "omega_range": [
++    -2.0,
++    2.0
++  ],
++  "energy_edges": [
++    0.05,
++    0.25,
++    0.75,
++    1.25,
++    2.01
++  ],
++  "history": 21,
++  "train_frames": 81,
++  "test_frames": 341,
++  "dt": 0.1,
++  "substeps": 20,
++  "image_size": 64,
++  "mass": 1.0,
++  "length": 1.0,
++  "gravity": 9.81,
++  "renderer": "smooth_v1"
++}
+--- a/dpbench/dissipative_core.py
++++ b/dpbench/dissipative_core.py
+@@ -66,13 +66,15 @@
+                  residual_rtol=1e-7, chain_atol=1e-10, strict=True,
+                  integrator="discrete_gradient", context_dim=0, solver="full",
+                  line_search_max_backtracks=12, line_search_shrink=0.5,
+-                 line_search_c1=1e-4, max_bisections=0):
++                 line_search_c1=1e-4, max_bisections=0, potential_mode="softplus"):
+         super().__init__()
+         if any(not isinstance(x, int) or x < 1 for x in
+                (q_dim, hidden_dim, action_dim, substeps, newton_iterations)):
+             raise ValueError("dimensions, substeps and newton_iterations must be positive integers")
+         if damping_mode not in {"none", "constant", "position", "position_velocity"}:
+             raise ValueError("Unknown damping_mode")
++        if not isinstance(potential_mode, str) or potential_mode not in {"softplus", "raw"}:
++            raise ValueError("potential_mode must be softplus or raw")
+         if integrator not in {"discrete_gradient", "rk4"}:
+             raise ValueError("integrator must be discrete_gradient or rk4")
+         if solver not in {"full", "backtracking"}:
+@@ -93,7 +95,7 @@
+                (residual_atol, residual_rtol, chain_atol)):
+             raise ValueError("solver tolerances must be finite and nonnegative")
+         self.config = dict(q_dim=q_dim, hidden_dim=hidden_dim, action_dim=action_dim,
+-                           damping_mode=damping_mode, substeps=substeps,
++                           damping_mode=damping_mode, potential_mode=potential_mode, substeps=substeps,
+                            newton_iterations=newton_iterations, residual_atol=residual_atol,
+                            residual_rtol=residual_rtol, chain_atol=chain_atol, strict=bool(strict),
+                            integrator=integrator, context_dim=context_dim, solver=solver,
+@@ -103,6 +105,7 @@
+         self.q_dim, self.action_dim = q_dim, action_dim
+         self.context_dim = context_dim
+         self.damping_mode = damping_mode
++        self.potential_mode = potential_mode
+         self.integrator = integrator
+         self.solver = solver
+         self.line_search_max_backtracks = line_search_max_backtracks
+@@ -112,7 +115,15 @@
+         self.residual_atol, self.residual_rtol = residual_atol, residual_rtol
+         self.chain_atol, self.strict = chain_atol, bool(strict)
+         potential = _network(q_dim, hidden_dim, 1)
+-        self.potential_net = nn.Sequential(potential, nn.Softplus())
++        # Raw output is already lower bounded for each fixed set of parameters:
++        # the last hidden Tanh gives V(q) >= bias - ||last_weight||_1. It may be
++        # negative; storage nonnegativity can be restored by a q-independent
++        # constant, which does not change forces or the finite-step ledger.
++        # Avoiding an outer Softplus avoids its extra sigmoid force attenuation.
++        # Identity preserves legacy state_dict keys; selecting raw nevertheless
++        # changes the force field and is an explicit new model configuration.
++        self.potential_net = nn.Sequential(
++            potential, nn.Softplus() if potential_mode == "softplus" else nn.Identity())
+         rows, cols = torch.tril_indices(q_dim, q_dim)
+         basis = torch.zeros(len(rows), q_dim, q_dim)
+         basis[torch.arange(len(rows)), rows, cols] = 1
+@@ -137,7 +148,7 @@
+         self.double()
+ 
+     def potential(self, q):
+-        """Smooth lower-bounded learned V, with scalar output per sample."""
++        """Smooth lower-bounded V (not necessarily positive/coercive in raw mode)."""
+         return self.potential_net(q).squeeze(-1)
+ 
+     def energy(self, q, p):
+--- a/dpbench/dissipative_model.py
++++ b/dpbench/dissipative_model.py
+@@ -27,10 +27,13 @@
+                 dt=0.1, q_dim=2, encoder_width=32,
+                 velocity_correction_scale=1.0, sigreg_weight=0.25,
+                 motion_weight=1.0, initializer_weight=1e-3,
++                velocity_initializer="legacy", motion_loss_mode="displacement",
++                motion_scale_floor=0.1, momentum_weight=0.0,
+                 sigreg_knots=17, sigreg_projections=256,
+                 variance_floor=1e-4,
+                 core=dict(hidden_dim=32, action_dim=1,
+-                          damping_mode="position_velocity", integrator="discrete_gradient", substeps=2,
++                          damping_mode="position_velocity", potential_mode="softplus",
++                          integrator="discrete_gradient", substeps=2,
+                           newton_iterations=6, residual_atol=1e-8,
+                           residual_rtol=1e-7, chain_atol=1e-10, strict=True,
+                           solver="full", line_search_max_backtracks=12,
+@@ -67,13 +70,21 @@
+     if defaults["sigreg_knots"] < 2 or defaults["sigreg_projections"] < 1:
+         raise ValueError("Invalid SIGReg discretization")
+     real_options = ("dt", "sigreg_weight", "motion_weight", "initializer_weight",
+-                    "velocity_correction_scale", "variance_floor")
++                    "velocity_correction_scale", "variance_floor", "motion_scale_floor", "momentum_weight")
+     if any(isinstance(defaults[k], bool) or not isinstance(defaults[k], (int, float))
+            or not math.isfinite(defaults[k]) for k in real_options):
+         raise ValueError("Real-valued model options must be finite numbers")
+     if any(defaults[k] < 0 for k in ("sigreg_weight", "motion_weight", "initializer_weight",
+-                                    "velocity_correction_scale")) or defaults["variance_floor"] <= 0:
++                                    "velocity_correction_scale", "momentum_weight")) or defaults["variance_floor"] <= 0:
+         raise ValueError("Loss weights must be nonnegative and variance_floor positive")
++    if defaults["motion_scale_floor"] <= 0:
++        raise ValueError("motion_scale_floor must be positive")
++    if (not isinstance(defaults["velocity_initializer"], str)
++            or defaults["velocity_initializer"] not in {"legacy", "motion_gated"}):
++        raise ValueError("Unknown velocity_initializer")
++    if (not isinstance(defaults["motion_loss_mode"], str)
++            or defaults["motion_loss_mode"] not in {"displacement", "normalized_velocity"}):
++        raise ValueError("Unknown motion_loss_mode")
+     core = defaults["core"]
+     for key in ("hidden_dim", "action_dim", "substeps", "newton_iterations"):
+         if isinstance(core[key], bool) or not isinstance(core[key], int) or core[key] < 1:
+@@ -107,6 +118,8 @@
+                 raise ValueError(f"Invalid core.{key}")
+     if core["damping_mode"] not in {"none", "constant", "position", "position_velocity"}:
+         raise ValueError("Unknown damping mode")
++    if not isinstance(core["potential_mode"], str) or core["potential_mode"] not in {"softplus", "raw"}:
++        raise ValueError("Unknown potential mode")
+     if defaults["core"].get("action_dim", 1) != 1:
+         raise ValueError("This dataset adapter has exactly one action channel")
+     if defaults["core"].get("strict", True) is not True:
+@@ -203,6 +216,35 @@
+         features = self._history_features(encoded_history, past_actions, past_dt)
+         return self.environment_encoder(features).double()
+ 
++    @staticmethod
++    def _quadratic_velocity(encoded, intervals, evaluation_index):
++        """Local quadratic derivative at an observed point in physical seconds.
++
++        Time and positions are centered before the solve, in FP64. Intervals
++        may vary by time and sample. This helper is used only by new options;
++        the legacy initializer retains its original floating-point recurrence.
++        """
++        intervals = intervals.double()
++        times = torch.cat([intervals.new_zeros(intervals.shape[0], 1),
++                           intervals[..., 0].cumsum(1)], 1)
++        span = times[:, -1:]
++        tau = (times - times[:, evaluation_index:evaluation_index + 1]) / span
++        design = torch.stack([torch.ones_like(tau), tau, tau.square()], -1)
++        values = encoded.double() - encoded[:, evaluation_index:evaluation_index + 1].double()
++        coefficients = torch.linalg.solve(design.transpose(1, 2) @ design,
++                                          design.transpose(1, 2) @ values)
++        return coefficients[:, 1] / span
++
++    @staticmethod
++    def _static_observation(frames):
++        """Detect identical observed images, not equality of FP32 encodings.
++
++        Repeated inputs can produce slightly different convolution roundoff in
++        different batch positions. Pixel equality remains well-defined then.
++        This is a zero-motion invariant, not a claim of subpixel observability.
++        """
++        return (frames == frames[:, -1:]).flatten(1).all(1)
++
+     def initialize(self, history, past_actions, past_dt):
+         """Quadratic causal fit in physical time plus bounded learned correction.
+ 
+@@ -221,6 +263,22 @@
+         encoded = self.encode_frames(history)
+         q_history = encoded.double()
+         local_dt = past_dt[:, -(self.velocity_history - 1):]
++        if self.config["velocity_initializer"] == "motion_gated":
++            local_q = q_history[:, -self.velocity_history:]
++            fitted_velocity = self._quadratic_velocity(local_q, local_dt, self.velocity_history - 1)
++            # Center all history features: absolute position offsets cannot
++            # create a correction. The head shape/state_dict is unchanged.
++            centered = (q_history - q_history[:, -1:]).float()
++            features = self._history_features(centered, past_actions, past_dt)
++            local_velocity = (local_q[:, 1:] - local_q[:, :-1]) / local_dt.double()
++            power = local_velocity.square().mean(dim=(1, 2), keepdim=False)[:, None]
++            gate = power / (power + self.config["motion_scale_floor"] ** 2)
++            correction = (self.config["velocity_correction_scale"]
++                          * self.velocity_correction(features).tanh().double() * gate)
++            static = self._static_observation(history[:, -self.velocity_history:])[:, None]
++            correction = torch.where(static, torch.zeros_like(correction), correction)
++            momentum = torch.where(static, torch.zeros_like(fitted_velocity), fitted_velocity + correction)
++            return q_history[:, -1], momentum, encoded, correction
+         times = torch.cat([local_dt.new_zeros(b, 1), local_dt[..., 0].cumsum(1)], 1).double()
+         span = times[:, -1:]
+         tau = (times - times[:, -1:]) / span
+@@ -267,19 +325,78 @@
+         result["all_encoded"] = torch.cat([result["history_encoding"], future_targets], 1)
+         return result
+ 
++    def _momentum_targets(self, batch, result):
++        """Training-only detached central derivatives at anchor/future times.
++
++        Use five observations (two on each side) when available, otherwise
++        three (one on each side). The final observation is excluded because
++        it has no right neighbor. Irregular dt is used in every fit. No true
++        physical state or future observation enters initialize/rollout.
++        Returns aligned predicted p and detached target p, each [B,N,q_dim].
++        """
++        encoded = result["all_encoded"]
++        targets, indices = [], []
++        for index in range(self.history - 1, encoded.shape[1] - 1):
++            radius = 2 if index >= 2 and index + 2 < encoded.shape[1] else 1
++            lo, hi = index - radius, index + radius + 1
++            target = self._quadratic_velocity(encoded[:, lo:hi].detach(),
++                                              batch["dt_frame"][:, lo:hi - 1], radius)
++            static = self._static_observation(batch["pixels"][:, lo:hi])[:, None]
++            target = torch.where(static, torch.zeros_like(target), target)
++            targets.append(target.detach())
++            indices.append(index - self.history + 1)
++        if not targets:
++            return result["p"][:, :0], result["p"][:, :0].detach()
++        return result["p"][:, indices], torch.stack(targets, 1)
++
+     def loss(self, batch, horizon):
++        """JEPA objective plus optional velocity and detached momentum targets.
++
++        normalized_velocity uses v=delta_q/dt and per-window
++        mean((v_pred-v_target)^2)/stopgrad(max(mean(v_target^2),floor^2)).
++        Momentum uses the same normalization on detached central fitted
++        derivatives, including the anchor but excluding unsupported tail points.
++
++        Validation velocity powers/error/cross are means over B,T,q. Their
++        dynamic_* counterparts zero windows with target RMS<=floor and retain
++        the full-B denominator. Aggregate these means with batch-size weights.
++        *_count are scalar sums; sum them directly. The fixed stall criterion
++        is predicted RMS<0.1*target RMS in a dynamic window. Motion magnitude
++        alone does not imply correctness: error and signed cross must accompany
++        the power ratio. All diagnostics are detached; loss terms retain grads.
++        """
+         result = self.predict_batch(batch, horizon)
+         predicted, target = result["q"], result["target"]
+         prediction = (predicted[:, 1:] - target[:, 1:]).square().mean()
+         predicted_delta = predicted[:, 1:] - predicted[:, :-1]
+         target_delta = target[:, 1:] - target[:, :-1]
+-        # Displacement in the same latent coordinates, NOT physical velocity supervision.
+-        motion = (predicted_delta - target_delta).square().mean()
++        c = self.config
++        intervals = batch["dt_frame"][:, self.history - 1:self.history - 1 + horizon].double()
++        if not torch.isfinite(intervals).all() or (intervals <= 0).any():
++            raise ValueError("Future intervals must be finite and positive")
++        predicted_velocity, target_velocity = predicted_delta / intervals, target_delta / intervals
++        window_target_power = target_velocity.square().mean(dim=(1, 2))
++        velocity_error = (predicted_velocity - target_velocity).square()
++        # These are visual-latent derivatives, not physical velocity labels.
++        # New loss is mean_b mean_t,d(error_v^2) / stopgrad(max(power_v, floor^2)).
++        if c["motion_loss_mode"] == "normalized_velocity":
++            scale = window_target_power.detach().clamp_min(c["motion_scale_floor"] ** 2)
++            motion = (velocity_error.mean(dim=(1, 2)) / scale).mean()
++        else:
++            motion = (predicted_delta - target_delta).square().mean()
+         reg = self.sigreg(result["all_encoded"].transpose(0, 1))
+         initial_penalty = result["correction"].square().mean()
+-        c = self.config
+         loss = (prediction + c["motion_weight"] * motion + c["sigreg_weight"] * reg
+                 + c["initializer_weight"] * initial_penalty)
++        momentum, momentum_count = prediction.new_zeros(()), prediction.new_zeros(())
++        if c["momentum_weight"]:
++            predicted_momentum, target_momentum = self._momentum_targets(batch, result)
++            momentum_count = prediction.new_tensor(target_momentum.shape[0] * target_momentum.shape[1])
++            if target_momentum.shape[1]:
++                momentum_scale = target_momentum.square().mean(dim=(1, 2)).clamp_min(c["motion_scale_floor"] ** 2)
++                momentum = ((predicted_momentum - target_momentum).square().mean(dim=(1, 2))
++                            / momentum_scale.detach()).mean()
++            loss = loss + c["momentum_weight"] * momentum
+         target_std = target[:, 1:].detach().flatten(0, 1).std(0, unbiased=False)
+         variance = target_std.square().mean().clamp_min(c["variance_floor"])
+         persistence = (target[:, :1] - target[:, 1:]).detach().square().mean()
+@@ -291,6 +408,27 @@
+                       persistence_mse=persistence, prediction_mse=prediction.detach(),
+                       normalized_prediction_mse=prediction.detach() / variance,
+                       persistence_ratio=prediction.detach() / persistence.clamp_min(c["variance_floor"]))
++        # Powers/cross products are mean over B,T,q. Dynamic variants zero
++        # nondynamic windows but KEEP the full-B denominator, so validation can
++        # aggregate exactly with batch-size weights. *_count are sums, not means.
++        # A dynamic window has target RMS > motion_scale_floor. A stalled dynamic
++        # window has predicted RMS < 0.1 * target RMS (fixed diagnostic threshold).
++        pv, tv = predicted_velocity.detach(), target_velocity.detach()
++        target_power = tv.square().mean(dim=(1, 2))
++        predicted_power = pv.square().mean(dim=(1, 2))
++        dynamic = target_power > c["motion_scale_floor"] ** 2
++        stalled = dynamic & (predicted_power < .01 * target_power)
++        window_metrics = dict(predicted_velocity_power=predicted_power,
++                              target_velocity_power=target_power,
++                              velocity_error_power=(pv - tv).square().mean(dim=(1, 2)),
++                              velocity_cross_power=(pv * tv).mean(dim=(1, 2)))
++        for key, value in window_metrics.items():
++            output[key] = value.mean()
++            output["dynamic_" + key] = (value * dynamic).mean()
++        output.update(momentum_loss=momentum, momentum_point_count=momentum_count,
++                      dynamic_window_count=dynamic.sum().to(prediction),
++                      stalled_dynamic_window_count=stalled.sum().to(prediction),
++                      window_count=prediction.new_tensor(len(predicted)))
+         for index in range(self.q_dim):
+             coordinate = target[:, 1:, index].detach()
+             output[f"target_mean_{index}"] = coordinate.mean()
+@@ -324,8 +462,13 @@
+         return dict(label="Dissipative JEPA with a finite-step energy ledger",
+                     config=copy.deepcopy(self.config), parameters=sum(p.numel() for p in self.parameters()),
+                     observation="RGB/action/dt only; no physical targets",
+-                    initializer=f"{self.velocity_history}-frame local causal quadratic fit in seconds; "
++                    initializer=f"{self.config['velocity_initializer']}: "
++                                f"{self.velocity_history}-frame local causal quadratic fit in seconds; "
+                                 f"bounded correction from {self.history}-frame history",
++                    motion_objective=self.config["motion_loss_mode"],
++                    momentum_target=("detached central quadratic derivative, 5-point preferred/3-point boundary; "
++                                     "anchor/future points with both neighbors only"
++                                     if self.config["momentum_weight"] else "disabled"),
+                     environment_context=(f"{self.environment_context_dim}-dimensional context inferred from "
+                                          f"{self.history} causal frames/actions/dt; fixed during rollout; "
+                                          "conditions damping only; no true damping labels"
+@@ -334,4 +477,6 @@
+                     regularizer="pinned upstream LeWM SIGReg; jointly differentiable target branch",
+                     precision="FP32 perception, FP64 dynamics; CPU/CUDA",
+                     energy_scope="learned latent storage, not calibrated physical energy",
+-                    gradient="differentiate the actual finite solver iterations")
++                    gradient=("implicit accepted-root gradient; first-order outer derivatives only"
++                              if self.config["core"]["integrator"] == "frozen_dg"
++                              else "differentiate the actual finite solver iterations"))
+--- a/dpbench/generate.py
++++ b/dpbench/generate.py
+@@ -72,8 +72,58 @@
+     return errors
+ 
+ 
+-def render(theta, size=64):
+-    """LeHami-style fixed-camera RGB drawing; point-mass model stated explicitly."""
++RENDERERS = ("legacy", "smooth_v1")
++
++
++def validate_renderer(renderer):
++    if renderer not in RENDERERS:
++        raise ValueError(f"renderer must be one of {RENDERERS}, got {renderer!r}")
++    return renderer
++
++
++def render_smooth_float(theta, size=64):
++    """Continuous subpixel RGB in [0, 1], before uint8 quantization.
++
++    Analytic signed distances to a round-ended rod and two circles determine
++    smoothstep edge coverage over a one-pixel band. This is antialiasing, not
++    exact pixel-area integration. No geometry is rounded to pixel indices.
++    Coverage and compositing are continuous in theta; the stored uint8 image
++    still has one-level quantization boundaries and cannot be globally
++    continuous. Keep this float path for continuity/derivative diagnostics.
++    """
++    if not np.isscalar(theta) or not np.isfinite(theta):
++        raise ValueError("theta must be a finite scalar")
++    if isinstance(size, (bool, np.bool_)) or not isinstance(size, (int, np.integer)) or size < 1:
++        raise ValueError("size must be a positive integer")
++    yy, xx = np.mgrid[:size, :size].astype(np.float64) + 0.5
++    pivot, length = size / 2., size * .36
++    dx, dy = length * np.sin(theta), length * np.cos(theta)
++    rx, ry = xx - pivot, yy - pivot
++    projection = np.clip((rx * dx + ry * dy) / length**2, 0., 1.)
++    rod_distance = np.hypot(rx - projection * dx, ry - projection * dy) - 1.
++    bob_distance = np.hypot(rx - dx, ry - dy) - 3.
++    pivot_distance = np.hypot(rx, ry) - 2.
++    rgb = np.ones((size, size, 3), dtype=np.float64)
++    for distance, color in ((rod_distance, (50, 50, 50)),
++                            (bob_distance, (200, 40, 40)),
++                            (pivot_distance, (50, 50, 50))):
++        edge = np.clip(.5 - distance, 0., 1.)
++        alpha = (edge * edge * (3. - 2. * edge))[..., None]
++        rgb = rgb * (1. - alpha) + np.asarray(color, dtype=np.float64) / 255. * alpha
++    return rgb
++
++
++def render(theta, size=64, renderer="legacy"):
++    """Versioned fixed-camera RGB; omitted renderer preserves historical pixels.
++
++    smooth_v1 uses continuous subpixel geometry before rounding to uint8.
++    This removes the legacy zero-angle geometry jump, not all unavoidable
++    uint8 quantization boundaries. Renderer changes require a new dataset.
++    """
++    validate_renderer(renderer)
++    if renderer == "smooth_v1":
++        return np.rint(255. * render_smooth_float(theta, size)).clip(0, 255).astype(np.uint8)
++    # Preserve the original PIL operations and coordinates exactly.
+     im = Image.new("RGB", (size, size), (255, 255, 255))
+     draw = ImageDraw.Draw(im)
+     pivot, radius = (size/2, size/2), size*.36
+@@ -112,6 +162,7 @@
+ 
+ 
+ def generate(config, output):
++    renderer = validate_renderer(config.get("renderer", "legacy"))
+     output = Path(output)
+     output.mkdir(parents=True, exist_ok=True)
+     if list(output.glob("*.h5")) or (output/"manifest.json").exists():
+@@ -119,7 +170,8 @@
+     if not 15 <= config["train_frames"] <= config["frames"]:
+         raise ValueError("Need 15 <= train_frames <= frames")
+     initial, actions, modes, split = make_plan(config)
+-    manifest = {"schema_version": 1, "config": config, "splits": split, "datasets": [],
++    manifest = {"schema_version": 1, "config": config, "renderer": renderer,
++                "splits": split, "datasets": [],
+                 "claim": "New controlled dataset; not an original LeHami or CpAE benchmark",
+                 "action_contract": "action[t] in N m acts on [t,t+dt); final padded row invalid",
+                 "model_inputs": ["pixels", "action", "dt_frame"],
+@@ -140,7 +192,7 @@
+         path = output/name
+         with h5py.File(path, "w") as f:
+             f.attrs.update({k: config[k] for k in ("mass", "length", "gravity", "dt", "train_frames", "data_seed")})
+-            f.attrs.update(damping=damping, schema_version=1, config_json=json.dumps(config),
++            f.attrs.update(damping=damping, schema_version=1, config_json=json.dumps(config), renderer=renderer,
+                            ode="m L^2 theta_ddot = -m g L sin(theta) - b omega + torque",
+                            truth_integrator="float64 RK4 with integrated W,D; independent DOP853 audit",
+                            audit_json=json.dumps(audit))
+@@ -163,12 +215,14 @@
+             pixels = f.create_dataset("pixels", (n*frames, config["image_size"], config["image_size"], 3),
+                                       dtype="u1", chunks=(1, config["image_size"], config["image_size"], 3), compression="lzf")
+             for ep in range(n):
+-                pixels[ep*frames:(ep+1)*frames] = np.stack([render(th, config["image_size"]) for th in state[ep, :, 0]])
++                pixels[ep*frames:(ep+1)*frames] = np.stack([
++                    render(th, config["image_size"], renderer=renderer) for th in state[ep, :, 0]])
+         digest = hashlib.sha256()
+         with path.open("rb") as handle:
+             for block in iter(lambda: handle.read(1024*1024), b""):
+                 digest.update(block)
+-        result = {"file": name, "damping": damping, "bytes": path.stat().st_size, "sha256": digest.hexdigest(),
++        result = {"file": name, "damping": damping, "renderer": renderer,
++                  "bytes": path.stat().st_size, "sha256": digest.hexdigest(),
+                   "simulation_seconds": simulation_sec, "generation_total_seconds": time.perf_counter()-start,
+                   "frames": n*frames, "valid_transitions": n*(frames-1), "numerical_audit": audit}
+         manifest["datasets"].append(result)
+--- a/dpbench/passive_family.py
++++ b/dpbench/passive_family.py
+@@ -16,7 +16,7 @@
+ import numpy as np
+ from scipy.integrate import solve_ivp
+ 
+-from .generate import derivative, energy, render, simulate
++from .generate import derivative, energy, render, simulate, validate_renderer
+ 
+ 
+ SPLITS = ("train", "val", "test")
+@@ -42,8 +42,11 @@
+                 "interpolation_damping", "extrapolation_damping", "theta_range", "omega_range",
+                 "energy_edges", "history", "train_frames", "test_frames", "dt", "substeps",
+                 "image_size", "mass", "length", "gravity"}
+-    if set(config) != required:
+-        raise ValueError(f"Configuration keys differ: {set(config) ^ required}")
++    optional = {"renderer"}
++    if not required <= set(config) or set(config) - required - optional:
++        raise ValueError(f"Configuration keys differ: missing={required - set(config)}, "
++                         f"unknown={set(config) - required - optional}")
++    validate_renderer(config.get("renderer", "legacy"))
+     if not isinstance(config["family_name"], str) or not config["family_name"]:
+         raise ValueError("family_name must be nonempty")
+     for key in ("history", "train_frames", "test_frames", "substeps", "image_size"):
+@@ -104,6 +107,9 @@
+     unseen_frames = unseen * counts["test"] * config["test_frames"]
+     return {"mode": "plan_only", "training_started": False, "writes_files": False,
+             "family_name": config["family_name"], "groups": counts,
++            "renderer": config.get("renderer", "legacy"),
++            "rendering_contract": "Versioned geometry; smooth_v1 is continuous before uint8 rounding, "
++                                  "but stored pixels retain quantization boundaries. New version requires new data.",
+             "seen_episodes": {s: seen * counts[s] for s in SPLITS},
+             "unseen_episodes": {"interpolation": len(config["interpolation_damping"]) * counts["test"],
+                                 "extrapolation": len(config["extrapolation_damping"]) * counts["test"]},
+@@ -192,6 +198,7 @@
+ 
+ 
+ def _write_file(path, config, groups, kind):
++    renderer = validate_renderer(config.get("renderer", "legacy"))
+     records = _records(config, groups, kind)
+     lengths = np.asarray([r["frames"] for r in records], dtype=np.int64)
+     offsets = np.r_[0, np.cumsum(lengths[:-1])]
+@@ -199,7 +206,7 @@
+     numerical = []
+     context_hashes = {s: {} for s in SPLITS}
+     with h5py.File(path, "x") as f:
+-        f.attrs.update(schema_version=1, family_name=config["family_name"],
++        f.attrs.update(schema_version=1, family_name=config["family_name"], renderer=renderer,
+                        config_json=json.dumps(config, sort_keys=True),
+                        requires_environment_context=True, history_required=config["history"],
+                        train_frames=config["train_frames"] if kind == "seen" else 0,
+@@ -256,7 +263,8 @@
+                 numerical.append(audit)
+                 for local, ep in enumerate(ids):
+                     start, end = int(offsets[ep]), int(offsets[ep] + lengths[ep])
+-                    images = np.stack([render(q, config["image_size"]) for q in state[local, :, 0]])
++                    images = np.stack([render(q, config["image_size"], renderer=renderer)
++                                       for q in state[local, :, 0]])
+                     f["pixels"][start:end] = images
+                     for key, values in (("state", state), ("energy", en), ("work", work), ("dissipation", dissipation)):
+                         f[key][start:end] = values[local]
+@@ -276,7 +284,7 @@
+                     collisions.append({"split": split, "group_id": group,
+                                        "episodes": matching,
+                                        "damping": [records[ep]["damping"] for ep in matching]})
+-    return {"file": path.name, "kind": kind, "episodes": episodes, "frames": total,
++    return {"file": path.name, "kind": kind, "renderer": renderer, "episodes": episodes, "frames": total,
+             "sha256": sha256(path), "bytes": path.stat().st_size, "numerical_audit": numerical,
+             "different_damping_same_group_identical_initial_context": {
+                 "collision_groups": len(collisions), "examples": collisions[:20],
+@@ -327,7 +335,7 @@
+     seen, seen_hashes = _write_file(output / "seen.h5", config, groups, "seen")
+     unseen, unseen_hashes = _write_file(output / "unseen.h5", config, groups, "unseen")
+     manifest = {"status": "generated_untrained", "training_started": False,
+-                "config": config, "source_sha256": sources, "plan": summary,
++                "config": config, "renderer": summary["renderer"], "source_sha256": sources, "plan": summary,
+                 "datasets": [seen, unseen], "initial_context_overlap": _context_overlap(seen_hashes, unseen_hashes),
+                 "cross_condition_identical_test_contexts": _cross_condition_ambiguity(config, groups, seen_hashes, unseen_hashes),
+                 "source": "Self-generated passive point-mass pendulum; existing project renderer and RK4 simulator, new stratified initial samples",
+--- a/dpbench/train_dissipative.py
++++ b/dpbench/train_dissipative.py
+@@ -49,9 +49,31 @@
+         "gradient_clip", "curriculum", "val_horizons", "val_every", "val_windows",
+         "val_seed", "minimum_target_std", "minimum_target_motion",
+     }
+-    optional = {"validation_gate_time_bins"}
++    optional = {"validation_gate_time_bins", "prediction_motion_gate",
++                "validation_motion_weight", "required_renderer"}
+     if not expected <= set(cfg) or set(cfg) - expected - optional:
+         raise ValueError(f"Training config keys differ: {sorted(set(cfg) ^ expected)}")
++    if "required_renderer" in cfg and (not isinstance(cfg["required_renderer"], str)
++                                      or cfg["required_renderer"] not in {"legacy", "smooth_v1"}):
++        raise ValueError("required_renderer must be legacy or smooth_v1")
++    motion_weight = cfg.get("validation_motion_weight", 0.0)
++    if (isinstance(motion_weight, bool) or not isinstance(motion_weight, (int, float))
++            or not math.isfinite(motion_weight) or motion_weight < 0):
++        raise ValueError("validation_motion_weight must be finite and nonnegative")
++    gate = cfg.get("prediction_motion_gate")
++    if gate is not None:
++        keys = {"min_rms_ratio", "max_rms_ratio", "max_relative_error",
++                "min_cosine", "max_stalled_fraction"}
++        if not isinstance(gate, dict) or set(gate) != keys:
++            raise ValueError("prediction_motion_gate requires exactly " + str(sorted(keys)))
++        if any(isinstance(v, bool) or not isinstance(v, (int, float))
++               or not math.isfinite(v) for v in gate.values()):
++            raise ValueError("prediction_motion_gate values must be finite numbers")
++        if not (0 < gate["min_rms_ratio"] <= 1 <= gate["max_rms_ratio"]
++                and 0 <= gate["max_relative_error"] < 1
++                and 0 <= gate["min_cosine"] <= 1
++                and 0 <= gate["max_stalled_fraction"] < 1):
++            raise ValueError("Invalid prediction_motion_gate bounds")
+     gate_bins = cfg.get("validation_gate_time_bins")
+     if gate_bins is not None and (not isinstance(gate_bins, list) or not gate_bins
+                                  or len(set(gate_bins)) != len(gate_bins)
+@@ -230,6 +252,50 @@
+     return metrics
+ 
+ 
++def prediction_motion_diagnostics(metrics, gate=None):
++    """Pool vector moments before ratios; static targets impose no motion floor.
++
++    Dynamic powers are full-batch means with inactive windows zeroed; counts
++    are additive. Thus uneven batch partitions give the same result. Window
++    activity and the 0.1 stall ratio are defined by model.loss, not test labels.
++    """
++    required = {"dynamic_window_count", "stalled_dynamic_window_count", "window_count",
++                "dynamic_predicted_velocity_power", "dynamic_target_velocity_power",
++                "dynamic_velocity_error_power", "dynamic_velocity_cross_power"}
++    if required - set(metrics):
++        raise ValueError("Prediction motion validation missing metrics: "
++                         + str(sorted(required - set(metrics))))
++    if not all(math.isfinite(metrics[k]) for k in required):
++        raise ValueError("Prediction motion validation requires finite moments")
++    n, dynamic, stalled = (metrics[k] for k in
++                           ("window_count", "dynamic_window_count", "stalled_dynamic_window_count"))
++    if not (0 <= stalled <= dynamic <= n and n > 0):
++        raise ValueError("Inconsistent prediction motion window counts")
++    if dynamic == 0:
++        return dict(prediction_gate_applicable=False, prediction_gate_passed=True,
++                    predicted_target_velocity_rms_ratio=None, relative_velocity_error=None,
++                    velocity_cosine=None, stalled_dynamic_fraction=None,
++                    dynamic_window_fraction=0.0)
++    pp, tt, ee, cross = (metrics[k] for k in (
++        "dynamic_predicted_velocity_power", "dynamic_target_velocity_power",
++        "dynamic_velocity_error_power", "dynamic_velocity_cross_power"))
++    if pp < 0 or tt <= 0 or ee < 0:
++        raise ValueError("Invalid dynamic velocity powers")
++    ratio = math.sqrt(pp / tt)
++    relative = ee / tt
++    cosine = max(-1.0, min(1.0, cross / math.sqrt(pp * tt))) if pp > 0 else 0.0
++    stalled_fraction = stalled / dynamic
++    passed = gate is None or (
++        gate["min_rms_ratio"] <= ratio <= gate["max_rms_ratio"]
++        and relative <= gate["max_relative_error"]
++        and cosine >= gate["min_cosine"]
++        and stalled_fraction <= gate["max_stalled_fraction"])
++    return dict(prediction_gate_applicable=True, prediction_gate_passed=bool(passed),
++                predicted_target_velocity_rms_ratio=ratio, relative_velocity_error=relative,
++                velocity_cosine=cosine, stalled_dynamic_fraction=stalled_fraction,
++                dynamic_window_fraction=dynamic / n)
++
++
+ def validation(model, dataset, indices, config, device):
+     """Fixed validation prefixes; equal mode/time/horizon weighting.
+ 
+@@ -238,6 +304,8 @@
+     change future SIGReg projections or other training randomness.
+     """
+     cfg = config["training"]
++    motion_enabled = (cfg.get("prediction_motion_gate") is not None
++                      or cfg.get("validation_motion_weight", 0) > 0)
+     previous_mode = model.training
+     rng = capture_rng()
+     grouped = {}
+@@ -255,6 +323,8 @@
+                 for stratum, group in sorted(grouped.items()):
+                     time_bin = stratum[-1]
+                     sums, maxima, count = {}, {}, 0
++                    count_keys = {"window_count", "dynamic_window_count",
++                                  "stalled_dynamic_window_count", "momentum_point_count"}
+                     maximum_keys = {"solver_residual", "chain_defect_max", "energy_residual",
+                                     "numerical_balance_defect", "solver_residual_ratio",
+                                     "solver_split_depth", "solver_replay_relative_error"}
+@@ -263,11 +333,12 @@
+                         batch = move_batch(dataset.batch(selected, horizon=horizon), device)
+                         metrics = scalar_metrics(model.loss(batch, horizon=horizon))
+                         for key, value in metrics.items():
+-                            sums[key] = sums.get(key, 0.0) + len(selected) * value
++                            sums[key] = sums.get(key, 0.0) + (value if key in count_keys else len(selected) * value)
+                             if key in maximum_keys:
+                                 maxima[key] = max(maxima.get(key, 0.0), abs(value))
+                         count += len(selected)
+-                    result = {key: value / count for key, value in sums.items()}
++                    result = {key: value if key in count_keys else value / count
++                              for key, value in sums.items()}
+                     result.update(maxima)
+                     # Pool sufficient statistics before normalization. Averaging
+                     # per-batch variances would depend on the batch partition.
+@@ -288,6 +359,11 @@
+                     gate_bins = cfg.get("validation_gate_time_bins")
+                     result["gate_required"] = gate_bins is None or time_bin in gate_bins
+                     result["persistence_ratio"] = result["prediction_mse"] / max(result["persistence_mse"], 1e-8)
++                    result["representation_gate_passed"] = result["gate_passed"]
++                    if motion_enabled:
++                        result.update(prediction_motion_diagnostics(result, cfg.get("prediction_motion_gate")))
++                        result["gate_passed"] = (result["representation_gate_passed"]
++                                                 and result["prediction_gate_passed"])
+                     results[f"h{horizon}_{stratum_label(stratum)}"] = result
+     finally:
+         restore_rng(rng)
+@@ -297,13 +373,26 @@
+     gate_rows = [row for row in results.values() if row["gate_required"]]
+     if not gate_rows:
+         raise ValueError("Validation selection contains no required gate time bin")
++    position_score = float(np.mean([row["normalized_prediction_mse"] for row in results.values()]))
++    active_motion_errors = [row["relative_velocity_error"] for row in results.values()
++                            if row.get("prediction_gate_applicable", False)]
++    motion_score = float(np.mean(active_motion_errors)) if active_motion_errors else 0.0
++    # No observed dynamics is no evidence that the predictor preserves motion.
++    # Individual truly settled windows remain exempt from a motion lower bound.
++    dynamic_support = cfg.get("prediction_motion_gate") is None or bool(active_motion_errors)
+     return {
+-        "score": float(np.mean([row["normalized_prediction_mse"] for row in results.values()])),
+-        "gate_passed": all(row["gate_passed"] for row in gate_rows),
++        "score": position_score + cfg.get("validation_motion_weight", 0.0) * motion_score,
++        "position_score": position_score, "motion_score": motion_score,
++        "gate_passed": (dynamic_support and all(row["representation_gate_passed"] for row in gate_rows)
++                        and all(row.get("prediction_gate_passed", True) for row in results.values())),
++        "dynamic_validation_support": dynamic_support,
+         "groups": results,
+-        "score_scope": "Within-run normalized latent prediction; not an independent physical metric",
++        "score_scope": "Within-run normalized latent position plus configured dynamic velocity error; not an independent physical metric",
+         "sigreg_scope": "Diagnostic only; upstream statistic scales with batch size, including smaller final batches",
+-        "gate_scope": "Configured time bins only; late physical settling is not automatically representation collapse",
++        "gate_scope": "Representation gates use configured time bins; enabled prediction gates check dynamic windows in ALL bins. Settled target windows have no motion floor.",
++        "prediction_motion_gate": cfg.get("prediction_motion_gate"),
++        "dynamic_target_velocity_rms_threshold": model.config.get("motion_scale_floor") if motion_enabled else None,
++        "stall_velocity_rms_ratio_threshold": 0.1 if motion_enabled else None,
+     }
+ 
+ 
+@@ -331,6 +420,12 @@
+         raise ValueError("Multi-environment data requires environment_context_dim > 0 inferred from causal history")
+     intervals = 0
+     with h5py.File(data, "r") as handle:
++        renderer = handle.attrs.get("renderer", "legacy")
++        if isinstance(renderer, bytes):
++            renderer = renderer.decode("utf-8")
++        required_renderer = config["training"].get("required_renderer")
++        if required_renderer is not None and renderer != required_renderer:
++            raise ValueError(f"Dataset renderer {renderer!r} differs from required_renderer={required_renderer!r}; regenerate into a new directory")
+         for split in ("train", "val"):
+             for episode in handle[f"splits/{split}"][:]:
+                 start = int(handle["ep_offset"][episode])
+@@ -342,6 +437,7 @@
+     report.update(mode="preflight_only", optimizer_created=False, run_directory_created=False,
+                   config=config, config_sha256=config_digest(config),
+                   resolved_model_config=resolved_model,
++                  renderer=renderer,
+                   checked_frame_intervals=intervals,
+                   validation_horizons_seconds=[h * resolved_model["dt"] for h in config["training"]["val_horizons"]],
+                   validation_horizons_steps=config["training"]["val_horizons"],
+@@ -432,7 +528,7 @@
+         "runtime": runtime,
+         "resume_scope": "Same-runtime configuration, RNG and sampler continuation; bitwise determinism across hardware is not claimed. Move last.pt and best.pt together.",
+         "physical_validation": False,
+-        "checkpoint_rule": "minimum fixed-horizon normalized latent score, only if representation gates pass",
++        "checkpoint_rule": "minimum configured position/motion validation score, only if representation and enabled prediction gates pass",
+     })
+     status = {"status": "running", "training_started": True, "completed_steps": start_step,
+               "optimizer_steps_this_run": 0}
+--- a/tests/test_stall_model.py
++++ b/tests/test_stall_model.py
+@@ -0,0 +1,259 @@
++"""No optimizer: regression checks for anti-stall objectives and causal inputs."""
++import copy
++import json
++from pathlib import Path
++
++import pytest
++import torch
++
++from dpbench.dissipative_model import DissipativeWorldModel, resolve_model_config
++
++
++def model(**options):
++    torch.set_num_threads(2)
++    torch.manual_seed(850)
++    config = dict(encoder_width=8, sigreg_projections=8,
++                  core=dict(hidden_dim=8, substeps=1))
++    config.update(options)
++    return DissipativeWorldModel(config)
++
++
++def batch(horizon=2, history=5):
++    rng = torch.Generator().manual_seed(853)
++    return dict(pixels=torch.rand(2, history + horizon, 3, 64, 64, generator=rng),
++                action=torch.zeros(2, history + horizon - 1, 1),
++                dt_frame=torch.full((2, history + horizon - 1, 1), .1))
++
++
++def test_static_observation_zeroes_fitted_roundoff_and_nonzero_correction():
++    m = model(velocity_initializer='motion_gated')
++    with torch.no_grad():
++        m.velocity_correction[-1].bias.fill_(3.)
++    one_image = torch.rand(2, 1, 3, 64, 64)
++    images = one_image.expand(-1, 5, -1, -1, -1).clone()
++    # Simulate convolution roundoff in different batch positions despite
++    # exactly identical raw observed images. Encoded equality would fail.
++    enc = torch.tensor([2., -3.])[None, None].expand(2, 5, 2).clone()
++    enc += torch.arange(5)[None, :, None] * 2e-6
++    m.encode_frames = lambda _: enc
++    q, p, _, correction = m.initialize(images, torch.ones(2, 4, 1), torch.full((2, 4, 1), .1))
++    assert torch.count_nonzero(p) == 0
++    assert torch.count_nonzero(correction) == 0
++    assert torch.equal(q, enc[:, -1].double())
++
++
++def test_motion_gated_quadratic_fit_uses_irregular_seconds_and_is_translation_invariant():
++    m = model(velocity_initializer='motion_gated')
++    dt = torch.tensor([.05, .13, .07, .2], dtype=torch.float64)[None, :, None]
++    times = torch.cat([torch.zeros(1, 1), dt[..., 0].cumsum(1)], 1)
++    v = torch.tensor([.3, -.4], dtype=torch.float64)
++    acceleration = torch.tensor([.5, .2], dtype=torch.float64)
++    q = times[..., None] * v + .5 * times[..., None].square() * acceleration
++    images = batch()['pixels'][:1, :5]
++    m.encode_frames = lambda _: q
++    first = m.initialize(images, torch.zeros(1, 4, 1), dt)
++    torch.testing.assert_close(first[1], v + times[:, -1:] * acceleration, atol=1e-12, rtol=0)
++    with torch.no_grad():
++        m.velocity_correction[-1].weight.fill_(.01)
++        m.velocity_correction[-1].bias.fill_(.2)
++    original = m.initialize(images, torch.zeros(1, 4, 1), dt)
++    m.encode_frames = lambda _: q + 1000
++    shifted = m.initialize(images, torch.zeros(1, 4, 1), dt)
++    torch.testing.assert_close(shifted[1], original[1], atol=2e-10, rtol=0)
++    torch.testing.assert_close(shifted[3], original[3], atol=2e-10, rtol=0)
++
++
++def test_central_momentum_targets_are_aligned_detached_and_exclude_last_frame():
++    m = model(momentum_weight=1.)
++    b = batch(horizon=3)
++    dt = torch.tensor([.05, .13, .07, .2, .08, .17, .1], dtype=torch.float64)[None, :, None]
++    b['dt_frame'] = dt.expand(2, -1, -1)
++    times = torch.cat([torch.zeros(2, 1), b['dt_frame'][..., 0].cumsum(1)], 1)
++    velocity = torch.tensor([.3, -.4], dtype=torch.float64)
++    acc = torch.tensor([.5, .2], dtype=torch.float64)
++    q = (times[..., None] * velocity + .5 * times[..., None].square() * acc).requires_grad_()
++    p = (velocity + times[:, 4:, None] * acc).requires_grad_()
++    predicted, target = m._momentum_targets(b, dict(all_encoded=q, p=p))
++    assert predicted.shape == target.shape == (2, 3, 2)
++    assert not target.requires_grad
++    torch.testing.assert_close(target, p[:, :-1], atol=3e-14, rtol=0)
++    # Exact static observed neighborhoods override encoder roundoff as well.
++    b['pixels'][:] = b['pixels'][:, :1]
++    _, target = m._momentum_targets(b, dict(all_encoded=q, p=p))
++    assert torch.count_nonzero(target) == 0
++
++
++class ZeroRegularizer(torch.nn.Module):
++    def forward(self, x):
++        return x.sum() * 0
++
++
++def synthetic_result():
++    target = torch.tensor([[[0., 0.], [.2, 0.], [.6, 0.]],
++                           [[0., 0.], [0., 0.], [0., 0.]]], dtype=torch.float64, requires_grad=True)
++    predicted = torch.zeros_like(target, requires_grad=True)
++    result = dict(q=predicted, target=target, all_encoded=target,
++                  correction=predicted[:, 0], p=predicted, diagnostics={})
++    b = batch()
++    b['dt_frame'][:, 4:] = torch.tensor([.2, .4])[:, None]
++    return b, result
++
++
++def test_normalized_velocity_loss_and_dynamic_metrics_use_correct_units_and_reductions():
++    m = model(motion_loss_mode='normalized_velocity')
++    b, result = synthetic_result()
++    m.predict_batch = lambda *_: result
++    m.sigreg = ZeroRegularizer()
++    values = m.loss(b, 2)
++    # One stalled moving window, one static window. Speed is1 in one of2 dims.
++    torch.testing.assert_close(values['motion_loss'], torch.tensor(.5, dtype=torch.float64))
++    assert values['window_count'] == 2
++    assert values['dynamic_window_count'] == 1
++    assert values['stalled_dynamic_window_count'] == 1
++    torch.testing.assert_close(values['target_velocity_power'], torch.tensor(.25, dtype=torch.float64))
++    torch.testing.assert_close(values['dynamic_target_velocity_power'], values['target_velocity_power'])
++    assert values['predicted_velocity_power'] == values['velocity_cross_power'] == 0
++    assert all(value.ndim == 0 and torch.isfinite(value) for value in values.values())
++    dt = b['dt_frame'][:, 4:].double()
++    pv = result['q'].diff(dim=1) / dt
++    tv = result['target'].diff(dim=1) / dt
++    expected = ((pv - tv).square().mean(dim=(1, 2))
++                / tv.square().mean(dim=(1, 2)).detach().clamp_min(.1 ** 2)).mean()
++    expected_grad = torch.autograd.grad(expected, result['target'], retain_graph=True)[0]
++    actual_grad = torch.autograd.grad(values['motion_loss'], result['target'])[0]
++    torch.testing.assert_close(actual_grad, expected_grad, atol=0, rtol=0)
++
++
++def test_static_floor_keeps_normalized_loss_and_gradients_finite():
++    m = model(motion_loss_mode='normalized_velocity')
++    b, result = synthetic_result()
++    result['target'] = torch.zeros_like(result['target'], requires_grad=True)
++    result['q'] = torch.ones_like(result['q'], requires_grad=True) * .05
++    m.predict_batch = lambda *_: result
++    m.sigreg = ZeroRegularizer()
++    values = m.loss(b, 2)
++    assert values['dynamic_window_count'] == values['stalled_dynamic_window_count'] == 0
++    assert all(torch.isfinite(value) for value in values.values())
++    values['loss'].backward()
++    assert torch.isfinite(result['target'].grad).all()
++
++
++def test_signed_velocity_metrics_detect_wrong_direction_with_equal_motion_power():
++    m = model(motion_loss_mode='normalized_velocity')
++    b, result = synthetic_result()
++    result['q'] = -result['target']
++    m.predict_batch = lambda *_: result
++    m.sigreg = ZeroRegularizer()
++    values = m.loss(b, 2)
++    torch.testing.assert_close(values['predicted_velocity_power'], values['target_velocity_power'])
++    torch.testing.assert_close(values['velocity_cross_power'], -values['target_velocity_power'])
++    torch.testing.assert_close(values['velocity_error_power'], 4 * values['target_velocity_power'])
++    assert values['stalled_dynamic_window_count'] == 0
++
++
++def test_momentum_target_with_no_right_neighbor_is_empty():
++    m = model(momentum_weight=1.)
++    b = batch(horizon=1)
++    encoded = torch.zeros(2, 5, 2)
++    predicted, target = m._momentum_targets(b, dict(all_encoded=encoded, p=torch.zeros(2, 1, 2)))
++    assert predicted.shape == target.shape == (2, 0, 2)
++
++
++def test_legacy_formula_and_forward_match_explicit_legacy_with_old_config():
++    m = model()
++    old_config = copy.deepcopy(m.config)
++    for key in ('velocity_initializer', 'motion_loss_mode', 'motion_scale_floor', 'momentum_weight'):
++        old_config.pop(key)
++    old_config['core'].pop('potential_mode')
++    clone = DissipativeWorldModel(old_config)
++    clone.load_state_dict(m.state_dict())
++    b = batch()
++    with torch.no_grad():
++        first, second = m.predict_batch(b, 2), clone.predict_batch(b, 2)
++    for key in ('q', 'p', 'correction', 'target'):
++        assert torch.equal(first[key], second[key])
++    m.predict_batch = lambda *_: first
++    m.sigreg = ZeroRegularizer()
++    values = m.loss(b, 2)
++    prediction = (first['q'][:, 1:] - first['target'][:, 1:]).square().mean()
++    motion = (first['q'].diff(dim=1) - first['target'].diff(dim=1)).square().mean()
++    expected = (prediction + m.config['motion_weight'] * motion
++                + m.config['sigreg_weight'] * 0 + m.config['initializer_weight'] * first['correction'].square().mean())
++    assert torch.equal(values['loss'], expected)
++    assert values['momentum_point_count'] == 0
++
++
++def test_new_targets_cannot_change_rollout_and_backward_does_not_update_parameters():
++    m = model(velocity_initializer='motion_gated', motion_loss_mode='normalized_velocity', momentum_weight=.1)
++    b = batch()
++    changed = {k: v.clone() for k, v in b.items()}
++    changed['pixels'][:, 5:] = 0
++    changed['state'] = torch.full((2, 7, 2), 1e20)
++    for training in (True, False):
++        m.train(training)
++        with torch.no_grad():
++            first, second = m.predict_batch(b, 2), m.predict_batch(changed, 2)
++        assert torch.equal(first['q'], second['q'])
++        assert torch.equal(first['p'], second['p'])
++        assert not torch.equal(first['target'], second['target'])
++    before = {k: v.clone() for k, v in m.state_dict().items()}
++    values = m.loss(b, 2)
++    assert values['momentum_point_count'] == 4  #2samples x(anchor+first future)
++    values['loss'].backward()
++    assert all(p.grad is not None and torch.isfinite(p.grad).all() for p in m.parameters())
++    assert all(torch.equal(before[k], value) for k, value in m.state_dict().items())
++
++
++@pytest.mark.parametrize('filename', ['dissipative_passive_fixed_v1.json', 'dissipative_passive_fixed_v1_softplus.json'])
++@pytest.mark.parametrize('horizon', [1, 3])
++def test_actual_candidate_config_forward_backward_and_future_isolation(filename, horizon):
++    path = Path(__file__).resolve().parents[1] / 'configs' / filename
++    config = json.loads(path.read_text())['model']
++    config.update(encoder_width=8, sigreg_projections=8)
++    config['core']['hidden_dim'] = 8
++    torch.set_num_threads(2)
++    torch.manual_seed(884)
++    m = DissipativeWorldModel(config)
++    assert m.config['core']['integrator'] == 'frozen_dg'
++    assert m.config['velocity_initializer'] == 'motion_gated'
++    b = batch(horizon=horizon, history=21)
++    # Keep varying dt inside the actual combined model, not only fit tests.
++    b['dt_frame'][:, ::2] = .08
++    b['dt_frame'][:, 1::2] = .12
++    changed = {k: value.clone() for k, value in b.items()}
++    changed['pixels'][:, 21:] = 0
++    changed['state'] = torch.full((2, 21 + horizon, 2), 1e20)
++    for training in (True, False):
++        m.train(training)
++        with torch.no_grad():
++            first = m.predict_batch(b, horizon)
++            second = m.predict_batch(changed, horizon)
++        assert torch.equal(first['q'], second['q'])
++        assert torch.equal(first['p'], second['p'])
++        assert torch.equal(first['context'], second['context'])
++        assert not torch.equal(first['target'], second['target'])
++    before = {k: value.clone() for k, value in m.state_dict().items()}
++    values = m.loss(b, horizon)
++    assert values['momentum_point_count'] == 2 * horizon
++    assert all(value.ndim == 0 and torch.isfinite(value) for value in values.values())
++    values['loss'].backward()
++    for name, parameter in m.named_parameters():
++        if config['core']['potential_mode'] == 'raw' and name == 'core.potential_net.0.4.bias':
++            # The final raw-potential additive constant is a gauge: neither
++            # force nor DG depends on it, so no prediction gradient is needed.
++            assert parameter.grad is None or torch.isfinite(parameter.grad).all()
++        else:
++            assert parameter.grad is not None and torch.isfinite(parameter.grad).all(), name
++    assert all(torch.equal(before[k], value) for k, value in m.state_dict().items())
++
++
++@pytest.mark.parametrize('option', [dict(motion_scale_floor=0), dict(momentum_weight=-1),
++                                   dict(velocity_initializer='unknown'), dict(motion_loss_mode='unknown'),
++                                   dict(core=dict(potential_mode='unknown')),
++                                   dict(velocity_initializer=[]), dict(motion_loss_mode={}),
++                                   dict(core=dict(potential_mode=[])), dict(motion_scale_floor=float('nan')),
++                                   dict(momentum_weight=float('nan')), dict(motion_scale_floor=True),
++                                   dict(momentum_weight=[]), dict(velocity_initializer=None)])
++def test_invalid_new_options_are_rejected(option):
++    with pytest.raises(ValueError):
++        resolve_model_config(option)
+--- a/tests/test_stall_potential.py
++++ b/tests/test_stall_potential.py
+@@ -0,0 +1,148 @@
++"""Force/energy/gradient regressions for the optional unsquashed potential.
++
++All checks use synthetic states and fixed parameters; no optimizer or training.
++"""
++import pytest
++import torch
++from torch import nn
++
++from dpbench.dissipative_core import DissipativeCore
++from dpbench.efficient_dissipative_core import EfficientDissipativeCore
++
++
++DTYPE = torch.float64
++
++
++def make_core(kind, **overrides):
++    options = dict(q_dim=2, hidden_dim=4, context_dim=2, substeps=3,
++                   residual_atol=1e-12, residual_rtol=1e-12)
++    options.update(overrides)
++    torch.manual_seed(5105)
++    return kind(**options)
++
++
++def inputs():
++    return dict(q=torch.tensor([[.3, -.2], [-.4, .7]], dtype=DTYPE),
++                p=torch.tensor([[.4, -.1], [-.3, .2]], dtype=DTYPE),
++                context=torch.tensor([[.2, -.3], [.1, .4]], dtype=DTYPE),
++                action=torch.zeros(2, 1, dtype=DTYPE),
++                dt=torch.tensor([[.1], [.13]], dtype=DTYPE))
++
++
++@pytest.mark.parametrize("kind", [DissipativeCore, EfficientDissipativeCore])
++@pytest.mark.parametrize("mode", ["", "identity", None, False, []])
++def test_invalid_potential_mode_is_rejected(kind, mode):
++    with pytest.raises(ValueError, match="potential_mode"):
++        make_core(kind, potential_mode=mode)
++
++
++@pytest.mark.parametrize("kind", [DissipativeCore, EfficientDissipativeCore])
++def test_legacy_default_and_state_dict_keys_remain_compatible(kind):
++    legacy_default = make_core(kind)
++    explicit_legacy = make_core(kind, potential_mode="softplus")
++    raw = make_core(kind, potential_mode="raw")
++    assert legacy_default.potential_mode == "softplus"
++    assert isinstance(legacy_default.potential_net[1], nn.Softplus)
++    assert isinstance(raw.potential_net[1], nn.Identity)
++    assert legacy_default.state_dict().keys() == raw.state_dict().keys()
++    explicit_legacy.load_state_dict(legacy_default.state_dict(), strict=True)
++    raw.load_state_dict(legacy_default.state_dict(), strict=True)
++    x = inputs()
++    with torch.no_grad():
++        expected = torch.nn.functional.softplus(legacy_default.potential_net[0](x["q"])).squeeze(-1)
++        torch.testing.assert_close(legacy_default.potential(x["q"]), expected, rtol=0, atol=0)
++        first = legacy_default(**x)
++        second = explicit_legacy(**x)
++    for actual, reference in zip(first[:2], second[:2]):
++        torch.testing.assert_close(actual, reference, rtol=0, atol=0)
++    for key in first[2]:
++        torch.testing.assert_close(first[2][key], second[2][key], rtol=0, atol=0)
++
++
++def test_negative_raw_energy_preserves_analytic_force_and_known_lower_bound():
++    raw = make_core(EfficientDissipativeCore, potential_mode="raw")
++    net = raw.potential_net[0]
++    # V = 2*tanh(tanh(q0)) - 20: bounded below by -22, with a finite force
++    # near q0=0 despite the arbitrarily negative choice of energy origin.
++    with torch.no_grad():
++        for parameter in net.parameters():
++            parameter.zero_()
++        net[0].weight[0, 0] = 1
++        net[2].weight[0, 0] = 1
++        net[4].weight[0, 0] = 2
++        net[4].bias.fill_(-20)
++    legacy = make_core(EfficientDissipativeCore)
++    legacy.load_state_dict(raw.state_dict(), strict=True)
++    q = inputs()["q"].requires_grad_()
++    gradient = raw.potential_gradient(q)
++    expected = torch.zeros_like(q)
++    expected[:, 0] = 2 * (1 - q[:, 0].tanh().tanh().square()) * (1 - q[:, 0].tanh().square())
++    torch.testing.assert_close(gradient, expected, rtol=1e-13, atol=1e-14)
++    assert (raw.potential(q) < 0).all() and (gradient[:, 0] > 1).all()
++    assert (legacy.potential_gradient(q).norm(dim=-1) < 1e-7).all()
++    grid = torch.stack((torch.linspace(-100, 100, 101, dtype=DTYPE),
++                        torch.linspace(50, -50, 101, dtype=DTYPE)), -1)
++    assert (raw.potential(grid) >= -22).all()
++
++
++@pytest.mark.parametrize("kind", [DissipativeCore, EfficientDissipativeCore])
++def test_negative_raw_potential_has_valid_ledger_and_energy_shift_invariance(kind):
++    core = make_core(kind, potential_mode="raw")
++    with torch.no_grad():
++        core.potential_net[0][-1].bias.fill_(-20)
++    shifted = make_core(kind, potential_mode="raw")
++    shifted.load_state_dict(core.state_dict())
++    with torch.no_grad():
++        shifted.potential_net[0][-1].bias.add_(25)
++    x = inputs()
++    with torch.no_grad():
++        qn, pn, info = core(**x)
++        sq, sp, shifted_info = shifted(**x)
++        assert (core.energy(x["q"], x["p"]) < 0).all()
++        balance = core.energy(qn, pn) - core.energy(x["q"], x["p"]) - info["work"] + info["dissipation"]
++    assert (info["dissipation"] >= 0).all()
++    assert info["solver_residual"].max() < 1e-10
++    assert balance.abs().max() < 1e-10
++    torch.testing.assert_close(balance, info["residual_work"] + info["chain_defect"], rtol=0, atol=1e-11)
++    torch.testing.assert_close(qn, sq, rtol=1e-11, atol=1e-11)
++    torch.testing.assert_close(pn, sp, rtol=1e-11, atol=1e-11)
++    torch.testing.assert_close(info["dissipation"], shifted_info["dissipation"], rtol=1e-10, atol=1e-11)
++
++
++@pytest.mark.parametrize("target_name", ["q", "p", "context", "dt", "damping_weight", "potential_weight"])
++def test_raw_implicit_gradient_matches_complete_step_cpu_finite_difference(target_name):
++    core = make_core(EfficientDissipativeCore, potential_mode="raw")
++    with torch.no_grad():
++        core.potential_net[0][-1].bias.fill_(-20)
++    x = inputs()
++    for key in ("q", "p", "context", "dt"):
++        x[key].requires_grad_(True)
++    targets = {**x, "damping_weight": core.damping_net[-1].weight,
++               "potential_weight": core.potential_net[0][-1].weight}
++    target = targets[target_name]
++    direction = torch.linspace(.2, .8, target.numel(), dtype=DTYPE).reshape(target.shape)
++    direction /= direction.norm()
++
++    def objective():
++        q, p, info = core(**x)
++        return (.2 * q.square() + .3 * p.square()).sum(), info["solver_split_depth"]
++
++    value, branch = objective()
++    grad = torch.autograd.grad(value, target)[0]
++    assert torch.isfinite(grad).all() and grad.norm() > 1e-9
++    expected = (grad * direction).sum()
++    original = target.detach().clone()
++    values = []
++    epsilon = 2e-5
++    try:
++        with torch.no_grad():
++            for sign in (1, -1):
++                target.copy_(original + sign * epsilon * direction)
++                changed, current_branch = objective()
++                torch.testing.assert_close(current_branch, branch, rtol=0, atol=0)
++                values.append(changed)
++    finally:
++        with torch.no_grad():
++            target.copy_(original)
++    numerical = (values[0] - values[1]) / (2 * epsilon)
++    torch.testing.assert_close(expected, numerical, rtol=2e-5, atol=2e-8)
+--- a/tests/test_stall_renderer.py
++++ b/tests/test_stall_renderer.py
+@@ -0,0 +1,108 @@
++"""Rendering regressions and data provenance; no models or optimizer updates.
++
++Continuity claims apply to float coverage. Uint8 export necessarily retains
++one-level quantization boundaries; it is not a differentiable observation map.
++"""
++import hashlib
++import json
++from pathlib import Path
++
++import h5py
++import numpy as np
++import pytest
++
++from dpbench.generate import render, render_smooth_float
++from dpbench.passive_family import generate_family, plan, sample_groups
++
++
++ROOT = Path(__file__).resolve().parents[1]
++
++
++def test_default_and_explicit_legacy_preserve_historical_pixels():
++    angles = [-2.5, -.1, -1e-12, 0., 1e-12, .1, 2.5]
++    default = np.stack([render(theta) for theta in angles])
++    explicit = np.stack([render(theta, renderer="legacy") for theta in angles])
++    np.testing.assert_array_equal(default, explicit)
++    # Captured from the unmodified legacy renderer before adding smooth_v1.
++    assert hashlib.sha256(default.tobytes()).hexdigest() == (
++        "36774553af95ccd08e75c0845626ddd81a4d7d23a445a7429b66cb0b808e30e4")
++
++
++def test_zero_angle_no_longer_has_legacy_geometry_jump():
++    legacy = [render(t) for t in (-1e-12, 1e-12)]
++    assert np.any(legacy[0] != legacy[1], axis=-1).sum() == 30
++    smooth = [render(t, renderer="smooth_v1") for t in (-1e-12, 0., 1e-12)]
++    np.testing.assert_array_equal(smooth[0], smooth[1])
++    np.testing.assert_array_equal(smooth[1], smooth[2])
++    assert smooth[0].dtype == np.uint8 and smooth[0].shape == (64, 64, 3)
++
++
++@pytest.mark.parametrize("theta", [-2.5, -.3, 0., .4, 2.5])
++def test_float_coverage_varies_continuously_with_subpixel_motion(theta):
++    # Bound changes in the actual observation, across circle/line edge pixels.
++    # Do not assert global continuity for the quantized uint8 export.
++    for epsilon in (1e-4, 1e-6, 1e-8, 1e-10):
++        lo = render_smooth_float(theta - epsilon)
++        hi = render_smooth_float(theta + epsilon)
++        assert np.max(np.abs(hi - lo)) < 100. * epsilon
++        assert np.isfinite(hi).all() and hi.min() >= 0. and hi.max() <= 1.
++
++
++def test_smoothing_keeps_visible_motion_and_repeatable_static_frames():
++    at_rest = render(0., renderer="smooth_v1")
++    np.testing.assert_array_equal(at_rest, render(0., renderer="smooth_v1"))
++    moving = render(.1, renderer="smooth_v1")
++    assert np.any(at_rest != moving, axis=-1).sum() > 50
++    assert np.sqrt(np.mean((at_rest.astype(float) - moving) ** 2)) > 5.
++    float_frame = render_smooth_float(.1)
++    # Quantization is bounded, not removed by antialiasing.
++    assert np.max(np.abs(moving / 255. - float_frame)) <= .5 / 255. + 1e-15
++
++
++def _tiny_config():
++    cfg = json.loads((ROOT / "configs/passive_family_smoke.json").read_text())
++    cfg.update(history=3, train_frames=6, test_frames=8)
++    return cfg
++
++
++def test_renderer_version_flows_through_plan_manifest_and_hdf5(tmp_path):
++    legacy_config = _tiny_config()
++    smooth_config = dict(legacy_config, renderer="smooth_v1")
++    assert plan(legacy_config)["renderer"] == "legacy"
++    assert plan(smooth_config)["renderer"] == "smooth_v1"
++    old_groups, new_groups = sample_groups(legacy_config), sample_groups(smooth_config)
++    for split in old_groups:
++        for key in old_groups[split]:
++            np.testing.assert_array_equal(old_groups[split][key], new_groups[split][key])
++    legacy = generate_family(legacy_config, tmp_path / "legacy")
++    smooth = generate_family(smooth_config, tmp_path / "smooth")
++    assert legacy["renderer"] == "legacy"
++    assert smooth["renderer"] == "smooth_v1"
++    disk_manifest = json.loads((tmp_path / "smooth/manifest.json").read_text())
++    assert disk_manifest["renderer"] == disk_manifest["plan"]["renderer"] == "smooth_v1"
++    for entry in smooth["datasets"]:
++        assert entry["renderer"] == "smooth_v1"
++        with h5py.File(tmp_path / "smooth" / entry["file"]) as new, h5py.File(
++                tmp_path / "legacy" / entry["file"]) as old:
++            assert new.attrs["renderer"] == "smooth_v1" and old.attrs["renderer"] == "legacy"
++            assert json.loads(new.attrs["config_json"])["renderer"] == "smooth_v1"
++            # Renderer changes neither simulation nor group/split/clock contracts.
++            for key in ("state", "energy", "work", "dissipation", "reference_residual",
++                        "initial_state", "group_id", "damping", "energy_band", "regime_id",
++                        "ep_offset", "ep_len", "action", "dt_frame", "valid_transition",
++                        "splits/train", "splits/val", "splits/test"):
++                np.testing.assert_array_equal(new[key][:], old[key][:])
++            assert new["pixels"].dtype == np.uint8
++            np.testing.assert_array_equal(new["pixels"][0], render(new["state"][0, 0], renderer="smooth_v1"))
++            np.testing.assert_array_equal(old["pixels"][0], render(old["state"][0, 0]))
++            assert not np.array_equal(new["pixels"][0], old["pixels"][0])
++    with pytest.raises(FileExistsError):
++        generate_family(smooth_config, tmp_path / "smooth")
++
++
++def test_invalid_renderer_rejected_before_generation(tmp_path):
++    with pytest.raises(ValueError, match="renderer"):
++        generate_family(dict(_tiny_config(), renderer="smooth_typo"), tmp_path / "invalid")
++    assert not (tmp_path / "invalid").exists()
++    with pytest.raises(ValueError, match="renderer"):
++        render(0., renderer="smooth_typo")
+--- a/tests/test_stall_validation.py
++++ b/tests/test_stall_validation.py
+@@ -0,0 +1,182 @@
++"""Prediction gates must reject stopping and wrong motion without training."""
++import copy
++import json
++from pathlib import Path
++from types import SimpleNamespace
++
++import numpy as np
++import pytest
++import torch
++
++from dpbench.train_dissipative import (
++    DEFAULT_CONFIG, prediction_motion_diagnostics, preflight, read_config,
++    validate_config, validation,
++)
++from tests.test_dissipative_training import tiny_data
++
++
++GATE = dict(min_rms_ratio=.5, max_rms_ratio=1.5, max_relative_error=.8,
++            min_cosine=.5, max_stalled_fraction=.1)
++
++
++class MotionDataset:
++    def __init__(self, target, prediction, time_bin=0):
++        self.target = torch.tensor(target, dtype=torch.float64)
++        self.prediction = torch.tensor(prediction, dtype=torch.float64)
++        self.index = [SimpleNamespace(mode=0, time_bin=time_bin) for _ in target]
++
++    def batch(self, indices, horizon):
++        return dict(pixels=torch.stack((self.target[indices], self.prediction[indices]), -1),
++                    action=torch.zeros(len(indices), 1), dt_frame=torch.ones(len(indices), 1))
++
++
++class MotionModel(torch.nn.Module):
++    config = dict(variance_floor=1e-4, motion_scale_floor=.1)
++
++    def loss(self, batch, horizon):
++        target, prediction = batch['pixels'].double().unbind(-1)
++        active = target.abs() > .1
++        pp, tt = prediction.square(), target.square()
++        error, cross = (prediction-target).square(), prediction*target
++        n = len(target)
++        return {
++            'prediction_mse': target.new_tensor(.01),
++            'target_mean_0': target.new_tensor(0.), 'target_second_moment_0': target.new_tensor(1.),
++            'target_motion_mse': tt.mean() * .01, 'persistence_mse': target.new_tensor(.5),
++            'window_count': target.new_tensor(n), 'dynamic_window_count': active.sum(),
++            'stalled_dynamic_window_count': (active & (pp < .01 * tt)).sum(),
++            'dynamic_predicted_velocity_power': (pp * active).mean(),
++            'dynamic_target_velocity_power': (tt * active).mean(),
++            'dynamic_velocity_error_power': (error * active).mean(),
++            'dynamic_velocity_cross_power': (cross * active).mean(),
++        }
++
++
++def settings(batch_size=2):
++    config = read_config(DEFAULT_CONFIG)
++    config['training'].update(batch_size=batch_size, val_horizons=[8],
++                              prediction_motion_gate=copy.deepcopy(GATE),
++                              validation_motion_weight=1.)
++    return config
++
++
++@pytest.mark.parametrize('predicted', [0., -1., 3.])
++def test_stopped_reversed_or_excessive_motion_cannot_be_best(predicted):
++    data = MotionDataset([1., 1.], [predicted, predicted])
++    result = validation(MotionModel(), data, [0, 1], settings(), torch.device('cpu'))
++    assert not result['gate_passed']
++    row = next(iter(result['groups'].values()))
++    assert row['representation_gate_passed']  # The old target-only gate passes.
++    assert not row['prediction_gate_passed']
++
++
++def test_good_motion_and_settled_targets_pass_without_forcing_motion():
++    data = MotionDataset([1., 0.], [1., 0.])
++    result = validation(MotionModel(), data, [0, 1], settings(), torch.device('cpu'))
++    assert result['gate_passed']
++    assert result['motion_score'] == 0
++    static = MotionModel().loss(MotionDataset([0., 0.], [0., 0.]).batch([0, 1], 8), 8)
++    gate = prediction_motion_diagnostics({k:float(v) for k,v in static.items()}, GATE)
++    assert gate['prediction_gate_passed'] and not gate['prediction_gate_applicable']
++
++
++def test_prediction_gate_checks_late_dynamic_windows_even_if_representation_gate_is_early():
++    data = MotionDataset([1., 1.], [0., 0.], time_bin=2)
++    data.index[0].time_bin = 0
++    config = settings()
++    config['training']['validation_gate_time_bins'] = [0]
++    data.prediction[0] = 1
++    result = validation(MotionModel(), data, [0, 1], config, torch.device('cpu'))
++    assert not result['gate_passed']
++    late = result['groups']['h8_mode0_time2']
++    assert not late['gate_required'] and not late['prediction_gate_passed']
++
++
++def test_pooling_is_independent_of_batch_partition_and_static_fraction():
++    data = MotionDataset([0., 1., 2., 0., 3., 1., 0.], [0., .8, 2.2, 0., 2., 0., 0.])
++    indices = list(range(len(data.index)))
++    a = validation(MotionModel(), data, indices, settings(2), torch.device('cpu'))
++    b = validation(MotionModel(), data, indices[::-1], settings(5), torch.device('cpu'))
++    assert a['score'] == pytest.approx(b['score'], abs=1e-12)
++    ar, br = next(iter(a['groups'].values())), next(iter(b['groups'].values()))
++    for key in ('window_count', 'dynamic_window_count', 'stalled_dynamic_window_count',
++                'predicted_target_velocity_rms_ratio', 'relative_velocity_error', 'velocity_cosine'):
++        assert ar[key] == pytest.approx(br[key], abs=1e-12)
++    assert ar['window_count'] == 7 and ar['dynamic_window_count'] == 4
++    assert ar['stalled_dynamic_fraction'] == .25
++
++
++def test_missing_diagnostics_and_invalid_thresholds_fail_explicitly():
++    with pytest.raises(ValueError, match='missing metrics'):
++        prediction_motion_diagnostics({}, GATE)
++    for key, value in [('min_rms_ratio', 0), ('max_rms_ratio', .9),
++                       ('max_relative_error', 1.), ('min_cosine', float('nan')),
++                       ('max_stalled_fraction', True)]:
++        config = settings()
++        config['training']['prediction_motion_gate'][key] = value
++        with pytest.raises(ValueError, match='prediction_motion_gate'):
++            validate_config(config)
++    for bad in ([], {}, True):
++        config = settings()
++        config['training']['required_renderer'] = bad
++        with pytest.raises(ValueError, match='required_renderer'):
++            validate_config(config)
++
++
++def test_entirely_subthreshold_validation_cannot_silently_pass_motion_gate():
++    # Target delta .005 passes legacy .001 gate, but velocity .05 < floor .1.
++    data = MotionDataset([.05, .05], [0., 0.])
++    result = validation(MotionModel(), data, [0, 1], settings(), torch.device('cpu'))
++    assert not result['dynamic_validation_support'] and not result['gate_passed']
++    row = next(iter(result['groups'].values()))
++    assert row['representation_gate_passed'] and not row['prediction_gate_applicable']
++
++
++def test_new_recipe_rejects_legacy_pixels_before_any_optimizer(tiny_data):
++    config = settings()
++    config['training'].update(train_frames=41, required_renderer='smooth_v1')
++    with pytest.raises(ValueError, match='required_renderer'):
++        preflight(tiny_data, config)
++
++
++def test_new_smooth_data_model_and_validation_integrate_without_optimizer(tmp_path, monkeypatch):
++    from dpbench.dissipative_data import DissipativeWindowDataset, fixed_validation_indices
++    from dpbench.dissipative_model import DissipativeWorldModel
++    from dpbench.passive_family import generate_family
++    from dpbench.train_dissipative import main
++
++    def forbidden(*args, **kwargs):
++        pytest.fail('This integration check must not construct an optimizer')
++
++    monkeypatch.setattr(torch.optim, 'AdamW', forbidden)
++    root = Path(__file__).resolve().parents[1]
++    data_config = json.loads((root/'configs/passive_family_smoke.json').read_text())
++    data_config.update(renderer='smooth_v1', history=21, train_frames=25, test_frames=27)
++    generate_family(data_config, tmp_path/'data')
++    config = read_config(root/'configs/dissipative_passive_fixed_v1.json')
++    config['model'].update(encoder_width=8, sigreg_projections=8)
++    config['model']['core']['hidden_dim'] = 4
++    config['training'].update(train_frames=25, val_horizons=[2], val_windows=6,
++                              batch_size=2, curriculum=[dict(until_step=20000, horizon=2)])
++    path = tmp_path/'config.json'
++    path.write_text(json.dumps(config))
++    report = main(['--config',str(path),'--data',str(tmp_path/'data/seen.h5'),
++                   '--output',str(tmp_path/'no_run')])
++    assert report['renderer'] == 'smooth_v1' and not report['optimizer_created']
++    assert not report['test_samples_read'] and not (tmp_path/'no_run').exists()
++    data = DissipativeWindowDataset(tmp_path/'data/seen.h5', 'val', history=21,
++                                    max_horizon=2, train_frames=25)
++    torch.set_num_threads(2)
++    torch.manual_seed(68)
++    model = DissipativeWorldModel(config['model'])
++    before = {k:v.clone() for k,v in model.state_dict().items()}
++    try:
++        indices = fixed_validation_indices(data, 6)
++        result = validation(model, data, indices, config, torch.device('cpu'))
++        assert np.isfinite(result['score']) and len(result['groups']) == 6
++        assert sum(row['window_count'] for row in result['groups'].values()) == 6
++        model.loss(data.batch(indices[:2], horizon=2), 2)['loss'].backward()
++        assert all(torch.isfinite(p.grad).all() for p in model.parameters() if p.grad is not None)
++        assert all(torch.equal(before[k], v) for k,v in model.state_dict().items())
++    finally:
++        data.close()

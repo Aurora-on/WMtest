@@ -1,0 +1,26 @@
+{
+  "checked_date": "2026-10-28",
+  "hardware": {
+    "machine": "MacBook Air",
+    "chip": "Apple M5",
+    "cpu_cores": 10,
+    "gpu_cores": 10,
+    "unified_memory_bytes": 17179869184
+  },
+  "python": "3.12.14",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "mps_available": true,
+  "dependencies": {
+    "torch": "2.8.0",
+    "numpy": "2.2.6",
+    "scipy": "1.18.1",
+    "h5py": "3.16.0",
+    "Pillow": "11.3.0",
+    "omegaconf": "2.3.1",
+    "einops": "0.8.1",
+    "PyYAML": "6.0.2",
+    "pytest": "8.4.2",
+    "matplotlib": "3.11.2"
+  },
+  "environment_note": "Project .venv adds a read-only path to existing MOSH .venv packages. New packages installed only in project .venv; existing environment unchanged. Portable setup uses requirements.txt."
+}

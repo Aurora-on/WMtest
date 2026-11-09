@@ -1,0 +1,157 @@
+{
+  "job_id": "47111",
+  "reviewed_utc": "2026-10-29T05:15:21.971727+00:00",
+  "status": "COMPLETE_ARTIFACTS_VERIFIED",
+  "completed_runs": 12,
+  "expected_runs": 12,
+  "epochs_per_run": 35,
+  "steps_per_run": 28140,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "training_internal_seconds": 34771.04927058518,
+  "evaluation_internal_seconds": 497.45430890470743,
+  "submit_time_Asia_Shanghai": "2026-10-28T21:36:52.141238+08:00",
+  "last_output_time_Asia_Shanghai": "2026-10-29T07:25:43.966265+08:00",
+  "elapsed_from_submission_to_last_output_seconds": 35331.825027,
+  "elapsed_basis": "Submission receipt to final log file mtime; not Slurm accounting",
+  "completion_evidence": "All histories have28140 consecutive steps and113 validations; all evaluation coverage complete; best/last checkpoints, readouts and trajectories present and SHA256 inventoried; source/data/protocol matched",
+  "scheduler_exit_code": "Unavailable: job no longer retained by scontrol and accounting disabled",
+  "interpretation": "LeWM pendulum adaptation has lower observed angle and angular-velocity errors in this fixed35-epoch protocol; all three seeds and ridge/MLP agree on tested8s/32s comparisons. LeHami also underperforms without damping, so differences do not establish a damping-specific causal failure or general model ranking. Completion is not convergence.",
+  "validation_trends": [
+    {
+      "run": "lehami_b0p0_seed0",
+      "completed_steps": 28140,
+      "validation_events": 113,
+      "best_step": 27750,
+      "best_epoch": 34.514925373134325,
+      "last_10pct_val_median": 1.1478865593671799,
+      "preceding_10pct_val_median": 1.1578138023614883,
+      "median_change_percent": -0.8574127354554539,
+      "all_loss_and_gradient_finite": true
+    },
+    {
+      "run": "lehami_b0p0_seed1",
+      "completed_steps": 28140,
+      "validation_events": 113,
+      "best_step": 26250,
+      "best_epoch": 32.649253731343286,
+      "last_10pct_val_median": 1.1402690559625626,
+      "preceding_10pct_val_median": 1.1479021161794662,
+      "median_change_percent": -0.6649574131206037,
+      "all_loss_and_gradient_finite": true
+    },
+    {
+      "run": "lehami_b0p0_seed2",
+      "completed_steps": 28140,
+      "validation_events": 113,
+      "best_step": 26750,
+      "best_epoch": 33.27114427860697,
+      "last_10pct_val_median": 1.1422809027135372,
+      "preceding_10pct_val_median": 1.164034903049469,
+      "median_change_percent": -1.8688443343873873,
+      "all_loss_and_gradient_finite": true
+    },
+    {
+      "run": "lehami_b0p2_seed0",
+      "completed_steps": 28140,
+      "validation_events": 113,
+      "best_step": 28000,
+      "best_epoch": 34.82587064676617,
+      "last_10pct_val_median": 1.251627504825592,
+      "preceding_10pct_val_median": 1.2667071223258972,
+      "median_change_percent": -1.1904580967869172,
+      "all_loss_and_gradient_finite": true
+    },
+    {
+      "run": "lehami_b0p2_seed1",
+      "completed_steps": 28140,
+      "validation_events": 113,
+      "best_step": 27500,
+      "best_epoch": 34.20398009950249,
+      "last_10pct_val_median": 1.2454818412661552,
+      "preceding_10pct_val_median": 1.2551015317440033,
+      "median_change_percent": -0.7664471944736739,
+      "all_loss_and_gradient_finite": true
+    },
+    {
+      "run": "lehami_b0p2_seed2",
+      "completed_steps": 28140,
+      "validation_events": 113,
+      "best_step": 28140,
+      "best_epoch": 35.0,
+      "last_10pct_val_median": 1.2496876567602158,
+      "preceding_10pct_val_median": 1.251095786690712,
+      "median_change_percent": -0.11255172829099935,
+      "all_loss_and_gradient_finite": true
+    },
+    {
+      "run": "lewm_b0p0_seed0",
+      "completed_steps": 28140,
+      "validation_events": 113,
+      "best_step": 19000,
+      "best_epoch": 23.6318407960199,
+      "last_10pct_val_median": 0.3738377522677183,
+      "preceding_10pct_val_median": 0.37632066011428833,
+      "median_change_percent": -0.659785153920589,
+      "all_loss_and_gradient_finite": true
+    },
+    {
+      "run": "lewm_b0p0_seed1",
+      "completed_steps": 28140,
+      "validation_events": 113,
+      "best_step": 26250,
+      "best_epoch": 32.649253731343286,
+      "last_10pct_val_median": 0.36263029277324677,
+      "preceding_10pct_val_median": 0.3676667585968971,
+      "median_change_percent": -1.3698453030866031,
+      "all_loss_and_gradient_finite": true
+    },
+    {
+      "run": "lewm_b0p0_seed2",
+      "completed_steps": 28140,
+      "validation_events": 113,
+      "best_step": 26750,
+      "best_epoch": 33.27114427860697,
+      "last_10pct_val_median": 0.37087392434477806,
+      "preceding_10pct_val_median": 0.3775610961019993,
+      "median_change_percent": -1.7711495771838393,
+      "all_loss_and_gradient_finite": true
+    },
+    {
+      "run": "lewm_b0p2_seed0",
+      "completed_steps": 28140,
+      "validation_events": 113,
+      "best_step": 28000,
+      "best_epoch": 34.82587064676617,
+      "last_10pct_val_median": 0.38878549449145794,
+      "preceding_10pct_val_median": 0.3949747458100319,
+      "median_change_percent": -1.5669992535550015,
+      "all_loss_and_gradient_finite": true
+    },
+    {
+      "run": "lewm_b0p2_seed1",
+      "completed_steps": 28140,
+      "validation_events": 113,
+      "best_step": 24250,
+      "best_epoch": 30.16169154228856,
+      "last_10pct_val_median": 0.38400013372302055,
+      "preceding_10pct_val_median": 0.3845429867506027,
+      "median_change_percent": -0.14116835991972998,
+      "all_loss_and_gradient_finite": true
+    },
+    {
+      "run": "lewm_b0p2_seed2",
+      "completed_steps": 28140,
+      "validation_events": 113,
+      "best_step": 24000,
+      "best_epoch": 29.850746268656717,
+      "last_10pct_val_median": 0.38758978620171547,
+      "preceding_10pct_val_median": 0.3925875872373581,
+      "median_change_percent": -1.273041022721122,
+      "all_loss_and_gradient_finite": true
+    }
+  ]
+}

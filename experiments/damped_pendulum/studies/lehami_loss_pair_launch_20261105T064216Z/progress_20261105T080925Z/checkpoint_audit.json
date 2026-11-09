@@ -1,0 +1,39 @@
+{
+  "control": {
+    "last.pt": {
+      "step": 5750,
+      "optimizer_steps": [
+        5750.0
+      ],
+      "finite_parameters": true,
+      "source_matches": true,
+      "data_matches": true,
+      "validation_status": "completed",
+      "gate_passed": false
+    }
+  },
+  "lehami": {
+    "last.pt": {
+      "step": 5250,
+      "optimizer_steps": [
+        5250.0
+      ],
+      "finite_parameters": true,
+      "source_matches": true,
+      "data_matches": true,
+      "validation_status": "completed",
+      "gate_passed": true
+    },
+    "best.pt": {
+      "step": 5000,
+      "optimizer_steps": [
+        5000.0
+      ],
+      "finite_parameters": true,
+      "source_matches": true,
+      "data_matches": true,
+      "validation_status": "completed",
+      "gate_passed": true
+    }
+  }
+}

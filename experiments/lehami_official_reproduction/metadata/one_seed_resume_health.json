@@ -1,0 +1,23 @@
+{
+  "job_id": "47141",
+  "status": "RUNNING_VERIFIED",
+  "previous_job_cancelled": true,
+  "model": "LeHami",
+  "seed": 42,
+  "configured_total_epochs": 100,
+  "completed_epochs": 20,
+  "global_step": 8780,
+  "resume_global_step": 6585,
+  "scheduler_max_steps": 43900,
+  "scheduler_warmup_steps": 439,
+  "weights_finite": true,
+  "original_validation_checkpoint_callbacks": [
+    {
+      "state_key": "ModelCheckpoint{'monitor': 'validate/pred_loss', 'mode': 'min', 'every_n_train_steps': 0, 'every_n_epochs': 1, 'train_time_interval': None}",
+      "dirpath": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/data/checkpoints/lehami_sg_sep_sreg_joint_ms_conv_pendulum_multi_v2_sg_sep_conv_w1_multi_exp067_a0m",
+      "best_model_path": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/data/checkpoints/lehami_sg_sep_sreg_joint_ms_conv_pendulum_multi_v2_sg_sep_conv_w1_multi_exp067_a0m/best.ckpt",
+      "best_model_score": 0.03392234444618225
+    }
+  ],
+  "checked_unix": 1793260657.5703907
+}

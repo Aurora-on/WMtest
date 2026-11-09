@@ -1,0 +1,28 @@
+{
+  "requested_change": "Only LeHami, one seed; continue existing seed42 to original 100 total epochs",
+  "previous_job_id": "47137",
+  "models": [
+    "a0m"
+  ],
+  "seeds": [
+    42
+  ],
+  "total_epochs": 100,
+  "resume_checkpoint": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/resume_sources/47137_epoch014_step6585.ckpt",
+  "checkpoint_sha256": "b93f2ae43635138e60d56158a27ed111a5b332983a7bd9b56f2ee0a1f29525e7",
+  "completed_epochs_at_resume": 15,
+  "resume_global_step": 6585,
+  "scheduler_max_steps": 43900,
+  "scheduler_warmup_steps": 439,
+  "cancelled_training_groups": [
+    "a0m_seed1",
+    "a0m_seed2",
+    "b0m_seed42",
+    "b0m_seed1",
+    "b0m_seed2"
+  ],
+  "resume_note": "Official checkpoint restores optimizer/scheduler/loop/callback. Partial unsaved epoch may be repeated; DataLoader generator is rebuilt, so bitwise equivalence to uninterrupted training is not claimed.",
+  "status": "single_seed_resume_submitted",
+  "updated_unix": 1793260209.2472723,
+  "new_job_id": "47141"
+}

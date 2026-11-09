@@ -1,0 +1,38 @@
+{
+  "job_id": "47111",
+  "status_at_initial_check": "RUNNING",
+  "checked_utc": "2026-10-28T13:37:42.931311+00:00",
+  "observed_first_task_steps": 501,
+  "first_task": "lehami_b0p0_seed0",
+  "normal_initial_training": true,
+  "validation_and_checkpoint_save_confirmed": true,
+  "other_tasks": 11,
+  "other_tasks_state": "PENDING due to JobArrayTaskLimit (single GPU concurrency)",
+  "models": [
+    "lehami",
+    "lewm"
+  ],
+  "damping": [
+    0.0,
+    0.2
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "epochs": 35,
+  "optimizer_steps_per_run": 28140,
+  "expected_total_runtime_hours": [
+    9.9,
+    12.38
+  ],
+  "runtime_is_estimate": true,
+  "remote_study_root": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z",
+  "remote_results_root": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z/runs/server_47111",
+  "monitoring": "Stopped after initial start confirmation at user request",
+  "completion": "Not yet verified; initial start does not demonstrate complete matrix or convergence",
+  "receipt_file": "submission.json",
+  "start_evidence_file": "start_check.json",
+  "frozen_protocol_file": "protocol.json"
+}

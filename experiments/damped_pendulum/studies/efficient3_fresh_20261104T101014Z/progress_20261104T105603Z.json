@@ -1,0 +1,112 @@
+{
+  "checked_at_utc": "2026-11-04T10:56:43.951236+00:00",
+  "job_id": 47727,
+  "queue": "47727 RUNNING 45:27 ladhpc",
+  "completed_step": 2672,
+  "total_steps": 20000,
+  "progress_percent": 13.36,
+  "history_contiguous_from_one": true,
+  "current_prediction_horizon": 8,
+  "recent_median_update_seconds": 1.0896126627922058,
+  "recent_mean_update_seconds": 1.0712995377480983,
+  "all_logged_losses_gradients_finite": true,
+  "recent_max_solver_residual_ratio": 0.4999937644909801,
+  "recent_max_split_depth": 0.0,
+  "completed_validation_rounds": 10,
+  "validation": [
+    {
+      "step": 250,
+      "score": 39.03955466640899,
+      "gate_passed": true,
+      "seconds": 39.98997242003679
+    },
+    {
+      "step": 500,
+      "score": 17.431867214641628,
+      "gate_passed": true,
+      "seconds": 40.09044382721186
+    },
+    {
+      "step": 750,
+      "score": 3.4246553578499657,
+      "gate_passed": true,
+      "seconds": 35.972445629537106
+    },
+    {
+      "step": 1000,
+      "score": 2.4105493888257152,
+      "gate_passed": true,
+      "seconds": 39.6902392283082
+    },
+    {
+      "step": 1250,
+      "score": 1.8142961252454752,
+      "gate_passed": true,
+      "seconds": 41.71697720885277
+    },
+    {
+      "step": 1500,
+      "score": 1.8676120311649511,
+      "gate_passed": true,
+      "seconds": 44.8832388818264
+    },
+    {
+      "step": 1750,
+      "score": 1.9962908796615875,
+      "gate_passed": true,
+      "seconds": 45.32626038044691
+    },
+    {
+      "step": 2000,
+      "score": 1.8970954158544207,
+      "gate_passed": true,
+      "seconds": 45.77121390402317
+    },
+    {
+      "step": 2250,
+      "score": 1.8072842722360487,
+      "gate_passed": true,
+      "seconds": 45.74911994487047
+    },
+    {
+      "step": 2500,
+      "score": 2.140681768312712,
+      "gate_passed": true,
+      "seconds": 45.927057072520256
+    }
+  ],
+  "checkpoints": {
+    "last.pt": {
+      "step": 2500,
+      "sampler_next_step": 2500,
+      "best_step": 2250,
+      "best_score": 1.8072842722360487,
+      "validation_status": "completed",
+      "substeps": 3
+    },
+    "best.pt": {
+      "step": 2250,
+      "sampler_next_step": 2250,
+      "best_step": 2250,
+      "best_score": 1.8072842722360487,
+      "validation_status": "completed",
+      "substeps": 3
+    }
+  },
+  "eta": {
+    "projected_remaining_hours": 15.902756854963918,
+    "rough_remaining_hours": [
+      16,
+      19
+    ],
+    "basis": {
+      "measured_K8_seconds": 1.0712995377480983,
+      "estimated_K16_seconds": 2.039782851934433,
+      "previous_checkpoint_measured_K32_seconds": 4.040134531756242,
+      "measured_validation_seconds": 45.53137803673744
+    },
+    "scope": "K16 inferred from earlier2-substep benchmark scaled3/2; K32 measured on earlier3750weights. Futureweights or harder solves may change runtime."
+  },
+  "physical_test_metrics_available": false,
+  "operation": "read_only_no_training_change"
+}

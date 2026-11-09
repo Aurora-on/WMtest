@@ -1,0 +1,799 @@
+{
+  "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+  "primary_probe": "mlp",
+  "aggregate": [
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.0,
+      "probe": "ridge",
+      "primary": false,
+      "horizon_s": 1.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.05864791364926741,
+        "omega_rmse_rad_s": 0.2046072157576938,
+        "energy_rmse_J": 0.6368130758962526,
+        "energy_normalized_rmse": 0.13350319094887472,
+        "endpoint_angle_mae_rad": 0.05005527631798242,
+        "endpoint_omega_mae_rad_s": 0.18267252237890416,
+        "anchor_angle_mae_rad": 0.018675942461909015,
+        "anchor_omega_mae_rad_s": 0.11854540537174989
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.005646884175706045,
+        "omega_rmse_rad_s": 0.0331635108280034,
+        "energy_rmse_J": 0.036316682496726045,
+        "energy_normalized_rmse": 0.045664293588346394,
+        "endpoint_angle_mae_rad": 0.008392210542972628,
+        "endpoint_omega_mae_rad_s": 0.0445120062471133,
+        "anchor_angle_mae_rad": 0.0017560960606916166,
+        "anchor_omega_mae_rad_s": 0.0027693824160328192
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.0,
+      "probe": "ridge",
+      "primary": false,
+      "horizon_s": 2.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.0808701713252052,
+        "omega_rmse_rad_s": 0.24813714929506636,
+        "energy_rmse_J": 0.7021536470171407,
+        "energy_normalized_rmse": 0.14446272265501717,
+        "endpoint_angle_mae_rad": 0.06819732333450351,
+        "endpoint_omega_mae_rad_s": 0.22166507713676578,
+        "anchor_angle_mae_rad": 0.018675942461909015,
+        "anchor_omega_mae_rad_s": 0.11854540537174989
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.01822478142165825,
+        "omega_rmse_rad_s": 0.055869008087925214,
+        "energy_rmse_J": 0.07191589332939834,
+        "energy_normalized_rmse": 0.05489926657330864,
+        "endpoint_angle_mae_rad": 0.019938149650122375,
+        "endpoint_omega_mae_rad_s": 0.08933719145488174,
+        "anchor_angle_mae_rad": 0.0017560960606916166,
+        "anchor_omega_mae_rad_s": 0.0027693824160328192
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.0,
+      "probe": "ridge",
+      "primary": false,
+      "horizon_s": 4.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.15323225193246523,
+        "omega_rmse_rad_s": 0.4538295365259324,
+        "energy_rmse_J": 0.7245826276071639,
+        "energy_normalized_rmse": 0.15440744326666836,
+        "endpoint_angle_mae_rad": 0.11123013479148751,
+        "endpoint_omega_mae_rad_s": 0.37474567149132926,
+        "anchor_angle_mae_rad": 0.018675942461909015,
+        "anchor_omega_mae_rad_s": 0.11854540537174989
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.05824409081012057,
+        "omega_rmse_rad_s": 0.19285484952218127,
+        "energy_rmse_J": 0.05157947078322966,
+        "energy_normalized_rmse": 0.06013477042507099,
+        "endpoint_angle_mae_rad": 0.04883407304640189,
+        "endpoint_omega_mae_rad_s": 0.2150326780261686,
+        "anchor_angle_mae_rad": 0.0017560960606916166,
+        "anchor_omega_mae_rad_s": 0.0027693824160328192
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.0,
+      "probe": "ridge",
+      "primary": false,
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.2967730738133481,
+        "omega_rmse_rad_s": 0.7389775489859103,
+        "energy_rmse_J": 0.8026289886907176,
+        "energy_normalized_rmse": 0.17442104691064683,
+        "endpoint_angle_mae_rad": 0.30591545129208497,
+        "endpoint_omega_mae_rad_s": 0.7094916747622525,
+        "anchor_angle_mae_rad": 0.018675942461909015,
+        "anchor_omega_mae_rad_s": 0.11854540537174989
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.1581874369763468,
+        "omega_rmse_rad_s": 0.3930391344612653,
+        "energy_rmse_J": 0.07043396592778843,
+        "energy_normalized_rmse": 0.05851557668330687,
+        "endpoint_angle_mae_rad": 0.16564805804288518,
+        "endpoint_omega_mae_rad_s": 0.40870251827525617,
+        "anchor_angle_mae_rad": 0.0017560960606916166,
+        "anchor_omega_mae_rad_s": 0.0027693824160328192
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.0,
+      "probe": "ridge",
+      "primary": false,
+      "horizon_s": 16.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.5520065937916586,
+        "omega_rmse_rad_s": 1.4477847976651264,
+        "energy_rmse_J": 1.0006719719152237,
+        "energy_normalized_rmse": 0.2223180202886894,
+        "endpoint_angle_mae_rad": 0.6032239731548648,
+        "endpoint_omega_mae_rad_s": 1.6906024811301144,
+        "anchor_angle_mae_rad": 0.018675942461909015,
+        "anchor_omega_mae_rad_s": 0.11854540537174989
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.23689261880190088,
+        "omega_rmse_rad_s": 0.7200075275662028,
+        "energy_rmse_J": 0.2190888131179963,
+        "energy_normalized_rmse": 0.04294899805446875,
+        "endpoint_angle_mae_rad": 0.19520516362114998,
+        "endpoint_omega_mae_rad_s": 0.6174822202590817,
+        "anchor_angle_mae_rad": 0.0017560960606916166,
+        "anchor_omega_mae_rad_s": 0.0027693824160328192
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.0,
+      "probe": "ridge",
+      "primary": false,
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.9334645225356728,
+        "omega_rmse_rad_s": 2.4781673404520803,
+        "energy_rmse_J": 1.4455728886756105,
+        "energy_normalized_rmse": 0.30608201613225655,
+        "endpoint_angle_mae_rad": 1.0407653538884982,
+        "endpoint_omega_mae_rad_s": 2.690771126765878,
+        "anchor_angle_mae_rad": 0.018675942461909015,
+        "anchor_omega_mae_rad_s": 0.11854540537174989
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.1559818292353996,
+        "omega_rmse_rad_s": 0.45386912179490735,
+        "energy_rmse_J": 0.4857401517224705,
+        "energy_normalized_rmse": 0.04666376726184338,
+        "endpoint_angle_mae_rad": 0.07915314891808127,
+        "endpoint_omega_mae_rad_s": 0.061666429436553385,
+        "anchor_angle_mae_rad": 0.0017560960606916166,
+        "anchor_omega_mae_rad_s": 0.0027693824160328192
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.0,
+      "probe": "mlp",
+      "primary": true,
+      "horizon_s": 1.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.052330725708477244,
+        "omega_rmse_rad_s": 0.16514696123642683,
+        "energy_rmse_J": 0.4460782902396266,
+        "energy_normalized_rmse": 0.10328086000558194,
+        "endpoint_angle_mae_rad": 0.04617825283789235,
+        "endpoint_omega_mae_rad_s": 0.1471631701819931,
+        "anchor_angle_mae_rad": 0.013441248791047402,
+        "anchor_omega_mae_rad_s": 0.06839969730992261
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.005929760195117006,
+        "omega_rmse_rad_s": 0.024042441826279418,
+        "energy_rmse_J": 0.06467374135392234,
+        "energy_normalized_rmse": 0.024755896112191287,
+        "endpoint_angle_mae_rad": 0.0007285830223914729,
+        "endpoint_omega_mae_rad_s": 0.03144533555274606,
+        "anchor_angle_mae_rad": 0.001215522255594767,
+        "anchor_omega_mae_rad_s": 0.002610098918699209
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.0,
+      "probe": "mlp",
+      "primary": true,
+      "horizon_s": 2.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.07684660181551572,
+        "omega_rmse_rad_s": 0.20118631826811686,
+        "energy_rmse_J": 0.4674320324189119,
+        "energy_normalized_rmse": 0.11553541019511289,
+        "endpoint_angle_mae_rad": 0.06643018097823399,
+        "endpoint_omega_mae_rad_s": 0.17852881685231412,
+        "anchor_angle_mae_rad": 0.013441248791047402,
+        "anchor_omega_mae_rad_s": 0.06839969730992261
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.014613731422206261,
+        "omega_rmse_rad_s": 0.037084115304636095,
+        "energy_rmse_J": 0.07492158980032643,
+        "energy_normalized_rmse": 0.025175730063385998,
+        "endpoint_angle_mae_rad": 0.012264797063826181,
+        "endpoint_omega_mae_rad_s": 0.051103354898483964,
+        "anchor_angle_mae_rad": 0.001215522255594767,
+        "anchor_omega_mae_rad_s": 0.002610098918699209
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.0,
+      "probe": "mlp",
+      "primary": true,
+      "horizon_s": 4.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.15099955086176944,
+        "omega_rmse_rad_s": 0.43350270713859645,
+        "energy_rmse_J": 0.5103020963801219,
+        "energy_normalized_rmse": 0.12784579382514102,
+        "endpoint_angle_mae_rad": 0.1095002698066065,
+        "endpoint_omega_mae_rad_s": 0.35025039813213804,
+        "anchor_angle_mae_rad": 0.013441248791047402,
+        "anchor_omega_mae_rad_s": 0.06839969730992261
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.05515702268569093,
+        "omega_rmse_rad_s": 0.17748420032321255,
+        "energy_rmse_J": 0.10263394493526047,
+        "energy_normalized_rmse": 0.025489665608716603,
+        "endpoint_angle_mae_rad": 0.04432643642560298,
+        "endpoint_omega_mae_rad_s": 0.17437699600075487,
+        "anchor_angle_mae_rad": 0.001215522255594767,
+        "anchor_omega_mae_rad_s": 0.002610098918699209
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.0,
+      "probe": "mlp",
+      "primary": true,
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.2948518538727368,
+        "omega_rmse_rad_s": 0.7239415595273021,
+        "energy_rmse_J": 0.6170671272613723,
+        "energy_normalized_rmse": 0.15041928817134095,
+        "endpoint_angle_mae_rad": 0.3043174413773693,
+        "endpoint_omega_mae_rad_s": 0.690738245307767,
+        "anchor_angle_mae_rad": 0.013441248791047402,
+        "anchor_omega_mae_rad_s": 0.06839969730992261
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.15565787323657643,
+        "omega_rmse_rad_s": 0.36250131317641576,
+        "energy_rmse_J": 0.16540879357547006,
+        "energy_normalized_rmse": 0.020840196112955373,
+        "endpoint_angle_mae_rad": 0.16604878765079234,
+        "endpoint_omega_mae_rad_s": 0.3581685029640984,
+        "anchor_angle_mae_rad": 0.001215522255594767,
+        "anchor_omega_mae_rad_s": 0.002610098918699209
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.0,
+      "probe": "mlp",
+      "primary": true,
+      "horizon_s": 16.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.5514850048871728,
+        "omega_rmse_rad_s": 1.4380906086774858,
+        "energy_rmse_J": 0.8689765211462336,
+        "energy_normalized_rmse": 0.2018098236465129,
+        "endpoint_angle_mae_rad": 0.6039457674954124,
+        "endpoint_omega_mae_rad_s": 1.6830653886032276,
+        "anchor_angle_mae_rad": 0.013441248791047402,
+        "anchor_omega_mae_rad_s": 0.06839969730992261
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.23592821503952968,
+        "omega_rmse_rad_s": 0.6807837111006165,
+        "energy_rmse_J": 0.3053144797857424,
+        "energy_normalized_rmse": 0.023758848636426293,
+        "endpoint_angle_mae_rad": 0.1946093973063486,
+        "endpoint_omega_mae_rad_s": 0.5828638247572562,
+        "anchor_angle_mae_rad": 0.001215522255594767,
+        "anchor_omega_mae_rad_s": 0.002610098918699209
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.0,
+      "probe": "mlp",
+      "primary": true,
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.9340622493350553,
+        "omega_rmse_rad_s": 2.4816556252262356,
+        "energy_rmse_J": 1.3398818917828217,
+        "energy_normalized_rmse": 0.2872615513887431,
+        "endpoint_angle_mae_rad": 1.0408676604727385,
+        "endpoint_omega_mae_rad_s": 2.7127296059587103,
+        "anchor_angle_mae_rad": 0.013441248791047402,
+        "anchor_omega_mae_rad_s": 0.06839969730992261
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.15590475451900812,
+        "omega_rmse_rad_s": 0.416684731497805,
+        "energy_rmse_J": 0.5134727926129917,
+        "energy_normalized_rmse": 0.07004017327020857,
+        "endpoint_angle_mae_rad": 0.0772646080565424,
+        "endpoint_omega_mae_rad_s": 0.01952878116703516,
+        "anchor_angle_mae_rad": 0.001215522255594767,
+        "anchor_omega_mae_rad_s": 0.002610098918699209
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.2,
+      "probe": "ridge",
+      "primary": false,
+      "horizon_s": 1.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.056752548625647346,
+        "omega_rmse_rad_s": 0.20331619695525763,
+        "energy_rmse_J": 0.5574564344673413,
+        "energy_normalized_rmse": 0.10425105439790268,
+        "endpoint_angle_mae_rad": 0.05464684193570548,
+        "endpoint_omega_mae_rad_s": 0.16825965910655138,
+        "anchor_angle_mae_rad": 0.02025797297561745,
+        "anchor_omega_mae_rad_s": 0.130350892014948
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.021215686580964357,
+        "omega_rmse_rad_s": 0.01411448840486319,
+        "energy_rmse_J": 0.04166676571376286,
+        "energy_normalized_rmse": 0.008197044720382634,
+        "endpoint_angle_mae_rad": 0.026041500155939534,
+        "endpoint_omega_mae_rad_s": 0.01988793547507731,
+        "anchor_angle_mae_rad": 0.0010900847382590022,
+        "anchor_omega_mae_rad_s": 0.002163523751741771
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.2,
+      "probe": "ridge",
+      "primary": false,
+      "horizon_s": 2.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.05776530658367613,
+        "omega_rmse_rad_s": 0.20955335207651357,
+        "energy_rmse_J": 0.5460563228556136,
+        "energy_normalized_rmse": 0.10591125338895967,
+        "endpoint_angle_mae_rad": 0.045361457265694384,
+        "endpoint_omega_mae_rad_s": 0.16948248052357776,
+        "anchor_angle_mae_rad": 0.02025797297561745,
+        "anchor_omega_mae_rad_s": 0.130350892014948
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.021407992381916395,
+        "omega_rmse_rad_s": 0.018023755999247708,
+        "energy_rmse_J": 0.05032920559848872,
+        "energy_normalized_rmse": 0.011141745531603945,
+        "endpoint_angle_mae_rad": 0.018899267608887212,
+        "endpoint_omega_mae_rad_s": 0.013374612595551524,
+        "anchor_angle_mae_rad": 0.0010900847382590022,
+        "anchor_omega_mae_rad_s": 0.002163523751741771
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.2,
+      "probe": "ridge",
+      "primary": false,
+      "horizon_s": 4.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.0600036604187991,
+        "omega_rmse_rad_s": 0.21519555988444064,
+        "energy_rmse_J": 0.5014511573344301,
+        "energy_normalized_rmse": 0.10020403205849153,
+        "endpoint_angle_mae_rad": 0.04832572497832852,
+        "endpoint_omega_mae_rad_s": 0.17408402975784373,
+        "anchor_angle_mae_rad": 0.02025797297561745,
+        "anchor_omega_mae_rad_s": 0.130350892014948
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.022945868786015934,
+        "omega_rmse_rad_s": 0.015965465098173932,
+        "energy_rmse_J": 0.05500290296771068,
+        "energy_normalized_rmse": 0.014165666835991405,
+        "endpoint_angle_mae_rad": 0.018735119028950253,
+        "endpoint_omega_mae_rad_s": 0.01269316051351509,
+        "anchor_angle_mae_rad": 0.0010900847382590022,
+        "anchor_omega_mae_rad_s": 0.002163523751741771
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.2,
+      "probe": "ridge",
+      "primary": false,
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.06282119660283315,
+        "omega_rmse_rad_s": 0.2179866066858526,
+        "energy_rmse_J": 0.4353410609466127,
+        "energy_normalized_rmse": 0.09006255423515759,
+        "endpoint_angle_mae_rad": 0.04890003776513351,
+        "endpoint_omega_mae_rad_s": 0.17560455884640536,
+        "anchor_angle_mae_rad": 0.02025797297561745,
+        "anchor_omega_mae_rad_s": 0.130350892014948
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.022297402300620384,
+        "omega_rmse_rad_s": 0.014212827792508194,
+        "energy_rmse_J": 0.046875959811343015,
+        "energy_normalized_rmse": 0.01865476820265535,
+        "endpoint_angle_mae_rad": 0.013626638491092236,
+        "endpoint_omega_mae_rad_s": 0.009838698736503755,
+        "anchor_angle_mae_rad": 0.0010900847382590022,
+        "anchor_omega_mae_rad_s": 0.002163523751741771
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.2,
+      "probe": "ridge",
+      "primary": false,
+      "horizon_s": 16.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.061539360397737164,
+        "omega_rmse_rad_s": 0.22585551036734808,
+        "energy_rmse_J": 0.3555273645243946,
+        "energy_normalized_rmse": 0.07739895962062203,
+        "endpoint_angle_mae_rad": 0.0437892630877496,
+        "endpoint_omega_mae_rad_s": 0.17557751947000114,
+        "anchor_angle_mae_rad": 0.02025797297561745,
+        "anchor_omega_mae_rad_s": 0.130350892014948
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.017616564711359178,
+        "omega_rmse_rad_s": 0.017537090607076374,
+        "energy_rmse_J": 0.02870398766981649,
+        "energy_normalized_rmse": 0.024439978950939016,
+        "endpoint_angle_mae_rad": 0.008457244234873032,
+        "endpoint_omega_mae_rad_s": 0.04280759335880739,
+        "anchor_angle_mae_rad": 0.0010900847382590022,
+        "anchor_omega_mae_rad_s": 0.002163523751741771
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.2,
+      "probe": "ridge",
+      "primary": false,
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.06275544738749657,
+        "omega_rmse_rad_s": 0.22010236459220037,
+        "energy_rmse_J": 0.2688425974365145,
+        "energy_normalized_rmse": 0.06433530554729588,
+        "endpoint_angle_mae_rad": 0.06263538412449748,
+        "endpoint_omega_mae_rad_s": 0.15870949378622257,
+        "anchor_angle_mae_rad": 0.02025797297561745,
+        "anchor_omega_mae_rad_s": 0.130350892014948
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.007752196189787095,
+        "omega_rmse_rad_s": 0.06385528204313079,
+        "energy_rmse_J": 0.02632406215370976,
+        "energy_normalized_rmse": 0.029883096871465873,
+        "endpoint_angle_mae_rad": 0.003904654624317297,
+        "endpoint_omega_mae_rad_s": 0.11161687901526474,
+        "anchor_angle_mae_rad": 0.0010900847382590022,
+        "anchor_omega_mae_rad_s": 0.002163523751741771
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.2,
+      "probe": "mlp",
+      "primary": true,
+      "horizon_s": 1.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.043188891305224665,
+        "omega_rmse_rad_s": 0.12627384898126234,
+        "energy_rmse_J": 0.29699757953194905,
+        "energy_normalized_rmse": 0.07375018370958886,
+        "endpoint_angle_mae_rad": 0.04287903689399375,
+        "endpoint_omega_mae_rad_s": 0.10140430296596525,
+        "anchor_angle_mae_rad": 0.014082938773588979,
+        "anchor_omega_mae_rad_s": 0.06705907886440182
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.020763608191328897,
+        "omega_rmse_rad_s": 0.006811962704124218,
+        "energy_rmse_J": 0.00981605992304314,
+        "energy_normalized_rmse": 0.018212925691963443,
+        "endpoint_angle_mae_rad": 0.024035832552690425,
+        "endpoint_omega_mae_rad_s": 0.016093413898277086,
+        "anchor_angle_mae_rad": 0.0011955609191720408,
+        "anchor_omega_mae_rad_s": 0.0035665838176109532
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.2,
+      "probe": "mlp",
+      "primary": true,
+      "horizon_s": 2.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.04607337569217442,
+        "omega_rmse_rad_s": 0.1311440667075935,
+        "energy_rmse_J": 0.28950475992134095,
+        "energy_normalized_rmse": 0.07704733045721796,
+        "endpoint_angle_mae_rad": 0.042598413864549746,
+        "endpoint_omega_mae_rad_s": 0.10861245973341777,
+        "anchor_angle_mae_rad": 0.014082938773588979,
+        "anchor_omega_mae_rad_s": 0.06705907886440182
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.020396009817424433,
+        "omega_rmse_rad_s": 0.006706403228833278,
+        "energy_rmse_J": 0.0079432982322551,
+        "energy_normalized_rmse": 0.016642821064444195,
+        "endpoint_angle_mae_rad": 0.019301396820204195,
+        "endpoint_omega_mae_rad_s": 0.012060346753319896,
+        "anchor_angle_mae_rad": 0.0011955609191720408,
+        "anchor_omega_mae_rad_s": 0.0035665838176109532
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.2,
+      "probe": "mlp",
+      "primary": true,
+      "horizon_s": 4.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.0519210380312209,
+        "omega_rmse_rad_s": 0.14510181669869024,
+        "energy_rmse_J": 0.29406504997567573,
+        "energy_normalized_rmse": 0.0766735638283556,
+        "endpoint_angle_mae_rad": 0.04995565656463551,
+        "endpoint_omega_mae_rad_s": 0.12062627517184711,
+        "anchor_angle_mae_rad": 0.014082938773588979,
+        "anchor_omega_mae_rad_s": 0.06705907886440182
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.021569840993254815,
+        "omega_rmse_rad_s": 0.005843461388671564,
+        "energy_rmse_J": 0.017386320604773294,
+        "energy_normalized_rmse": 0.015610778634228904,
+        "endpoint_angle_mae_rad": 0.02099959596430983,
+        "endpoint_omega_mae_rad_s": 0.018046686273169032,
+        "anchor_angle_mae_rad": 0.0011955609191720408,
+        "anchor_omega_mae_rad_s": 0.0035665838176109532
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.2,
+      "probe": "mlp",
+      "primary": true,
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.05934666482701248,
+        "omega_rmse_rad_s": 0.16358356918933017,
+        "energy_rmse_J": 0.28683686970894745,
+        "energy_normalized_rmse": 0.07446128302974987,
+        "endpoint_angle_mae_rad": 0.05653715915115781,
+        "endpoint_omega_mae_rad_s": 0.14689962199756249,
+        "anchor_angle_mae_rad": 0.014082938773588979,
+        "anchor_omega_mae_rad_s": 0.06705907886440182
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.023653873741159893,
+        "omega_rmse_rad_s": 0.0063382819933278855,
+        "energy_rmse_J": 0.02912199232907551,
+        "energy_normalized_rmse": 0.011141842033800364,
+        "endpoint_angle_mae_rad": 0.025536466618798048,
+        "endpoint_omega_mae_rad_s": 0.01868355380510625,
+        "anchor_angle_mae_rad": 0.0011955609191720408,
+        "anchor_omega_mae_rad_s": 0.0035665838176109532
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.2,
+      "probe": "mlp",
+      "primary": true,
+      "horizon_s": 16.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.06393282024118742,
+        "omega_rmse_rad_s": 0.17652728477611843,
+        "energy_rmse_J": 0.24843642771130883,
+        "energy_normalized_rmse": 0.0685020801368373,
+        "endpoint_angle_mae_rad": 0.05695725901237869,
+        "endpoint_omega_mae_rad_s": 0.15222671698709447,
+        "anchor_angle_mae_rad": 0.014082938773588979,
+        "anchor_omega_mae_rad_s": 0.06705907886440182
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.024463962215230783,
+        "omega_rmse_rad_s": 0.017798215657003152,
+        "energy_rmse_J": 0.033473641009861874,
+        "energy_normalized_rmse": 0.009447509248309319,
+        "endpoint_angle_mae_rad": 0.025197778735561897,
+        "endpoint_omega_mae_rad_s": 0.034649301215268574,
+        "anchor_angle_mae_rad": 0.0011955609191720408,
+        "anchor_omega_mae_rad_s": 0.0035665838176109532
+      }
+    },
+    {
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "damping": 0.2,
+      "probe": "mlp",
+      "primary": true,
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "minimum_coverage": 1.0,
+      "mean": {
+        "angle_rmse_rad": 0.06816591122557544,
+        "omega_rmse_rad_s": 0.18662448295145384,
+        "energy_rmse_J": 0.1960396751603438,
+        "energy_normalized_rmse": 0.057524116723425806,
+        "endpoint_angle_mae_rad": 0.05934488039973631,
+        "endpoint_omega_mae_rad_s": 0.1625998172006484,
+        "anchor_angle_mae_rad": 0.014082938773588979,
+        "anchor_omega_mae_rad_s": 0.06705907886440182
+      },
+      "seed_sd": {
+        "angle_rmse_rad": 0.01686572143171187,
+        "omega_rmse_rad_s": 0.049437476876115494,
+        "energy_rmse_J": 0.03134258684064552,
+        "energy_normalized_rmse": 0.01798806332027625,
+        "endpoint_angle_mae_rad": 0.023490808293671003,
+        "endpoint_omega_mae_rad_s": 0.10424202530222054,
+        "anchor_angle_mae_rad": 0.0011955609191720408,
+        "anchor_omega_mae_rad_s": 0.0035665838176109532
+      }
+    }
+  ],
+  "scope": "Pooled trajectory/time RMSE perseed, then seed mean and sampleSD. Nonmatched historical reference."
+}

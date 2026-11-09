@@ -1,0 +1,13 @@
+{
+  "job_id": 47701,
+  "dependency": "afterok:47696",
+  "kill_on_invalid_dep": true,
+  "submitted_utc": "2026-11-04T08:24:00.808762+00:00",
+  "helper_sha256": "1f6288916e51d58fed2e5a9c0af25eb217cdd759131414d9464a09547af430ff",
+  "checkpoint_step_expected": 4250,
+  "batch_size": 32,
+  "episodes": 384,
+  "steps": 320,
+  "updates": 0,
+  "source_snapshot": "robust_solver_20261104_v2/code"
+}

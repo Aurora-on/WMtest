@@ -1,0 +1,146 @@
+{
+  "status": "completed",
+  "checkpoint_step": 10000,
+  "experiment_arm": "control",
+  "checkpoint_sha256": "bef8db8773e7d16df40221deb82b194acd2ff700c87c1e3b135c2d9bebb4f8b5",
+  "dataset_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+  "source_hashes": {
+    "dpbench/train_dissipative.py": "8db4a123a00ddc2e349babfb7ddc22480a32b213d6f97f345eb9272b7326e560",
+    "dpbench/dissipative_model.py": "7b7e7acff94662b860e9eaa35ac65fc48578a64d191e8d97d2668da0334d77c9",
+    "dpbench/dissipative_core.py": "077c941d2b897411fc8560dc2dd9e7877bc8125560293a68a2552507b52f603f",
+    "dpbench/dissipative_data.py": "6e6ffb5ad921463cf3631529c06e6b4c73e185f50c8181fe81f076dde0045474",
+    "dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+    "dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+  },
+  "script_sha256": "fa0fa4ac05cd5698c74fbe4cec30c3bf3e1990ebb28b4be73aca26bbe09568ca",
+  "evaluation_source_hashes": {
+    "dpbench/__init__.py": "b450b411e74d9cd2eecbf484ba8b6d83fc06c9b057537127056fbb1be7781a3e",
+    "dpbench/evaluate_passive.py": "e302e5bfd60fdc7e7f9109737ee449e3349f0296e456dfe36d7d12657e9ebcde",
+    "dpbench/evaluate.py": "7b33cddbe590f35956f33fbaba7a50a6262163566080119dece2636811b1ede9",
+    "dpbench/models.py": "7d666b768e34a2158074e5dfb5d39729e7d72c25c3b358d30ce98d8f7650ad75",
+    "dpbench/data.py": "070c038b51ba200d370df9d92a47a6ad6e558048eaee9157d298e6aafdfa9e97",
+    "dpbench/generate.py": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31",
+    "dpbench/passive_family.py": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae"
+  },
+  "code_manifest_sha256": "af3040cc129a730ff2eff010d981ea03965f111482bd829e74be3a8900e4dd9f",
+  "code_root": "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z/code",
+  "device": "cuda",
+  "torch": "2.8.0+cu126",
+  "model_hash_before": "ae49eee8b2cd467d724c278660774577088479807cf9973d2c4090bab0983377",
+  "model_hash_after": "ae49eee8b2cd467d724c278660774577088479807cf9973d2c4090bab0983377",
+  "parameters_unchanged": true,
+  "world_model_optimizer_created": false,
+  "world_model_updates": 0,
+  "test_split_accessed": false,
+  "calibration": {
+    "fit_groups": 288,
+    "selection_groups": 96,
+    "frames_per_group": 61,
+    "seed": 5705,
+    "fit_labels": 17568,
+    "selection_labels": 5856,
+    "selected_alpha": 1e-06,
+    "candidates": [
+      {
+        "alpha": 1e-06,
+        "selection_normalized_mse": 0.9711194605893786
+      },
+      {
+        "alpha": 0.0001,
+        "selection_normalized_mse": 0.9711240375420367
+      },
+      {
+        "alpha": 0.01,
+        "selection_normalized_mse": 0.9716500717425314
+      },
+      {
+        "alpha": 1.0,
+        "selection_normalized_mse": 0.9997256182004974
+      },
+      {
+        "alpha": 100.0,
+        "selection_normalized_mse": 1.0132553782481848
+      }
+    ],
+    "standardization": "Fit partition only; per-feature/target std floor1e-6",
+    "objective": "mean over samples and3 targets of standardized squared error + alpha*sum(slopes^2); intercept unpenalized"
+  },
+  "teacher_readout_quality": {
+    "angle_mae_rad": 0.8136506734234306,
+    "angle_rmse_rad": 1.039251433417557,
+    "omega_rmse_rad_s": 2.575089384853412,
+    "omega_nrmse": 0.9859552547422215
+  },
+  "readout_quality_passed": false,
+  "quality_status_cn": "读出质量不足：本图不能单独判断动力学",
+  "rollout": {
+    "8": {
+      "horizon_steps": 8,
+      "horizon_seconds": 0.8,
+      "n_total": 64,
+      "n_complete": 64,
+      "coverage": 1.0,
+      "metrics": {
+        "angle_mae_rad": 1.1299782133388716,
+        "angle_rmse_rad": 1.3764929263223038,
+        "omega_rmse_rad_s": 2.690133557805505,
+        "omega_nrmse": 1.030003592449165
+      },
+      "support": "Complete trajectories for this horizon only; failures retained separately and in NPZ"
+    },
+    "32": {
+      "horizon_steps": 32,
+      "horizon_seconds": 3.2,
+      "n_total": 64,
+      "n_complete": 64,
+      "coverage": 1.0,
+      "metrics": {
+        "angle_mae_rad": 1.3262529961023497,
+        "angle_rmse_rad": 1.5822179157269807,
+        "omega_rmse_rad_s": 4.043650710676018,
+        "omega_nrmse": 1.5482408843684048
+      },
+      "support": "Complete trajectories for this horizon only; failures retained separately and in NPZ"
+    }
+  },
+  "failures": [],
+  "metrics_definition": "Future frames only, excluding anchor. Equal episode/time weighting on complete support. omegaNRMSE=RMSE/train288 fit-partition omega std (floor1e-6).",
+  "omega_nrmse_denominator": 2.611771043835727,
+  "selected_records": [
+    {
+      "episode": 385,
+      "group_id": 10000385,
+      "energy_band": 0,
+      "evaluation_index": 1,
+      "valid_steps": 32,
+      "solver_failures": []
+    },
+    {
+      "episode": 387,
+      "group_id": 10000387,
+      "energy_band": 1,
+      "evaluation_index": 3,
+      "valid_steps": 32,
+      "solver_failures": []
+    },
+    {
+      "episode": 384,
+      "group_id": 10000384,
+      "energy_band": 2,
+      "evaluation_index": 0,
+      "valid_steps": 32,
+      "solver_failures": []
+    },
+    {
+      "episode": 386,
+      "group_id": 10000386,
+      "energy_band": 3,
+      "evaluation_index": 2,
+      "valid_steps": 32,
+      "solver_failures": []
+    }
+  ],
+  "elapsed_seconds": 57.12781886011362,
+  "scope": "Frozen control step10000 diagnostic at val anchor20, K32=3.2s; not full stage-A acceptance or long-horizon test."
+}

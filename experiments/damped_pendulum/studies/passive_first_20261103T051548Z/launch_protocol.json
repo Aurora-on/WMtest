@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-03",
+  "remote_root": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z",
+  "model_config": "configs/dissipative_passive_family.json",
+  "training_steps": 20000,
+  "seed": 0,
+  "devices_per_job": 1,
+  "formal_training_starts_fresh_after_profile": true,
+  "physical_readout_or_test_evaluation_included": false,
+  "tests": "82 passed, 2 unrelated legacy optimizer tests deselected",
+  "data_job": "47538"
+}

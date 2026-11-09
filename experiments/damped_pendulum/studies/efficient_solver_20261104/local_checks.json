@@ -1,0 +1,12 @@
+{
+  "scope": "CPU correctness, no optimizer updates",
+  "combined_suite": "70 passed in1.31s, final tested core with root-correction and predictor-finiteness guards",
+  "full_model_smoke": {
+    "batch": 2,
+    "history": 21,
+    "horizon": 4,
+    "loss": 0.2594102743679753,
+    "finite_parameter_gradients": true,
+    "optimizer_updates": 0
+  }
+}

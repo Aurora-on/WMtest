@@ -1,0 +1,36 @@
+{
+  "recorded_at_utc": "2026-11-03T05:28:13.710564+00:00",
+  "formal_job_id": 47541,
+  "latest_verified_training_steps_at_least": 669,
+  "validation_completed_steps": [
+    250,
+    500
+  ],
+  "checkpoint_files": [
+    "best.pt",
+    "last.pt"
+  ],
+  "original_profile_hours": 5.222164234167172,
+  "recent_K4_mean_seconds": 0.3538235641530985,
+  "recent_solver_iterations_mean": 3.9089774408284024,
+  "validation_step500_seconds": 30.205018170177937,
+  "whole_step_multiplier_estimate_hours": 8.466378121361233,
+  "per_horizon_slope_estimate_hours": 9.794232673416898,
+  "revised_estimate_hours": [
+    8,
+    10
+  ],
+  "planning_allowance_hours": [
+    8,
+    12
+  ],
+  "estimate_scope": "Heuristic extrapolations; later-horizon training and nonlinear solver cost remain unmeasured. Excludes queueing and final physical evaluation. Not a confidence interval or convergence guarantee.",
+  "timelimit_extension_result": "scontrol update to 12h denied by server permissions; parent remains 8h",
+  "timeout_resume_job_id": 47542,
+  "timeout_resume_dependency": "afterany:47541",
+  "timeout_resume_limit_hours": 4,
+  "timeout_resume_guard": "Only confirmed parent JobState=TIMEOUT; other or unavailable states skip training",
+  "timeout_resume_output": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/runs/seed0_resume_47542",
+  "resume_scope": "Same source/config/data/runtime and total step target 20000; last.pt plus sibling best.pt; no retraining after completed/failed/cancelled parent",
+  "monitoring": "Stopped after initial healthy training verification, per user request; no polling automation configured"
+}

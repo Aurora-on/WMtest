@@ -1,0 +1,37 @@
+{
+  "commit": "f76f65f8b99afb6b7e3063f573645d3e2f290ede",
+  "files": [
+    {
+      "path": "paper_figures/paper_figures.ipynb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6b2a435f0d5f11d9fb0c08de735fc13c49445c7c",
+      "size": 1675386,
+      "url": "https://api.github.com/repos/rominay/LeHami/git/blobs/6b2a435f0d5f11d9fb0c08de735fc13c49445c7c"
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/latents_exp027_exp030.npz",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "74b3dd8cd8a7416aad42fed4a2fa13e2a32a4f71",
+      "size": 4431851,
+      "url": "https://api.github.com/repos/rominay/LeHami/git/blobs/74b3dd8cd8a7416aad42fed4a2fa13e2a32a4f71"
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/probe_metrics/exp067_a0m_lehami_w1_multi_s0.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3fa1b7b028b13684771c3892e5feba52fad26788",
+      "size": 56878,
+      "url": "https://api.github.com/repos/rominay/LeHami/git/blobs/3fa1b7b028b13684771c3892e5feba52fad26788"
+    },
+    {
+      "path": "paper_figures/data/conservative_pendulum/probe_metrics/exp068_b0m_lewm_w1_multi_s0.csv",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e53349045cf92bab33763a5d5ea37f4f5b4676b",
+      "size": 57366,
+      "url": "https://api.github.com/repos/rominay/LeHami/git/blobs/0e53349045cf92bab33763a5d5ea37f4f5b4676b"
+    }
+  ]
+}

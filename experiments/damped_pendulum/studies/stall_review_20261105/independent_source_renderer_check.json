@@ -1,0 +1,38 @@
+{
+  "scope": "Independent read-only source and repeated-image initializer check; no optimizer updates",
+  "checkpoint_sha256": "5163a6a293a7c773a90e9ef59a62353a4debdba64c0dc24814bcbdb3b47f9042",
+  "all_training_source_hashes_match": true,
+  "source_hash_checks": {
+    "dpbench/train_dissipative.py": true,
+    "dpbench/dissipative_model.py": true,
+    "dpbench/dissipative_core.py": true,
+    "dpbench/dissipative_data.py": true,
+    "dpbench/efficient_dissipative_core.py": true,
+    "dpbench/automatic_discrete_gradient.py": true,
+    "third_party/le-wm/module.py": true
+  },
+  "changed_pixels_theta_minus_to_plus_1e12": 30,
+  "static_history": {
+    "q": [
+      [
+        -1.0410155057907104,
+        0.3010375499725342
+      ]
+    ],
+    "p": [
+      [
+        -0.8825839928217717,
+        -0.692692220211029
+      ]
+    ],
+    "learned_correction": [
+      [
+        -0.8825812339782715,
+        -0.692692220211029
+      ]
+    ],
+    "fitted_velocity_max_abs": 2.758843500205721e-06
+  },
+  "device": "cpu",
+  "cross_device_scope": "CPU values reproduce qualitative issue, not bitwise CUDA comparison"
+}

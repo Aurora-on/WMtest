@@ -1,0 +1,671 @@
+{
+  "status": "pass_with_explicit_evidence_limits",
+  "audited_at_utc": "2026-11-04T09:48:14.214494+00:00",
+  "scope": "Offline independent audit of job47712 evidence; only H(q,p) recomputed from saved arrays and checkpoint",
+  "checks": [
+    {
+      "name": "completed_bounded_scope",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "finite_manifest_and_history",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "source_checkpoint_hash",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "checkpoint_step_data_and_runtime_binding",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "checkpoint_finite_model_and_adam",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "uploaded_hash_manifest_matches",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "preserved_v1_snapshot_matches_uploaded_manifest",
+      "status": "pass",
+      "detail": {
+        "files": 10,
+        "script_verified_at": "studies/efficient_solver_20261104/received/benchmark_script_v1.py",
+        "note": "The working benchmark script has since been extended for a separate v2; its preserved v1 copy is byte-identical to the executed hash."
+      }
+    },
+    {
+      "name": "executed_source_hashes_match_preserved_v1_snapshot",
+      "status": "pass",
+      "detail": {
+        "benchmark_script": "studies/efficient_solver_20261104/received/benchmark_script_v1.py",
+        "all_other_files": "current unchanged files"
+      }
+    },
+    {
+      "name": "reference_core_sampler_sigreg_unchanged",
+      "status": "pass",
+      "detail": [
+        "dpbench/dissipative_core.py",
+        "dpbench/dissipative_data.py",
+        "third_party/le-wm/module.py"
+      ]
+    },
+    {
+      "name": "reference_config_and_training_contract",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "unchanged_architecture_loss_tolerances_substeps",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "cuda_suite_record",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "slurm_successful_terminal_record",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "exact_24_update_order",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "all_cases_same_checkpoint_model",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "sampler_record_has_four_global32_batches",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "all_rows_preserve_full_budget_lr_and_passive_numerics",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "inherited_base_lrs_match_config",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k8_update_sequence",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k8_reported_model_changes",
+      "status": "pass",
+      "detail": {
+        "evidence_level": "runtime instrumentation and verified source; final state tensors were intentionally not saved"
+      }
+    },
+    {
+      "name": "reference_k8_timing_summary_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k8_loss_components",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k8_raw_array_shapes_and_finiteness",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k8_energy_independently_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k8_frame_and_sequence_ledgers",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k8_raw_passivity_residual_chain",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k8_update_sequence",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k8_reported_model_changes",
+      "status": "pass",
+      "detail": {
+        "evidence_level": "runtime instrumentation and verified source; final state tensors were intentionally not saved"
+      }
+    },
+    {
+      "name": "efficient_k8_timing_summary_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k8_loss_components",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k8_raw_array_shapes_and_finiteness",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k8_energy_independently_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k8_frame_and_sequence_ledgers",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k8_raw_passivity_residual_chain",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k16_update_sequence",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k16_reported_model_changes",
+      "status": "pass",
+      "detail": {
+        "evidence_level": "runtime instrumentation and verified source; final state tensors were intentionally not saved"
+      }
+    },
+    {
+      "name": "efficient_k16_timing_summary_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k16_loss_components",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k16_raw_array_shapes_and_finiteness",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k16_energy_independently_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k16_frame_and_sequence_ledgers",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k16_raw_passivity_residual_chain",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k16_update_sequence",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k16_reported_model_changes",
+      "status": "pass",
+      "detail": {
+        "evidence_level": "runtime instrumentation and verified source; final state tensors were intentionally not saved"
+      }
+    },
+    {
+      "name": "reference_k16_timing_summary_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k16_loss_components",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k16_raw_array_shapes_and_finiteness",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k16_energy_independently_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k16_frame_and_sequence_ledgers",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k16_raw_passivity_residual_chain",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k32_update_sequence",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k32_reported_model_changes",
+      "status": "pass",
+      "detail": {
+        "evidence_level": "runtime instrumentation and verified source; final state tensors were intentionally not saved"
+      }
+    },
+    {
+      "name": "reference_k32_timing_summary_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k32_loss_components",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k32_raw_array_shapes_and_finiteness",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k32_energy_independently_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k32_frame_and_sequence_ledgers",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_k32_raw_passivity_residual_chain",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k32_update_sequence",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k32_reported_model_changes",
+      "status": "pass",
+      "detail": {
+        "evidence_level": "runtime instrumentation and verified source; final state tensors were intentionally not saved"
+      }
+    },
+    {
+      "name": "efficient_k32_timing_summary_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k32_loss_components",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k32_raw_array_shapes_and_finiteness",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k32_energy_independently_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k32_frame_and_sequence_ledgers",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_k32_raw_passivity_residual_chain",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "k8_same_readonly_initial_states",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "k8_same_initial_encoding_and_random_regularizer",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "k16_same_readonly_initial_states",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "k16_same_initial_encoding_and_random_regularizer",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "k32_same_readonly_initial_states",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "k32_same_initial_encoding_and_random_regularizer",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "reference_overlapping_readonly_prefixes_identified",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "efficient_overlapping_readonly_prefixes_identified",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "k8_speedup_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "k16_speedup_recomputed",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "name": "k32_speedup_recomputed",
+      "status": "pass",
+      "detail": null
+    }
+  ],
+  "summary": {
+    "optimizer_updates_recorded": 24,
+    "timed_updates": 18,
+    "case_count": 6,
+    "source_step": 3750,
+    "same_initial_state_sha256": "4b22e5dcbf662f2f4c9470510f59d1ebd78c703b4fae006a571712cc421b1050",
+    "cuda_tests_passed": 21,
+    "benchmark_elapsed_seconds": 63.67337387800217,
+    "measurements_recomputed": {
+      "reference_k8": {
+        "mean_seconds": 1.5492675378918648,
+        "median_seconds": 1.4890588596463203,
+        "minimum_seconds": 1.4474078640341759,
+        "maximum_seconds": 1.7113358899950981,
+        "timed_samples_seconds": [
+          1.7113358899950981,
+          1.4474078640341759,
+          1.4890588596463203
+        ],
+        "sample_std_seconds": 0.1418919110589604,
+        "maximum_gradient_norm": 9.488182266226008,
+        "maximum_residual_ratio": 0.4991857387858946,
+        "maximum_split_depth": 1.0,
+        "peak_allocated_bytes": 876271104,
+        "mean_forward_cuda_seconds": 0.9889536132812501,
+        "mean_backward_optimizer_cuda_seconds": 0.4682797342936198
+      },
+      "efficient_k8": {
+        "mean_seconds": 0.7163336997230848,
+        "median_seconds": 0.7163387164473534,
+        "minimum_seconds": 0.7156002148985863,
+        "maximum_seconds": 0.7170621678233147,
+        "timed_samples_seconds": [
+          0.7163387164473534,
+          0.7156002148985863,
+          0.7170621678233147
+        ],
+        "sample_std_seconds": 0.0007309893735016032,
+        "maximum_gradient_norm": 9.459563262055564,
+        "maximum_residual_ratio": 0.4997214511226014,
+        "maximum_split_depth": 0.0,
+        "peak_allocated_bytes": 858680832,
+        "mean_forward_cuda_seconds": 0.3579685567220052,
+        "mean_backward_optimizer_cuda_seconds": 0.27823388671875,
+        "mean_picard_iterations": 4.2724609375,
+        "max_newton_iterations_mean_metric": 0.0
+      },
+      "efficient_k16": {
+        "mean_seconds": 1.3598552346229553,
+        "median_seconds": 1.363765336573124,
+        "minimum_seconds": 1.3517519235610962,
+        "maximum_seconds": 1.3640484437346458,
+        "timed_samples_seconds": [
+          1.3640484437346458,
+          1.363765336573124,
+          1.3517519235610962
+        ],
+        "sample_std_seconds": 0.007019100728737454,
+        "maximum_gradient_norm": 16.122857591929296,
+        "maximum_residual_ratio": 0.49993337703386287,
+        "maximum_split_depth": 0.0,
+        "peak_allocated_bytes": 1086154240,
+        "mean_forward_cuda_seconds": 0.7126883138020833,
+        "mean_backward_optimizer_cuda_seconds": 0.5480077107747395,
+        "mean_picard_iterations": 3.8916015625,
+        "max_newton_iterations_mean_metric": 0.0
+      },
+      "reference_k16": {
+        "mean_seconds": 2.7617537205417952,
+        "median_seconds": 2.738412134349346,
+        "minimum_seconds": 2.5745849907398224,
+        "maximum_seconds": 2.9722640365362167,
+        "timed_samples_seconds": [
+          2.9722640365362167,
+          2.5745849907398224,
+          2.738412134349346
+        ],
+        "sample_std_seconds": 0.19986439928328237,
+        "maximum_gradient_norm": 16.457444459658767,
+        "maximum_residual_ratio": 0.4977841660871545,
+        "maximum_split_depth": 1.0,
+        "peak_allocated_bytes": 1120245248,
+        "mean_forward_cuda_seconds": 1.8304549560546874,
+        "mean_backward_optimizer_cuda_seconds": 0.8125423380533854
+      },
+      "reference_k32": {
+        "mean_seconds": 4.550522558391094,
+        "median_seconds": 4.499421514570713,
+        "minimum_seconds": 4.439439177513123,
+        "maximum_seconds": 4.712706983089447,
+        "timed_samples_seconds": [
+          4.499421514570713,
+          4.439439177513123,
+          4.712706983089447
+        ],
+        "sample_std_seconds": 0.14362211146189974,
+        "maximum_gradient_norm": 73.02897983743318,
+        "maximum_residual_ratio": 0.49999205954451953,
+        "maximum_split_depth": 0.0,
+        "peak_allocated_bytes": 1609906176,
+        "mean_forward_cuda_seconds": 3.0344950358072915,
+        "mean_backward_optimizer_cuda_seconds": 1.3817454427083333
+      },
+      "efficient_k32": {
+        "mean_seconds": 2.623020720978578,
+        "median_seconds": 2.626745253801346,
+        "minimum_seconds": 2.614412359893322,
+        "maximum_seconds": 2.627904549241066,
+        "timed_samples_seconds": [
+          2.627904549241066,
+          2.614412359893322,
+          2.626745253801346
+        ],
+        "sample_std_seconds": 0.007477559890081163,
+        "maximum_gradient_norm": 68.67241990830269,
+        "maximum_residual_ratio": 0.4997214511226014,
+        "maximum_split_depth": 0.0,
+        "peak_allocated_bytes": 1548441088,
+        "mean_forward_cuda_seconds": 1.4076525065104166,
+        "mean_backward_optimizer_cuda_seconds": 1.0804381103515626,
+        "mean_picard_iterations": 3.197021484375,
+        "max_newton_iterations_mean_metric": 0.0
+      }
+    },
+    "speedups_recomputed": {
+      "8": {
+        "ratio_of_means": 2.162773492983465,
+        "wall_time_reduction_percent": 53.76307305206809,
+        "ratio_of_medians": 2.0787077753262233,
+        "observed_extreme_ratio_range_not_confidence_interval": [
+          2.018524932681736,
+          2.391469223129881
+        ]
+      },
+      "16": {
+        "ratio_of_means": 2.0309174463762254,
+        "wall_time_reduction_percent": 50.7611694515548,
+        "ratio_of_medians": 2.0079789835621145,
+        "observed_extreme_ratio_range_not_confidence_interval": [
+          1.8874586181784225,
+          2.198823604190623
+        ]
+      },
+      "32": {
+        "ratio_of_means": 1.734840492107671,
+        "wall_time_reduction_percent": 42.35781303530146,
+        "ratio_of_medians": 1.7129264849948,
+        "observed_extreme_ratio_range_not_confidence_interval": [
+          1.689345672313412,
+          1.8025874783126192
+        ]
+      }
+    },
+    "raw_array_audit": {
+      "reference_k8": {
+        "records": 256,
+        "max_energy_recompute_error": 1.7763568394002505e-15,
+        "max_frame_ledger_identity_error": 1.6488883441692605e-14,
+        "max_sequence_ledger_identity_error": 1.6212554947745136e-14,
+        "max_actual_energy_balance_defect": 4.169117389096755e-07,
+        "min_dissipation": 1.0316068228732278e-09,
+        "max_residual_ratio": 0.49734290938166903,
+        "max_chain_defect": 1.4210854715202004e-14,
+        "q_norm_max": 2.1369418853152626,
+        "p_norm_max": 13.208487504252492
+      },
+      "efficient_k8": {
+        "records": 256,
+        "max_energy_recompute_error": 1.7763568394002505e-15,
+        "max_frame_ledger_identity_error": 1.1915755734782788e-14,
+        "max_sequence_ledger_identity_error": 2.423341532844327e-14,
+        "max_actual_energy_balance_defect": 6.596224846333598e-07,
+        "min_dissipation": 9.382643290106352e-10,
+        "max_residual_ratio": 0.4997214511226014,
+        "max_chain_defect": 7.105427357601002e-15,
+        "q_norm_max": 2.350601350269909,
+        "p_norm_max": 13.208487504252492
+      },
+      "efficient_k16": {
+        "records": 512,
+        "max_energy_recompute_error": 1.7763568394002505e-15,
+        "max_frame_ledger_identity_error": 1.1915755734782788e-14,
+        "max_sequence_ledger_identity_error": 1.944880862871719e-14,
+        "max_actual_energy_balance_defect": 6.596224846333598e-07,
+        "min_dissipation": 1.6615582332639228e-10,
+        "max_residual_ratio": 0.4997214511226014,
+        "max_chain_defect": 7.105427357601002e-15,
+        "q_norm_max": 3.0551548373055497,
+        "p_norm_max": 13.208487504252492
+      },
+      "reference_k16": {
+        "records": 512,
+        "max_energy_recompute_error": 1.7763568394002505e-15,
+        "max_frame_ledger_identity_error": 1.6488883441692605e-14,
+        "max_sequence_ledger_identity_error": 1.4038625994157422e-14,
+        "max_actual_energy_balance_defect": 4.169117389096755e-07,
+        "min_dissipation": 1.49981377145511e-10,
+        "max_residual_ratio": 0.49734290938166903,
+        "max_chain_defect": 1.4210854715202004e-14,
+        "q_norm_max": 3.0554505230855598,
+        "p_norm_max": 13.208487504252492
+      },
+      "reference_k32": {
+        "records": 1024,
+        "max_energy_recompute_error": 1.7763568394002505e-15,
+        "max_frame_ledger_identity_error": 1.6488883441692605e-14,
+        "max_sequence_ledger_identity_error": 1.8787048264872017e-14,
+        "max_actual_energy_balance_defect": 4.169117389096755e-07,
+        "min_dissipation": 1.49981377145511e-10,
+        "max_residual_ratio": 0.49999205954451953,
+        "max_chain_defect": 1.4210854715202004e-14,
+        "q_norm_max": 5.545927072125981,
+        "p_norm_max": 13.208487504252492
+      },
+      "efficient_k32": {
+        "records": 1024,
+        "max_energy_recompute_error": 1.7763568394002505e-15,
+        "max_frame_ledger_identity_error": 1.1915755734782788e-14,
+        "max_sequence_ledger_identity_error": 1.127299357072569e-14,
+        "max_actual_energy_balance_defect": 6.596224846333598e-07,
+        "min_dissipation": 1.6615582332639228e-10,
+        "max_residual_ratio": 0.4997214511226014,
+        "max_chain_defect": 7.105427357601002e-15,
+        "q_norm_max": 5.5531032115259915,
+        "p_norm_max": 13.208487504252492
+      }
+    },
+    "raw_transition_records_with_overlapping_prefixes": 3584,
+    "distinct_initial_training_histories": 32,
+    "maximum_readonly_rollout_steps": 32,
+    "max_all_update_residual_ratio": 0.49999205954451953,
+    "max_all_update_chain_defect": 1.4210854715202004e-14
+  },
+  "evidence_limits": [
+    "This is a 24-update numerical/performance smoke benchmark: 1 warmup plus 3 timed updates for each of 6 cases, not a convergence or full-training readiness result.",
+    "All cases use a single step3750 checkpoint and the next four deterministic training batches. This avoids manually selecting fast samples but does not cover later trained states, independent seeds, or stiff/out-of-distribution trajectories.",
+    "The six raw arrays were recorded BEFORE optimizer updates and reuse the same 32 training histories; shorter horizons are overlapping prefixes. They are not six independent validation sets, post-update rollout evidence, held-out tests, or 320-step rollouts.",
+    "Final model/Adam tensors were deliberately not saved. Actual optimizer.step calls, finite nonzero gradients and 46 changed model tensors are supported by hash-bound executed source/runtime records; final Adam internal changes and final model hashes cannot be independently recalculated offline.",
+    "The full training HDF5 is not present locally. Its hash is bound to the source checkpoint and runtime preflight; the four sampler index arrays are recorded and reused by verified code, but this audit did not re-read original pixels or regenerate the indices from the full dataset.",
+    "Case order alternates by horizon and every measured update is included, but only three timings per case give no reliable confidence interval. Cache, clock and ordering effects remain possible.",
+    "The algorithms implement different discrete maps and gradients. Their losses and timing must not be interpreted as an accuracy improvement or speed at matched numerical/prediction accuracy.",
+    "No future-training stability, physical damping accuracy, general root uniqueness or full20k completion is established. No new training or rollout was run by this audit."
+  ],
+  "artifacts_sha256": {
+    "manifest": "a928686c9b7058e45ee2feba11589b9e857d6a55abc90055c0446c18222b5c68",
+    "history": "aa624c8fe241ac8fd2fa3d37b37c15007bb02df606317af431e93cbfdb8edec7",
+    "source_checkpoint": "ed5686271c1645fbb53ac384bc5dc5bb56d172e4c50d4b52cb63f057dbc017fd",
+    "efficient_k16_readonly.npz": "0c52638e2f2a9a50893692c8e6b8a4127c953ee189126d43d3b91bab8384968a",
+    "efficient_k32_readonly.npz": "977230c58dd0c2dffd8ac42380edd636245ce638a796262fac513cb7aa4782be",
+    "efficient_k8_readonly.npz": "d111bcdb6838d3a9a1569b45ff79f717ab4db576b64880345b6d1e99725ecef2",
+    "reference_k16_readonly.npz": "c7b665f10bb37485ee611ab2e84ee12a7f3203fcbf55338b0463fd8b256fb084",
+    "reference_k32_readonly.npz": "946f02d2b60dcd5722c2fa042561086294082531e6a478b3e18255fca31387df",
+    "reference_k8_readonly.npz": "3b30e562dd76971bda89495467602240c1869ff6c101a7bf6a81d86783e12329",
+    "preserved_benchmark_script_v1": "6d570eb03b4fd55f9ebbdcd7dc749fe8aeb858b8c564caf57c8aed09cbaab51e"
+  },
+  "source_binding_note": "All v1 core/model/trainer/config hashes match. The independent benchmark helper was extended after v1; this audit verifies its separately preserved original bytes, not the modified working copy."
+}

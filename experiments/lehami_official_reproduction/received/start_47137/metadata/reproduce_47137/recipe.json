@@ -1,0 +1,19 @@
+{
+  "entrypoint": "lehami/experiments/conservative_multi_rod.sh",
+  "arguments": [
+    "--arms",
+    "a0m,b0m"
+  ],
+  "train_overrides": null,
+  "seeds": [
+    42,
+    1,
+    2
+  ],
+  "epochs_per_run": 100,
+  "expected_final_updates": {
+    "a0m": 43900,
+    "b0m": 45900
+  },
+  "evaluations": "Unchanged official runner including probes, dt/reversal and Jacobian diagnostics"
+}

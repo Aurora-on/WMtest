@@ -1,0 +1,33 @@
+{
+  "scope": "Requested 2D A20000 -> parallel B single/multi; incomplete result availability",
+  "remote_status": "Live server connection successful; queue empty; no staged artifacts found in searched directories",
+  "local_staged_status": "scripts_prepared_not_submitted",
+  "available_checkpoint_step": 10000,
+  "available_damping": 0,
+  "available_evaluation_split": "val64",
+  "available_snapshot_time_beijing": "2026-11-06 09:57",
+  "missing_result_stages": [
+    "undamped_A20000",
+    "damping_single_B20000",
+    "damping_multi_B20000"
+  ],
+  "figure": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/reports/staged_training_status_20261106/staged_status_and_available_trajectories.png",
+  "curve_source": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/dimension_launch_20261105T113319Z/evaluation/d2/val/trajectories.npz",
+  "curve_source_sha256": "401008ff99f81b58d4b551dcde4bfcc633c664802e0844023f19dc9ee99678ea",
+  "fixed_example_indices": [
+    1,
+    3,
+    0,
+    2
+  ],
+  "fixed_group_ids": [
+    10000385,
+    10000387,
+    10000384,
+    10000386
+  ],
+  "not_a_complete_staged_training_result": true,
+  "server_audit": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/reports/staged_training_status_20261106/server_audit.json",
+  "server_verified_at_utc": "2026-11-06T06:44:12.392619+00:00",
+  "curve_source_matches_live_server": true
+}

@@ -1,0 +1,8 @@
+{
+  "captured_at_utc": "2026-11-05T06:40:29.341323+00:00",
+  "status_written_at_utc": "2026-11-05T06:30:54.238387+00:00",
+  "last_checkpoint_written_at_utc": "2026-11-05T06:30:54.174387+00:00",
+  "best_checkpoint_exists": false,
+  "last_checkpoint_sha256": "a3e98302560c32bcf676ae70e49b25b70bf5ac0fb65199871ce5f20223415e0c",
+  "slurm_accounting_limitation": "sacct disabled and completed job no longer retained by scontrol; completion assessed from trainer status, full history and final checkpoint."
+}

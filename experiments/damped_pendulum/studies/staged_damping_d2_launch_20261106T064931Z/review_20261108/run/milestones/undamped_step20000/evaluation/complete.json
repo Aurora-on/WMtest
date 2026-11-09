@@ -1,0 +1,19 @@
+{
+  "request": {
+    "checkpoint_sha256": "5145d5769b85f1992d2e4fd757bd19ac61a2704e459cbcb00844b3465f8bd068",
+    "data_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+    "stage": "a",
+    "expected_step": 20000,
+    "readout_sha256": null
+  },
+  "artifacts": {
+    "readout.npz": "b043b1899a979046a6fbad4e57f183436cdcbeb965a9c95c0ed11d8215d66390",
+    "readout_provenance.json": "868c3d5c90f7f7a3529e0e4ab3f019d1b3efab2e9a089a5df84197b104ac40de",
+    "summary.json": "285ec48e92d7bfe4cbca6c369d45ca0a4ae85445c8a10827977c131e37e84b91",
+    "trajectories.npz": "97ea93ccda1fc8f81f28c104254fde76d9269f739d1ed99fed2530b86324d5fd",
+    "val/animation_inputs.npz": "6511f270e319a1461293c151de7e25496865a3aaf5d2f39716edcc6c32eb78cf",
+    "val/animation_meta.json": "54403c40e62230970586cdfd8daa9ba024aa6ebfc5185a94695c5cfebe7d2897",
+    "val/summary.json": "f83c5009e0820034c2e722be6ad9e1245aed77776e78af581ac8f2763add2733",
+    "val/trajectories.npz": "97ea93ccda1fc8f81f28c104254fde76d9269f739d1ed99fed2530b86324d5fd"
+  }
+}

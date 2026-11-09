@@ -1,0 +1,112 @@
+{
+  "mode": "plan_only",
+  "training_started": false,
+  "optimizer_created": false,
+  "remote_submitted": false,
+  "initial_step": 0,
+  "resume": null,
+  "configured_total_steps": 20000,
+  "stop_after_step": 4000,
+  "selected_arms": [
+    "control",
+    "lehami"
+  ],
+  "code_directory": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum",
+  "data": "/System/Volumes/Data/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+  "path_scope": "Commands are local to code_directory; regenerate the plan after deploying or relocating the frozen bundle",
+  "expected_data_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+  "reference_data_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+  "data_override": false,
+  "dataset_locally_verified": false,
+  "historical_data_record_not_live_status": true,
+  "execution": "Sequential arms; --arm supports separate GPU allocation by the caller",
+  "output_root": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/runs/lehami_loss_pair_20261105",
+  "arms": [
+    {
+      "arm": "control",
+      "config": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/configs/dissipative_loss_pair_control_v1.json",
+      "config_file_sha256": "b3211495fa529eb36fc894417d4209af3a452000c6bbdfeffedc19c7509144ab",
+      "output": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/runs/lehami_loss_pair_20261105/control",
+      "preflight_command": [
+        "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/.venv/bin/python",
+        "-m",
+        "dpbench.train_dissipative",
+        "--config",
+        "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/configs/dissipative_loss_pair_control_v1.json",
+        "--data",
+        "/System/Volumes/Data/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5"
+      ],
+      "training_command": [
+        "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/.venv/bin/python",
+        "-m",
+        "dpbench.train_dissipative",
+        "--config",
+        "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/configs/dissipative_loss_pair_control_v1.json",
+        "--data",
+        "/System/Volumes/Data/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+        "--output",
+        "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/runs/lehami_loss_pair_20261105/control",
+        "--device",
+        "cuda",
+        "--stop-after-step",
+        "4000",
+        "--execute"
+      ]
+    },
+    {
+      "arm": "lehami",
+      "config": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/configs/dissipative_loss_pair_lehami_v1.json",
+      "config_file_sha256": "db79b999b7c07295ffcd643c94dc30258c9cbb701adad0e4d3b82a93ec650e2a",
+      "output": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/runs/lehami_loss_pair_20261105/lehami",
+      "preflight_command": [
+        "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/.venv/bin/python",
+        "-m",
+        "dpbench.train_dissipative",
+        "--config",
+        "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/configs/dissipative_loss_pair_lehami_v1.json",
+        "--data",
+        "/System/Volumes/Data/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5"
+      ],
+      "training_command": [
+        "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/.venv/bin/python",
+        "-m",
+        "dpbench.train_dissipative",
+        "--config",
+        "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/configs/dissipative_loss_pair_lehami_v1.json",
+        "--data",
+        "/System/Volumes/Data/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+        "--output",
+        "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/runs/lehami_loss_pair_20261105/lehami",
+        "--device",
+        "cuda",
+        "--stop-after-step",
+        "4000",
+        "--execute"
+      ]
+    }
+  ],
+  "input_snapshot": {
+    "source_sha256": {
+      "dpbench/train_dissipative.py": "8db4a123a00ddc2e349babfb7ddc22480a32b213d6f97f345eb9272b7326e560",
+      "dpbench/dissipative_model.py": "7b7e7acff94662b860e9eaa35ac65fc48578a64d191e8d97d2668da0334d77c9",
+      "dpbench/dissipative_core.py": "077c941d2b897411fc8560dc2dd9e7877bc8125560293a68a2552507b52f603f",
+      "dpbench/dissipative_data.py": "6e6ffb5ad921463cf3631529c06e6b4c73e185f50c8181fe81f076dde0045474",
+      "dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+      "dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+      "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620",
+      "scripts/prepare_lehami_loss_pair.py": "7886cc3dd846ee0f0c108ded7e9a08cc986b7e36ba110ee67ad169ca78987be7"
+    },
+    "configs": {
+      "control": {
+        "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/configs/dissipative_loss_pair_control_v1.json",
+        "sha256": "b3211495fa529eb36fc894417d4209af3a452000c6bbdfeffedc19c7509144ab"
+      },
+      "lehami": {
+        "path": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/configs/dissipative_loss_pair_lehami_v1.json",
+        "sha256": "db79b999b7c07295ffcd643c94dc30258c9cbb701adad0e4d3b82a93ec650e2a"
+      }
+    }
+  },
+  "scientific_scope": "Single seed, bundled loss migration on undamped data; not an ablation of each individual term or proof of dissipative learning",
+  "comparison_rule": "Both arms start fresh. Historical stage-A training is not the paired control."
+}

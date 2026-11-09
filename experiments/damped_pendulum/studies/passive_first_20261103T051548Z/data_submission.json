@@ -1,0 +1,14 @@
+{
+  "job_id": "47538",
+  "phase": "formal_data_generation",
+  "remote_root": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z",
+  "python": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/.venv/bin/python",
+  "resources": {
+    "partition": "compute",
+    "cpus": 4,
+    "memory": "16G",
+    "time_limit": "00:30:00",
+    "gpu": 0
+  },
+  "training_started": false
+}

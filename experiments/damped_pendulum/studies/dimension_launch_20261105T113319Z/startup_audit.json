@@ -1,0 +1,162 @@
+{
+  "checked_at_utc": "2026-11-05T11:41:13.893801+00:00",
+  "arms": {
+    "8": {
+      "dimension": 8,
+      "qualification": "completed",
+      "gpu": "5",
+      "trainable_parameters": 464721,
+      "qualification_parameters_unchanged": true,
+      "paired_sampling_passed": true,
+      "validation_indices_match": true,
+      "completed_steps_from_history": 549,
+      "contiguous_steps": true,
+      "all_losses_and_gradients_finite": true,
+      "max_solver_residual_ratio": 0.007799442037186889,
+      "solver_failed_attempts": 0.0,
+      "last50_median_seconds": 0.5558504350483418,
+      "max_allocated_bytes": 787786240,
+      "qualification_timings": [
+        {
+          "horizon": 4,
+          "forward_seconds": 0.7481858432292938,
+          "backward_seconds": 0.7335732355713844,
+          "cuda_peak_allocated_bytes": 817871872
+        },
+        {
+          "horizon": 8,
+          "forward_seconds": 0.39222564548254013,
+          "backward_seconds": 0.628145232796669,
+          "cuda_peak_allocated_bytes": 934430208
+        },
+        {
+          "horizon": 16,
+          "forward_seconds": 0.7605201154947281,
+          "backward_seconds": 1.2235301360487938,
+          "cuda_peak_allocated_bytes": 1150900736
+        },
+        {
+          "horizon": 32,
+          "forward_seconds": 1.4498155266046524,
+          "backward_seconds": null,
+          "cuda_peak_allocated_bytes": 475213312
+        }
+      ],
+      "fresh": true,
+      "source_hashes_match_reference": true,
+      "validation_rounds": 2
+    },
+    "32": {
+      "dimension": 32,
+      "qualification": "completed",
+      "gpu": "6",
+      "trainable_parameters": 502401,
+      "qualification_parameters_unchanged": true,
+      "paired_sampling_passed": true,
+      "validation_indices_match": true,
+      "completed_steps_from_history": 255,
+      "contiguous_steps": true,
+      "all_losses_and_gradients_finite": true,
+      "max_solver_residual_ratio": 0.002206467420520263,
+      "solver_failed_attempts": 0.0,
+      "last50_median_seconds": 1.2144730761647224,
+      "max_allocated_bytes": 796520960,
+      "qualification_timings": [
+        {
+          "horizon": 4,
+          "forward_seconds": 0.6597326099872589,
+          "backward_seconds": 1.4779309183359146,
+          "cuda_peak_allocated_bytes": 826299392
+        },
+        {
+          "horizon": 8,
+          "forward_seconds": 0.38686440140008926,
+          "backward_seconds": 1.9265441372990608,
+          "cuda_peak_allocated_bytes": 946396672
+        },
+        {
+          "horizon": 16,
+          "forward_seconds": 0.7494491413235664,
+          "backward_seconds": 3.8422044292092323,
+          "cuda_peak_allocated_bytes": 1169945088
+        },
+        {
+          "horizon": 32,
+          "forward_seconds": 1.428915575146675,
+          "backward_seconds": null,
+          "cuda_peak_allocated_bytes": 480162304
+        }
+      ],
+      "fresh": true,
+      "source_hashes_match_reference": true,
+      "validation_rounds": 1
+    }
+  },
+  "d2_evaluation": {
+    "status": "completed",
+    "checkpoint_step": 10000,
+    "q_dim": 2,
+    "parameters_unchanged": true,
+    "test_split_accessed": false,
+    "elapsed_seconds": 61.115470707416534,
+    "selected_k": 5,
+    "teacher": {
+      "angle_mae_rad": 0.008783804262463696,
+      "angle_rmse_rad": 0.012075432820156079,
+      "omega_rmse_rad_s": 0.05459453932034224,
+      "omega_nrmse": 0.020903263878813447
+    },
+    "autonomous": {
+      "n_total": 64,
+      "n_complete": 64,
+      "coverage": 1.0,
+      "metrics": {
+        "angle_mae_rad": 0.19374509517801258,
+        "angle_rmse_rad": 0.38996268561680497,
+        "omega_rmse_rad_s": 1.101582391575351,
+        "omega_nrmse": 0.4217760182981175,
+        "velocity_rms_ratio": 1.007134660939121,
+        "velocity_cosine": 0.9096304109282324,
+        "direction_agreement": 0.8881338212232096,
+        "stopped_dynamic_window_fraction": 0.0,
+        "trajectory_with_stop_fraction": 0.0,
+        "dynamic_window_count": 1472,
+        "stopped_dynamic_window_count": 0,
+        "dynamic_trajectory_count": 64,
+        "stop_status": "truth-defined one-second windows"
+      },
+      "physical_energy": {
+        "initial_energy_relative_error_median": 0.014358843478471422,
+        "max_relative_drift_median": 0.29170922575234315,
+        "max_relative_drift_p90": 0.6455012743098437,
+        "normalization": "True energy at anchor, floor1e-6*m*g*L; drift from decoded anchor energy"
+      },
+      "baselines_matched_support": {
+        "decoded_hold": {
+          "angle_mae_rad": 0.9704198807955358,
+          "angle_rmse_rad": 1.2573202625313336,
+          "omega_rmse_rad_s": 2.5815845111596065,
+          "omega_nrmse": 0.9884421213921617
+        },
+        "decoded_constant_velocity": {
+          "angle_mae_rad": 1.3381503278868196,
+          "angle_rmse_rad": 1.6374749681570506,
+          "omega_rmse_rad_s": 3.785641061598647,
+          "omega_nrmse": 1.4494536458444454
+        },
+        "oracle_hold": {
+          "angle_mae_rad": 0.9705404414452371,
+          "angle_rmse_rad": 1.2576883162788572,
+          "omega_rmse_rad_s": 2.5815845111596065,
+          "omega_nrmse": 0.9884421213921617
+        },
+        "oracle_constant_velocity": {
+          "angle_mae_rad": 1.3369504998013817,
+          "angle_rmse_rad": 1.6401411875626275,
+          "omega_rmse_rad_s": 3.799173870224471,
+          "omega_nrmse": 1.4546351140507658
+        }
+      }
+    }
+  }
+}

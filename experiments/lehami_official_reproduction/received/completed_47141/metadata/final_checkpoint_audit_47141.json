@@ -1,0 +1,149 @@
+{
+  "job_id": "47141",
+  "checkpoints": {
+    "best.ckpt": {
+      "epoch_0based": 97,
+      "global_step": 43022,
+      "sha256": "a09021196224d761bf2151919aebbc30ab0a0d8d05fba9f6c0732754f41cc5da",
+      "all_parameters_finite": true,
+      "scheduler": {
+        "warmup_steps": 439,
+        "max_steps": 43900,
+        "warmup_start_lr": 0.0,
+        "eta_min": 0.0,
+        "base_lrs": [
+          5e-05
+        ],
+        "last_epoch": 43022,
+        "_step_count": 43023,
+        "_is_initial": false,
+        "_get_lr_called_within_step": false,
+        "_last_lr": [
+          5.033308820288907e-08
+        ]
+      },
+      "best_validation_loss": 0.026168284937739372
+    },
+    "last.ckpt": {
+      "epoch_0based": 97,
+      "global_step": 43022,
+      "sha256": "8e21c1ac178285d3e6f2bc9542a7f1c54c2dd721464b8bc7e2ec92c0645b763d",
+      "all_parameters_finite": true,
+      "scheduler": {
+        "warmup_steps": 439,
+        "max_steps": 43900,
+        "warmup_start_lr": 0.0,
+        "eta_min": 0.0,
+        "base_lrs": [
+          5e-05
+        ],
+        "last_epoch": 43022,
+        "_step_count": 43023,
+        "_is_initial": false,
+        "_get_lr_called_within_step": false,
+        "_last_lr": [
+          5.033308820288907e-08
+        ]
+      },
+      "best_validation_loss": 0.026168284937739372
+    },
+    "epochepoch=099.ckpt": {
+      "epoch_0based": 99,
+      "global_step": 43900,
+      "sha256": "c32f5035aa92d43c485f56175e03cd11c4c3ecd43c920c6ed33b37d457087b90",
+      "all_parameters_finite": true,
+      "scheduler": {
+        "warmup_steps": 439,
+        "max_steps": 43900,
+        "warmup_start_lr": 0.0,
+        "eta_min": 0.0,
+        "base_lrs": [
+          5e-05
+        ],
+        "last_epoch": 43900,
+        "_step_count": 43901,
+        "_is_initial": false,
+        "_get_lr_called_within_step": false,
+        "_last_lr": [
+          0.0
+        ]
+      },
+      "best_validation_loss": 0.026168284937739372
+    }
+  },
+  "config": {
+    "model": {
+      "name": "lehami_sg_sep_sreg_joint_ms_conv",
+      "patch_size": 8,
+      "latent_dim": 32,
+      "fd_dt": 1.0,
+      "momentum_weight": 1.0,
+      "ham_flow": {
+        "hidden_dim": 1024,
+        "n_layers": 3,
+        "dt": 1.0,
+        "phase_space": true,
+        "separable": true,
+        "learnable_scale": true
+      },
+      "enc_window": 1,
+      "enc_variant": "full"
+    },
+    "data": {
+      "name": "pendulum_multi_v2",
+      "frameskip": 1,
+      "action_dim": 1,
+      "keys_to_load": [
+        "pixels",
+        "dt_frame"
+      ]
+    },
+    "optim": {
+      "optimizer": {
+        "lr": 5e-05,
+        "weight_decay": 0.001
+      }
+    },
+    "checkpoint": null,
+    "run_suffix": "_sg_sep_conv_w1_multi_exp067_a0m",
+    "resume_from": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/resume_sources/47137_epoch014_step6585.ckpt",
+    "manifest": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/LeHami/lehami/data/split_pendulum_multi_v2_episode_srnn_K80_val.15_dt2_seed42.json",
+    "allow_num_steps_mismatch": true,
+    "seed": 42,
+    "img_size": 64,
+    "embed_dim": 192,
+    "history_size": 1,
+    "num_preds": 13,
+    "train_split": 0.9,
+    "wandb": {
+      "project": "lehami",
+      "entity": null,
+      "enabled": false
+    },
+    "trainer": {
+      "max_epochs": 100,
+      "devices": "auto",
+      "accelerator": "gpu",
+      "precision": "bf16-mixed",
+      "gradient_clip_val": 1.0
+    },
+    "loader": {
+      "batch_size": 32,
+      "num_workers": 3,
+      "persistent_workers": true,
+      "pin_memory": true,
+      "prefetch_factor": 3
+    },
+    "loss": {
+      "sigreg": {
+        "weight": 0.25,
+        "kwargs": {
+          "knots": 17,
+          "num_proj": 1024
+        }
+      }
+    },
+    "phase": 2
+  },
+  "note": "Training completed 100 epochs (periodic epoch099 checkpoint and training log). Author best and last files both contain selected epoch97; evaluation uses best.ckpt as specified."
+}

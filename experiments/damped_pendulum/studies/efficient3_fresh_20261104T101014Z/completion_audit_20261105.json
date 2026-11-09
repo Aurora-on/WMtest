@@ -1,0 +1,85 @@
+{
+  "checked_at_utc": "2026-11-05T02:29:48.709034+00:00",
+  "job_id": 47727,
+  "result": "artifact_verified_completed",
+  "scheduler_terminal_record": "No longer available from scontrol; do not infer an exit code",
+  "completion_time_beijing": "2026-11-05T10:15:17.209654+08:00",
+  "completion_timestamp_source": "final status.json file modification time",
+  "status": {
+    "status": "completed",
+    "training_started": true,
+    "completed_steps": 20000,
+    "optimizer_steps_this_run": 20000,
+    "configured_total_steps": 20000,
+    "stop_after_step": 20000,
+    "full_budget_completed": true,
+    "best_score": 0.6135867631618955,
+    "best_step": 19250,
+    "best_available": true,
+    "elapsed_seconds": 57829.32956085354,
+    "physical_validation": false
+  },
+  "initialization": "from0; resume and migration null",
+  "history_contiguous_from1_to20000": true,
+  "validation_rounds": 80,
+  "all_validation_gates_passed": true,
+  "all_logged_losses_and_gradients_finite": true,
+  "training_max_solver_residual_ratio": 0.49999994940516723,
+  "validation_max_solver_residual_ratio": 0.4999995983393301,
+  "training_max_split_depth": 0.0,
+  "validation_max_split_depth": 0.0,
+  "last250_K32_median_seconds": 3.8284318149089813,
+  "recent_validation": [
+    {
+      "step": 19000,
+      "score": 0.6193106505930284,
+      "gate_passed": true
+    },
+    {
+      "step": 19250,
+      "score": 0.6135867631618955,
+      "gate_passed": true
+    },
+    {
+      "step": 19500,
+      "score": 0.6138009621417126,
+      "gate_passed": true
+    },
+    {
+      "step": 19750,
+      "score": 0.6160064253159143,
+      "gate_passed": true
+    },
+    {
+      "step": 20000,
+      "score": 0.615103644027513,
+      "gate_passed": true
+    }
+  ],
+  "checkpoints": {
+    "last.pt": {
+      "step": 20000,
+      "validation_status": "completed",
+      "validation_score": 0.615103644027513,
+      "best_step": 19250,
+      "best_score": 0.6135867631618955,
+      "parameters_and_adam_finite": true,
+      "all_adam_steps_match": true,
+      "sha256": "b5a859c1269d3de62276ba356c1614a6e1681b4c4ce8d73cda97acfb5861d1c2"
+    },
+    "best.pt": {
+      "step": 19250,
+      "validation_status": "completed",
+      "validation_score": 0.6135867631618955,
+      "best_step": 19250,
+      "best_score": 0.6135867631618955,
+      "parameters_and_adam_finite": true,
+      "all_adam_steps_match": true,
+      "sha256": "5163a6a293a7c773a90e9ef59a62353a4debdba64c0dc24814bcbdb3b47f9042"
+    }
+  },
+  "frozen_source_hashes_verified": true,
+  "physical_test_evaluation_performed": false,
+  "operation": "read_only_no_training_or_tests_started",
+  "remote_root": "/home/weizhixin/ssd/efficient3_fresh_20261104T101014Z"
+}

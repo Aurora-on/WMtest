@@ -1,0 +1,18 @@
+{
+  "audit_job_id": "47797",
+  "submitted_at_utc": "2026-11-05T05:48:59.398752+00:00",
+  "purpose": "Same-server runtime CPU checkpoint audit of immutable startup snapshot; no optimizer or training",
+  "command": [
+    "/usr/bin/env",
+    "PYTHONPATH=/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/code",
+    "/home/weizhixin/ssd/damped_pendulum_profile_20261028/.venv/bin/python",
+    "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/audits/inspect_startup.py",
+    "--run-root",
+    "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/audits/startup_snapshot",
+    "--code-root",
+    "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/code",
+    "--checkpoint",
+    "--output",
+    "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/audits/startup_checkpoint_health.json"
+  ]
+}

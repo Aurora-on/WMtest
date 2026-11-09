@@ -1,0 +1,5917 @@
+{
+  "schema_version": 1,
+  "original_metrics_unchanged": true,
+  "source_sha256": {
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p0_seed0/evaluation/trajectories.npz": "cd048226df5ce668ad46a1f4b7af95b2ea87cc92baf43f2d2e9cb732fd28d6b4",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p0_seed1/evaluation/trajectories.npz": "5c9f7dffa7836a73ff053ba3e6af501afa2f86de65542a8d8bf94cd5083516dc",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p0_seed2/evaluation/trajectories.npz": "9ccfd9efa1d7196e123d93cc021d814a39460b4d63421b095fbf1e439457102b",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p2_seed0/evaluation/trajectories.npz": "e9d3cec0cfa98a4d27ce845b5d8375a8513d294a68d3d910d0252103c5930277",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p2_seed1/evaluation/trajectories.npz": "81632231ada1218cc653eb631ef8c45e9c36be4bdec6cdcbb7ef9b3bc7f40852",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lehami_b0p2_seed2/evaluation/trajectories.npz": "001f100b4d4d5f341b4ac6885e600bf772d354c7d350d395ea8e09539c612459",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lewm_b0p0_seed0/evaluation/trajectories.npz": "f66b684f7f7e6579da494401fba94c577361f921f8d17869eefbd176ab084c86",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lewm_b0p0_seed1/evaluation/trajectories.npz": "f063be3f96ef2e389611d6c27a638c10b70e94e7dc7bc8284c708feab8eb3fe9",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lewm_b0p0_seed2/evaluation/trajectories.npz": "24e30518a50da72f71871c1095ec45a5e2cb76866bf4d066e34fde7a4a8c05bd",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lewm_b0p2_seed0/evaluation/trajectories.npz": "784530b3676c1a01f473e4f521a7f49ce50dd1cf288bb7d5f8450c8298152f89",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lewm_b0p2_seed1/evaluation/trajectories.npz": "6b85b26d47277b2add10349209cd530c808039a9f567f85f2d08b2e82be92889",
+    "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/received/matrix_47111_review_20261029/runs/server_47111/lewm_b0p2_seed2/evaluation/trajectories.npz": "ae247451fabdb821657cfa1cb8234187a8d3161da1a22e8ba0aeebb57f0e3f0f"
+  },
+  "checks": {
+    "self_tests": true,
+    "all_12_runs_present": true,
+    "identical_truth_across_models_and_seeds_per_damping": true,
+    "same_test_episode_ids_across_damping": true,
+    "reconstructed_original_metric_values": 192,
+    "all_reference_amplitudes_nonzero": true
+  },
+  "definitions": {
+    "angle_error": "wrap(predicted theta - true theta) in [-pi,pi]",
+    "pooled_rmse": "sqrt(mean(error squared over all selected episodes and future times)); excludes anchor",
+    "mean_episode_rmse": "mean over episodes of sqrt(mean time error squared); matches original report and differs from pooled_rmse",
+    "equilibrium_reference_rms": "RMSE of always theta=0, omega=0; angle denominator uses wrap(true theta), not unwrapped multi-turn angle",
+    "nrmse": "pooled_rmse / equilibrium_reference_rms; values below1 beat the equilibrium predictor,1 tie,above1 worse",
+    "mse_skill_vs_equilibrium": "1 - nrmse squared; zero ties equilibrium,positive improves,negative worsens",
+    "oracle_true_initial_state_persistence": "constant true theta/omega at anchor; privileged diagnostic, not a visually initialized competing learned model",
+    "seed_aggregation": "Each seed contributes one metric; mean and sample SD across3 seeds, including readout randomness",
+    "normalization_boundary": "Condition/horizon test-truth RMS is a post-hoc descriptive scale, not a training statistic or a replacement primary metric. For future prespecified comparisons, additionally use a common scale fixed from training data and report absolute RMSE plus baseline skill.",
+    "pointwise_relative_error": "Not used: theta and omega cross zero and decay toward zero, so per-time division is singular or unstable.",
+    "paired_design_boundary": "Same test episode IDs and data-seed configuration across damping; anchor is0.4s after initialization and therefore its true state already differs with damping."
+  },
+  "true_motion_diagnostics": [
+    {
+      "damping": 0.0,
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "episodes_with_abs_unwrapped_theta_above_pi": 0,
+      "episodes_with_unwrapped_angle_range_above_two_pi": 0,
+      "max_abs_unwrapped_angle_rad": 2.7910937303151444,
+      "last_quarter_omega_rms": 2.371340133293866
+    },
+    {
+      "damping": 0.0,
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "episodes_with_abs_unwrapped_theta_above_pi": 0,
+      "episodes_with_unwrapped_angle_range_above_two_pi": 0,
+      "max_abs_unwrapped_angle_rad": 2.791095157002719,
+      "last_quarter_omega_rms": 2.405245782203698
+    },
+    {
+      "damping": 0.0,
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "episodes_with_abs_unwrapped_theta_above_pi": 7,
+      "episodes_with_unwrapped_angle_range_above_two_pi": 6,
+      "max_abs_unwrapped_angle_rad": 27.77448827840562,
+      "last_quarter_omega_rms": 2.9218451967309833
+    },
+    {
+      "damping": 0.0,
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "episodes_with_abs_unwrapped_theta_above_pi": 10,
+      "episodes_with_unwrapped_angle_range_above_two_pi": 10,
+      "max_abs_unwrapped_angle_rad": 141.01837029959648,
+      "last_quarter_omega_rms": 3.384872200402988
+    },
+    {
+      "damping": 0.2,
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "episodes_with_abs_unwrapped_theta_above_pi": 0,
+      "episodes_with_unwrapped_angle_range_above_two_pi": 0,
+      "max_abs_unwrapped_angle_rad": 2.467099309969942,
+      "last_quarter_omega_rms": 1.2826537377006004
+    },
+    {
+      "damping": 0.2,
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "episodes_with_abs_unwrapped_theta_above_pi": 0,
+      "episodes_with_unwrapped_angle_range_above_two_pi": 0,
+      "max_abs_unwrapped_angle_rad": 2.467099309969942,
+      "last_quarter_omega_rms": 0.16758900982057315
+    },
+    {
+      "damping": 0.2,
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "episodes_with_abs_unwrapped_theta_above_pi": 0,
+      "episodes_with_unwrapped_angle_range_above_two_pi": 0,
+      "max_abs_unwrapped_angle_rad": 2.365858760464041,
+      "last_quarter_omega_rms": 1.6071107370784592
+    },
+    {
+      "damping": 0.2,
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "episodes_with_abs_unwrapped_theta_above_pi": 0,
+      "episodes_with_unwrapped_angle_range_above_two_pi": 0,
+      "max_abs_unwrapped_angle_rad": 2.365858760464041,
+      "last_quarter_omega_rms": 0.7482439901157264
+    }
+  ],
+  "aggregate": [
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 1.5103869671960841,
+            "sample_sd": 0.2605381673925228
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.0080161660233775,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.4526495350823183,
+            "sample_sd": 0.2881413883763154
+          },
+          "nrmse": {
+            "mean": 1.4983757385107808,
+            "sample_sd": 0.2584662589493436
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -1.2896663917679072,
+            "sample_sd": 0.7360273374137014
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 16.8280019696812,
+            "sample_sd": 5.816617032693243
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.409867458196987,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 14.165937120102653,
+            "sample_sd": 4.791282931206948
+          },
+          "nrmse": {
+            "mean": 6.982957470313146,
+            "sample_sd": 2.413666781925474
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -51.64555325498248,
+            "sample_sd": 32.65034707779531
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 1.7156025530825676,
+            "sample_sd": 0.2585419240741259
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.010638387947284,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.6610752938382247,
+            "sample_sd": 0.28294524053164644
+          },
+          "nrmse": {
+            "mean": 1.697543427543003,
+            "sample_sd": 0.25582040733605277
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -1.9252830756008361,
+            "sample_sd": 0.8509828538542461
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 86.91224270658506,
+            "sample_sd": 41.103173683292795
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.404626243967337,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 69.51071985387702,
+            "sample_sd": 32.36773929464921
+          },
+          "nrmse": {
+            "mean": 36.1437636824551,
+            "sample_sd": 17.093373153691285
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -1500.1605903140498,
+            "sample_sd": 1309.799796681357
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 1.5443041547714589,
+            "sample_sd": 0.2650360421018356
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.293414390253779,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.505778116715632,
+            "sample_sd": 0.289132226638481
+          },
+          "nrmse": {
+            "mean": 1.193974774370999,
+            "sample_sd": 0.20491193240074693
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -0.4535683618610835,
+            "sample_sd": 0.4652696851095966
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 17.920032476326362,
+            "sample_sd": 7.473595112335768
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.8378795435794246,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 15.46186795450443,
+            "sample_sd": 6.259738818870824
+          },
+          "nrmse": {
+            "mean": 6.314585309608941,
+            "sample_sd": 2.633513860461217
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -43.49758446782327,
+            "sample_sd": 32.13182799204449
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 1.7360354856922988,
+            "sample_sd": 0.25748472258840815
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.3328877232944014,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.6919814289218067,
+            "sample_sd": 0.28253118935884036
+          },
+          "nrmse": {
+            "mean": 1.3024619068449865,
+            "sample_sd": 0.19317810351797823
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -0.7212855385681469,
+            "sample_sd": 0.4862244524816666
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 89.14722272615238,
+            "sample_sd": 48.42416109080647
+          },
+          "equilibrium_reference_rms": {
+            "mean": 3.1172421705826214,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 77.54876490963743,
+            "sample_sd": 43.37620255763135
+          },
+          "nrmse": {
+            "mean": 28.598106225892135,
+            "sample_sd": 15.534295521786767
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -977.72790461288,
+            "sample_sd": 999.3738668075688
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.9460044138440065,
+            "sample_sd": 0.07389134637589706
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.0080161660233775,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.8538764719365722,
+            "sample_sd": 0.09392769445236317
+          },
+          "nrmse": {
+            "mean": 0.9384813912022787,
+            "sample_sd": 0.0733037314941072
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.11567038699972883,
+            "sample_sd": 0.14039105792599413
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 3.3220561816304186,
+            "sample_sd": 0.17760166862820537
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.409867458196987,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 3.147297680483111,
+            "sample_sd": 0.187621896845738
+          },
+          "nrmse": {
+            "mean": 1.3785223624356142,
+            "sample_sd": 0.07369769155731211
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -0.9039448035623179,
+            "sample_sd": 0.2054289241909802
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 1.0713861783871064,
+            "sample_sd": 0.04740932510520994
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.010638387947284,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.9709420892340134,
+            "sample_sd": 0.056239132798271294
+          },
+          "nrmse": {
+            "mean": 1.0601083346568771,
+            "sample_sd": 0.04691027539682457
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -0.1252967305008482,
+            "sample_sd": 0.10066935005624256
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 4.059703492017451,
+            "sample_sd": 0.08017741672569609
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.404626243967337,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 3.847699595205533,
+            "sample_sd": 0.1091297574791618
+          },
+          "nrmse": {
+            "mean": 1.6882887734434104,
+            "sample_sd": 0.03334298497608225
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -1.851060152299799,
+            "sample_sd": 0.1127269457974444
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 1.1795064328157934,
+            "sample_sd": 0.0384279493223762
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.293414390253779,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.0790083892807814,
+            "sample_sd": 0.06508004704399925
+          },
+          "nrmse": {
+            "mean": 0.9119323564850428,
+            "sample_sd": 0.029710469909675487
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.16779090251413445,
+            "sample_sd": 0.05469584121623557
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 3.6412242820918035,
+            "sample_sd": 0.3043400903006131
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.8378795435794246,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 3.4226466863300447,
+            "sample_sd": 0.22589521679437416
+          },
+          "nrmse": {
+            "mean": 1.2830792238274913,
+            "sample_sd": 0.10724207480517238
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -0.6539595363567696,
+            "sample_sd": 0.27730507487428513
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 1.3612696545061829,
+            "sample_sd": 0.045111214336010584
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.3328877232944014,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.2429344980905972,
+            "sample_sd": 0.05619824655085954
+          },
+          "nrmse": {
+            "mean": 1.021293564878542,
+            "sample_sd": 0.03384472191289492
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -0.04380418912989489,
+            "sample_sd": 0.06975553742694854
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 4.367226241467835,
+            "sample_sd": 0.27386332373999916
+          },
+          "equilibrium_reference_rms": {
+            "mean": 3.1172421705826214,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 3.991993060758363,
+            "sample_sd": 0.16396444330432017
+          },
+          "nrmse": {
+            "mean": 1.4009903634312721,
+            "sample_sd": 0.08785436252737894
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -0.9679195911040158,
+            "sample_sd": 0.24441996503218838
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 1.2871228964726484,
+            "sample_sd": 0.24029407870587643
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.6207398826374617,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.1968891082216353,
+            "sample_sd": 0.19484585369222285
+          },
+          "nrmse": {
+            "mean": 2.0735302056052722,
+            "sample_sd": 0.3871091344814045
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -3.39942983489007,
+            "sample_sd": 1.5235691405468328
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 8.366973789200495,
+            "sample_sd": 2.0390464982082204
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.7626043156515372,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 7.023408024471274,
+            "sample_sd": 1.404372164520094
+          },
+          "nrmse": {
+            "mean": 4.746938218012753,
+            "sample_sd": 1.1568373457967496
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -22.425604208716805,
+            "sample_sd": 11.423239046252077
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 1.6228762513927668,
+            "sample_sd": 0.2683148860187116
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.3443308635900768,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.497335353381065,
+            "sample_sd": 0.1986643598198061
+          },
+          "nrmse": {
+            "mean": 4.7131303725500135,
+            "sample_sd": 0.7792356549778774
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -21.618403379312635,
+            "sample_sd": 7.063540673784086
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 42.92009003503357,
+            "sample_sd": 13.699792275886876
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.9939366478304763,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 35.84947750704877,
+            "sample_sd": 14.26516535904009
+          },
+          "nrmse": {
+            "mean": 43.18191720641125,
+            "sample_sd": 13.783365676062168
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -1990.3320865280552,
+            "sample_sd": 1122.9870469793875
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 1.2300085141048696,
+            "sample_sd": 0.16859974902969288
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.7677516845717183,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.1485008803674404,
+            "sample_sd": 0.16017665322308175
+          },
+          "nrmse": {
+            "mean": 1.6020915861500402,
+            "sample_sd": 0.21960192653142052
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -1.598847454503626,
+            "sample_sd": 0.7241785532888513
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 9.016936875562486,
+            "sample_sd": 2.165335492096062
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.1250560813875796,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 7.753007919957596,
+            "sample_sd": 1.619344451570094
+          },
+          "nrmse": {
+            "mean": 4.243152429970118,
+            "sample_sd": 1.018954516570773
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -17.696521415187974,
+            "sample_sd": 8.462259710430523
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 1.489382713697026,
+            "sample_sd": 0.30947225789158855
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.4673204260052265,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.398050247527697,
+            "sample_sd": 0.2794770680193888
+          },
+          "nrmse": {
+            "mean": 3.1870695797071127,
+            "sample_sd": 0.6622271158507577
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -9.449775674539813,
+            "sample_sd": 4.339457907152512
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 42.446038951185145,
+            "sample_sd": 11.200659880805489
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.328302377644916,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 36.64305223077774,
+            "sample_sd": 10.761960047932781
+          },
+          "nrmse": {
+            "mean": 31.95510274282735,
+            "sample_sd": 8.432311851059314
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -1067.5311800736622,
+            "sample_sd": 540.7453963981408
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.5818106086496758,
+            "sample_sd": 0.034326055189302616
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.6207398826374617,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.527052012776471,
+            "sample_sd": 0.027826900139319984
+          },
+          "nrmse": {
+            "mean": 0.9372856890999507,
+            "sample_sd": 0.05529861404015905
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.11945691253192232,
+            "sample_sd": 0.10527771156468803
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 1.9831268357019782,
+            "sample_sd": 0.03589775093134091
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.7626043156515372,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.8898512757557124,
+            "sample_sd": 0.05505180698986869
+          },
+          "nrmse": {
+            "mean": 1.125111755424771,
+            "sample_sd": 0.020366312854551046
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -0.26615298666120263,
+            "sample_sd": 0.04595900362762991
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.45765272215302144,
+            "sample_sd": 0.027042705231541564
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.3443308635900768,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.41431842538816804,
+            "sample_sd": 0.019716401409084004
+          },
+          "nrmse": {
+            "mean": 1.3291074676879777,
+            "sample_sd": 0.07853697734088602
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -0.7706386985371773,
+            "sample_sd": 0.21229479753793767
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 1.923419281069571,
+            "sample_sd": 0.15294070507372717
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.9939366478304763,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.819674245354692,
+            "sample_sd": 0.18948033274469772
+          },
+          "nrmse": {
+            "mean": 1.9351527939611954,
+            "sample_sd": 0.15387369547904256
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -2.760601078749405,
+            "sample_sd": 0.6076003261515542
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.6823747567134205,
+            "sample_sd": 0.04809984997930859
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.7677516845717183,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.6290424412472618,
+            "sample_sd": 0.03597466632183748
+          },
+          "nrmse": {
+            "mean": 0.8887961699414254,
+            "sample_sd": 0.0626502695414346
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.20742466411504332,
+            "sample_sd": 0.11275555908136796
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 2.155244642721951,
+            "sample_sd": 0.14584996913449294
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.1250560813875796,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 2.0696548488298454,
+            "sample_sd": 0.14748111756175386
+          },
+          "nrmse": {
+            "mean": 1.0142060068902554,
+            "sample_sd": 0.06863346827028607
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -0.03175419305681578,
+            "sample_sd": 0.1375334383417875
+          }
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.5587454316884535,
+            "sample_sd": 0.02512016092789417
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.4673204260052265,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.5135008631508136,
+            "sample_sd": 0.0033895323113354737
+          },
+          "nrmse": {
+            "mean": 1.1956366565543715,
+            "sample_sd": 0.053753612147082214
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -0.4314733150424219,
+            "sample_sd": 0.12922208733616672
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 2.079883677364309,
+            "sample_sd": 0.21025300096272048
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.328302377644916,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.9588540503708316,
+            "sample_sd": 0.20098673362139233
+          },
+          "nrmse": {
+            "mean": 1.5658209398465042,
+            "sample_sd": 0.15828700189146674
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": -1.4684983989736493,
+            "sample_sd": 0.48193692065526533
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.3021267011293496,
+            "sample_sd": 0.14375861791313027
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.0080161660233775,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.17539793779215498,
+            "sample_sd": 0.07719934746529523
+          },
+          "nrmse": {
+            "mean": 0.29972406327692047,
+            "sample_sd": 0.14261538927521158
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.8966060530540259,
+            "sample_sd": 0.08506676650512232
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 0.764783938696415,
+            "sample_sd": 0.29906479837476835
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.409867458196987,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.49164594757563057,
+            "sample_sd": 0.21908718656682594
+          },
+          "nrmse": {
+            "mean": 0.317355187354831,
+            "sample_sd": 0.12410010241746758
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.8890184614456295,
+            "sample_sd": 0.07704904241327366
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.8620955464829124,
+            "sample_sd": 0.11328983349666315
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.010638387947284,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.670460458244516,
+            "sample_sd": 0.11719658339516505
+          },
+          "nrmse": {
+            "mean": 0.8530207804929336,
+            "sample_sd": 0.11209729894266833
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.2639783450937317,
+            "sample_sd": 0.19849741622062195
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 2.3170869789879203,
+            "sample_sd": 0.3333512766566093
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.404626243967337,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.8349474431431552,
+            "sample_sd": 0.367404428635536
+          },
+          "nrmse": {
+            "mean": 0.9635954796721391,
+            "sample_sd": 0.13862914350740047
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.058671725269023166,
+            "sample_sd": 0.2781416981866283
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.6703087206737343,
+            "sample_sd": 0.09912269070292287
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.293414390253779,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.4029334154573177,
+            "sample_sd": 0.08672220027719053
+          },
+          "nrmse": {
+            "mean": 0.5182474586062198,
+            "sample_sd": 0.07663645267119237
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.7275041410628452,
+            "sample_sd": 0.0776811067890786
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 1.481776593606316,
+            "sample_sd": 0.364048748331527
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.8378795435794246,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.9743396597715376,
+            "sample_sd": 0.2664326641420318
+          },
+          "nrmse": {
+            "mean": 0.5221421737081017,
+            "sample_sd": 0.12828195937885067
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.7163967097006605,
+            "sample_sd": 0.12723402225365718
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 1.0527546903414882,
+            "sample_sd": 0.05573574308375287
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.3328877232944014,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.8349112628467821,
+            "sample_sd": 0.06455848096838043
+          },
+          "nrmse": {
+            "mean": 0.7898299848838515,
+            "sample_sd": 0.041815782462152846
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.3750028885364269,
+            "sample_sd": 0.0669826725953588
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 2.8346972875734155,
+            "sample_sd": 0.13871692660999468
+          },
+          "equilibrium_reference_rms": {
+            "mean": 3.1172421705826214,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 2.2398264459406527,
+            "sample_sd": 0.17590441315827351
+          },
+          "nrmse": {
+            "mean": 0.9093606246971832,
+            "sample_sd": 0.044499887727384425
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.17174309424518233,
+            "sample_sd": 0.08042679738699449
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.30016229521463766,
+            "sample_sd": 0.14331546876561987
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.0080161660233775,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.17324212873039857,
+            "sample_sd": 0.07594866610057871
+          },
+          "nrmse": {
+            "mean": 0.2977752791393986,
+            "sample_sd": 0.14217576423501144
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.8978539178429135,
+            "sample_sd": 0.08365861479872426
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 0.7356147489402803,
+            "sample_sd": 0.29869723918392316
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.409867458196987,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.4464962403515202,
+            "sample_sd": 0.18954084558071524
+          },
+          "nrmse": {
+            "mean": 0.3052511234334241,
+            "sample_sd": 0.12394757984217201
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.8965797499434781,
+            "sample_sd": 0.0711144747646925
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.8628702428694296,
+            "sample_sd": 0.11264749958544042
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.010638387947284,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.6708945156199738,
+            "sample_sd": 0.11589206985100635
+          },
+          "nrmse": {
+            "mean": 0.8537873221123259,
+            "sample_sd": 0.11146172649768402
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.2627647309510337,
+            "sample_sd": 0.1975011738296777
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 2.3253888017610556,
+            "sample_sd": 0.3174886427852402
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.404626243967337,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 1.8282773999626716,
+            "sample_sd": 0.3714485062399488
+          },
+          "nrmse": {
+            "mean": 0.9670479175692812,
+            "sample_sd": 0.13203242856628852
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.05319661699617525,
+            "sample_sd": 0.26502598145321166
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.669477933621359,
+            "sample_sd": 0.09702462227853238
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.293414390253779,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.4007897437516243,
+            "sample_sd": 0.0838704082189255
+          },
+          "nrmse": {
+            "mean": 0.5176051377393457,
+            "sample_sd": 0.07501433647997013
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.7283334876008128,
+            "sample_sd": 0.07597639195954925
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 1.4804873352735108,
+            "sample_sd": 0.3560123523984635
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.8378795435794246,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.9483391432006938,
+            "sample_sd": 0.2476797778837479
+          },
+          "nrmse": {
+            "mean": 0.5216878703055058,
+            "sample_sd": 0.125450128143714
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.7173499428752562,
+            "sample_sd": 0.12378867356058887
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 1.0534592827240692,
+            "sample_sd": 0.05458583004150703
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.3328877232944014,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.8351056314789486,
+            "sample_sd": 0.06345756388168151
+          },
+          "nrmse": {
+            "mean": 0.7903586058398907,
+            "sample_sd": 0.0409530593519094
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.3742151721279703,
+            "sample_sd": 0.06555883969542373
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 2.8625407118507016,
+            "sample_sd": 0.14842254516711395
+          },
+          "equilibrium_reference_rms": {
+            "mean": 3.1172421705826214,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 2.240263663765117,
+            "sample_sd": 0.1771764894084537
+          },
+          "nrmse": {
+            "mean": 0.9182926943772497,
+            "sample_sd": 0.04761341501400689
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.15522716926050706,
+            "sample_sd": 0.08623819473999601
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.07932060050564808,
+            "sample_sd": 0.028084758577352275
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.6207398826374617,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.06729835284100798,
+            "sample_sd": 0.020296421700950203
+          },
+          "nrmse": {
+            "mean": 0.12778396027756872,
+            "sample_sd": 0.04524400536022101
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9823065794817569,
+            "sample_sd": 0.010925667030657693
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 0.26777507778622117,
+            "sample_sd": 0.07094184268610497
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.7626043156515372,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.23305614970100294,
+            "sample_sd": 0.03917371257201444
+          },
+          "nrmse": {
+            "mean": 0.15192013057521622,
+            "sample_sd": 0.04024830874187534
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9758403230216217,
+            "sample_sd": 0.013093483351583253
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.07114125289939799,
+            "sample_sd": 0.01641347629608201
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.3443308635900768,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.06678783059020806,
+            "sample_sd": 0.011272600727223095
+          },
+          "nrmse": {
+            "mean": 0.20660725024083548,
+            "sample_sd": 0.04766774643710743
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9557986347809926,
+            "sample_sd": 0.020137619593334745
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 0.24542028854447373,
+            "sample_sd": 0.05518958805335139
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.9939366478304763,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.22767420857124915,
+            "sample_sd": 0.0585064520653859
+          },
+          "nrmse": {
+            "mean": 0.2469174359152235,
+            "sample_sd": 0.05552626334265563
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9369763358938529,
+            "sample_sd": 0.026641194592418406
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.12779374001482838,
+            "sample_sd": 0.0377732315899124
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.7677516845717183,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.10011171191849556,
+            "sample_sd": 0.027229693934059676
+          },
+          "nrmse": {
+            "mean": 0.1664519174400987,
+            "sample_sd": 0.04919980294277541
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9706800121074426,
+            "sample_sd": 0.015088780229907174
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 0.42910694267894356,
+            "sample_sd": 0.07984493769632221
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.1250560813875796,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.3645065123157619,
+            "sample_sd": 0.0519800838474607
+          },
+          "nrmse": {
+            "mean": 0.20192734979434204,
+            "sample_sd": 0.03757309672702215
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9582841870065947,
+            "sample_sd": 0.015444252359831582
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.1071624143090105,
+            "sample_sd": 0.018544349781476014
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.4673204260052265,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.0895688711032914,
+            "sample_sd": 0.016579020549744646
+          },
+          "nrmse": {
+            "mean": 0.22931249811839383,
+            "sample_sd": 0.039682300942840906
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9463659882012895,
+            "sample_sd": 0.017418732390331464
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 0.36711395425500476,
+            "sample_sd": 0.043894111174221234
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.328302377644916,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.3315722773261079,
+            "sample_sd": 0.041493292230111126
+          },
+          "nrmse": {
+            "mean": 0.27637830093016835,
+            "sample_sd": 0.03304527034879333
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9228870415133368,
+            "sample_sd": 0.01865544302573868
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.0765996029670207,
+            "sample_sd": 0.02839718098942461
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.6207398826374617,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.06436155105980462,
+            "sample_sd": 0.02193819709806541
+          },
+          "nrmse": {
+            "mean": 0.12340048562943409,
+            "sample_sd": 0.04574731185108943
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9833771091186859,
+            "sample_sd": 0.010460092067355682
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 0.2079755437985001,
+            "sample_sd": 0.05959159859828496
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.7626043156515372,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.17584477826909342,
+            "sample_sd": 0.023194159533439986
+          },
+          "nrmse": {
+            "mean": 0.11799332496336427,
+            "sample_sd": 0.033808835068157225
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9853155503783126,
+            "sample_sd": 0.008636340143793024
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.07634421764348165,
+            "sample_sd": 0.010976139311359769
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.3443308635900768,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.07103354058830683,
+            "sample_sd": 0.012045138300003951
+          },
+          "nrmse": {
+            "mean": 0.22171761441161092,
+            "sample_sd": 0.03187672228077345
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9501638825107138,
+            "sample_sd": 0.013790705702925328
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 0.2114226400874873,
+            "sample_sd": 0.039883220553484436
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.9939366478304763,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.1951870399141217,
+            "sample_sd": 0.04167352347689854
+          },
+          "nrmse": {
+            "mean": 0.2127123902202136,
+            "sample_sd": 0.04012652178641352
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9536800138796866,
+            "sample_sd": 0.016366978872111426
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.12251426450137246,
+            "sample_sd": 0.03776339904225942
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.7677516845717183,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.09329897879769214,
+            "sample_sd": 0.02689653107563538
+          },
+          "nrmse": {
+            "mean": 0.15957537699147567,
+            "sample_sd": 0.04918699600551878
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9729227920073305,
+            "sample_sd": 0.01443117436241182
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 0.3547904632875999,
+            "sample_sd": 0.08234461447597659
+          },
+          "equilibrium_reference_rms": {
+            "mean": 2.1250560813875796,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.2882647713024711,
+            "sample_sd": 0.044362488540630685
+          },
+          "nrmse": {
+            "mean": 0.16695581184659153,
+            "sample_sd": 0.03874938416787982
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9711247470417189,
+            "sample_sd": 0.012541835250707008
+          }
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics": {
+        "angle": {
+          "pooled_rmse": {
+            "mean": 0.10693836147311234,
+            "sample_sd": 0.020331789002596398
+          },
+          "equilibrium_reference_rms": {
+            "mean": 0.4673204260052265,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.08998560105114346,
+            "sample_sd": 0.02081653311545272
+          },
+          "nrmse": {
+            "mean": 0.22883305655446856,
+            "sample_sd": 0.0435071695376076
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9463735163604899,
+            "sample_sd": 0.01884897059711653
+          }
+        },
+        "omega": {
+          "pooled_rmse": {
+            "mean": 0.32340187386663033,
+            "sample_sd": 0.033292675126223595
+          },
+          "equilibrium_reference_rms": {
+            "mean": 1.328302377644916,
+            "sample_sd": 0.0
+          },
+          "mean_episode_rmse": {
+            "mean": 0.28616450206472205,
+            "sample_sd": 0.019583414051469204
+          },
+          "nrmse": {
+            "mean": 0.24347007075303348,
+            "sample_sd": 0.025064078546069925
+          },
+          "mse_skill_vs_equilibrium": {
+            "mean": 0.9403035192919371,
+            "sample_sd": 0.012477686941245715
+          }
+        }
+      }
+    }
+  ],
+  "per_seed": [
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.657036639901861,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 1.6125272182531536,
+          "nrmse": 1.6438591917021217,
+          "mse_skill_vs_equilibrium": -1.702273042143553
+        },
+        "omega": {
+          "pooled_rmse": 17.649732097236843,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 15.033713186646487,
+          "nrmse": 7.3239430812688795,
+          "mse_skill_vs_equilibrium": -52.64014225766629
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.135565665866252,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.9802653096060299,
+          "nrmse": 1.126535172889198,
+          "mse_skill_vs_equilibrium": -0.2690814957564951
+        },
+        "omega": {
+          "pooled_rmse": 3.7539522665931795,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.365077004136724,
+          "nrmse": 1.5577422126782894,
+          "mse_skill_vs_equilibrium": -1.426560801159853
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.914810487943569,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.8165024956103843,
+          "nrmse": 0.9075355324433885,
+          "mse_skill_vs_equilibrium": 0.17637925735269544
+        },
+        "omega": {
+          "pooled_rmse": 3.520240114637707,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.3606917374195437,
+          "nrmse": 1.4607608823729576,
+          "mse_skill_vs_equilibrium": -1.1338223554710218
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.135565665866252,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.9802653096060299,
+          "nrmse": 1.126535172889198,
+          "mse_skill_vs_equilibrium": -0.2690814957564951
+        },
+        "omega": {
+          "pooled_rmse": 3.7539522665931795,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.365077004136724,
+          "nrmse": 1.5577422126782894,
+          "mse_skill_vs_equilibrium": -1.426560801159853
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.7653644267185857,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 1.740122757970833,
+          "nrmse": 1.7467814875944223,
+          "mse_skill_vs_equilibrium": -2.0512455654025827
+        },
+        "omega": {
+          "pooled_rmse": 49.27781846309173,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 39.43604929280754,
+          "nrmse": 20.492922168972672,
+          "mse_skill_vs_equilibrium": -418.9598590235716
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.1246563660407354,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9699458831256039,
+          "nrmse": 1.1128177787952764,
+          "mse_skill_vs_equilibrium": -0.23836340880285278
+        },
+        "omega": {
+          "pooled_rmse": 3.761212482642857,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.364847259532091,
+          "nrmse": 1.5641567965412038,
+          "mse_skill_vs_equilibrium": -1.4465864841660405
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.03922081187248,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9314728309728109,
+          "nrmse": 1.0282815537842867,
+          "mse_skill_vs_equilibrium": -0.0573629538530267
+        },
+        "omega": {
+          "pooled_rmse": 3.983131925142426,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.7593362500153846,
+          "nrmse": 1.656445335376008,
+          "mse_skill_vs_equilibrium": -1.7438111490889359
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.1246563660407354,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9699458831256039,
+          "nrmse": 1.1128177787952764,
+          "mse_skill_vs_equilibrium": -0.23836340880285278
+        },
+        "omega": {
+          "pooled_rmse": 3.761212482642857,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.364847259532091,
+          "nrmse": 1.5641567965412038,
+          "mse_skill_vs_equilibrium": -1.4465864841660405
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.7080569268306192,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.6746616394048255,
+          "nrmse": 1.32057980775634,
+          "mse_skill_vs_equilibrium": -0.7439310286537719
+        },
+        "omega": {
+          "pooled_rmse": 18.906485035188826,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 15.91648064712477,
+          "nrmse": 6.662187293313383,
+          "mse_skill_vs_equilibrium": -43.3847395311863
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3736758277993055,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.2567990108302074,
+          "nrmse": 1.0620539234373128,
+          "mse_skill_vs_equilibrium": -0.12795853628858933
+        },
+        "omega": {
+          "pooled_rmse": 3.9297497914143964,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.6800439685995547,
+          "nrmse": 1.3847486234238797,
+          "mse_skill_vs_equilibrium": -0.9175287500743299
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.1562860601684393,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.046197166276653,
+          "nrmse": 0.8939795852600388,
+          "mse_skill_vs_equilibrium": 0.20080050113828896
+        },
+        "omega": {
+          "pooled_rmse": 3.96212037467126,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.681011034590421,
+          "nrmse": 1.3961552327460056,
+          "mse_skill_vs_equilibrium": -0.9492494339240531
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3736758277993055,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.2567990108302074,
+          "nrmse": 1.0620539234373128,
+          "mse_skill_vs_equilibrium": -0.12795853628858933
+        },
+        "omega": {
+          "pooled_rmse": 3.9297497914143964,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.6800439685995547,
+          "nrmse": 1.3847486234238797,
+          "mse_skill_vs_equilibrium": -0.9175287500743299
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.825954577108379,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.7930574320106794,
+          "nrmse": 1.369923771670205,
+          "mse_skill_vs_equilibrium": -0.8766911401871202
+        },
+        "omega": {
+          "pooled_rmse": 50.79659475252787,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 42.24613607828387,
+          "nrmse": 16.295363649284212,
+          "mse_skill_vs_equilibrium": -264.53887646241327
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3527021793720853,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.2309450462827627,
+          "nrmse": 1.0148658103240007,
+          "mse_skill_vs_equilibrium": -0.02995261296459062
+        },
+        "omega": {
+          "pooled_rmse": 4.135362350211354,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.8187345614527217,
+          "nrmse": 1.3266092667540306,
+          "mse_skill_vs_equilibrium": -0.7598921466376667
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.330349182141884,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.195741355639104,
+          "nrmse": 0.99809545762321,
+          "mse_skill_vs_equilibrium": 0.0038054574719150747
+        },
+        "omega": {
+          "pooled_rmse": 4.616928948855007,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 4.152489480625512,
+          "nrmse": 1.4810940877243712,
+          "mse_skill_vs_equilibrium": -1.1936396966920872
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3527021793720853,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.2309450462827627,
+          "nrmse": 1.0148658103240007,
+          "mse_skill_vs_equilibrium": -0.02995261296459062
+        },
+        "omega": {
+          "pooled_rmse": 4.135362350211354,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.8187345614527217,
+          "nrmse": 1.3266092667540306,
+          "mse_skill_vs_equilibrium": -0.7598921466376667
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.6645495849801668,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 1.6254057755886882,
+          "nrmse": 1.6513123906998564,
+          "mse_skill_vs_equilibrium": -1.726832611678875
+        },
+        "omega": {
+          "pooled_rmse": 10.644217072481329,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 9.0000711018201,
+          "nrmse": 4.416930498096818,
+          "mse_skill_vs_equilibrium": -18.509275025017804
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.135565665866252,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.9802653096060299,
+          "nrmse": 1.126535172889198,
+          "mse_skill_vs_equilibrium": -0.2690814957564951
+        },
+        "omega": {
+          "pooled_rmse": 3.7539522665931795,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.365077004136724,
+          "nrmse": 1.5577422126782894,
+          "mse_skill_vs_equilibrium": -1.426560801159853
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.030377355954331,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.960738293273955,
+          "nrmse": 1.0221833643989742,
+          "mse_skill_vs_equilibrium": -0.04485883045400607
+        },
+        "omega": {
+          "pooled_rmse": 3.177305708549743,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.0082091635626695,
+          "nrmse": 1.3184566220612555,
+          "mse_skill_vs_equilibrium": -0.7383278642571762
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.135565665866252,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.9802653096060299,
+          "nrmse": 1.126535172889198,
+          "mse_skill_vs_equilibrium": -0.2690814957564951
+        },
+        "omega": {
+          "pooled_rmse": 3.7539522665931795,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.365077004136724,
+          "nrmse": 1.5577422126782894,
+          "mse_skill_vs_equilibrium": -1.426560801159853
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.945646592391116,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 1.8960905079164783,
+          "nrmse": 1.9251659303610413,
+          "mse_skill_vs_equilibrium": -2.706263859422894
+        },
+        "omega": {
+          "pooled_rmse": 80.68532436359999,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 65.33071426662431,
+          "nrmse": 33.55420600853093,
+          "mse_skill_vs_equilibrium": -1124.8847408629333
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.1246563660407354,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9699458831256039,
+          "nrmse": 1.1128177787952764,
+          "mse_skill_vs_equilibrium": -0.23836340880285278
+        },
+        "omega": {
+          "pooled_rmse": 3.761212482642857,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.364847259532091,
+          "nrmse": 1.5641567965412038,
+          "mse_skill_vs_equilibrium": -1.4465864841660405
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.125831421578114,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 1.0353362447518757,
+          "nrmse": 1.1139804652233718,
+          "mse_skill_vs_equilibrium": -0.2409524768992799
+        },
+        "omega": {
+          "pooled_rmse": 4.052922497086261,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.814078675378724,
+          "nrmse": 1.6854687946844655,
+          "mse_skill_vs_equilibrium": -1.8408050578551052
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.1246563660407354,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9699458831256039,
+          "nrmse": 1.1128177787952764,
+          "mse_skill_vs_equilibrium": -0.23836340880285278
+        },
+        "omega": {
+          "pooled_rmse": 3.761212482642857,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.364847259532091,
+          "nrmse": 1.5641567965412038,
+          "mse_skill_vs_equilibrium": -1.4465864841660405
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.6863314887762086,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.6707480858569779,
+          "nrmse": 1.3037828413563082,
+          "mse_skill_vs_equilibrium": -0.6998496974151283
+        },
+        "omega": {
+          "pooled_rmse": 10.00219796379863,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 8.987216127491305,
+          "nrmse": 3.5245322467714155,
+          "mse_skill_vs_equilibrium": -11.422327558531562
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3736758277993055,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.2567990108302074,
+          "nrmse": 1.0620539234373128,
+          "mse_skill_vs_equilibrium": -0.12795853628858933
+        },
+        "omega": {
+          "pooled_rmse": 3.9297497914143964,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.6800439685995547,
+          "nrmse": 1.3847486234238797,
+          "mse_skill_vs_equilibrium": -0.9175287500743299
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.223862886250572,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.1539629568536345,
+          "nrmse": 0.9462264340591106,
+          "mse_skill_vs_equilibrium": 0.10465553548777973
+        },
+        "omega": {
+          "pooled_rmse": 3.356711075948017,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.2624073611461863,
+          "nrmse": 1.1828236626682853,
+          "mse_skill_vs_equilibrium": -0.39907181696801763
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3736758277993055,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.2567990108302074,
+          "nrmse": 1.0620539234373128,
+          "mse_skill_vs_equilibrium": -0.12795853628858933
+        },
+        "omega": {
+          "pooled_rmse": 3.9297497914143964,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.6800439685995547,
+          "nrmse": 1.3847486234238797,
+          "mse_skill_vs_equilibrium": -0.9175287500743299
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.9365027113756648,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.9100725474671414,
+          "nrmse": 1.452862591148602,
+          "mse_skill_vs_equilibrium": -1.1108097087590298
+        },
+        "omega": {
+          "pooled_rmse": 73.08305065158935,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 64.43015494260848,
+          "nrmse": 23.4447779968054,
+          "mse_skill_vs_equilibrium": -548.6576153194906
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3527021793720853,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.2309450462827627,
+          "nrmse": 1.0148658103240007,
+          "mse_skill_vs_equilibrium": -0.02995261296459062
+        },
+        "omega": {
+          "pooled_rmse": 4.135362350211354,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.8187345614527217,
+          "nrmse": 1.3266092667540306,
+          "mse_skill_vs_equilibrium": -0.7598921466376667
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.4130336776870183,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.3051037072162335,
+          "nrmse": 1.060129561546659,
+          "mse_skill_vs_equilibrium": -0.12387468726511153
+        },
+        "omega": {
+          "pooled_rmse": 4.074334599353415,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.8247677672023395,
+          "nrmse": 1.3070317852757363,
+          "mse_skill_vs_equilibrium": -0.7083320877210784
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3527021793720853,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.2309450462827627,
+          "nrmse": 1.0148658103240007,
+          "mse_skill_vs_equilibrium": -0.02995261296459062
+        },
+        "omega": {
+          "pooled_rmse": 4.135362350211354,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.8187345614527217,
+          "nrmse": 1.3266092667540306,
+          "mse_skill_vs_equilibrium": -0.7598921466376667
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.2095746767062243,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 1.1200156114051134,
+          "nrmse": 1.1999556331303642,
+          "mse_skill_vs_equilibrium": -0.43989352148129335
+        },
+        "omega": {
+          "pooled_rmse": 22.19005673932543,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 18.46402707184137,
+          "nrmse": 9.20799883157374,
+          "mse_skill_vs_equilibrium": -83.78724248226335
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.135565665866252,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.9802653096060299,
+          "nrmse": 1.126535172889198,
+          "mse_skill_vs_equilibrium": -0.2690814957564951
+        },
+        "omega": {
+          "pooled_rmse": 3.7539522665931795,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.365077004136724,
+          "nrmse": 1.5577422126782894,
+          "mse_skill_vs_equilibrium": -1.426560801159853
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.8928253976341194,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.7843886269253775,
+          "nrmse": 0.8857252767644733,
+          "mse_skill_vs_equilibrium": 0.21549073410049713
+        },
+        "omega": {
+          "pooled_rmse": 3.268622721703806,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.07299214046712,
+          "nrmse": 1.3563495828726293,
+          "mse_skill_vs_equilibrium": -0.8396841909587556
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.135565665866252,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.9802653096060299,
+          "nrmse": 1.126535172889198,
+          "mse_skill_vs_equilibrium": -0.2690814957564951
+        },
+        "omega": {
+          "pooled_rmse": 3.7539522665931795,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.365077004136724,
+          "nrmse": 1.5577422126782894,
+          "mse_skill_vs_equilibrium": -1.426560801159853
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.4357966401380013,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 1.3470126156273632,
+          "nrmse": 1.4206828646735454,
+          "mse_skill_vs_equilibrium": -1.0183398019770316
+        },
+        "omega": {
+          "pooled_rmse": 130.77358529306346,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 103.76539600219922,
+          "nrmse": 54.384162869861704,
+          "mse_skill_vs_equilibrium": -2956.6371710556446
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.1246563660407354,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9699458831256039,
+          "nrmse": 1.1128177787952764,
+          "mse_skill_vs_equilibrium": -0.23836340880285278
+        },
+        "omega": {
+          "pooled_rmse": 3.761212482642857,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.364847259532091,
+          "nrmse": 1.5641567965412038,
+          "mse_skill_vs_equilibrium": -1.4465864841660405
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.049106301710725,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9460171919773536,
+          "nrmse": 1.0380629849629732,
+          "mse_skill_vs_equilibrium": -0.07757476075023795
+        },
+        "omega": {
+          "pooled_rmse": 4.143056053823664,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.9696838602224904,
+          "nrmse": 1.7229521902697578,
+          "mse_skill_vs_equilibrium": -1.9685642499553557
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.1246563660407354,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9699458831256039,
+          "nrmse": 1.1128177787952764,
+          "mse_skill_vs_equilibrium": -0.23836340880285278
+        },
+        "omega": {
+          "pooled_rmse": 3.761212482642857,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.364847259532091,
+          "nrmse": 1.5641567965412038,
+          "mse_skill_vs_equilibrium": -1.4465864841660405
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.238524048707549,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.1719246248850927,
+          "nrmse": 0.9575616740003489,
+          "mse_skill_vs_equilibrium": 0.08307564048564964
+        },
+        "omega": {
+          "pooled_rmse": 24.85141442999163,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 21.48190708889722,
+          "nrmse": 8.757036388742025,
+          "mse_skill_vs_equilibrium": -75.68568631375196
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3736758277993055,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.2567990108302074,
+          "nrmse": 1.0620539234373128,
+          "mse_skill_vs_equilibrium": -0.12795853628858933
+        },
+        "omega": {
+          "pooled_rmse": 3.9297497914143964,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.6800439685995547,
+          "nrmse": 1.3847486234238797,
+          "mse_skill_vs_equilibrium": -0.9175287500743299
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.1583703520283686,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.0368650447120566,
+          "nrmse": 0.8955910501359788,
+          "mse_skill_vs_equilibrium": 0.1979166709163347
+        },
+        "omega": {
+          "pooled_rmse": 3.6048413956561336,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.324521663253526,
+          "nrmse": 1.270258776068183,
+          "mse_skill_vs_equilibrium": -0.6135573581782381
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3736758277993055,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.2567990108302074,
+          "nrmse": 1.0620539234373128,
+          "mse_skill_vs_equilibrium": -0.12795853628858933
+        },
+        "omega": {
+          "pooled_rmse": 3.9297497914143964,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.6800439685995547,
+          "nrmse": 1.3847486234238797,
+          "mse_skill_vs_equilibrium": -0.9175287500743299
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.4456491685928528,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.3728143072875996,
+          "nrmse": 1.0845993577161526,
+          "mse_skill_vs_equilibrium": -0.17635576675829068
+        },
+        "omega": {
+          "pooled_rmse": 143.5620227743399,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 125.97000370801993,
+          "nrmse": 46.05417703158679,
+          "mse_skill_vs_equilibrium": -2119.9872220567363
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3527021793720853,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.2309450462827627,
+          "nrmse": 1.0148658103240007,
+          "mse_skill_vs_equilibrium": -0.02995261296459062
+        },
+        "omega": {
+          "pooled_rmse": 4.135362350211354,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.8187345614527217,
+          "nrmse": 1.3266092667540306,
+          "mse_skill_vs_equilibrium": -0.7598921466376667
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.3404261036896463,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.2279584314164542,
+          "nrmse": 1.005655675465757,
+          "mse_skill_vs_equilibrium": -0.011343337596488201
+        },
+        "omega": {
+          "pooled_rmse": 4.410415176195081,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.9987219344472384,
+          "nrmse": 1.4148452172937087,
+          "mse_skill_vs_equilibrium": -1.001786988898882
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3527021793720853,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.2309450462827627,
+          "nrmse": 1.0148658103240007,
+          "mse_skill_vs_equilibrium": -0.02995261296459062
+        },
+        "omega": {
+          "pooled_rmse": 4.135362350211354,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.8187345614527217,
+          "nrmse": 1.3266092667540306,
+          "mse_skill_vs_equilibrium": -0.7598921466376667
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.0112620457131969,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.9719638789960346,
+          "nrmse": 1.6291236861025356,
+          "mse_skill_vs_equilibrium": -1.654043984620313
+        },
+        "omega": {
+          "pooled_rmse": 10.593659817430822,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 8.472225527377553,
+          "nrmse": 6.010231407787591,
+          "mse_skill_vs_equilibrium": -35.12288157515641
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.0066539194943938,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.8140620805545378,
+          "nrmse": 1.621700083482991,
+          "mse_skill_vs_equilibrium": -1.6299111607687404
+        },
+        "omega": {
+          "pooled_rmse": 3.262105076597505,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 2.895935620163481,
+          "nrmse": 1.8507302221098245,
+          "mse_skill_vs_equilibrium": -2.4252023550306805
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.5574257387589314,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.5044086239778195,
+          "nrmse": 0.8980021331809472,
+          "mse_skill_vs_equilibrium": 0.19359216880246832
+        },
+        "omega": {
+          "pooled_rmse": 2.0223057402773637,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 1.9519413784366426,
+          "nrmse": 1.1473396055596456,
+          "mse_skill_vs_equilibrium": -0.3163881704857632
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.0066539194943938,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.8140620805545378,
+          "nrmse": 1.621700083482991,
+          "mse_skill_vs_equilibrium": -1.6299111607687404
+        },
+        "omega": {
+          "pooled_rmse": 3.262105076597505,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 2.895935620163481,
+          "nrmse": 1.8507302221098245,
+          "mse_skill_vs_equilibrium": -2.4252023550306805
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.3197106038108963,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 1.2704450012217694,
+          "nrmse": 3.8326817121511403,
+          "mse_skill_vs_equilibrium": -13.689449106657797
+        },
+        "omega": {
+          "pooled_rmse": 54.424886765880636,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 49.13194954470975,
+          "nrmse": 54.75689711681024,
+          "mse_skill_vs_equilibrium": -2997.317781860941
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 0.8979021538701273,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.6659574998618552,
+          "nrmse": 2.6076725870820363,
+          "mse_skill_vs_equilibrium": -5.7999563214191205
+        },
+        "omega": {
+          "pooled_rmse": 2.9269415750705705,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 2.562472323200608,
+          "nrmse": 2.9447969158390297,
+          "mse_skill_vs_equilibrium": -7.671828875535061
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.4888447168666771,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.436962931876691,
+          "nrmse": 1.4196947429279616,
+          "mse_skill_vs_equilibrium": -1.0155331630972908
+        },
+        "omega": {
+          "pooled_rmse": 2.0976187930275105,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 2.035023498147568,
+          "nrmse": 2.1104149822889675,
+          "mse_skill_vs_equilibrium": -3.4538513974697427
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 0.8979021538701273,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.6659574998618552,
+          "nrmse": 2.6076725870820363,
+          "mse_skill_vs_equilibrium": -5.7999563214191205
+        },
+        "omega": {
+          "pooled_rmse": 2.9269415750705705,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 2.562472323200608,
+          "nrmse": 2.9447969158390297,
+          "mse_skill_vs_equilibrium": -7.671828875535061
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.0937625486314169,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.028046018588914,
+          "nrmse": 1.4246306072796964,
+          "mse_skill_vs_equilibrium": -1.0295723671981163
+        },
+        "omega": {
+          "pooled_rmse": 11.023664047334972,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 9.277804617957958,
+          "nrmse": 5.1874697067462545,
+          "mse_skill_vs_equilibrium": -25.909841958410073
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3748067499275185,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.1954777133136165,
+          "nrmse": 1.7906919353676691,
+          "mse_skill_vs_equilibrium": -2.2065776073908085
+        },
+        "omega": {
+          "pooled_rmse": 3.3420062678859077,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 3.1358484548349232,
+          "nrmse": 1.5726673273035254,
+          "mse_skill_vs_equilibrium": -1.473282522368014
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.6704038121814776,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 0.6140533673926514,
+          "nrmse": 0.873203961194113,
+          "mse_skill_vs_equilibrium": 0.23751484215490992
+        },
+        "omega": {
+          "pooled_rmse": 2.1928290606709977,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 2.103873148548818,
+          "nrmse": 1.0318923250435654,
+          "mse_skill_vs_equilibrium": -0.0648017704838153
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3748067499275185,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.1954777133136165,
+          "nrmse": 1.7906919353676691,
+          "mse_skill_vs_equilibrium": -2.2065776073908085
+        },
+        "omega": {
+          "pooled_rmse": 3.3420062678859077,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 3.1358484548349232,
+          "nrmse": 1.5726673273035254,
+          "mse_skill_vs_equilibrium": -1.473282522368014
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.2108275331780363,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.1794782617309547,
+          "nrmse": 2.5910006620692725,
+          "mse_skill_vs_equilibrium": -5.713284430843409
+        },
+        "omega": {
+          "pooled_rmse": 53.661066978634345,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 47.54381089516268,
+          "nrmse": 40.398231518470645,
+          "mse_skill_vs_equilibrium": -1631.017109819955
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.274763506904289,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.0720700834929875,
+          "nrmse": 2.727814655570035,
+          "mse_skill_vs_equilibrium": -6.440972795142669
+        },
+        "omega": {
+          "pooled_rmse": 2.9733797319746125,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 2.7571879358143656,
+          "nrmse": 2.238481073297801,
+          "mse_skill_vs_equilibrium": -4.010797515512475
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.5358685553720973,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 0.5096238605354618,
+          "nrmse": 1.1466833580394455,
+          "mse_skill_vs_equilibrium": -0.3148827236046192
+        },
+        "omega": {
+          "pooled_rmse": 2.22223200150559,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 2.1372193204194745,
+          "nrmse": 1.67298654199928,
+          "mse_skill_vs_equilibrium": -1.7988839697107086
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.274763506904289,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.0720700834929875,
+          "nrmse": 2.727814655570035,
+          "mse_skill_vs_equilibrium": -6.440972795142669
+        },
+        "omega": {
+          "pooled_rmse": 2.9733797319746125,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 2.7571879358143656,
+          "nrmse": 2.238481073297801,
+          "mse_skill_vs_equilibrium": -4.010797515512475
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.4508765192688375,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 1.304727045071675,
+          "nrmse": 2.337334139227865,
+          "mse_skill_vs_equilibrium": -4.463130878400065
+        },
+        "omega": {
+          "pooled_rmse": 7.916286508191216,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 6.929837650840191,
+          "nrmse": 4.491244255954862,
+          "mse_skill_vs_equilibrium": -19.17127496664754
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.0066539194943938,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.8140620805545378,
+          "nrmse": 1.621700083482991,
+          "mse_skill_vs_equilibrium": -1.6299111607687404
+        },
+        "omega": {
+          "pooled_rmse": 3.262105076597505,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 2.895935620163481,
+          "nrmse": 1.8507302221098245,
+          "mse_skill_vs_equilibrium": -2.4252023550306805
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.6210643010522995,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.5581169105417279,
+          "nrmse": 1.000522631820368,
+          "mse_skill_vs_equilibrium": -0.0010455367847554964
+        },
+        "omega": {
+          "pooled_rmse": 1.9518152420086712,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 1.8706094364633894,
+          "nrmse": 1.1073473636011115,
+          "mse_skill_vs_equilibrium": -0.22621818367433222
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.0066539194943938,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.8140620805545378,
+          "nrmse": 1.621700083482991,
+          "mse_skill_vs_equilibrium": -1.6299111607687404
+        },
+        "omega": {
+          "pooled_rmse": 3.262105076597505,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 2.895935620163481,
+          "nrmse": 1.8507302221098245,
+          "mse_skill_vs_equilibrium": -2.4252023550306805
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.8297837591315842,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 1.6400739405865363,
+          "nrmse": 5.314027734992491,
+          "mse_skill_vs_equilibrium": -27.238890768269425
+        },
+        "omega": {
+          "pooled_rmse": 46.570566099212265,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 37.64488152719842,
+          "nrmse": 46.85466241823819,
+          "mse_skill_vs_equilibrium": -2194.3593903270626
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 0.8979021538701273,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.6659574998618552,
+          "nrmse": 2.6076725870820363,
+          "mse_skill_vs_equilibrium": -5.7999563214191205
+        },
+        "omega": {
+          "pooled_rmse": 2.9269415750705705,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 2.562472323200608,
+          "nrmse": 2.9447969158390297,
+          "mse_skill_vs_equilibrium": -7.671828875535061
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.44079082370309614,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.4009574890045833,
+          "nrmse": 1.2801374210470258,
+          "mse_skill_vs_equilibrium": -0.6387518167649302
+        },
+        "omega": {
+          "pooled_rmse": 1.8111847524904652,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 1.6785134876767236,
+          "nrmse": 1.8222335965213117,
+          "mse_skill_vs_equilibrium": -2.3205352802909944
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 0.8979021538701273,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.6659574998618552,
+          "nrmse": 2.6076725870820363,
+          "mse_skill_vs_equilibrium": -5.7999563214191205
+        },
+        "omega": {
+          "pooled_rmse": 2.9269415750705705,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 2.562472323200608,
+          "nrmse": 2.9447969158390297,
+          "mse_skill_vs_equilibrium": -7.671828875535061
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.4185626101056958,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.330278835497385,
+          "nrmse": 1.8476841387811804,
+          "mse_skill_vs_equilibrium": -2.4139366767035524
+        },
+        "omega": {
+          "pooled_rmse": 9.305263011274816,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 7.92790500205491,
+          "nrmse": 4.378831736618847,
+          "mse_skill_vs_equilibrium": -18.174167377620424
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3748067499275185,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.1954777133136165,
+          "nrmse": 1.7906919353676691,
+          "mse_skill_vs_equilibrium": -2.2065776073908085
+        },
+        "omega": {
+          "pooled_rmse": 3.3420062678859077,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 3.1358484548349232,
+          "nrmse": 1.5726673273035254,
+          "mse_skill_vs_equilibrium": -1.473282522368014
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.7353295586881695,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 0.6700880193760458,
+          "nrmse": 0.9577700361522032,
+          "mse_skill_vs_equilibrium": 0.08267655784900729
+        },
+        "omega": {
+          "pooled_rmse": 1.994280804573017,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 1.9080724799624036,
+          "nrmse": 0.9384603173723437,
+          "mse_skill_vs_equilibrium": 0.11929223271739997
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3748067499275185,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.1954777133136165,
+          "nrmse": 1.7906919353676691,
+          "mse_skill_vs_equilibrium": -2.2065776073908085
+        },
+        "omega": {
+          "pooled_rmse": 3.3420062678859077,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 3.1358484548349232,
+          "nrmse": 1.5726673273035254,
+          "mse_skill_vs_equilibrium": -1.473282522368014
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.8225116309033402,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.7129503129438937,
+          "nrmse": 3.8999186200411393,
+          "mse_skill_vs_equilibrium": -14.209365242943583
+        },
+        "omega": {
+          "pooled_rmse": 42.41724714986119,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 36.359865509561644,
+          "nrmse": 31.933427104954138,
+          "mse_skill_vs_equilibrium": -1018.7437666674197
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.274763506904289,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.0720700834929875,
+          "nrmse": 2.727814655570035,
+          "mse_skill_vs_equilibrium": -6.440972795142669
+        },
+        "omega": {
+          "pooled_rmse": 2.9733797319746125,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 2.7571879358143656,
+          "nrmse": 2.238481073297801,
+          "mse_skill_vs_equilibrium": -4.010797515512475
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.5856276026385413,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 0.5159036567478976,
+          "nrmse": 1.2531607223862107,
+          "mse_skill_vs_equilibrium": -0.5704117961315294
+        },
+        "omega": {
+          "pooled_rmse": 1.8383891102493626,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 1.7410827691830462,
+          "nrmse": 1.384014017582978,
+          "mse_skill_vs_equilibrium": -0.9154948008661759
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.274763506904289,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.0720700834929875,
+          "nrmse": 2.727814655570035,
+          "mse_skill_vs_equilibrium": -6.440972795142669
+        },
+        "omega": {
+          "pooled_rmse": 2.9733797319746125,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 2.7571879358143656,
+          "nrmse": 2.238481073297801,
+          "mse_skill_vs_equilibrium": -4.010797515512475
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.3992301244359109,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 1.3139764005971961,
+          "nrmse": 2.2541327914854157,
+          "mse_skill_vs_equilibrium": -4.081114641649832
+        },
+        "omega": {
+          "pooled_rmse": 6.590975041979449,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 5.668160895196078,
+          "nrmse": 3.739338990295806,
+          "mse_skill_vs_equilibrium": -12.982656084346457
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.0066539194943938,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.8140620805545378,
+          "nrmse": 1.621700083482991,
+          "mse_skill_vs_equilibrium": -1.6299111607687404
+        },
+        "omega": {
+          "pooled_rmse": 3.262105076597505,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 2.895935620163481,
+          "nrmse": 1.8507302221098245,
+          "mse_skill_vs_equilibrium": -2.4252023550306805
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.5669417861377964,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.5186305038098655,
+          "nrmse": 0.9133323022985368,
+          "mse_skill_vs_equilibrium": 0.16582410557805416
+        },
+        "omega": {
+          "pooled_rmse": 1.9752595248198996,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 1.847003012367105,
+          "nrmse": 1.1206482971135558,
+          "mse_skill_vs_equilibrium": -0.25585260582351244
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.0066539194943938,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.8140620805545378,
+          "nrmse": 1.621700083482991,
+          "mse_skill_vs_equilibrium": -1.6299111607687404
+        },
+        "omega": {
+          "pooled_rmse": 3.262105076597505,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 2.895935620163481,
+          "nrmse": 1.8507302221098245,
+          "mse_skill_vs_equilibrium": -2.4252023550306805
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.7191343912358197,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 1.581487118334889,
+          "nrmse": 4.9926816705064105,
+          "mse_skill_vs_equilibrium": -23.92687026301068
+        },
+        "omega": {
+          "pooled_rmse": 27.76481724000779,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 20.771601449238126,
+          "nrmse": 27.934192084185327,
+          "mse_skill_vs_equilibrium": -779.3190873961622
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 0.8979021538701273,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.6659574998618552,
+          "nrmse": 2.6076725870820363,
+          "mse_skill_vs_equilibrium": -5.7999563214191205
+        },
+        "omega": {
+          "pooled_rmse": 2.9269415750705705,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 2.562472323200608,
+          "nrmse": 2.9447969158390297,
+          "mse_skill_vs_equilibrium": -7.671828875535061
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.44332262588929117,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.40503485528322986,
+          "nrmse": 1.2874902390889458,
+          "mse_skill_vs_equilibrium": -0.6576311157493107
+        },
+        "omega": {
+          "pooled_rmse": 1.8614542976907371,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 1.7454857502397845,
+          "nrmse": 1.872809803073307,
+          "mse_skill_vs_equilibrium": -2.5074165584874786
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 0.8979021538701273,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.6659574998618552,
+          "nrmse": 2.6076725870820363,
+          "mse_skill_vs_equilibrium": -5.7999563214191205
+        },
+        "omega": {
+          "pooled_rmse": 2.9269415750705705,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 2.562472323200608,
+          "nrmse": 2.9447969158390297,
+          "mse_skill_vs_equilibrium": -7.671828875535061
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.1777003835774957,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.0871777870160222,
+          "nrmse": 1.5339600123892438,
+          "mse_skill_vs_equilibrium": -1.3530333196092093
+        },
+        "omega": {
+          "pooled_rmse": 6.721883568077672,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 6.053314139859918,
+          "nrmse": 3.163155846545255,
+          "mse_skill_vs_equilibrium": -9.005554909533428
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3748067499275185,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.1954777133136165,
+          "nrmse": 1.7906919353676691,
+          "mse_skill_vs_equilibrium": -2.2065776073908085
+        },
+        "omega": {
+          "pooled_rmse": 3.3420062678859077,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 3.1358484548349232,
+          "nrmse": 1.5726673273035254,
+          "mse_skill_vs_equilibrium": -1.473282522368014
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.6413908992706144,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 0.6029859369730883,
+          "nrmse": 0.8354145124779598,
+          "mse_skill_vs_equilibrium": 0.3020825923412127
+        },
+        "omega": {
+          "pooled_rmse": 2.2786240629218377,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 2.1970189179783155,
+          "nrmse": 1.0722653782548572,
+          "mse_skill_vs_equilibrium": -0.149753041404032
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3748067499275185,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.1954777133136165,
+          "nrmse": 1.7906919353676691,
+          "mse_skill_vs_equilibrium": -2.2065776073908085
+        },
+        "omega": {
+          "pooled_rmse": 3.3420062678859077,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 3.1358484548349232,
+          "nrmse": 1.5726673273035254,
+          "mse_skill_vs_equilibrium": -1.473282522368014
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.4348089770097014,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.3017221679082427,
+          "nrmse": 3.070289457010926,
+          "mse_skill_vs_equilibrium": -8.426677349832445
+        },
+        "omega": {
+          "pooled_rmse": 31.259802725059902,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 26.025480287608893,
+          "nrmse": 23.533649605057263,
+          "mse_skill_vs_equilibrium": -552.8326637336119
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.274763506904289,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.0720700834929875,
+          "nrmse": 2.727814655570035,
+          "mse_skill_vs_equilibrium": -6.440972795142669
+        },
+        "omega": {
+          "pooled_rmse": 2.9733797319746125,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 2.7571879358143656,
+          "nrmse": 2.238481073297801,
+          "mse_skill_vs_equilibrium": -4.010797515512475
+        }
+      }
+    },
+    {
+      "model": "lehami",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.5547401370547219,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 0.5149750721690813,
+          "nrmse": 1.1870658892374581,
+          "mse_skill_vs_equilibrium": -0.4091254253911172
+        },
+        "omega": {
+          "pooled_rmse": 2.1790299203379737,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 1.998260061509974,
+          "nrmse": 1.6404622599572547,
+          "mse_skill_vs_equilibrium": -1.6911164263440637
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.274763506904289,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.0720700834929875,
+          "nrmse": 2.727814655570035,
+          "mse_skill_vs_equilibrium": -6.440972795142669
+        },
+        "omega": {
+          "pooled_rmse": 2.9733797319746125,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 2.7571879358143656,
+          "nrmse": 2.238481073297801,
+          "mse_skill_vs_equilibrium": -4.010797515512475
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.4428967553309502,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.2608031250827598,
+          "nrmse": 0.4393746551488131,
+          "mse_skill_vs_equilibrium": 0.8069499124128616
+        },
+        "omega": {
+          "pooled_rmse": 1.0484245993238395,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 0.7430663308582425,
+          "nrmse": 0.43505488061499,
+          "mse_skill_vs_equilibrium": 0.8107272508530768
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.135565665866252,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.9802653096060299,
+          "nrmse": 1.126535172889198,
+          "mse_skill_vs_equilibrium": -0.2690814957564951
+        },
+        "omega": {
+          "pooled_rmse": 3.7539522665931795,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.365077004136724,
+          "nrmse": 1.5577422126782894,
+          "mse_skill_vs_equilibrium": -1.426560801159853
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.43898537122306164,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.25629838689343276,
+          "nrmse": 0.4354943760027762,
+          "mse_skill_vs_equilibrium": 0.8103446484699526
+        },
+        "omega": {
+          "pooled_rmse": 0.9948187495811106,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 0.6547434072884695,
+          "nrmse": 0.4128105660737929,
+          "mse_skill_vs_equilibrium": 0.8295874365378346
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.135565665866252,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.9802653096060299,
+          "nrmse": 1.126535172889198,
+          "mse_skill_vs_equilibrium": -0.2690814957564951
+        },
+        "omega": {
+          "pooled_rmse": 3.7539522665931795,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.365077004136724,
+          "nrmse": 1.5577422126782894,
+          "mse_skill_vs_equilibrium": -1.426560801159853
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.9929111594087782,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.8006872821351385,
+          "nrmse": 0.9824593754305021,
+          "mse_skill_vs_equilibrium": 0.034773575628707754
+        },
+        "omega": {
+          "pooled_rmse": 2.7015307505288093,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 2.2543838991822707,
+          "nrmse": 1.123472205839198,
+          "mse_skill_vs_equilibrium": -0.262189797293193
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.1246563660407354,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9699458831256039,
+          "nrmse": 1.1128177787952764,
+          "mse_skill_vs_equilibrium": -0.23836340880285278
+        },
+        "omega": {
+          "pooled_rmse": 3.761212482642857,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.364847259532091,
+          "nrmse": 1.5641567965412038,
+          "mse_skill_vs_equilibrium": -1.4465864841660405
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.9929425309090589,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.7995030277019728,
+          "nrmse": 0.9824904167016976,
+          "mse_skill_vs_equilibrium": 0.03471258108932462
+        },
+        "omega": {
+          "pooled_rmse": 2.6902924388042133,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 2.239761439112479,
+          "nrmse": 1.1187985848335258,
+          "mse_skill_vs_equilibrium": -0.2517102734254999
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.1246563660407354,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9699458831256039,
+          "nrmse": 1.1128177787952764,
+          "mse_skill_vs_equilibrium": -0.23836340880285278
+        },
+        "omega": {
+          "pooled_rmse": 3.761212482642857,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.364847259532091,
+          "nrmse": 1.5641567965412038,
+          "mse_skill_vs_equilibrium": -1.4465864841660405
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.7570536020993841,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 0.4851432582380186,
+          "nrmse": 0.5853140399581017,
+          "mse_skill_vs_equilibrium": 0.6574074746279257
+        },
+        "omega": {
+          "pooled_rmse": 1.7763402712370782,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 1.2248032343595399,
+          "nrmse": 0.6259392775341605,
+          "mse_skill_vs_equilibrium": 0.6082000208400132
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3736758277993055,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.2567990108302074,
+          "nrmse": 1.0620539234373128,
+          "mse_skill_vs_equilibrium": -0.12795853628858933
+        },
+        "omega": {
+          "pooled_rmse": 3.9297497914143964,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.6800439685995547,
+          "nrmse": 1.3847486234238797,
+          "mse_skill_vs_equilibrium": -0.9175287500743299
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.7543920570158427,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 0.4797022036499381,
+          "nrmse": 0.5832562732411107,
+          "mse_skill_vs_equilibrium": 0.6598121197248907
+        },
+        "omega": {
+          "pooled_rmse": 1.757902154462932,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 1.1743938023342027,
+          "nrmse": 0.6194421318692356,
+          "mse_skill_vs_equilibrium": 0.6162914452652966
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3736758277993055,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.2567990108302074,
+          "nrmse": 1.0620539234373128,
+          "mse_skill_vs_equilibrium": -0.12795853628858933
+        },
+        "omega": {
+          "pooled_rmse": 3.9297497914143964,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.6800439685995547,
+          "nrmse": 1.3847486234238797,
+          "mse_skill_vs_equilibrium": -0.9175287500743299
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.1165191937369587,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 0.8998580769679024,
+          "nrmse": 0.8376693507067045,
+          "mse_skill_vs_equilibrium": 0.2983100588866082
+        },
+        "omega": {
+          "pooled_rmse": 2.9593901714541837,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 2.4070659444796076,
+          "nrmse": 0.94936165030164,
+          "mse_skill_vs_equilibrium": 0.09871245693654662
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3527021793720853,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.2309450462827627,
+          "nrmse": 1.0148658103240007,
+          "mse_skill_vs_equilibrium": -0.02995261296459062
+        },
+        "omega": {
+          "pooled_rmse": 4.135362350211354,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.8187345614527217,
+          "nrmse": 1.3266092667540306,
+          "mse_skill_vs_equilibrium": -0.7598921466376667
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.11540395286958,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 0.8972488873720516,
+          "nrmse": 0.8368326404212932,
+          "mse_skill_vs_equilibrium": 0.29971113192552656
+        },
+        "omega": {
+          "pooled_rmse": 2.9668617427820974,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 2.3923104470824006,
+          "nrmse": 0.9517585033271837,
+          "mse_skill_vs_equilibrium": 0.09415575134439924
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3527021793720853,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.2309450462827627,
+          "nrmse": 1.0148658103240007,
+          "mse_skill_vs_equilibrium": -0.02995261296459062
+        },
+        "omega": {
+          "pooled_rmse": 4.135362350211354,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.8187345614527217,
+          "nrmse": 1.3266092667540306,
+          "mse_skill_vs_equilibrium": -0.7598921466376667
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.3079281827052973,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.15481331731258177,
+          "nrmse": 0.305479409045664,
+          "mse_skill_vs_equilibrium": 0.9066823306491119
+        },
+        "omega": {
+          "pooled_rmse": 0.7935529848282176,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 0.39022646342269507,
+          "nrmse": 0.32929320744549895,
+          "mse_skill_vs_equilibrium": 0.8915659835302556
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.135565665866252,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.9802653096060299,
+          "nrmse": 1.126535172889198,
+          "mse_skill_vs_equilibrium": -0.2690814957564951
+        },
+        "omega": {
+          "pooled_rmse": 3.7539522665931795,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.365077004136724,
+          "nrmse": 1.5577422126782894,
+          "mse_skill_vs_equilibrium": -1.426560801159853
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.3087599795061188,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.15609520895899895,
+          "nrmse": 0.3063045910505349,
+          "mse_skill_vs_equilibrium": 0.9061774975013646
+        },
+        "omega": {
+          "pooled_rmse": 0.8030660541870116,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 0.4006870653984658,
+          "nrmse": 0.3332407562314025,
+          "mse_skill_vs_equilibrium": 0.888950598386323
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.135565665866252,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.9802653096060299,
+          "nrmse": 1.126535172889198,
+          "mse_skill_vs_equilibrium": -0.2690814957564951
+        },
+        "omega": {
+          "pooled_rmse": 3.7539522665931795,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.365077004136724,
+          "nrmse": 1.5577422126782894,
+          "mse_skill_vs_equilibrium": -1.426560801159853
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.7964805328188078,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.6372181917762734,
+          "nrmse": 0.7880964569696843,
+          "mse_skill_vs_equilibrium": 0.37890397451183044
+        },
+        "omega": {
+          "pooled_rmse": 2.108272518337313,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 1.6803727432118056,
+          "nrmse": 0.8767568446973794,
+          "mse_skill_vs_equilibrium": 0.23129743527629543
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.1246563660407354,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9699458831256039,
+          "nrmse": 1.1128177787952764,
+          "mse_skill_vs_equilibrium": -0.23836340880285278
+        },
+        "omega": {
+          "pooled_rmse": 3.761212482642857,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.364847259532091,
+          "nrmse": 1.5641567965412038,
+          "mse_skill_vs_equilibrium": -1.4465864841660405
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.7972348693830716,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.6386193060741678,
+          "nrmse": 0.7888428530825372,
+          "mse_skill_vs_equilibrium": 0.37772695314060256
+        },
+        "omega": {
+          "pooled_rmse": 2.173482687554822,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 1.7273430944722241,
+          "nrmse": 0.9038754746221365,
+          "mse_skill_vs_equilibrium": 0.1830091263766075
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.1246563660407354,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9699458831256039,
+          "nrmse": 1.1128177787952764,
+          "mse_skill_vs_equilibrium": -0.23836340880285278
+        },
+        "omega": {
+          "pooled_rmse": 3.761212482642857,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.364847259532091,
+          "nrmse": 1.5641567965412038,
+          "mse_skill_vs_equilibrium": -1.4465864841660405
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.5622694262255932,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 0.3123118672291416,
+          "nrmse": 0.4347171567460844,
+          "mse_skill_vs_equilibrium": 0.8110209936306003
+        },
+        "omega": {
+          "pooled_rmse": 1.0747724588145753,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 0.6943908311560618,
+          "nrmse": 0.3787237767882713,
+          "mse_skill_vs_equilibrium": 0.8565683008952276
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3736758277993055,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.2567990108302074,
+          "nrmse": 1.0620539234373128,
+          "mse_skill_vs_equilibrium": -0.12795853628858933
+        },
+        "omega": {
+          "pooled_rmse": 3.9297497914143964,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.6800439685995547,
+          "nrmse": 1.3847486234238797,
+          "mse_skill_vs_equilibrium": -0.9175287500743299
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.5637281309153594,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 0.31271393822424,
+          "nrmse": 0.4358449505148549,
+          "mse_skill_vs_equilibrium": 0.8100391791107037
+        },
+        "omega": {
+          "pooled_rmse": 1.0790527694294636,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 0.6835892355990024,
+          "nrmse": 0.380232054553116,
+          "mse_skill_vs_equilibrium": 0.8554235846903162
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3736758277993055,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.2567990108302074,
+          "nrmse": 1.0620539234373128,
+          "mse_skill_vs_equilibrium": -0.12795853628858933
+        },
+        "omega": {
+          "pooled_rmse": 3.9297497914143964,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.6800439685995547,
+          "nrmse": 1.3847486234238797,
+          "mse_skill_vs_equilibrium": -0.9175287500743299
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.0284248645550003,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 0.8341274592324976,
+          "nrmse": 0.7715765150969487,
+          "mse_skill_vs_equilibrium": 0.40466968135084813
+        },
+        "omega": {
+          "pooled_rmse": 2.859420640971287,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 2.2560344241064216,
+          "nrmse": 0.9172917869376997,
+          "mse_skill_vs_equilibrium": 0.15857577761664166
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3527021793720853,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.2309450462827627,
+          "nrmse": 1.0148658103240007,
+          "mse_skill_vs_equilibrium": -0.02995261296459062
+        },
+        "omega": {
+          "pooled_rmse": 4.135362350211354,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.8187345614527217,
+          "nrmse": 1.3266092667540306,
+          "mse_skill_vs_equilibrium": -0.7598921466376667
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.0325743765478748,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 0.8376572726187148,
+          "nrmse": 0.7746896895379425,
+          "mse_skill_vs_equilibrium": 0.39985588492360624
+        },
+        "omega": {
+          "pooled_rmse": 2.9281388215168476,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 2.2827849479095423,
+          "nrmse": 0.9393363304107907,
+          "mse_skill_vs_equilibrium": 0.11764725837038992
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3527021793720853,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.2309450462827627,
+          "nrmse": 1.0148658103240007,
+          "mse_skill_vs_equilibrium": -0.02995261296459062
+        },
+        "omega": {
+          "pooled_rmse": 4.135362350211354,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.8187345614527217,
+          "nrmse": 1.3266092667540306,
+          "mse_skill_vs_equilibrium": -0.7598921466376667
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.15555516535180125,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.11057737098112334,
+          "nrmse": 0.15431812563628436,
+          "mse_skill_vs_equilibrium": 0.976185916100104
+        },
+        "omega": {
+          "pooled_rmse": 0.4523742319371882,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 0.3416450484459541,
+          "nrmse": 0.18771747400400404,
+          "mse_skill_vs_equilibrium": 0.964762149953556
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.135565665866252,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.9802653096060299,
+          "nrmse": 1.126535172889198,
+          "mse_skill_vs_equilibrium": -0.2690814957564951
+        },
+        "omega": {
+          "pooled_rmse": 3.7539522665931795,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.365077004136724,
+          "nrmse": 1.5577422126782894,
+          "mse_skill_vs_equilibrium": -1.426560801159853
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.15274153491473252,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.10733279033876404,
+          "nrmse": 0.1515268703648848,
+          "mse_skill_vs_equilibrium": 0.9770396075574234
+        },
+        "omega": {
+          "pooled_rmse": 0.40895944305271886,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 0.2840582483676253,
+          "nrmse": 0.16970204799507682,
+          "mse_skill_vs_equilibrium": 0.9712012149062766
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.135565665866252,
+          "equilibrium_reference_rms": 1.0080161660233775,
+          "mean_episode_rmse": 0.9802653096060299,
+          "nrmse": 1.126535172889198,
+          "mse_skill_vs_equilibrium": -0.2690814957564951
+        },
+        "omega": {
+          "pooled_rmse": 3.7539522665931795,
+          "equilibrium_reference_rms": 2.409867458196987,
+          "mean_episode_rmse": 3.365077004136724,
+          "nrmse": 1.5577422126782894,
+          "mse_skill_vs_equilibrium": -1.426560801159853
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.7968949472211514,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.5734759008221362,
+          "nrmse": 0.7885065090786145,
+          "mse_skill_vs_equilibrium": 0.3782574851406568
+        },
+        "omega": {
+          "pooled_rmse": 2.1414576680976385,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 1.5700856870353892,
+          "nrmse": 0.8905573884798401,
+          "mse_skill_vs_equilibrium": 0.2069075378239671
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.1246563660407354,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9699458831256039,
+          "nrmse": 1.1128177787952764,
+          "mse_skill_vs_equilibrium": -0.23836340880285278
+        },
+        "omega": {
+          "pooled_rmse": 3.761212482642857,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.364847259532091,
+          "nrmse": 1.5641567965412038,
+          "mse_skill_vs_equilibrium": -1.4465864841660405
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.7984333283161582,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.5745612130837807,
+          "nrmse": 0.790028696552743,
+          "mse_skill_vs_equilibrium": 0.3758546586231739
+        },
+        "omega": {
+          "pooled_rmse": 2.112391278924132,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 1.5177276663033117,
+          "nrmse": 0.8784696932521815,
+          "mse_skill_vs_equilibrium": 0.22829099803741815
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.1246563660407354,
+          "equilibrium_reference_rms": 1.010638387947284,
+          "mean_episode_rmse": 0.9699458831256039,
+          "nrmse": 1.1128177787952764,
+          "mse_skill_vs_equilibrium": -0.23836340880285278
+        },
+        "omega": {
+          "pooled_rmse": 3.761212482642857,
+          "equilibrium_reference_rms": 2.404626243967337,
+          "mean_episode_rmse": 3.364847259532091,
+          "nrmse": 1.5641567965412038,
+          "mse_skill_vs_equilibrium": -1.4465864841660405
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.6916031336962255,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 0.4113451209047928,
+          "nrmse": 0.5347111791144732,
+          "mse_skill_vs_equilibrium": 0.7140839549300098
+        },
+        "omega": {
+          "pooled_rmse": 1.594217050767295,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 1.003824913799011,
+          "nrmse": 0.5617634668018732,
+          "mse_skill_vs_equilibrium": 0.6844218073667407
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3736758277993055,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.2567990108302074,
+          "nrmse": 1.0620539234373128,
+          "mse_skill_vs_equilibrium": -0.12795853628858933
+        },
+        "omega": {
+          "pooled_rmse": 3.9297497914143964,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.6800439685995547,
+          "nrmse": 1.3847486234238797,
+          "mse_skill_vs_equilibrium": -0.9175287500743299
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.690313612932875,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 0.40995308938069475,
+          "nrmse": 0.5337141894620714,
+          "mse_skill_vs_equilibrium": 0.7151491639668441
+        },
+        "omega": {
+          "pooled_rmse": 1.6045070819281366,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 0.9870343916688764,
+          "nrmse": 0.5653894244941657,
+          "mse_skill_vs_equilibrium": 0.680334798670156
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3736758277993055,
+          "equilibrium_reference_rms": 1.293414390253779,
+          "mean_episode_rmse": 1.2567990108302074,
+          "nrmse": 1.0620539234373128,
+          "mse_skill_vs_equilibrium": -0.12795853628858933
+        },
+        "omega": {
+          "pooled_rmse": 3.9297497914143964,
+          "equilibrium_reference_rms": 2.8378795435794246,
+          "mean_episode_rmse": 3.6800439685995547,
+          "nrmse": 1.3847486234238797,
+          "mse_skill_vs_equilibrium": -0.9175287500743299
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.0133200127325057,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 0.770748252339946,
+          "nrmse": 0.7602440888479013,
+          "mse_skill_vs_equilibrium": 0.42202892537182435
+        },
+        "omega": {
+          "pooled_rmse": 2.6852810502947766,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 2.0563789692359293,
+          "nrmse": 0.8614284368522096,
+          "mse_skill_vs_equilibrium": 0.25794104818235875
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3527021793720853,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.2309450462827627,
+          "nrmse": 1.0148658103240007,
+          "mse_skill_vs_equilibrium": -0.02995261296459062
+        },
+        "omega": {
+          "pooled_rmse": 4.135362350211354,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.8187345614527217,
+          "nrmse": 1.3266092667540306,
+          "mse_skill_vs_equilibrium": -0.7598921466376667
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.0,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 1.0123995187547525,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 0.7704107344460793,
+          "nrmse": 0.7595534875604364,
+          "mse_skill_vs_equilibrium": 0.42307849953477805
+        },
+        "omega": {
+          "pooled_rmse": 2.6926215712531603,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 2.0456955963034087,
+          "nrmse": 0.8637832493937747,
+          "mse_skill_vs_equilibrium": 0.253878498066732
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3527021793720853,
+          "equilibrium_reference_rms": 1.3328877232944014,
+          "mean_episode_rmse": 1.2309450462827627,
+          "nrmse": 1.0148658103240007,
+          "mse_skill_vs_equilibrium": -0.02995261296459062
+        },
+        "omega": {
+          "pooled_rmse": 4.135362350211354,
+          "equilibrium_reference_rms": 3.1172421705826214,
+          "mean_episode_rmse": 3.8187345614527217,
+          "nrmse": 1.3266092667540306,
+          "mse_skill_vs_equilibrium": -0.7598921466376667
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.04852939758217508,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.044010877729160305,
+          "nrmse": 0.07817992518215282,
+          "mse_skill_vs_equilibrium": 0.993887899298513
+        },
+        "omega": {
+          "pooled_rmse": 0.2367642468517331,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 0.22556535089858537,
+          "nrmse": 0.13432637418921473,
+          "mse_skill_vs_equilibrium": 0.9819564251971791
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.0066539194943938,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.8140620805545378,
+          "nrmse": 1.621700083482991,
+          "mse_skill_vs_equilibrium": -1.6299111607687404
+        },
+        "omega": {
+          "pooled_rmse": 3.262105076597505,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 2.895935620163481,
+          "nrmse": 1.8507302221098245,
+          "mse_skill_vs_equilibrium": -2.4252023550306805
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.04489321022040577,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.04009778300212527,
+          "nrmse": 0.0723220973488267,
+          "mse_skill_vs_equilibrium": 0.9947695142350669
+        },
+        "omega": {
+          "pooled_rmse": 0.17520297566850226,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 0.17120418257584968,
+          "nrmse": 0.09940006053130503,
+          "mse_skill_vs_equilibrium": 0.9901196279663729
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.0066539194943938,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.8140620805545378,
+          "nrmse": 1.621700083482991,
+          "mse_skill_vs_equilibrium": -1.6299111607687404
+        },
+        "omega": {
+          "pooled_rmse": 3.262105076597505,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 2.895935620163481,
+          "nrmse": 1.8507302221098245,
+          "mse_skill_vs_equilibrium": -2.4252023550306805
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.05579774007260753,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.05505532437415604,
+          "nrmse": 0.16204687401775955,
+          "mse_skill_vs_equilibrium": 0.9737408106210723
+        },
+        "omega": {
+          "pooled_rmse": 0.2947918304324803,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 0.2926317461144581,
+          "nrmse": 0.29659016102881375,
+          "mse_skill_vs_equilibrium": 0.9120342763809023
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 0.8979021538701273,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.6659574998618552,
+          "nrmse": 2.6076725870820363,
+          "mse_skill_vs_equilibrium": -5.7999563214191205
+        },
+        "omega": {
+          "pooled_rmse": 2.9269415750705705,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 2.562472323200608,
+          "nrmse": 2.9447969158390297,
+          "mse_skill_vs_equilibrium": -7.671828875535061
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.06426925084315252,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.06328470966731731,
+          "nrmse": 0.18664969550816846,
+          "mse_skill_vs_equilibrium": 0.965161891166708
+        },
+        "omega": {
+          "pooled_rmse": 0.24297911059077662,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 0.24123460217368897,
+          "nrmse": 0.24446136594433995,
+          "mse_skill_vs_equilibrium": 0.9402386405606276
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 0.8979021538701273,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.6659574998618552,
+          "nrmse": 2.6076725870820363,
+          "mse_skill_vs_equilibrium": -5.7999563214191205
+        },
+        "omega": {
+          "pooled_rmse": 2.9269415750705705,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 2.562472323200608,
+          "nrmse": 2.9447969158390297,
+          "mse_skill_vs_equilibrium": -7.671828875535061
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.08452288716551015,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 0.06895458850045427,
+          "nrmse": 0.11009143823977449,
+          "mse_skill_vs_equilibrium": 0.9878798752262979
+        },
+        "omega": {
+          "pooled_rmse": 0.3544906668315942,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 0.3234881378750803,
+          "nrmse": 0.16681473488460855,
+          "mse_skill_vs_equilibrium": 0.9721728442253778
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3748067499275185,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.1954777133136165,
+          "nrmse": 1.7906919353676691,
+          "mse_skill_vs_equilibrium": -2.2065776073908085
+        },
+        "omega": {
+          "pooled_rmse": 3.3420062678859077,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 3.1358484548349232,
+          "nrmse": 1.5726673273035254,
+          "mse_skill_vs_equilibrium": -1.473282522368014
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.07932659622585583,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 0.06252240451878995,
+          "nrmse": 0.1033232460702542,
+          "mse_skill_vs_equilibrium": 0.9893243068215057
+        },
+        "omega": {
+          "pooled_rmse": 0.26563635006852326,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 0.24191363544855735,
+          "nrmse": 0.12500204224966757,
+          "mse_skill_vs_equilibrium": 0.9843744894334123
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3748067499275185,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.1954777133136165,
+          "nrmse": 1.7906919353676691,
+          "mse_skill_vs_equilibrium": -2.2065776073908085
+        },
+        "omega": {
+          "pooled_rmse": 3.3420062678859077,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 3.1358484548349232,
+          "nrmse": 1.5726673273035254,
+          "mse_skill_vs_equilibrium": -1.473282522368014
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.08607676858651642,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 0.07042895643466521,
+          "nrmse": 0.184192181202783,
+          "mse_skill_vs_equilibrium": 0.9660732403837612
+        },
+        "omega": {
+          "pooled_rmse": 0.3561792995074696,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 0.33792198859311173,
+          "nrmse": 0.2681462485514605,
+          "mse_skill_vs_equilibrium": 0.9280975893877783
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.274763506904289,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.0720700834929875,
+          "nrmse": 2.727814655570035,
+          "mse_skill_vs_equilibrium": -6.440972795142669
+        },
+        "omega": {
+          "pooled_rmse": 2.9733797319746125,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 2.7571879358143656,
+          "nrmse": 2.238481073297801,
+          "mse_skill_vs_equilibrium": -4.010797515512475
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 0,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.0835293751628729,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 0.06742076780701502,
+          "nrmse": 0.17874111747458415,
+          "mse_skill_vs_equilibrium": 0.9680516129239369
+        },
+        "omega": {
+          "pooled_rmse": 0.2967393299568484,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 0.27418584648987265,
+          "nrmse": 0.22339742437483853,
+          "mse_skill_vs_equilibrium": 0.9500935907826883
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.274763506904289,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.0720700834929875,
+          "nrmse": 2.727814655570035,
+          "mse_skill_vs_equilibrium": -6.440972795142669
+        },
+        "omega": {
+          "pooled_rmse": 2.9733797319746125,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 2.7571879358143656,
+          "nrmse": 2.238481073297801,
+          "mse_skill_vs_equilibrium": -4.010797515512475
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.10352982955438263,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.07665848337095107,
+          "nrmse": 0.1667845621816577,
+          "mse_skill_vs_equilibrium": 0.9721829098178728
+        },
+        "omega": {
+          "pooled_rmse": 0.34894244050805484,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 0.2754343810803502,
+          "nrmse": 0.1979698094515729,
+          "mse_skill_vs_equilibrium": 0.9608079545457079
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.0066539194943938,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.8140620805545378,
+          "nrmse": 1.621700083482991,
+          "mse_skill_vs_equilibrium": -1.6299111607687404
+        },
+        "omega": {
+          "pooled_rmse": 3.262105076597505,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 2.895935620163481,
+          "nrmse": 1.8507302221098245,
+          "mse_skill_vs_equilibrium": -2.4252023550306805
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.09969354394252149,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.07018973287122318,
+          "nrmse": 0.1606043799198685,
+          "mse_skill_vs_equilibrium": 0.9742062331505545
+        },
+        "omega": {
+          "pooled_rmse": 0.2767605655116772,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 0.2010084053426811,
+          "nrmse": 0.1570179779171675,
+          "mse_skill_vs_equilibrium": 0.9753453546108038
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.0066539194943938,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.8140620805545378,
+          "nrmse": 1.621700083482991,
+          "mse_skill_vs_equilibrium": -1.6299111607687404
+        },
+        "omega": {
+          "pooled_rmse": 3.262105076597505,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 2.895935620163481,
+          "nrmse": 1.8507302221098245,
+          "mse_skill_vs_equilibrium": -2.4252023550306805
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.08844808402566563,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.07753596351784416,
+          "nrmse": 0.2568694630027774,
+          "mse_skill_vs_equilibrium": 0.9340180789766648
+        },
+        "omega": {
+          "pooled_rmse": 0.25563048825897533,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 0.21127006796085726,
+          "nrmse": 0.25718992132642954,
+          "mse_skill_vs_equilibrium": 0.933853344368105
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 0.8979021538701273,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.6659574998618552,
+          "nrmse": 2.6076725870820363,
+          "mse_skill_vs_equilibrium": -5.7999563214191205
+        },
+        "omega": {
+          "pooled_rmse": 2.9269415750705705,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 2.562472323200608,
+          "nrmse": 2.9447969158390297,
+          "mse_skill_vs_equilibrium": -7.671828875535061
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.07904673226409378,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.06490535282840643,
+          "nrmse": 0.22956621268257352,
+          "mse_skill_vs_equilibrium": 0.9472993539945794
+        },
+        "omega": {
+          "pooled_rmse": 0.2246928670799814,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 0.18426280697602976,
+          "nrmse": 0.22606357011830852,
+          "mse_skill_vs_equilibrium": 0.9488952622653646
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 0.8979021538701273,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.6659574998618552,
+          "nrmse": 2.6076725870820363,
+          "mse_skill_vs_equilibrium": -5.7999563214191205
+        },
+        "omega": {
+          "pooled_rmse": 2.9269415750705705,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 2.562472323200608,
+          "nrmse": 2.9447969158390297,
+          "mse_skill_vs_equilibrium": -7.671828875535061
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.15417700752935593,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 0.11203220351101026,
+          "nrmse": 0.20081624127645106,
+          "mse_skill_vs_equilibrium": 0.9596728372395982
+        },
+        "omega": {
+          "pooled_rmse": 0.5133141489274131,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 0.422963674916511,
+          "nrmse": 0.24155322460583664,
+          "mse_skill_vs_equilibrium": 0.9416520396825222
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3748067499275185,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.1954777133136165,
+          "nrmse": 1.7906919353676691,
+          "mse_skill_vs_equilibrium": -2.2065776073908085
+        },
+        "omega": {
+          "pooled_rmse": 3.3420062678859077,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 3.1358484548349232,
+          "nrmse": 1.5726673273035254,
+          "mse_skill_vs_equilibrium": -1.473282522368014
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.14932281712797282,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 0.10507821611149226,
+          "nrmse": 0.19449363658677074,
+          "mse_skill_vs_equilibrium": 0.9621722253272531
+        },
+        "omega": {
+          "pooled_rmse": 0.4279908251794997,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 0.33032709499389457,
+          "nrmse": 0.20140213189105025,
+          "mse_skill_vs_equilibrium": 0.95943718126974
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3748067499275185,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.1954777133136165,
+          "nrmse": 1.7906919353676691,
+          "mse_skill_vs_equilibrium": -2.2065776073908085
+        },
+        "omega": {
+          "pooled_rmse": 3.3420062678859077,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 3.1358484548349232,
+          "nrmse": 1.5726673273035254,
+          "mse_skill_vs_equilibrium": -1.473282522368014
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.12093626907459239,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 0.09880465446025723,
+          "nrmse": 0.2587866105241457,
+          "mse_skill_vs_equilibrium": 0.9330294902134242
+        },
+        "omega": {
+          "pooled_rmse": 0.4154417294791979,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 0.36952471403251896,
+          "nrmse": 0.31276141371950056,
+          "mse_skill_vs_equilibrium": 0.9021802980881795
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.274763506904289,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.0720700834929875,
+          "nrmse": 2.727814655570035,
+          "mse_skill_vs_equilibrium": -6.440972795142669
+        },
+        "omega": {
+          "pooled_rmse": 2.9733797319746125,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 2.7571879358143656,
+          "nrmse": 2.238481073297801,
+          "mse_skill_vs_equilibrium": -4.010797515512475
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 1,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.11709489985131932,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 0.09409520257415162,
+          "nrmse": 0.2505666205354562,
+          "mse_skill_vs_equilibrium": 0.9372163686734407
+        },
+        "omega": {
+          "pooled_rmse": 0.36071717761883343,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 0.30876388595908477,
+          "nrmse": 0.2715625475717254,
+          "mse_skill_vs_equilibrium": 0.9262537827563544
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.274763506904289,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.0720700834929875,
+          "nrmse": 2.727814655570035,
+          "mse_skill_vs_equilibrium": -6.440972795142669
+        },
+        "omega": {
+          "pooled_rmse": 2.9733797319746125,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 2.7571879358143656,
+          "nrmse": 2.238481073297801,
+          "mse_skill_vs_equilibrium": -4.010797515512475
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.08590257438038654,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.08122569742291257,
+          "nrmse": 0.13838739346889567,
+          "mse_skill_vs_equilibrium": 0.980848929328885
+        },
+        "omega": {
+          "pooled_rmse": 0.21761854599887553,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 0.19816871712407327,
+          "nrmse": 0.12346420808486107,
+          "mse_skill_vs_equilibrium": 0.9847565893219781
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.0066539194943938,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.8140620805545378,
+          "nrmse": 1.621700083482991,
+          "mse_skill_vs_equilibrium": -1.6299111607687404
+        },
+        "omega": {
+          "pooled_rmse": 3.262105076597505,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 2.895935620163481,
+          "nrmse": 1.8507302221098245,
+          "mse_skill_vs_equilibrium": -2.4252023550306805
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.08521205473813483,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.08279713730606542,
+          "nrmse": 0.13727497961960705,
+          "mse_skill_vs_equilibrium": 0.9811555799704365
+        },
+        "omega": {
+          "pooled_rmse": 0.17196309021532086,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 0.15532174688874947,
+          "nrmse": 0.09756193644162027,
+          "mse_skill_vs_equilibrium": 0.9904816685577612
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.0066539194943938,
+          "equilibrium_reference_rms": 0.6207398826374617,
+          "mean_episode_rmse": 0.8140620805545378,
+          "nrmse": 1.621700083482991,
+          "mse_skill_vs_equilibrium": -1.6299111607687404
+        },
+        "omega": {
+          "pooled_rmse": 3.262105076597505,
+          "equilibrium_reference_rms": 1.7626043156515372,
+          "mean_episode_rmse": 2.895935620163481,
+          "nrmse": 1.8507302221098245,
+          "mse_skill_vs_equilibrium": -2.4252023550306805
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.06917793459992079,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.06777220387862398,
+          "nrmse": 0.20090541370196946,
+          "mse_skill_vs_equilibrium": 0.9596370147452405
+        },
+        "omega": {
+          "pooled_rmse": 0.18583854694196553,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 0.17912081163843208,
+          "nrmse": 0.18697222539042724,
+          "mse_skill_vs_equilibrium": 0.9650413869325513
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 0.8979021538701273,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.6659574998618552,
+          "nrmse": 2.6076725870820363,
+          "mse_skill_vs_equilibrium": -5.7999563214191205
+        },
+        "omega": {
+          "pooled_rmse": 2.9269415750705705,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 2.562472323200608,
+          "nrmse": 2.9447969158390297,
+          "mse_skill_vs_equilibrium": -7.671828875535061
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "passive",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.08571666982319863,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.08491055926919674,
+          "nrmse": 0.24893693504409076,
+          "mse_skill_vs_equilibrium": 0.9380304023708541
+        },
+        "omega": {
+          "pooled_rmse": 0.16659594259170385,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 0.16006371059264635,
+          "nrmse": 0.1676122345979923,
+          "mse_skill_vs_equilibrium": 0.9719061388130676
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 0.8979021538701273,
+          "equilibrium_reference_rms": 0.3443308635900768,
+          "mean_episode_rmse": 0.6659574998618552,
+          "nrmse": 2.6076725870820363,
+          "mse_skill_vs_equilibrium": -5.7999563214191205
+        },
+        "omega": {
+          "pooled_rmse": 2.9269415750705705,
+          "equilibrium_reference_rms": 0.9939366478304763,
+          "mean_episode_rmse": 2.562472323200608,
+          "nrmse": 2.9447969158390297,
+          "mse_skill_vs_equilibrium": -7.671828875535061
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.14468132534961903,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 0.11934834374402215,
+          "nrmse": 0.1884480728040706,
+          "mse_skill_vs_equilibrium": 0.9644873238564317
+        },
+        "omega": {
+          "pooled_rmse": 0.4195160122778234,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 0.3470677241556944,
+          "nrmse": 0.19741408989258094,
+          "mse_skill_vs_equilibrium": 0.961027677111884
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3748067499275185,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.1954777133136165,
+          "nrmse": 1.7906919353676691,
+          "mse_skill_vs_equilibrium": -2.2065776073908085
+        },
+        "omega": {
+          "pooled_rmse": 3.3420062678859077,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 3.1358484548349232,
+          "nrmse": 1.5726673273035254,
+          "mse_skill_vs_equilibrium": -1.473282522368014
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 8.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.1388933801502887,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 0.11229631576279422,
+          "nrmse": 0.18090924831740204,
+          "mse_skill_vs_equilibrium": 0.9672718438732326
+        },
+        "omega": {
+          "pooled_rmse": 0.37074421461477663,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 0.29255358346496135,
+          "nrmse": 0.1744632613990568,
+          "mse_skill_vs_equilibrium": 0.9695625704220043
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.3748067499275185,
+          "equilibrium_reference_rms": 0.7677516845717183,
+          "mean_episode_rmse": 1.1954777133136165,
+          "nrmse": 1.7906919353676691,
+          "mse_skill_vs_equilibrium": -2.2065776073908085
+        },
+        "omega": {
+          "pooled_rmse": 3.3420062678859077,
+          "equilibrium_reference_rms": 2.1250560813875796,
+          "mean_episode_rmse": 3.1358484548349232,
+          "nrmse": 1.5726673273035254,
+          "mse_skill_vs_equilibrium": -1.473282522368014
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "ridge",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.1144742052659227,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 0.09947300241495177,
+          "nrmse": 0.2449587026282528,
+          "mse_skill_vs_equilibrium": 0.9399952340066832
+        },
+        "omega": {
+          "pooled_rmse": 0.32972083377834677,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 0.287270129352693,
+          "nrmse": 0.248227240519544,
+          "mse_skill_vs_equilibrium": 0.9383832370640525
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.274763506904289,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.0720700834929875,
+          "nrmse": 2.727814655570035,
+          "mse_skill_vs_equilibrium": -6.440972795142669
+        },
+        "omega": {
+          "pooled_rmse": 2.9733797319746125,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 2.7571879358143656,
+          "nrmse": 2.238481073297801,
+          "mse_skill_vs_equilibrium": -4.010797515512475
+        }
+      }
+    },
+    {
+      "model": "lewm",
+      "damping": 0.2,
+      "seed": 2,
+      "probe": "mlp",
+      "mode": "driven",
+      "horizon_s": 32.0,
+      "episodes": 32,
+      "metrics": {
+        "angle": {
+          "pooled_rmse": 0.12019080940514477,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 0.10844083277226374,
+          "nrmse": 0.25719143165336533,
+          "mse_skill_vs_equilibrium": 0.9338525674840923
+        },
+        "omega": {
+          "pooled_rmse": 0.3127491140242092,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 0.2755437737452088,
+          "nrmse": 0.23545024031253656,
+          "mse_skill_vs_equilibrium": 0.9445631843367688
+        }
+      },
+      "oracle_true_initial_state_persistence": {
+        "angle": {
+          "pooled_rmse": 1.274763506904289,
+          "equilibrium_reference_rms": 0.4673204260052265,
+          "mean_episode_rmse": 1.0720700834929875,
+          "nrmse": 2.727814655570035,
+          "mse_skill_vs_equilibrium": -6.440972795142669
+        },
+        "omega": {
+          "pooled_rmse": 2.9733797319746125,
+          "equilibrium_reference_rms": 1.328302377644916,
+          "mean_episode_rmse": 2.7571879358143656,
+          "nrmse": 2.238481073297801,
+          "mse_skill_vs_equilibrium": -4.010797515512475
+        }
+      }
+    }
+  ]
+}

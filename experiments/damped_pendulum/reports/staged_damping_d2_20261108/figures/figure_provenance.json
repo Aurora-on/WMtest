@@ -1,0 +1,70 @@
+{
+  "source_files": {
+    "a": {
+      "npz": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/run/milestones/undamped_step20000/evaluation/val/trajectories.npz",
+      "npz_sha256": "97ea93ccda1fc8f81f28c104254fde76d9269f739d1ed99fed2530b86324d5fd",
+      "summary": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/run/milestones/undamped_step20000/evaluation/summary.json",
+      "summary_sha256": "285ec48e92d7bfe4cbca6c369d45ca0a4ae85445c8a10827977c131e37e84b91",
+      "completion_manifest_sha256": "838d0e857e99f538258ff670b21eb279d4b52ce2186e449d0d51f6d54bada13c"
+    },
+    "single": {
+      "npz": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/run/milestones/damping_single_step20000/evaluation/val/trajectories.npz",
+      "npz_sha256": "b8a5de2ae6ac5a1ef34f404586217447a66bb237f1cf4495cc1f926ceaa70b0c",
+      "summary": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/run/milestones/damping_single_step20000/evaluation/summary.json",
+      "summary_sha256": "c65cc5d5045b0af9931971abf6a93f579c12d854cbf35f0c042312309a015ea6",
+      "completion_manifest_sha256": "4ce662a1fcbf621e8b735f06e2a69a93159ba4570a8a32d0eb1fe54ca80bc0a0"
+    },
+    "multi": {
+      "npz": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/run/milestones/damping_multi_step20000/evaluation/val/trajectories.npz",
+      "npz_sha256": "d1c1b0fb07247b5f99e2a86485ede272b7bd7928d52c68e6dffa99543a94fcde",
+      "summary": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/run/milestones/damping_multi_step20000/evaluation/summary.json",
+      "summary_sha256": "4f0fc008e4a1da4222300ab4443a3069afd3d877e242b4084f1f18dd26891a21",
+      "completion_manifest_sha256": "955e45345a4a571808727bb4e516511258bb42f4ffca1bf9980938007a334cab"
+    }
+  },
+  "pipeline_json": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/run/pipeline.json",
+  "pipeline_sha256": "9aeaef8646d3b32540a5325b63a36f3c6393297c60492fa479e903fcdf8d1443",
+  "script_sha256": "9175354482b44c2a854bb1705af851028c4084d4395b09e9e6a275c16592413b",
+  "training_history_json": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/reports/staged_damping_d2_20261108/analysis/training_history_summary.json",
+  "training_history_sha256": "a9eb1caf2ce4940257174469906997c0b0cbfa277bed33dc03f44047b965de65",
+  "training_history_remote_sources": {
+    "stage_a": [
+      {
+        "path": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/stage_a/segments/0001/history.jsonl",
+        "sha256": "c3345debc6392a27e1e02563928d86a98a2b99f37f3662e87702d3c5e4d4b666"
+      }
+    ],
+    "stage_b_single": [
+      {
+        "path": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/stage_b_single/segments/0001/history.jsonl",
+        "sha256": "9b875b32b8b9c32888a024b3b55c7b956d42203ab6a12bb31e45b6e0ce5bc358"
+      }
+    ],
+    "stage_b_multi": [
+      {
+        "path": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/stage_b_multi/segments/0001/history.jsonl",
+        "sha256": "3de74601171b8e8ec9dd1c6813277fe10f4eff606d6763dfb9c0d81817739b27"
+      }
+    ]
+  },
+  "training_curve_aggregation": "250-update nonoverlapping means, plotted at block end; raw validation score; A steps 10001..20000 and B steps 1..20000",
+  "evaluation_scope": "All 64 validation initial-condition groups per seen damping condition",
+  "aggregate_window": "Future frames 1..32 = 0.1..3.2 seconds; anchor excluded",
+  "angle_metric": "mean(abs(atan2(sin(pred-truth), cos(pred-truth))))",
+  "omega_metric": "sqrt(mean((pred-truth)^2))",
+  "horizon_curves": "Pointwise across 64 groups, not cumulative in time",
+  "matching_to_saved_json": "Every aggregate pred/teacher metric asserted to tolerance 1e-12",
+  "teacher_semantics": "Each time uses its real observation history and the shared frozen readout; diagnostic, not autonomous prediction or a strict error lower bound",
+  "model_execution": false,
+  "model_updates": 0,
+  "readout_fitting": false,
+  "sample_selection": "None; all 64 groups per condition",
+  "smoothing": false,
+  "outputs": {
+    "summary_metrics.png": "47be09494ec8ed044e5ef55ab59d8005667e7b2ed1c3b126629709c93ca38aaa",
+    "horizon_errors.png": "15f350c3a24874122e96b518ed94b4eb54c63f5078b9a166f826e7d299359369",
+    "pipeline.png": "639b8d1a8f463e6b8dd0ab9ccf9b6b2956d4a766e6406a55cc4570d7eba04fb9",
+    "training_convergence.png": "fcfa3e1086c7e45adb657757a16af9f6c04947cceb7ded1692fb398da214379c",
+    "figure_metrics.json": "ab82283e38f5c05a0a09dad88b6a3d90cc862d445e18a90a01badfa9734513aa"
+  }
+}

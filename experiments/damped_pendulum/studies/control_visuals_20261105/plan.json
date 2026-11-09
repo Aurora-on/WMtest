@@ -1,0 +1,12 @@
+{
+  "arm": "control",
+  "checkpoint_step": 10000,
+  "checkpoint_remote": "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z/runs/control_4000_10000/last.pt",
+  "code_remote": "/home/weizhixin/ssd/lehami_loss_pair_launch_20261105T064216Z/code",
+  "dataset_remote": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+  "data_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+  "selection": "Same four validation cases as previous animation; minimum group_id per energy_band; no error-based filtering",
+  "calibration": "288 training groups ridge fit; 96 training groups alpha selection; frozen world model; no test split",
+  "visualization_horizon_seconds": 3.2,
+  "world_model_updates": 0
+}

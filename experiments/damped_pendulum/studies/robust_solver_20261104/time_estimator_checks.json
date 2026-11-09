@@ -1,0 +1,7 @@
+{
+  "scope": "synthetic arithmetic check only, no training or performance evidence",
+  "resume4250_expected_seconds": 57943,
+  "fresh_expected_seconds": 65880,
+  "incomplete_evidence_rejected": true,
+  "status": "passed"
+}

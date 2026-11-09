@@ -1,0 +1,21 @@
+{
+  "mode": "bounded_failure_replay",
+  "resume": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/runs/seed0_47541/last.pt",
+  "resume_step": 2750,
+  "max_optimizer_updates": 60,
+  "latest_allowed_optimizer_step": 2810,
+  "expected_failure_step": 2795,
+  "source_files_unchanged": true,
+  "original_tolerances_unchanged": true,
+  "output": "/home/weizhixin/ssd/dissipative_passive_review_20261104/replay_47690",
+  "device": "cuda",
+  "optimizer_updates_enabled": true,
+  "harness_sha256": "1a48daae91afb5e95a572a68fd080ba6cca12db0f619637c0fe30e364a6f6f29",
+  "original_source_hashes": {
+    "dpbench/train_dissipative.py": "83e5d07c3e26d518b6ad1a7983cc75d376ab263e28f449ca54dc0e06cac229ed",
+    "dpbench/dissipative_model.py": "e1e37a7e8d967a3175250a83881144694bd424d1873c85398486c65e8abbc1b9",
+    "dpbench/dissipative_core.py": "28ffabd06e86b1968a8f32a33015e3ab01bc839015e83466460bf111800fc54e",
+    "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+  }
+}

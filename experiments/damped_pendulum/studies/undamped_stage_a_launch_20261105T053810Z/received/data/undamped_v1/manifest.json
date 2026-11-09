@@ -1,0 +1,195 @@
+{
+  "status": "generated_untrained",
+  "training_started": false,
+  "selection_scope": "undamped_subset",
+  "selected_damping": [
+    0.0
+  ],
+  "training_scope": "undamped_stage_a",
+  "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+  "config": {
+    "family_name": "passive_multi_damping_smooth_v1",
+    "groups": {
+      "train": 384,
+      "val": 64,
+      "test": 128
+    },
+    "split_seeds": {
+      "train": 2026110301,
+      "val": 2026110302,
+      "test": 2026110303
+    },
+    "group_id_offset": 10000000,
+    "seen_damping": [
+      0.0,
+      0.05,
+      0.1,
+      0.2,
+      0.5,
+      1.0
+    ],
+    "interpolation_damping": [
+      0.075,
+      0.15,
+      0.35,
+      0.75
+    ],
+    "extrapolation_damping": [
+      1.5
+    ],
+    "theta_range": [
+      -2.5,
+      2.5
+    ],
+    "omega_range": [
+      -2.0,
+      2.0
+    ],
+    "energy_edges": [
+      0.05,
+      0.25,
+      0.75,
+      1.25,
+      2.01
+    ],
+    "history": 21,
+    "train_frames": 81,
+    "test_frames": 341,
+    "dt": 0.1,
+    "substeps": 20,
+    "image_size": 64,
+    "mass": 1.0,
+    "length": 1.0,
+    "gravity": 9.81,
+    "renderer": "smooth_v1"
+  },
+  "renderer": "smooth_v1",
+  "source_sha256": {
+    "dpbench/passive_family.py": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae",
+    "dpbench/generate.py": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31"
+  },
+  "plan": {
+    "mode": "plan_only",
+    "training_started": false,
+    "writes_files": false,
+    "family_name": "passive_multi_damping_smooth_v1",
+    "groups": {
+      "train": 384,
+      "val": 64,
+      "test": 128
+    },
+    "renderer": "smooth_v1",
+    "rendering_contract": "Versioned geometry; smooth_v1 is continuous before uint8 rounding, but stored pixels retain quantization boundaries. New version requires new data.",
+    "seen_episodes": {
+      "train": 384,
+      "val": 64,
+      "test": 128
+    },
+    "unseen_episodes": {
+      "interpolation": 0,
+      "extrapolation": 0
+    },
+    "seen_frames": 79936,
+    "unseen_frames": 0,
+    "raw_rgb_bytes": 982253568,
+    "storage_note": "Raw RGB only; excludes metadata and compression. Actual size is measured after generation.",
+    "history_seconds": 2.0,
+    "test_rollout_seconds": 32.0,
+    "model_fields": [
+      "pixels",
+      "action",
+      "dt_frame"
+    ],
+    "requires_environment_context": false,
+    "source": "Project-generated passive pendulum simulations, not an external dataset",
+    "selection_scope": "undamped_subset",
+    "selected_damping": [
+      0.0
+    ],
+    "training_scope": "undamped_stage_a",
+    "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+    "output_files": [
+      "undamped.h5"
+    ],
+    "pairing_contract": "Reuse all parent initial groups and split identities; select b=0 before simulation/rendering. No resampling."
+  },
+  "datasets": [
+    {
+      "file": "undamped.h5",
+      "kind": "seen",
+      "renderer": "smooth_v1",
+      "episodes": 576,
+      "frames": 79936,
+      "sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+      "bytes": 46142002,
+      "numerical_audit": [
+        {
+          "damping": 0.0,
+          "split": "train",
+          "episodes": 384,
+          "energy_balance_max_abs": 7.3099251096664375e-09,
+          "max_energy_increase": 7.071019325621819e-09,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 0.0,
+          "split": "val",
+          "episodes": 64,
+          "energy_balance_max_abs": 6.848797085012848e-09,
+          "max_energy_increase": 6.678433805973327e-09,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true
+        },
+        {
+          "damping": 0.0,
+          "split": "test",
+          "episodes": 128,
+          "energy_balance_max_abs": 7.56543627744577e-09,
+          "max_energy_increase": 7.316636185805692e-09,
+          "work_exactly_zero": true,
+          "dissipation_nonnegative": true,
+          "independent_reference": {
+            "audited_episodes": [
+              3,
+              0,
+              9,
+              1
+            ],
+            "energy_bands": 4,
+            "frames_each": 341,
+            "state_max_abs": 8.71528212376127e-08,
+            "cumulative_dissipation_max_abs": 0.0,
+            "reference": "DOP853 rtol=1e-11 atol=1e-12; one full test trajectory per initial-energy band",
+            "file_episode_ids": [
+              451,
+              448,
+              457,
+              449
+            ]
+          }
+        }
+      ],
+      "different_damping_same_group_identical_initial_context": {
+        "collision_groups": 0,
+        "examples": [],
+        "scope": "Exact RGB equality across the complete initial history, within one initial group; no approximate-identifiability claim"
+      },
+      "selection_scope": "undamped_subset",
+      "selected_damping": [
+        0.0
+      ],
+      "training_scope": "undamped_stage_a",
+      "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45"
+    }
+  ],
+  "requires_environment_context": false,
+  "split_contract": "All parent train/val/test initial states and group IDs retained; only b=0 is simulated. No resampling or cross-split reassignment.",
+  "metadata_boundary": "Only pixels/action/dt_frame enter the model. Damping/state/energy/group metadata remain outside training targets; regime_id=0 is sampler metadata only.",
+  "initial_context_overlap": {
+    "val_matches_train": [],
+    "test_matches_development": [],
+    "scope": "Exact RGB equality in initial histories; report without filtering or resampling."
+  },
+  "test_policy": "Keep the parent test split for paired development diagnostics. Once used in design, it is not a fresh final holdout; preregister a separate final test seed later."
+}

@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "helper_sha256": "1f6288916e51d58fed2e5a9c0af25eb217cdd759131414d9464a09547af430ff",
+  "scope": "CPU inference smoke and injected audit failures; no optimizer created or parameter update",
+  "episodes": 24,
+  "batch_size": 8,
+  "steps": 2,
+  "transitions": 48,
+  "model_state_unchanged": true,
+  "ledger_and_state_maxima": {
+    "frame_identity_max": 5.24338044332666e-18,
+    "frame_reported_residual_max": 0.0,
+    "frame_components_max": 0.0,
+    "sequence_identity_max": 1.7295405276946723e-17,
+    "energy_balance_defect_max": 5.1943469109305695e-09,
+    "sequence_energy_balance_defect_max": 9.365898306912257e-09,
+    "q_norm_max": 0.6346392150546091,
+    "p_norm_max": 2.382470356311827,
+    "energy_abs_max": 3.593245251350643
+  },
+  "deliberate_corruptions_rejected": [
+    "nonfinite_state",
+    "residual",
+    "negative_dissipation",
+    "ledger"
+  ],
+  "batch_failure_model_calls": 1,
+  "batch_failure_retries": 0,
+  "batch_failure_manifest_status": "failed"
+}

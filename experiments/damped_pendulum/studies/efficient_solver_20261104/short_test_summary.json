@@ -1,0 +1,32 @@
+{
+  "same_checkpoint_step": 3750,
+  "job47712": "COMPLETED exit0",
+  "gpu_job_elapsed_seconds": 82,
+  "benchmark_optimizer_updates": 24,
+  "cuda_checks": "21 passed in6.41s",
+  "local_checks": "70 passed in1.31s",
+  "formal_training_resumed": false,
+  "measurements": {
+    "8": {
+      "reference_seconds": 1.5492675378918648,
+      "efficient_seconds": 0.7163336997230848,
+      "speedup": 2.162773492983465,
+      "time_reduction_fraction": 0.5376307305206809
+    },
+    "16": {
+      "reference_seconds": 2.7617537205417952,
+      "efficient_seconds": 1.3598552346229553,
+      "speedup": 2.0309174463762254,
+      "time_reduction_fraction": 0.507611694515548
+    },
+    "32": {
+      "reference_seconds": 4.550522558391094,
+      "efficient_seconds": 2.623020720978578,
+      "speedup": 1.734840492107671,
+      "time_reduction_fraction": 0.4235781303530145
+    }
+  },
+  "reference_remaining3750_optimizer_hours": 17.350851331009633,
+  "efficient_remaining3750_optimizer_hours": 9.602339456237303,
+  "planning_limit": "Only three timed updates per horizon at3750 weights; does not predict later stiffness, convergence, queue time or validation cost. No new-model full validation time measured."
+}

@@ -1,0 +1,364 @@
+{
+  "checked_at_utc": "2026-11-04T08:18:57.486401+00:00",
+  "job_id": 47696,
+  "squeue": "             JOBID      STATE       TIME\n             47696    RUNNING      10:30\n",
+  "continuation/status.json": {
+    "status": "running",
+    "training_started": true,
+    "completed_steps": 3000,
+    "optimizer_steps_this_run": 250
+  },
+  "fresh_profile.json": {
+    "status": "completed",
+    "optimizer_updates_enabled": true,
+    "data": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/data/passive_family_v1/seen.h5",
+    "device": "cuda",
+    "profile_seed": 0,
+    "horizons": [
+      4,
+      8,
+      16,
+      32
+    ],
+    "warmup_updates_per_horizon": 2,
+    "timed_updates_per_horizon": 4,
+    "total_profile_optimizer_updates": 24,
+    "batch_size": 32,
+    "threads": 4,
+    "learning_rate_scope": "Full configured base LR in the profile; formal training starts fresh and uses its configured warmup/cosine schedule",
+    "formal_optimizer_steps": 20000,
+    "curriculum_updates": {
+      "4": 1000,
+      "8": 3000,
+      "16": 6000,
+      "32": 10000
+    },
+    "formal_validation_calls": 80,
+    "validation_windows": 288,
+    "validation_horizons": [
+      8,
+      32
+    ],
+    "validation_scope": "Full trainer.validation after the horizon-32 stress run; fixed validation anchors",
+    "writes_files": true,
+    "physical_performance_evaluation": false,
+    "measurements": {
+      "4": {
+        "mean_seconds": 0.39225029200315475,
+        "median_seconds": 0.3913690596818924,
+        "min_seconds": 0.38959138840436935,
+        "max_seconds": 0.3966716602444649,
+        "timed_updates": 4,
+        "warmup_updates": 2,
+        "losses_finite": true,
+        "first_loss": 3.27981232066437,
+        "last_loss": 3.2136621778260115,
+        "solver_residual_max": 3.860031289396049e-09,
+        "changed_parameter_tensors": 46,
+        "parameters_actually_changed": true,
+        "optimizer_state_entries": 46,
+        "initial_state_sha256": "35d1ec48e97808304f29fcc3a2aa192731855b3f983613a092461e8726b08e4d",
+        "cuda_max_memory_allocated_bytes": 745331712,
+        "cuda_max_memory_reserved_bytes": 1224736768
+      },
+      "8": {
+        "mean_seconds": 0.6950142495334148,
+        "median_seconds": 0.6954946368932724,
+        "min_seconds": 0.6902632266283035,
+        "max_seconds": 0.698804497718811,
+        "timed_updates": 4,
+        "warmup_updates": 2,
+        "losses_finite": true,
+        "first_loss": 3.357157246526484,
+        "last_loss": 3.2500460268230995,
+        "solver_residual_max": 3.860031289396049e-09,
+        "changed_parameter_tensors": 46,
+        "parameters_actually_changed": true,
+        "optimizer_state_entries": 46,
+        "initial_state_sha256": "35d1ec48e97808304f29fcc3a2aa192731855b3f983613a092461e8726b08e4d",
+        "cuda_max_memory_allocated_bytes": 861564928,
+        "cuda_max_memory_reserved_bytes": 1363148800
+      },
+      "16": {
+        "mean_seconds": 1.3045375142246485,
+        "median_seconds": 1.3048249073326588,
+        "min_seconds": 1.3008019477128983,
+        "max_seconds": 1.3076982945203781,
+        "timed_updates": 4,
+        "warmup_updates": 2,
+        "losses_finite": true,
+        "first_loss": 3.6117868048921986,
+        "last_loss": 3.3233738544740525,
+        "solver_residual_max": 3.860031289396049e-09,
+        "changed_parameter_tensors": 46,
+        "parameters_actually_changed": true,
+        "optimizer_state_entries": 46,
+        "initial_state_sha256": "35d1ec48e97808304f29fcc3a2aa192731855b3f983613a092461e8726b08e4d",
+        "cuda_max_memory_allocated_bytes": 1098487808,
+        "cuda_max_memory_reserved_bytes": 1543503872
+      },
+      "32": {
+        "mean_seconds": 2.543596090748906,
+        "median_seconds": 2.5399636551737785,
+        "min_seconds": 2.5344263166189194,
+        "max_seconds": 2.560030736029148,
+        "timed_updates": 4,
+        "warmup_updates": 2,
+        "losses_finite": true,
+        "first_loss": 4.47383882619132,
+        "last_loss": 3.5623650410119607,
+        "solver_residual_max": 3.860031289396049e-09,
+        "changed_parameter_tensors": 46,
+        "parameters_actually_changed": true,
+        "optimizer_state_entries": 46,
+        "initial_state_sha256": "35d1ec48e97808304f29fcc3a2aa192731855b3f983613a092461e8726b08e4d",
+        "cuda_max_memory_allocated_bytes": 1572595712,
+        "cuda_max_memory_reserved_bytes": 2153775104
+      }
+    },
+    "optimizer_updates_completed": 24,
+    "config_sha256": "28c78ffe7e12e912c66f8e4ed99a2ade8ed5a3aec8f695a7089be05c7adbd31d",
+    "dataset_sha256": "55d2b4687e1a6f743b123ba69e3731a067a5b941817bd9d98738262dfabb1509",
+    "source_sha256": {
+      "dpbench/train_dissipative.py": "bca056b9c088fdabf845b38ddb93fc59ac3dd2079217046a7f1cf7ac0d03f284",
+      "dpbench/dissipative_model.py": "bf0b419f4d6a23866cc22018905ff11972ac9c8b4002fc8476236987e4cee30a",
+      "dpbench/dissipative_core.py": "1eb98f2aafbbe6d215bccdfa6296371096c292ca85a204b663083bf7b461b2fb",
+      "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+      "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620",
+      "scripts/profile_dissipative.py": "308e4859359af73e16db262f8a6448c64b81cae7e9ec1c9f444d679fe7cb2f91"
+    },
+    "runtime": {
+      "python": "3.12.14",
+      "torch": "2.8.0+cu126",
+      "cuda_build": "12.6",
+      "device_type": "cuda",
+      "cuda_devices": [
+        "NVIDIA L40"
+      ],
+      "deterministic_algorithms": false,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": false
+    },
+    "effective_config": {
+      "model": {
+        "history": 21,
+        "velocity_history": 5,
+        "environment_context_dim": 4,
+        "core": {
+          "solver": "backtracking",
+          "newton_iterations": 12,
+          "line_search_max_backtracks": 12,
+          "line_search_shrink": 0.5,
+          "line_search_c1": 0.0001,
+          "max_bisections": 4
+        }
+      },
+      "training": {
+        "steps": 20000,
+        "batch_size": 32,
+        "train_frames": 81,
+        "seed": 0,
+        "threads": 4,
+        "encoder_lr": 2e-05,
+        "dynamics_lr": 0.0001,
+        "weight_decay": 0.0001,
+        "warmup_steps": 500,
+        "minimum_lr_ratio": 0.1,
+        "gradient_clip": 1.0,
+        "curriculum": [
+          {
+            "until_step": 1000,
+            "horizon": 4
+          },
+          {
+            "until_step": 4000,
+            "horizon": 8
+          },
+          {
+            "until_step": 10000,
+            "horizon": 16
+          },
+          {
+            "until_step": 20000,
+            "horizon": 32
+          }
+        ],
+        "val_horizons": [
+          8,
+          32
+        ],
+        "val_every": 250,
+        "val_windows": 288,
+        "val_seed": 1009,
+        "minimum_target_std": 0.1,
+        "minimum_target_motion": 0.001,
+        "validation_gate_time_bins": [
+          0
+        ]
+      }
+    },
+    "preflight_passed": true,
+    "fixed_validation_anchor_sha256": "0aed666a47f5784e8f2f67279aacce43794c199363612bdc17e8d9ba32ba1f74",
+    "validation": {
+      "seconds": 27.073787562549114,
+      "windows": 288,
+      "horizons": [
+        8,
+        32
+      ],
+      "groups": 36,
+      "gate_passed": false,
+      "score": 232.54322401443798,
+      "scope": "After the fresh horizon-32 base-LR stress updates; internal latent validation, not physical accuracy"
+    },
+    "runtime_estimate": {
+      "optimizer_steps": 20000,
+      "curriculum_updates": {
+        "4": 1000,
+        "8": 3000,
+        "16": 6000,
+        "32": 10000
+      },
+      "validation_calls": 80,
+      "one_full_validation_seconds": 27.073787562549114,
+      "estimated_total_seconds": 37906.38203844428,
+      "observed_step_min_based_seconds": 37775.35892575979,
+      "observed_step_max_based_seconds": 38105.48528581858,
+      "estimated_validation_seconds": 2165.903005003929,
+      "scope": "Extrapolation from short fresh-model base-LR measurements, not a completion guarantee or statistical confidence interval. Excludes queueing, transfer, data generation, checkpoint serialization and initialization/preflight. Later Newton iteration counts and convergence can change."
+    },
+    "total_profile_wall_seconds": 65.67970200628042,
+    "formal_training_started": false,
+    "checkpoint_saved": false,
+    "timing_scope": "Each timed interval includes data batch read/transfer, forward, scalar checks, backward, gradient clipping and AdamW update; CUDA synchronized at both ends. Model creation and parameter-copy audit excluded."
+  },
+  "migration/migration.json": {
+    "kind": "explicit_solver_only_migration",
+    "original_checkpoint": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/runs/seed0_47541/last.pt",
+    "original_checkpoint_sha256": "ebaa2a0158336162f6abaedb98f1ff0732887739d4c1481138409c1012759da7",
+    "original_source_root": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/code",
+    "original_source_hashes": {
+      "dpbench/train_dissipative.py": "83e5d07c3e26d518b6ad1a7983cc75d376ab263e28f449ca54dc0e06cac229ed",
+      "dpbench/dissipative_model.py": "e1e37a7e8d967a3175250a83881144694bd424d1873c85398486c65e8abbc1b9",
+      "dpbench/dissipative_core.py": "28ffabd06e86b1968a8f32a33015e3ab01bc839015e83466460bf111800fc54e",
+      "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+      "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+    },
+    "new_source_hashes": {
+      "dpbench/train_dissipative.py": "bca056b9c088fdabf845b38ddb93fc59ac3dd2079217046a7f1cf7ac0d03f284",
+      "dpbench/dissipative_model.py": "bf0b419f4d6a23866cc22018905ff11972ac9c8b4002fc8476236987e4cee30a",
+      "dpbench/dissipative_core.py": "1eb98f2aafbbe6d215bccdfa6296371096c292ca85a204b663083bf7b461b2fb",
+      "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+      "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+    },
+    "source_changes": {
+      "dpbench/train_dissipative.py": {
+        "before": "83e5d07c3e26d518b6ad1a7983cc75d376ab263e28f449ca54dc0e06cac229ed",
+        "after": "bca056b9c088fdabf845b38ddb93fc59ac3dd2079217046a7f1cf7ac0d03f284"
+      },
+      "dpbench/dissipative_model.py": {
+        "before": "e1e37a7e8d967a3175250a83881144694bd424d1873c85398486c65e8abbc1b9",
+        "after": "bf0b419f4d6a23866cc22018905ff11972ac9c8b4002fc8476236987e4cee30a"
+      },
+      "dpbench/dissipative_core.py": {
+        "before": "28ffabd06e86b1968a8f32a33015e3ab01bc839015e83466460bf111800fc54e",
+        "after": "1eb98f2aafbbe6d215bccdfa6296371096c292ca85a204b663083bf7b461b2fb"
+      }
+    },
+    "solver_changes": {
+      "newton_iterations": {
+        "before": 6,
+        "after": 12
+      },
+      "max_bisections": {
+        "before": 0,
+        "after": 4
+      },
+      "solver": {
+        "before": "full",
+        "after": "backtracking"
+      }
+    },
+    "original_config_sha256": "afa7aca0c58df4ba6c62a85bcf3111fface8ff3f095270005465757f343d7a32",
+    "new_config_sha256": "28c78ffe7e12e912c66f8e4ed99a2ade8ed5a3aec8f695a7089be05c7adbd31d",
+    "step": 2750,
+    "preserved": [
+      "state_dict",
+      "optimizer",
+      "rng",
+      "sampler_next_step",
+      "validation_indices",
+      "dataset_sha256"
+    ],
+    "reset": [
+      "validation",
+      "best_score",
+      "best_step",
+      "best_checkpoint_path"
+    ],
+    "scope": "Changed numerical solver; same architecture/data/schedule. This is not an unchanged-experiment resume.",
+    "migration_script_sha256": "a12372ac78e425fc74a8d46d611a18dcdd37674291113894d67bb9c95e1c6fae"
+  },
+  "last_completed_step": 3068,
+  "last_completed_step_metrics": {
+    "step": 3068,
+    "horizon_steps": 8,
+    "horizon_seconds_at_model_dt": 0.8,
+    "losses": {
+      "loss": 0.7259843355197546,
+      "prediction_loss": 0.2673161142058066,
+      "motion_loss": 0.08237173618001326,
+      "sigreg_loss": 1.5020993947982788,
+      "initializer_loss": 0.771636426448822,
+      "target_std_min": 0.750877044126204,
+      "target_std_mean": 0.7787666229412928,
+      "target_motion_rms": 0.32397689002951535,
+      "target_motion_mse": 0.1049610252731967,
+      "persistence_mse": 0.7997327591899417,
+      "prediction_mse": 0.2673161142058066,
+      "normalized_prediction_mse": 0.44020385215156194,
+      "persistence_ratio": 0.3342568015802855,
+      "target_mean_0": 0.10798181599238887,
+      "target_second_moment_0": 0.5754764079807195,
+      "target_mean_1": -0.018508782261051238,
+      "target_second_moment_1": 0.6510368028528194,
+      "work": 0.0,
+      "dissipation": 1.8416225964525712,
+      "residual_work": 9.015595859888159e-10,
+      "chain_defect": 6.149373377077668e-18,
+      "numerical_balance_defect": 8.693683486557922e-07,
+      "chain_defect_max": 7.105427357601002e-15,
+      "solver_residual": 2.099540343802886e-07,
+      "solver_residual_ratio": 0.4584677435335966,
+      "solver_iterations": 4.34375,
+      "solver_backtracks": 0.0078125,
+      "solver_line_search_evals": 4.3515625,
+      "solver_failed_attempts": 0.0,
+      "solver_leaf_steps": 2.0,
+      "solver_split_depth": 0.0,
+      "solver_replay_iterations": 4.34375,
+      "solver_replay_relative_error": 3.1112953017833844e-17,
+      "energy_delta": -1.8416225955510117,
+      "energy_residual": 8.693683462013269e-07
+    },
+    "gradient_norm": 7.061551443014759,
+    "lr_factor": 0.9620335954023087,
+    "step_seconds": 1.2791307717561722,
+    "validation_seconds": 0.0,
+    "checkpoint_seconds": 0.0,
+    "training_memory": {
+      "cuda_peak_allocated_bytes": 872544256,
+      "cuda_peak_reserved_bytes": 1386217472
+    },
+    "iteration_seconds": 1.2797106057405472
+  },
+  "validation_summaries": [
+    {
+      "step": 3000,
+      "seconds": 43.32365596294403,
+      "score": 2.5366124789161213,
+      "gate_passed": true
+    }
+  ],
+  "cuda_tests": ".................                                                        [100%]\n17 passed in 9.07s\n"
+}

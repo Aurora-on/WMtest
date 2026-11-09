@@ -1,0 +1,58 @@
+{
+  "lehami": {
+    "data": "b=0.2",
+    "steps": 500,
+    "warmup_excluded": 20,
+    "measured_steps": 480,
+    "mean_step_seconds": 0.19146669567483818,
+    "median_step_seconds": 0.18730637499538716,
+    "train_summary": {
+      "model": "lehami",
+      "device": "mps",
+      "steps": 500,
+      "warmup_steps": 3,
+      "measured_steps": 497,
+      "batch_size": 32,
+      "wall_seconds": 97.64476858401031,
+      "step_seconds_mean": 0.1908099500521733,
+      "step_seconds_median": 0.18687883400707506,
+      "step_seconds_p90": 0.21229458359011916,
+      "compute_seconds_mean": 0.1703907420361692,
+      "clips_per_second": 167.70613896838302,
+      "best_validation_loss": 1.6654267758131027,
+      "extrapolation_caveat": "Short-run estimate excludes future validation, checkpoint I/O, thermal effects and queue time.",
+      "process_peak_rss_bytes": 570720256,
+      "mps_current_allocated_bytes": 207581440,
+      "mps_current_driver_allocated_bytes": 2590310400
+    },
+    "evaluation_seconds": 19.539422417001333
+  },
+  "lewm": {
+    "data": "b=0.2",
+    "steps": 500,
+    "warmup_excluded": 20,
+    "measured_steps": 480,
+    "mean_step_seconds": 0.2450382608354327,
+    "median_step_seconds": 0.22950260449579218,
+    "train_summary": {
+      "model": "lewm",
+      "device": "mps",
+      "steps": 500,
+      "warmup_steps": 3,
+      "measured_steps": 497,
+      "batch_size": 32,
+      "wall_seconds": 125.33137566701043,
+      "step_seconds_mean": 0.24549859362585055,
+      "step_seconds_median": 0.23076437499548774,
+      "step_seconds_p90": 0.28377062500221656,
+      "compute_seconds_mean": 0.22438824386283207,
+      "clips_per_second": 130.34697888644223,
+      "best_validation_loss": 0.6807709336280823,
+      "extrapolation_caveat": "Short-run estimate excludes future validation, checkpoint I/O, thermal effects and queue time.",
+      "process_peak_rss_bytes": 505561088,
+      "mps_current_allocated_bytes": 155996928,
+      "mps_current_driver_allocated_bytes": 2898870272
+    },
+    "evaluation_seconds": 33.173919749999186
+  }
+}

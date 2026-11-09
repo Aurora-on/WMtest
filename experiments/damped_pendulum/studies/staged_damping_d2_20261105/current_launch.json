@@ -1,0 +1,17 @@
+{
+  "status": "completed",
+  "local_root": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z",
+  "remote_root": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z",
+  "archive_sha256": "3c527ba059af2e019ce78c7aa555b11439e56f64eced3bf124c8b2c33b83e290",
+  "job_id": "47920",
+  "submitted_at_utc": "2026-11-06T06:51:37.045111+00:00",
+  "submission": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/submission.json",
+  "remote_output": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run",
+  "observed_a_step": 20000,
+  "last_checked_at_utc": "2026-11-08T08:17:45.284102+00:00",
+  "monitor": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/monitor_latest.json",
+  "observed_b_single_step": 20000,
+  "observed_b_multi_step": 20000,
+  "completed_at_utc": "2026-11-07T03:54:43.426515+00:00",
+  "completion_report": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/staged_damping_d2_launch_20261106T064931Z/review_20261108/result_summary_20261108.json"
+}

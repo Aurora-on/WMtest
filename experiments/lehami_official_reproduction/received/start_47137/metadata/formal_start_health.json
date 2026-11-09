@@ -1,0 +1,87 @@
+{
+  "checked_unix": 1793259404.985089,
+  "job_id": "47137",
+  "status": "RUNNING_VERIFIED",
+  "first_arm": "a0m",
+  "seed": 42,
+  "completed_epochs": 2,
+  "global_step": 878,
+  "configured_epochs": 100,
+  "model_parameters_finite": true,
+  "checkpoint_monitor": "validate/pred_loss",
+  "best_validation_prediction_loss": 0.10723169147968292,
+  "configuration": {
+    "model": {
+      "name": "lehami_sg_sep_sreg_joint_ms_conv",
+      "patch_size": 8,
+      "latent_dim": 32,
+      "fd_dt": 1.0,
+      "momentum_weight": 1.0,
+      "ham_flow": {
+        "hidden_dim": 1024,
+        "n_layers": 3,
+        "dt": 1.0,
+        "phase_space": true,
+        "separable": true,
+        "learnable_scale": true
+      },
+      "enc_window": 1,
+      "enc_variant": "full"
+    },
+    "data": {
+      "name": "pendulum_multi_v2",
+      "frameskip": 1,
+      "action_dim": 1,
+      "keys_to_load": [
+        "pixels",
+        "dt_frame"
+      ]
+    },
+    "optim": {
+      "optimizer": {
+        "lr": 5e-05,
+        "weight_decay": 0.001
+      }
+    },
+    "checkpoint": null,
+    "run_suffix": "_sg_sep_conv_w1_multi_exp067_a0m",
+    "resume_from": null,
+    "manifest": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/LeHami/lehami/data/split_pendulum_multi_v2_episode_srnn_K80_val.15_dt2_seed42.json",
+    "allow_num_steps_mismatch": true,
+    "seed": 42,
+    "img_size": 64,
+    "embed_dim": 192,
+    "history_size": 1,
+    "num_preds": 13,
+    "train_split": 0.9,
+    "wandb": {
+      "project": "lehami",
+      "entity": null,
+      "enabled": false
+    },
+    "trainer": {
+      "max_epochs": 100,
+      "devices": "auto",
+      "accelerator": "gpu",
+      "precision": "bf16-mixed",
+      "gradient_clip_val": 1.0
+    },
+    "loader": {
+      "batch_size": 32,
+      "num_workers": 3,
+      "persistent_workers": true,
+      "pin_memory": true,
+      "prefetch_factor": 3
+    },
+    "loss": {
+      "sigreg": {
+        "weight": 0.25,
+        "kwargs": {
+          "knots": 17,
+          "num_proj": 1024
+        }
+      }
+    },
+    "phase": 2
+  }
+}

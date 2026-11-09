@@ -1,0 +1,17 @@
+{
+  "job_id": 47726,
+  "status_at_submission": "RUNNING",
+  "observed_at_utc": "2026-11-04T10:07:48.024221+00:00",
+  "remote_root": "/home/weizhixin/ssd/efficient3_training_20261104T100427Z",
+  "train_log": "train-47726.log",
+  "initial_step": 3750,
+  "target_total_step": 20000,
+  "formal_training_enabled": true,
+  "physical_test_evaluation_enabled": false,
+  "gpu_count": 1,
+  "gpu_type": "L40",
+  "slurm_time_limit_hours": 24,
+  "status": "CANCELLED",
+  "reason": "User requested fresh initialization",
+  "replacement_job": 47727
+}

@@ -1,0 +1,29 @@
+JobId=47138 JobName=pendulum-holdout
+   UserId=weizhixin(1025) GroupId=weizhixin(1026) MCS_label=N/A
+   Priority=4294888315 Nice=0 Account=(null) QOS=(null)
+   JobState=COMPLETED Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:20:07 TimeLimit=00:45:00 TimeMin=N/A
+   SubmitTime=2026-10-29T07:37:36 EligibleTime=2026-10-29T07:37:36
+   AccrueTime=2026-10-29T07:37:36
+   StartTime=2026-10-29T07:37:37 EndTime=2026-10-29T07:57:44 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-29T07:37:37 Scheduler=Main
+   Partition=compute AllocNode:Sid=ladhpc:4139781
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=ladhpc
+   BatchHost=ladhpc
+   NumNodes=1 NumCPUs=4 NumTasks=1 CPUs/Task=4 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=4,mem=16G,node=1,billing=4
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=4 MinMemoryNode=16G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z/slurm_single.sh
+   WorkDir=/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z
+   StdErr=/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z/holdout-single-47138.log
+   StdIn=/dev/null
+   StdOut=/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z/holdout-single-47138.log
+   Power=
+   TresPerNode=gres:gpu:l40:1
+   
+

@@ -1,0 +1,28 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Raw data, model weights, archives and runtime outputs stay outside Git.
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.zip
+*.tar
+*.tar.gz
+*.whl
+experiments/damped_pendulum/data/
+experiments/damped_pendulum/runs/
+experiments/damped_pendulum/received/
+experiments/damped_pendulum/tmp/
+results_local/
+# Curated validation NPZ, figures, GIF and PDF are intentionally tracked.

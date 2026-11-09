@@ -1,0 +1,7 @@
+{
+  "command": ".venv/bin/python -B -m pytest -q -p no:cacheprovider tests",
+  "passed": 36,
+  "warnings": 111,
+  "seconds": 10.65,
+  "notes": "Existing local NumPy matmul RuntimeWarnings remain; finite outputs are explicitly checked. New tests confirm frozen-only evaluation matches the original evaluator on the same fixtures and prohibit readout fitting."
+}

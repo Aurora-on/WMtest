@@ -1,0 +1,20 @@
+{
+  "status": "preparing",
+  "user_authorized_formal_training": true,
+  "configuration": "configs/dissipative_passive_efficient_3substeps.json",
+  "initial_checkpoint_step": null,
+  "target_total_step": 20000,
+  "additional_updates": 20000,
+  "gpu": "1 x NVIDIA L40",
+  "batch_size": 32,
+  "substeps": 3,
+  "slurm_time_limit_hours": 24,
+  "remote_root": "/home/weizhixin/ssd/efficient3_fresh_20261104T101014Z",
+  "data": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/data/passive_family_v1/seen.h5",
+  "physical_test_evaluation_enabled": false,
+  "numerical_core_changes_since_short_benchmark": false,
+  "scope": "Fresh initialization of model and Adam; full20000updates; no checkpoint transfer.",
+  "initial_step": 0,
+  "resume": null,
+  "seed": 0
+}

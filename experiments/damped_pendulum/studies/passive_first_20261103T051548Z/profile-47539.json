@@ -1,0 +1,216 @@
+{
+  "status": "completed",
+  "optimizer_updates_enabled": true,
+  "data": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/data/passive_family_v1/seen.h5",
+  "device": "cuda",
+  "profile_seed": 0,
+  "horizons": [
+    4,
+    8,
+    16,
+    32
+  ],
+  "warmup_updates_per_horizon": 2,
+  "timed_updates_per_horizon": 4,
+  "total_profile_optimizer_updates": 24,
+  "batch_size": 32,
+  "threads": 4,
+  "learning_rate_scope": "Full configured base LR in the profile; formal training starts fresh and uses its configured warmup/cosine schedule",
+  "formal_optimizer_steps": 20000,
+  "curriculum_updates": {
+    "4": 1000,
+    "8": 3000,
+    "16": 6000,
+    "32": 10000
+  },
+  "formal_validation_calls": 80,
+  "validation_windows": 288,
+  "validation_horizons": [
+    8,
+    32
+  ],
+  "validation_scope": "Full trainer.validation after the horizon-32 stress run; fixed validation anchors",
+  "writes_files": true,
+  "physical_performance_evaluation": false,
+  "measurements": {
+    "4": {
+      "mean_seconds": 0.21941818669438362,
+      "median_seconds": 0.21923219040036201,
+      "min_seconds": 0.21771230548620224,
+      "max_seconds": 0.22149606049060822,
+      "timed_updates": 4,
+      "warmup_updates": 2,
+      "losses_finite": true,
+      "first_loss": 3.27981232066437,
+      "last_loss": 3.2136651794756395,
+      "solver_residual_max": 3.860031289396049e-09,
+      "changed_parameter_tensors": 46,
+      "parameters_actually_changed": true,
+      "optimizer_state_entries": 46,
+      "initial_state_sha256": "35d1ec48e97808304f29fcc3a2aa192731855b3f983613a092461e8726b08e4d",
+      "cuda_max_memory_allocated_bytes": 745309696,
+      "cuda_max_memory_reserved_bytes": 1224736768
+    },
+    "8": {
+      "mean_seconds": 0.3577502425760031,
+      "median_seconds": 0.3573722802102566,
+      "min_seconds": 0.35674405097961426,
+      "max_seconds": 0.3595123589038849,
+      "timed_updates": 4,
+      "warmup_updates": 2,
+      "losses_finite": true,
+      "first_loss": 3.357157246526484,
+      "last_loss": 3.2500503353000134,
+      "solver_residual_max": 3.860031289396049e-09,
+      "changed_parameter_tensors": 46,
+      "parameters_actually_changed": true,
+      "optimizer_state_entries": 46,
+      "initial_state_sha256": "35d1ec48e97808304f29fcc3a2aa192731855b3f983613a092461e8726b08e4d",
+      "cuda_max_memory_allocated_bytes": 861514240,
+      "cuda_max_memory_reserved_bytes": 1363148800
+    },
+    "16": {
+      "mean_seconds": 0.6408022679388523,
+      "median_seconds": 0.6408145800232887,
+      "min_seconds": 0.6392210721969604,
+      "max_seconds": 0.6423588395118713,
+      "timed_updates": 4,
+      "warmup_updates": 2,
+      "losses_finite": true,
+      "first_loss": 3.6117868048921986,
+      "last_loss": 3.323375795549774,
+      "solver_residual_max": 3.860031289396049e-09,
+      "changed_parameter_tensors": 46,
+      "parameters_actually_changed": true,
+      "optimizer_state_entries": 46,
+      "initial_state_sha256": "35d1ec48e97808304f29fcc3a2aa192731855b3f983613a092461e8726b08e4d",
+      "cuda_max_memory_allocated_bytes": 1098379776,
+      "cuda_max_memory_reserved_bytes": 1543503872
+    },
+    "32": {
+      "mean_seconds": 1.2265077978372574,
+      "median_seconds": 1.227141160517931,
+      "min_seconds": 1.2181308045983315,
+      "max_seconds": 1.2336180657148361,
+      "timed_updates": 4,
+      "warmup_updates": 2,
+      "losses_finite": true,
+      "first_loss": 4.47383882619132,
+      "last_loss": 3.5623635788800243,
+      "solver_residual_max": 3.860031289396049e-09,
+      "changed_parameter_tensors": 46,
+      "parameters_actually_changed": true,
+      "optimizer_state_entries": 46,
+      "initial_state_sha256": "35d1ec48e97808304f29fcc3a2aa192731855b3f983613a092461e8726b08e4d",
+      "cuda_max_memory_allocated_bytes": 1572372992,
+      "cuda_max_memory_reserved_bytes": 2153775104
+    }
+  },
+  "optimizer_updates_completed": 24,
+  "config_sha256": "afa7aca0c58df4ba6c62a85bcf3111fface8ff3f095270005465757f343d7a32",
+  "dataset_sha256": "55d2b4687e1a6f743b123ba69e3731a067a5b941817bd9d98738262dfabb1509",
+  "source_sha256": {
+    "dpbench/train_dissipative.py": "83e5d07c3e26d518b6ad1a7983cc75d376ab263e28f449ca54dc0e06cac229ed",
+    "dpbench/dissipative_model.py": "e1e37a7e8d967a3175250a83881144694bd424d1873c85398486c65e8abbc1b9",
+    "dpbench/dissipative_core.py": "28ffabd06e86b1968a8f32a33015e3ab01bc839015e83466460bf111800fc54e",
+    "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+    "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620",
+    "scripts/profile_dissipative.py": "308e4859359af73e16db262f8a6448c64b81cae7e9ec1c9f444d679fe7cb2f91"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "torch": "2.8.0+cu126",
+    "cuda_build": "12.6",
+    "device_type": "cuda",
+    "cuda_devices": [
+      "NVIDIA L40"
+    ],
+    "deterministic_algorithms": false,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false
+  },
+  "effective_config": {
+    "model": {
+      "history": 21,
+      "velocity_history": 5,
+      "environment_context_dim": 4
+    },
+    "training": {
+      "steps": 20000,
+      "batch_size": 32,
+      "train_frames": 81,
+      "seed": 0,
+      "threads": 4,
+      "encoder_lr": 2e-05,
+      "dynamics_lr": 0.0001,
+      "weight_decay": 0.0001,
+      "warmup_steps": 500,
+      "minimum_lr_ratio": 0.1,
+      "gradient_clip": 1.0,
+      "curriculum": [
+        {
+          "until_step": 1000,
+          "horizon": 4
+        },
+        {
+          "until_step": 4000,
+          "horizon": 8
+        },
+        {
+          "until_step": 10000,
+          "horizon": 16
+        },
+        {
+          "until_step": 20000,
+          "horizon": 32
+        }
+      ],
+      "val_horizons": [
+        8,
+        32
+      ],
+      "val_every": 250,
+      "val_windows": 288,
+      "val_seed": 1009,
+      "minimum_target_std": 0.1,
+      "minimum_target_motion": 0.001,
+      "validation_gate_time_bins": [
+        0
+      ]
+    }
+  },
+  "preflight_passed": true,
+  "fixed_validation_anchor_sha256": "0aed666a47f5784e8f2f67279aacce43794c199363612bdc17e8d9ba32ba1f74",
+  "validation": {
+    "seconds": 17.465384282171726,
+    "windows": 288,
+    "horizons": [
+      8,
+      32
+    ],
+    "groups": 36,
+    "gate_passed": false,
+    "score": 232.4912312210148,
+    "scope": "After the fresh horizon-32 base-LR stress updates; internal latent validation, not physical accuracy"
+  },
+  "runtime_estimate": {
+    "optimizer_steps": 20000,
+    "curriculum_updates": {
+      "4": 1000,
+      "8": 3000,
+      "16": 6000,
+      "32": 10000
+    },
+    "validation_calls": 80,
+    "one_full_validation_seconds": 17.465384282171726,
+    "estimated_total_seconds": 18799.79124300182,
+    "observed_step_min_based_seconds": 18701.80968016386,
+    "observed_step_max_based_seconds": 18887.59757399559,
+    "estimated_validation_seconds": 1397.230742573738,
+    "scope": "Extrapolation from short fresh-model base-LR measurements, not a completion guarantee or statistical confidence interval. Excludes queueing, transfer, data generation, checkpoint serialization and initialization/preflight. Later Newton iteration counts and convergence can change."
+  },
+  "total_profile_wall_seconds": 39.44094892591238,
+  "formal_training_started": false,
+  "checkpoint_saved": false,
+  "timing_scope": "Each timed interval includes data batch read/transfer, forward, scalar checks, backward, gradient clipping and AdamW update; CUDA synchronized at both ends. Model creation and parameter-copy audit excluded."
+}

@@ -1,0 +1,7 @@
+{
+  "status": "evaluation_completed",
+  "episodes": 1408,
+  "failed_rollouts": 0,
+  "checkpoint_unchanged": true,
+  "world_model_updates": 0
+}

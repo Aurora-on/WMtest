@@ -1,0 +1,109 @@
+{
+  "checked_at_utc": "2026-11-08T09:24:33.551127+00:00",
+  "candidates": [
+    {
+      "path": "/home/weizhixin/ssd/MOSH_validation_20260924/MOSH_WM_Server/data",
+      "relative": "MOSH_validation_20260924/MOSH_WM_Server/data",
+      "files": 17900,
+      "bytes": 409496842,
+      "symlinks": [],
+      "protected_overlap": false
+    },
+    {
+      "path": "/home/weizhixin/ssd/MOSH_appearance_20261005/MOSH_WM_Appearance8000/data",
+      "relative": "MOSH_appearance_20261005/MOSH_WM_Appearance8000/data",
+      "files": 156000,
+      "bytes": 3564660367,
+      "symlinks": [],
+      "protected_overlap": false
+    },
+    {
+      "path": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/data",
+      "relative": "damped_pendulum_profile_20261028/data",
+      "files": 5,
+      "bytes": 219760267,
+      "symlinks": [],
+      "protected_overlap": false
+    },
+    {
+      "path": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z/study/data",
+      "relative": "damped_pendulum_profile_20261028/studies/independent_eval_20261029T072955Z/study/data",
+      "files": 2,
+      "bytes": 35985960,
+      "symlinks": [],
+      "protected_overlap": false
+    },
+    {
+      "path": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/data",
+      "relative": "dissipative_passive_20261103T051548Z/data",
+      "files": 4,
+      "bytes": 303954846,
+      "symlinks": [],
+      "protected_overlap": false
+    },
+    {
+      "path": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/data",
+      "relative": "lehami_official_reproduction_20261029/data",
+      "files": 24,
+      "bytes": 508329765,
+      "symlinks": [],
+      "protected_overlap": false
+    },
+    {
+      "path": "/home/weizhixin/ssd/lehami_official_reproduction_20261029/smoke/data",
+      "relative": "lehami_official_reproduction_20261029/smoke/data",
+      "files": 14,
+      "bytes": 180007784,
+      "symlinks": [
+        "/home/weizhixin/ssd/lehami_official_reproduction_20261029/smoke/data/pendulum.h5",
+        "/home/weizhixin/ssd/lehami_official_reproduction_20261029/smoke/data/pendulum_multi_v2.h5"
+      ],
+      "protected_overlap": false
+    },
+    {
+      "path": "/home/weizhixin/ssd/MOSH_appearance_20261005/moshwm_appearance8000.tar.gz",
+      "relative": "MOSH_appearance_20261005/moshwm_appearance8000.tar.gz",
+      "files": 1,
+      "bytes": 3802666187,
+      "symlinks": [],
+      "protected_overlap": false
+    },
+    {
+      "path": "/home/weizhixin/ssd/MOSH_appearance_20261005/early_preflight_payload.tar.gz",
+      "relative": "MOSH_appearance_20261005/early_preflight_payload.tar.gz",
+      "files": 1,
+      "bytes": 53208656,
+      "symlinks": [],
+      "protected_overlap": false
+    },
+    {
+      "path": "/home/weizhixin/ssd/mosh-transfer/moshwm_ladhpc.tar.gz",
+      "relative": "mosh-transfer/moshwm_ladhpc.tar.gz",
+      "files": 1,
+      "bytes": 700213287,
+      "symlinks": [],
+      "protected_overlap": false
+    }
+  ],
+  "protected": [
+    "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1",
+    "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_single",
+    "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_multi",
+    "/home/weizhixin/ssd/damped_pendulum_profile_20261028/.venv"
+  ],
+  "open_references": [],
+  "squeue": "",
+  "disk": {
+    "/home/weizhixin/ssd": {
+      "total": 7618687889408,
+      "used": 4414384193536,
+      "free": 2820266565632
+    },
+    "/home/weizhixin/hdd": {
+      "total": 59760271167488,
+      "used": 14092794355712,
+      "free": 42667452276736
+    }
+  },
+  "total_candidate_bytes": 9778283961
+}

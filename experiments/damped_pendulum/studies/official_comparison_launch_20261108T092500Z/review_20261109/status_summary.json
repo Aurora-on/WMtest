@@ -1,0 +1,219 @@
+{
+  "checked_at_beijing": "2026-11-09T09:47:53.999790+08:00",
+  "status": "all_training_and_evaluation_complete",
+  "source_sha256": "c76992e2809f344f5e70fb111eacffcbf1ea7eb88937718c9cada4e1c942937d",
+  "completion_evidence": "Nine exact-step20000 checkpoints, completed application pipeline/worker statuses, actual data/source hashes, evaluation manifests and artifact hashes independently verified. Slurm accounting disabled and historical jobs purged; no scheduler exit-code claim.",
+  "evaluation_scope": "seed0, validation only, autonomous future steps1..32 (0.1..3.2s); not sealed test or unseen damping",
+  "methods": {
+    "lehami": {
+      "job_id": 48044,
+      "pipeline_status": "completed",
+      "completed_at_beijing_from_status_mtime": "2026-11-08T23:10:29.489313+08:00",
+      "pipeline_wall_hours": 5.666484779649311,
+      "stages": {
+        "a": {
+          "steps": 20000,
+          "checkpoint_sha256": "c2710055cae00fc294c75d4135f8a019af434b242711a4c96fbad7822796813b",
+          "training_and_history_verified": true,
+          "evaluation_hashes_verified": true,
+          "evaluation_seconds": 69.34089028835297,
+          "failed_trajectory_fraction": 0.0,
+          "coverage": 1.0,
+          "teacher_quality_gate_passed": true,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.009254367680713003,
+            "angle_rmse_rad": 0.01346091359663933,
+            "omega_rmse_rad_s": 0.05018514463636126,
+            "omega_nrmse": 0.019214986227375358
+          },
+          "autonomous_angle_mae_rad": 0.10782095812425359,
+          "autonomous_omega_rmse_rad_s": 0.3342714184708082,
+          "trajectory_with_stop_fraction": 0.0,
+          "stopped_dynamic_window_fraction": 0.0
+        },
+        "single": {
+          "steps": 20000,
+          "checkpoint_sha256": "8dff7e4f29bf5b9245437a5e9b9312b0bb4187555130922428e9cae9c639059c",
+          "training_and_history_verified": true,
+          "evaluation_hashes_verified": true,
+          "evaluation_seconds": 71.81768704205751,
+          "failed_trajectory_fraction": 0.0,
+          "coverage": 1.0,
+          "teacher_quality_gate_passed": true,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.00594146069060147,
+            "angle_rmse_rad": 0.008588973184627558,
+            "omega_rmse_rad_s": 0.04272018491286295,
+            "omega_nrmse": 0.02435059918949891
+          },
+          "autonomous_angle_mae_rad": 0.10704325846869964,
+          "autonomous_omega_rmse_rad_s": 0.5814530560549179,
+          "trajectory_with_stop_fraction": 0.0,
+          "stopped_dynamic_window_fraction": 0.0
+        },
+        "multi": {
+          "steps": 20000,
+          "checkpoint_sha256": "a1eb8b72f10c38adbe25f1217f36d0cb2d5477d91e4f252311b196cb3e7af0bc",
+          "training_and_history_verified": true,
+          "evaluation_hashes_verified": true,
+          "evaluation_seconds": 424.72264217585325,
+          "failed_trajectory_fraction": 0.0,
+          "coverage": 1.0,
+          "teacher_quality_gate_passed": true,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.004761389601911427,
+            "angle_rmse_rad": 0.007614806934329943,
+            "omega_rmse_rad_s": 0.0546010803142253,
+            "omega_nrmse": 0.028883550693026734
+          },
+          "autonomous_angle_mae_rad": 0.09057928415240979,
+          "autonomous_omega_rmse_rad_s": 0.48473775513684153,
+          "trajectory_with_stop_fraction": 0.0,
+          "stopped_dynamic_window_fraction": 0.0
+        }
+      }
+    },
+    "lewm": {
+      "job_id": 48045,
+      "pipeline_status": "completed",
+      "completed_at_beijing_from_status_mtime": "2026-11-08T22:56:13.196880+08:00",
+      "pipeline_wall_hours": 5.378324272367689,
+      "stages": {
+        "a": {
+          "steps": 20000,
+          "checkpoint_sha256": "3b159848abe229d28599c0a72eb521601f05bc59a48a13ede89460e8ce8339eb",
+          "training_and_history_verified": true,
+          "evaluation_hashes_verified": true,
+          "evaluation_seconds": 69.74894185364246,
+          "failed_trajectory_fraction": 0.0,
+          "coverage": 1.0,
+          "teacher_quality_gate_passed": true,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.005146082061996649,
+            "angle_rmse_rad": 0.006834344132264131,
+            "omega_rmse_rad_s": 0.09580658304993087,
+            "omega_nrmse": 0.03668261169984731
+          },
+          "autonomous_angle_mae_rad": 0.03471900269224992,
+          "autonomous_omega_rmse_rad_s": 0.2115067726320587,
+          "trajectory_with_stop_fraction": 0.0,
+          "stopped_dynamic_window_fraction": 0.0
+        },
+        "single": {
+          "steps": 20000,
+          "checkpoint_sha256": "69a3b14e341d83f5d16312c39f326aea83713c52c481db945d34521d6f1c495a",
+          "training_and_history_verified": true,
+          "evaluation_hashes_verified": true,
+          "evaluation_seconds": 85.58460141718388,
+          "failed_trajectory_fraction": 0.0,
+          "coverage": 1.0,
+          "teacher_quality_gate_passed": true,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.004134795264824754,
+            "angle_rmse_rad": 0.005995848020420556,
+            "omega_rmse_rad_s": 0.08060016628971801,
+            "omega_nrmse": 0.04594227173714624
+          },
+          "autonomous_angle_mae_rad": 0.03343961373943078,
+          "autonomous_omega_rmse_rad_s": 0.2091010442663986,
+          "trajectory_with_stop_fraction": 0.0,
+          "stopped_dynamic_window_fraction": 0.0
+        },
+        "multi": {
+          "steps": 20000,
+          "checkpoint_sha256": "571e18ce765e741395ca142d107988aae192bb3ecc4584b86b7cc70ca2b18b81",
+          "training_and_history_verified": true,
+          "evaluation_hashes_verified": true,
+          "evaluation_seconds": 565.7117325663567,
+          "failed_trajectory_fraction": 0.0,
+          "coverage": 1.0,
+          "teacher_quality_gate_passed": true,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.0014919965428086025,
+            "angle_rmse_rad": 0.0024690735817041115,
+            "omega_rmse_rad_s": 0.03949375083901295,
+            "omega_nrmse": 0.02089188982803339
+          },
+          "autonomous_angle_mae_rad": 0.09732527251053151,
+          "autonomous_omega_rmse_rad_s": 0.5905157115369776,
+          "trajectory_with_stop_fraction": 0.0,
+          "stopped_dynamic_window_fraction": 0.0
+        }
+      }
+    },
+    "hjepa": {
+      "job_id": 48046,
+      "pipeline_status": "completed",
+      "completed_at_beijing_from_status_mtime": "2026-11-09T04:04:47.914615+08:00",
+      "pipeline_wall_hours": 10.486101148062282,
+      "stages": {
+        "a": {
+          "steps": 20000,
+          "checkpoint_sha256": "cfe8f8124269dab15ae09a225b631f335251a3f2419ef7d3005e6601776ed0b6",
+          "training_and_history_verified": true,
+          "evaluation_hashes_verified": true,
+          "evaluation_seconds": 74.7777988165617,
+          "failed_trajectory_fraction": 0.0,
+          "coverage": 1.0,
+          "teacher_quality_gate_passed": false,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.1530546062701711,
+            "angle_rmse_rad": 0.5333592478681513,
+            "omega_rmse_rad_s": 1.6258259335624476,
+            "omega_nrmse": 0.6224994098926488
+          },
+          "autonomous_angle_mae_rad": 1.0499595851306227,
+          "autonomous_omega_rmse_rad_s": 3.729397294964425,
+          "trajectory_with_stop_fraction": 0.046875,
+          "stopped_dynamic_window_fraction": 0.042119565217391304
+        },
+        "single": {
+          "steps": 20000,
+          "checkpoint_sha256": "db70715dfed42529c957a96fdf2c8618639ea4b9b5c74c0d1a9572624633ae34",
+          "training_and_history_verified": true,
+          "evaluation_hashes_verified": true,
+          "evaluation_seconds": 72.2426583468914,
+          "failed_trajectory_fraction": 0.0,
+          "coverage": 1.0,
+          "teacher_quality_gate_passed": true,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.014043052371546752,
+            "angle_rmse_rad": 0.05071044835529842,
+            "omega_rmse_rad_s": 0.17552207419146437,
+            "omega_nrmse": 0.10004796763552695
+          },
+          "autonomous_angle_mae_rad": 0.2133832813467125,
+          "autonomous_omega_rmse_rad_s": 1.1490821771891655,
+          "trajectory_with_stop_fraction": 0.0,
+          "stopped_dynamic_window_fraction": 0.0
+        },
+        "multi": {
+          "steps": 20000,
+          "checkpoint_sha256": "04b617dc36865350e3bbfa6a773d90b1f6e382011f56bb7eb73bb9ad62a3c82b",
+          "training_and_history_verified": true,
+          "evaluation_hashes_verified": true,
+          "evaluation_seconds": 1030.550313346088,
+          "failed_trajectory_fraction": 0.0,
+          "coverage": 1.0,
+          "teacher_quality_gate_passed": false,
+          "teacher_metrics": {
+            "angle_mae_rad": 0.02785743688752686,
+            "angle_rmse_rad": 0.20568885054385072,
+            "omega_rmse_rad_s": 0.6082773437305214,
+            "omega_nrmse": 0.3217740270329932
+          },
+          "autonomous_angle_mae_rad": 0.686681689661233,
+          "autonomous_omega_rmse_rad_s": 2.9328202035004813,
+          "trajectory_with_stop_fraction": 0.07552083333333333,
+          "stopped_dynamic_window_fraction": 0.03391203703703704
+        }
+      }
+    }
+  },
+  "quality_findings": [
+    "No recorded nonfinite training loss, gradient or model state; no numerical rollout failures and complete coverage in all nine evaluations.",
+    "H-JEPA A and multi fail observed-state readout quality gates; their physical errors cannot be attributed exclusively to autonomous dynamics.",
+    "Under the defined 1-second dynamic-window criterion, H-JEPA A has stop events in3/64 trajectories and multi29/384; LeHami/LeWM all stages and H-JEPA single have no detected stops within the3.2-second evaluation.",
+    "Comparison to our own model still requires the same per-condition calibrated readout; original frozen-A readout results must not be mixed into this ranking."
+  ]
+}

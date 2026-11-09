@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-04",
+  "purpose": "failure diagnosis only; user cancelled report and test demo",
+  "original_training_job": 47541,
+  "replay_job": 47690,
+  "frozen_cuda_analysis_job": 47691,
+  "original_completed_updates": 2794,
+  "failure_training_step": 2795,
+  "replay_updates": 44,
+  "max_absolute_loss_difference_over_replayed_steps": 6.7833727118715714e-06,
+  "replay_scope": "Same failed training step and failure type; small floating-point differences, not bitwise replay",
+  "failed_batch_index_zero_based": 20,
+  "failed_substep_call": 1,
+  "comparison": [
+    {
+      "method": "full_newton_6",
+      "accepted": false,
+      "updates": [
+        6
+      ],
+      "residual": [
+        6.954861172125959e-05
+      ],
+      "tolerance": [
+        1.2610624060526311e-06
+      ],
+      "error": null,
+      "changes_discrete_map": false
+    },
+    {
+      "method": "full_newton_12",
+      "accepted": true,
+      "updates": [
+        7
+      ],
+      "residual": [
+        1.142073102755603e-10
+      ],
+      "tolerance": [
+        1.2610624060526311e-06
+      ],
+      "error": null,
+      "changes_discrete_map": false
+    },
+    {
+      "method": "full_newton_24",
+      "accepted": true,
+      "updates": [
+        7
+      ],
+      "residual": [
+        1.142073102755603e-10
+      ],
+      "tolerance": [
+        1.2610624060526311e-06
+      ],
+      "error": null,
+      "changes_discrete_map": false
+    },
+    {
+      "method": "armijo_newton_24",
+      "accepted": true,
+      "updates": [
+        4
+      ],
+      "residual": [
+        1.6115329515287158e-08
+      ],
+      "tolerance": [
+        1.2610624060526311e-06
+      ],
+      "error": null,
+      "changes_discrete_map": false
+    },
+    {
+      "method": "two_half_substeps",
+      "accepted": true,
+      "substeps_completed": 2,
+      "changes_discrete_map": true
+    },
+    {
+      "method": "four_quarter_substeps",
+      "accepted": true,
+      "substeps_completed": 4,
+      "changes_discrete_map": true
+    }
+  ],
+  "initial_jacobian_condition": 34.71008427409328,
+  "initial_jacobian_min_singular": 0.0344116684881435,
+  "initial_damping_force_symmetric_velocity_jacobian_eigenvalues": [
+    -39.89640491580113,
+    6.5188568113334755
+  ],
+  "initial_full_newton_residual_sequence": [
+    4.105955482244341,
+    205.74871278965873,
+    3.5346804629455075,
+    6.653004783849434,
+    0.8437487831661867,
+    0.027214492329835416,
+    3.4774305860629795e-05,
+    5.710365513778015e-11
+  ],
+  "armijo_first_step_fraction": 0.0625,
+  "diagnosis": "On this captured sample, the first full Newton update overshoots, followed by recovery that needs 7 updates; hard cap 6 rejects the step. Local velocity-force Jacobian has a negative symmetric eigenvalue despite PSD D. This supports solver robustness changes; does not prove this is the only possible training failure.",
+  "recommendation": "Preserve original tolerances and D(q,v,c); use residual backtracking with larger iteration ceiling and early stop, then bounded substep bisection if necessary. Validate executed-gradient and energy accounting before a new training run.",
+  "formal_training_restarted": false,
+  "model_or_original_solver_source_modified": false,
+  "full_training_stability_after_fix_verified": false,
+  "tests": "replay harness 3 passed; frozen solver analyzer 2 passed; actual CUDA replay and frozen CPU/CUDA comparison completed",
+  "sources": [
+    "https://petsc.org/main/manual/snes/",
+    "https://sundials.readthedocs.io/en/v7.7.0/kinsol/Mathematics_link.html"
+  ]
+}

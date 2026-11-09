@@ -1,0 +1,253 @@
+{
+  "status": "completed",
+  "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+  "primary_probe": "mlp",
+  "probe_selection": "MLP predeclared; both original frozen readouts reported; no current-test selection",
+  "seen_sha256": "55d2b4687e1a6f743b123ba69e3731a067a5b941817bd9d98738262dfabb1509",
+  "frozen_manifest_sha256": "1b995d4e91abbf5db7cd244a9407e8ffabcbcfa07ce5eb399cb478fb1846dc60",
+  "source_hashes": {
+    "scripts/evaluate_historical_lewm_reference.py": "9c07e26a16daaf17d204841056f39b992b563629bceb906992ca6eead14ae4ec",
+    "dpbench/models.py": "7d666b768e34a2158074e5dfb5d39729e7d72c25c3b358d30ce98d8f7650ad75",
+    "dpbench/evaluate.py": "7b33cddbe590f35956f33fbaba7a50a6262163566080119dece2636811b1ede9",
+    "dpbench/evaluate_holdout.py": "8e969f146a6f3ecc1e00abbbf2829b37280a78e02ba811679fd5d9e27e738616",
+    "dpbench/evaluate_passive.py": "e302e5bfd60fdc7e7f9109737ee449e3349f0296e456dfe36d7d12657e9ebcde",
+    "dpbench/generate.py": "4f05aaee7945a2ebec5d9329834c8bf5eaef98958e8a7b74d9b08c609ce8393d",
+    "dpbench/passive_family.py": "e4be4d69979a015f89938d4949cbacb1ce4836b686ee55c25be2afabfc15dbac",
+    "third_party/sources.json": "562de60456c15396b4536985a066ba261158ea3dbaf4acf5d2ffb046aaf5e788"
+  },
+  "historical_root": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/studies/epoch35_20261028T133556Z",
+  "seen": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/data/passive_family_v1/seen.h5",
+  "anchor_frame": 20,
+  "anchor_time_s": 2.0,
+  "history_frames": 5,
+  "history_time_s": 0.4,
+  "horizons_s": [
+    1.0,
+    2.0,
+    4.0,
+    8.0,
+    16.0,
+    32.0
+  ],
+  "episodes_per_model": 128,
+  "models": 6,
+  "expected_model_episode_rollouts": 768,
+  "device": "cuda",
+  "requested_batch_size": 32,
+  "model_updates": 0,
+  "readout_fitting": false,
+  "limitations": [
+    "Single-damping specialists selected using known test damping versus currentmulti-dampingmodel",
+    "Differenttrainingdata, forcingmix, historylength, budgets andreadoutcalibration",
+    "Only b0 and b0.2; no claim aboutinterpolation or extrapolation",
+    "Historicalmodels areLeHami-author convolutional multistep LeWM adaptations"
+  ],
+  "elapsed_seconds": 324.47080932557583,
+  "results": [
+    {
+      "run": "lewm_b0p0_seed0",
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "seed": 0,
+      "damping": 0.0,
+      "checkpoint_step": 19000,
+      "checkpoint_sha256": "5864dd9fd297f58951859e98361384b700a23f0fc55321c21dc1f5301270b158",
+      "readout_sha256": "46ec894ca59125be52182eba43aee0d62f8ea3e0d1e2238966a04e0ecb5ed228",
+      "episodes": 128,
+      "full_rollouts": 128,
+      "state_and_readouts_unchanged": true,
+      "complete_readout_rollouts": {
+        "ridge": 128,
+        "mlp": 128
+      },
+      "historical_protocol": {
+        "training_steps": 28140,
+        "training_data_sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+        "history_frames": 5,
+        "train_labels": 4096,
+        "val_labels": 1024,
+        "probe_optimization_steps": 500
+      },
+      "readouts_refitted": false,
+      "batch_check": {
+        "actual_batch_size": 32,
+        "max_angle_difference": 0.000533637161399203,
+        "max_omega_difference": 0.0013180109617602076,
+        "tolerances": [
+          0.001,
+          0.01
+        ]
+      }
+    },
+    {
+      "run": "lewm_b0p0_seed1",
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "seed": 1,
+      "damping": 0.0,
+      "checkpoint_step": 26250,
+      "checkpoint_sha256": "8e16d94c59d69a9495f45c144e39e2e12330e881d788c71eab53708a3b938cd0",
+      "readout_sha256": "d2521688c3dcf15f4b944074df89f5b77ccd52dc92e43df75193e8320c1e39c3",
+      "episodes": 128,
+      "full_rollouts": 128,
+      "state_and_readouts_unchanged": true,
+      "complete_readout_rollouts": {
+        "ridge": 128,
+        "mlp": 128
+      },
+      "historical_protocol": {
+        "training_steps": 28140,
+        "training_data_sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+        "history_frames": 5,
+        "train_labels": 4096,
+        "val_labels": 1024,
+        "probe_optimization_steps": 500
+      },
+      "readouts_refitted": false,
+      "batch_check": {
+        "actual_batch_size": 1,
+        "max_angle_difference": 0.005730597548202376,
+        "max_omega_difference": 0.01259498256308067,
+        "tolerances": [
+          0.001,
+          0.01
+        ]
+      }
+    },
+    {
+      "run": "lewm_b0p0_seed2",
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "seed": 2,
+      "damping": 0.0,
+      "checkpoint_step": 26750,
+      "checkpoint_sha256": "d10c3a0483d6fd8a5bb9f294c1c7de1e03a33e82383f86b0f2a863752ddf72b3",
+      "readout_sha256": "2e19a8716d7553b525d5c839fdc64577e11d0d6a176d39587467874ed6c35a3c",
+      "episodes": 128,
+      "full_rollouts": 128,
+      "state_and_readouts_unchanged": true,
+      "complete_readout_rollouts": {
+        "ridge": 128,
+        "mlp": 128
+      },
+      "historical_protocol": {
+        "training_steps": 28140,
+        "training_data_sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+        "history_frames": 5,
+        "train_labels": 4096,
+        "val_labels": 1024,
+        "probe_optimization_steps": 500
+      },
+      "readouts_refitted": false,
+      "batch_check": {
+        "actual_batch_size": 1,
+        "max_angle_difference": 0.0017819849900940208,
+        "max_omega_difference": 0.0043246949906761145,
+        "tolerances": [
+          0.001,
+          0.01
+        ]
+      }
+    },
+    {
+      "run": "lewm_b0p2_seed0",
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "seed": 0,
+      "damping": 0.2,
+      "checkpoint_step": 28000,
+      "checkpoint_sha256": "d1f77b97c61825645d5788bde9d19652c537a0da41e28b798db1608c1825311e",
+      "readout_sha256": "2aaa9eed7d7c7e09559ac5e77248b8f79ebcd2b75dc4eda517325d24f9432349",
+      "episodes": 128,
+      "full_rollouts": 128,
+      "state_and_readouts_unchanged": true,
+      "complete_readout_rollouts": {
+        "ridge": 128,
+        "mlp": 128
+      },
+      "historical_protocol": {
+        "training_steps": 28140,
+        "training_data_sha256": "e112f2d176993f3d8e6b7277bc80d114d4a1cae5100ba82d29940d59795b7ca5",
+        "history_frames": 5,
+        "train_labels": 4096,
+        "val_labels": 1024,
+        "probe_optimization_steps": 500
+      },
+      "readouts_refitted": false,
+      "batch_check": {
+        "actual_batch_size": 32,
+        "max_angle_difference": 0.00018091825535043737,
+        "max_omega_difference": 0.0007281533762379944,
+        "tolerances": [
+          0.001,
+          0.01
+        ]
+      }
+    },
+    {
+      "run": "lewm_b0p2_seed1",
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "seed": 1,
+      "damping": 0.2,
+      "checkpoint_step": 24250,
+      "checkpoint_sha256": "5d16f425a13b616cdb783b0c2bd29900251f0ed53f5cf4f7e61a9faabad358af",
+      "readout_sha256": "68efc95536f5e58bed37f68c53799c07ecd473ef4a82154e3a7a2952d42e96bb",
+      "episodes": 128,
+      "full_rollouts": 128,
+      "state_and_readouts_unchanged": true,
+      "complete_readout_rollouts": {
+        "ridge": 128,
+        "mlp": 128
+      },
+      "historical_protocol": {
+        "training_steps": 28140,
+        "training_data_sha256": "e112f2d176993f3d8e6b7277bc80d114d4a1cae5100ba82d29940d59795b7ca5",
+        "history_frames": 5,
+        "train_labels": 4096,
+        "val_labels": 1024,
+        "probe_optimization_steps": 500
+      },
+      "readouts_refitted": false,
+      "batch_check": {
+        "actual_batch_size": 32,
+        "max_angle_difference": 0.00023532080949267842,
+        "max_omega_difference": 0.0008677826297533997,
+        "tolerances": [
+          0.001,
+          0.01
+        ]
+      }
+    },
+    {
+      "run": "lewm_b0p2_seed2",
+      "comparison_class": "nonmatched_historical_single_damping_specialist_reference",
+      "seed": 2,
+      "damping": 0.2,
+      "checkpoint_step": 24000,
+      "checkpoint_sha256": "a5f9cb4379ae479c6e63042311718b732f6763400a701235eea59e50048d79df",
+      "readout_sha256": "cc7866eaeaf4afa30b191161d8889374d06939a9dcbf32a514b45810b1e5dabb",
+      "episodes": 128,
+      "full_rollouts": 128,
+      "state_and_readouts_unchanged": true,
+      "complete_readout_rollouts": {
+        "ridge": 128,
+        "mlp": 128
+      },
+      "historical_protocol": {
+        "training_steps": 28140,
+        "training_data_sha256": "e112f2d176993f3d8e6b7277bc80d114d4a1cae5100ba82d29940d59795b7ca5",
+        "history_frames": 5,
+        "train_labels": 4096,
+        "val_labels": 1024,
+        "probe_optimization_steps": 500
+      },
+      "readouts_refitted": false,
+      "batch_check": {
+        "actual_batch_size": 32,
+        "max_angle_difference": 0.0003372287621699055,
+        "max_omega_difference": 0.0011645083304596682,
+        "tolerances": [
+          0.001,
+          0.01
+        ]
+      }
+    }
+  ],
+  "completed_model_episode_rollouts": 768
+}

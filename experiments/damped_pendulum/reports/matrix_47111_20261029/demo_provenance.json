@@ -1,0 +1,24 @@
+{
+  "visualization": "/Users/weizhixin/.codex/visualizations/2026/10/15/01a13ea4-204a-7721-b26f-867270b97eb7/pendulum-model-demo.html",
+  "source": "actual server47111 best-checkpoint saved predictions, seed0, frozen MLP readouts",
+  "selection": "four smallest test episode IDs in each action mode, chosen independently of prediction quality",
+  "episodes": [
+    24,
+    32,
+    42,
+    50,
+    21,
+    35,
+    49,
+    61
+  ],
+  "damping": [
+    0.0,
+    0.2
+  ],
+  "frames_per_rollout": 321,
+  "dt": 0.1,
+  "note": "Rod positions are reconstructed from predicted physical angles; this is not generated video pixels. Ground truth is for comparison only, never fed back into prediction.",
+  "file_sha256": "f5f3c4029ece196b7a29b8e92b20b71620517bb46d06019008e7f9b2749808b0",
+  "ui_verification": "Playback advances predicted time and model states; browser layout inspected. Eight test trajectories selected by ID, seed0, both damping groups."
+}

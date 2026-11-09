@@ -1,0 +1,24 @@
+{
+  "checked_utc": "2026-10-28T13:36:51.866572+00:00",
+  "datasets": [
+    {
+      "file": "pendulum_b0p0.h5",
+      "sha256": "275fb7c9c5acfcf51301de53ef0c41fbc553b40a64d47b723208969b57239b13",
+      "damping": 0.0,
+      "train_windows": 25728,
+      "updates_per_epoch": 804,
+      "epochs": 35,
+      "steps": 28140
+    },
+    {
+      "file": "pendulum_b0p2.h5",
+      "sha256": "e112f2d176993f3d8e6b7277bc80d114d4a1cae5100ba82d29940d59795b7ca5",
+      "damping": 0.2,
+      "train_windows": 25728,
+      "updates_per_epoch": 804,
+      "epochs": 35,
+      "steps": 28140
+    }
+  ],
+  "upstream_verification": "Verified 19 files against pinned Git blob hashes."
+}

@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "slurm_job_id": 47138,
+  "slurm_state": "COMPLETED",
+  "exit_code": "0:0",
+  "scheduler_elapsed": "00:20:07",
+  "server_files_sha256_verified": 38,
+  "completed_models": 12,
+  "per_model_future_truth_canary_episodes": 2,
+  "recomputed_score_rows": 12288,
+  "reported_aggregate_cells": 192,
+  "formal_batch_size": 1,
+  "accounting_note": "sacct storage disabled; job completion and exit code confirmed via scontrol"
+}

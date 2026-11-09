@@ -1,0 +1,45 @@
+{
+  "mode": "plan_only",
+  "training_started": false,
+  "writes_files": false,
+  "family_name": "passive_multi_damping_smooth_v1",
+  "groups": {
+    "train": 384,
+    "val": 64,
+    "test": 128
+  },
+  "renderer": "smooth_v1",
+  "rendering_contract": "Versioned geometry; smooth_v1 is continuous before uint8 rounding, but stored pixels retain quantization boundaries. New version requires new data.",
+  "seen_episodes": {
+    "train": 384,
+    "val": 64,
+    "test": 128
+  },
+  "unseen_episodes": {
+    "interpolation": 0,
+    "extrapolation": 0
+  },
+  "seen_frames": 79936,
+  "unseen_frames": 0,
+  "raw_rgb_bytes": 982253568,
+  "storage_note": "Raw RGB only; excludes metadata and compression. Actual size is measured after generation.",
+  "history_seconds": 2.0,
+  "test_rollout_seconds": 32.0,
+  "model_fields": [
+    "pixels",
+    "action",
+    "dt_frame"
+  ],
+  "requires_environment_context": false,
+  "source": "Project-generated passive pendulum simulations, not an external dataset",
+  "selection_scope": "undamped_subset",
+  "selected_damping": [
+    0.0
+  ],
+  "training_scope": "undamped_stage_a",
+  "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+  "output_files": [
+    "undamped.h5"
+  ],
+  "pairing_contract": "Reuse all parent initial groups and split identities; select b=0 before simulation/rendering. No resampling."
+}

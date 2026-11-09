@@ -1,0 +1,152 @@
+{
+  "status": "completed",
+  "scope": "One-fixture CPU accuracy comparison for a substep budget; no optimization and no GPU speed claim",
+  "capture_training_step": 2795,
+  "capture_sample_index": 20,
+  "not_checkpoint_step": 3750,
+  "capture_sha256": "11a456200088b6d2780c3e8fb18cd60b47086d281034ad79c8c890cb811c7922",
+  "source_sha256": {
+    "dpbench/dissipative_core.py": "1eb98f2aafbbe6d215bccdfa6296371096c292ca85a204b663083bf7b461b2fb",
+    "dpbench/efficient_dissipative_core.py": "c21d61c331fe8a4fc7980b8b44c972aa172b1730a34844d07639cbbb3dafcf73",
+    "dpbench/automatic_discrete_gradient.py": "99f3b886f7ed1b44c19981a6bf45010dd8cce690b0765ea788bf33193fb1c478",
+    "scripts/audit_solver_refinement.py": "49199c5c8516de11e0777d6c68b3c011c8001aeca8557fcb00a837268a0778f2"
+  },
+  "same_H_D_B_weights": true,
+  "parameters_optimized": false,
+  "weights_unchanged": true,
+  "device": "cpu",
+  "duration_seconds": 0.8,
+  "frame_dt": 0.1,
+  "reference": {
+    "rtol": 1e-12,
+    "atol": 1e-13,
+    "max_step": 0.00625,
+    "nfev": 2327,
+    "elapsed_seconds": 0.21879950002767146,
+    "energy_balance_defect": -1.0231815394945443e-12,
+    "endpoint": [
+      1.4597793445431138,
+      0.6356578771240218,
+      0.0003283204180627512,
+      0.0006099822092598325
+    ],
+    "integrated_dissipation": 81.24693280072309
+  },
+  "baseline_original_substeps2": {
+    "frame_dt": 0.1,
+    "base_leaf_h": 0.05,
+    "frames": 8,
+    "max_accepted_residual_ratio": 0.48994414327258934,
+    "max_split_depth": 0.0,
+    "solver_iterations": 32.0,
+    "solver_backtracks": 4.0,
+    "solver_failed_attempts": 0.0,
+    "solver_leaf_steps": 16.0,
+    "integrated_dissipation": 81.2469312117688,
+    "accumulated_energy_defect": -8.615246827048395e-08,
+    "max_ledger_identity_error": 5.005199794581985e-15,
+    "elapsed_seconds": 0.03522474999772385,
+    "endpoint_error_l2": 0.06685107598291604,
+    "common_grid_rms_state_error": 0.08288218454014151,
+    "common_grid_max_state_error": 0.17104607717715858,
+    "endpoint": [
+      1.396842334955751,
+      0.6581962519896747,
+      0.00026028502985420815,
+      0.0004826484938286813
+    ],
+    "endpoint_observed_order_from_previous": null,
+    "trajectory_observed_order_from_previous": null
+  },
+  "baseline_efficient_substeps2": {
+    "frame_dt": 0.1,
+    "base_leaf_h": 0.05,
+    "frames": 8,
+    "max_accepted_residual_ratio": 0.32712979977316453,
+    "max_split_depth": 0.0,
+    "solver_iterations": 15.0,
+    "solver_backtracks": 0.0,
+    "solver_failed_attempts": 0.0,
+    "solver_leaf_steps": 16.0,
+    "integrated_dissipation": 81.24693056448325,
+    "accumulated_energy_defect": -2.075418478852953e-06,
+    "max_ledger_identity_error": 8.835679770165727e-15,
+    "elapsed_seconds": 0.019084541010670364,
+    "endpoint_error_l2": 0.023719889253850927,
+    "common_grid_rms_state_error": 0.14313276043653775,
+    "common_grid_max_state_error": 0.42315647974974485,
+    "endpoint": [
+      1.4789164957558731,
+      0.6216443758750615,
+      0.0002539903295296627,
+      0.00047269616385822396
+    ],
+    "endpoint_observed_order_from_previous": null,
+    "trajectory_observed_order_from_previous": null
+  },
+  "new_scheme_candidates": [
+    {
+      "frame_dt": 0.1,
+      "base_leaf_h": 0.03333333333333333,
+      "frames": 8,
+      "max_accepted_residual_ratio": 0.3054035993820585,
+      "max_split_depth": 0.0,
+      "solver_iterations": 22.0,
+      "solver_backtracks": 0.0,
+      "solver_failed_attempts": 0.0,
+      "solver_leaf_steps": 24.0,
+      "integrated_dissipation": 81.24693160039747,
+      "accumulated_energy_defect": -8.502096875417919e-07,
+      "max_ledger_identity_error": 7.804131918538629e-15,
+      "elapsed_seconds": 0.039464542001951486,
+      "substeps": 3,
+      "endpoint_error_l2": 0.022455250488611102,
+      "common_grid_rms_state_error": 0.04735834272974321,
+      "common_grid_max_state_error": 0.12646639722465128,
+      "endpoint": [
+        1.4769493715034938,
+        0.6211865422452836,
+        0.0002831513359305173,
+        0.0005270649762750042
+      ],
+      "config": {
+        "q_dim": 2,
+        "hidden_dim": 32,
+        "action_dim": 1,
+        "damping_mode": "position_velocity",
+        "substeps": 3,
+        "newton_iterations": 12,
+        "residual_atol": 1e-08,
+        "residual_rtol": 1e-07,
+        "chain_atol": 1e-10,
+        "strict": true,
+        "integrator": "frozen_dg",
+        "context_dim": 4,
+        "solver": "picard",
+        "line_search_max_backtracks": 12,
+        "line_search_shrink": 0.5,
+        "line_search_c1": 0.0001,
+        "max_bisections": 4,
+        "picard_iterations": 6,
+        "picard_check_every": 2,
+        "fd_relative_step": 6e-06,
+        "implicit_rcond_min": 1e-08,
+        "adjoint_rtol": 1e-10
+      },
+      "ratios_vs_original_substeps2": {
+        "endpoint_error_l2": 0.3358996120623339,
+        "common_grid_rms_state_error": 0.5713935146920097,
+        "common_grid_max_state_error": 0.7393703457675062
+      },
+      "trajectory_rms_no_worse_than_original_substeps2": true
+    }
+  ],
+  "selected_substeps_by_trajectory_rms": 3,
+  "elapsed_seconds": 0.2776733749778941,
+  "limits": [
+    "This one2795 fixture is not a3750 checkpoint or physical ground-truth evaluation.",
+    "Selection uses observed trajectory RMS at the original frame grid; endpoint and maximum errors are also retained.",
+    "An equal-or-better RMS here does not establish uniform accuracy over all trajectories.",
+    "CPU inference timing does not establish GPU training speed."
+  ]
+}

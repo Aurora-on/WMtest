@@ -1,0 +1,60 @@
+{
+  "selection_rule": "For each b in[0,0.2], energy_band2, smallestgroup_id thenepisode; samegroup acrossbothb; noerrorbasedselection",
+  "selected": [
+    {
+      "record": {
+        "file": "seen",
+        "episode": 457,
+        "family": "seen",
+        "damping": 0.0,
+        "energy_band": 2,
+        "group_id": 10000457
+      },
+      "our_evaluation_index": 9,
+      "historical_run": "lewm_b0p0_seed0",
+      "historical_index": 9
+    },
+    {
+      "record": {
+        "file": "seen",
+        "episode": 2185,
+        "family": "seen",
+        "damping": 0.2,
+        "energy_band": 2,
+        "group_id": 10000457
+      },
+      "our_evaluation_index": 393,
+      "historical_run": "lewm_b0p2_seed0",
+      "historical_index": 9
+    }
+  ],
+  "source_sha256": {
+    "received/trajectories.npz": "150916cef31642b7e5832b9c4cef020a746bd6dfe8944d98413415b4e5f55845",
+    "received/episodes.json": "30affd4dd568b154d389b9ad7dc448be382258d3952de94b03ee602205d589cb",
+    "received/manifest.json": "9ccb1aa5156b4c9d157b4e5f035e9468dec028534ddc759aff54caf6f04dd4db",
+    "lewm_received/lewm_b0p0_seed0/trajectories.npz": "29e533b97928853ca3c403f0aa9aaebfc2d65a28305859960fd10b6f88030786",
+    "lewm_received/lewm_b0p0_seed0/manifest.json": "2c8ba025ed435f933932908afa29b06e87bb9ce347a4bec82471c972887ffef4",
+    "lewm_received/lewm_b0p2_seed0/trajectories.npz": "00b65638f93c3be2d23d68391ec3b88dbf4634c3aecda57ba1c2277f40acc94a",
+    "lewm_received/lewm_b0p2_seed0/manifest.json": "7de3ba4f3c56fca155c1a6f5bdc7e7e4acd8dbe17428179bd1ba5e5890bf489b"
+  },
+  "dimensions": [
+    1050,
+    770
+  ],
+  "frames": 81,
+  "frame_duration_ms": 100,
+  "relative_times_seconds": [
+    0,
+    8
+  ],
+  "coordinate_convention": "x=sin(theta), y=cos(theta) belowpivot; allpanels identicalrodlength",
+  "series": [
+    "reference_truth",
+    "our_frozen_model_mlp",
+    "historical_LeWM_seed0_frozen_mlp"
+  ],
+  "state_values": "Raw saved theta/omega, no interpolation, smoothing, refitting, or modelupdates",
+  "time_origin": "Testanchor atphysicalt=2s; reportedtimeisrelativepredictiontime",
+  "comparison_class": "Nonmatched historical single-damping specialist reference; differingtrainingdata/history/budget/readout",
+  "script_sha256": "41e12d3d4f921922a0587e69021bb69bf90cd7245262f34a69349bb3879b378c"
+}

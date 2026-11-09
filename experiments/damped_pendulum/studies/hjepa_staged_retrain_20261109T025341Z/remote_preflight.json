@@ -1,0 +1,846 @@
+{
+  "status": "ready_for_explicit_staged_submission",
+  "package": {
+    "status": "verified",
+    "files": 201,
+    "formal_training_started": false
+  },
+  "checked_at_utc": "2026-11-09T03:02:03.306012+00:00",
+  "data_sha256": {
+    "a": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+    "single": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+    "multi": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6"
+  },
+  "stages": {
+    "a": {
+      "preflight": {
+        "path": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+        "dataset_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+        "split_disjoint": true,
+        "split_audit_scope": "Episode IDs and group IDs are disjoint across the existing splits. This is not an audit of exact or near-duplicate RGB clips; the original splits are unchanged.",
+        "split_sizes": {
+          "train": 384,
+          "val": 64,
+          "test": 128
+        },
+        "declared_train_frames": 81,
+        "train_frames": 81,
+        "history": 21,
+        "history_required": 21,
+        "requires_environment_context": false,
+        "sampling_metadata_fields": [
+          "regime_id"
+        ],
+        "max_horizon": 32,
+        "target_tail_frames": 2,
+        "window_frames": 55,
+        "action_dim": 1,
+        "image_shape": [
+          64,
+          64,
+          3
+        ],
+        "model_fields": [
+          "pixels",
+          "action",
+          "dt_frame"
+        ],
+        "target_fields_read": [],
+        "test_samples_read": false,
+        "training_started": false,
+        "windows": {
+          "train": 10368,
+          "val": 1728
+        },
+        "strata_windows": {
+          "train": {
+            "regime0_mode0_time0": 3456,
+            "regime0_mode0_time1": 3456,
+            "regime0_mode0_time2": 3456
+          },
+          "val": {
+            "regime0_mode0_time0": 576,
+            "regime0_mode0_time1": 576,
+            "regime0_mode0_time2": 576
+          }
+        },
+        "sampling_contract": "Available regime/mode/time strata balanced; episode uniform within strata; RGB/action/dt model inputs only",
+        "scope": "Constant physical damping per trajectory tests a special case, not identification of genuine position/velocity-dependent damping. Opaque regime IDs, when present, are sampling metadata only. No damping coefficient or other physical target is read for training.",
+        "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+        "stage": "a",
+        "selected_damping": [
+          0.0
+        ],
+        "protocol_sha256": "3f9b8bd0e7337f684e7b22bb2740c38b4b90c919779453fc237431c8d55f5e2a",
+        "optimizer_created": false,
+        "fixture_only": false,
+        "full_history_available": true
+      },
+      "pipeline_manifest": {
+        "schema_version": 2,
+        "kind": "hjepa_dissipative_retraining",
+        "config": {
+          "schema_version": 1,
+          "training_route": "staged",
+          "model": {
+            "kind": "hjepa",
+            "history": 21,
+            "dt": 0.1,
+            "physical_dt": 0.1,
+            "predictor_dt": 1.0,
+            "encoder_embed_dim": 192,
+            "percept_dim": 192,
+            "rank": 32,
+            "projector_hidden": 2048,
+            "dynamics_hidden": 256,
+            "dynamics_layers": 3,
+            "head_init_std": 0.001,
+            "rho_init": 0.01,
+            "seed": 0,
+            "passive_only": true,
+            "tiny_fixture": false,
+            "history_adapter": "causal_window_gru",
+            "cnn_batchnorm_policy": "separate_raw_time_batches"
+          },
+          "training": {
+            "steps": 20000,
+            "batch_size": 128,
+            "train_frames": 81,
+            "seed": 0,
+            "threads": 4,
+            "lr": 5e-05,
+            "weight_decay": 0.001,
+            "warmup_steps": 500,
+            "minimum_lr_ratio": 0.1,
+            "gradient_clip": 1.0,
+            "val_every": 250,
+            "val_windows": 256,
+            "val_seed": 1009,
+            "val_horizons": [
+              5,
+              8,
+              32
+            ],
+            "checkpoint_every": 250,
+            "curriculum": [
+              {
+                "until_step": 20000,
+                "horizon": 5
+              }
+            ]
+          },
+          "data": {
+            "stage": "a",
+            "selected_damping": [
+              0.0
+            ],
+            "renderer": "smooth_v1",
+            "history": 21,
+            "dt": 0.1,
+            "train_frames": 81,
+            "expected_groups": {
+              "train": 384,
+              "val": 64
+            }
+          },
+          "fixture_only": false
+        },
+        "protocol_sha256": "3f9b8bd0e7337f684e7b22bb2740c38b4b90c919779453fc237431c8d55f5e2a",
+        "data": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+        "data_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+        "data_a": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+        "data_a_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+        "parent_output": null,
+        "paired": {
+          "status": "undamped_stage_a",
+          "same_dataset": true
+        },
+        "sources": {
+          "dpbench/comparison_hjepa.py": "c7db23f69d8f332d05265640141c579ada30ae0ef9e71f60c509283c0f7b0816",
+          "dpbench/comparison_models.py": "9715fa9f174c21c37346884590d3d98a07825c0e55c37ccdb41b2deb9fb43805",
+          "dpbench/comparison_protocol.py": "caf1d4d6c366387cc14667e6587900d11c6baffd6614bda1e736aaa1c070dee3",
+          "dpbench/comparison_visual_baselines.py": "ba0b5f7575153ab5018552a6e81c7e6daa6f23ccb1b5c8a686438f7f9cc1e8ff",
+          "dpbench/damping_stage_data.py": "59b041d681fe19c42efaf6d77566be998fa01f1f2d8c64745bd10557ccc10187",
+          "dpbench/dissipative_data.py": "6e6ffb5ad921463cf3631529c06e6b4c73e185f50c8181fe81f076dde0045474",
+          "dpbench/evaluate.py": "7b33cddbe590f35956f33fbaba7a50a6262163566080119dece2636811b1ede9",
+          "dpbench/evaluate_comparison.py": "9a562a3121616f61edd3a1a3bc894859dc69a79dfa1090ece60e0d799185f04c",
+          "dpbench/evaluate_passive.py": "e302e5bfd60fdc7e7f9109737ee449e3349f0296e456dfe36d7d12657e9ebcde",
+          "dpbench/generate.py": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31",
+          "dpbench/models.py": "7d666b768e34a2158074e5dfb5d39729e7d72c25c3b358d30ce98d8f7650ad75",
+          "dpbench/passive_family.py": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae",
+          "dpbench/train_comparison.py": "91e0f77cc8470918fe5db8c6838059dfa924430c28a97012e9218c1c0cd5e3c2",
+          "dpbench/train_dissipative.py": "8db4a123a00ddc2e349babfb7ddc22480a32b213d6f97f345eb9272b7326e560",
+          "scripts/bootstrap_comparison.py": "368fb52b9853f4c750aec3501e317997e6cebf5b20cccd3da5e89517453c2761",
+          "scripts/evaluate_comparison.py": "9a8c7c39b32745515c77104d3608d085ed23871daa369178aab296c0b1403092",
+          "scripts/evaluate_staged_damping.py": "6d9fef3dbce10ab338a3db11c44c31b1a7eaf74608f1323dcc2d8c899d89b73f",
+          "scripts/prepare_comparison_data.py": "e6c87cd0e939a0acd38a0f7ca3fe56769b3a2ff3d068a78ef69b2f814a19e5f6",
+          "scripts/run_comparison.py": "9c303f173277dd15e9eb55bb34e56bb7ee14179b233002697ab4812e3b28dbe6",
+          "scripts/slurm_comparison.sh": "6d69f6ba11541f46b77c58561098264410eb1a96e09ad72e1b4f1bf46b1a89b9",
+          "scripts/train_comparison.py": "c89c8d4b6edf7b4ab83138ad9c2c61af38bd34f4342b82732c3df780e2f9a655",
+          "third_party/LeHami/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "third_party/LeHami/NOTICE": "37935d8f2e8bc5a9d990ac01316242b9410742d13889808e5059284230f40771",
+          "third_party/LeHami/README.md": "f778f6b1ae5771e0281620779262660496dc3b9e19020e035fb91efbe63bc0d9",
+          "third_party/LeHami/lehami/models/lehami/__init__.py": "966d11cbc3338de62431ee9b99dee520cc7da71836a2e81d86eb36439643d435",
+          "third_party/LeHami/lehami/models/lehami/builders.py": "92dca7edf2c3ab56a522287c5deb4a2935835892c0ee691f880b324cb9e39ad0",
+          "third_party/LeHami/lehami/models/lehami/derivative.py": "ace4a9daf9c7f1ac50d1947cbf71a6384a2bc3c27b747a80eeed6861691a41f5",
+          "third_party/LeHami/lehami/models/lehami/ham_flow.py": "b3338eb0e35237129985884473c68ad2c34c6bf0869ff39f6e6372ae7bc50f8e",
+          "third_party/LeHami/lehami/training/configs/config.yaml": "4f02a1c431ce72066533ab39dfdf30c046336ec152552c86185d64eb0099503c",
+          "third_party/LeHami/lehami/training/configs/experiment/phase0_lewm_ms_conv_w3_free_swingup_exp099_b3f.yaml": "90aff926c6bb3095e6013889dfeced4127dd1fa4ea2267525f5ae9cfe7aeabb3",
+          "third_party/LeHami/lehami/training/configs/experiment/phase0_lewm_ms_conv_w3_swingup_exp076_b3s.yaml": "52c8ddffaf81133a8010432447f5fdb57db5cdef2d1674542985c748d22cdc17",
+          "third_party/LeHami/lehami/training/configs/experiment/phase2_lehami_sg_sep_conv_w1_swingup_exp079_a0q.yaml": "1a0bb85da7e3a495d4811a508d17348fe8cfdb0337195aec9acbed05ccf60d31",
+          "third_party/LeHami/lehami/training/configs/model/lehami_sg_sep_sreg_q_ms_conv.yaml": "d174793737406a0f0ae652a6c385ab51fd9bdd98b5a57da688ad6bc248c0a486",
+          "third_party/LeHami/lehami/training/configs/model/lewm_ms_conv.yaml": "15b39fdbe94fab0806ffe046e0b3f84376fae1cf741d31c88b572e676dd31527",
+          "third_party/LeHami/lehami/training/configs/optim/default.yaml": "051b47091d51bde92ad512a78ae2ba85b2de8703160b1df06a9fffd78d8ff5e2",
+          "third_party/LeHami/pyproject.toml": "ca30327ec825f65419ce62c7172a3d17ed2d18a21b6ebdc6f3342e15dc34289e",
+          "third_party/hjepa/LICENSE": "4882021920cbd61e050e4dc2e02440e9bd36ea4cbc5803e738a2ee3d63502e07",
+          "third_party/hjepa/README.md": "ababd6124770383c6043f83d192525c3932fd3006a5c6a474c86a9a6864125f0",
+          "third_party/hjepa/config/eval/cube.yaml": "1d6039ecc33d86f51ec2f3c2ae63a9ac06e0de3124495ec477d63ac4235187b4",
+          "third_party/hjepa/config/eval/pusht.yaml": "5ef11268afa66bf64010a447cfd38a9470153f9c9de8961c6911ee1444b84735",
+          "third_party/hjepa/config/eval/reacher.yaml": "00807a8bdc2332757a404976645f965e070e68ae0853755371c16ddddb09e1b2",
+          "third_party/hjepa/config/eval/solver/cem.yaml": "797629f829c0d3ad3b9c4e42d46a87f08da0b3845bc433e353fd6274cb0574df",
+          "third_party/hjepa/config/eval/tworoom.yaml": "03fdb28c8c59742295f77e7b86c7c96c174b2590f486c992b75a10581203e6c8",
+          "third_party/hjepa/config/train/data/cube.yaml": "5a10684e51f189690e11befb6260152c13a4de8bc7f588356c30c0dadb7f6c1d",
+          "third_party/hjepa/config/train/data/pusht.yaml": "8eb29082645f045ad284997334543ba6fd55843871b1bf60add53b6ace6f9346",
+          "third_party/hjepa/config/train/data/reacher.yaml": "bf05697078202147df2f59a5a5fc514c96e5ab001990dbd23d44292f97ecd282",
+          "third_party/hjepa/config/train/data/tworoom.yaml": "503ba6cea309f47f3732cca5168ee4af6fb720a491139147bf36e61a2a74836d",
+          "third_party/hjepa/config/train/hjepa.yaml": "a01807b504a62a5ac69abd9390ebe97c7231023f1e8a3453126d00697333542e",
+          "third_party/hjepa/eval.py": "0bacdd5165a669bdece996550968b2250a403e237d7ae2516e198a687b211367",
+          "third_party/hjepa/hamiltonian_jepa.py": "59bc859628a1fb68e350de4978fa2a3909cdb92e64fc3d7ea25d7c67376035b6",
+          "third_party/hjepa/hamiltonian_predictor.py": "0c70ffac338cfd95222eb07991ddd3f35826d6c309f589647e4232312e2f5cd1",
+          "third_party/hjepa/hjepa_loss.py": "e107bc2053e74ebec9300715369dd1f51b175a9e2b09616dc28d2765f66596d7",
+          "third_party/hjepa/module.py": "140c63e89fbefe6ae288262ddff4b872c760e917c7b827acc8429b6feb495ae3",
+          "third_party/hjepa/requirements.txt": "f2bc42776e5dc4b2853521d3fe43fbbf1be55c90a6e6b19b04b131d5425059d4",
+          "third_party/hjepa/scripts/eval.sh": "f5d6521fbc7b1d944b4f8fba95d9c9189453a7cec73f2e8e6c0c11157de7f88f",
+          "third_party/hjepa/train.py": "ba6043927821dfe58230649ecb423e12de76e2781b9c75351dfcd550ce017edb",
+          "third_party/hjepa_source.json": "f1ad06c8ff6db959eb7b79279434ee7c00515093dad546c3304545df3e99a0c9",
+          "third_party/le-wm/LICENSE": "4882021920cbd61e050e4dc2e02440e9bd36ea4cbc5803e738a2ee3d63502e07",
+          "third_party/le-wm/README.md": "598ec180a74926d389499ebfc99044b7167bcdc3e20f8da0d0f4142df3f68b0f",
+          "third_party/le-wm/jepa.py": "41bad7fd21e0f14aea4c9c3d39a9c87037e787746d953ab62cdc0677e938ce96",
+          "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620",
+          "third_party/sources.json": "562de60456c15396b4536985a066ba261158ea3dbaf4acf5d2ffb046aaf5e788"
+        },
+        "extra_sources": {
+          "scripts/run_hjepa_retrain.py": "c285de2c4def7141221ec682f151e42aa164204445998d12b824587aa90d2212",
+          "dpbench/hjepa_acceptance.py": "43dab1577ad0fb03f844e06b0387f07de7e623885f24be137d10047088b78f48",
+          "scripts/train_comparison.py": "c89c8d4b6edf7b4ab83138ad9c2c61af38bd34f4342b82732c3df780e2f9a655",
+          "scripts/evaluate_comparison.py": "9a8c7c39b32745515c77104d3608d085ed23871daa369178aab296c0b1403092",
+          "scripts/run_comparison.py": "9c303f173277dd15e9eb55bb34e56bb7ee14179b233002697ab4812e3b28dbe6"
+        },
+        "device": "cpu",
+        "milestones": [
+          4000,
+          20000
+        ],
+        "dissipation": "Official learned PSD dissipation active throughout; no disabling or freezing",
+        "initialization": "Random weights; no pretrained weights",
+        "evaluation": {
+          "split": "val",
+          "horizons": [
+            8,
+            16,
+            32
+          ],
+          "batch_size": 32,
+          "readout": "Own checkpoint; train288 fit, train96 selection; no test evaluation"
+        }
+      },
+      "dissipation_parameters_trainable": 218128
+    },
+    "single": {
+      "preflight": {
+        "path": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_single/damping.h5",
+        "dataset_sha256": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+        "split_disjoint": true,
+        "split_audit_scope": "Episode IDs and group IDs are disjoint across the existing splits. This is not an audit of exact or near-duplicate RGB clips; the original splits are unchanged.",
+        "split_sizes": {
+          "train": 384,
+          "val": 64,
+          "test": 128
+        },
+        "declared_train_frames": 81,
+        "train_frames": 81,
+        "history": 21,
+        "history_required": 21,
+        "requires_environment_context": false,
+        "sampling_metadata_fields": [
+          "regime_id"
+        ],
+        "max_horizon": 32,
+        "target_tail_frames": 2,
+        "window_frames": 55,
+        "action_dim": 1,
+        "image_shape": [
+          64,
+          64,
+          3
+        ],
+        "model_fields": [
+          "pixels",
+          "action",
+          "dt_frame"
+        ],
+        "target_fields_read": [],
+        "test_samples_read": false,
+        "training_started": false,
+        "windows": {
+          "train": 10368,
+          "val": 1728
+        },
+        "strata_windows": {
+          "train": {
+            "regime3_mode0_time0": 3456,
+            "regime3_mode0_time1": 3456,
+            "regime3_mode0_time2": 3456
+          },
+          "val": {
+            "regime3_mode0_time0": 576,
+            "regime3_mode0_time1": 576,
+            "regime3_mode0_time2": 576
+          }
+        },
+        "sampling_contract": "Available regime/mode/time strata balanced; episode uniform within strata; RGB/action/dt model inputs only",
+        "scope": "Constant physical damping per trajectory tests a special case, not identification of genuine position/velocity-dependent damping. Opaque regime IDs, when present, are sampling metadata only. No damping coefficient or other physical target is read for training.",
+        "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+        "stage": "single",
+        "selected_damping": [
+          0.2
+        ],
+        "protocol_sha256": "9787c65ebc39698474ebfc2671ed4cd8fb3588021b2b0286087e362d5fdd0c5f",
+        "optimizer_created": false,
+        "fixture_only": false,
+        "full_history_available": true
+      },
+      "pipeline_manifest": {
+        "schema_version": 2,
+        "kind": "hjepa_dissipative_retraining",
+        "config": {
+          "schema_version": 1,
+          "training_route": "staged",
+          "model": {
+            "kind": "hjepa",
+            "history": 21,
+            "dt": 0.1,
+            "physical_dt": 0.1,
+            "predictor_dt": 1.0,
+            "encoder_embed_dim": 192,
+            "percept_dim": 192,
+            "rank": 32,
+            "projector_hidden": 2048,
+            "dynamics_hidden": 256,
+            "dynamics_layers": 3,
+            "head_init_std": 0.001,
+            "rho_init": 0.01,
+            "seed": 0,
+            "passive_only": true,
+            "tiny_fixture": false,
+            "history_adapter": "causal_window_gru",
+            "cnn_batchnorm_policy": "separate_raw_time_batches"
+          },
+          "training": {
+            "steps": 20000,
+            "batch_size": 128,
+            "train_frames": 81,
+            "seed": 0,
+            "threads": 4,
+            "lr": 5e-05,
+            "weight_decay": 0.001,
+            "warmup_steps": 500,
+            "minimum_lr_ratio": 0.1,
+            "gradient_clip": 1.0,
+            "val_every": 250,
+            "val_windows": 256,
+            "val_seed": 1009,
+            "val_horizons": [
+              5,
+              8,
+              32
+            ],
+            "checkpoint_every": 250,
+            "curriculum": [
+              {
+                "until_step": 20000,
+                "horizon": 5
+              }
+            ]
+          },
+          "data": {
+            "stage": "single",
+            "selected_damping": [
+              0.2
+            ],
+            "renderer": "smooth_v1",
+            "history": 21,
+            "dt": 0.1,
+            "train_frames": 81,
+            "expected_groups": {
+              "train": 384,
+              "val": 64
+            }
+          },
+          "fixture_only": false
+        },
+        "protocol_sha256": "9787c65ebc39698474ebfc2671ed4cd8fb3588021b2b0286087e362d5fdd0c5f",
+        "data": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_single/damping.h5",
+        "data_sha256": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+        "data_a": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+        "data_a_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+        "parent_output": "/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z/runs/a",
+        "paired": {
+          "status": "matched",
+          "training_scope": "damping_stage_b_single",
+          "multi": false,
+          "selected_damping": [
+            0.2
+          ],
+          "paired_episode_comparisons": 576,
+          "split_counts": {
+            "train": {
+              "a_groups": 384,
+              "b_episodes": 384
+            },
+            "val": {
+              "a_groups": 64,
+              "b_episodes": 64
+            },
+            "test": {
+              "a_groups": 128,
+              "b_episodes": 128
+            }
+          },
+          "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+          "data_a_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+          "data_b_sha256": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+          "parent_source_hashes": {
+            "dpbench/passive_family.py": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae",
+            "dpbench/generate.py": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31"
+          },
+          "pixels_dataset_read": false,
+          "state_trajectories_read": false,
+          "test_pixels_read": false,
+          "scope": "Metadata, initial states, clocks, actions and whole-file hashes only; no model training or test performance evaluation"
+        },
+        "sources": {
+          "dpbench/comparison_hjepa.py": "c7db23f69d8f332d05265640141c579ada30ae0ef9e71f60c509283c0f7b0816",
+          "dpbench/comparison_models.py": "9715fa9f174c21c37346884590d3d98a07825c0e55c37ccdb41b2deb9fb43805",
+          "dpbench/comparison_protocol.py": "caf1d4d6c366387cc14667e6587900d11c6baffd6614bda1e736aaa1c070dee3",
+          "dpbench/comparison_visual_baselines.py": "ba0b5f7575153ab5018552a6e81c7e6daa6f23ccb1b5c8a686438f7f9cc1e8ff",
+          "dpbench/damping_stage_data.py": "59b041d681fe19c42efaf6d77566be998fa01f1f2d8c64745bd10557ccc10187",
+          "dpbench/dissipative_data.py": "6e6ffb5ad921463cf3631529c06e6b4c73e185f50c8181fe81f076dde0045474",
+          "dpbench/evaluate.py": "7b33cddbe590f35956f33fbaba7a50a6262163566080119dece2636811b1ede9",
+          "dpbench/evaluate_comparison.py": "9a562a3121616f61edd3a1a3bc894859dc69a79dfa1090ece60e0d799185f04c",
+          "dpbench/evaluate_passive.py": "e302e5bfd60fdc7e7f9109737ee449e3349f0296e456dfe36d7d12657e9ebcde",
+          "dpbench/generate.py": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31",
+          "dpbench/models.py": "7d666b768e34a2158074e5dfb5d39729e7d72c25c3b358d30ce98d8f7650ad75",
+          "dpbench/passive_family.py": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae",
+          "dpbench/train_comparison.py": "91e0f77cc8470918fe5db8c6838059dfa924430c28a97012e9218c1c0cd5e3c2",
+          "dpbench/train_dissipative.py": "8db4a123a00ddc2e349babfb7ddc22480a32b213d6f97f345eb9272b7326e560",
+          "scripts/bootstrap_comparison.py": "368fb52b9853f4c750aec3501e317997e6cebf5b20cccd3da5e89517453c2761",
+          "scripts/evaluate_comparison.py": "9a8c7c39b32745515c77104d3608d085ed23871daa369178aab296c0b1403092",
+          "scripts/evaluate_staged_damping.py": "6d9fef3dbce10ab338a3db11c44c31b1a7eaf74608f1323dcc2d8c899d89b73f",
+          "scripts/prepare_comparison_data.py": "e6c87cd0e939a0acd38a0f7ca3fe56769b3a2ff3d068a78ef69b2f814a19e5f6",
+          "scripts/run_comparison.py": "9c303f173277dd15e9eb55bb34e56bb7ee14179b233002697ab4812e3b28dbe6",
+          "scripts/slurm_comparison.sh": "6d69f6ba11541f46b77c58561098264410eb1a96e09ad72e1b4f1bf46b1a89b9",
+          "scripts/train_comparison.py": "c89c8d4b6edf7b4ab83138ad9c2c61af38bd34f4342b82732c3df780e2f9a655",
+          "third_party/LeHami/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "third_party/LeHami/NOTICE": "37935d8f2e8bc5a9d990ac01316242b9410742d13889808e5059284230f40771",
+          "third_party/LeHami/README.md": "f778f6b1ae5771e0281620779262660496dc3b9e19020e035fb91efbe63bc0d9",
+          "third_party/LeHami/lehami/models/lehami/__init__.py": "966d11cbc3338de62431ee9b99dee520cc7da71836a2e81d86eb36439643d435",
+          "third_party/LeHami/lehami/models/lehami/builders.py": "92dca7edf2c3ab56a522287c5deb4a2935835892c0ee691f880b324cb9e39ad0",
+          "third_party/LeHami/lehami/models/lehami/derivative.py": "ace4a9daf9c7f1ac50d1947cbf71a6384a2bc3c27b747a80eeed6861691a41f5",
+          "third_party/LeHami/lehami/models/lehami/ham_flow.py": "b3338eb0e35237129985884473c68ad2c34c6bf0869ff39f6e6372ae7bc50f8e",
+          "third_party/LeHami/lehami/training/configs/config.yaml": "4f02a1c431ce72066533ab39dfdf30c046336ec152552c86185d64eb0099503c",
+          "third_party/LeHami/lehami/training/configs/experiment/phase0_lewm_ms_conv_w3_free_swingup_exp099_b3f.yaml": "90aff926c6bb3095e6013889dfeced4127dd1fa4ea2267525f5ae9cfe7aeabb3",
+          "third_party/LeHami/lehami/training/configs/experiment/phase0_lewm_ms_conv_w3_swingup_exp076_b3s.yaml": "52c8ddffaf81133a8010432447f5fdb57db5cdef2d1674542985c748d22cdc17",
+          "third_party/LeHami/lehami/training/configs/experiment/phase2_lehami_sg_sep_conv_w1_swingup_exp079_a0q.yaml": "1a0bb85da7e3a495d4811a508d17348fe8cfdb0337195aec9acbed05ccf60d31",
+          "third_party/LeHami/lehami/training/configs/model/lehami_sg_sep_sreg_q_ms_conv.yaml": "d174793737406a0f0ae652a6c385ab51fd9bdd98b5a57da688ad6bc248c0a486",
+          "third_party/LeHami/lehami/training/configs/model/lewm_ms_conv.yaml": "15b39fdbe94fab0806ffe046e0b3f84376fae1cf741d31c88b572e676dd31527",
+          "third_party/LeHami/lehami/training/configs/optim/default.yaml": "051b47091d51bde92ad512a78ae2ba85b2de8703160b1df06a9fffd78d8ff5e2",
+          "third_party/LeHami/pyproject.toml": "ca30327ec825f65419ce62c7172a3d17ed2d18a21b6ebdc6f3342e15dc34289e",
+          "third_party/hjepa/LICENSE": "4882021920cbd61e050e4dc2e02440e9bd36ea4cbc5803e738a2ee3d63502e07",
+          "third_party/hjepa/README.md": "ababd6124770383c6043f83d192525c3932fd3006a5c6a474c86a9a6864125f0",
+          "third_party/hjepa/config/eval/cube.yaml": "1d6039ecc33d86f51ec2f3c2ae63a9ac06e0de3124495ec477d63ac4235187b4",
+          "third_party/hjepa/config/eval/pusht.yaml": "5ef11268afa66bf64010a447cfd38a9470153f9c9de8961c6911ee1444b84735",
+          "third_party/hjepa/config/eval/reacher.yaml": "00807a8bdc2332757a404976645f965e070e68ae0853755371c16ddddb09e1b2",
+          "third_party/hjepa/config/eval/solver/cem.yaml": "797629f829c0d3ad3b9c4e42d46a87f08da0b3845bc433e353fd6274cb0574df",
+          "third_party/hjepa/config/eval/tworoom.yaml": "03fdb28c8c59742295f77e7b86c7c96c174b2590f486c992b75a10581203e6c8",
+          "third_party/hjepa/config/train/data/cube.yaml": "5a10684e51f189690e11befb6260152c13a4de8bc7f588356c30c0dadb7f6c1d",
+          "third_party/hjepa/config/train/data/pusht.yaml": "8eb29082645f045ad284997334543ba6fd55843871b1bf60add53b6ace6f9346",
+          "third_party/hjepa/config/train/data/reacher.yaml": "bf05697078202147df2f59a5a5fc514c96e5ab001990dbd23d44292f97ecd282",
+          "third_party/hjepa/config/train/data/tworoom.yaml": "503ba6cea309f47f3732cca5168ee4af6fb720a491139147bf36e61a2a74836d",
+          "third_party/hjepa/config/train/hjepa.yaml": "a01807b504a62a5ac69abd9390ebe97c7231023f1e8a3453126d00697333542e",
+          "third_party/hjepa/eval.py": "0bacdd5165a669bdece996550968b2250a403e237d7ae2516e198a687b211367",
+          "third_party/hjepa/hamiltonian_jepa.py": "59bc859628a1fb68e350de4978fa2a3909cdb92e64fc3d7ea25d7c67376035b6",
+          "third_party/hjepa/hamiltonian_predictor.py": "0c70ffac338cfd95222eb07991ddd3f35826d6c309f589647e4232312e2f5cd1",
+          "third_party/hjepa/hjepa_loss.py": "e107bc2053e74ebec9300715369dd1f51b175a9e2b09616dc28d2765f66596d7",
+          "third_party/hjepa/module.py": "140c63e89fbefe6ae288262ddff4b872c760e917c7b827acc8429b6feb495ae3",
+          "third_party/hjepa/requirements.txt": "f2bc42776e5dc4b2853521d3fe43fbbf1be55c90a6e6b19b04b131d5425059d4",
+          "third_party/hjepa/scripts/eval.sh": "f5d6521fbc7b1d944b4f8fba95d9c9189453a7cec73f2e8e6c0c11157de7f88f",
+          "third_party/hjepa/train.py": "ba6043927821dfe58230649ecb423e12de76e2781b9c75351dfcd550ce017edb",
+          "third_party/hjepa_source.json": "f1ad06c8ff6db959eb7b79279434ee7c00515093dad546c3304545df3e99a0c9",
+          "third_party/le-wm/LICENSE": "4882021920cbd61e050e4dc2e02440e9bd36ea4cbc5803e738a2ee3d63502e07",
+          "third_party/le-wm/README.md": "598ec180a74926d389499ebfc99044b7167bcdc3e20f8da0d0f4142df3f68b0f",
+          "third_party/le-wm/jepa.py": "41bad7fd21e0f14aea4c9c3d39a9c87037e787746d953ab62cdc0677e938ce96",
+          "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620",
+          "third_party/sources.json": "562de60456c15396b4536985a066ba261158ea3dbaf4acf5d2ffb046aaf5e788"
+        },
+        "extra_sources": {
+          "scripts/run_hjepa_retrain.py": "c285de2c4def7141221ec682f151e42aa164204445998d12b824587aa90d2212",
+          "dpbench/hjepa_acceptance.py": "43dab1577ad0fb03f844e06b0387f07de7e623885f24be137d10047088b78f48",
+          "scripts/train_comparison.py": "c89c8d4b6edf7b4ab83138ad9c2c61af38bd34f4342b82732c3df780e2f9a655",
+          "scripts/evaluate_comparison.py": "9a8c7c39b32745515c77104d3608d085ed23871daa369178aab296c0b1403092",
+          "scripts/run_comparison.py": "9c303f173277dd15e9eb55bb34e56bb7ee14179b233002697ab4812e3b28dbe6"
+        },
+        "device": "cpu",
+        "milestones": [
+          4000,
+          20000
+        ],
+        "dissipation": "Official learned PSD dissipation active throughout; no disabling or freezing",
+        "initialization": "Qualified current-run A20k weights, including dissipation; fresh optimizer/RNG",
+        "evaluation": {
+          "split": "val",
+          "horizons": [
+            8,
+            16,
+            32
+          ],
+          "batch_size": 32,
+          "readout": "Own checkpoint; train288 fit, train96 selection; no test evaluation"
+        }
+      },
+      "dissipation_parameters_trainable": 218128
+    },
+    "multi": {
+      "preflight": {
+        "path": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_multi/seen.h5",
+        "dataset_sha256": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6",
+        "split_disjoint": true,
+        "split_audit_scope": "Episode IDs and group IDs are disjoint across the existing splits. This is not an audit of exact or near-duplicate RGB clips; the original splits are unchanged.",
+        "split_sizes": {
+          "train": 2304,
+          "val": 384,
+          "test": 768
+        },
+        "declared_train_frames": 81,
+        "train_frames": 81,
+        "history": 21,
+        "history_required": 21,
+        "requires_environment_context": true,
+        "sampling_metadata_fields": [
+          "regime_id"
+        ],
+        "max_horizon": 32,
+        "target_tail_frames": 2,
+        "window_frames": 55,
+        "action_dim": 1,
+        "image_shape": [
+          64,
+          64,
+          3
+        ],
+        "model_fields": [
+          "pixels",
+          "action",
+          "dt_frame"
+        ],
+        "target_fields_read": [],
+        "test_samples_read": false,
+        "training_started": false,
+        "windows": {
+          "train": 62208,
+          "val": 10368
+        },
+        "strata_windows": {
+          "train": {
+            "regime0_mode0_time0": 3456,
+            "regime0_mode0_time1": 3456,
+            "regime0_mode0_time2": 3456,
+            "regime1_mode0_time0": 3456,
+            "regime1_mode0_time1": 3456,
+            "regime1_mode0_time2": 3456,
+            "regime2_mode0_time0": 3456,
+            "regime2_mode0_time1": 3456,
+            "regime2_mode0_time2": 3456,
+            "regime3_mode0_time0": 3456,
+            "regime3_mode0_time1": 3456,
+            "regime3_mode0_time2": 3456,
+            "regime4_mode0_time0": 3456,
+            "regime4_mode0_time1": 3456,
+            "regime4_mode0_time2": 3456,
+            "regime5_mode0_time0": 3456,
+            "regime5_mode0_time1": 3456,
+            "regime5_mode0_time2": 3456
+          },
+          "val": {
+            "regime0_mode0_time0": 576,
+            "regime0_mode0_time1": 576,
+            "regime0_mode0_time2": 576,
+            "regime1_mode0_time0": 576,
+            "regime1_mode0_time1": 576,
+            "regime1_mode0_time2": 576,
+            "regime2_mode0_time0": 576,
+            "regime2_mode0_time1": 576,
+            "regime2_mode0_time2": 576,
+            "regime3_mode0_time0": 576,
+            "regime3_mode0_time1": 576,
+            "regime3_mode0_time2": 576,
+            "regime4_mode0_time0": 576,
+            "regime4_mode0_time1": 576,
+            "regime4_mode0_time2": 576,
+            "regime5_mode0_time0": 576,
+            "regime5_mode0_time1": 576,
+            "regime5_mode0_time2": 576
+          }
+        },
+        "sampling_contract": "Available regime/mode/time strata balanced; episode uniform within strata; RGB/action/dt model inputs only",
+        "scope": "Constant physical damping per trajectory tests a special case, not identification of genuine position/velocity-dependent damping. Opaque regime IDs, when present, are sampling metadata only. No damping coefficient or other physical target is read for training.",
+        "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+        "stage": "multi",
+        "selected_damping": [
+          0.0,
+          0.05,
+          0.1,
+          0.2,
+          0.5,
+          1.0
+        ],
+        "protocol_sha256": "486d2114bca381a4e0e7233b019787dc7d8c7e2e8c032a77a41a321c47177022",
+        "optimizer_created": false,
+        "fixture_only": false,
+        "full_history_available": true
+      },
+      "pipeline_manifest": {
+        "schema_version": 2,
+        "kind": "hjepa_dissipative_retraining",
+        "config": {
+          "schema_version": 1,
+          "training_route": "staged",
+          "model": {
+            "kind": "hjepa",
+            "history": 21,
+            "dt": 0.1,
+            "physical_dt": 0.1,
+            "predictor_dt": 1.0,
+            "encoder_embed_dim": 192,
+            "percept_dim": 192,
+            "rank": 32,
+            "projector_hidden": 2048,
+            "dynamics_hidden": 256,
+            "dynamics_layers": 3,
+            "head_init_std": 0.001,
+            "rho_init": 0.01,
+            "seed": 0,
+            "passive_only": true,
+            "tiny_fixture": false,
+            "history_adapter": "causal_window_gru",
+            "cnn_batchnorm_policy": "separate_raw_time_batches"
+          },
+          "training": {
+            "steps": 20000,
+            "batch_size": 128,
+            "train_frames": 81,
+            "seed": 0,
+            "threads": 4,
+            "lr": 5e-05,
+            "weight_decay": 0.001,
+            "warmup_steps": 500,
+            "minimum_lr_ratio": 0.1,
+            "gradient_clip": 1.0,
+            "val_every": 250,
+            "val_windows": 256,
+            "val_seed": 1009,
+            "val_horizons": [
+              5,
+              8,
+              32
+            ],
+            "checkpoint_every": 250,
+            "curriculum": [
+              {
+                "until_step": 20000,
+                "horizon": 5
+              }
+            ]
+          },
+          "data": {
+            "stage": "multi",
+            "selected_damping": [
+              0.0,
+              0.05,
+              0.1,
+              0.2,
+              0.5,
+              1.0
+            ],
+            "renderer": "smooth_v1",
+            "history": 21,
+            "dt": 0.1,
+            "train_frames": 81,
+            "expected_groups": {
+              "train": 384,
+              "val": 64
+            }
+          },
+          "fixture_only": false
+        },
+        "protocol_sha256": "486d2114bca381a4e0e7233b019787dc7d8c7e2e8c032a77a41a321c47177022",
+        "data": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_multi/seen.h5",
+        "data_sha256": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6",
+        "data_a": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+        "data_a_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+        "parent_output": "/home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z/runs/a",
+        "paired": {
+          "status": "matched",
+          "training_scope": "damping_stage_b_multi",
+          "multi": true,
+          "selected_damping": [
+            0.0,
+            0.05,
+            0.1,
+            0.2,
+            0.5,
+            1.0
+          ],
+          "paired_episode_comparisons": 3456,
+          "split_counts": {
+            "train": {
+              "a_groups": 384,
+              "b_episodes": 2304
+            },
+            "val": {
+              "a_groups": 64,
+              "b_episodes": 384
+            },
+            "test": {
+              "a_groups": 128,
+              "b_episodes": 768
+            }
+          },
+          "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+          "data_a_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+          "data_b_sha256": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6",
+          "parent_source_hashes": {
+            "dpbench/passive_family.py": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae",
+            "dpbench/generate.py": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31"
+          },
+          "pixels_dataset_read": false,
+          "state_trajectories_read": false,
+          "test_pixels_read": false,
+          "scope": "Metadata, initial states, clocks, actions and whole-file hashes only; no model training or test performance evaluation"
+        },
+        "sources": {
+          "dpbench/comparison_hjepa.py": "c7db23f69d8f332d05265640141c579ada30ae0ef9e71f60c509283c0f7b0816",
+          "dpbench/comparison_models.py": "9715fa9f174c21c37346884590d3d98a07825c0e55c37ccdb41b2deb9fb43805",
+          "dpbench/comparison_protocol.py": "caf1d4d6c366387cc14667e6587900d11c6baffd6614bda1e736aaa1c070dee3",
+          "dpbench/comparison_visual_baselines.py": "ba0b5f7575153ab5018552a6e81c7e6daa6f23ccb1b5c8a686438f7f9cc1e8ff",
+          "dpbench/damping_stage_data.py": "59b041d681fe19c42efaf6d77566be998fa01f1f2d8c64745bd10557ccc10187",
+          "dpbench/dissipative_data.py": "6e6ffb5ad921463cf3631529c06e6b4c73e185f50c8181fe81f076dde0045474",
+          "dpbench/evaluate.py": "7b33cddbe590f35956f33fbaba7a50a6262163566080119dece2636811b1ede9",
+          "dpbench/evaluate_comparison.py": "9a562a3121616f61edd3a1a3bc894859dc69a79dfa1090ece60e0d799185f04c",
+          "dpbench/evaluate_passive.py": "e302e5bfd60fdc7e7f9109737ee449e3349f0296e456dfe36d7d12657e9ebcde",
+          "dpbench/generate.py": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31",
+          "dpbench/models.py": "7d666b768e34a2158074e5dfb5d39729e7d72c25c3b358d30ce98d8f7650ad75",
+          "dpbench/passive_family.py": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae",
+          "dpbench/train_comparison.py": "91e0f77cc8470918fe5db8c6838059dfa924430c28a97012e9218c1c0cd5e3c2",
+          "dpbench/train_dissipative.py": "8db4a123a00ddc2e349babfb7ddc22480a32b213d6f97f345eb9272b7326e560",
+          "scripts/bootstrap_comparison.py": "368fb52b9853f4c750aec3501e317997e6cebf5b20cccd3da5e89517453c2761",
+          "scripts/evaluate_comparison.py": "9a8c7c39b32745515c77104d3608d085ed23871daa369178aab296c0b1403092",
+          "scripts/evaluate_staged_damping.py": "6d9fef3dbce10ab338a3db11c44c31b1a7eaf74608f1323dcc2d8c899d89b73f",
+          "scripts/prepare_comparison_data.py": "e6c87cd0e939a0acd38a0f7ca3fe56769b3a2ff3d068a78ef69b2f814a19e5f6",
+          "scripts/run_comparison.py": "9c303f173277dd15e9eb55bb34e56bb7ee14179b233002697ab4812e3b28dbe6",
+          "scripts/slurm_comparison.sh": "6d69f6ba11541f46b77c58561098264410eb1a96e09ad72e1b4f1bf46b1a89b9",
+          "scripts/train_comparison.py": "c89c8d4b6edf7b4ab83138ad9c2c61af38bd34f4342b82732c3df780e2f9a655",
+          "third_party/LeHami/LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+          "third_party/LeHami/NOTICE": "37935d8f2e8bc5a9d990ac01316242b9410742d13889808e5059284230f40771",
+          "third_party/LeHami/README.md": "f778f6b1ae5771e0281620779262660496dc3b9e19020e035fb91efbe63bc0d9",
+          "third_party/LeHami/lehami/models/lehami/__init__.py": "966d11cbc3338de62431ee9b99dee520cc7da71836a2e81d86eb36439643d435",
+          "third_party/LeHami/lehami/models/lehami/builders.py": "92dca7edf2c3ab56a522287c5deb4a2935835892c0ee691f880b324cb9e39ad0",
+          "third_party/LeHami/lehami/models/lehami/derivative.py": "ace4a9daf9c7f1ac50d1947cbf71a6384a2bc3c27b747a80eeed6861691a41f5",
+          "third_party/LeHami/lehami/models/lehami/ham_flow.py": "b3338eb0e35237129985884473c68ad2c34c6bf0869ff39f6e6372ae7bc50f8e",
+          "third_party/LeHami/lehami/training/configs/config.yaml": "4f02a1c431ce72066533ab39dfdf30c046336ec152552c86185d64eb0099503c",
+          "third_party/LeHami/lehami/training/configs/experiment/phase0_lewm_ms_conv_w3_free_swingup_exp099_b3f.yaml": "90aff926c6bb3095e6013889dfeced4127dd1fa4ea2267525f5ae9cfe7aeabb3",
+          "third_party/LeHami/lehami/training/configs/experiment/phase0_lewm_ms_conv_w3_swingup_exp076_b3s.yaml": "52c8ddffaf81133a8010432447f5fdb57db5cdef2d1674542985c748d22cdc17",
+          "third_party/LeHami/lehami/training/configs/experiment/phase2_lehami_sg_sep_conv_w1_swingup_exp079_a0q.yaml": "1a0bb85da7e3a495d4811a508d17348fe8cfdb0337195aec9acbed05ccf60d31",
+          "third_party/LeHami/lehami/training/configs/model/lehami_sg_sep_sreg_q_ms_conv.yaml": "d174793737406a0f0ae652a6c385ab51fd9bdd98b5a57da688ad6bc248c0a486",
+          "third_party/LeHami/lehami/training/configs/model/lewm_ms_conv.yaml": "15b39fdbe94fab0806ffe046e0b3f84376fae1cf741d31c88b572e676dd31527",
+          "third_party/LeHami/lehami/training/configs/optim/default.yaml": "051b47091d51bde92ad512a78ae2ba85b2de8703160b1df06a9fffd78d8ff5e2",
+          "third_party/LeHami/pyproject.toml": "ca30327ec825f65419ce62c7172a3d17ed2d18a21b6ebdc6f3342e15dc34289e",
+          "third_party/hjepa/LICENSE": "4882021920cbd61e050e4dc2e02440e9bd36ea4cbc5803e738a2ee3d63502e07",
+          "third_party/hjepa/README.md": "ababd6124770383c6043f83d192525c3932fd3006a5c6a474c86a9a6864125f0",
+          "third_party/hjepa/config/eval/cube.yaml": "1d6039ecc33d86f51ec2f3c2ae63a9ac06e0de3124495ec477d63ac4235187b4",
+          "third_party/hjepa/config/eval/pusht.yaml": "5ef11268afa66bf64010a447cfd38a9470153f9c9de8961c6911ee1444b84735",
+          "third_party/hjepa/config/eval/reacher.yaml": "00807a8bdc2332757a404976645f965e070e68ae0853755371c16ddddb09e1b2",
+          "third_party/hjepa/config/eval/solver/cem.yaml": "797629f829c0d3ad3b9c4e42d46a87f08da0b3845bc433e353fd6274cb0574df",
+          "third_party/hjepa/config/eval/tworoom.yaml": "03fdb28c8c59742295f77e7b86c7c96c174b2590f486c992b75a10581203e6c8",
+          "third_party/hjepa/config/train/data/cube.yaml": "5a10684e51f189690e11befb6260152c13a4de8bc7f588356c30c0dadb7f6c1d",
+          "third_party/hjepa/config/train/data/pusht.yaml": "8eb29082645f045ad284997334543ba6fd55843871b1bf60add53b6ace6f9346",
+          "third_party/hjepa/config/train/data/reacher.yaml": "bf05697078202147df2f59a5a5fc514c96e5ab001990dbd23d44292f97ecd282",
+          "third_party/hjepa/config/train/data/tworoom.yaml": "503ba6cea309f47f3732cca5168ee4af6fb720a491139147bf36e61a2a74836d",
+          "third_party/hjepa/config/train/hjepa.yaml": "a01807b504a62a5ac69abd9390ebe97c7231023f1e8a3453126d00697333542e",
+          "third_party/hjepa/eval.py": "0bacdd5165a669bdece996550968b2250a403e237d7ae2516e198a687b211367",
+          "third_party/hjepa/hamiltonian_jepa.py": "59bc859628a1fb68e350de4978fa2a3909cdb92e64fc3d7ea25d7c67376035b6",
+          "third_party/hjepa/hamiltonian_predictor.py": "0c70ffac338cfd95222eb07991ddd3f35826d6c309f589647e4232312e2f5cd1",
+          "third_party/hjepa/hjepa_loss.py": "e107bc2053e74ebec9300715369dd1f51b175a9e2b09616dc28d2765f66596d7",
+          "third_party/hjepa/module.py": "140c63e89fbefe6ae288262ddff4b872c760e917c7b827acc8429b6feb495ae3",
+          "third_party/hjepa/requirements.txt": "f2bc42776e5dc4b2853521d3fe43fbbf1be55c90a6e6b19b04b131d5425059d4",
+          "third_party/hjepa/scripts/eval.sh": "f5d6521fbc7b1d944b4f8fba95d9c9189453a7cec73f2e8e6c0c11157de7f88f",
+          "third_party/hjepa/train.py": "ba6043927821dfe58230649ecb423e12de76e2781b9c75351dfcd550ce017edb",
+          "third_party/hjepa_source.json": "f1ad06c8ff6db959eb7b79279434ee7c00515093dad546c3304545df3e99a0c9",
+          "third_party/le-wm/LICENSE": "4882021920cbd61e050e4dc2e02440e9bd36ea4cbc5803e738a2ee3d63502e07",
+          "third_party/le-wm/README.md": "598ec180a74926d389499ebfc99044b7167bcdc3e20f8da0d0f4142df3f68b0f",
+          "third_party/le-wm/jepa.py": "41bad7fd21e0f14aea4c9c3d39a9c87037e787746d953ab62cdc0677e938ce96",
+          "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620",
+          "third_party/sources.json": "562de60456c15396b4536985a066ba261158ea3dbaf4acf5d2ffb046aaf5e788"
+        },
+        "extra_sources": {
+          "scripts/run_hjepa_retrain.py": "c285de2c4def7141221ec682f151e42aa164204445998d12b824587aa90d2212",
+          "dpbench/hjepa_acceptance.py": "43dab1577ad0fb03f844e06b0387f07de7e623885f24be137d10047088b78f48",
+          "scripts/train_comparison.py": "c89c8d4b6edf7b4ab83138ad9c2c61af38bd34f4342b82732c3df780e2f9a655",
+          "scripts/evaluate_comparison.py": "9a8c7c39b32745515c77104d3608d085ed23871daa369178aab296c0b1403092",
+          "scripts/run_comparison.py": "9c303f173277dd15e9eb55bb34e56bb7ee14179b233002697ab4812e3b28dbe6"
+        },
+        "device": "cpu",
+        "milestones": [
+          4000,
+          20000
+        ],
+        "dissipation": "Official learned PSD dissipation active throughout; no disabling or freezing",
+        "initialization": "Qualified current-run A20k weights, including dissipation; fresh optimizer/RNG",
+        "evaluation": {
+          "split": "val",
+          "horizons": [
+            8,
+            16,
+            32
+          ],
+          "batch_size": 32,
+          "readout": "Own checkpoint; train288 fit, train96 selection; no test evaluation"
+        }
+      },
+      "dissipation_parameters_trainable": 218128
+    }
+  },
+  "slurm_test_only": {
+    "a": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "sbatch: Job 48066 to start at 2048-02-14T08:31:04 using 8 processors on nodes ladhpc in partition compute\n"
+    },
+    "single": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "sbatch: Job 48067 to start at 2048-02-14T08:31:06 using 8 processors on nodes ladhpc in partition compute\n"
+    },
+    "multi": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "sbatch: Job 48068 to start at 2048-02-14T08:31:20 using 8 processors on nodes ladhpc in partition compute\n"
+    }
+  },
+  "formal_training_started": false,
+  "optimizer_created": false,
+  "jobs_submitted": false,
+  "gpu_profile_status": "pending allocated job",
+  "parent_checkpoint_expected_but_not_required_for_upload": true,
+  "source_files_verified": 62
+}

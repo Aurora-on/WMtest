@@ -1,0 +1,317 @@
+{
+  "checked_at_utc": "2026-11-08T09:27:51.562278+00:00",
+  "bundle_verified_files": 97,
+  "source_sha256": "c76992e2809f344f5e70fb111eacffcbf1ea7eb88937718c9cada4e1c942937d",
+  "preflight": {
+    "a": {
+      "path": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+      "dataset_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+      "split_disjoint": true,
+      "split_audit_scope": "Episode IDs and group IDs are disjoint across the existing splits. This is not an audit of exact or near-duplicate RGB clips; the original splits are unchanged.",
+      "split_sizes": {
+        "train": 384,
+        "val": 64,
+        "test": 128
+      },
+      "declared_train_frames": 81,
+      "train_frames": 81,
+      "history": 21,
+      "history_required": 21,
+      "requires_environment_context": false,
+      "sampling_metadata_fields": [
+        "regime_id"
+      ],
+      "max_horizon": 32,
+      "target_tail_frames": 2,
+      "window_frames": 55,
+      "action_dim": 1,
+      "image_shape": [
+        64,
+        64,
+        3
+      ],
+      "model_fields": [
+        "pixels",
+        "action",
+        "dt_frame"
+      ],
+      "target_fields_read": [],
+      "test_samples_read": false,
+      "training_started": false,
+      "windows": {
+        "train": 10368,
+        "val": 1728
+      },
+      "strata_windows": {
+        "train": {
+          "regime0_mode0_time0": 3456,
+          "regime0_mode0_time1": 3456,
+          "regime0_mode0_time2": 3456
+        },
+        "val": {
+          "regime0_mode0_time0": 576,
+          "regime0_mode0_time1": 576,
+          "regime0_mode0_time2": 576
+        }
+      },
+      "sampling_contract": "Available regime/mode/time strata balanced; episode uniform within strata; RGB/action/dt model inputs only",
+      "scope": "Constant physical damping per trajectory tests a special case, not identification of genuine position/velocity-dependent damping. Opaque regime IDs, when present, are sampling metadata only. No damping coefficient or other physical target is read for training.",
+      "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+      "stage": "a",
+      "selected_damping": [
+        0.0
+      ],
+      "protocol_sha256": "4d3c7f764dc81c7eb44b43167a31650893fbb4a324f91d94577df20ef4030098",
+      "optimizer_created": false,
+      "fixture_only": false,
+      "full_history_available": true
+    },
+    "single": {
+      "path": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_single/damping.h5",
+      "dataset_sha256": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+      "split_disjoint": true,
+      "split_audit_scope": "Episode IDs and group IDs are disjoint across the existing splits. This is not an audit of exact or near-duplicate RGB clips; the original splits are unchanged.",
+      "split_sizes": {
+        "train": 384,
+        "val": 64,
+        "test": 128
+      },
+      "declared_train_frames": 81,
+      "train_frames": 81,
+      "history": 21,
+      "history_required": 21,
+      "requires_environment_context": false,
+      "sampling_metadata_fields": [
+        "regime_id"
+      ],
+      "max_horizon": 32,
+      "target_tail_frames": 2,
+      "window_frames": 55,
+      "action_dim": 1,
+      "image_shape": [
+        64,
+        64,
+        3
+      ],
+      "model_fields": [
+        "pixels",
+        "action",
+        "dt_frame"
+      ],
+      "target_fields_read": [],
+      "test_samples_read": false,
+      "training_started": false,
+      "windows": {
+        "train": 10368,
+        "val": 1728
+      },
+      "strata_windows": {
+        "train": {
+          "regime3_mode0_time0": 3456,
+          "regime3_mode0_time1": 3456,
+          "regime3_mode0_time2": 3456
+        },
+        "val": {
+          "regime3_mode0_time0": 576,
+          "regime3_mode0_time1": 576,
+          "regime3_mode0_time2": 576
+        }
+      },
+      "sampling_contract": "Available regime/mode/time strata balanced; episode uniform within strata; RGB/action/dt model inputs only",
+      "scope": "Constant physical damping per trajectory tests a special case, not identification of genuine position/velocity-dependent damping. Opaque regime IDs, when present, are sampling metadata only. No damping coefficient or other physical target is read for training.",
+      "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+      "stage": "single",
+      "selected_damping": [
+        0.2
+      ],
+      "protocol_sha256": "a482e80f0e212702de86c7ffd0e297081f06e5846cef24a4b3d71fbf8b9990e3",
+      "optimizer_created": false,
+      "fixture_only": false,
+      "full_history_available": true
+    },
+    "multi": {
+      "path": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_multi/seen.h5",
+      "dataset_sha256": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6",
+      "split_disjoint": true,
+      "split_audit_scope": "Episode IDs and group IDs are disjoint across the existing splits. This is not an audit of exact or near-duplicate RGB clips; the original splits are unchanged.",
+      "split_sizes": {
+        "train": 2304,
+        "val": 384,
+        "test": 768
+      },
+      "declared_train_frames": 81,
+      "train_frames": 81,
+      "history": 21,
+      "history_required": 21,
+      "requires_environment_context": true,
+      "sampling_metadata_fields": [
+        "regime_id"
+      ],
+      "max_horizon": 32,
+      "target_tail_frames": 2,
+      "window_frames": 55,
+      "action_dim": 1,
+      "image_shape": [
+        64,
+        64,
+        3
+      ],
+      "model_fields": [
+        "pixels",
+        "action",
+        "dt_frame"
+      ],
+      "target_fields_read": [],
+      "test_samples_read": false,
+      "training_started": false,
+      "windows": {
+        "train": 62208,
+        "val": 10368
+      },
+      "strata_windows": {
+        "train": {
+          "regime0_mode0_time0": 3456,
+          "regime0_mode0_time1": 3456,
+          "regime0_mode0_time2": 3456,
+          "regime1_mode0_time0": 3456,
+          "regime1_mode0_time1": 3456,
+          "regime1_mode0_time2": 3456,
+          "regime2_mode0_time0": 3456,
+          "regime2_mode0_time1": 3456,
+          "regime2_mode0_time2": 3456,
+          "regime3_mode0_time0": 3456,
+          "regime3_mode0_time1": 3456,
+          "regime3_mode0_time2": 3456,
+          "regime4_mode0_time0": 3456,
+          "regime4_mode0_time1": 3456,
+          "regime4_mode0_time2": 3456,
+          "regime5_mode0_time0": 3456,
+          "regime5_mode0_time1": 3456,
+          "regime5_mode0_time2": 3456
+        },
+        "val": {
+          "regime0_mode0_time0": 576,
+          "regime0_mode0_time1": 576,
+          "regime0_mode0_time2": 576,
+          "regime1_mode0_time0": 576,
+          "regime1_mode0_time1": 576,
+          "regime1_mode0_time2": 576,
+          "regime2_mode0_time0": 576,
+          "regime2_mode0_time1": 576,
+          "regime2_mode0_time2": 576,
+          "regime3_mode0_time0": 576,
+          "regime3_mode0_time1": 576,
+          "regime3_mode0_time2": 576,
+          "regime4_mode0_time0": 576,
+          "regime4_mode0_time1": 576,
+          "regime4_mode0_time2": 576,
+          "regime5_mode0_time0": 576,
+          "regime5_mode0_time1": 576,
+          "regime5_mode0_time2": 576
+        }
+      },
+      "sampling_contract": "Available regime/mode/time strata balanced; episode uniform within strata; RGB/action/dt model inputs only",
+      "scope": "Constant physical damping per trajectory tests a special case, not identification of genuine position/velocity-dependent damping. Opaque regime IDs, when present, are sampling metadata only. No damping coefficient or other physical target is read for training.",
+      "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+      "stage": "multi",
+      "selected_damping": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.5,
+        1.0
+      ],
+      "protocol_sha256": "483af06154f0a9c0d716a3c1c75cd6103ffd574bc268af3a5a3b6369026a7a47",
+      "optimizer_created": false,
+      "fixture_only": false,
+      "full_history_available": true
+    }
+  },
+  "paired": {
+    "single": {
+      "status": "matched",
+      "training_scope": "damping_stage_b_single",
+      "multi": false,
+      "selected_damping": [
+        0.2
+      ],
+      "paired_episode_comparisons": 576,
+      "split_counts": {
+        "train": {
+          "a_groups": 384,
+          "b_episodes": 384
+        },
+        "val": {
+          "a_groups": 64,
+          "b_episodes": 64
+        },
+        "test": {
+          "a_groups": 128,
+          "b_episodes": 128
+        }
+      },
+      "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+      "data_a_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+      "data_b_sha256": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+      "parent_source_hashes": {
+        "dpbench/passive_family.py": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae",
+        "dpbench/generate.py": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31"
+      },
+      "pixels_dataset_read": false,
+      "state_trajectories_read": false,
+      "test_pixels_read": false,
+      "scope": "Metadata, initial states, clocks, actions and whole-file hashes only; no model training or test performance evaluation"
+    },
+    "multi": {
+      "status": "matched",
+      "training_scope": "damping_stage_b_multi",
+      "multi": true,
+      "selected_damping": [
+        0.0,
+        0.05,
+        0.1,
+        0.2,
+        0.5,
+        1.0
+      ],
+      "paired_episode_comparisons": 3456,
+      "split_counts": {
+        "train": {
+          "a_groups": 384,
+          "b_episodes": 2304
+        },
+        "val": {
+          "a_groups": 64,
+          "b_episodes": 384
+        },
+        "test": {
+          "a_groups": 128,
+          "b_episodes": 768
+        }
+      },
+      "parent_config_sha256": "de2e111a5858d21cd7c80b7643f51b9443c993e97366117aa861fa0717aa8b45",
+      "data_a_sha256": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+      "data_b_sha256": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6",
+      "parent_source_hashes": {
+        "dpbench/passive_family.py": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae",
+        "dpbench/generate.py": "f30c630e96fd4bcbb408ef4425589651a3a5f8f369b1946bdc70fbbe5b80ae31"
+      },
+      "pixels_dataset_read": false,
+      "state_trajectories_read": false,
+      "test_pixels_read": false,
+      "scope": "Metadata, initial states, clocks, actions and whole-file hashes only; no model training or test performance evaluation"
+    }
+  },
+  "versions": {
+    "python": "3.12.14 | packaged by Anaconda, Inc. | (main, Aug 27 2026, 14:46:43) [GCC 14.3.0]",
+    "torch": "2.8.0+cu126",
+    "numpy": "2.2.6",
+    "scipy": "1.18.1",
+    "h5py": "3.16.0",
+    "einops": "0.8.1",
+    "omegaconf": "2.3.1"
+  },
+  "status": "passed",
+  "optimizer_updates": 0
+}

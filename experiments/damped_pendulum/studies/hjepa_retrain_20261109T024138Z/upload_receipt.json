@@ -1,0 +1,29 @@
+{
+  "verified_at_utc": "2026-11-09T02:48:43.908394+00:00",
+  "remote_root": "/home/weizhixin/ssd/hjepa_retrain_20261109T024138Z",
+  "upload_sha256": "87329e19ea554691f46285e5e2ca1d621f4af07ca196ea27f85c4d208f91545b",
+  "remote_preflight_sha256": "181bc48a82b51623276934fd4380ad60b70bd4317308757694aae1d391dd6b70",
+  "package_files_verified": 197,
+  "official_and_core_source_files_verified": 62,
+  "local_tests_passed": 47,
+  "data_sha256_verified": {
+    "a": "51cebf0876b1291abf1aa0f9ccee52a9dcf1cbed1840b51df173f55e35969b24",
+    "single": "ee0333bde1461ce2aa3351c5b49c7700878fd13a20f07947588e225c3d291304",
+    "multi": "148ce4f17405163aa91adbba9b3f0dfb5e0fa9a46479402fbb382078987b3ae6"
+  },
+  "slurm_test_only": {
+    "single": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "sbatch: Job 48063 to start at 2048-02-14T08:16:43 using 8 processors on nodes ladhpc in partition compute\n"
+    },
+    "multi": {
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "sbatch: Job 48064 to start at 2048-02-14T08:16:56 using 8 processors on nodes ladhpc in partition compute\n"
+    }
+  },
+  "formal_jobs_submitted": false,
+  "gpu_profile": "will run inside explicitly submitted Slurm jobs; not yet executed",
+  "submission_entrypoint": "/home/weizhixin/ssd/hjepa_retrain_20261109T024138Z/submit_jobs.sh"
+}

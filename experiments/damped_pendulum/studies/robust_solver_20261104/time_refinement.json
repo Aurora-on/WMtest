@@ -1,0 +1,307 @@
+{
+  "status": "completed",
+  "scope": "Independent time-discretization convergence of one frozen learned ODE, not real physical prediction accuracy or global solver proof",
+  "capture_sha256": "11a456200088b6d2780c3e8fb18cd60b47086d281034ad79c8c890cb811c7922",
+  "core_source_sha256": "1eb98f2aafbbe6d215bccdfa6296371096c292ca85a204b663083bf7b461b2fb",
+  "script_sha256": "49199c5c8516de11e0777d6c68b3c011c8001aeca8557fcb00a837268a0778f2",
+  "torch": "2.8.0",
+  "scipy": "1.18.1",
+  "device": "cpu",
+  "parameters_optimized": false,
+  "learned_case": {
+    "capture_sample_index": 20,
+    "training_step": 2795,
+    "duration_seconds": 0.8,
+    "core_config": {
+      "q_dim": 2,
+      "hidden_dim": 32,
+      "action_dim": 1,
+      "damping_mode": "position_velocity",
+      "substeps": 2,
+      "newton_iterations": 12,
+      "residual_atol": 1e-08,
+      "residual_rtol": 1e-07,
+      "chain_atol": 1e-10,
+      "strict": true,
+      "integrator": "discrete_gradient",
+      "context_dim": 4,
+      "solver": "backtracking",
+      "line_search_max_backtracks": 12,
+      "line_search_shrink": 0.5,
+      "line_search_c1": 0.0001,
+      "max_bisections": 4
+    },
+    "q0": [
+      [
+        1.000243902206421,
+        0.5660082697868347
+      ]
+    ],
+    "p0": [
+      [
+        12.510624060526313,
+        -2.4450040374805027
+      ]
+    ],
+    "context": [
+      [
+        -0.7369439601898193,
+        0.7940831184387207,
+        -0.8127963542938232,
+        -0.70247483253479
+      ]
+    ],
+    "reference": {
+      "rtol": 1e-11,
+      "atol": 1e-12,
+      "max_step": 0.025,
+      "nfev": 1097,
+      "elapsed_seconds": 0.11533933295868337,
+      "energy_balance_defect": -1.475086719437968e-11,
+      "endpoint": [
+        1.4597793445433578,
+        0.6356578771239706,
+        0.00032832041806552377,
+        0.0006099822092638569
+      ],
+      "integrated_dissipation": 81.24693280070936
+    },
+    "tighter_reference": {
+      "rtol": 1e-12,
+      "atol": 1e-13,
+      "max_step": 0.00625,
+      "nfev": 2327,
+      "elapsed_seconds": 0.20127366698579863,
+      "energy_balance_defect": -1.0231815394945443e-12,
+      "endpoint": [
+        1.4597793445431138,
+        0.6356578771240218,
+        0.0003283204180627512,
+        0.0006099822092598325
+      ],
+      "integrated_dissipation": 81.24693280072309
+    },
+    "max_common_grid_reference_disagreement": 9.858066109001909e-11,
+    "sweep": [
+      {
+        "frame_dt": 0.1,
+        "base_leaf_h": 0.05,
+        "frames": 8,
+        "max_accepted_residual_ratio": 0.48994414327258934,
+        "max_split_depth": 0.0,
+        "solver_iterations": 32.0,
+        "solver_backtracks": 4.0,
+        "solver_failed_attempts": 0.0,
+        "solver_leaf_steps": 16.0,
+        "integrated_dissipation": 81.2469312117688,
+        "accumulated_energy_defect": -8.615246827048395e-08,
+        "max_ledger_identity_error": 5.005199794581985e-15,
+        "elapsed_seconds": 0.0456677500042133,
+        "endpoint_error_l2": 0.06685107598291604,
+        "common_grid_rms_state_error": 0.08288218454014151,
+        "common_grid_max_state_error": 0.17104607717715858,
+        "endpoint": [
+          1.396842334955751,
+          0.6581962519896747,
+          0.00026028502985420815,
+          0.0004826484938286813
+        ],
+        "endpoint_observed_order_from_previous": null,
+        "trajectory_observed_order_from_previous": null
+      },
+      {
+        "frame_dt": 0.05,
+        "base_leaf_h": 0.025,
+        "frames": 16,
+        "max_accepted_residual_ratio": 0.47280813624333456,
+        "max_split_depth": 0.0,
+        "solver_iterations": 61.0,
+        "solver_backtracks": 0.0,
+        "solver_failed_attempts": 0.0,
+        "solver_leaf_steps": 32.0,
+        "integrated_dissipation": 81.24693209647072,
+        "accumulated_energy_defect": -2.119251831800284e-07,
+        "max_ledger_identity_error": 2.3028713229794856e-14,
+        "elapsed_seconds": 0.0646873340010643,
+        "endpoint_error_l2": 0.02892725307338228,
+        "common_grid_rms_state_error": 0.038577599379523216,
+        "common_grid_max_state_error": 0.08651667962271449,
+        "endpoint": [
+          1.43299286854255,
+          0.6465789395338658,
+          0.0003130620440848172,
+          0.000581053589559745
+        ],
+        "endpoint_observed_order_from_previous": 1.2085214492859122,
+        "trajectory_observed_order_from_previous": 1.1032986592457343
+      },
+      {
+        "frame_dt": 0.025,
+        "base_leaf_h": 0.0125,
+        "frames": 32,
+        "max_accepted_residual_ratio": 0.3981415757146462,
+        "max_split_depth": 0.0,
+        "solver_iterations": 112.0,
+        "solver_backtracks": 0.0,
+        "solver_failed_attempts": 0.0,
+        "solver_leaf_steps": 64.0,
+        "integrated_dissipation": 81.2469325290854,
+        "accumulated_energy_defect": -1.4773478085317038e-07,
+        "max_ledger_identity_error": 2.343910101037692e-15,
+        "elapsed_seconds": 0.12131104100262746,
+        "endpoint_error_l2": 0.007078056821507765,
+        "common_grid_rms_state_error": 0.010012024109808738,
+        "common_grid_max_state_error": 0.023409078266156264,
+        "endpoint": [
+          1.4531952408087518,
+          0.6382556442045801,
+          0.0003243398637622377,
+          0.000602450011117645
+        ],
+        "endpoint_observed_order_from_previous": 2.0310040830694582,
+        "trajectory_observed_order_from_previous": 1.9460296993678916
+      },
+      {
+        "frame_dt": 0.0125,
+        "base_leaf_h": 0.00625,
+        "frames": 64,
+        "max_accepted_residual_ratio": 0.4530898701956852,
+        "max_split_depth": 0.0,
+        "solver_iterations": 200.0,
+        "solver_backtracks": 0.0,
+        "solver_failed_attempts": 0.0,
+        "solver_leaf_steps": 128.0,
+        "integrated_dissipation": 81.24693110081337,
+        "accumulated_energy_defect": -1.6693932138878154e-06,
+        "max_ledger_identity_error": 3.1445060551455514e-15,
+        "elapsed_seconds": 0.22959833301138133,
+        "endpoint_error_l2": 0.0017571446494734598,
+        "common_grid_rms_state_error": 0.002520050076274215,
+        "common_grid_max_state_error": 0.005943570943704817,
+        "endpoint": [
+          1.4581445732500575,
+          0.6363021407156592,
+          0.00032732224553661655,
+          0.000608093634508501
+        ],
+        "endpoint_observed_order_from_previous": 2.0101203835552877,
+        "trajectory_observed_order_from_previous": 1.9902093631544484
+      }
+    ],
+    "endpoint_errors_strictly_decrease": true,
+    "trajectory_errors_strictly_decrease": true
+  },
+  "harmonic_case": {
+    "omega": 1.7,
+    "duration_seconds": 1.6,
+    "reference": "Analytic q,p of conservative harmonic oscillator",
+    "core_config": {
+      "q_dim": 1,
+      "hidden_dim": 32,
+      "action_dim": 1,
+      "damping_mode": "none",
+      "substeps": 2,
+      "newton_iterations": 12,
+      "residual_atol": 1e-08,
+      "residual_rtol": 1e-07,
+      "chain_atol": 1e-10,
+      "strict": true,
+      "integrator": "discrete_gradient",
+      "context_dim": 0,
+      "solver": "backtracking",
+      "line_search_max_backtracks": 12,
+      "line_search_shrink": 0.5,
+      "line_search_c1": 0.0001,
+      "max_bisections": 4
+    },
+    "sweep": [
+      {
+        "frame_dt": 0.1,
+        "base_leaf_h": 0.05,
+        "frames": 16,
+        "max_accepted_residual_ratio": 5.54769732707584e-09,
+        "max_split_depth": 0.0,
+        "solver_iterations": 32.0,
+        "solver_backtracks": 0.0,
+        "solver_failed_attempts": 0.0,
+        "solver_leaf_steps": 32.0,
+        "integrated_dissipation": 0.0,
+        "accumulated_energy_defect": 0.0,
+        "max_ledger_identity_error": 9.603929880013572e-18,
+        "elapsed_seconds": 0.024197250022552907,
+        "endpoint_error_l2": 0.0019322193361261165,
+        "common_grid_rms_state_error": 0.0009543514004422634,
+        "common_grid_max_state_error": 0.0019322193361261165,
+        "endpoint_observed_order_from_previous": null,
+        "trajectory_observed_order_from_previous": null
+      },
+      {
+        "frame_dt": 0.05,
+        "base_leaf_h": 0.025,
+        "frames": 32,
+        "max_accepted_residual_ratio": 5.547076456414595e-09,
+        "max_split_depth": 0.0,
+        "solver_iterations": 64.0,
+        "solver_backtracks": 0.0,
+        "solver_failed_attempts": 0.0,
+        "solver_leaf_steps": 64.0,
+        "integrated_dissipation": 0.0,
+        "accumulated_energy_defect": -6.661338147750939e-16,
+        "max_ledger_identity_error": 5.47015234520004e-18,
+        "elapsed_seconds": 0.04879966704174876,
+        "endpoint_error_l2": 0.0004834968111827065,
+        "common_grid_rms_state_error": 0.00023881756867973633,
+        "common_grid_max_state_error": 0.0004834968111827065,
+        "endpoint_observed_order_from_previous": 1.9986805913749361,
+        "trajectory_observed_order_from_previous": 1.9986116040871085
+      },
+      {
+        "frame_dt": 0.025,
+        "base_leaf_h": 0.0125,
+        "frames": 64,
+        "max_accepted_residual_ratio": 8.427214833480574e-09,
+        "max_split_depth": 0.0,
+        "solver_iterations": 128.0,
+        "solver_backtracks": 0.0,
+        "solver_failed_attempts": 0.0,
+        "solver_leaf_steps": 128.0,
+        "integrated_dissipation": 0.0,
+        "accumulated_energy_defect": -1.3322676295501878e-15,
+        "max_ledger_identity_error": 3.905470948372944e-18,
+        "elapsed_seconds": 0.09414970903890207,
+        "endpoint_error_l2": 0.00012090185551488073,
+        "common_grid_rms_state_error": 5.9718767129323206e-05,
+        "common_grid_max_state_error": 0.00012090185551488073,
+        "endpoint_observed_order_from_previous": 1.9996699884900466,
+        "trajectory_observed_order_from_previous": 1.9996526857462906
+      },
+      {
+        "frame_dt": 0.0125,
+        "base_leaf_h": 0.00625,
+        "frames": 128,
+        "max_accepted_residual_ratio": 1.0397135454231402e-08,
+        "max_split_depth": 0.0,
+        "solver_iterations": 256.0,
+        "solver_backtracks": 0.0,
+        "solver_failed_attempts": 0.0,
+        "solver_leaf_steps": 256.0,
+        "integrated_dissipation": 0.0,
+        "accumulated_energy_defect": -1.1102230246251565e-15,
+        "max_ledger_identity_error": 2.530938828428371e-18,
+        "elapsed_seconds": 0.18675558298127726,
+        "endpoint_error_l2": 3.0227192630902586e-05,
+        "common_grid_rms_state_error": 1.493059049218852e-05,
+        "common_grid_max_state_error": 3.0227192630902586e-05,
+        "endpoint_observed_order_from_previous": 1.9999174870933667,
+        "trajectory_observed_order_from_previous": 1.9999131579371288
+      }
+    ]
+  },
+  "interpretation_limits": [
+    "Observed orders on four grids are empirical, not a universal convergence theorem.",
+    "Adaptive subdivision can make effective leaf grids differ; leaf count/depth is reported.",
+    "Original production residual/chain tolerances are unchanged; tolerance error can dominate on sufficiently fine grids.",
+    "Learned reference uses the same frozen V,D but an independent explicit adaptive integrator; its trajectory is not simulator ground truth."
+  ],
+  "elapsed_seconds": 1.1525306660332717
+}

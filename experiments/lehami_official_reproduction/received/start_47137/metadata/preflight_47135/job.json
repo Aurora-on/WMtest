@@ -1,0 +1,16 @@
+{
+  "phase": "preflight",
+  "job_id": "47135",
+  "status": "PASS",
+  "started_unix": 1793258886.8768675,
+  "slurm": {
+    "SLURM_JOB_PARTITION": "compute",
+    "SLURM_CPUS_PER_TASK": "4",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "SLURM_JOB_ID": "47135",
+    "SLURM_JOB_NODELIST": "ladhpc"
+  },
+  "exit_code": 0,
+  "finished_unix": 1793259166.360915,
+  "wall_seconds": 279.4840474128723
+}

@@ -1,0 +1,122 @@
+{
+  "checkpoint_step": 10000,
+  "checkpoint_sha256": "bef8db8773e7d16df40221deb82b194acd2ff700c87c1e3b135c2d9bebb4f8b5",
+  "objective_mode": "current",
+  "metrics": {
+    "ridge": {
+      "angle_mae_rad": 0.8136506734234306,
+      "angle_rmse_rad": 1.039251433417557,
+      "omega_rmse_rad_s": 2.575089384853412,
+      "omega_nrmse": 0.9859552547422215,
+      "normalized_target_mse": 0.9696150176678175,
+      "quality_gate_passed": false
+    },
+    "knn": {
+      "angle_mae_rad": 0.721870557507934,
+      "angle_rmse_rad": 0.9763390485571031,
+      "omega_rmse_rad_s": 2.482992936113731,
+      "omega_nrmse": 0.9506931865157411,
+      "normalized_target_mse": 0.8376149085070453,
+      "quality_gate_passed": false
+    },
+    "constant_train_mean": {
+      "angle_mae_rad": 0.8761128695955951,
+      "angle_rmse_rad": 1.0776597338741294,
+      "omega_rmse_rad_s": 2.581436006195378,
+      "omega_nrmse": 0.9883852615213169,
+      "normalized_target_mse": 1.0021709712127633,
+      "quality_gate_passed": false
+    }
+  },
+  "ridge": {
+    "selected_alpha": 1e-06,
+    "candidates": [
+      {
+        "alpha": 1e-06,
+        "selection_normalized_mse": 0.9711194605893786
+      },
+      {
+        "alpha": 0.0001,
+        "selection_normalized_mse": 0.9711240375420367
+      },
+      {
+        "alpha": 0.01,
+        "selection_normalized_mse": 0.9716500717425314
+      },
+      {
+        "alpha": 1.0,
+        "selection_normalized_mse": 0.9997256182004974
+      },
+      {
+        "alpha": 100.0,
+        "selection_normalized_mse": 1.0132553782481848
+      }
+    ]
+  },
+  "knn": {
+    "selected_k": 50,
+    "candidates": [
+      {
+        "k": 1,
+        "selection_normalized_mse": 1.5491086455254217
+      },
+      {
+        "k": 5,
+        "selection_normalized_mse": 0.9426705822072161
+      },
+      {
+        "k": 25,
+        "selection_normalized_mse": 0.842728025483086
+      },
+      {
+        "k": 50,
+        "selection_normalized_mse": 0.8357727256698405
+      }
+    ],
+    "weights": "uniform",
+    "distance": "Euclidean in fit-standardized phase features"
+  },
+  "representation": {
+    "feature_std": [
+      1.8565411859214013e-05,
+      1.6579889359019726e-05,
+      0.00019934629195054158,
+      0.00017325040461860488
+    ],
+    "centered_singular_values": [
+      0.029025833024183663,
+      0.019680696018722396,
+      0.0021063897071534237,
+      0.001438240780183488
+    ],
+    "numeric_rank": 4,
+    "standardized_feature_target_cross_moment": [
+      [
+        -0.19027275721363998,
+        -0.13410945202859187,
+        -0.0028107222081971677
+      ],
+      [
+        0.1450176488370693,
+        0.09533644188279762,
+        0.006365199496638021
+      ],
+      [
+        -0.012360123524908753,
+        -0.022755186495004007,
+        -0.05101141659887121
+      ],
+      [
+        -0.0037311199207465374,
+        0.031175116482006316,
+        0.03865930140316728
+      ]
+    ],
+    "interpretation": "Small variance alone does not establish lost information; readout evaluation tests recoverability."
+  },
+  "model_hash_before": "ae49eee8b2cd467d724c278660774577088479807cf9973d2c4090bab0983377",
+  "model_hash_after": "ae49eee8b2cd467d724c278660774577088479807cf9973d2c4090bab0983377",
+  "parameters_unchanged": true,
+  "world_model_updates": 0,
+  "omega_nrmse_denominator": 2.611771043835727
+}

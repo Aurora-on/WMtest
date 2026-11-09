@@ -1,0 +1,600 @@
+{
+  "checked_at_utc": "2026-11-05T06:39:43.129634+00:00",
+  "run_root": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z",
+  "training_directory": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/training",
+  "operation": "read_only_training_artifact_audit",
+  "test_data_read": false,
+  "optimizer_created": false,
+  "training_updates": 0,
+  "history_parse": {
+    "exists": true,
+    "partial_tail_ignored": false,
+    "parse_errors": [],
+    "mtime_utc": "2026-11-05T06:30:54.238387+00:00"
+  },
+  "history": {
+    "rows": 4000,
+    "latest_step": 4000,
+    "contiguous_from_1": true,
+    "finite_loss_and_gradient": true,
+    "nonfinite_count": 0,
+    "nonfinite_examples": [],
+    "logged_work_and_dissipation_exactly_zero": true,
+    "nonzero_work_or_dissipation_count": 0,
+    "nonzero_examples": [],
+    "missing_or_invalid_diagnostics_count": 0,
+    "missing_examples": [],
+    "maximum_solver_residual_ratio": 0.49999912144230824,
+    "solver_residual_ratios_within_tolerance": true,
+    "maximum_split_depth": 0.0,
+    "nonzero_split_diagnostic_count": 0,
+    "latest_losses": {
+      "loss": 3.216478450400627,
+      "prediction_loss": 1.3970621163683944e-07,
+      "motion_loss": 9.288752538206573e-05,
+      "sigreg_loss": 12.865522384643555,
+      "initializer_loss": 1.320516013308408e-13,
+      "target_std_min": 5.493350587499185e-05,
+      "target_std_mean": 5.5337905537207856e-05,
+      "target_motion_rms": 6.642096692652481e-05,
+      "target_motion_mse": 4.411744847454503e-09,
+      "persistence_mse": 6.484116725182431e-09,
+      "prediction_mse": 1.3970621163683944e-07,
+      "normalized_prediction_mse": 0.0013970621163683942,
+      "persistence_ratio": 0.0013970621163683942,
+      "predicted_velocity_power": 4.253882668050857e-07,
+      "dynamic_predicted_velocity_power": 0.0,
+      "target_velocity_power": 4.411744715974263e-07,
+      "dynamic_target_velocity_power": 0.0,
+      "velocity_error_power": 9.288752538206574e-07,
+      "dynamic_velocity_error_power": 0.0,
+      "velocity_cross_power": -3.115625770907273e-08,
+      "dynamic_velocity_cross_power": 0.0,
+      "momentum_loss": 4.827008144921949e-05,
+      "momentum_point_count": 256.0,
+      "dynamic_window_count": 0.0,
+      "stalled_dynamic_window_count": 0.0,
+      "window_count": 32.0,
+      "target_mean_0": 1.2889460776932538e-05,
+      "target_second_moment_0": 3.1838282668378466e-09,
+      "target_mean_1": 4.065275425091386e-05,
+      "target_second_moment_1": 4.75985101713091e-09,
+      "work": 0.0,
+      "dissipation": 0.0,
+      "residual_work": -1.1151036848679053e-12,
+      "chain_defect": 1.099945203958378e-18,
+      "chain_defect_max": 1.20717100778376e-16,
+      "numerical_balance_defect": 1.527297732728589e-11,
+      "solver_residual": 5.036945344229564e-09,
+      "solver_residual_ratio": 0.4998901661326041,
+      "solver_picard_iterations": 2.57421875,
+      "solver_newton_iterations": 0.0,
+      "solver_backtracks": 0.0,
+      "solver_line_search_evals": 0.0,
+      "solver_iterations": 2.57421875,
+      "solver_failed_attempts": 0.0,
+      "solver_leaf_steps": 3.0,
+      "solver_split_depth": 0.0,
+      "solver_replay_iterations": 0.0,
+      "solver_replay_relative_error": 0.0,
+      "energy_delta": -1.1151025849226448e-12,
+      "energy_residual": 1.5272977327285275e-11
+    },
+    "latest_gradient_norm": 0.21634716670071596,
+    "validation_rounds": 16,
+    "latest_validation": {
+      "step": 4000,
+      "score": 0.00784927071619252,
+      "gate_passed": false,
+      "position_score": 0.00784927071619252,
+      "motion_score": 0.0,
+      "validation_seconds": 17.183323673903942,
+      "failed_prediction_groups": []
+    },
+    "recent_validations": [
+      {
+        "step": 3250,
+        "score": 0.01704342571330914,
+        "gate_passed": false,
+        "position_score": 0.01704342571330914,
+        "motion_score": 0.0,
+        "validation_seconds": 17.320531897246838,
+        "failed_prediction_groups": []
+      },
+      {
+        "step": 3500,
+        "score": 0.00875506393993567,
+        "gate_passed": false,
+        "position_score": 0.00875506393993567,
+        "motion_score": 0.0,
+        "validation_seconds": 14.064579896628857,
+        "failed_prediction_groups": []
+      },
+      {
+        "step": 3750,
+        "score": 0.0100684902670384,
+        "gate_passed": false,
+        "position_score": 0.0100684902670384,
+        "motion_score": 0.0,
+        "validation_seconds": 17.154102496802807,
+        "failed_prediction_groups": []
+      },
+      {
+        "step": 4000,
+        "score": 0.00784927071619252,
+        "gate_passed": false,
+        "position_score": 0.00784927071619252,
+        "motion_score": 0.0,
+        "validation_seconds": 17.183323673903942,
+        "failed_prediction_groups": []
+      }
+    ],
+    "numerical_log_health_passed": true,
+    "scope": "Logged aggregated work/dissipation only, not a fresh per-sample physical audit. Prediction gate failures are reported separately from numerical/log health."
+  },
+  "status_file": {
+    "status": "budget_completed",
+    "training_started": true,
+    "completed_steps": 4000,
+    "optimizer_steps_this_run": 4000,
+    "configured_total_steps": 20000,
+    "stop_after_step": 4000,
+    "full_budget_completed": false,
+    "best_score": null,
+    "best_step": null,
+    "best_available": false,
+    "elapsed_seconds": 2831.4141446128488,
+    "physical_validation": false
+  },
+  "protocol_checks": {
+    "damping_disabled": true,
+    "environment_disabled": true,
+    "data_scope_bound": true,
+    "trainable_modules_bound": true,
+    "fresh_seed0": true,
+    "bound_4000": true
+  },
+  "protocol_matches_stage_a": true,
+  "eta": {
+    "target_step": 4000,
+    "latest_completed_step": 4000,
+    "schedule_matches_estimator": true,
+    "recent_step_timings": {
+      "4": {
+        "samples": 200,
+        "median_seconds": 0.4019348509609699,
+        "minimum_seconds": 0.39673496782779694,
+        "maximum_seconds": 0.45178814977407455
+      },
+      "8": {
+        "samples": 200,
+        "median_seconds": 0.7155692651867867,
+        "minimum_seconds": 0.6583016142249107,
+        "maximum_seconds": 0.7365052029490471
+      }
+    },
+    "K4_seconds_used": 0.4019348509609699,
+    "K4_timing_source": "current_K4_recent_median",
+    "K8_seconds_used": 0.7155692651867867,
+    "K8_timing_source": "current_K8_recent_median",
+    "validation_seconds_used": 17.168713085353374,
+    "validation_timing_source": "current_recent_median",
+    "checkpoint_seconds_used": 0.20472842454910278,
+    "remaining_counts": {
+      "K4": 0,
+      "K8": 0,
+      "validation": 0
+    },
+    "remaining_seconds": 0.0,
+    "estimated_completion_utc": "2026-11-05T06:39:43.129634+00:00",
+    "current_validation_measured": true,
+    "confidence": "current_both_stages_and_validation",
+    "historical_prior": {
+      "source": "47727 L40/batch32/3-substeps, first 4000 history rows; old damped model",
+      "source_file": "studies/stall_diagnosis_20261105/frozen_training/history.jsonl",
+      "k4_median_seconds": 0.5224075242877007,
+      "k8_median_seconds": 1.0793442912399769,
+      "validation_median_seconds": 45.53769016265869,
+      "checkpoint_median_seconds": 0.14940977096557617,
+      "limits": "Old damped dynamics and 18 validation strata; A changes losses, D and batch organization. Prior only."
+    },
+    "limits": "Excludes queue, data generation and startup outside trainer. Assumes uninterrupted execution, unchanged throughput and successful solves. No uncertainty confidence interval. step_seconds excludes validation; do not add validation again to iteration_seconds."
+  },
+  "overall_numerical_health_passed": true,
+  "queue": {
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "scheduler": {
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+  },
+  "quality_trend": [
+    {
+      "step": 250,
+      "score": 36.96880803296501,
+      "gate_passed": false,
+      "dynamic_support": true,
+      "target_std_min_range": [
+        0.003272289529025419,
+        0.004391231532236598
+      ],
+      "target_motion_rms_range": [
+        0.00469821570505375,
+        0.005187362744143719
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          8.24398135345877,
+          11.290096513185757
+        ],
+        "h32": [
+          81.90993918968276,
+          116.66586732313893
+        ]
+      }
+    },
+    {
+      "step": 500,
+      "score": 4.822463356248321,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        0.0011483308624019143,
+        0.0012238778866374143
+      ],
+      "target_motion_rms_range": [
+        0.0017207038535249832,
+        0.001785581013912365
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          15.649958863527162,
+          21.525422534144834
+        ],
+        "h32": [
+          188.91595553410403,
+          262.42039569492124
+        ]
+      }
+    },
+    {
+      "step": 750,
+      "score": 2.409553477259946,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        0.0007313435241311394,
+        0.0008705394372683907
+      ],
+      "target_motion_rms_range": [
+        0.0010493397217481528,
+        0.0012233367409071707
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          13.194420626434006,
+          20.70296460630737
+        ],
+        "h32": [
+          242.60162100686858,
+          305.81092105832363
+        ]
+      }
+    },
+    {
+      "step": 1000,
+      "score": 0.8262092974187801,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        0.0005315266822763154,
+        0.0005725679646635981
+      ],
+      "target_motion_rms_range": [
+        0.0006531635239238764,
+        0.0007035077306932476
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          16.73957049286394,
+          18.074890532097598
+        ],
+        "h32": [
+          238.92742887050508,
+          280.51317415172946
+        ]
+      }
+    },
+    {
+      "step": 1250,
+      "score": 0.48472560962863503,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        0.00034363975100793723,
+        0.0003826738618583821
+      ],
+      "target_motion_rms_range": [
+        0.0004443278625251,
+        0.00048001228601091204
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          18.010400522335775,
+          20.25699446812856
+        ],
+        "h32": [
+          310.6267346969682,
+          347.1437597587044
+        ]
+      }
+    },
+    {
+      "step": 1500,
+      "score": 0.2558734363306718,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        0.00027940390058029665,
+        0.00030512284288630124
+      ],
+      "target_motion_rms_range": [
+        0.00038236500318623184,
+        0.0004088289447651063
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          13.347364642527282,
+          17.82349238238228
+        ],
+        "h32": [
+          167.5450547319815,
+          208.4094815332525
+        ]
+      }
+    },
+    {
+      "step": 1750,
+      "score": 0.12156229091834925,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        0.00017002388260506108,
+        0.0002032524020098669
+      ],
+      "target_motion_rms_range": [
+        0.00024311427317353143,
+        0.00026728814525474017
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          13.77041287549319,
+          15.16294236888646
+        ],
+        "h32": [
+          164.4844475248048,
+          176.50807279915497
+        ]
+      }
+    },
+    {
+      "step": 2000,
+      "score": 0.11769529516432133,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        0.0001843741461019095,
+        0.00019920472144386897
+      ],
+      "target_motion_rms_range": [
+        0.0002300392652881552,
+        0.00023658120483905365
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          14.733472443547992,
+          17.812209751397916
+        ],
+        "h32": [
+          193.30293511474304,
+          231.39771764314528
+        ]
+      }
+    },
+    {
+      "step": 2250,
+      "score": 0.02953205762983623,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        6.707240900551801e-05,
+        7.992128769239936e-05
+      ],
+      "target_motion_rms_range": [
+        0.0001091265309501333,
+        0.00011794906567336763
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          16.935013199908216,
+          24.13083363349598
+        ],
+        "h32": [
+          268.1071745777517,
+          352.7149690594886
+        ]
+      }
+    },
+    {
+      "step": 2500,
+      "score": 0.04085574633171154,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        8.641781978544083e-05,
+        0.0001086798540829348
+      ],
+      "target_motion_rms_range": [
+        0.00011988120097266326,
+        0.00012746839695798614
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          18.197751403514516,
+          24.270025074825103
+        ],
+        "h32": [
+          326.8549559301708,
+          476.7851612082966
+        ]
+      }
+    },
+    {
+      "step": 2750,
+      "score": 0.01213366146451949,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        6.389930739556355e-05,
+        6.716507130682837e-05
+      ],
+      "target_motion_rms_range": [
+        8.580362450230442e-05,
+        9.323419219700603e-05
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          15.88738909503158,
+          18.258456345120507
+        ],
+        "h32": [
+          197.97370412932304,
+          232.54106467630157
+        ]
+      }
+    },
+    {
+      "step": 3000,
+      "score": 0.009453662217652623,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        4.726931746802114e-05,
+        5.459195798471666e-05
+      ],
+      "target_motion_rms_range": [
+        6.398335959078159e-05,
+        6.98489677943795e-05
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          8.33891012807932,
+          11.63793317768717
+        ],
+        "h32": [
+          160.02853668475538,
+          201.57907024308753
+        ]
+      }
+    },
+    {
+      "step": 3250,
+      "score": 0.01704342571330914,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        6.049478449309218e-05,
+        6.965823579267346e-05
+      ],
+      "target_motion_rms_range": [
+        7.484569768673875e-05,
+        8.410464218075355e-05
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          12.584405659927453,
+          18.481201638079558
+        ],
+        "h32": [
+          290.39516594440437,
+          358.16742179187906
+        ]
+      }
+    },
+    {
+      "step": 3500,
+      "score": 0.00875506393993567,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        4.890102145593343e-05,
+        5.628669667467635e-05
+      ],
+      "target_motion_rms_range": [
+        6.071727118706e-05,
+        6.709523867192135e-05
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          9.827222060629433,
+          10.632469223231718
+        ],
+        "h32": [
+          163.67606959351156,
+          166.65583447244012
+        ]
+      }
+    },
+    {
+      "step": 3750,
+      "score": 0.0100684902670384,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        5.033194631252243e-05,
+        6.006458154437653e-05
+      ],
+      "target_motion_rms_range": [
+        6.399757530507093e-05,
+        7.015963477502538e-05
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          11.050861135005055,
+          13.722634947732233
+        ],
+        "h32": [
+          181.267956491346,
+          201.14171089290198
+        ]
+      }
+    },
+    {
+      "step": 4000,
+      "score": 0.00784927071619252,
+      "gate_passed": false,
+      "dynamic_support": false,
+      "target_std_min_range": [
+        5.412199348316519e-05,
+        5.843479175846972e-05
+      ],
+      "target_motion_rms_range": [
+        6.2815587273211e-05,
+        6.83020114645689e-05
+      ],
+      "persistence_by_horizon": {
+        "h8": [
+          7.608411270882247,
+          11.243892938673502
+        ],
+        "h32": [
+          122.0014562201901,
+          162.9318025716863
+        ]
+      }
+    }
+  ]
+}

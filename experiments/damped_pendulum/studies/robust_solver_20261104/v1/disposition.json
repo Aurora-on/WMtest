@@ -1,0 +1,9 @@
+{
+  "job_id": 47695,
+  "disposition": "explicitly cancelled to replace with v2 before long qualification",
+  "verified_last_step": 2832,
+  "old_failure_step2795_passed": true,
+  "cuda_tests_passed": 13,
+  "fresh_profile_updates": 24,
+  "reason": "Independent review found missing finite check on chain_limit in extreme energy overflow; add original finite-ledger guard and regression tests. No ordinary-scale failure observed."
+}

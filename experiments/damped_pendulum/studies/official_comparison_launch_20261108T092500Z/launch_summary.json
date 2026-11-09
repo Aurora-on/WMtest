@@ -1,0 +1,157 @@
+{
+  "checked_at_utc": "2026-11-08T09:37:25.705743+00:00",
+  "checked_at_beijing": "2026-11-08T17:37:25.705743+08:00",
+  "status": "submitted_all_three_running_initial_checks_passed",
+  "storage": {
+    "status": "completed",
+    "archive_root": "/home/weizhixin/hdd/archive_20261108/ssd",
+    "logical_bytes_migrated": 9778283961,
+    "regular_files_migrated": 173952,
+    "items": 10,
+    "sha256_verified": true,
+    "old_paths_preserved_as_symlinks": true,
+    "active_training_data_kept_on_ssd": {
+      "a": "/home/weizhixin/ssd/undamped_stage_a_launch_20261105T053810Z/data/undamped_v1/undamped.h5",
+      "single": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_single/damping.h5",
+      "multi": "/home/weizhixin/ssd/staged_damping_d2_launch_20261106T064931Z/run/data_multi/seen.h5"
+    },
+    "environment_kept_on_ssd": "/home/weizhixin/ssd/damped_pendulum_profile_20261028/.venv"
+  },
+  "training_plan": {
+    "seed": 0,
+    "a_updates": 20000,
+    "single_updates": 20000,
+    "multi_updates": 20000,
+    "gpus_per_method": 1,
+    "stages_sequential_within_each_method": true,
+    "methods_run_concurrently": true,
+    "dt": 0.1,
+    "history_frames": 21
+  },
+  "methods": {
+    "lehami": {
+      "job_id": "48044",
+      "state": "RUNNING",
+      "stage": "a",
+      "completed_steps": 1251,
+      "target_stage_steps": 20000,
+      "initial_checkpoint_qualification": {
+        "path": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/runs/lehami/lehami_seed0/a/segments/0001/last.pt",
+        "sha256": "734d70370c7b76ba9e60a18c82d684b5e5ea434c5e04d0ebd769ad5545da42ad",
+        "step": 1000,
+        "validation_status": "completed",
+        "validation_score": 4.0791424314181,
+        "all_model_floats_finite": true,
+        "source_and_data_match": true,
+        "sampler_next_step": 1000,
+        "optimizer_saved": true,
+        "rng_saved": true
+      },
+      "profile_passed_all_stages_and_horizons": true,
+      "profile_steps_per_horizon": 10,
+      "training_and_periodic_validation_hours": 4.918392659847935,
+      "stage_hours": {
+        "a": 1.5440607542379035,
+        "single": 1.6556351136830119,
+        "multi": 1.7186967919270197
+      },
+      "peak_allocated_gpu_bytes": 7312540672,
+      "all_formal_losses_and_gradients_finite": true,
+      "note": "Early latent losses are not comparable across methods and do not certify physical prediction quality."
+    },
+    "lewm": {
+      "job_id": "48045",
+      "state": "RUNNING",
+      "stage": "a",
+      "completed_steps": 1227,
+      "target_stage_steps": 20000,
+      "initial_checkpoint_qualification": {
+        "path": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/runs/lewm/lewm_seed0/a/segments/0001/last.pt",
+        "sha256": "5e7c2344d253e45eaf17c6d10639d158156663b2790591f12f14dfba887a06dd",
+        "step": 1000,
+        "validation_status": "completed",
+        "validation_score": 0.03388163302507666,
+        "all_model_floats_finite": true,
+        "source_and_data_match": true,
+        "sampler_next_step": 1000,
+        "optimizer_saved": true,
+        "rng_saved": true
+      },
+      "profile_passed_all_stages_and_horizons": true,
+      "profile_steps_per_horizon": 10,
+      "training_and_periodic_validation_hours": 5.087532775931888,
+      "stage_hours": {
+        "a": 1.736106702643964,
+        "single": 1.650198744278815,
+        "multi": 1.7012273290091091
+      },
+      "peak_allocated_gpu_bytes": 12807152128,
+      "all_formal_losses_and_gradients_finite": true,
+      "note": "Early latent losses are not comparable across methods and do not certify physical prediction quality."
+    },
+    "hjepa": {
+      "job_id": "48046",
+      "state": "RUNNING",
+      "stage": "a",
+      "completed_steps": 479,
+      "target_stage_steps": 20000,
+      "initial_checkpoint_qualification": {
+        "path": "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/runs/hjepa/hjepa_seed0/a/segments/0001/last.pt",
+        "sha256": "32d212a3b824255ecd8dfb0d4640d65bcb2ad598434196c0dbf6a4f72fef4474",
+        "step": 250,
+        "validation_status": "completed",
+        "validation_score": 0.11414588284161356,
+        "all_model_floats_finite": true,
+        "source_and_data_match": true,
+        "sampler_next_step": 250,
+        "optimizer_saved": true,
+        "rng_saved": true
+      },
+      "profile_passed_all_stages_and_horizons": true,
+      "profile_steps_per_horizon": 10,
+      "training_and_periodic_validation_hours": 10.104489528056648,
+      "stage_hours": {
+        "a": 3.374586403908001,
+        "single": 3.357036988395784,
+        "multi": 3.3728661357528633
+      },
+      "peak_allocated_gpu_bytes": 6791426560,
+      "all_formal_losses_and_gradients_finite": true,
+      "note": "Early latent losses are not comparable across methods and do not certify physical prediction quality."
+    }
+  },
+  "eta_boundary": "Measured weighted estimate of all 60000 updates plus 240 periodic latent validations. Excludes final physical readout evaluations (three per method), checkpoint/startup overhead, queueing and future performance changes; not a wall-clock completion deadline.",
+  "final_physical_evaluation_note": "Multi-condition high-dimensional kNN queries and repeated sliding-window encoding are not timed by training profile. Final performance not yet evaluated.",
+  "profile_pause": {
+    "status": "completed",
+    "allocation_job_id": "48044",
+    "methods": [
+      "lewm",
+      "hjepa"
+    ],
+    "formal_jobs_unchanged": [
+      "48044",
+      "48045",
+      "48046"
+    ],
+    "updated_at_utc": "2026-11-08T09:34:28.737606+00:00",
+    "paused_worker_pid": 3478472,
+    "paused_after_step": 266,
+    "paused_at_utc": "2026-11-08T09:31:24.728661+00:00",
+    "command": [
+      "srun",
+      "--jobid=48044",
+      "--overlap",
+      "--ntasks=1",
+      "--cpus-per-task=4",
+      "--gres=gpu:l40:1",
+      "--time=00:15:00",
+      "bash",
+      "/home/weizhixin/ssd/official_comparison_launch_20261108T092500Z/profile_pending.sh"
+    ],
+    "profile_exit_code": 0,
+    "formal_worker_resumed": true,
+    "resumed_at_utc": "2026-11-08T09:34:28.737580+00:00"
+  },
+  "source_sha256": "c76992e2809f344f5e70fb111eacffcbf1ea7eb88937718c9cada4e1c942937d"
+}

@@ -1,0 +1,52 @@
+{
+  "status": "implemented; short numerical and GPU timing checks in progress; no formal training",
+  "method": "predicted midpoint coefficients + symmetric automatic discrete gradient + preconditioned Picard + implicit-root backward",
+  "continuous_model": "qdot=p; pdot=-grad V(q)-D(q,p,c)p+B(q)u; D=LL^T",
+  "predictor": {
+    "D0": "D(q,p,c)",
+    "qhat": "q+h*p/2",
+    "phat": "solve(I+h*D0/2,p-h*grad V(q)/2+h*B(q)u/2)",
+    "Dstar": "D(qhat,phat,c)",
+    "bstar": "B(qhat)u"
+  },
+  "root": "F(v)=(I+h*Dstar/2)v-p+h*gbar_V(q,q+h*v)/2-h*bstar/2=0",
+  "update": "qnext=q+h*v; pnext=2*v-p",
+  "picard": "factor A=I+h*Dstar/2 once; vnew=A^-1[p-h*gbar_V(q,q+h*v)/2+h*bstar/2]",
+  "contraction_condition": "h^2*L_G/(2*lambda_min(A)) < 1 on an invariant neighborhood; PSD D alone is insufficient",
+  "fallback": "FD Jacobian Newton with Armijo solves SAME predicted-D root; only root failures enter bounded subdivision, each child recomputes coefficients",
+  "backward": "J^T lambda=dL/dv; dL/dx contribution=-lambda^T partial_x F; qnext,pnext direct terms handled by outer autograd",
+  "gradient_checks": "root physical residual + chain acceptance; exact AD J at accepted root; finite adjoint, condition<=1e8, linear residual<=1e-10*scale, ||J^-1 F||<=4*physical root scale; first-order outer gradients only",
+  "energy": "DeltaH=work-dissipation+residual_work+chain_defect; dissipation=h*v^T Dstar*v>=0",
+  "changes": [
+    "Same learned H/D/B parameters and continuous model",
+    "Different discrete map from BOTH predicted D and ADD rather than Gonzalez",
+    "IFT approximates converged-root gradient, not finite-iteration program gradient",
+    "No future true frames reset autoregressive rollout"
+  ],
+  "limits": [
+    "Second order assumes smooth branch, O(h^2) predictor accuracy and sufficiently small root/chain defects",
+    "Softplus threshold and small secant Taylor branches are explicitly audited",
+    "No global uniqueness, convergence or arbitrary-stiffness accuracy guarantee",
+    "Predictor failure rejects the step before subdivision",
+    "No measured speedup is assumed until same-checkpoint GPU benchmark"
+  ],
+  "short_test_budget": {
+    "new_local_unit_checks": 35,
+    "gpu_benchmark_planned_optimizer_updates": 24,
+    "horizons": [
+      8,
+      16,
+      32
+    ],
+    "batch": 32,
+    "warmup_per_case": 1,
+    "timed_updates_per_case": 3,
+    "formal_training": false
+  },
+  "sources": {
+    "automatic_discrete_differentiation": "https://arxiv.org/abs/1905.08604",
+    "implicit_root_gradients": "https://implicit-layers-tutorial.org/implicit_functions/",
+    "splitting_tradeoff": "https://arxiv.org/abs/2304.01766"
+  },
+  "alternative_not_selected": "Damping Cayley + Verlet removes nonlinear roots but introduces sign-indefinite conservative-step energy defect; not equivalent to strict original-H dissipation."
+}

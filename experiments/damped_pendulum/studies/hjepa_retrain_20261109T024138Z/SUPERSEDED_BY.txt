@@ -1,0 +1,3 @@
+Superseded by user instruction on2026-11-09: use staged A20000 -> B-single20000 / B-multi20000, dissipation active throughout.
+Current package: /home/weizhixin/ssd/hjepa_staged_retrain_20261109T025341Z
+The earlier direct-scratch package is archived reference only; do not submit its entrypoints. No jobs were submitted from this old package.

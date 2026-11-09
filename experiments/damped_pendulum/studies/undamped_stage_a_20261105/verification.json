@@ -1,0 +1,76 @@
+{
+  "completed_utc": "2026-11-05T05:31:51.859453+00:00",
+  "scope": "Stage-A protocol, configuration, undamped data selection, module freezing and bounded launch entry; design/preparation only",
+  "changes": [
+    {
+      "path": "README.md",
+      "before_sha256": "b0480963ccdc2cc814dc10dc9d569ceed5858634326bb25e06397dd3d7c207b3",
+      "after_sha256": "a123bf947f932bb3ba0efcc6c412cb030708fc9af053aaf39ff1e1eed4c09d5d"
+    },
+    {
+      "path": "dpbench/passive_family.py",
+      "before_sha256": "1728aa2e046cbc8c13aece9d968b82c625b78dfee591f3c12389870a45e09090",
+      "after_sha256": "23ba2110f398e7d9c8c59985c488b5b1aeaa1bc8d2e08948a50dd8dd42c789ae"
+    },
+    {
+      "path": "dpbench/train_dissipative.py",
+      "before_sha256": "cd1802418cac73d13a630abbc9767eb39f062744f3dcbd6b3a433bb3560255a0",
+      "after_sha256": "1f4fb23a4c7422aa6e207194e90d57e53965a233a6b02d4e4949901465bf5466"
+    },
+    {
+      "path": "configs/dissipative_undamped_stage_a_v1.json",
+      "before_sha256": null,
+      "after_sha256": "9beadac450fba2b9e0ced248d3f3cfaf955b5425c9bffa8953f2f33eb4a05097"
+    },
+    {
+      "path": "scripts/slurm_undamped_stage_a.sh",
+      "before_sha256": null,
+      "after_sha256": "a4c2cdf9fb4fc1e35e85dd8b2f3edcf3a19c07bc4b7f6c17847fef6a22391c56"
+    },
+    {
+      "path": "tests/test_stage_a_parameters.py",
+      "before_sha256": null,
+      "after_sha256": "eedf3e433b03f5043f378f37182763704050ffc8c7e887427eefe4baa6687451"
+    },
+    {
+      "path": "tests/test_undamped_stage_data.py",
+      "before_sha256": null,
+      "after_sha256": "ef242e63d727c74ddfbcf80f217b1798b9af16e26eba18b3ebd85c576fe2542f"
+    },
+    {
+      "path": "tests/test_stage_a_plan.py",
+      "before_sha256": null,
+      "after_sha256": "102ba15605c9b9ccb01bf5cd20a22eea2fa6c1cb353e85c3288a70f368956084"
+    }
+  ],
+  "checks": {
+    "tests": 251,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "optimizer_update_tests_deselected": 3,
+  "bootstrap": "19 pinned upstream files verified",
+  "shell_syntax": "bash -n passed",
+  "optimizer_updates": 0,
+  "formal_data_generated": false,
+  "training_jobs_submitted": 0,
+  "verification_details": [
+    "Tiny temporary datasets only; full temporal settings in end-to-end preflight",
+    "b0 subset equals parent b0 episodes; state and damping labels not required by model data loader",
+    "exactly zero D, input_port frozen and excluded from parameter groups; finite backward only",
+    "shell default and all milestones dry-run with intercepted Python trainer; no GPU training executed",
+    "strict configuration/data/source resume checks retained"
+  ],
+  "limitations": [
+    "CPU checks only; new configuration CUDA run not yet checked",
+    "No optimization/convergence/performance claims",
+    "Stage-A val-only physical evaluator remains planned; must be implemented before physical acceptance",
+    "Milestone script pauses but quality promotion requires evidence review; no automatic quality gate",
+    "Mechanical coordinate / identity-mass representational limitation remains under test"
+  ],
+  "plan": "plan.json",
+  "data_plan": "data_plan.json",
+  "configuration_audit": "configuration_audit.json",
+  "patch": "changes.patch"
+}

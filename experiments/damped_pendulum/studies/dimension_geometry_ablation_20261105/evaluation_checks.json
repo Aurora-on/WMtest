@@ -1,0 +1,34 @@
+{
+  "tests": "8 passed in1.99s",
+  "real_saved_feature_check": {
+    "source": "/Users/weizhixin/Desktop/WM/experiments/damped_pendulum/studies/control_visuals_20261105/readout_diagnostic/lehami_features.npz",
+    "sha256": "faacacf27b63b01d0d1ef780ae53094044444652db200353c3e397ae03cf7d1c",
+    "fit_points": 17568,
+    "selection_points": 5856,
+    "val_points": 2112,
+    "selected_k": 5,
+    "max_abs_physical_prediction_difference": 0.0,
+    "identical": true
+  },
+  "world_model_updates": 0,
+  "actual_model_rollout_executed": false,
+  "remote_execution": false,
+  "scope": "Unit/contract pipeline with mock frozen model plus exact reproduction of previously saved real LeHami KNN predictions. Not CUDA qualification or new dimension results.",
+  "script_sha256": "4a6056e4cafbf1b7341b1fa74c76067828fc285fc08c40c6a1487da47cab652c",
+  "test_script_sha256": "cf8be490e4526185dc2a9fff7548ea38b1c5f2a73669b289e89d4d6d424039a6",
+  "checkpoint_identity_checks": [
+    "final10000 completed",
+    "LeHami objective",
+    "dimension2/8/32",
+    "Dnone",
+    "rawV",
+    "frozen_dg",
+    "3substeps",
+    "tail2",
+    "tau=.1",
+    "history21",
+    "dt=.1",
+    "context0",
+    "checkpoint source/data hashes"
+  ]
+}

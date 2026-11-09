@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-10-29T07:13:36.034371+00:00",
+  "files_sha256_verified": 60,
+  "checkpoints": 12,
+  "original_readout_files": 12,
+  "models_retrained": false,
+  "readouts_refitted": false,
+  "checkpoint_steps_seeds_kinds_training_hashes_match_original_evaluation": true,
+  "all_model_and_readout_tensors_finite": true
+}

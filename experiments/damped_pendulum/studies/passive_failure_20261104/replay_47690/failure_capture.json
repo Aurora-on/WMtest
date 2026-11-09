@@ -1,0 +1,58 @@
+{
+  "format_version": 1,
+  "diagnostic_only": true,
+  "core_config": {
+    "q_dim": 2,
+    "hidden_dim": 32,
+    "action_dim": 1,
+    "damping_mode": "position_velocity",
+    "substeps": 2,
+    "newton_iterations": 6,
+    "residual_atol": 1e-08,
+    "residual_rtol": 1e-07,
+    "chain_atol": 1e-10,
+    "strict": true,
+    "integrator": "discrete_gradient",
+    "context_dim": 4
+  },
+  "track_gradient": true,
+  "error_type": "SolverError",
+  "error": "Implicit step failed tolerance: dynamics_max=6.95e-05, chain_max=7.11e-15",
+  "resume_step": 2750,
+  "training_step": 2795,
+  "phase": "training",
+  "training_loss_calls": 45,
+  "completed_replay_updates": 44,
+  "substep_call_in_loss": 1,
+  "max_replay_updates": 60,
+  "input_device": "cuda:0",
+  "input_dtype": "torch.float64",
+  "runtime": {
+    "python": "3.12.14",
+    "torch": "2.8.0+cu126",
+    "cuda_build": "12.6",
+    "device_name": "NVIDIA L40"
+  },
+  "provenance": {
+    "mode": "bounded_failure_replay",
+    "resume": "/home/weizhixin/ssd/dissipative_passive_20261103T051548Z/runs/seed0_47541/last.pt",
+    "resume_step": 2750,
+    "max_optimizer_updates": 60,
+    "latest_allowed_optimizer_step": 2810,
+    "expected_failure_step": 2795,
+    "source_files_unchanged": true,
+    "original_tolerances_unchanged": true,
+    "output": "/home/weizhixin/ssd/dissipative_passive_review_20261104/replay_47690",
+    "device": "cuda",
+    "optimizer_updates_enabled": true,
+    "harness_sha256": "1a48daae91afb5e95a572a68fd080ba6cca12db0f619637c0fe30e364a6f6f29",
+    "original_source_hashes": {
+      "dpbench/train_dissipative.py": "83e5d07c3e26d518b6ad1a7983cc75d376ab263e28f449ca54dc0e06cac229ed",
+      "dpbench/dissipative_model.py": "e1e37a7e8d967a3175250a83881144694bd424d1873c85398486c65e8abbc1b9",
+      "dpbench/dissipative_core.py": "28ffabd06e86b1968a8f32a33015e3ab01bc839015e83466460bf111800fc54e",
+      "dpbench/dissipative_data.py": "d5c345b50087482378b6f6edfd95b5b7e74b99376044133ab3d20608b6a451a8",
+      "third_party/le-wm/module.py": "0b258a9e8dc24c29fcb1e8c50a09ec78b8ea85aeb79e21dd8adf712396646620"
+    }
+  },
+  "reconstruction": "DissipativeCore(**core_config); load core_state_dict; use saved input with original _step. h is one actual substep, not a whole frame interval."
+}

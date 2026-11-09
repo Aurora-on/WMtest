@@ -1,0 +1,16 @@
+{
+  "job_id": 47695,
+  "submitted_utc": "2026-11-04T08:01:21.732378+00:00",
+  "remote_root": "/home/weizhixin/ssd/robust_solver_20261104_v1",
+  "gpu": "NVIDIA L40 x1",
+  "time_limit": "03:00:00",
+  "stages": [
+    "13 CUDA numerical/gradient tests",
+    "24 fresh CUDA updates across K4/K8/K16/K32 and fixed validation",
+    "explicit original2750 solver migration",
+    "1500 normal-schedule updates2751-4250 plus fixed validations",
+    "500 inherited-Adam base-LR K32 updates and validation",
+    "384 seen-validation initial histories x320 autonomous transitions"
+  ],
+  "full_20000_training_started": false
+}

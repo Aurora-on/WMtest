@@ -1,0 +1,24 @@
+{
+  "device": "cuda",
+  "torch_version": "2.8.0+cu126",
+  "threads": 4,
+  "gpu": "NVIDIA L40",
+  "cuda_matmul_tf32": false,
+  "cudnn_tf32": true,
+  "runner_sha256": "8e969f146a6f3ecc1e00abbbf2829b37280a78e02ba811679fd5d9e27e738616",
+  "protocol_sha256": "5f296c2d3a83bf5fdfdb29057aec31007ad091a3199fe314fe60af4ca3dad5e6",
+  "audit_sha256": "789877873408a4b2097736318bcdf3406c1678a32a40fa9c6df398b1dd907912",
+  "requested_batch_size": 1,
+  "horizons": [
+    4.0,
+    8.0,
+    16.0,
+    32.0
+  ],
+  "probes": [
+    "ridge",
+    "mlp"
+  ],
+  "model_updates": false,
+  "readout_fitting": false
+}

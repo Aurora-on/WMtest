@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "scope": "short GPU old2 versus new3 substeps; no formal training",
+  "job_id": 47717,
+  "optimizer_updates": 8,
+  "checkpoint_step": 3750,
+  "results": {
+    "reference": {
+      "mean_seconds": 4.8288354352116585,
+      "max_residual_ratio": 0.49999205954451953,
+      "model_parameter_tensors_changed": 46
+    },
+    "efficient": {
+      "mean_seconds": 4.040134531756242,
+      "max_residual_ratio": 0.4997602937781221,
+      "model_parameter_tensors_changed": 46
+    }
+  },
+  "speedup": 1.1952164952072943,
+  "time_reduction_fraction": 0.16333149349100695,
+  "max_recomputed_energy_ledger_identity_error": 1.6488883441692605e-14,
+  "limits": "Three timed updates per variant; a speed comparison, not physical prediction or long-training validation."
+}

@@ -1,0 +1,60 @@
+{
+  "checked_date": "2026-10-29",
+  "repository": "https://github.com/rominay/LeHami",
+  "commit": "f76f65f8b99afb6b7e3063f573645d3e2f290ede",
+  "scope": {
+    "main_tree_complete": true,
+    "tracked_files": 282,
+    "branches": [
+      "main"
+    ],
+    "releases": 0,
+    "tags": 0,
+    "matching_checkpoint_issues": 0
+  },
+  "loadable_lehami_weights": {
+    "found": false,
+    "wording": "No publicly downloadable LeHami checkpoint found in the verified official sources; this does not establish that the authors have no private checkpoints.",
+    "file_extensions_checked": [
+      ".ckpt",
+      ".pt",
+      ".pth",
+      ".safetensors",
+      ".bin",
+      ".h5",
+      ".pkl",
+      ".joblib",
+      ".onnx"
+    ],
+    "eval_only": "Official helpers require a local best.ckpt under STABLEWM_HOME/checkpoints; no LeHami checkpoint downloader was found."
+  },
+  "available": {
+    "paper_figures": {
+      "notebook": "paper_figures/paper_figures.ipynb",
+      "executed_code_cells": 30,
+      "embedded_png_outputs": 14,
+      "needs_pretrained_checkpoint": false
+    },
+    "conservative_latents": {
+      "file": "paper_figures/data/conservative_pendulum/latents_exp027_exp030.npz",
+      "bytes": 4431851,
+      "episodes": 60,
+      "content": "Encoded and predicted latent q/p/z, latent H, episode/time indices, and reference physical states; not trainable network weights or a directly executable model."
+    },
+    "recorded_demos": {
+      "project_page": "https://rominay.github.io/lehami-website/",
+      "website_repository": "https://github.com/rominay/lehami-website",
+      "website_commit": "b35da7ca4cc792d82f9a9edb9d7120fb1c6ececc",
+      "reversal_gif": "https://raw.githubusercontent.com/rominay/lehami-website/b35da7ca4cc792d82f9a9edb9d7120fb1c6ececc/assets/gif_reversal.gif",
+      "energy_gif": "https://raw.githubusercontent.com/rominay/lehami-website/b35da7ca4cc792d82f9a9edb9d7120fb1c6ececc/assets/gif_energy.gif",
+      "scope": "Author-recorded outputs, not live reruns. Reversal caption says EXP067 at zero action,20steps +dt and20steps -dt."
+    },
+    "dinov2": "Download script fetches a pretrained DINOv2 visual encoder, not a trained LeHami dynamics model."
+  },
+  "downloaded_official_assets": "references/lehami_official_assets_20261029; four selected author files verified against pinned Git blob hashes",
+  "recommended_exact_reproduction_entry": "lehami/experiments/conservative_multi_rod.sh, a0m and b0m; original configurations/manifests/evaluation unchanged",
+  "limitations": [
+    "Direct hosted project webpage was inaccessible through web fetch; its complete public GitHub source and assets tree were inspected instead.",
+    "No inference was drawn from inaccessible model-hosting API endpoints."
+  ]
+}
